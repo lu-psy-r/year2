@@ -1,0 +1,85 @@
+---
+title: 6. Wilcoxon rank-sum test and Wilcoxon signed-rank test
+subtitle: Amy Atkinson
+order: 7
+---
+
+# Lecture
+
+
+Watch lecture [Part 1](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051207)
+Watch lecture [Part 2](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051208)
+Watch lecture [Part 3](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051209)
+Watch lecture [Part 4](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051210)
+
+Download ALL the lecture slides [here](data/Wk6/Week 16 Lecture Slides.zip) in both pptx and pdf format.
+
+# Post-lecture activity
+
+Find the post-lecture worksheet [here](data/Wk6/Worksheet/PSYC234_L6_worksheet.docx) and the answers [here](data/Wk6/Worksheet/PSYC234_L6_worksheet_ANSWERS.pdf)
+
+# Lab preparation
+
+Watch the preparation video [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051205)
+
+Download the files discussed in the video [here](data/Wk6/Lab preparation files.zip)
+
+# Lab
+
+Download the lab materials [here](data/Wk6/Lab 6 - Materials.zip)
+
+## Overview
+
+I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures.
+
+You can work in groups.
+
+Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you
+
+Begin the script in the lab and complete in your own time
+
+You can write your script as a .R or Rmd file
+
+Submit for feedback. For this week’s lab, scripts should be submitted on the moodle link by:
+Friday of Week 16 at 3pm
+
+I’ll provide feedback on a subset of scripts
+- You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year
+
+I’ll also release a model script I’ve written - this will go live on Moodle on Friday of Week 16 at 3pm
+
+## Research question 1
+
+You are a researcher interested in whether the old saying "an apple a day keeps the doctor away is true". 
+
+You recruit 16 people and assign each participant to either a "0 apples" or "1 apple" condition. Participants in the "0 apple" condition eat 0 apples every day for a year. Participants in the "1 apple" condition eat 1 apple a day for a year.  You ask participants to report how many times they visited the GP in the year.
+
+## Research question 2
+
+You are interested in whether eating bananas keeps the doctor away. 
+
+This time you recruit only one group of participants. In the first year, you ask them to eat 0 banana every day. In the second year, you ask them to eat 1 bananas a day. You ask them to report how many times they visit the GP in Year 1 and Year 2. 
+
+## A template for running the Wilcoxon rank-sum test and the Wilcoxon signed-rank test
+
+Your script should aim to answer and interpret both of these research questions
+
+Start a new session on the server. 
+
+I have uploaded a .R and .Rmd file to this week’s lab folder. You could use this to get started or just create your own blank .R/.Rmd file
+
+1. Load packages and data
+
+2. Normality checks
+
+3. Explore your data (e.g. descriptive statistics, a plot)
+
+4. Conduct the statistical test
+
+5. Calculate an effect size
+
+6. Interpret your data
+
+# Upload your script
+
+You can upload your finished script for feedback on your code [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978220) and feedback will be posted onto Moodle.

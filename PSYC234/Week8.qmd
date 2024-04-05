@@ -1,0 +1,67 @@
+---
+title: 8. Binary logistic regression models
+subtitle: Amy Atkinson
+order: 9
+---
+
+# Lecture
+
+Watch part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056398)
+
+Watch part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056399)
+
+Watch part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056400)
+
+Watch part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056401)
+
+Download the lecture slides [here](data/Wk8/Lecture 8 - Materials.zip)
+
+# Post Lecture
+
+Find the post-lecture worksheet [here](data/Wk8/PSYC234_L8_worksheet.docx) and the answers [here](data/Wk8/PSYC234_L8_worksheet_ANSWERS.pdf)
+
+# Lab Preparation
+
+
+Watch the preparation video [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2063320)
+
+Download the files discussed in the video [here](data/Wk8/Week 18 - Lab preparation resources.zip)
+
+# Lab Work
+
+Binary logistic regression with one categorical predictor
+
+## Research Question
+
+You are interested in whether the country an individual lives (UK/Australia) predicts reptile ownership (Yes/No). 
+
+In the dataset, the outcome variable (reptile) is coded as "Y" and "N":
+
+- Y = Yes
+- N = No
+
+To make sure we should all end up with the same output, set UK as your reference category
+
+::: {.callout-warning icon="false" collapse="true"}
+## Hint
+
+Not sure how to set the reference category? Have a look at the `recode()` function from dplyr (tidyverse). Either search in the Help tab on the right, or type `?recode` in the console below. Have a read of the second and third paragraph in the description and check out the examples at the bottom of the help pane.
+
+Other options exist too, you can look at `relevel()` or using the levels argument inside the function `as.factor()` or `factor()`. Check these out in the same way as described above.
+
+:::
+
+## Steps
+
+1. Prepare our data for analysis
+2. Explore our data
+3. Run the binary logistic regression model
+4. Evaluate the model
+5. Evaluate the individual predictors
+6. Predicted probabilities
+7. Interpret the output
+
+# Upload your script
+
+You can upload your finished script for feedback on your code [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978248) and feedback will be posted onto Moodle.
+

@@ -1,0 +1,56 @@
+---
+title: 7. Kruskal-Wallis test and Friedman's ANOVA
+subtitle: Amy Atkinson
+order: 8
+---
+
+# Lecture
+
+Watch part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2055692)
+
+Watch part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2055693)
+
+Download the lecture slides [here](data/Wk7/Week 17 Lecture Slides.zip)
+
+
+# Post-lecture activity
+
+Find the post-lecture worksheet [here](data/Wk7/Worksheet/PSYC234_L7_worksheet.docx) and the answers [here](data/Wk7/Worksheet/PSYC234_L7_worksheet_ANSWERS.pdf)
+
+# Lab preparation
+
+Watch the preparation video [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2059380)
+
+Download the files discussed in the video [here](data/Wk7/Week 17 - Lab preparation resources.zip)
+
+# Lab
+
+Download the lab materials [here](data/Wk7/Lab 7 - Materials.zip)
+
+## Research Question 1
+
+You are a psychology lecturer. You hear that the library is offering three statistics courses. You are interested in whether students who attend the courses perform significantly differently from each other.
+
+You recruit 18 people and assign each one to a course. After the courses are finished, you ask them to write an R script. You time how long it takes students to complete the task. You are interested in whether there is a significant effect of course on the time taken to complete the task.
+
+## Research Question 2
+
+You are a developmental psychologist. You are interested in whether working memory develops between 15 and 17 years of age.
+
+You recruit a sample of adolescents and test them on a working memory task when they are 15 years of age, 16 years of age, and 17 years of age. 
+
+You then examine whether there is a significant effect of age on working memory score.
+
+## A template for running the Kruskal-Wallis test and Friedman’s ANOVA
+
+1. Load packages and data
+2. Normality checks
+3. Explore your data (e.g. descriptive statistics, a plot)
+4. Conduct the statistical test
+5. Conduct post-hoc tests
+6. Interpret your data
+
+
+# Upload your script
+
+You can upload your finished script for feedback on your code [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978234) and feedback will be posted onto Moodle.

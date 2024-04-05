@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics for Psychologists - 9. Three-Factor ANOVA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../PSYC234/index.html" rel="next">
+<link href="../PSYC214/Week8.html" rel="prev">
+<link href="../Images/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
+ <span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
+ <span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
+ <span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
+ <span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week9.html">9. Three-Factor ANOVA</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC214</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. One-Factor Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Revision of One-Factor ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Introduction to Factorial Designs and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Two-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Two-Factor Mixed and Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week9.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">9. Three-Factor ANOVA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC234</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Review of correlation, simple regression and demonstration of multiple regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Mediation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Binary logistic regression models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Expanding on binary logistic regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  </ul></li>
+  <li><a href="#todays-lab-activities" id="toc-todays-lab-activities" class="nav-link" data-scroll-target="#todays-lab-activities">Today’s Lab Activities</a>
+  <ul class="collapse">
+  <li><a href="#analysing-the-hypothetical-data-for-the-memory-and-context-study" id="toc-analysing-the-hypothetical-data-for-the-memory-and-context-study" class="nav-link" data-scroll-target="#analysing-the-hypothetical-data-for-the-memory-and-context-study">Analysing the hypothetical data for the memory and context study</a>
+  <ul class="collapse">
+  <li><a href="#import-data-set-variables-as-factors-and-generate-descriptive-statistics" id="toc-import-data-set-variables-as-factors-and-generate-descriptive-statistics" class="nav-link" data-scroll-target="#import-data-set-variables-as-factors-and-generate-descriptive-statistics">Import data, set variables as factors, and generate descriptive statistics</a></li>
+  <li><a href="#running-the-anova-follow-up-anovas-and-simple-main-effects" id="toc-running-the-anova-follow-up-anovas-and-simple-main-effects" class="nav-link" data-scroll-target="#running-the-anova-follow-up-anovas-and-simple-main-effects">Running the ANOVA, follow-up ANOVAs, and simple main effects</a></li>
+  <li><a href="#writing-up-the-results" id="toc-writing-up-the-results" class="nav-link" data-scroll-target="#writing-up-the-results">Writing up the results</a></li>
+  </ul></li>
+  <li><a href="#analysing-the-hypothetical-data-for-the-word-pronunciation-study" id="toc-analysing-the-hypothetical-data-for-the-word-pronunciation-study" class="nav-link" data-scroll-target="#analysing-the-hypothetical-data-for-the-word-pronunciation-study">Analysing the hypothetical data for the word pronunciation study</a>
+  <ul class="collapse">
+  <li><a href="#import-data-set-variables-as-factors-and-generate-descriptive-statistics-1" id="toc-import-data-set-variables-as-factors-and-generate-descriptive-statistics-1" class="nav-link" data-scroll-target="#import-data-set-variables-as-factors-and-generate-descriptive-statistics-1">Import data, set variables as factors, and generate descriptive statistics</a></li>
+  <li><a href="#running-the-anova-follow-up-anovas-and-simple-main-effects-1" id="toc-running-the-anova-follow-up-anovas-and-simple-main-effects-1" class="nav-link" data-scroll-target="#running-the-anova-follow-up-anovas-and-simple-main-effects-1">Running the ANOVA, follow-up ANOVAs, and simple main effects</a></li>
+  <li><a href="#writing-up-the-results-1" id="toc-writing-up-the-results-1" class="nav-link" data-scroll-target="#writing-up-the-results-1">Writing up the results</a></li>
+  <li><a href="#additional-tasks" id="toc-additional-tasks" class="nav-link" data-scroll-target="#additional-tasks">Additional tasks</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics for Psychologists</h1>
+<p class="subtitle lead">Mark Hurlstone, Richard Philpot</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="lecture" class="level1">
+<h1>Lecture</h1>
+<p>Watch Part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2022872">here</a></p>
+<p>Watch Part 2 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2022874">here</a></p>
+<p>Watch Part 3 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2023033">here</a></p>
+<p>Download the lecture slides <a href="data/Wk9/Three-Factor ANOVA HANDOUT.pdf">here</a>, and <a href="data/Wk9/Three-Factor ANOVA.pdf">here</a> for a larger version.</p>
+</section>
+<section id="lab" class="level1">
+<h1>Lab</h1>
+<p><br> <br></p>
+<blockquote class="blockquote">
+<p><em>I judge you unfortunate because you have never lived through misfortune. You have passed through life without an opponent—no one can ever know what you are capable of, not even you. —Seneca</em></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Seneca.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Seneca</figcaption>
+</figure>
+</div>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>In this week’s lecture, we introduced the procedures involved in interpreting a three-factor ANOVA. Specifically, what to do in the event that the three-way interaction is significant. We saw that the simplest strategy in this instance is to re-analyse the data as a series of two-factor ANOVAs. In today’s lab session, we will demonstrate how to perform a three-factor fully within-participants and mixed ANOVA in R (using the two hypothetical data sets presented in the lecture), and how to analyze a three-way interaction using the procedures described in the lecture. <strong>In this lab session, I am also going to show you a better way of rounding the values in dataframes than the <code>options(digits = )</code> command used in earlier lab sessions.</strong></p>
+<p><strong>If you get stuck at any point, be proactive and ask for help from one of the GTAs.</strong></p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
+<p>When you are connected, navigate to <a href="https://psy-rstudio.lancaster.ac.uk">https://psy-rstudio.lancaster.ac.uk</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
+<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
+<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
+<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
+<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have already logged in through the university login already, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+</div>
+</div>
+<p>Once you are logged into the server, create a folder for today’s session. Navigate to the bottom right panel and under the <code>Files</code> option select the <code>New Folder</code> option. Name the new folder <code>psyc214_lab_9</code>. <strong>Please ensure that you spell this correctly</strong> otherwise when you set the directory using the command given below it will return an error.</p>
+<p>Se we can save this session on the server, click <code>File</code> on the top ribbon and select <code>New project</code>. Next, select existing directory and name the working directory <code>~/psyc214_lab_9</code> before selecting <code>create project</code>.</p>
+<p>Finally, open a script for executing today’s coding exercises. Navigate to the top left pane of RStudio, select <code>File</code> -&gt; <code>New File</code> -&gt; <code>R Script</code>. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.</p>
+<p><img src="images/RScript.png" class="img-fluid" style="width:75.0%"></p>
+<p>Let’s set our working directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_9"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that you have created a folder for today’s session, it’s time to add the Week 9 files. Download the files and data needed from <a href="data/wk9/psyc214_lab_9.zip">here</a> and upload to the folder <code>psyc214_lab_9</code>.</p>
+<p>Before moving on, let’s load the relevant libraries that we will be using in today’s session.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)  <span class="co"># For data storage and manipulation</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyr"</span>)      <span class="co"># For tidy data</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rstatix"</span>)    <span class="co"># For descriptives statistics, outlier detection, running the ANOVAs etc.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"simple.R"</span>)    <span class="co"># Custom function for generating the simple main effects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="todays-lab-activities" class="level1">
+<h1>Today’s Lab Activities</h1>
+<section id="analysing-the-hypothetical-data-for-the-memory-and-context-study" class="level2">
+<h2 class="anchored" data-anchor-id="analysing-the-hypothetical-data-for-the-memory-and-context-study">Analysing the hypothetical data for the memory and context study</h2>
+<p>A memory researcher wants to know if memory is better when material is tested in the same context it was learned in. The researcher also wants to know whether recall and recognition memory are equally context dependent. The researcher manipulates three factors in a 2 <span class="math inline">\(\times\)</span> 2 <span class="math inline">\(\times\)</span> 2 fully within-participants design:</p>
+<ul>
+<li><p><strong>memory task</strong> (recall <em>vs.</em> recognition)</p></li>
+<li><p><strong>learning context</strong> (learn underwater <em>vs.</em> learn land)</p></li>
+<li><p><strong>testing context</strong> (test underwater <em>vs.</em> test land)</p></li>
+</ul>
+<p>Participants are given words to remember in a specific learning context (either under water or on land) and are then tested in either the same context (e.g., under water if the words were learned under water) or a different context (e.g., on land if the words were learned under water). Memory is tested using a recall procedure (by asking participants to recall the studied words) or a recognition procedure (by presenting participants with a list of words and asking them to indicate which they had studied previously). The dependent measure is the number of words remembered correctly.</p>
+<p>The data set contains the following variables:</p>
+<ul>
+<li><p><strong>Participant:</strong> represents the participant number, which ranges from 1–5.</p></li>
+<li><p><strong>Recall_Under_Under:</strong> the number of words <em>recalled</em> correctly when material was learned under water and tested under water.</p></li>
+<li><p><strong>Recall_Under_Land:</strong> the number of words <em>recalled</em> correctly when material was learned under water and tested on land.</p></li>
+<li><p><strong>Recall_Land_Under:</strong> the number of words <em>recalled</em> correctly when material was learned on land and tested under water.</p></li>
+<li><p><strong>Recall_Land_Land:</strong> the number of words <em>recalled</em> correctly when material was learned on land and tested on land.</p></li>
+<li><p><strong>Recognition_Under_Under:</strong> the number of words <em>recognised</em> correctly when material was learned under water and tested under water.</p></li>
+<li><p><strong>Recognition_Under_Land:</strong> the number of words <em>recognised</em> correctly when material was learned under water and tested on land.</p></li>
+<li><p><strong>Recognition_Land_Under:</strong> the number of words <em>recognised</em> correctly when material was learned on land and tested under water.</p></li>
+<li><p><strong>Recognition_Land_Land:</strong> the number of words <em>recognised</em> correctly when material was learned on land and tested on land.</p></li>
+</ul>
+<section id="import-data-set-variables-as-factors-and-generate-descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="import-data-set-variables-as-factors-and-generate-descriptive-statistics">Import data, set variables as factors, and generate descriptive statistics</h3>
+<p>The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as <code>memoryContext</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE TO IMPORT THE DATA ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 9
+  Participant Recall_Under_Under Recall_Under_Land Recall_Land_Under
+        &lt;dbl&gt;              &lt;dbl&gt;             &lt;dbl&gt;             &lt;dbl&gt;
+1           1                  8                 5                 3
+2           2                  9                 6                 3
+3           3                  7                 5                 4
+4           4                  8                 4                 4
+5           5                  6                 3                 3
+# ℹ 5 more variables: Recall_Land_Land &lt;dbl&gt;, Recognition_Under_Under &lt;dbl&gt;,
+#   Recognition_Under_Land &lt;dbl&gt;, Recognition_Land_Under &lt;dbl&gt;,
+#   Recognition_Land_Land &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>The next thing we need to do is convert our data from wide format into long format. The first thing we need to do is group the columns <code>Recall_Under_Under</code> through to <code>Recognition_Land_Land</code> into a new variable called <code>Group</code> using the <code>gather()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gather factors into a single column</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>memoryContextLong <span class="ot">=</span> memoryContext <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(Group,Accuracy,Recall_Under_Under<span class="sc">:</span>Recognition_Land_Land,<span class="at">factor_key =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>(memoryContextLong)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 3
+   Participant Group              Accuracy
+         &lt;dbl&gt; &lt;fct&gt;                 &lt;dbl&gt;
+ 1           1 Recall_Under_Under        8
+ 2           2 Recall_Under_Under        9
+ 3           3 Recall_Under_Under        7
+ 4           4 Recall_Under_Under        8
+ 5           5 Recall_Under_Under        6
+ 6           1 Recall_Under_Land         5
+ 7           2 Recall_Under_Land         6
+ 8           3 Recall_Under_Land         5
+ 9           4 Recall_Under_Land         4
+10           5 Recall_Under_Land         3
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>This function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 8 lab session materials.</p>
+<p>Looking at the new data frame we have created, we can see that it is not exactly what we want. Our new variable <code>Group</code> actually contains three independent variables. What we want is to separate these independent variables into three separate columns: <code>MemoryTask</code>, <code>LearningContext</code>, and <code>TestingContext</code>. We can do that with the <code>separate()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now separate the variable "Group" into separate columns for each factor</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>memoryContextLongSep <span class="ot">=</span> memoryContextLong <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(Group, <span class="fu">c</span>(<span class="st">"MemoryTask"</span>,<span class="st">"LearningContext"</span>,<span class="st">"TestingContext"</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>(memoryContextLongSep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   Participant MemoryTask LearningContext TestingContext Accuracy
+         &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;           &lt;chr&gt;             &lt;dbl&gt;
+ 1           1 Recall     Under           Under                 8
+ 2           2 Recall     Under           Under                 9
+ 3           3 Recall     Under           Under                 7
+ 4           4 Recall     Under           Under                 8
+ 5           5 Recall     Under           Under                 6
+ 6           1 Recall     Under           Land                  5
+ 7           2 Recall     Under           Land                  6
+ 8           3 Recall     Under           Land                  5
+ 9           4 Recall     Under           Land                  4
+10           5 Recall     Under           Land                  3
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>Again, this function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 8 lab session materials. The latest version of the data set is named <code>memoryContextLongSep</code>, so make sure you use this from henceforth.</p>
+<p>The next thing we need to do is convert the variables <code>Participant</code>, <code>MemoryTask</code>, <code>LearningContext</code>, and <code>TestingContext</code> into factors and re-order the levels of the latter two variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure all necessary variables are coded as factors -- re-order the levels of "LearningContext" and "TestingContext"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>memoryContextLongSep<span class="sc">$</span>Participant <span class="ot">=</span> <span class="fu">factor</span>(memoryContextLongSep<span class="sc">$</span>Participant)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>memoryContextLongSep<span class="sc">$</span>MemoryTask <span class="ot">=</span> <span class="fu">factor</span>(memoryContextLongSep<span class="sc">$</span>MemoryTask)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>memoryContextLongSep<span class="sc">$</span>LearningContext <span class="ot">=</span> <span class="fu">factor</span>(memoryContextLongSep<span class="sc">$</span>LearningContext,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Under"</span>,<span class="st">"Land"</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>memoryContextLongSep<span class="sc">$</span>TestingContext <span class="ot">=</span> <span class="fu">factor</span>(memoryContextLongSep<span class="sc">$</span>TestingContext,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Under"</span>,<span class="st">"Land"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we will generate some descriptive statistics (mean and standard deviation):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get descriptive statistics</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>descriptives <span class="ot">=</span> memoryContextLongSep <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise the output by the "MemoryTask", "LearningContext", and "TestingContext" factors</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(MemoryTask, LearningContext, TestingContext) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Request means, standard deviations, and confidence intervals</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Accuracy, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Round the statistics to two decimal places</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  descriptives<span class="sc">$</span>mean <span class="ot">=</span> <span class="fu">round</span>(descriptives<span class="sc">$</span>mean, <span class="dv">2</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  descriptives<span class="sc">$</span>sd <span class="ot">=</span> <span class="fu">round</span>(descriptives<span class="sc">$</span>sd, <span class="dv">2</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the results</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print.data.frame</span>(descriptives)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   MemoryTask LearningContext TestingContext variable n mean   sd
+1      Recall           Under          Under Accuracy 5  7.6 1.14
+2      Recall           Under           Land Accuracy 5  4.6 1.14
+3      Recall            Land          Under Accuracy 5  3.4 0.55
+4      Recall            Land           Land Accuracy 5  6.8 1.30
+5 Recognition           Under          Under Accuracy 5  6.0 1.00
+6 Recognition           Under           Land Accuracy 5  5.4 1.14
+7 Recognition            Land          Under Accuracy 5  5.8 0.84
+8 Recognition            Land           Land Accuracy 5  5.8 1.48</code></pre>
+</div>
+</div>
+<p>Notice the code we have added to round the descriptive statistics to two-decimal places. We use the function <code>round()</code>, specifying how many decimal places we want to round the values (in this case 2). Inside this function, we place the variable we want to be rounded. Because our data are in a dataframe, we need to specify the name of our dataframe followed by a dollar sign and the name of the variable in the dataframe to be rounded (e.g., descriptives$mean tells R to round the values of the variable <code>mean</code> in the dataframe <code>descriptives</code>). We also need to re-assign the rounded values to the dataframe, so that the variable gets updated (e.g., that’s what the descriptives$mean = bit does).</p>
+<p>Notice also that our standard deviations have been reported to two decimal places, but our means haven’t. Why so? This is because the numbers after the first decimal place in this instance are all zeros, so R doesn’t report them. Bearing in mind that APA style requires we report descriptive statistics to two-decimal places, we would just add a single zero to each of the means at the second decimal place. For example, the first mean in the table, 7.6, would be reported as 7.60.</p>
+<p>At this stage, we would ordinarily perform various checks including identifying possible outliers and checking that our data satisfy the normality assumption. However, as per last week, time is limited, so we won’t perform those checks today (just remember that ordinarily you should not skip this part!). One assumption that is important in within-participants designs is the sphericity assumption, but remember that this only applies to designs with within-participants factors with three or more levels. All of our factors have two levels, so this assumption is not relevant in this instance (it’s also not relevant for our second data set that we analyse later, for which the within-participants factors also only comprise two levels).</p>
+</section>
+<section id="running-the-anova-follow-up-anovas-and-simple-main-effects" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-anova-follow-up-anovas-and-simple-main-effects">Running the ANOVA, follow-up ANOVAs, and simple main effects</h3>
+<p>To run our ANOVA, we are going to use the <code>anova_test</code> function from the <code>rstatix</code> package. This is the same function that we used in the Week 8 lab session to analyse two-factor fully within-participants and mixed designs. The code required to run the ANOVA is given below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the fully within-participants design ANOVA model</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>memoryContextModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> memoryContextLongSep, <span class="at">dv =</span> Accuracy, <span class="at">wid =</span> Participant, <span class="at">within =</span> <span class="fu">c</span>(MemoryTask, LearningContext, TestingContext), <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>memoryContextModel<span class="sc">$</span>p <span class="ot">=</span> <span class="fu">round</span>(memoryContextModel<span class="sc">$</span>p, <span class="dv">3</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>(memoryContextModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
+
+                                     Effect DFn DFd      SSn  SSd       F     p
+1                               (Intercept)   1   4 1288.225 10.9 472.743 0.000
+2                                MemoryTask   1   4    0.225  0.9   1.000 0.374
+3                           LearningContext   1   4    2.025  5.1   1.588 0.276
+4                            TestingContext   1   4    0.025  7.1   0.014 0.911
+5                MemoryTask:LearningContext   1   4    3.025  4.1   2.951 0.161
+6                 MemoryTask:TestingContext   1   4    0.625  3.5   0.714 0.446
+7            LearningContext:TestingContext   1   4   30.625  4.5  27.222 0.006
+8 MemoryTask:LearningContext:TestingContext   1   4   21.025  3.1  27.129 0.006
+  p&lt;.05      ges
+1     * 0.970000
+2       0.006000
+3       0.049000
+4       0.000637
+5       0.072000
+6       0.016000
+7     * 0.439000
+8     * 0.349000</code></pre>
+</div>
+</div>
+<p>To create the model, the first argument we supplied to <code>anova_test</code> was the name of our data, <code>memoryContextLongSep</code>. The second argument we supplied was our dependent variable, <code>Accuracy</code>. The third argument we supplied was <code>Participant</code>, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our within-participants factors, <code>MemoryTask</code>, <code>LearningContext</code>, and <code>TestingContext</code>.</p>
+<p>As we saw in last week’s lab session, the resulting ANOVA table is different in format to those given in the lecture, which follow a more conventional style. In the ANOVA tables given in the lecture, each outcome (each main effect and interaction) is given on a separate row, with the error term used to test it given in the row directly beneath it. However, <code>anova_test</code> gives each outcome and its associated error term all in the same row. Specifically, the row corresponding to each outcome contains the between-group degrees of freedom (DFn), the error degrees of freedom (DFd), the between-group sums of squares (SSn), the error sums of squares (SSd), the <span class="math inline">\(F\)</span> ratio (F), the <em>p</em> (p) value, and the generalised eta squared (ges) value (a measure of effect size). What <code>anova_test</code> does not give us is the between-group mean squares and the error mean squares that are used to calculate the <span class="math inline">\(F\)</span> ratios. However, I showed you how to calculate these in last week’s lab session if you should ever have need for these (you probably won’t).</p>
+<p>You might be wondering why <code>anova_test</code> has not given us Mauchly’s test of sphericity and the Greenhouse-Geisser correction. This is because all of our factors have only two levels, so the sphericity assumption does not apply. Remember, the <code>anova_test</code> function only generates these tests and corrections when at least one of the within-participants factors has three or more levels.</p>
+<p>Inspecting the ANOVA table, rows two to four give the main effects of Memory Task, Learning Context, and Testing Context; rows five to seven give the Memory Task <span class="math inline">\(\times\)</span> Learning Context, Memory Task <span class="math inline">\(\times\)</span> Testing Context, and Learning Context <span class="math inline">\(\times\)</span> Testing Context two-way interactions; and row eight gives the Memory Task <span class="math inline">\(\times\)</span> Learning Context <span class="math inline">\(\times\)</span> Testing Context three-way interaction. Looking at the <em>p</em> values, we can see that there is a significant Learning Context <span class="math inline">\(\times\)</span> Testing Context two-way interaction, <span class="math inline">\(p\)</span> = .006, and a significant Memory Task <span class="math inline">\(\times\)</span> Learning Context <span class="math inline">\(\times\)</span> Testing Context three-way interaction, <span class="math inline">\(p\)</span> = .006.</p>
+<p>Because the three-way interaction is significant, we need to analyse it further. As explained in the lecture, a significant three-way interaction occurs when there are different two-way interactions between two of the factors according to the levels of the third factor. The simplest way to analyse a signiﬁcant three-way interaction is to re-analyse it as a series of two-factor ANOVAs. To do this, we first need to decide on a factor that we are going to split the analyses by. We can pick any factor we want, but there is usually one factor that stands out as being an obvious choice and in our case it is the memory task factor. So, what we need to do is to perform two, two-factor ANOVAs:</p>
+<ol type="1">
+<li><p>a 2 (learning context: learn under water <em>vs.</em> learn land) <span class="math inline">\(\times\)</span> 2 (testing context: test under water <em>vs.</em> test land) ANOVA for the <em>recall</em> memory test condition only.</p></li>
+<li><p>a 2 (learning context: learn under water <em>vs.</em> learn land) <span class="math inline">\(\times\)</span> 2 (testing context: test under water <em>vs.</em> test land) ANOVA for the <em>recognition</em> memory test condition only.</p></li>
+</ol>
+<p>We will start by running the two-factor ANOVA for the recall memory test condition (ignoring the recognition memory test condition). To do this, we first need to produce a filtered version of our data set called <code>recallOnly</code> that only includes the results for the recall memory test condition. We can create that with the following piece of code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the data for the "Recall" condition only</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>recallOnly <span class="ot">=</span> memoryContextLongSep <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(MemoryTask <span class="sc">==</span> <span class="st">"Recall"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The command <code>filter(MemoryTask == "Recall")</code> tells R that we only want the data for the recall condition of the Memory Task factor.</p>
+<p>Next, we can run our two-factor ANOVA on this filtered data set. The steps are the same as above, except that we need to drop the Memory Task factor included previously (remember, we are only analysing the recall condition of the Memory Task factor).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the two-factor ANOVA for the "Recall" condition only</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>recallModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> recallOnly, <span class="at">dv =</span> Accuracy, <span class="at">wid =</span> Participant, <span class="at">within =</span> <span class="fu">c</span>(LearningContext, TestingContext), <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>recallModel<span class="sc">$</span>p <span class="ot">=</span> <span class="fu">round</span>(recallModel<span class="sc">$</span>p, <span class="dv">3</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>(recallModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
+
+                          Effect DFn DFd   SSn SSd       F     p p&lt;.05   ges
+1                    (Intercept)   1   4 627.2 5.3 473.358 0.000     * 0.971
+2                LearningContext   1   4   5.0 5.5   3.636 0.129       0.214
+3                 TestingContext   1   4   0.2 4.3   0.186 0.688       0.011
+4 LearningContext:TestingContext   1   4  51.2 3.3  62.061 0.001     * 0.736</code></pre>
+</div>
+</div>
+<p>The only thing we are interested in from the ANOVA table is the outcome of the two-way interaction between Learning Context and Testing Context; you can ignore everything else. You can see that the interaction is significant, <em>p</em> = .001, so the next step is to perform a simple main effects analysis to identify the nature of the interaction.</p>
+<p>The procedure for performing the simple main effects analysis is the same as I demonstrated to you in our Week 8 lab session. That is, we use the <strong>pooled error terms</strong> approach, which means that the simple main effects of each factor are calculated using the same error term that was used to test the main effect of that factor in the ANOVA that preceded the simple main effects analysis (in this case, our two-factor ANOVA on the recall data only).</p>
+<p>Before we can calculate the simple main effects, there are a few things we need to do. First, we need to store our ANOVA table in a dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the recall ANOVA table</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>recallAnovaTable <span class="ot">=</span> <span class="fu">get_anova_table</span>(recallModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we need to calculate the cell totals for each of the four conditions and the number of observations (i.e., scores) in each cell:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get cell totals and counts</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>recallCellTotals <span class="ot">=</span> recallOnly <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise the output by the "LearningContext" and "TestingContext" factors</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(LearningContext, TestingContext) <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Request cell totals and number of observations (i.e., scores)</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(Accuracy),<span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the results</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  (recallCellTotals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+# Groups:   LearningContext [2]
+  LearningContext TestingContext   sum     n
+  &lt;fct&gt;           &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;
+1 Under           Under             38     5
+2 Under           Land              23     5
+3 Land            Under             17     5
+4 Land            Land              34     5</code></pre>
+</div>
+</div>
+<p>Then, we need to specify which simple main effects we want to generate. We are first going to calculate the simple main effects of the factor Learning Context at Testing Context. This means, we are going to:</p>
+<ul>
+<li>Test the difference between learning under water and learning on land when tested <em>under water</em> only.</li>
+<li>Test the difference between learning under water and learning on land when tested <em>on land</em> only.</li>
+</ul>
+<p>To do this, we need to declare Learning Context as the “fixed” factor (we are always comparing learning under water and learning on land) and Testing Context as the “across” factor (the comparison between learning under water and learning on land occurs “across” the test under water and test on land levels of the Testing Context factor):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create "fixed" and "across" factors</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fixed  <span class="ot">=</span> <span class="st">"LearningContext"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>across <span class="ot">=</span> <span class="st">"TestingContext"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We then generate the simple main effects of Learning Context by passing these variables into <code>simple()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple main effects of "Learning Context" at "TestingContext"</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>smeLearningContext <span class="ot">=</span> <span class="fu">simple</span>(recallCellTotals,recallAnovaTable,fixed,across)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>smeLearningContext<span class="sc">$</span>P <span class="ot">=</span> <span class="fu">round</span>(smeLearningContext<span class="sc">$</span>P, <span class="dv">3</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>(smeLearningContext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Levels Sum of Squares Degrees of Freedom Mean Square        F     P
+1      Under           44.1                  1      44.100 32.07273 0.005
+2       Land           12.1                  1      12.100  8.80000 0.041
+3 Error term            5.5                  4       1.375  0.00000 0.000</code></pre>
+</div>
+</div>
+<p>We can see that there is a significant simple main effect of Learning Context at test under water, <span class="math inline">\(p\)</span> = .005; when tested under water, recall memory scores are higher when the material was learned under water than when it was learned on land. There is also a significant simple main effect of Learning Context at test on land, <span class="math inline">\(p\)</span> = .041; when tested on land, recall memory scores are higher when the material was learned on land than when it was learned under water. You will need to consult the descriptive statistics to verify this is correct.</p>
+<p>Next, we are going to calculate the simple main effects of the factor Testing Context at Learning Context. This means, we are going to:</p>
+<ul>
+<li>Test the difference between testing under water and testing on land when material was learned <em>under water</em> only.</li>
+<li>Test the difference between testing under water and testing on land when material was learned <em>on land</em> only.</li>
+</ul>
+<p>To do this, we now need to declare Testing Context as the “fixed” factor and Learning Context as the “across” factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create "fixed" and "across" factors</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fixed  <span class="ot">=</span> <span class="st">"TestingContext"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>across <span class="ot">=</span> <span class="st">"LearningContext"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We then generate the simple main effects of Testing Context with the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple main effects of "Testing Context" at "LearningContext"</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>smeTestingContext <span class="ot">=</span> <span class="fu">simple</span>(recallCellTotals,recallAnovaTable,fixed,across)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>smeTestingContext<span class="sc">$</span>P <span class="ot">=</span> <span class="fu">round</span>(smeTestingContext<span class="sc">$</span>P, <span class="dv">3</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>(smeTestingContext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Levels Sum of Squares Degrees of Freedom Mean Square        F     P
+1      Under           22.5                  1      22.500 20.93023 0.010
+2       Land           28.9                  1      28.900 26.88372 0.007
+3 Error term            4.3                  4       1.075  0.00000 0.000</code></pre>
+</div>
+</div>
+<p>We can see that there is a significant simple main effect of Testing Context at learn under water, <span class="math inline">\(p\)</span> = .010; when the material is learned under water, recall memory scores are higher when tested under water than when tested on land. There is also a significant simple main effect of Testing Context at learn land, <span class="math inline">\(p\)</span> = .007; when the material is learned on land, recall memory scores are higher when tested on land than when tested under water.</p>
+<p>In sum, from the simple main effects analysis what we can see is that recall memory is context sensitive; that is, recall memory performance is better when people are tested in the same context that they learned the information than when they are tested in a different context to that which they learned the information.</p>
+<p>What about recognition memory?</p>
+<p>That brings us to our second two-factor ANOVA. For this, we now need to produce a filtered version of our data set called <code>recognitionOnly</code> that only includes the results for the recognition memory task condition. We can create that with the following piece of code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the data for the "Recognition" condition only</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>recognitionOnly <span class="ot">=</span> memoryContextLongSep <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(MemoryTask <span class="sc">==</span> <span class="st">"Recognition"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The command <code>filter(MemoryTask == "Recognition")</code> tells R that we only want the data for the recognition condition of the Memory Task factor.</p>
+<p>Next, we can run our two-factor ANOVA on this filtered data set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the two-factor ANOVA for the "Recognition" condition only</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>recognitionModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> recognitionOnly, <span class="at">dv =</span> Accuracy, <span class="at">wid =</span> Participant, <span class="at">within =</span> <span class="fu">c</span>(LearningContext, TestingContext), <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>recognitionModel<span class="sc">$</span>p <span class="ot">=</span> <span class="fu">round</span>(recognitionModel<span class="sc">$</span>p, <span class="dv">3</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>(recognitionModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
+
+                          Effect DFn DFd    SSn SSd       F     p p&lt;.05   ges
+1                    (Intercept)   1   4 661.25 6.5 406.923 0.000     * 0.970
+2                LearningContext   1   4   0.05 3.7   0.054 0.828       0.002
+3                 TestingContext   1   4   0.45 6.3   0.286 0.621       0.021
+4 LearningContext:TestingContext   1   4   0.45 4.3   0.419 0.553       0.021</code></pre>
+</div>
+</div>
+<p>The key result is that this time the critical two-way interaction is nonsignificant, <em>p</em> = 0.553. What this indicates is that, unlike recall memory, recognition memory is not context sensitive. This is the reason for the three-way interaction; recall memory is sensitive to the learning and testing context, whereas recognition memory is apparently insensitive to the learning and testing context.</p>
+</section>
+<section id="writing-up-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-the-results">Writing up the results</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MemoryContextData.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">Figure 1. Memory scores as a function of learning context and testing context for the recall memory task (left panel) and the recognition memory task (right panel).</figcaption>
+</figure>
+</div>
+<p>Figure 1 shows memory scores as a function of learning context and testing context for the recall and recognition memory tasks. These data were subjected to a 2 (memory task: recall <em>vs.</em> recognition) <span class="math inline">\(\times\)</span> 2 (learning context: learn under water <em>vs.</em> learn land) <span class="math inline">\(\times\)</span> 2 (testing context: test under water <em>vs.</em> test land) within-participants ANOVA. There was no significant main effect of memory task, <em>F</em>(1, 4) = 1.00, <em>p</em> = .374, no significant main effect of learning context, <em>F</em>(1, 4) = 1.59, <em>p</em> = .276, and no significant main effect of testing context, <em>F</em>(1, 4) = 0.01, <em>p</em> = .911. Neither the memory task <span class="math inline">\(\times\)</span> learning context interaction, <em>F</em>(1, 4) = 2.95, <em>p</em> = .161, nor the memory task <span class="math inline">\(\times\)</span> testing context interaction, <em>F</em>(1, 4) = 0.71, <em>p</em> = .446, were significant. However, the learning context <span class="math inline">\(\times\)</span> testing context interaction was significant, <em>F</em>(1, 4) = 27.22, <em>p</em> = .006. Critically, there was also a significant three-way interaction, <em>F</em>(1,4) = 27.13, <em>p</em> = .006.</p>
+<p>To explore the three-way interaction, two 2 (learning context) <span class="math inline">\(\times\)</span> 2 (testing context) ANOVAs were conducted; one using the data for the recall memory task only, and the second using the data for the recognition memory task only. For the first ANOVA on the recall memory task data, there was a significant interaction, <em>F</em>(1, 4) = 62.06, <em>p</em> = .001. A simple main effects analysis revealed that when tested under water, recall memory was better when the material was learned under water than when it was learned on land, <em>F</em>(1, 4) = 44.10, <em>p</em> = .005, and when tested on land, recall memory was better when the material was learned on land than when it was learned under water, <em>F</em>(1, 4) = 12.10, <em>p</em> = .041. Mirroring these results, when the material was learned under water, recall memory was better when tested under water than when tested on land, <em>F</em>(1, 4) = 22.50, <em>p</em> = .010, and when the material was learned on land, recall memory was better when tested on land than when tested under water, <em>F</em>(1, 4) = 28.90, <em>p</em> = .007.</p>
+<p>For the second ANOVA on the recognition memory task data, there was no significant interaction, <em>F</em>(1, 4) = 0.42, <em>p</em> = .553.</p>
+<p>In brief, the three-way interaction reflects the fact that recall memory is sensitive to the learning and testing context, whereas recognition memory is apparently not sensitive to such contextual factors.</p>
+</section>
+</section>
+<section id="analysing-the-hypothetical-data-for-the-word-pronunciation-study" class="level2">
+<h2 class="anchored" data-anchor-id="analysing-the-hypothetical-data-for-the-word-pronunciation-study">Analysing the hypothetical data for the word pronunciation study</h2>
+<p>A researcher wants to investigate the development in children’s ability to pronounce regular and irregular words. The researcher adopts a 2 <span class="math inline">\(\times\)</span> 2 <span class="math inline">\(\times\)</span> 2 mixed design:</p>
+<ul>
+<li><p><strong>age</strong> (7 years old <em>vs.</em> 9 years old) is a between-participants factor</p></li>
+<li><p><strong>word frequency</strong> (low <em>vs.</em> high) is a within-participants factor</p></li>
+<li><p><strong>word type</strong> (regular <em>vs.</em> irregular) is also a within-participants factor</p></li>
+</ul>
+<p>Participants are given 10 words to pronounce in each category (40 words in total) and the dependent measure of interest is the number of pronunciation errors.</p>
+<p>The data set contains the following variables:</p>
+<ul>
+<li><p><strong>Participant:</strong> represents the participant number, which ranges from 1–10.</p></li>
+<li><p><strong>Age:</strong> whether the participant is 7-years-old or 9-years-old.</p></li>
+<li><p><strong>High_Regular:</strong> pronunciation errors for high frequency regular words.</p></li>
+<li><p><strong>High_Irregular:</strong> pronunciation errors for high frequency irregular words.</p></li>
+<li><p><strong>Low_Regular:</strong> pronunciation errors for low frequency regular words.</p></li>
+<li><p><strong>Low_Irregular:</strong> pronunciation errors for low frequency irregular words.</p></li>
+</ul>
+<section id="import-data-set-variables-as-factors-and-generate-descriptive-statistics-1" class="level3">
+<h3 class="anchored" data-anchor-id="import-data-set-variables-as-factors-and-generate-descriptive-statistics-1">Import data, set variables as factors, and generate descriptive statistics</h3>
+<p>The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as <code>wordPron</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE TO IMPORT THE DATA ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 6
+   Participant Age         High_Regular High_Irregular Low_Regular Low_Irregular
+         &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+ 1           1 7 Year Olds            6              7           5             6
+ 2           2 7 Year Olds            7              5           6             7
+ 3           3 7 Year Olds            5              6           7             6
+ 4           4 7 Year Olds            6              7           5             7
+ 5           5 7 Year Olds            6              6           5             7
+ 6           6 9 Year Olds            4              4           3             6
+ 7           7 9 Year Olds            3              4           4             7
+ 8           8 9 Year Olds            4              3           5             9
+ 9           9 9 Year Olds            5              5           3             8
+10          10 9 Year Olds            3              4           3             7</code></pre>
+</div>
+</div>
+<p>The next thing we need to do is convert our data from wide format into long format. The first thing we need to do is group the columns <code>High_Regular</code> through to <code>Low_Irregular</code> into a new variable called <code>Group</code> using the <code>gather()</code> function. We showed you how to do this in the earlier data set, so give this a go for yourself. Make sure that you name the dependent measure <code>Errors</code> and that you call your new data set <code>wordPronLng</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE TO GATHER THE WITHIN-PARTICIPANTS FACTORS INTO A COMMON GROUP ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you have executed your code correct, you should see the following output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 4
+   Participant Age         Group        Errors
+         &lt;dbl&gt; &lt;chr&gt;       &lt;fct&gt;         &lt;dbl&gt;
+ 1           1 7 Year Olds High_Regular      6
+ 2           2 7 Year Olds High_Regular      7
+ 3           3 7 Year Olds High_Regular      5
+ 4           4 7 Year Olds High_Regular      6
+ 5           5 7 Year Olds High_Regular      6
+ 6           6 9 Year Olds High_Regular      4
+ 7           7 9 Year Olds High_Regular      3
+ 8           8 9 Year Olds High_Regular      4
+ 9           9 9 Year Olds High_Regular      5
+10          10 9 Year Olds High_Regular      3
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>We have a new variable <code>Group</code> that contains our two independent variables, Frequency and Word Type, and a new variable <code>Errors</code> that contains our dependent measure. The next step is to use the <code>separate()</code> function to divide the variable <code>Group</code> into two new variables, one called <code>Frequency</code> and one called <code>WordType</code>. Again, we gave you an example of this earlier, so try your own code out for this bit. Just make sure you call your new data set <code>wordPronLngSep</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE TO SEPARATE "GROUP" INTO SEPARATE VARIABLES FOR "FREQUENCY" AND "WORDTYPE" ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Assuming you have executed your code correctly, you should see the following output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   Participant Age         Frequency WordType Errors
+         &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;
+ 1           1 7 Year Olds High      Regular       6
+ 2           2 7 Year Olds High      Regular       7
+ 3           3 7 Year Olds High      Regular       5
+ 4           4 7 Year Olds High      Regular       6
+ 5           5 7 Year Olds High      Regular       6
+ 6           6 9 Year Olds High      Regular       4
+ 7           7 9 Year Olds High      Regular       3
+ 8           8 9 Year Olds High      Regular       4
+ 9           9 9 Year Olds High      Regular       5
+10          10 9 Year Olds High      Regular       3
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>Our variable <code>Group</code> has now disappeared and in its place we have two new variables: <code>Frequency</code> and <code>WordType</code>. This is the version of the data set we will be using for the rest of the analysis.</p>
+<p>The next thing we need to do is convert the columns <code>Participant</code>, <code>Age</code>, <code>Frequency</code>, and <code>WordType</code> into factors and re-order the levels of the latter two variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure all necessary variables are coded as factors -- re-order the levels of "Frequency" and "WordType"</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>wordPronLngSep<span class="sc">$</span>Participant <span class="ot">=</span> <span class="fu">factor</span>(wordPronLngSep<span class="sc">$</span>Participant)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>wordPronLngSep<span class="sc">$</span>Age <span class="ot">=</span> <span class="fu">factor</span>(wordPronLngSep<span class="sc">$</span>Age)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>wordPronLngSep<span class="sc">$</span>Frequency <span class="ot">=</span> <span class="fu">factor</span>(wordPronLngSep<span class="sc">$</span>Frequency,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>,<span class="st">"High"</span>))</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>wordPronLngSep<span class="sc">$</span>WordType <span class="ot">=</span> <span class="fu">factor</span>(wordPronLngSep<span class="sc">$</span>WordType,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Regular"</span>,<span class="st">"Irregular"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we will generate some descriptive statistics (mean and standard deviation). You can generate the code for this yourself. Make sure that you round the statistics to two-decimal places using the procedure I showed you in the earlier example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE TO GENERATE DESCRIPTIVE STATISTICS ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you have executed the code correctly, then you should see the following output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>          Age Frequency  WordType variable n mean   sd
+1 7 Year Olds       Low   Regular   Errors 5  5.6 0.89
+2 7 Year Olds       Low Irregular   Errors 5  6.6 0.55
+3 7 Year Olds      High   Regular   Errors 5  6.0 0.71
+4 7 Year Olds      High Irregular   Errors 5  6.2 0.84
+5 9 Year Olds       Low   Regular   Errors 5  3.6 0.89
+6 9 Year Olds       Low Irregular   Errors 5  7.4 1.14
+7 9 Year Olds      High   Regular   Errors 5  3.8 0.84
+8 9 Year Olds      High Irregular   Errors 5  4.0 0.71</code></pre>
+</div>
+</div>
+</section>
+<section id="running-the-anova-follow-up-anovas-and-simple-main-effects-1" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-anova-follow-up-anovas-and-simple-main-effects-1">Running the ANOVA, follow-up ANOVAs, and simple main effects</h3>
+<p>The code required to run the ANOVA is given below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the mixed design ANOVA model</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>wordPronModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> wordPronLngSep, <span class="at">dv =</span> Errors, <span class="at">wid =</span> Participant, <span class="at">between =</span> Age, <span class="at">within =</span> <span class="fu">c</span>(Frequency, WordType), <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>wordPronModel<span class="sc">$</span>p <span class="ot">=</span> <span class="fu">round</span>(wordPronModel<span class="sc">$</span>p, <span class="dv">3</span>)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>(wordPronModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type II tests)
+
+                  Effect DFn DFd    SSn SSd        F     p p&lt;.05   ges
+1            (Intercept)   1   8 1166.4 4.5 2073.600 0.000     * 0.981
+2                    Age   1   8   19.6 4.5   34.844 0.000     * 0.467
+3              Frequency   1   8    6.4 8.7    5.885 0.041     * 0.222
+4               WordType   1   8   16.9 3.7   36.541 0.000     * 0.430
+5          Age:Frequency   1   8    6.4 8.7    5.885 0.041     * 0.222
+6           Age:WordType   1   8    4.9 3.7   10.595 0.012     * 0.179
+7     Frequency:WordType   1   8   12.1 5.5   17.600 0.003     * 0.351
+8 Age:Frequency:WordType   1   8    4.9 5.5    7.127 0.028     * 0.179</code></pre>
+</div>
+</div>
+<p>To create the model, the first argument we supplied to <code>anova_test</code> was the name of our data, <code>wordPronLngSep</code>. The second argument we supplied was our dependent variable, <code>Errors</code>. The third argument we supplied was <code>Participant</code>, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our between-participants factor, <code>Age</code>. The fifth argument we supplied as our within-participants factors, <code>Frequency</code> and <code>WordType</code>.</p>
+<p>As in our first example, our factors have only two levels, so <code>anova_test</code> does not give us Mauchly’s test of sphericity or the Greenhouse-Geisser correction for the within-participants factors.</p>
+<p>Inspecting the ANOVA table, rows two to four give the main effects of Age, Frequency, and Word Type; rows five to seven give the Age <span class="math inline">\(\times\)</span> Frequency, Age <span class="math inline">\(\times\)</span> Word Type, and Frequency <span class="math inline">\(\times\)</span> Word Type two-way interactions; and row eight gives the Age <span class="math inline">\(\times\)</span> Frequency <span class="math inline">\(\times\)</span> Word Type three-way interaction. Looking at the <span class="math inline">\(p\)</span> values, we can see that all the main effects, two-way interactions, and the three-way interaction are significant.</p>
+<p>Because the three-way interaction is significant, we need to analyse it further. As before, to do this we need to re-analyse the data as a series of two-factor ANOVAs. First, we must decide which factor to split the analysis by and the obvious contender is the between-participants factor of age. Accordingly, what we need to do is to perform two, two-factor ANOVAs:</p>
+<ol type="1">
+<li><p>a 2 (frequency: low <em>vs.</em> high) <span class="math inline">\(\times\)</span> 2 (word type: regular <em>vs.</em> irregular) ANOVA for the <em>7-year-olds</em> only.</p></li>
+<li><p>a 2 (frequency: low <em>vs.</em> high) <span class="math inline">\(\times\)</span> 2 (word type: regular <em>vs.</em> irregular) ANOVA for the <em>9-year-olds</em> only.</p></li>
+</ol>
+<p>We will start by running the two-factor ANOVA for the 7-year-olds (ignoring the data for the 9-year-olds). To do this, we first need to produce a filtered version of our data set called <code>sevenYearsOnly</code> that only includes the results for the 7-year-old children. We can create that with the following piece of code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the data for the "7 Year Olds" only</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>sevenYearsOnly <span class="ot">=</span> wordPronLngSep <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">==</span> <span class="st">"7 Year Olds"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we can run our two-factor ANOVA on this filtered data set. The steps are the same as above, except that we need to drop the Age factor included previously (remember, we are only analysing the data for the 7-year-olds).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the two-factor ANOVA for the "7 Year Olds" only</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>sevenYearsModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> sevenYearsOnly, <span class="at">dv =</span> Errors, <span class="at">wid =</span> Participant, <span class="at">within =</span> <span class="fu">c</span>(Frequency, WordType), <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>sevenYearsModel<span class="sc">$</span>p <span class="ot">=</span> <span class="fu">round</span>(sevenYearsModel<span class="sc">$</span>p, <span class="dv">3</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>(sevenYearsModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
+
+              Effect DFn DFd   SSn SSd        F     p p&lt;.05   ges
+1        (Intercept)   1   4 744.2 0.3 9922.667 0.000     * 0.988
+2          Frequency   1   4   0.0 2.5    0.000 1.000       0.000
+3           WordType   1   4   1.8 2.7    2.667 0.178       0.164
+4 Frequency:WordType   1   4   0.8 3.7    0.865 0.405       0.080</code></pre>
+</div>
+</div>
+<p>The only thing we are interested in from the ANOVA table is the outcome of the two-way interaction between Frequency and Word Type; you can ignore everything else. You can see that the interaction is nonsignificant in this instance, <span class="math inline">\(p\)</span> = .405. Thus, for 7-year-old children Frequency and Word Type do not combine with one another to influence pronunciation errors.</p>
+<p>What about 9-year-old children?</p>
+<p>That brings us to our second two-factor ANOVA. For this, we now need to produce a filtered version of our data set called <code>nineYearsOnly</code> that only includes the results for the 9-year-old children. We can create that with the following piece of code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>nineYearsOnly <span class="ot">=</span> wordPronLngSep <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">==</span> <span class="st">"9 Year Olds"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The command <code>filter(Age == "9 Year Olds")</code> tells R that we only want the data for the 9-year-old children.</p>
+<p>Next, we can run our two-factor ANOVA on this filtered data set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the two-factor ANOVA for the "9 Year Olds" only</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>nineYearsModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> nineYearsOnly, <span class="at">dv =</span> Errors, <span class="at">wid =</span> Participant, <span class="at">within =</span> <span class="fu">c</span>(Frequency, WordType), <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>nineYearsModel<span class="sc">$</span>p <span class="ot">=</span> <span class="fu">round</span>(nineYearsModel<span class="sc">$</span>p, <span class="dv">3</span>)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>(nineYearsModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
+
+              Effect DFn DFd   SSn SSd       F     p p&lt;.05   ges
+1        (Intercept)   1   4 441.8 4.2 420.762 0.000     * 0.971
+2          Frequency   1   4  12.8 6.2   8.258 0.045     * 0.492
+3           WordType   1   4  20.0 1.0  80.000 0.001     * 0.602
+4 Frequency:WordType   1   4  16.2 1.8  36.000 0.004     * 0.551</code></pre>
+</div>
+</div>
+<p>This time the interaction between Frequency and Word Type is significant, <em>p</em> = .004, so we now need to perform a simple main effects analysis to determine why.</p>
+<p>Before we can calculate the simple main effects, there are a few things we need to do. First, we need to store our ANOVA table in a dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the 9 year olds ANOVA table</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>nineYearsAnovaTable <span class="ot">=</span> <span class="fu">get_anova_table</span>(nineYearsModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we need to calculate the cell totals for each of the four conditions and the number of observations (i.e., scores) in each cell:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get cell totals and counts</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>nineYearsCellTotals <span class="ot">=</span> nineYearsOnly <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise the output by the "Frequency" and "WordType" factors</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Frequency, WordType) <span class="sc">%&gt;%</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Request cell totals and number of observations (i.e., scores)</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(Errors),<span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the results</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  (recallCellTotals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+# Groups:   LearningContext [2]
+  LearningContext TestingContext   sum     n
+  &lt;fct&gt;           &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;
+1 Under           Under             38     5
+2 Under           Land              23     5
+3 Land            Under             17     5
+4 Land            Land              34     5</code></pre>
+</div>
+</div>
+<p>Then, we need to specify which simple main effects we want to generate. We are first going to calculate the simple main effects of the factor Frequency at Word Type. This means, we are going to:</p>
+<ul>
+<li>Test the difference between low and high frequency <em>regular</em> words only.</li>
+<li>Test the difference between low and high frequency <em>irregular</em> words only.</li>
+</ul>
+<p>To do this, we need to declare Frequency as the “fixed” factor (we are always comparing low and high frequency words) and Word Type as the “across” factor (the comparison between low and high frequency words occurs “across” the regular and irregular levels of the Word Type factor):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create "fixed" and "across" factors</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>fixed  <span class="ot">=</span> <span class="st">"Frequency"</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>across <span class="ot">=</span> <span class="st">"WordType"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We then generate the simple main effects of Frequency at Word Type with the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple main effects of "Frequency" at "WordType"</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>smeFrequency <span class="ot">=</span> <span class="fu">simple</span>(nineYearsCellTotals,nineYearsAnovaTable,fixed,across)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>smeFrequency<span class="sc">$</span>P <span class="ot">=</span> <span class="fu">round</span>(smeFrequency<span class="sc">$</span>P, <span class="dv">3</span>)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>(smeFrequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Levels Sum of Squares Degrees of Freedom Mean Square           F     P
+1    Regular            0.1                  1        0.10  0.06451613 0.812
+2  Irregular           28.9                  1       28.90 18.64516129 0.012
+3 Error term            6.2                  4        1.55  0.00000000 0.000</code></pre>
+</div>
+</div>
+<p>The simple main effect of Frequency at regular words is nonsignificant, <span class="math inline">\(p\)</span> = .812, indicating that pronunciation errors for regular words do not differ according to whether they are low or high in frequency. However, the simple main effect of Frequency at irregular words is significant, <span class="math inline">\(p\)</span> = .012, indicating that pronunciation errors for irregular words are higher when they are of low frequency than when they are of high frequency (check the descriptive statistics to verify this).</p>
+<p>Now, let’s calculate the simple main effects of Word Type at Frequency. This means, we are going to:</p>
+<ul>
+<li>Test the difference between regular and irregular <em>low</em> frequency words only.</li>
+<li>Test the difference between regular and irregular <em>high</em> frequency words only.</li>
+</ul>
+<p>To do this, we need to declare Word Type as the “fixed” factor and Frequency as the “across” factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create "fixed" and "across" factors</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>fixed  <span class="ot">=</span> <span class="st">"WordType"</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>across <span class="ot">=</span> <span class="st">"Frequency"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We then generate the simple main effects of Word Type at Frequency as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple main effects of "WordType" at "Frequency"</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>smeWordType <span class="ot">=</span> <span class="fu">simple</span>(nineYearsCellTotals,nineYearsAnovaTable,fixed,across)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the p values to three decimal places</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>smeWordType<span class="sc">$</span>P <span class="ot">=</span> <span class="fu">round</span>(smeWordType<span class="sc">$</span>P, <span class="dv">3</span>)</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>(smeWordType)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Levels Sum of Squares Degrees of Freedom Mean Square     F     P
+1        Low           36.1                  1       36.10 144.4 0.000
+2       High            0.1                  1        0.10   0.4 0.561
+3 Error term            1.0                  4        0.25   0.0 0.000</code></pre>
+</div>
+</div>
+<p>The simple main effect of Word Type at low frequency is significant, <span class="math inline">\(p\)</span> <span class="math inline">\(&lt;\)</span> .001, indicating that there are more pronunciation errors for low frequency irregular words than for low frequency regular words. Second, the simple main effect of word type at high frequency is nonsignificant, <span class="math inline">\(p\)</span> = .561, indicating that pronunciation errors for high frequency regular and irregular words do not differ.</p>
+<p>In short, the three-way interaction arose because pronunciation errors in 7-year-old children are unaffected by word frequency and word type, whereas pronunciation errors in 9-year-old children are influenced by these factors. Specifically, low frequency irregular words are associated with more pronunciation errors than low frequency regular words, but there is no difference between the frequency of pronunciation errors for high frequency irregular and regular words. This pattern can be seen in Figure 2 below which plots the data for the word pronunciation study.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/WordPronunciationDatax.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">Figure 2. Pronunciation errors as a function of word frequency and word type for 7-year-old children (left panel) and 9-year-old children (right panel).</figcaption>
+</figure>
+</div>
+</section>
+<section id="writing-up-the-results-1" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-the-results-1">Writing up the results</h3>
+<p>The conventions for writing up the results of a mixed three-factor ANOVA are the same as for a fully within-participants three-factor ANOVA (and indeed a fully between-participants three-factor ANOVA), so see my example write-up for the memory and context study.</p>
+<!-- Why don't you have a go at writing up these results? I'll give an example write-up when I post the instructor's copy of the materials online at the end of the week. -->
+</section>
+<section id="additional-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="additional-tasks">Additional tasks</h3>
+<p>Phew!! That’s probably the most we have covered in any of our lab sessions. Well done for making it through to the end!</p>
+<p>Here are some additional tasks you might consider doing:</p>
+<ul>
+<li>Write-up the results of the word pronunciation study.</li>
+<li>Generate the interaction plots in Figures 1 and 2, but add error bars (confidence intervals) to the data points.</li>
+</ul>
+<p>I’ll include the write-up/plot code for these additional tasks in the instructors copy of the lab materials at the end of the week.</p>
+<p><br> <br> <br> <br></p>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../PSYC214/Week8.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8. Two-Factor Mixed and Within-Participants ANOVA</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../PSYC234/index.html" class="pagination-link">
+        <span class="nav-page-text">PSYC234</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../previous-content/index.html">Previous Content</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

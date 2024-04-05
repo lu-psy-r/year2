@@ -1,0 +1,85 @@
+---
+title: 9. Expanding on binary logistic regression
+subtitle: Amy Atkinson
+order: 10
+---
+
+# Lecture
+
+Watch part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066739)
+
+Watch part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066741)
+
+Watch part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066742)
+
+Download the lecture slides [here](data/Wk9/Lecture 9 - Materials.zip)
+
+# Post Lecture
+
+Find the post-lecture worksheet [here](data/Wk9/PSYC234_L9_worksheet.docx) and the answers [here](data/Wk9/PSYC234_L9_worksheet_ANSWERS.pdf)
+
+# Lab Preparation
+
+Watch the preparation video [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066750)
+
+Download the files discussed in the video [here](data/Wk9/Lab preparation resources.zip)
+
+# Lab Work
+
+## Research Question 1
+
+You are interested in factors that predict academic achievement in mathematics. Children’s academic achievement can be rated as below expected, at expected or above expected. 
+
+The predictors you are interested in are:
+
+- Number if hours spent revising (continuous)
+- Likes school (Yes/no)
+- Favourite subject (Maths, English or Science)
+
+For the categorical predictors:
+
+-Set the reference category for Likes school as "No"
+-Set the reference category for Favourite subject as "Maths"
+
+::: {.callout-tip}
+
+See last week's content for how to set the reference category. Or better yet, revisit your own script to see how you did it last time.
+
+:::
+
+## Research Question 2
+
+You work in a nursery. In the nursery, there has been an outbreak of measles. You are interested in factors that predict whether a child in your nursery will have measles (yes/no). 
+
+The predictors you are interested in are:
+
+- Number of hours spent at nursery weekly (continuous)
+- Has siblings(Yes/no)
+- Vaccinated against measles (Yes/no)
+
+For the categorical predictors:
+
+- Set the reference category for Siblings as “No”
+- Set the reference category for Vaccinated as “No”
+
+For the outcome (measles – yes/no):
+
+- Set No as 0, and Yes as 1
+
+## Steps
+
+- Start a new session
+- Some packages loaded in have the same function – these needed to be inputted in a certain order
+- Use the blank R/R Markdown script I’ve uploaded as a starting point
+
+1. Prepare our data for analysis
+2. Explore our data
+3. Run the model
+4. Evaluate the model
+5. Evaluate the individual predictors
+6. Predicted probabilities
+7. Interpret the output
+
+# Upload your script
+
+You can upload your finished script for feedback on your code [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978262) and feedback will be posted onto Moodle.

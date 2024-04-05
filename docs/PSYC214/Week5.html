@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics for Psychologists - 5. Revision of One-Factor ANOVA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../PSYC214/Week6.html" rel="next">
+<link href="../PSYC214/Week4.html" rel="prev">
+<link href="../Images/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
+ <span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
+ <span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
+ <span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
+ <span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week5.html">5. Revision of One-Factor ANOVA</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC214</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. One-Factor Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5. Revision of One-Factor ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Introduction to Factorial Designs and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Two-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Two-Factor Mixed and Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Three-Factor ANOVA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC234</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Review of correlation, simple regression and demonstration of multiple regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Mediation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Binary logistic regression models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Expanding on binary logistic regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#todays-lab-activities" id="toc-todays-lab-activities" class="nav-link" data-scroll-target="#todays-lab-activities">Today’s Lab Activities</a>
+  <ul class="collapse">
+  <li><a href="#a-between-participants-single-factor-study" id="toc-a-between-participants-single-factor-study" class="nav-link" data-scroll-target="#a-between-participants-single-factor-study">A Between-Participants Single-Factor Study</a>
+  <ul class="collapse">
+  <li><a href="#descriptives-statistics-and-assumption-checks" id="toc-descriptives-statistics-and-assumption-checks" class="nav-link" data-scroll-target="#descriptives-statistics-and-assumption-checks">Descriptives statistics and assumption checks</a></li>
+  <li><a href="#anova-and-planned-comparisons" id="toc-anova-and-planned-comparisons" class="nav-link" data-scroll-target="#anova-and-planned-comparisons">ANOVA and planned comparisons</a></li>
+  <li><a href="#writing-up-the-results" id="toc-writing-up-the-results" class="nav-link" data-scroll-target="#writing-up-the-results">Writing up the results</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#a-within-participants-single-factor-study" id="toc-a-within-participants-single-factor-study" class="nav-link" data-scroll-target="#a-within-participants-single-factor-study">A Within-Participants Single-Factor Study</a>
+  <ul class="collapse">
+  <li><a href="#descriptives-statistics-and-assumption-checks-1" id="toc-descriptives-statistics-and-assumption-checks-1" class="nav-link" data-scroll-target="#descriptives-statistics-and-assumption-checks-1">Descriptives statistics and assumption checks</a></li>
+  <li><a href="#anova-and-planned-comparisons-1" id="toc-anova-and-planned-comparisons-1" class="nav-link" data-scroll-target="#anova-and-planned-comparisons-1">ANOVA and planned comparisons</a></li>
+  <li><a href="#writing-up-the-results-1" id="toc-writing-up-the-results-1" class="nav-link" data-scroll-target="#writing-up-the-results-1">Writing up the results</a></li>
+  <li><a href="#further-tasks" id="toc-further-tasks" class="nav-link" data-scroll-target="#further-tasks">Further tasks</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics for Psychologists</h1>
+<p class="subtitle lead">Mark Hurlstone, Richard Philpot</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="lecture" class="level1">
+<h1>Lecture</h1>
+<p>Watch Part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2011121">here</a></p>
+<p>Watch Part 2 - WBA1 review <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2011758">here</a></p>
+<p>Watch Part 3 - WBA2 review <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2011760">here</a></p>
+<p>Watch Part 4 - WBA3 review <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2011761">here</a></p>
+<p>Download the lecture slides <a href="data/Wk5/Lecture 5 - Student Slides [small].pdf">here</a>, and <a href="data/Wk5/Lecture 5 - Student Slides [large].pdf">here</a> for a larger version.</p>
+</section>
+<section id="lab" class="level1">
+<h1>Lab</h1>
+<p><br> <br> I have noticed Richard’s penchant for commencing these sessions with some words of philosophical wisdom to motivate and inspire you and will continue the trend. Here’s one of my favorite quotes from Frederick Nietzsche. It embodies the Stoic philosophical principle of <em>Amor Fati</em>, which is a mindset that entails a commitment to making the best out of anything that happens, whether good or bad. It’s about treating every moment, no matter how challenging and difficult, as something to be embraced rather than avoided.</p>
+<blockquote class="blockquote">
+<p><em>Not merely bear what is necessary, still less conceal it … but love it.</em> –Frederick Nietzsche</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Frederick Nietzsche.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Frederick Nietzsche</figcaption>
+</figure>
+</div>
+</section>
+<section id="learning-objectives" class="level1">
+<h1>Learning Objectives</h1>
+<p>Over the past four weeks, Richard has given you a comprehensive introduction to single-factor ANOVA. In Weeks 6-10, I’ll be taking over the reigns and teaching you about factorial ANOVA. This is the version of ANOVA that we use to analyze the results of factorial studies where we have two or more factors. Before moving onto factorial ANOVA, it is important to consolidate some of the key things that Richard has taught you so far. Accordingly, in this week’s lab class we will be reviewing some (but not all) of the key things you have learned about one-factor ANOVA in the context of R. Specifically, we will be running through: (a) the sequence of steps for performing a between-participants one-factor ANOVA, and (b) the sequence of steps for performing a within-participants one-factor ANOVA. As there is a lot to cover, we will be working with clean data sets and there will be no debugging exercises in this session. <strong>However, when copying the coding examples into R, please pay close attention to each line of code and the associated comments, so it is clear what the code is actually doing. Where possible, type the code out manually yourself as you will learn better this way.</strong></p>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting Started</h1>
+<p>Download the files needed for this lab <a href="data/Wk5/psyc214_lab_5.zip">here</a> and upload it to the R server.</p>
+<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
+<p>When you are connected, navigate to <a href="https://psy-rstudio.lancaster.ac.uk">https://psy-rstudio.lancaster.ac.uk</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
+<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
+<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
+<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
+<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have already logged in through the university login already, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+</div>
+</div>
+<p>Once you are logged into the server, create a folder for today’s session. Navigate to the bottom right panel (see figure below) and under the <code>Files</code> option select the <code>New Folder</code> option. Name the new folder <code>psyc214_lab_5</code>. <strong>Please ensure that you spell this correctly</strong> otherwise when you set the directory using the command given below it will return an error.</p>
+<p><img src="images/NewFolder.png" class="img-fluid" style="width:75.0%"></p>
+<p>Now that you have created a folder for today’s session, it’s time to add the Week 5 data files. You should have already downloaded the zip file of the data from above. Next, in the RStudio Server open your new pscy214_lab_5 folder. When in the new folder, select the <code>Upload</code> tab (see figure below). This will present a box that will ask where the data is that you want to upload. Click on <code>Browse</code>, upload the zip file and click <code>OK</code>. This will upload both files togther.</p>
+<p><img src="images/UploadData.png" class="img-fluid" style="width:75.0%"></p>
+<p>Se we can save this session on the server, click <code>File</code> on the top ribbon and select <code>New project</code>. Next, select existing directory and name the working directory <code>~/psyc214_lab_5</code> before selecting <code>create project</code>.</p>
+<p>Finally, open a script for executing today’s coding exercises. Navigate to the top left pane of RStudio, select <code>File</code> -&gt; <code>New File</code> -&gt; <code>R Script</code>. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.</p>
+<p><img src="images/RScript.png" class="img-fluid" style="width:75.0%"></p>
+<p>Let’s set our working directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Before moving on, let’s load the relevant libraries that we will be using in today’s session:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>) </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyr"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rstatix"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"effectsize"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="todays-lab-activities" class="level1">
+<h1>Today’s Lab Activities</h1>
+<section id="a-between-participants-single-factor-study" class="level2">
+<h2 class="anchored" data-anchor-id="a-between-participants-single-factor-study">A Between-Participants Single-Factor Study</h2>
+<p>A short-term memory researcher wants to know whether objectively grouping lists of verbal items improves verbal short-term memory performance. She administers a serial recall task to three different groups of participants (described below). In the study phase of this task, participants are given a list of six words to study (e.g., <em>gorilla, leprosy, nursery, radio, botany, calcium</em>) spoken at a rate of one word per second, with a brief pause between each word. In the test phase, immediately after the final item has been spoken, participants must recall the list of words (by speaking them aloud) in their original presentation order. The dependent measure of interest is verbal recall accuracy: the percentage of words recalled in their correct position in the study list. For example, suppose the participant recalled <em>gorilla, leprosy, radio, nursery, botany, calcium</em> in response to the above study list. The first two items (<em>gorilla, leprosy</em>) and last two items (<em>botany, calcium</em>) have been recalled in their correct positions, but the middle two items (<em>nursery, radio</em>) have exchanged positions with one another, and are therefore incorrect. Thus, in this example, the participant recalled 4/6 = 67% of items accurately. The researcher administers to each participant a total of 20 serial recall study-test trials, with each study list comprising the same set of words, but presented in a different random order. The final score for each participant is the percentage of words recalled accurately, averaged across all 20 study-test trials.</p>
+<p>There are 90 participants in total, allocated randomly and evenly to one of the following three conditions:</p>
+<ul>
+<li><p><strong>Ungrouped:</strong> in this condition, the study lists are presented in an ungrouped fashion. That is, the temporal pause separating each spoken word in study lists is always 0.5 seconds.</p></li>
+<li><p><strong>2-2-2:</strong> in this condition, the study lists are organised into three groups, each containing two items. This is achieved by extending the temporal pauses after the second and fourth items in study lists from 0.5 seconds to 1.5 seconds.</p></li>
+<li><p><strong>3-3:</strong> in this condition, the study lists are organised into two groups, each containing three items. This is achieved by extending the temporal pause after the third item in study lists from 0.5 seconds to 1.5 seconds.</p></li>
+</ul>
+<p>The researcher wants to know whether (a) grouping study lists improves verbal recall accuracy compared to an ungrouped scenario, and (b) whether the degree of improvement depends on the type of grouping used (grouping in twos <span class="math inline">\(vs.\)</span> grouping in threes). The researcher has chosen to run the study as a between-participants design rather than a within-participants design because she is worried about the possibility of carryover effects. Specifically, if the study was run as a within-participants design there is a risk that participants may carry over a grouping strategy from one condtion into another condition. For example, having completed the 3-3 condition, participants may then spontaneously group the ungrouped lists in the ungrouped condition into threes. This would make interpretation of the results of the experiment difficult, hence the decision to use a between-participants design.</p>
+<p>The researcher has two hypotheses she wants to test. Specifically, she predicts that (1) verbal recall accuracy will be higher in the 2-2-2 condition than in the ungrouped condition, and (2) that verbal recall accuracy will be higher, in turn, in the 3-3 condition than in the 2-2-2 condition. She has thus decided <em>a priori</em> to conduct planned comparisons comparing accuracy for the ungrouped <em>vs.</em> 2-2-2 conditions, and the 2-2-2 <em>vs.</em> 3-3 conditions.</p>
+<p>First things first, let’s load the data set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>groupingData <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"Grouping.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure Condition is a factor with levels ordered: ungrouped, 2-2-2, 3-3</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>groupingData<span class="sc">$</span>Condition <span class="ot">=</span> <span class="fu">factor</span>(groupingData<span class="sc">$</span>Condition, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Ungrouped"</span>,<span class="st">"2-2-2"</span>,<span class="st">"3-3"</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the data</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>(groupingData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 90 × 3
+   Participant Condition Accuracy
+         &lt;dbl&gt; &lt;fct&gt;        &lt;dbl&gt;
+ 1           1 Ungrouped     62.7
+ 2           2 Ungrouped     53.7
+ 3           3 Ungrouped     68.7
+ 4           4 Ungrouped     77.3
+ 5           5 Ungrouped     60.2
+ 6           6 Ungrouped     63.7
+ 7           7 Ungrouped     46.9
+ 8           8 Ungrouped     67.4
+ 9           9 Ungrouped     60.4
+10          10 Ungrouped     49.5
+# ℹ 80 more rows</code></pre>
+</div>
+</div>
+<p>We have three columns: Participant (the participant number ranging from 1 to 90), Condition (the condition to which each participant was allocated: ungrouped <em>vs.</em> 2-2-2 <em>vs.</em> 3-3), and Accuracy (the percentage of list items recalled in the correct order, averaged across all study-test trials). You can take a closer look at the data using <code>view(groupingData)</code> which will open up the full data set in a new window.</p>
+<section id="descriptives-statistics-and-assumption-checks" class="level3">
+<h3 class="anchored" data-anchor-id="descriptives-statistics-and-assumption-checks">Descriptives statistics and assumption checks</h3>
+<p>Let’s begin by calling some descriptive statistics. Specifically, we want the <code>mean</code> and <code>sd</code> of the Accuracy dependent variable, as a function of our Condition factor. We can obtain these quantities using the <code>get_summary_stats()</code> function in the rstatix package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get descriptive statistics</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>descriptives <span class="ot">=</span> groupingData <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise the output by Condition</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Request mean and standard deviation</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Accuracy, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Round the results to *at least* two-decimal places</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">4</span>) </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the results</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print.data.frame</span>(descriptives)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Condition variable  n  mean     sd
+1 Ungrouped Accuracy 30 61.99 11.416
+2     2-2-2 Accuracy 30 63.75  9.177
+3       3-3 Accuracy 30 72.19  9.441</code></pre>
+</div>
+</div>
+<p>Okay, let’s take a look at these descriptive statistics. Starting with the means, we can see that the means for the ungrouped and 2-2-2 conditions are very similar—it does not look like organizing study lists into three groups of two items improved performance. However, the mean for the 3-3 condition is much larger than the means for the ungrouped and 2-2-2 conditions, suggesting that organising the study list into two groups of three items did improve performance. Turning to the standard deviations, these are very similar for each of the three conditions, so it does not look like the data violate the homogeneity of variance assumption. However, let’s run Levene’s test for equality of variances to verify if that is indeed the case.</p>
+<p>We can execute Levene’s test on our data using the <code>levene_test()</code> function in the rstatix package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Levene's test for homogeneity of variance</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>groupingData <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(Accuracy <span class="sc">~</span> Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+    df1   df2 statistic     p
+  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1     2    87      1.24 0.295</code></pre>
+</div>
+</div>
+<p>The test result is nonsignificant (<em>p</em> = .295), suggesting that the variances do not differ systematically. In short, using Levene’s test criterion, we can be satisfied that the homogeneity of variance assumption has been met.</p>
+<p>So far so good, let’s now check to see if there are any outliers or extreme values in the data for each of our three conditions. We can do this using the <code>identify_outliers</code> function contained in the rstatix package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>groupingData <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise the output by Condition</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Identify outliers and extreme values of our dependent measure</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">identify_outliers</span>(Accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  Condition Participant Accuracy is.outlier is.extreme
+  &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;lgl&gt;      &lt;lgl&gt;     
+1 3-3                82     96.3 TRUE       FALSE     </code></pre>
+</div>
+</div>
+<p>We have a single outlier in the 3-3 condition—one participant’s score is quite a bit larger than the other scores in the distribution. However, as it is only a single non-extreme value it will not exert undue influence on the data and we can safely proceeed without having to remove, replace, or transform it.</p>
+<p>Let us now establish whether our data satisfy the assumption of normality. To do this, we can run the Shapiro-Wilk test, which you will recall tests whether data are normally distributed. We can do this using the <code>shapiro_test()</code> function in the rstatix package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shapiro Wilk test for normality</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>groupingData <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise output by Condition</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Run Shapiro Wilk tests</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(Accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  Condition variable statistic      p
+  &lt;fct&gt;     &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Ungrouped Accuracy     0.938 0.0788
+2 2-2-2     Accuracy     0.971 0.563 
+3 3-3       Accuracy     0.974 0.648 </code></pre>
+</div>
+</div>
+<p>The test statistics are nonsignificant for all three conditions (all <em>p</em> &gt; .05), although only marginally so for the ungrouped condition. This indicates that the distributions of scores do not differ significantly from a normal distribution. We can therefore be satisfied that our data meet the assumption of normality. Remember that the Shapiro-Wilk test is sensitive to sample size—as sample size increases, the test becomes less accurate. The accepted rule of thumb is that if the number of observations (i.e., participants) in each condition is less than 50, then the Shapiro-Wilk test should provide an accurate test result. However, if the number of observations is above this value, then the test result may be inaccurate, so you should instead inspect the QQ plots of the data to determine if the normality assumption has been met. We have 30 observations per condition, so we can safely rely on the results of the Shapiro-Wilk test in this instance. Accordingly, we won’t bother looking at the QQ plots on this occasion.</p>
+</section>
+<section id="anova-and-planned-comparisons" class="level3">
+<h3 class="anchored" data-anchor-id="anova-and-planned-comparisons">ANOVA and planned comparisons</h3>
+<p>Okay, we have performed our checks and we are now ready to run our ANOVA. We can do this using the <code>aov</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our model with Accuracy as the DV and Condition as the factor</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>groupingModel <span class="ot">=</span> <span class="fu">aov</span>(<span class="at">data =</span> groupingData, Accuracy <span class="sc">~</span> Condition) </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure we get exact p values rather than scientific notation</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create model summary</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(groupingModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+Condition    2   1783     891     8.8 0.00033 ***
+Residuals   87   8807     101                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Looking at the table, the <em>F</em> value is 8.805, which is rather large as <span class="math inline">\(F\)</span> values go, so it comes as no surprise to find when we look at the <em>p</em> value that the effect of condition is significant (<em>p</em> &lt; .001). The large <em>F</em> value and small <em>p</em> value imply that the effect of condition is large, but let’s verify this by looking at the effect size. We can do this using the <code>effectsize()</code> function in the effectsize package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE FOR CALCULATIING THE ETA-SQUARED EFFECT SIZE FOR THE EFFECT OF CONDITION ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA
+
+Parameter | Eta2 |       95% CI
+-------------------------------
+Condition | 0.17 | [0.06, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].</code></pre>
+</div>
+</div>
+<p>The <span class="math inline">\(\eta^2\)</span> effect size is 0.17, which represents a large effect consistent with our expectations based on the results of our ANOVA (reminder: 0.01 = small effect; 0.06 = medium effect; 0.14 = large effect).</p>
+<p>Remember that because there are three levels in our condition factor, the ANOVA only tells us that there are differences between the means of our groups, but not where those differences are located. So, we need to conduct some follow-up tests. In this case, the researcher decided to conduct planned comparisons comparing the ungrouped and 2-2-2 conditions, and the 2-2-2 and 3-3 conditions. We can perform these comparisons using the <code>pairwise_t_test()</code> function in the rstatix package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>groupingData <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Execute independent-samples t-tests - remember to set pool.sd = FALSE </span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and var.equal = TRUE</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(Accuracy <span class="sc">~</span> Condition, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Just generate the two comparisons of interest: ungrouped vs. 2-2-2</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and 2-2-2 vs. 3-3</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Ungrouped"</span>,<span class="st">"2-2-2"</span>), <span class="fu">c</span>(<span class="st">"2-2-2"</span>,<span class="st">"3-3"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure we get exact p values rather than scientific notation</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">p_format</span>(<span class="at">digits =</span> <span class="dv">4</span>, <span class="at">leading.zero =</span> <span class="cn">FALSE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 10
+  .y.      group1    group2    n1    n2 statistic    df p     p.adj p.adj.signif
+* &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       
+1 Accuracy Ungrouped 2-2-2     30    30    -0.657    58 .514  .514  ns          
+2 Accuracy 2-2-2     3-3       30    30    -3.51     58 .000… .002  **          </code></pre>
+</div>
+</div>
+<p>Since we are only performing two planned comparisons, I haven’t bothered to invoke the Bonferroni correction (annoyingly, the table includes the Bonferroni adjusted <code>p</code> value in the penultimate column, <code>p.adj</code>, despite the fact that we haven’t request it explicitly! Just make sure if you are not using the correction that you read the values from the column labelled <code>p</code>). Consistent with our intuitions when inspecting the descriptive statistics, we can see from inspection of the table that the comparison between the ungrouped and 2-2-2 conditions is nonsignificant (<em>p</em> = .514), whereas the comparison between the 2-2-2 and 3-3 conditions is significant (<em>p</em> &lt; .001).</p>
+<p>The next step is to get the Cohen’s <em>d</em> effect size for each of our planned comparisons. We can get the Cohen’s <em>d</em> effect size for the ungrouped <em>vs.</em> 2-2-2 comparison using the following code which makes use of the <code>cohens_d()</code> function from the rstatix package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's break down what the piece of code below is doing:</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The function cohens_d() requires that we specify the two groups we wish to produce our d value for along with </span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the dependent variable.</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The first argument, groupingData$Accuracy[groupingData$Condition == "Ungrouped"], tells R that for the first</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># group we want the variable Accuracy in the data set groupingData to be the dependent variable (groupingData$Accuracy) and we want the first group to be the ungrouped condition ([groupingData$Condition == "Ungrouped"])</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The second argument, groupingData$Accuracy[groupingData$Condition == "2-2-2"], tells R that for the second </span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># group we also want the variable Accuracy in the data set groupingData to be the dependent variable (groupingData$Accuracy) and we want the second group to be the 2-2-2 condition ([groupingData$Condition == "2-2-2"])</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohen's d for ungrouped vs. 2-2-2</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(groupingData<span class="sc">$</span>Accuracy[groupingData<span class="sc">$</span>Condition <span class="sc">==</span> <span class="st">"Ungrouped"</span>],groupingData<span class="sc">$</span>Accuracy[groupingData<span class="sc">$</span>Condition <span class="sc">==</span> <span class="st">"2-2-2"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |        95% CI
+-------------------------
+-0.17     | [-0.68, 0.34]
+
+- Estimated using pooled SD.</code></pre>
+</div>
+</div>
+<p>For the ungrouped <em>vs.</em> 2-2-2 comparison, the Cohen’s <em>d</em> effect size is equal to –0.17, which represents a small effect (reminder: 0.2 = small effect, 0.5 = moderate effect, 0.8 = large effect; Cohen, 1988).</p>
+<p>Now, let’s get the Cohen’s <em>d</em> effect size for the 2-2-2 <em>vs.</em> 3-3 comparison:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE FOR CALCULATING THE COHEN'S D EFFECT SIZE FOR THE 2-2-2 VS. 3-3 COMPARISON ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.91     | [-1.43, -0.37]
+
+- Estimated using pooled SD.</code></pre>
+</div>
+</div>
+<p>For the 2-2-2 <em>vs.</em> 3-3 comparison, the Cohen’s <em>d</em> effect size is equal to –0.91, which represents a large effect.</p>
+</section>
+<section id="writing-up-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-the-results">Writing up the results</h3>
+<p>A single-factor between-participants Analysis of Variance (ANOVA) was performed, with condition as the independent variable (control <em>vs.</em> 2-2-2 <em>vs.</em> 3-3) and verbal recall accuracy as the dependent variable. There was a significant effect of condition, <em>F</em>(2, 87) = 8.81, <em>p</em> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .17. Planned comparisons revealed that verbal recall accuracy did not differ significantly between the ungrouped condition (<em>M</em> = 62.00, <em>SD</em> = 11.40) and the 2-2-2 condition (<em>M</em> = 63.80, <em>SD</em> = 9.18), <em>t</em>(58) = –0.657, <span class="math inline">\(p\)</span> = .514, <em>d</em> = –.17, whereas verbal recall accuracy was higher in the 3-3 condition (<em>M</em> = 72.20, <em>SD</em> = 9.44) than in the 2-2-2 condition, <em>t</em>(58) = –3.51, <span class="math inline">\(p\)</span> &lt; .001, <em>d</em> = –.91.</p>
+<p>Note: you can also include the 95% CIs for the <span class="math inline">\(\eta^2\)</span> and Cohen’s <em>d</em> effect sizes (as Richard has showed you in previous labs) but I haven’t included them above. Their inclusion is optional and since I have not requested you include them in your PSYC204 Short Report CWA, I thought you might think me hypocritical if I included them here (I may be many things, but I’m not a hypocrite).</p>
+<p>Okay, that’s all the exercises for the first data set complete, well done, but there’s no time for a break because we have another data set to contend with.</p>
+<!-- In brief, what our results show is that grouping is not universally beneficial in verbal short-term memory: compared to an ungrouped scenario, grouping into twos does not benefit recall, whereas grouping into threes benefits recall quite substantially. 
+-->
+</section>
+</section>
+</section>
+<section id="a-within-participants-single-factor-study" class="level1">
+<h1>A Within-Participants Single-Factor Study</h1>
+<p>A short-term memory researcher wants to know whether verbal short-term memory is sensitive to the syllabic length of to-be-remembered words (i.e., the number of syllables they contain). She recruits a single group of 75 participants to complete the same serial recall task described in the previous example. The researcher manipulates word length—the number of syllables in to-be-remembered words, across three different conditions:</p>
+<ul>
+<li><p><strong>Short words:</strong> in this condition, study lists are composed of random orderings of six one-syllable words (<em>stoat, mumps, school, Greece, switch, maths, scroll, zinc</em>).</p></li>
+<li><p><strong>Medium words:</strong> in this condition, study lists are composed of random orderings of six three-syllable words (<em>gorilla, leprosy, nursery, Mexico, radio, botany, bulletin, calcium</em>).</p></li>
+<li><p><strong>Long words:</strong> in this condition, study lists are composed of random orderings of six five-syllable words (<em>hippopotamus, tuberculosis, university, Yugoslavia, refrigerator, physiology, periodical, aluminium</em>).</p></li>
+</ul>
+<p>For each condition, there are 10 study-test serial recall trials. The same group of participants attempts all three conditions, but in different counterbalanced orders. The dependent measure is once again verbal recall accuracy.</p>
+<p>The researcher expects verbal recall accuracy will decrease with increasing word length. That is, accuracy is expected to be highest for short words, lowest for long words, with medium words falling in between.</p>
+<p>First things first, let’s load the data set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE FOR IMPORTING THE DATA. MAKE SURE YOU NAME THE DATA "wLengthData" ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We have four columns: Participant (the participant number ranging from 1 to 75), Short_Words (percentage of list items recalled in the correct order for the short word condition), Medium_Words (percentage of list items recalled in the correct order for the medium word condition), and Long_Words (percentage of list items recalled in the correct order for the long word condition). The data are therefore in so-called “wide format” (Richard discussed the distinction between <em>wide format</em> and <em>long format</em> in the last practical session)—each repeated measurement (short words, medium words, long words) has its own column and contains the values of the dependent variable for that measurement. Whenever we use repeated measurements, that is, when we employ a within-participants design, the resulting data is stored in wide format.</p>
+<p>However, as Richard told you in your Week 4 lab session, to analyse such data in R, we first need to convert the data from wide format into long format. We can do this using the following piece of code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This gathers the data in Short_Words, Medium_Words, and Long_Words within the data frame "wLengthData" and reorganises them into two columns, Condition (containing the three levels of our repeated measurement) and Accuracy (verbal recall accuracy), before assigning them to a new data frame "wLengthDataLong". The argument factor_key = TRUE ensures that the new column Condition is treated as a factor. </span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>wLengthDataLong <span class="ot">=</span> <span class="fu">gather</span>(wLengthData,Condition,Accuracy,Short_Words<span class="sc">:</span>Long_Words,<span class="at">factor_key =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the data</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>(wLengthDataLong) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 225 × 3
+   Participant Condition   Accuracy
+         &lt;dbl&gt; &lt;fct&gt;          &lt;dbl&gt;
+ 1           1 Short_Words     79.8
+ 2           2 Short_Words     69.0
+ 3           3 Short_Words     87.0
+ 4           4 Short_Words     97.3
+ 5           5 Short_Words     76.9
+ 6           6 Short_Words     81.0
+ 7           7 Short_Words     60.9
+ 8           8 Short_Words     85.5
+ 9           9 Short_Words     77.1
+10          10 Short_Words     64.0
+# ℹ 215 more rows</code></pre>
+</div>
+</div>
+<p>We have created a new version of the data set, <code>wLengthDataLong</code>, that represents the data in long format. We now have three columns: Participant (as before), Condition (containing the three repeated measurements, or conditions), and Accuracy (verbal recall accuracy). This is the version of the data set we will be using for the subsequent analyses.</p>
+<section id="descriptives-statistics-and-assumption-checks-1" class="level3">
+<h3 class="anchored" data-anchor-id="descriptives-statistics-and-assumption-checks-1">Descriptives statistics and assumption checks</h3>
+<p>Let’s begin by calling some descriptive statistics:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE FOR GENERATING THE DESCRIPTIVE STATISTICS ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     Condition variable  n  mean    sd
+1  Short_Words Accuracy 75 75.11 10.52
+2 Medium_Words Accuracy 75 70.43 11.73
+3   Long_Words Accuracy 75 65.58 11.50</code></pre>
+</div>
+</div>
+<p>Looking at the means, we can see that the mean is largest for the short-words condition and lowest for the long-words condition, with the mean for the medium-words condition falling in between. Thus, the results seem consistent with the researcher’s expectations before conducting the study.</p>
+<p>Because our study is a within-participants design, we do not need to evaluate whether the data satisfy the homogeneity of variance assumption. Remember that in a within-participants design, this assumption is replaced with a new assumption known as the sphericity assumption, which states that <em>the variance of the sets of differences between pairs of scores for two levels does not differ significantly from the variances of the difference scores for every other possible pair of levels</em> (in other words: Variance<span class="math inline">\(_{A-B}\)</span> = Variance<span class="math inline">\(_{A-C}\)</span> = Variance<span class="math inline">\(_{B-C}\)</span>; where A, B, and C denote the three levels of a factor). This assumption applies only when a factor contains three or more levels because with only two levels there is only one set of difference scores and one variance. We will come back to the sphericity assumption afterwards when we run our within-participants ANOVA.</p>
+<p>For now, the next step is for us to examine whether there are any outliers or extreme values in the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>wLengthDataLong <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise output by Condition</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Identify outliers and extreme values of our dependent measure</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">identify_outliers</span>(Accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Condition   Participant Accuracy    is.outlier  is.extreme 
+&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+</div>
+</div>
+<p>Fortunately, there are no outliers or extreme values, so we can now proceed to the next step which is to perform our normality checks.</p>
+<p>In our earlier between-participants study example, we had 30 participants in each condition and used the Shapiro Wilk test to determine whether the data differed significantly from a normal distribution. Remember that with sample sizes greater than 50, the Shapiro Wilk test may produce an inaccurate test result and we should instead rely on an inspection of QQ plots to determine whether our data satisfy the normality assumption. In this example, we have 75 participants, so we will need to inspect the QQ plots. We can do this using the <code>ggqqplot()</code> function from the ggpubr package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use facet() to create separate QQ plots for each Condition</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(wLengthDataLong, <span class="st">"Accuracy"</span>, <span class="at">facet.by =</span> <span class="st">"Condition"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week5_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Remember that if all the points plotted on the QQ plot lie on a perfect straight line, then we can clearly say that the distribution is normally distributed (see https://towardsdatascience.com/q-q-plots-explained-5aa8495426c0 for a concise explanation of how to interpret QQ plots). In practice, the data points will never form a perfect line—there will always be some deviations. Looking at the QQ plots for our data, we can see that there are some minor departures from the criterion line for the short-words and medium-words conditions (the points at the bottom and top ends deviate slightly from the criterion line) but less so for the long-words condition. I’m satisfied that these deviations are sufficently small not to be a cause for concern, so we can proceed on the assumption that our data meet the normality assumption.</p>
+</section>
+<section id="anova-and-planned-comparisons-1" class="level3">
+<h3 class="anchored" data-anchor-id="anova-and-planned-comparisons-1">ANOVA and planned comparisons</h3>
+<p>Now that we have cleared all of our checks, we are ready to run our ANOVA. We can do this using the <code>anova_test()</code> function in the rstatix package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our model with Accuracy as the DV, Condition as the factor, and Participant representing which rows belong to which participant  </span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>wlModel <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data =</span> wLengthDataLong, </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">dv =</span> Accuracy, <span class="at">wid =</span> Participant, <span class="at">within =</span> Condition)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure we get exact p values rather than scientific notation</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model output</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>(wlModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
+
+$ANOVA
+     Effect DFn DFd     F         p p&lt;.05   ges
+1 Condition   2 148 12.73 0.0000079     * 0.108
+
+$`Mauchly's Test for Sphericity`
+     Effect     W     p p&lt;.05
+1 Condition 0.951 0.162      
+
+$`Sphericity Corrections`
+     Effect   GGe       DF[GG]     p[GG] p[GG]&lt;.05   HFe       DF[HF]
+1 Condition 0.954 1.91, 141.14 0.0000118         * 0.978 1.96, 144.78
+       p[HF] p[HF]&lt;.05
+1 0.00000955         *</code></pre>
+</div>
+</div>
+<p>The first part of the table gives us the results of our uncorrected ANOVA. The second column contains the degrees of freedom for the numerator (DFn), which is 2; the third column gives us the degrees of freedom for the denominator (DFd), which is 148; the fourth column gives us the <em>F</em> value, which is 12.732; and the fifth column gives us the <em>p</em> value, which is 0.0000079, and is therefore significant at <em>p</em> &lt; .001. The final column contains the generalised effect size (ges), denoted <span class="math inline">\(\eta^2_{G}\)</span> (a generalised version of <span class="math inline">\(\eta^2\)</span>), which is equal to .108, and represents a medium effect.</p>
+<p>The second part of the table presents the results of Mauchly’s test of sphericity, which tests whether the sphericity assumption has been violated or not. In this case, the test is nonsignificant, <em>p</em> = .162, which means that the sphericity assumption has been satisfied on this occassion.</p>
+<p>However, as Richard has forewarned you, the sphericity assumption is frequently violated. When it is, the degrees of freedom will be overestimated and the <em>F</em> value will be inflated. In these circumstances, we must adopt the Greenhouse-Geisser correction, which is given in the final part of the table. This correction adjusts the degrees of freedom to compensate for the violation of the sphericity assumption. The adjusted degrees of freedom for the numerator and denominator are given in the column DF[GG] (1.91 and 141.14, respectively) and the Greenhouse-Geisser corrected <em>p</em> value is under the column p[GG] and is 0.0000118, which is significant at <em>p</em> &lt; .001.</p>
+<p><strong>If we had violated the sphericity assumption, then it is the quantities in this final section (rather than the first section) that we would report when writing the results and drawing our conclusions from the analysis.</strong></p>
+<p>Remember, the results of the ANOVA simply tell us that there are significant differences between the means of our three conditions, but it does not tell us where those differences are located. So, the next step is to perform our planned comparisons.</p>
+<p>To test the researcher’s <em>a priori</em> predictions, we need to perform two comparisons: short words <em>vs.</em> medium words, and medium words <em>vs.</em> long words.</p>
+<p>We can run both comparisons using the <code>pairwise_t_test()</code> function, remembering to supply the argument <code>paired = TRUE</code>, so R knows we want repeated-measures <em>t</em>-tests. As before, we are only going to request the two comparisons we require:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE FOR GENERATING THE REPEATED MEASURES T-TESTS. REMEMBER TO SET paired = TRUE SO </span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># R KNOWS WE WANT REPEATED MEASURES COMPARISONS ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 10
+  .y.      group1    group2    n1    n2 statistic    df p     p.adj p.adj.signif
+* &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       
+1 Accuracy Short_Wo… Mediu…    75    75      2.74    74 .008  .015  *           
+2 Accuracy Medium_W… Long_…    75    75      2.34    74 .022  .022  *           </code></pre>
+</div>
+</div>
+<p>The results indicate that both comparisons are significant, with <em>p</em> = .008 for the short words <em>vs.</em> medium words comparison, and <em>p</em> = .022 for the medium words <em>vs.</em> long words comparison.</p>
+<p>Let’s wrap our analysis up by getting the Cohen’s <em>d</em> effect size estimates for these two comparisons. We can do this as we did before for the between-participants study example, but we must remember to supply the argument <code>paired = TRUE</code> so R knows to generate Cohen’s <em>d</em> for repeated measures rather than independent samples. Let’s get Cohen’s <em>d</em> for the short words <em>vs.</em> medium words comparison:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohen's d for short words vs. medium words</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(wLengthDataLong<span class="sc">$</span>Accuracy[wLengthDataLong<span class="sc">$</span>Condition <span class="sc">==</span> <span class="st">"Short_Words"</span>],wLengthDataLong<span class="sc">$</span>Accuracy[wLengthDataLong<span class="sc">$</span>Condition <span class="sc">==</span> <span class="st">"Medium_Words"</span>],<span class="at">paired =</span> <span class="cn">TRUE</span>) <span class="co"># Remember to include the argument paired = TRUE for repeated measures d</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |       95% CI
+------------------------
+0.32      | [0.08, 0.55]</code></pre>
+</div>
+</div>
+<p>The Cohen’s <em>d</em> value for this comparison is .32, which represents a small effect. Now, let’s get the Cohen’s <em>d</em> value for the medium words <em>vs.</em> long words comparison:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE FOR GENERATING THE COHEN'S D EFFECT SIZE FOR THE MEDIUM WORDS VS. LONG WORDS </span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># COMPARISON. ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |       95% CI
+------------------------
+0.27      | [0.04, 0.50]</code></pre>
+</div>
+</div>
+<p>The Cohen’s <em>d</em> value for this comparison is .27, which again represents a small effect.</p>
+</section>
+<section id="writing-up-the-results-1" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-the-results-1">Writing up the results</h3>
+<p>A single-factor within-participants Analysis of Variance (ANOVA) was performed, with condition as the independent variable (short words <em>vs.</em> medium words <em>vs.</em> long words) and verbal recall accuracy as the dependent variable. There was a significant effect of condition, <em>F</em>(2, 148) = 12.73, <em>p</em> &lt; .001, <span class="math inline">\(\eta^2_{G}\)</span> = .11. Planned comparisons revealed that verbal recall accuracy was significantly higher in the short-words condition (<em>M</em> = 75.10, <em>SD</em> = 10.50) than in the medium-words condition (<em>M</em> = 70.40, <em>SD</em> = 11.70), <em>t</em>(74) = 2.74, <span class="math inline">\(p\)</span> = .008, <em>d</em> = .32, and in turn, verbal recall accuracy was significantly higher in the medium-words condition than in the long-words condition (<em>M</em> = 65.60, <em>SD</em> = 11.50), <em>t</em>(74) = 2.34, <span class="math inline">\(p\)</span> = .022, <em>d</em> = .27.</p>
+<p>Right, that’s all the exercises finished for the second data set, well done once again!</p>
+</section>
+<section id="further-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="further-tasks">Further tasks</h2>
+<p>We have covered a lot of material in today’s session and I don’t expect you to have time to complete any further tasks. However, if you have managed to reach this point and still have time remaining, here are two things you can do (you should borrow and adapt the code from previous weeks for these two tasks):</p>
+<ol type="1">
+<li><p>Generate a bar figure plotting the results for the grouping study. Plot the condition means and standard error error bars.</p></li>
+<li><p>Generate a line figure plotting the results for the word length study. Plot the condition means and standard error error bars.</p></li>
+</ol>
+<p>Time to relax now and pat yourself on the back for a job well done! See you in next week’s lab session.</p>
+<p><br> <br></p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../PSYC214/Week4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4. One-Factor Within-Participants ANOVA</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../PSYC214/Week6.html" class="pagination-link">
+        <span class="nav-page-text">6. Introduction to Factorial Designs and Interactions</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../previous-content/index.html">Previous Content</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

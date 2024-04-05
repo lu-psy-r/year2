@@ -1,0 +1,18 @@
+---
+title: "Week 16 - Our script"
+author: "" # Add your group's name and then delete this comment
+date: "" # Add today's date and then delete this comment
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Load in the libraries you need here
+
+
+
+```
+
+Remember to generate your own chunks, press the following keyboard keys: ctrl, alt and I. Or to go to code in the menu and click "Insert chunk"

@@ -1,0 +1,193 @@
+---
+title: "PSYC234_Lab_2_Student"
+author: "Emma Mills"
+date: "23/01/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+# library(gdata)
+library(PerformanceAnalytics)
+library(effects)
+library(gridExtra)
+```
+
+
+# Multiple Regression with Categorical Predictors
+
+Many factors may predict academic success in young people that are not part of individual differences - i.e. their ability for a subject.  In this session, we are going to predict final Portuguese test scores (G3) from seven factors:
+
+ - sex 
+ - their health
+ - their school
+ - their school attendance rate
+ - travel time to school
+ - whether they attend extra private tutor classes
+ - how much they drink at the weekend
+ 
+Use the `Data_Codebook.pdf` file in the lab folder to find out initial information such as variable names, their type and their levels or numerical ranges.
+
+
+## Import Data
+
+### Portuguese Scores
+
+```{r}
+d_raw <- read_csv("student-por.csv") # Portuguese scores
+
+```
+
+## Tidying
+
+You could choose to reduce the dataset to keep only the variables they need
+
+Select out the columns for manageability:  use the select() function
+
+```{r}
+
+# select the columns you need and put them in any order you want.
+
+# keep the raw data set separate, because you might want to describe the sample and will need age etc. for this.
+
+```
+
+## Visualise to get to know your data:
+
+### Predictors
+
+There is code above  to help you do this for the categorical and continuous predictors.
+
+Prompt questions to interrogate what you see:
+
+ - Are the categorical variables balanced?
+ - Are they made of two levels or more?
+ - Do any of the categorical variables look like they might be ordinal?
+ - How do the x-axes of the continuous variables look - does the range seem sensible?
+ - Is there any skew to the continuous variables.
+ 
+### Outcome variable
+
+  - Is it a continuous variable?
+  - Or if not, can we treat it as such for our test?
+
+```{r message=FALSE, warning=FALSE}
+# bar charts for categorical variables
+
+
+
+# (so called) continuous variables
+
+
+grid.arrange(p_sex, p_sch, p_paid, p_health, p_absence, p_travel, p_walc, p_outcome)
+```
+
+Write yourself some text here as descriptors or what you see that helps you to get to know this unfamiliar dataset.
+
+
+### Correlations betweeen continuous predictors
+
+In the code below,  there is a bracket `c( )`.  You need to type the number of the columns that represent the columns in your dataset - so what number column is the outcome predictor etc.  Separate each number with a comma.
+
+```{r warning=FALSE}
+chart.Correlation(d[, c( )], histogram=TRUE, pch=19)
+```
+
+Prompt questions to interrogate what you see:
+
+thresholds to describe the relationships: 0.1 - 0.3 is small; 0.3 - 0.5 is medium; 0.5 - 0.7 is large.
+
+  - What size of correlation do you see between the variables?
+  - Do the correlations between predictors and the outcome variable suggest what you might see in the regression model?
+  
+Remember that these correlations are *bivariate* correlations - explaining shared variance between only those two predictors.  When we put the predictors into a regression model, we are estimating the independent variance of a predictor AFTER we have explained some of the variance already - in the other predictors. 
+
+## Model
+
+### Raw Variables
+
+Write a model and call a summary of the model
+
+```{r}
+
+```
+## Transforming Categorical Variables
+
+Given the predictors, and having watched the lecture, what is the best decision you can make about how the catgorical variables are coded in the model?
+
+Consider:
+
+ - dummy coding scheme
+ - sum coding scheme
+ - transforming the catgorical variable into a numerical variable and centring
+ - helmert coding
+ 
+Make your decisions according to what is suggested by the model output and perform the transformations.  
+
+If you want to use your script for revision,  it is worthwhile noting on the script why you are making the decisions that you are making - that way, if you submit for feedback, I can check your reasoning.
+
+## Transforming Continuous Variables to Work with Categorical Variables
+
+Consider:
+
+ - raw variables
+ - centred variables
+ - standardised variables
+ 
+Make your decisions according to what is suggested by the model output and perform the transformations.  
+
+Here is a blank r chunk that you can copy and paste to write your commands if you are working in RMarkdown.
+The keyboard shortcut to do that is Alt-Shift-I
+The menu item is Code >> Insert Chunk
+
+```{r}
+```
+
+
+
+```{r}
+
+```
+
+
+## Model 
+
+
+```{r}
+
+```
+
+## Communicate
+
+### Descriptive Statistics
+
+You should report how many females / males,  the mean age of both sexes and how the sample was split by school.
+
+### Report the Model
+
+You should report:
+
+  - the name of the outcome variable
+  - the names of the predictors in the model
+  - then the omnibus test for the model (the F ratio and associated information)
+  - then the results of each predictor - i.e. report the levels of walc together.
+  - when you are reporting the statistical results of each predictor, make sure you give a verbal description of the result when the coefficient is significant.
+  
+Draw a table - remember to refer to the Table in your textual description.
+
+### Plotting Predictions
+
+You can communicate through plots also.  Plot some predictor effects that you could use in a results section. 
+
+Use the screenshots of predictor effects as a self-check
+
+Remember to refer to them as Figures in your textual descriptions.
+
+```{r}
+
+
+```
+
+
+

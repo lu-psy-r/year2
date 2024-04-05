@@ -25,7 +25,7 @@ website:
       - text: MSc
         file: https://lu-psy-r.github.io/MSc/index.html
       - text: And More...
-        file: https://lu-psy-r.github.io/more/index.qmd
+        file: https://lu-psy-r.github.io/more/index.html
 
   page-footer:
     left: "Website developed by Matthew Ivory"

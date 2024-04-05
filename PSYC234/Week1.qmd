@@ -1,0 +1,94 @@
+---
+title: 1. Review of correlation, simple regression and demonstration of multiple regression
+subtitle: Emma Mills
+order: 2
+---
+
+# Lectures
+
+[Part 1](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978183)
+
+[Part 2](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978184)
+
+[Part 3](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978185)
+
+## Materials
+
+The lecture materials, including and and R files are downloaded from [here](data/Week1_lecture_materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+
+# Overview
+
+## What happens
+
+1. In each lab:
++ Model output, or model plot with dataset
++ In small groups, work backwards to *plan* the analysis script that produced the model output
+  + Use lab time/staff to check plan
+
+2. Independently of the lab:
++ Generate the script as a group
+  + Help each other
+  + Scrape code from all your statistics modules
+    + The internet
+    + R books
+
+3. Submit for feedback (optional)
++ Submit as group
++ Random sample of scripts will get feedback
++ No credit here – learning process as preparation for your own project!
++ You can see all scripts per week __if you submit a script per week__
+  + You only get access to view when you submit a script – __to reduce freeloading behaviour__
+  + I will give feedback on 20% sample or maximum of 3 per lab group
+  + I will post the submitted scripts each week on moodle.
++ Why should you contribute here?
+  + You are a massive community and can support each other going forward
+  + Breaks down the idea that there is one correct way to write an analysis script
+  + Give you greater exposure to code that shares a purpose
+  + Some students have asked for this potential for feedback on scripts – not just analysis
+
+
+## Planning Data Analysis
+
+
+Data analysis requires the following steps 
+
+![Analysis Workflow](Images/Wk1/Wrangle.png)
+
+With each step requiring its own blocks of code. Specifically, the communication sep requires us to produce plots and model summaries along wit text to help other people understand our research and what was completed.
+
+![Analysis Workflow](Images/Wk1/WrangleUpdate2.png)
+
+Model plots and summaries are the output from our statistical analyses and look similar to the example below:
+
+![Analysis Workflow](Images/Wk1/PlotSummary.png)
+
+We, as communicators, need to present this information in text form too. So from the above figure and summary we can create a body of text. Text equating to a paragraph reporting model significance, then coefficients (emphasised in italics and bold below as: *statistics* + __verbal description__).
+
+Example of model significance:  *The model predicting children’s test scores from mother’s graduation status, mother’s age and IQ was significant (F (3, 430) = 39.25, p < .001, R2 = 0.21).*
+
+Example text for the 'c_mom_hs' coefficient:
+
+*The difference for whether the mother graduated high school or not is significant (b = 5.65, SE = 2.26, p = .013).*  __Holding all other predictors constant, the difference in scores for a child whose mother finished high school and a child whose mother did not finish high school is 5.64 test points.__
+
+## Staff role in labs
+
+* Get us to check your planning / answer your questions. 
+
+* We will:
+  + Identify gaps
+  + Tell you that there is an error somewhere with an indication of where to look more closely
+  + Give you hints
+  + Extend your thinking if you are working at your best level already….
+
+* We won’t give you the answers straight out. Because most of your project experience is going to be about problem solving
+
+# Lab Task
+
+1. Form groups to work with for the next few weeks – three or four people
+
+2. In your group:
+  + Talk about and list the R functions that you typically use at each stage of the analysis workflow
+  + Set up a group project on the server –  give access to each member in your group AND me (user = millse)
+  + Divide the sections of workflow between you into equal parts for finding examples of these code in modules 121, 122, 214
+  + _Homework - before next week’s lab_: Write a “boiler plate” script that has headers for each section and some commented out functions that you might use time and time again.
+    + This is also really good preparation for your Final Year Individual Project data analysis.

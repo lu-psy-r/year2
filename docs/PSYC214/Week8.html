@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics for Psychologists - 8. Two-Factor Mixed and Within-Participants ANOVA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../PSYC214/Week9.html" rel="next">
+<link href="../PSYC214/Week7.html" rel="prev">
+<link href="../Images/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
+ <span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
+ <span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
+ <span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
+ <span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week8.html">8. Two-Factor Mixed and Within-Participants ANOVA</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC214</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. One-Factor Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Revision of One-Factor ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Introduction to Factorial Designs and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Two-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week8.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">8. Two-Factor Mixed and Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Three-Factor ANOVA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC234</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Review of correlation, simple regression and demonstration of multiple regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Mediation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Binary logistic regression models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Expanding on binary logistic regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  </ul></li>
+  <li><a href="#todays-lab-activities" id="toc-todays-lab-activities" class="nav-link" data-scroll-target="#todays-lab-activities">Today’s Lab Activities</a>
+  <ul class="collapse">
+  <li><a href="#analysing-hypothetical-data-for-the-mixed-design-stroop-experiment" id="toc-analysing-hypothetical-data-for-the-mixed-design-stroop-experiment" class="nav-link" data-scroll-target="#analysing-hypothetical-data-for-the-mixed-design-stroop-experiment">Analysing hypothetical data for the mixed-design Stroop experiment</a>
+  <ul class="collapse">
+  <li><a href="#import-data-set-variables-as-factors-generate-descriptive-statistics-and-perform-assumption-checks" id="toc-import-data-set-variables-as-factors-generate-descriptive-statistics-and-perform-assumption-checks" class="nav-link" data-scroll-target="#import-data-set-variables-as-factors-generate-descriptive-statistics-and-perform-assumption-checks">Import data, set variables as factors, generate descriptive statistics, and perform assumption checks</a></li>
+  <li><a href="#running-the-mixed-anova" id="toc-running-the-mixed-anova" class="nav-link" data-scroll-target="#running-the-mixed-anova">Running the mixed ANOVA</a></li>
+  <li><a href="#simple-main-effects-analysis" id="toc-simple-main-effects-analysis" class="nav-link" data-scroll-target="#simple-main-effects-analysis">Simple main effects analysis</a></li>
+  <li><a href="#writing-up-the-results" id="toc-writing-up-the-results" class="nav-link" data-scroll-target="#writing-up-the-results">Writing up the results</a></li>
+  </ul></li>
+  <li><a href="#analysing-hypothetical-data-for-the-fully-within-participants-stroop-experiment" id="toc-analysing-hypothetical-data-for-the-fully-within-participants-stroop-experiment" class="nav-link" data-scroll-target="#analysing-hypothetical-data-for-the-fully-within-participants-stroop-experiment">Analysing hypothetical data for the fully within-participants Stroop experiment</a>
+  <ul class="collapse">
+  <li><a href="#import-data-set-variables-as-factors-and-generate-descriptive-statistics" id="toc-import-data-set-variables-as-factors-and-generate-descriptive-statistics" class="nav-link" data-scroll-target="#import-data-set-variables-as-factors-and-generate-descriptive-statistics">Import data, set variables as factors, and generate descriptive statistics</a></li>
+  <li><a href="#running-the-mixed-anova-1" id="toc-running-the-mixed-anova-1" class="nav-link" data-scroll-target="#running-the-mixed-anova-1">Running the mixed ANOVA</a></li>
+  <li><a href="#simple-main-effects" id="toc-simple-main-effects" class="nav-link" data-scroll-target="#simple-main-effects">Simple main effects</a></li>
+  <li><a href="#writing-up-the-results-1" id="toc-writing-up-the-results-1" class="nav-link" data-scroll-target="#writing-up-the-results-1">Writing up the results</a></li>
+  <li><a href="#additional-tasks" id="toc-additional-tasks" class="nav-link" data-scroll-target="#additional-tasks">Additional tasks</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics for Psychologists</h1>
+<p class="subtitle lead">Mark Hurlstone, Richard Philpot</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="lecture" class="level1">
+<h1>Lecture</h1>
+<p>Watch Part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2019968">here</a></p>
+<p>Watch Part 2 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2019969">here</a></p>
+<p>Watch Part 3 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2019970">here</a></p>
+<p>Download the lecture slides <a href="data/Wk8/Two-Factor Mixed and Within-Participants ANOVA HANDOUT.pdf">here</a>, and <a href="data/Wk8/Two-Factor Mixed and Within-Participants ANOVA.pdf">here</a> for a larger version.</p>
+</section>
+<section id="lab" class="level1">
+<h1>Lab</h1>
+<p><br> <br></p>
+<blockquote class="blockquote">
+<p><em>If, at some point in your life, you should come across anything better than justice, truth, self-control, courage—it must be an extraordinary thing indeed.</em> —Marcus Aurelius, <em>The Meditations</em></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MarcusAurelius.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Marcus Aurelius</figcaption>
+</figure>
+</div>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>In this week’s lecture, we considered the procedures involved in performing a two-factor mixed and fully-within participants ANOVA. Using the hypothetical data on the Stroop effect presented in the lecture, in today’s lab session we will demonstrate how to analyse such ANOVA designs in R, including the calculation of the simple main effects and follow up procedures for breaking down simple main effects of factors with three or more levels. We will also demonstrate how to write up the results of two-factor mixed and fully within-participants designs.</p>
+<p><strong>If you get stuck at any point, be proactive and ask for help from one of the GTAs.</strong></p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
+<p>When you are connected, navigate to <a href="https://psy-rstudio.lancaster.ac.uk">https://psy-rstudio.lancaster.ac.uk</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
+<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
+<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
+<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
+<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have already logged in through the university login already, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+</div>
+</div>
+<p>Once you are logged into the server, create a folder for today’s session. Navigate to the bottom right panel and under the <code>Files</code> option select the <code>New Folder</code> option. Name the new folder <code>psyc214_lab_8</code>. <strong>Please ensure that you spell this correctly</strong> otherwise when you set the directory using the command given below it will return an error.</p>
+<p>Se we can save this session on the server, click <code>File</code> on the top ribbon and select <code>New project</code>. Next, select existing directory and name the working directory <code>~/psyc214_lab_8</code> before selecting <code>create project</code>.</p>
+<p>Finally, open a script for executing today’s coding exercises. Navigate to the top left pane of RStudio, select <code>File</code> -&gt; <code>New File</code> -&gt; <code>R Script</code>. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.</p>
+<p><img src="images/RScript.png" class="img-fluid" style="width:75.0%"></p>
+<p>Let’s set our working directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that you have created a folder for today’s session, it’s time to add the Week 8 files. Download the data and files needed for this lab <a href="data/wk8/psyc214_Week8.zip">here</a> and save to the newly created folder <code>psyc214_lab_8</code>.</p>
+<p>Before moving on, let’s load the relevant libraries/functions that we will be using in today’s session.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)  <span class="co"># For data storage and manipulation</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyr"</span>)      <span class="co"># For tidy data</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rstatix"</span>)    <span class="co"># For descriptives statistics, outlier detection, running the ANOVAs etc.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"simple.R"</span>)    <span class="co"># Custom function for generating the simple main effects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Note that the custom function <code>simple.R</code> that we use to calculate the simple main effects must be present in your directory whenever you seek to use it.</strong></p>
+</section>
+</section>
+<section id="todays-lab-activities" class="level1">
+<h1>Today’s Lab Activities</h1>
+<section id="analysing-hypothetical-data-for-the-mixed-design-stroop-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="analysing-hypothetical-data-for-the-mixed-design-stroop-experiment">Analysing hypothetical data for the mixed-design Stroop experiment</h2>
+<p>We begin by analysing the mixed-design Stroop experiment described in the lecture. Recall that in this experiment, a researcher wants to test the hypothesis that response inhibition—the ability to suppress task-irrelevant information—is impaired in patients with schizophrenia. She predicts that if this is true, then a group of patients with schizophrenia will show a larger Stroop effect than a group of healthy controls. Our researcher administers a multi-trial Stroop task to two groups of participants in a 2 (group: healthy <em>vs.</em> schizophrenia) <span class="math inline">\(\times\)</span> 2 (trial type: congruent <em>vs.</em> incongruent) mixed design, where group is a between-participants factor and trial type is a within-participants factor.</p>
+<p>The data set contains four columns:</p>
+<ul>
+<li><p><strong>Participant:</strong> represents the participant number, which ranges from 1–80, with <span class="math inline">\(N\)</span> = 40 participants in each of the four conditions resulting from the combination of our two factors.</p></li>
+<li><p><strong>Group:</strong> represents whether the participant belongs to the healthy control group (Healthy) or the schizophrenia group (Schizophrenia).</p></li>
+<li><p><strong>Congruent:</strong> represents the mean response time, averaged across trials, for congruent trials in which the colour word and the ink it is presented in are the same.</p></li>
+<li><p><strong>Incongruent:</strong> represents the mean response time, averaged across trials, for incongruent trials in which the colour word and the ink it is presented in are different.</p></li>
+</ul>
+<section id="import-data-set-variables-as-factors-generate-descriptive-statistics-and-perform-assumption-checks" class="level3">
+<h3 class="anchored" data-anchor-id="import-data-set-variables-as-factors-generate-descriptive-statistics-and-perform-assumption-checks">Import data, set variables as factors, generate descriptive statistics, and perform assumption checks</h3>
+<p>The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as <code>stroopMixed</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE TO IMPORT THE DATA ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 80 × 4
+   Participant Group   Congruent Incongruent
+         &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+ 1           1 Healthy       586         906
+ 2           2 Healthy       608         773
+ 3           3 Healthy       609         887
+ 4           4 Healthy       621         775
+ 5           5 Healthy       642         699
+ 6           6 Healthy       593         707
+ 7           7 Healthy       616         850
+ 8           8 Healthy       721         763
+ 9           9 Healthy       631         760
+10          10 Healthy       639         740
+# ℹ 70 more rows</code></pre>
+</div>
+</div>
+<p>The next thing we need to do is convert the <code>Participant</code> variable into a factor. We can do this with the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert "Participant into factor</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>stroopMixed<span class="sc">$</span>Participant <span class="ot">=</span> <span class="fu">factor</span>(stroopMixed<span class="sc">$</span>Participant)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you have done this, you need to convert the <code>Group</code> variable into a factor. We’ll let you do this yourself using your own code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE TO CONVERT "GROUP" INTO A FACTOR ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The next thing we need to do is convert our data from wide format into long format. Richard discussed the distinction between these two formats in his Week 4 lab session and we covered it again in our Week 5 lab session. In brief, we need to create a new variable called <code>TrialType</code> that contains the different levels of this factor, congruent and incongruent, which are currently located in different columns. We can do this using the following piece of code which users the <code>gather()</code> function encountered previously:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert data into long format</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>stroopMixedLong <span class="ot">=</span> <span class="fu">gather</span>(stroopMixed,TrialType,RT,Congruent<span class="sc">:</span>Incongruent,<span class="at">factor_key =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s unpack what this is doing. The first argument to <code>gather()</code>, <code>stroopMixed</code>, is the name of our current data set in wide format. The second argument tells R we want a new column called <code>TrialType</code>. The third argument, <code>RT</code>, tells R the name of our dependent variable. The fourth argument tells R to take the columns <code>Congruent</code> through to <code>Incongruent</code> and combine them into a column labeled <code>TrialType</code> (our second argument). The final argument, <code>factor_key = TRUE</code>, tells R that we want this new column to be a factor. The results of this transformation are allocated to a new data frame called <code>stroopMixedLong</code>. This contains our data in long format and we will be using this version of the data set from henceforth.</p>
+<p>Next, we will generate some descriptive statistics (mean, standard deviation, and confidence intervals). You did this for a between-participants factorial design in last week’s seminar, so you can once again generate the code for this yourself.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE TO GENERATE DESCRIPTIVE STATISTICS ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you have executed the code correctly, then you should see the following output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 7
+  Group         TrialType   variable     n  mean    sd    ci
+  &lt;fct&gt;         &lt;fct&gt;       &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Healthy       Congruent   RT          40  623.  39.9  12.7
+2 Healthy       Incongruent RT          40  770.  51.4  16.4
+3 Schizophrenia Congruent   RT          40  625.  50.8  16.2
+4 Schizophrenia Incongruent RT          40  889.  44.3  14.2</code></pre>
+</div>
+</div>
+<p>At this stage, we would ordinarily perform various checks including identifying possible outliers and checking that our data satisfy the normality assumption. We won’t perform those checks today, not because they are not important (they most certainly are!), but rather because we don’t have the time to do so. There is one check that we will perform and that is to see if the homogeneity of variance assumption has been violated. In a mixed design like ours, the homogeneity of variance assumption only applies to the between-participants factors, but not the within-participants factors.</p>
+<p>Our between-participants factor is <code>Group</code> (healthy vs.&nbsp;schizophrenia) but remember that each group receives each level of our within-participants factor <code>TrialType</code> (congruent vs.&nbsp;incongruent). So, we need to test whether the variances are equal or not for the healthy and schizophrenia groups for congruent and incongruent trials separately. The following code will generate what we need:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>stroopMixedLong <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise the output by the "TrialType" factor</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TrialType) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate Levene's test on the "Group" factor</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levene_test</span>(RT <span class="sc">~</span> Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  TrialType     df1   df2 statistic      p
+  &lt;fct&gt;       &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;  &lt;dbl&gt;
+1 Congruent       1    78     3.95  0.0505
+2 Incongruent     1    78     0.747 0.390 </code></pre>
+</div>
+</div>
+<p>Levene’s test is non-significant for congruent trials, <em>p</em> = .051 (although notice that it is only marginally short of significance), and also for incongruent trials, <em>p</em> = .390. So, we can safely assume that the homogeneity of variance assumption has been satisfied.</p>
+</section>
+<section id="running-the-mixed-anova" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-mixed-anova">Running the mixed ANOVA</h3>
+<p>To run our ANOVA, we are going to use the <code>anova_test</code> function from the <code>rstatix</code> package. <strong>This is the function that I recommend you use for mixed or fully-within participants factorial designs.</strong> The code required to run the ANOVA is given below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the mixed design ANOVA model</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>stroopMixedModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> stroopMixedLong, <span class="at">dv =</span> RT, <span class="at">wid =</span> Participant, <span class="at">between =</span> Group, <span class="at">within =</span> TrialType, <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>(stroopMixedModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type II tests)
+
+           Effect DFn DFd        SSn      SSd         F         p p&lt;.05   ges
+1     (Intercept)   1  78 84525386.6 136336.6 48358.096 1.06e-110     * 0.996
+2           Group   1  78   147440.3 136336.6    84.353  4.74e-14     * 0.301
+3       TrialType   1  78  1692705.3 205941.9   641.108  2.27e-39     * 0.832
+4 Group:TrialType   1  78   137886.3 205941.9    52.224  2.91e-10     * 0.287</code></pre>
+</div>
+</div>
+<p>To create the model, the first argument we supplied to <code>anova_test</code> was the name of our data, <code>stroopMixedLong</code>. The second argument we supplied was our dependent variable, <code>RT</code>. The third argument we supplied was <code>Participant</code>, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our between-participants factor, <code>Group</code>. The fourth argument we supplied was our within-participants factor, <code>TrialType</code>.</p>
+<p>Notice that the resulting ANOVA table is different in format to those given in the lecture. The format given in the lecture follows a standard convention, but <code>anova_test</code> frustratingly uses a different format. The main effects of <code>Group</code>, <code>TrialType</code>, and the <code>Group:TrialType</code> interaction are each given on separate rows. The row corresponding to each effect contain the between-group degrees of freedom (DFn), the error degrees of freedom (DFd), the between-group sums of squares (SSn), the error sums of squares (SSd), the <span class="math inline">\(F\)</span> ratio (F), and the <em>p</em> (p) value. On the bright side, this organisation makes it easier to locate the correct degrees of freedom when reporting the different outcomes.</p>
+<p>Looking at our ANOVA table, we can see that there is a significant main effect Group, <em>p</em> <span class="math inline">\(&lt;\)</span> .001. Inspecting our descriptive statistics, we can see that this arose because mean response times are longer for the schizophrenia group than the healthy group. There is also a significant main effect of Trial Type, <em>p</em> <span class="math inline">\(&lt;\)</span> .001, which arose because mean response times are longer for incongruent than congruent trials. Finally, there is a significant interaction between the two factors, <em>p</em> <span class="math inline">\(&lt;\)</span> .001. We will defer interpretation of this interaction until later, once we have calculated the simple main effects and plotted the data. By the way, you can just ignore the first row of the table with the outcome named “intercept”.</p>
+<p>Before we calculate the simple main effects, notice that the ANOVA table generated by <code>anova_test</code> does not give us the between-group mean squares or the error mean squares that are used to calculate the <span class="math inline">\(F\)</span> ratios. This is a rather silly omission, and I’m not sure why the creators of the <code>rstatix</code> package thought it would be wise to exclude these. Now, you don’t need these values to interpret and report your ANOVA, but I do need to extract these values, so I can show you which error term is being used to test the different ANOVA outcomes and the simple main effects that we will calculate shortly.</p>
+<p>So, we are going to calculate the mean squares for ourselves. We will first calculate the between-group mean squares. The between-group mean square is simply the between-group sums of squares (SSn) divided by its corresponding degrees of freedom (DFn). We can calculate this as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the between-group mean sum of squares</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mixedMeanSquareBetween <span class="ot">=</span> stroopMixedModel<span class="sc">$</span>SSn<span class="sc">/</span>stroopMixedModel<span class="sc">$</span>DFn</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude the intercept (row 1 of 4) from the results</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>mixedMeanSquareBetween[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  147440.3 1692705.3  137886.3</code></pre>
+</div>
+</div>
+<p>The first value is the between-group mean square for the main effect of Group (147440.3), the second value is the between-group mean square for the main effect of Trial Type (1692705.3), and the third value is the between-group mean square for the interaction (137886.3).</p>
+<p>Next, we will calculate the error mean squares. The error mean square is simply the error sums of squares (SSd) divided by its corresponding degrees of freedom (DFd). We can calculate this as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the error mean sum of squares</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mixedMeanSquareError <span class="ot">=</span> stroopMixedModel<span class="sc">$</span>SSd<span class="sc">/</span>stroopMixedModel<span class="sc">$</span>DFd</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude the intercept (row 1 of 4) from the results</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>mixedMeanSquareError[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1747.906 2640.281 2640.281</code></pre>
+</div>
+</div>
+<p>The first value is the error mean square for the main effect of Group (1747.906), the second value is the error mean square for the main effect of Trial Type (2640.281), and the third value is the error mean square for the interaction (2640.281). Recall that in the lecture, we saw that in a mixed design, the error term for the within-participants factor is used to test both the main effect of that factor and any interaction involving that factor. Sure enough, we can see that the error term for testing the main effect of our within-participants factor, Trial Type, is the same as the one used to test the interaction (i.e., 2640.281).</p>
+<p>Remember that the <span class="math inline">\(F\)</span> ratio for each outcome is calculated by dividing its between-group mean square by its error mean square. So, let’s calculate the <span class="math inline">\(F\)</span> ratios for ourselves and check they align with what has been given to us in our ANOVA table. We can do that with the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate F ratios</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mixedFRatios <span class="ot">=</span> mixedMeanSquareBetween<span class="sc">/</span>mixedMeanSquareError</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results, excluding the intercept</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>(mixedFRatios[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  84.35256 641.10811  52.22411</code></pre>
+</div>
+</div>
+<p>The first <span class="math inline">\(F\)</span> ratio is for the main effect of Group (84.353), the second is for the main effect of Trial Type (641.108), and the third is for the interaction (52.224). If you compare these <span class="math inline">\(F\)</span> values with those given in the ANOVA table, you will see that they are identical.</p>
+<p><strong>To be clear, when conducting a mixed ANOVA in the future, you don’t need to go through the steps of calculating the mean squares. I have gone through these steps with you because I need to make it clear what error terms we are using to test the different ANOVA outcomes and our simple main effects.</strong></p>
+</section>
+<section id="simple-main-effects-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="simple-main-effects-analysis">Simple main effects analysis</h3>
+<p>Since the interaction is significant, we need to calculate the simple main effects. Last week, when calculating the simple main effects for a fully-between participants design, we used the <code>testInteractions()</code> function in the <code>phia</code> package. Unfortunately, this package cannot be used with mixed and fully within-participants designs. Accordingly, I have created a custom function called <code>simple()</code> that will compute the simple main effects for you.</p>
+<p>Recall from the lecture that for mixed and within-participants factorial designs, we use an approach to calculating the simple main effects known as the <strong>pooled error terms</strong> approach. What this means is that the simple main effects of each factor are calculated using the same error term. However, the error term we use will differ depending on the factor for which we are calculating the simple main effects (contrast this approach with that we used for calculating the simple main effects in a fully between-participants design, where we used the same error term to calculate the simple main effects of all factors).</p>
+<p>Before we can calculate the simple main effects, there are a few things we need to do. First, we need to store our ANOVA table in a dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the mixed ANOVA table</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mixedAnovaTable <span class="ot">=</span> <span class="fu">get_anova_table</span>(stroopMixedModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we need to calculate the cell totals for each of the four conditions and the number of observations (i.e., scores) in each cell:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get cell totals and counts</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>mixedCellTotals <span class="ot">=</span> stroopMixedLong <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise the output by the"Group" and "TrialType" factors</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TrialType, Group) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Request cell totals and number of observations (i.e., scores)</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(RT),<span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the results</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  (mixedCellTotals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+# Groups:   TrialType [2]
+  TrialType   Group           sum     n
+  &lt;fct&gt;       &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;
+1 Congruent   Healthy       24919    40
+2 Congruent   Schizophrenia 24999    40
+3 Incongruent Healthy       30799    40
+4 Incongruent Schizophrenia 35576    40</code></pre>
+</div>
+</div>
+<p>Then, we need to specify which simple main effects we want to generate. We are first going to calculate the simple main effects of the factor Group at Trial Type. This means, we are going to:</p>
+<ul>
+<li>Test the difference between the healthy and schizophrenia groups for <em>congruent</em> trials only.</li>
+<li>Test the difference between the healthy and schizophrenia groups for <em>incongruent</em> trials only.</li>
+</ul>
+<p>To do this, we need to declare Group as the “fixed” factor (we are always comparing the healthy and schizophrenia groups) and Group as the “across” factor (the comparison between the healthy and schizophrenia groups occurs “across” the congruent and incongruent levels of the Trial Type factor):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create "fixed" and "across" factors</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fixed  <span class="ot">=</span> <span class="st">"Group"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>across <span class="ot">=</span> <span class="st">"TrialType"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To get the simple main effects, we pass the cell totals, ANOVA table, and the fixed and across factors to our function <code>simple()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple main effects of Group at Trial Type</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>mixedSmeGroup <span class="ot">=</span> <span class="fu">simple</span>(mixedCellTotals,mixedAnovaTable,fixed,across)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>(mixedSmeGroup)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Levels Sum of Squares Degrees of Freedom Mean Square            F
+1   Congruent           80.0                  1      80.000   0.04576906
+2 Incongruent       285246.6                  1  285246.612 163.19337388
+3  Error term       136336.6                 78    1747.906   0.00000000
+             P
+1 8.311544e-01
+2 8.245446e-21
+3 0.000000e+00</code></pre>
+</div>
+</div>
+<p>As described in the lecture, to calculate the simple main effects of a given factor in a mixed design, we use the mean square error for the main effect of that factor from the original ANOVA table as the error term. The mean square error in the simple main effects table is given in column four (Mean Square) of row three (Error term). You will notice that this is the error mean square for the main effect of Group that we calculated earlier from our initial ANOVA table (i.e., 1747.906). If you divide the between-group mean squares for the effect of Group at congruent and incongruent trials by this value, it will give you the <span class="math inline">\(F\)</span> ratios shown in the simple main effects table.</p>
+<p>Looking at the simple main effects, we can see that the simple main effect of Group at congruent trials is not significant, <span class="math inline">\(p\)</span> = 0.831. This indicates that mean response times for congruent trials did not differ between the healthy and schizophrenia groups. However, the simple main effect of Group at incongruent trials is significant, <span class="math inline">\(p\)</span> &lt; .001. Looking at the descriptive statistics we generated earlier, we can see that this is because mean response times are longer on incongruent trials for the schizophrenia group than the healthy group.</p>
+<p>Next, we are going to calculate the simple main effects of the factor Trial Type at Group. This means, we are going to:</p>
+<ul>
+<li>Test the difference between congruent and incongruent trials for the <em>healthy</em> group only.</li>
+<li>Test the difference between congruent and incongruent trials for the <em>schizophrenia</em> group only.</li>
+</ul>
+<p>To do this, we now need to declare Trial Type as the “fixed” factor and Group as the “across” factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create "fixed" and "across" factors</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fixed  <span class="ot">=</span> <span class="st">"TrialType"</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>across <span class="ot">=</span> <span class="st">"Group"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We then generate the simple main effects of Trial Type with the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple main effects of Trial Type at Group</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>mixedSmeTrialType <span class="ot">=</span> <span class="fu">simple</span>(mixedCellTotals,mixedAnovaTable,fixed,across)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>(mixedSmeTrialType)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Levels Sum of Squares Degrees of Freedom Mean Square        F
+1       Healthy       432180.0                  1  432180.000 163.6871
+2 Schizophrenia      1398411.6                  1 1398411.612 529.6451
+3    Error term       205941.9                 78    2640.281   0.0000
+             P
+1 7.609756e-21
+2 1.632592e-36
+3 0.000000e+00</code></pre>
+</div>
+</div>
+<p>Remember, to calculate the simple main effects of a given factor in a mixed design, we use the mean square error for the main effect of that factor from the original ANOVA table as the error term. The mean square error in the simple main effects table is given in column four (Mean Square) of row three (Error term). You will notice that this is the error mean square for the main effect of Trial Type that we calculated earlier from our initial ANOVA table (i.e., 2640.281). If you divide the between-group mean squares for the effect of Trial Type at healthy and schizophrenia groups by this value, it will give you the <span class="math inline">\(F\)</span> ratios shown in the simple main effects table.</p>
+<p>Looking at the simple main effects, we can see that the simple main effect of Trial Type at healthy is significant, <span class="math inline">\(p\)</span> <span class="math inline">\(&lt;\)</span> .001. Inspecting our descriptive statistics, we can see that this is because for the healthy group, mean response times are longer for incongruent than congruent trials. The simple main effect of Trial Type at schizophrenia is also significant, <span class="math inline">\(p\)</span> <span class="math inline">\(&lt;\)</span> .001. Looking at our descriptive statistics, we can see that this is because for the schizophrenia group, mean response times are also longer for incongruent than congruent trials. Thus, both the healthy and schizophrenia groups show a Stroop effect (longer response times for incongruent than congruent trials), but the effect is larger for the schizophrenia group, which has a much smaller <span class="math inline">\(p\)</span> value (and a correspondingly larger <span class="math inline">\(F\)</span> ratio).</p>
+</section>
+<section id="writing-up-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-the-results">Writing up the results</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/StroopMixedData.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Figure 1. Mean response times as a function of the group and trial type manipulations. Error bars represent 95% confidence intervals.</figcaption>
+</figure>
+</div>
+<p>Figure 1 shows mean response times as a function of the group and trial type manipulations. These data were subjected to a 2 (group: healthy <em>vs.</em> schizophrenia) <span class="math inline">\(\times\)</span> 2 (trial type: congruent <em>vs.</em> incongruent) mixed Analysis of Variance. There was a significant main effect of group, <em>F</em>(1, 78) = 84.35, <em>p</em> <span class="math inline">\(&lt;\)</span> .001, with longer response times in the schizophrenia group than the healthy group, a significant main effect of trial type, <em>F</em>(1, 78) = 641.11, <em>p</em> &lt; .001, with longer response times for incongruent than congruent trials, and a significant interaction between the two factors, <em>F</em>(1, 78) = 52.22, <em>p</em> &lt; .001.</p>
+<p>To scrutinise the interaction, a simple main effects analysis was undertaken. For the simple main effects of group at trial type, response times on congruent trials did not differ significantly between the healthy and schizophrenia groups, <em>F</em>(1, 78) = .05, <em>p</em> = .831, whereas response times were significantly longer on incongruent trials for the schizophrenia group compared to the healthy group, <em>F</em>(1, 78) = 163.19, <em>p</em> <span class="math inline">\(&lt;\)</span> .001. For the simple main effects of trial type at group, response times were significantly longer on incongruent trials than congruent trials for the healthy group, <em>F</em>(1, 78) = 163.69, <em>p</em> <span class="math inline">\(&lt;\)</span> .001, and for the schizophrenia group, <em>F</em>(1, 78) = 529.65, <em>p</em> <span class="math inline">\(&lt;\)</span> .001, although the effect was larger for the schizophrenia group.</p>
+<p>Hence, the interaction arose because the schizophrenia group demonstrated a larger Stroop effect than the healthy group and this was due to longer response times on incongruent, but not congruent, trials.</p>
+</section>
+</section>
+<section id="analysing-hypothetical-data-for-the-fully-within-participants-stroop-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="analysing-hypothetical-data-for-the-fully-within-participants-stroop-experiment">Analysing hypothetical data for the fully within-participants Stroop experiment</h2>
+<p>We turn now to an analysis of the fully within-participant Stroop experiment described in the lecture. In this experiment, a researcher wants to examine whether the magnitude of the Stroop effect decreases with practice at the task. The Stroop task is administered over three successive blocks of trials and the expectation is that the magnitude of the Stroop effect will decrease gradually across blocks. She administers a multi-trial Stroop task to a single group of participants in a 2 (trial type: congruent <em>vs.</em> incongruent) <span class="math inline">\(\times\)</span> 3 (block: block 1 <em>vs.</em> block 2 <em>vs.</em> block 3) fully within-participants design.</p>
+<p>The data set contains seven columns:</p>
+<ul>
+<li><p><strong>Participant:</strong> represents the participant number, which ranges from 1–40, with <span class="math inline">\(N\)</span> = 40 participants.</p></li>
+<li><p><strong>Congruent_Block1:</strong> represents the mean response time, averaged across trials, for congruent trials in the first block of trials.</p></li>
+<li><p><strong>Congruent_Block2:</strong> represents the mean response time, averaged across trials, for congruent trials in the second block of trials.</p></li>
+<li><p><strong>Congruent_Block3:</strong> represents the mean response time, averaged across trials, for congruent trials in the third block of trials.</p></li>
+<li><p><strong>Incongruent_Block1:</strong> represents the mean response time, averaged across trials, for incongruent trials in the first block of trials.</p></li>
+<li><p><strong>Incongruent_Block2:</strong> represents the mean response time, averaged across trials, for incongruent trials in the second block of trials.</p></li>
+<li><p><strong>Incongruent_Block3:</strong> represents the mean response time, averaged across trials, for incongruent trials in the third block of trials.</p></li>
+</ul>
+<section id="import-data-set-variables-as-factors-and-generate-descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="import-data-set-variables-as-factors-and-generate-descriptive-statistics">Import data, set variables as factors, and generate descriptive statistics</h3>
+<p>There’s a bit to get through in this analysis, so I am going to supply the code for everything that follows. We begin, as always, by loading our data set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>stroopWithin <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"StroopWithin.csv"</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>(stroopWithin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 7
+   Participant Congruent_Block1 Congruent_Block2 Congruent_Block3
+         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+ 1           1              627              687              563
+ 2           2              558              681              674
+ 3           3              635              709              575
+ 4           4              626              673              663
+ 5           5              610              610              643
+ 6           6              568              655              715
+ 7           7              635              641              573
+ 8           8              530              677              545
+ 9           9              613              621              638
+10          10              542              607              636
+# ℹ 30 more rows
+# ℹ 3 more variables: Incongruent_Block1 &lt;dbl&gt;, Incongruent_Block2 &lt;dbl&gt;,
+#   Incongruent_Block3 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>As is the case for a fully within-participants design, the data are in entirely wide format and we need to get them into long format for the analysis. We are going to start by grouping the columns <code>Congruent_Block1</code> through to <code>Incongruent_Block3</code> into a new variable called <code>Group</code> using the <code>gather</code> function used previously:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert data into long format</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>stroopWithinLong <span class="ot">=</span> stroopWithin <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(Group,RT,Congruent_Block1<span class="sc">:</span>Incongruent_Block3,<span class="at">factor_key =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>(stroopWithinLong)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 240 × 3
+   Participant Group               RT
+         &lt;dbl&gt; &lt;fct&gt;            &lt;dbl&gt;
+ 1           1 Congruent_Block1   627
+ 2           2 Congruent_Block1   558
+ 3           3 Congruent_Block1   635
+ 4           4 Congruent_Block1   626
+ 5           5 Congruent_Block1   610
+ 6           6 Congruent_Block1   568
+ 7           7 Congruent_Block1   635
+ 8           8 Congruent_Block1   530
+ 9           9 Congruent_Block1   613
+10          10 Congruent_Block1   542
+# ℹ 230 more rows</code></pre>
+</div>
+</div>
+<p>The first argument to <code>gather()</code> tells R we want to create a variable called <code>Group</code>. The second argument tells R that <code>RT</code> is the dependent variable. The third argument, <code>Congruent_Block1:Incongruent_Block3</code>, tells R that we want to bundle the columns <code>Congruent_Block1</code> through to <code>Incongruent_Block3</code> into the new variable, <code>Group</code>. The fourth argument, <code>factor_key = TRUE</code>, tells R that we want to make this variable a factor. The results of this transformation have been assigned to a new data frame called <code>stroopWithinLong</code>.</p>
+<p>Looking at the new data frame we have created, we can see that it is not exactly what we want. Our new variable <code>Group</code> actually contains both of our independent variables. What we want is to separate these independent variables into two separate columns. We can do that with the <code>separate</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide Group into seperate columns for Trial Type and Block</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>stroopWithinLongSep <span class="ot">=</span> stroopWithinLong <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(Group, <span class="fu">c</span>(<span class="st">"TrialType"</span>,<span class="st">"Block"</span>))</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>(stroopWithinLongSep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 240 × 4
+   Participant TrialType Block     RT
+         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt;
+ 1           1 Congruent Block1   627
+ 2           2 Congruent Block1   558
+ 3           3 Congruent Block1   635
+ 4           4 Congruent Block1   626
+ 5           5 Congruent Block1   610
+ 6           6 Congruent Block1   568
+ 7           7 Congruent Block1   635
+ 8           8 Congruent Block1   530
+ 9           9 Congruent Block1   613
+10          10 Congruent Block1   542
+# ℹ 230 more rows</code></pre>
+</div>
+</div>
+<p>This bit of code tells R to separate the variable <code>Group</code> into two new variables, one called <code>TrialType</code> and one called <code>Block</code>. The results are stored in a new data frame called <code>stroopWithinLongSep</code>, which is the data frame we will be using henceforth. Looking at this data frame we can see that our transformation has had the desired effect—we now have two new columns corresponding to each of our two independent variables.</p>
+<p>However, our two new variables are currently stored as characters (they have the labels <code>&lt;chr&gt;</code> beneath the variable names) and we need to convert them to factors. We also need to convert the Participant variable into a factor. So, let’s do that next:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert variables into factors</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>stroopWithinLongSep<span class="sc">$</span>Participant <span class="ot">=</span> <span class="fu">factor</span>(stroopWithinLongSep<span class="sc">$</span>Participant)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>stroopWithinLongSep<span class="sc">$</span>TrialType   <span class="ot">=</span> <span class="fu">factor</span>(stroopWithinLongSep<span class="sc">$</span>TrialType)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>stroopWithinLongSep<span class="sc">$</span>Block       <span class="ot">=</span> <span class="fu">factor</span>(stroopWithinLongSep<span class="sc">$</span>Block)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Right, now is as good a time as any to get some descriptive statistics:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get descriptive statistics</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>withinDescriptives <span class="ot">=</span> stroopWithinLongSep <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise the output by the"TrialType" and "Block" factors</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TrialType, Block) <span class="sc">%&gt;%</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Request means, standard deviations, and confidence intervals</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(RT, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>,<span class="st">"sd"</span>,<span class="st">"ci"</span>))</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the results</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  (withinDescriptives)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+  TrialType   Block  variable     n  mean    sd    ci
+  &lt;fct&gt;       &lt;fct&gt;  &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Congruent   Block1 RT          40  615.  48.9  15.6
+2 Congruent   Block2 RT          40  631.  50.8  16.3
+3 Congruent   Block3 RT          40  632.  53.8  17.2
+4 Incongruent Block1 RT          40  832.  43.7  14.0
+5 Incongruent Block2 RT          40  723.  41.2  13.2
+6 Incongruent Block3 RT          40  650.  49.1  15.7</code></pre>
+</div>
+</div>
+<p>Time is limited, so we are once again going to skip over the usual checks, which you should otherwise always perform.</p>
+<p>However, because one of our within-participants factors contains three levels (i.e., Block) there is one check that will be performed when we run the ANOVA. Specifically, this is a check to establish whether the <strong>sphericity assumption</strong> has been violated. Richard introduced you to this assumption when he discussed single-factor within-participants ANOVA, so I will only describe it briefly. The sphericity assumption states that <em>for a within-participants design with three or more levels, the variance of the difference scores between one pair of levels should not differ significantly from the variances of the difference scores for every other possible pair of levels.</em></p>
+<p>The assumption is tested using Mauchly’s test of sphericity, which is applied to any outcome involving a factor with three or more levels. If the test result is significant, then the assumption has been violated. If this occurs, then we must adopt the Greenhouse-Geisser correction for violations of this assumption.</p>
+</section>
+<section id="running-the-mixed-anova-1" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-mixed-anova-1">Running the mixed ANOVA</h3>
+<p>To run our ANOVA, we are once again going to use the <code>anova_test</code> function from the <code>rstatix</code> package. The code required to run the ANOVA is given below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the within-participants design ANOVA model</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>stroopWithinModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> stroopWithinLongSep, <span class="at">dv =</span> RT, <span class="at">wid =</span> Participant, <span class="at">within =</span> <span class="fu">c</span>(TrialType, Block), <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>(stroopWithinModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
+
+$ANOVA
+           Effect DFn DFd         SSn      SSd         F        p p&lt;.05   ges
+1     (Intercept)   1  39 111105237.6  77509.9 55903.885 3.54e-63     * 0.995
+2       TrialType   1  39    713623.2  84476.3   329.457 1.28e-20     * 0.568
+3           Block   2  78    272694.5 221792.5    47.951 2.63e-14     * 0.335
+4 TrialType:Block   2  78    403873.6 158005.4    99.687 3.25e-22     * 0.427
+
+$`Mauchly's Test for Sphericity`
+           Effect     W     p p&lt;.05
+1           Block 0.949 0.368      
+2 TrialType:Block 0.952 0.394      
+
+$`Sphericity Corrections`
+           Effect   GGe      DF[GG]    p[GG] p[GG]&lt;.05   HFe   DF[HF]    p[HF]
+1           Block 0.951   1.9, 74.2 1.01e-13         * 0.999  2, 77.9 2.72e-14
+2 TrialType:Block 0.954 1.91, 74.44 2.61e-21         * 1.002 2, 78.17 3.25e-22
+  p[HF]&lt;.05
+1         *
+2         *</code></pre>
+</div>
+</div>
+<p>To create the model, the first argument we supplied to <code>anova_test</code> was the name of our data, <code>stroopWithinLongSep</code>. The second argument we supplied was our dependent variable, <code>RT</code>. The third argument we supplied was <code>Participant</code>, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our two within-participants factors, <code>TrialType</code> and <code>Block</code>.</p>
+<p>The ANOVA output now contains three tables. The first is the main ANOVA table, which is organised in the same format as that produced for our mixed design example from earlier.</p>
+<p>The second table presents the results of Mauchly’s test of sphericity, which has been applied to the factor Block, which has three levels, and the interaction between Trial Type and Block. In both instances, we can see that the test result is non-significant, which means the sphericity assumption has been met.</p>
+<p>The third table gives the Greenhouse-Geisser corrected ANOVA table for the main effect of Block and the interaction between Trial Type and Block. Had we violated the sphericity assumption, it is these values that we would report when writing up our ANOVA, instead of the values taken from the original ANOVA table (the main effect of Trial Type would be drawn from the original ANOVA table as it only has two levels, and therefore the sphericity assumption does not apply to this outcome). Because we did not violate the sphericity assumption on this occasion, we can focus solely on the original ANOVA table.</p>
+<p>You may at this point be wondering why Mauchly’s test of sphericity and the Greenhouse-Geisser correction were not produced when we ran the ANOVA for our mixed design example. The answer is simple; for that design our within-participants factor only contained two levels, so the sphericity assumption did not apply. The <code>anova_test</code> function only generates these tests and corrections when at least one of the within-participants factors has three or more levels.</p>
+<p>Let’s redirect our attention to the original ANOVA table. We can see that there is a significant main effect Trial Type, <em>p</em> <span class="math inline">\(&lt;\)</span> .001. Looking at our descriptive statistics, we can see that this arose because response times are longer for incongruent than congruent trials. There is also a significant main effect of Block, <em>p</em> <span class="math inline">\(&lt;\)</span> .001, which arose because response times get quicker across blocks as participants obtain more experience with the task. There is also a significant interaction between the two factors, <em>p</em> <span class="math inline">\(&lt;\)</span> .001. We will defer interpretation of this interaction until later, once we have calculated the simple main effects and plotted the data.</p>
+<p>As for our mixed design example, the ANOVA table does not include the mean square values for the outcomes. Previously, we calculated the between-group and error mean squares for ourselves, and verified that these produced the obtained <span class="math inline">\(F\)</span> ratios when we divided the former by the latter. This time, we will just generate the error mean squares. Again, this is so I can show you which error term is being used to test each ANOVA outcome and the simple main effects of each factor.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the error mean sum of squares</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>withinMeanSquareError <span class="ot">=</span> stroopWithinModel<span class="sc">$</span>ANOVA<span class="sc">$</span>SSd<span class="sc">/</span>stroopWithinModel<span class="sc">$</span>ANOVA<span class="sc">$</span>DFd</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude the intercept (row 1 of 4) from the results</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>withinMeanSquareError[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2166.059 2843.493 2025.710</code></pre>
+</div>
+</div>
+<p>The first value is the error mean square for the main effect of Trial Type (2166.059), the second value is the error mean square for the main effect of Block (2843.493), and the third value is the error mean square for the interaction (2025.710). Recall that in the lecture, we saw that in a fully within-participants design the two main effects and the interaction each have their own error terms, and sure enough we can see that the error term is different for each outcome.</p>
+</section>
+<section id="simple-main-effects" class="level3">
+<h3 class="anchored" data-anchor-id="simple-main-effects">Simple main effects</h3>
+<p>Since our interaction is once again significant, we need to proceed to calculate the simple main effects. Before we can calculate the simple main effects, there are a few things we need to do. First, we need to store our ANOVA table in a dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get ANOVA table</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>withinAnovaTable <span class="ot">=</span> <span class="fu">get_anova_table</span>(stroopWithinModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we need to calculate the cell totals for each of the six conditions and the number of observations (i.e., scores) in each cell:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate cell totals and counts</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>withinCellTotals <span class="ot">=</span> stroopWithinLongSep <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Organise the output by the TrialType" and "Block" factors</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(TrialType, Block) <span class="sc">%&gt;%</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Request cell totals and number of observations (i.e., scores)</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(RT),<span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the results</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  (mixedCellTotals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+# Groups:   TrialType [2]
+  TrialType   Group           sum     n
+  &lt;fct&gt;       &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;
+1 Congruent   Healthy       24919    40
+2 Congruent   Schizophrenia 24999    40
+3 Incongruent Healthy       30799    40
+4 Incongruent Schizophrenia 35576    40</code></pre>
+</div>
+</div>
+<p>Then, we need to specify which simple main effects we want to generate. We are first going to calculate the simple main effects of the factor Trial Type at Block. This means, we are going to:</p>
+<ul>
+<li>Test the difference between congruent and incongruent trials for <em>Block 1</em> only.</li>
+<li>Test the difference between congruent and incongruent trials for <em>Block 2</em> only.</li>
+<li>Test the difference between congruent and incongruent trials for <em>Block 3</em> only.</li>
+</ul>
+<p>Notice that because Trial Type has only two levels, the simple main effects of this factor involve only pairwise comparisons. To generate these simple main effects, we need to declare Trial Type as the “fixed” factor (we are always comparing the congruent and incongruent trials) and Block as the “across” factor (the comparison between the congruent and incongruent trials occurs “across” the Block 1, Block 2, and Block 3 levels of the Block factor):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create "fixed" and "across" factors</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>fixed  <span class="ot">=</span> <span class="st">"TrialType"</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>across <span class="ot">=</span> <span class="st">"Block"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To get the simple main effects of Trial Type, we pass the cell totals, ANOVA table, and the fixed and across factors to our function <code>simple()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple main effects of Trial Type at Block</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>withinSmeTrialType <span class="ot">=</span> <span class="fu">simple</span>(withinCellTotals,withinAnovaTable,fixed,across)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>(withinSmeTrialType)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Levels Sum of Squares Degrees of Freedom Mean Square          F
+1     Block1     941997.012                  1  941997.012 434.889848
+2     Block2     168820.312                  1  168820.312  77.938931
+3     Block3       6679.512                  1    6679.512   3.083717
+4 Error term      84476.296                 39    2166.059   0.000000
+             P
+1 9.362214e-23
+2 7.711308e-11
+3 8.693084e-02
+4 0.000000e+00</code></pre>
+</div>
+</div>
+<p>As described in the lecture, to calculate the simple main effects of a given factor in a within-participants design, we use the mean square error for the main effect of that factor from the original ANOVA table as the error term. The mean square error in the simple main effects table is given in column four (Mean Square) of row three (Error term). You will notice that this is the error mean square for the main effect of Trial Type that we calculated earlier from our initial ANOVA table (i.e., 2166.059). If you divide the between-group mean squares for the effect of Trial Type at Block 1, Block 2, and Block 3 by this value, it will give you the <span class="math inline">\(F\)</span> ratios given in the simple main effects table.</p>
+<p>Looking at the simple main effects, we can see that the simple main effect of Trial type at Block 1 is significant, <span class="math inline">\(p\)</span> <span class="math inline">\(&lt;\)</span> .001. Looking at our table of descriptive statistics, we can see that this is because mean response times for incongruent trials were longer than for congruent trials. The simple main effect of Trial Type is also significant at Block 2, <span class="math inline">\(p\)</span> <span class="math inline">\(&lt;\)</span> .001, again reflecting longer mean response times for incongruent than congruent trials. However, the simple main effect of Trial Type at Block 3 is not significant, <span class="math inline">\(p\)</span> = .087. Thus, we obtained a statistically reliable Stroop effect for Blocks 1 and 2, but not for Block 3.</p>
+<p>Next, we are going to calculate the simple main effects of the factor Block at Trial Type. This means, we are going to:</p>
+<ul>
+<li>Test the differences between Block 1, Block 2, and Block 3 for <em>congruent</em> trials only.</li>
+<li>Test the differences between Block 1, Block 2, and Block 3 for <em>incongruent</em> trials only.</li>
+</ul>
+<p>Notice that because Block has three levels, the simple main effects of this factor involve more than simple pairwise comparisons. To test these simple main effects, we now need to declare Block as the “fixed” factor and Trial Type as the “across” factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create "fixed" and "across" factors</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>fixed  <span class="ot">=</span> <span class="st">"Block"</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>across <span class="ot">=</span> <span class="st">"TrialType"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We then generate the simple main effects of Block with the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple main effects of Block at Trial Type</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>withinSmeBlock <span class="ot">=</span> <span class="fu">simple</span>(withinCellTotals,withinAnovaTable,fixed,across)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>(withinSmeBlock)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Levels Sum of Squares Degrees of Freedom Mean Square          F
+1   Congruent       7616.717                  2    3808.358   1.339324
+2 Incongruent     668951.450                  2  334475.725 117.628461
+3  Error term     221792.467                 78    2843.493   0.000000
+             P
+1 2.679808e-01
+2 2.828545e-24
+3 0.000000e+00</code></pre>
+</div>
+</div>
+<p>Remember, to calculate the simple main effects of a given factor in a within-participants design, we use the mean square error for the main effect of that factor from the original ANOVA table as the error term. The mean square error in the simple main effects table is given in column four (Mean Square) of row three (Error term). You will notice that this is the error mean square for the main effect of Block that we calculated earlier from our initial ANOVA table (i.e., 2843.493). If you divide the between-group mean squares for the effect of Block at congruent and incongruent trials by this value, it will give you the <span class="math inline">\(F\)</span> ratios given in the simple main effects table.</p>
+<p>Looking at the simple main effects, we can see that the simple main effect of Block at congruent trials is not significant, <span class="math inline">\(p\)</span> = .268. Hence, mean response times do not differ reliably across blocks for congruent trials. However, the simple main effect of Block at incongruent trials is significant, <span class="math inline">\(p\)</span> <span class="math inline">\(&lt;\)</span> .001. Since there are three levels in the factor Block, this significant simple main effect is like the outcome of a significant single-factor ANOVA with three levels—it tells us that there are differences between the group means, but it does not tell us where they are located. To find out, we need to perform some follow up tests. We have a few options available to us.</p>
+<p>Suppose we hypothesised the interaction from the beginning and that we are only interested in the difference between Block 1 and Block 2, and Block 2 and Block 3 for incongruent trials, but we are not interested in the third comparison, which is between Block 1 and Block 3. In this case, we would have specified planned comparisons, because we do not intend to conduct all possible comparisons, only the ones relevant to testing our specific hypotheses. In this case, we could simply run two repeated measures <span class="math inline">\(t\)</span>-tests, one comparing Block 1 and Block 2 at incongruent trials, and one comparing Block 2 and Block 3 at incongruent trials. Should we apply the Bonferroni correction to these comparisons? One rule of thumb is that if the number of comparisons is one less than the number of levels, i.e., (<span class="math inline">\(a\)</span>-1) comparisons where <span class="math inline">\(a\)</span> is the number of levels in the factor, then we do not need to apply the Bonferroni correction. In our case, our simple main effect has three levels and we are conducting two comparisons, which is one less than the number of levels, so we can proceed without using the Bonferroni correction (for those occasions where there are four or more levels, this rule of thumb does not apply and you should definitely use the Bonferroni correction). Alternatively, suppose we did not specify at the outset which comparisons we would perform if the interaction was significant. In this case, we would perform all three comparisons and we would use a post-hoc test, such as the Tukey test.</p>
+<p>Four our purposes, we are going to perform planned comparisons. To perform these comparisons, we first need to filter our data so that they only contain responses on incongruent trials (we are excluding responses on congruent trials). The following code gives us what we want:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the data so they only contain responses on "Incongruent" trials</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>filter4SME <span class="ot">=</span> <span class="fu">filter</span>(stroopWithinLongSep, TrialType <span class="sc">==</span> <span class="st">"Incongruent"</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>(filter4SME)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 120 × 4
+   Participant TrialType   Block     RT
+   &lt;fct&gt;       &lt;fct&gt;       &lt;fct&gt;  &lt;dbl&gt;
+ 1 1           Incongruent Block1   863
+ 2 2           Incongruent Block1   870
+ 3 3           Incongruent Block1   794
+ 4 4           Incongruent Block1   872
+ 5 5           Incongruent Block1   813
+ 6 6           Incongruent Block1   856
+ 7 7           Incongruent Block1   901
+ 8 8           Incongruent Block1   818
+ 9 9           Incongruent Block1   799
+10 10          Incongruent Block1   829
+# ℹ 110 more rows</code></pre>
+</div>
+</div>
+<p>The new data frame <code>filter4SME</code> is a version of our data in which only congruent trials are included. We can then use the <code>pariwise_t_test</code> function that you have used many times to run our <span class="math inline">\(t\)</span>-tests (making sure to specify <code>paired = TRUE</code> as we want repeated measures comparisons!):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>filter4SME <span class="sc">%&gt;%</span> </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate the t-tests for the two comparisons of interest</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(RT <span class="sc">~</span> Block, <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Specify the comparisons we want</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Block1"</span>,<span class="st">"Block2"</span>),<span class="fu">c</span>(<span class="st">"Block2"</span>,<span class="st">"Block3"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 10
+  .y.   group1 group2    n1    n2 statistic    df        p    p.adj p.adj.signif
+* &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       
+1 RT    Block1 Block2    40    40      9.90    39 3.38e-12 6.76e-12 ****        
+2 RT    Block2 Block3    40    40      7.03    39 1.96e- 8 1.96e- 8 ****        </code></pre>
+</div>
+</div>
+<p>The comparison between Block 1 and Block 2 is significant, <em>p</em> <span class="math inline">\(&lt;\)</span> .001, as is the comparison between Block 2 and Block 3, <em>p</em> <span class="math inline">\(&lt;\)</span> .001. Looking at our descriptive statistics, we can see that this is because mean response times are faster for incongruent trials in Block 2 than in Block 1, and mean response times for incongruent trials are faster in turn in Block 3 than in Block 2. Thus, with practice on the Stroop task, participants responses on incongruent trials get gradually quicker.</p>
+</section>
+<section id="writing-up-the-results-1" class="level3">
+<h3 class="anchored" data-anchor-id="writing-up-the-results-1">Writing up the results</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/StroopWithinData.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Figure 2. Mean response times as a function of the trial type and block manipulations. Error bars represent 95% confidence intervals.</figcaption>
+</figure>
+</div>
+<p>Figure 2 shows mean response times as a function of the trial type and block manipulations. These data were subjected to a 2 (trial type: congruent <em>vs.</em> incongruent) <span class="math inline">\(\times\)</span> 3 (block: block 1 <em>vs.</em> block 2 <em>vs</em> block 3) fully within-participants Analysis of Variance. There was a significant main effect of trial type, <em>F</em>(1, 39) = 329.46, <em>p</em> &lt; .001, with response times being longer for incongruent than congruent trials, a significant main effect of block, <em>F</em>(2, 78) = 47.95, <em>p</em> &lt; .001, with response times getting quicker across blocks, and a significant interaction between the two factors, <em>F</em>(2, 78) = 99.69, <em>p</em> &lt; .001.</p>
+<p>To scrutinise the interaction, a simple main effects analysis was undertaken. For the simple main effects of trial type at block, response times were significantly longer on incongruent trials than congruent trials in block 1, <em>F</em>(1, 39) = 434.89, <em>p</em> &lt; .001, and block 2, <em>F</em>(1, 39) = 77.94, <em>p</em> &lt; .001, but not in block 3, <em>F</em>(1, 39) = 3.08, <em>p</em> = .087. Turning to the simple main effects of block at trial type, response times did not differ significantly across blocks for congruent trials, <em>F</em>(2, 78) = 1.34, <em>p</em> = .268, but they did differ significantly across blocks for incongruent trials, <em>F</em>(2, 78) = 117.63, <em>p</em> &lt; .001. Planned comparisons revealed that response times on incongruent trials were faster in block 2 than in block 1, <em>t</em>(39) = 9.90, <em>p</em> &lt; .001, and faster in turn in block 3 than in block 2, <em>t</em>(39) = 7.03, <em>p</em> &lt; .001.</p>
+<p>Hence, the interaction arose because the magnitude of the Stroop effect decreased across blocks and this was due to the speeding up of responses on incongruent, but not congruent, trials.</p>
+</section>
+<section id="additional-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="additional-tasks">Additional tasks</h3>
+<p>Phew!!! We have covered a lot of ground in today’s session – well done for making it through the exercises. If you should happen to want more, then you could recreate the plots in Figures 1 and 2 by co-opting the code we used to generate line plots in lab session 6.</p>
+<p><br> <br></p>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../PSYC214/Week7.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7. Two-Factor Between-Participants ANOVA</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../PSYC214/Week9.html" class="pagination-link">
+        <span class="nav-page-text">9. Three-Factor ANOVA</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../previous-content/index.html">Previous Content</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

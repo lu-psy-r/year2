@@ -1,0 +1,392 @@
+---
+title: "Lab3_Interactions"
+author: "Emma Mills"
+date: "27/01/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
+## World Happiness Report
+
+I have included the code up until line 228 where I introduce you to the `scale` function - a quicker way to centre and standardise your variables,  after that you are on your own.
+
+ - Generate the model output 
+ - Report the model
+ - Plot the interaction effect using plot(predictorEffect(coefficient name here, model name here))
+ - I have included some code to show you how to present a table.
+ - and there is some optional material at the end.
+ 
+So your job this week is to write the middle part of the code and interpret / communicate the model.
+
+Good Luck!
+
+### Import - packages...
+
+```{r}
+library(tidyverse)
+library(PerformanceAnalytics) # visualising relationships between predictors
+library(broom)
+library(effects)
+```
+## ...and data
+
+The data are taken from https://worldhappiness.report/ed/2021/happiness-trust-and-deaths-under-covid-19/
+
+```{r}
+d <- read_csv("WorldHappinessReportData.csv")
+```
+
+### Tidy
+
+```{r}
+# use select() to keep columns you want (remember: select = columns / filter = rows)
+# colnames(d)
+d <- d %>% select(c(1:3, 7:12))
+```
+
+We have nine variables.  `Ladder score` is our outcome variable.  We are going to work with the other nine variables to see what predicts this strange named variable.
+
+### Transform
+
+The dataset is beautifully tidy.  It is the basis of an international / global report with a wide ranging audience that is all about the psychological construct of "Happiness".  
+
+The data is prepared for public consumption and so the variables are formatted for human readability, full of spaces between separate words - can you see? Computers would prefer no spaces, and will add code in, back ticks in this case, wrapped around each variable name, to make sure they recognise the variable names as one piece of information.  This is annoying for you as a writer of code, because you have to do extra typing.
+
+So it is easier for you to rename the variables into something representative, very early on; this also allows you to get rid of capital letters which can be a pain when you are writing code because R is case sensitive. Shorter variable names will help with visualisation labels aswell. A little bit of work now, will make it easier for you to work inside the code throughout.
+
+We are going to use the `rename()` function which follows this pattern:
+
+For rename(): name of new dataset = name of current dataset %>% rename(new_name = old_name, ...)
+
+```{r}
+d <- d %>% rename(country = `Country name`,
+                  region = `Regional indicator`,
+                  happiness = `Ladder score`, # outcome variable
+                  GDP = `Logged GDP per capita`,
+                  support = `Social support`,
+                  LE = `Healthy life expectancy`,
+                  choices = `Freedom to make life choices`,
+                  generosity = `Generosity`,
+                  corruption = `Perceptions of corruption`)
+# look at the new variable names
+colnames(d)
+```
+
+
+### Some More Transforming
+
+If we want to think about having a categorical variable in our model, `Regional indicator`, now `region`, a continent / geographic area variable, is probably a better bet than `Country name`.  `region`` has groups of countries within it, so it is a grouping variable for the country data. By grouping them, we are making an assumption that countries that are closer to each other in geography, are probably more like each other than countries that are further away. We have constructed a factor.  So,  we need to transform this variable into a factor:
+
+```{r}
+d$region <- as.factor(d$region)
+
+table(d$region)
+```
+
+Ooh - hard to read. Long variable names may need some renaming.  When you are constructing your own datasets, you may want to keep this in mind.
+
+To find this next bit of code, I performed a search in Google: "rename factor levels r"
+
+```{r}
+
+# make a copy of my variable to test the code, keeping the original of my raw data intact:
+
+d$region1 <- d$region
+
+#get a list of the variables levels for you to cut and paste, thereby avoiding typos!
+levels(d$region1)
+
+# Renaming factor levels dplyr
+# Notice how the ORIGINAL level name does not have quotation marks but the new names do.
+# But also notice how I have to put back ticks around the original level names
+# because of those pesky white spaces in human readable formatting!!! 
+d$region1 <- recode_factor(d$region1, 
+                           `Central and Eastern Europe` = "CEE", 
+                           `Commonwealth of Independent States` = "CIS",
+                           `East Asia` = "E.Asia",
+                           `Latin America and Caribbean`= "LAC",
+                           `Middle East and North Africa` = "ME&NA",
+                           `North America and ANZ` = "NAANZ",
+                           `South Asia` = "S.Asia",
+                           `Southeast Asia` = "SE.Asia",
+                           `Sub-Saharan Africa` = "SS-A",
+                           `Western Europe` = "WE")
+```
+
+Have another look at the level labels now
+
+```{r}
+levels(d$region1)
+```
+
+### Visualise the plot now with shorter labels
+
+using `ggplot` function now
+
+```{r}
+
+rp <- ggplot(d, aes(x = region1)) +
+  geom_bar() +
+  theme_bw()
+rp
+```
+
+It's not great - this is not publication standard (like some of Mark's graphs!) but it is fit for purpose: it allows you to see how many countries are grouped in each region and compare them.  
+
+So what does it tell us?  Lets interpret the graph.  
+
+It tells you that for each region, there are a different amount of countries. Region SS-A has the highest number of countries; NAANZ has the lowest. 
+
+At the level of the dataset, this also tells you that there is more data available in the SS-A region (more countries = more observations in the dataset) than the NAANZ region - so these are unbalanced variables.  
+
+Don't worry about that for today.  That's going a bit deep. The point was to show you how visualising the data with graphs can help you get some insight, which might give you something to think about when putting your models together.
+
+If you check your blue button in the Environment window pane, now, you will see that the structure of the `region1` variable is now showing 10 levels.
+
+Q:  Lots of levels here - what kind of scale is this variable on?  What kind of contrast coding is appropriate then?  Would you want to hand pick your reference level if you entered this variable as a predictor into your model?
+
+How does R see the contrast levels for `d$region` variable?  Fore readability, from now on, I am going to call the `region1` version of the variable
+
+Readability rules!
+
+```{r}
+contrasts(d$region1)
+```
+
+Much more readable.  `region1` is dummy coded right now (all those 0s and 1s) and Central and Eastern Europe (CEE) is the reference level at the moment - notice all the 0s on the CEE line for each comparison with the other levels in the above print out.
+
+### Tidy or Transform?  Reorder the Region Variable
+
+to find the next snippet of code, I performed this search on google: "re-order factor levels r" and cookbook-r.com, I site I trust for helpful advice and code, told me to use the `relevel()` function, because my variable is not an ordinal variable.  So here goes:
+
+```{r}
+# get the order of levels right now:
+levels(d$region1)
+
+# Make Western Europe the first level in the region variable - it is where I live, so I can interpret the variable differences as a difference from a context that I know about.  You could choose another region
+d$region1 <- relevel(d$region1, 10) # make the 10th level the first level (reference level)
+
+# check 
+levels(d$region1)
+```
+
+Remember, this means that WE and it's level of happiness will be hidden in the intercept, and each coefficient term in the  model will represent the change in happiness moving from WE to the other geographical region, while all the other predictors in the model are either at 0 or their average levels (depending on whether you have modelled predictors in their raw data or centred / standardised them). 
+
+Note that by keeping my original data intact (long label names in `d$region`, short in `d$region1`), I haven't changed any of the raw data in either column.  So either column could be used and we have publishable names in the original variable.  We can call on them later, if we wanted to use them in a table / plot for reporting!
+
+### Visualising relationships between variables
+
+`happiness` is the outcome variable (dependent variable in ANOVA language), so we don't want to visualise this variable, with the others.  At the moment, we also don't want to include the categorical variables - remember that simple correlations need both variables to be on a continuous scale
+
+```{r message=FALSE, warning=FALSE}
+# the c(4:10) here selects only those columns that store variables that are continuous
+chart.Correlation(d[, c(4:9)], histogram=TRUE, pch=19)
+```
+Remember the thresholds for interpreting the strength of relationship shown by the value of a bivariate correlation:
+
+ - 0.1 - 0.3 = small or weak
+ - 0.3 - 0.5 = moderate or medium
+ - 0.5 - 0.7 = large or strong
+
+
+### Model raw variables
+
+Begin with an empty model
+
+```{r}
+(summary(m0 <- lm(happiness ~ 1, d)))
+```
+Our empty model tells us the average level of happiness in the model.
+
+Lets put in the numerical variables:
+
+```{r}
+(summary(m6 <- lm(happiness ~ GDP + support + LE + choices + generosity + 
+                    corruption, d)))
+```
+Because these predictors are raw, not centred or standardised,  the intercept is now predicting the mean of happiness when all the predictors are at 0.  Hence the lower level of happiness that is now showing in the intercept term.
+
+Lets add an interaction term and do a model comparison between the two neighbouring models:
+
+I will add an interaction term between support and life expectancy
+
+```{r}
+(summary(m7 <- lm(happiness ~ GDP + support + LE + choices + generosity + 
+                    corruption + LE:support, d)))
+```
+
+Because we have two models, one that has fewer predictors than the other, but is estimated on exactly the same data, we need to do a model comparison to see if the more complex model (the one with the interaction term) is warranted.
+
+```{r}
+
+anova(m6, m7)
+```
+
+The model with the interaction term is significantly different from the smaller, simpler model.  Look at the *p*-value in the analysis of variance table above
+
+```{r}
+(summary(m8 <- lm(happiness ~ GDP + support + LE + choices + generosity + 
+                    corruption + LE:support + region1, d)))
+```
+
+But I can't understand this model.  I am not familiar with the data,  they are all measured in different ways - I need to centre or even better, standardise the continuous variables, then everything will be at their average and I will be able to compare across the variables
+
+### Transform
+
+So you've seen how to mean center / standardise longhand.  I'll show you one function that can do both now, and there are many other ways.  Sometimes this function doesn't play nicely with other functions so, you know how to do this longhand when it doesn't.
+
+To use this function, combine `scale()` with mutate to keep your original data intact.
+
+`scale(d, center = TRUE, scale = FALSE)` will centre your variable
+`scale(d, center = TRUE, scale = TRUE)` will standardise your variable - this is the default setting, so you don't need to write the centre or scale argument if you want to standardise.
+
+To use this function, combine `scale()` with `mutate()` to keep your original data intact.
+
+```{r}
+
+# get your colnames again
+colnames(d)
+
+d <- d %>% mutate(
+  GDP_z = scale(GDP),
+  support_z = scale(support),
+  LE_z = scale(LE),
+  choices_z = scale(choices),
+  generosity_z = scale(generosity),
+  corruption_z = scale(corruption))
+```
+
+Lets reduce the model a bit too - start small and build an understanding.  Let's leave the geographical regions out for now: but use all the other variables in their standardised form
+
+```{r}
+(m7_z_summary <- summary(m7_z <- lm(happiness ~ 
+                                      
+                                      )))
+```
+
+We inspected diagnostic plots which show reasonable dispersion of residuals.  There are a number of points that could be influential or show high leverage however they don't appear to be aberrant.
+
+Finally, Lets add `region1`
+
+```{r}
+m8_z <- lm(happiness ~ )
+```
+
+Lets compare the two models to see which is the preferred model:
+
+```{r}
+
+```
+The model with the additional predictor of region explains significantly more variance than the smaller, simpler model without the region variable.  We work with this one from now on.
+
+Have a look at the model residuals to check its fit:
+
+I daren't look at the residuals - but it's all part of the fun:
+
+```{r}
+plot(m8_z)
+```
+
+```{r}
+m8_z_summary <- summary(m8_z) # save the summary so that you can use it for in line code
+```
+
+```{r}
+ # call the summary of m8_z for comparison with your text interpretation
+```
+
+### Communication
+
+Have a stab at interpreting this model.  And more importantly, the interaction term.
+
+ - Describe the model as a whole
+ - Tell us the F ratio, the *p*-value and the explained variance
+ - Talk about the significant indepdendent effects
+ - Talk about the interaction effect - remember that with a two way interaction (as here) this means that you talk about the independent effects and how the interaction effect strengthens or weakens that relationship as you move to different levels in the one of the variables - so you have to talk about all three variables in the same paragrah.
+
+
+#### Plot
+
+ - use the code plot(predictorEffect("CoefficientNamehere", ModelNamehere)) to plot 2 plots
+ - life expectancy
+ - levels of support
+
+```{r message=FALSE, warning=FALSE}
+plot(predictorEffect())
+```
+
+There are five plots here that show how life expectancy predicts happiness at different levels of support.  At high levels of support (support_z = 1), higher life expectancy predicts higher happiness, however at low levels of support (support_z = -3), high levels of life expectancy predict lower levels of happiness.  The different degrees of the slopes across the five plots denote that there is an interaction present between the two variables LE and support.
+
+```{r message=FALSE, warning=FALSE}
+plot(predictorEffect())
+```
+Here are five plots that show the same relationship, but now we look at support as a predictor of happiness at different levels of life expectancy.  We can do this because interactions are symmetrical - we don't know which predictor is having a causal effect (remember 201 critical review!).  Have a go at describing what happens at high and low levels of life expectancy for support predicting happiness!
+
+We report the preferred model.  For which we need a table:  There are two tables here - one very basic one and one with some extra formatting.
+
+#### Tidy your model coefficient data first
+
+```{r}
+m8_z_table <- tidy(m8_z)
+
+knitr::kable(m8_z_table, booktabs = TRUE)
+```
+Oh dear - we need to rein those digits in. This is where it gets tricky - apa *p* values should be to two or three decimal places; *p* values below .001 should be to three decimal places everytime; but everything else should be to two decimal places....we can do this by adding arguments to the digits code:
+
+`digits = c(0, 2, 2, 2, 3)`
+
+where 0 is a placeholder for the Term column, the next three lots of 2 tell kable to put 2 decimal places in the Estimate - t-value column and the last 3 tells kable to put 3 decimal places on the *p*-value column.
+
+While we are adding code, lets sort out the column names and centre the names except for the "term" column name:
+
+```{r}
+knitr::kable(m8_z_table, digits = c(0,2,2,2,3), booktabs = TRUE, 
+             col.names = c("Term", "Estimate", "SE", "t-value", "p.value"),
+             align = "lcccc",
+             caption = "Preferred model for happiness and its predictors")
+```
+If you visit https://bookdown.org/yihui/rmarkdown-cookbook/kable.html there is other information on how to fix the row names etc.  You can also put your values into Excel and use the border menu to draw your table borders and then export that table to your report document.
+
+### Optional Extension material - this won't be on the class test
+
+Above there looked to be some curvature in the corruption variable - maybe you can see it in the visualisations between the variables.  This could make sense if you think about happiness plummeting as a sense of corruption for those in power grows.
+
+To check this we can look at the residuals for independent variables:
+
+```{r}
+# save the residuals from the model to be able to call them in a plot
+m8_res <- resid(m8_z)
+
+plot(d$corruption_z, m8_res, 
+     ylab="Residuals", xlab="Corruption", 
+     main="Happiness") 
+abline(0, 0) 
+```
+
+Can you see how in the residuals seem to be high around the 0 mark but lower as you get towards 1 on the x axis?
+
+A chance to demonstrate fitting a curve in a model that essentially is made to fit and describe straight lines. 
+
+A curve in a regression model is a type of interaction.  The variable is interacting with itself. It is the squared version of the variable. When you fit a curve, you are trying to show that the predictor behaves differently at different levels - which is just how we think of interactions between two different variables.
+
+```{r}
+(summary(m9_zp <- lm(happiness ~ GDP_z + support_z + LE_z + choices_z + 
+                      generosity_z + poly(corruption_z, 2) + 
+                      LE_z:support_z + region1, d)))
+```
+
+Look at the coefficient called `poly(corruption_z, 2)1` - it is a positive correlation; then look at the coefficient called `poly(corruption_z, 2)2` - it is a negative correlation.  The two correlations are the same straight line.  With the first value, the line rises up the graph from the bottom left corner to the top right, however, at some point, the second value comes into effect and the direction of the line begins to fall down to the bottom right hand corner.
+
+Is the addition of this curve in `m9_zp` justified?
+
+
+```{r}
+anova(m8_z, m9_zp)
+```
+Model 9_zp does not explain significantly more variance than m9_z.  So we choose the simpler model of `m8_z`
+

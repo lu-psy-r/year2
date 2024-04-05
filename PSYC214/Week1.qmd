@@ -1,243 +1,458 @@
 ---
-title: 1. Introduction to PSYC121
-subtitle: Written by John Towse & Tom Beesley
+title: 1. Measurement, Variance and Inferential Statistics
+subtitle: "Richard Philpot, Mark Hurlstone"
 order: 2
 ---
 
-# Lectures for week 1
+# Lecture
 
-Watch the introduction: Lecture Part 1
+Watch Part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981602)
 
-```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=be47e4bd-902a-4fcf-90d3-b0920087c849&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe>
-```
+Watch Part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981612)
 
-Watch Lecture Part 2
+Watch Part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981614)
 
-```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c05d4cbb-cf04-437e-8d98-b0920089f555&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe>
-```
+Watch Part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981618)
 
-Watch Lecture Part 3
+Watch Part 5 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981621)
 
-```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=a177a0a9-67c5-4700-9a98-b092008e0cfc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe>
-```
+Download the lecture slides [here](data/Wk1/Lecture 1 - Student Slides.pdf), and [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf) for a larger version.
 
-Watch Lecture Part 4
+# Lab
 
-```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=237ed51b-aa37-4e10-9f3b-b0920091b16b&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe>
-```
+Welcome back to Lancaster University and congratulations on your progression to Year 2!
 
-Download the lecture slides [here](data/Week_1/week1_lecture_student_slides.pptx)
 
-# Analysis labs and 'pre-lab' activity
+This will be the first lab session for Psyc214 - Statistics for Psychologists. In these lab sessions you will work from sheets (like this one) which detail activities and provide hands on experience of working and problem solving in R. At times these sheets will offer step-by-step instructions of how to wrangle data and to run a relevant command or analysis. At other times, and to reinforce learning, you will be asked to 'fill in the gaps' yourselves or to rewrite the code to solve a new problem. Myself (Richard Philpot), Mark Hurlstone and an apt team of GTAs will be on hand to help you through this journey - so please do not panic - you're never alone. In Psyc214, we also encourage peer engagment and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
+  
+******
+## 1 - General Introduction
 
-For each lab session that you have been scheduled to attend, please come "prepared'. By this we mean
+| *"Once more unto the breach, dear friends, once more"* | King Henry V, by William Shakespeare.
 
--   You have watched the lecture video, made notes, and developed questions where you have them.
+![Fifty shades of rust](https://images.pexels.com/photos/1301413/pexels-photo-1301413.jpeg?cs=srgb&dl=pexels-magda-ehlers-1301413.jpg&fm=jpg)
 
--   You have worked through the online "prelab" preparation materials - [Here is the one for Week 1](https://ma-rconnect.lancs.ac.uk/W1_prelab){target="_blank"}
+The formation of rust can occur quickly and within minutes or slowly, over many years. It all depends on the material that is rusting, it's lack of use and the environment!
 
--   You read the lab sheet (this one) to get a sense of what we're going to be doing, and you anticipate potential problems so that you can focus on these in the session.
+In this analogy, let's consider our 'R brains' as the material vulnerable to rusting. With individual differences, some of us may remember more of last year's statistic course than others - and that's completely normal.
 
-The lecture is designed to deliver important ideas and procedures for learning about analysis. Pre-lab material is then designed to help consolidate this learning, or enhance, expand and apply it in ways that set the scene for the lab session activity. We want to prepare you to be ready to go in the session itself and make the most of your time there.
+When considering repeated use and our environments, it is also unlikely that many of us have interacted with R and statistics over the intervening summer months. Quite sensibly we've enjoyed a non-academic environment - holidays, summer jobs, commitments to family and friends, these are all important things that have rightly taken priority!
 
-Want additional support? Keep in mind that the Department has endorsed and will use the Statistics textbook by David Howell called "**Fundamental statistics for the behavioral sciences**"
 
-The book covers principles of statistics as well as some tutorials on using R. You can access a library copy [from the library pages](https://onesearch.lancaster-university.uk/permalink/f/cssk39/44LAN_ALMA_DS51180136050001221){target="_blank"}
+It therefore an entirely natural process for folks to feel rusty and hesitant when re-engaging with R and statistics. As such, in this first session, let's get re-accustomed with our old friend 'R'.
 
-# Activities for this week
 
-## Task 1 - check-in with the University attendance register
+  
+******
+### 1.1 Access to R Studio
 
-When you arrive, make sure you have checked-in to your Analysis session in the Levy lab. All students are required by the University to [confirm attendance at taught session](https://www.lancaster.ac.uk/student-and-education-services/check-in/){target="_blank"}
+You will recall from last year that R Studio is a free, open-source data science engine that works as a giant calculator on steroids. Beyond number crunching, R studio allows you to organise your data, construct beautiful tables and graphs, as well as document your code and findings for others to inspect.
 
-Staff will remind you of this in your class.
-
-## Task 2 - Getting dicy
-
-![](images/Wk1/dice.png){width="3in"}
-
-Here's a simple task for you to complete as a group around each of the workstations;
-
-You will be given a pair of dice
-
-1.  Working in pairs, one person rolls both dice.
-
-2.  Add up the total on each of them and have someone record that total (if you don't have some spare paper or a pen, use your computer)
-
-3.  Repeat those steps 20 times.
-
-4.  Then swap over your roles (the person rolling the dice, the person recording the outcome)
-
-5.  Once everyone at the workstation has had a turn at this, each person should attempt to work out (a) the mean and (b) the median of their dice roll total.
-
-6.  Check each others working, and discuss any differences or problems you have.
-
-Are all your answers the same? Why / why not? If not, are they very different or very similar?
-
-## Task 3 - Using RStudio
-
-### Introducing R Studio
-
-R and RStudio is the software that we will be using to explore and learn about analysis in your Psychology degree. It's a computational engine: a very snazzy calculator that you should see as your friend and ally in the journey to understand and appreciate psychology. It sits *alongside* what we teach about the concepts and interpretation of statistical analysis.
-
-R is the core software, RStudio is the interface for interacting with it. Put another way, *R is the engine, RStudio is the cockpit.*
-
-Like even a simplest calculator, it just does what you ask (at least when you ask nicely!) but it requires the user to know what they want from it and to understand what it is telling you. A calculator can't help a kid get the right answer to a multiplication problem if they don't know the difference between multiplication and division and addition etc. And whilst a calculator is brilliant at doing the number crunching (and as a bonus, R Studio can help with turning the numbers into beautiful graphs and images too), even a calculator requires a thoughtful person to take the answers and make sensible interpretations from them.
-
-Therefore, we need to learn both about the concepts of statistical analysis on the one hand, and the processing of statistical information -through R- on the other. The lectures will provide the starting point and the direction for statistical concepts, whilst these analysis labs provide the more practical experiences in how to use R, and how to make R your ally. Over the next year, in these labs we will increasingly be using RStudio to focus on the latter, processing side, which will allow you to focus your energies on the conceptual side and its relevance for appreciating psychology.
-
-### Getting started with RStudio {#getting_started}
-
-For Lancaster University Psychology Students in 2023, we will be learning about R Studio through a simple but powerful web server architecture. That is, through the power of the internet, you can access and use R Studio by logging into a free account that we have provided and we will maintain for your use.
-
-> Here's a little secret: There are several different ways to access RStudio. For example, you can download a copy of the software onto your computer, or use a Virtual Machine set up to run a copy. There's nothing to stop you having your local copy, but please note - we can't support your own version through lab classes. We're using the web server to make sure everyone has the same, controlled experience.
+![Vintage computational power and R Studio](https://images.unsplash.com/photo-1607370883617-9720ac853cc4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80)
 
 {{< include /Includes/_login.qmd >}}
 
-### What does RStudio look like?
+******
+### 1.2 Creating a folder for today's session
 
-When RStudio starts, it will look something like this: ![Startup screen](images/Wk1/RStudio_starup_screen.png)
+Once you are logged into the server, create a folder for today’s session. This will be where we will house today's data and script. This will allow you to save you store your work and return at a later date (for example, around exam time - wink wink)
 
-RStudio has three panels or windows: there are tabs for Console (taking up the left hand side), Environment (and History top right) , Current file (bottom right). You will also see a 4th window for a script or set of commands you develop, also (on the left hand side).
+Navigate to the bottom right panel (see figure below) and click Home. Next, under the Files option select the New Folder option. Name the new folder psyc214_lab_1. Please ensure that you spell this correctly otherwise when you set the directory using the command given below it will return an error.
 
-### Let's get started!
+![Creating a folder on your server](images/Lab1_folder.png)
 
-The first thing we want to do in RStudio is to create a folder for this week so that we can put the relevant material there and keep it tidy.
 
-From the lower-right panel of RStudio, click the files tab.
+******
+### 1.3 Uploading today's data file and creating a script
 
-Select the "new folder" option and create a new folder (eg "week 1")
+Now that you have created a folder for today’s session, it’s time to add the Week 1 data file. You can download the file from [here](data/Wk1/week1_robo_lab.csv). 
 
-Click on that folder to open it
+Next, in the RStudio Server open your new psyc214_lab_1 folder. When in the new folder, select the Upload tab (see figure below). This will present a box that will ask where the data is that you want to upload. Click on Browse, find the `week1_robo_lab.csv` file on your desktop and click OK.
 
-Next, we've prepared some *instructions* for RStudio to use - this is called a "script". So we need to get this script into the server for you to explore and play with
 
-1.  Download the "zip" file by [clicking this link](data/Week_1/week_1.zip)
+![Uploading today's data](images/Lab1_upload_files.png)
 
-2.  Find the location of the file on your computer and check it is saved as a ".zip" file
+So we can save this session on the server, click File on the top ribbon and select New project. Next, select existing directory and name the working directory `~/psyc213_lab_1` before selecting create project.
 
-3.  Return to RStudio
+Finally, open a script for executing today’s coding exercises. Navigate to the top left pane of RStudio, select File -> New File -> R Script. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.
 
-4.  Click "Upload"
+![Creating a script](images/Lab1_script.png)
 
-5.  Click choose file and find the file on your computer.
+**Be sure to save the script using the File -> Save As....**
 
-6.  Select the file and click "Open". Click "OK"
+******
+### 1.4 Setting the working directory and opening the data file
 
-You should now see the files extracted in the directory.
+A working directory is the default location or folder on your computer/server by which R will read/save any files. It can be set with the following R code:
 
-You should now have the script available in RStudio.
-
-Use "Save...As" to create a new version of the script. By doing this, you'll be able to have a "before" and "after" version of the script and can go back over the changes
-
-In the script, select or highlight the first line of text, which is this one:
-
-#### Run your first ever R instruction!
-
-```{r eval=FALSE}
-5 + 5
+```{r eval = FALSE}
+  setwd("/PSYC214")
 ```
 
-and "run" this line. That tells RStudio to carry out the instruction.
-
-You should see that in the console tab, RStudio calculates the answer to this incredibly hard maths challenge! (amazing huh? OK, maybe not \*that\* amazing...).
-
-#### Modify your first ever R instruction!
-
-Use your imagination -- add a new line to the script and ask a different simple arithmetic question of your own choosing! What happens?
-
-#### Calculate descriptive stats in R for the first time!
-
-In this week's analysis lecture, we looked at measures of central tendency and how to calculate them. So let's get R to do these calculations also!
-
-First, we tell R about the data used in the lecture. We've already created the instruction that will do exactly this and it is in the script, so run this line from the script
-
-```{r eval=FALSE}
-week_1_lecture_data <- c(7,8,8,7,3,1,6,9,3,8)
+```{r eval = FALSE}
+setwd("~/psyc214_lab_1")
 ```
 
-This creates an "object" called `week_1_lecture_data`. We can then perform calculations on this object. For example, we can find the mean by running the following command (use the script to do this)
-
-```{r eval=FALSE}
-mean(week_1_lecture_data)
+Now you've downloaded the data and set the working directory it's time to open the data file in R studio. To do this, please type the following code:
+  
+```{r, eval=FALSE}
+lab1_data <- read.csv("week1_robo_lab.csv")
 ```
 
-Check the answer is the same we found in the lecture (it should be 6!).
+```{r, echo=FALSE}
+lab1_data <- read.csv("data/Wk1/week1_robo_lab.csv")
+```
+  
+  where 'lab1_data' is the name we've assigned that R will recognise when it calls up our data, 'read.csv' is the R command to pull up the data and 'week1_robo_lab.csv' is the name of the original data file you downloaded and stored.
 
-Next, let's ask for the median by running this line from the script:
+*Note. During the rest of this session, you will not need to refer to the original downloaded .csv data file. R has all the information stored under the ‘lab1_data’ variable. Further note, you could have called ‘lab1_data’ by pretty much any name you like… ‘df1’, ‘robo_1', ‘I.love.stats.com’, etc. - the name is somewhat arbitrary. For the purpose of this lab session and for ease of read, ‘lab1_data’, is perhaps more suitable.*
+  
+******
+### 1.5 loading the relevant library  
+  
+Finally, let’s load the relevant libraries that we will be using in today’s session:
 
-```{r eval=FALSE}
-median(week_1_lecture_data)
+```{r message=FALSE}
+library(tidyverse)
+library(rstatix)
+library(ggpubr)
 ```
 
-This also should be the answer from the lecture (7)
+------ 
+## 2 - Today's lab activities 
 
-R doesn't have a single corresponding command for the *mode*, but we can use the block of code in the script for this that starts and ends with the "getmode" text (there are 6 lines of text)
+Now that you have loaded the dataset, let's have a play.
 
-This is just a bit of clever jiggery-pokery that gets the mode. What does R say the mode is?
 
-#### Your challenge
+### 2.1 Some background information about the dataset
 
-How can you get RStudio to verify / check the dice calculations that you attempted earlier? Think about how you might solve this problem, on the basis of what we have covered so far.
+![Introducing the robo-lab study](https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
 
-We will discuss this in class and attempt to get RStudio to check your answers. In doing so, annotate the script (add notes for you - not RStudio) using the "#" command
+In this lab session, we will examine the fictitious 'robo_lab' dataset.
+Here, a team of researchers wanted to know whether LU statistics students would respond well to a new, ambitious initiative to deploy a team of synthetic robots as lab assistants.
+  
+******
+### 2.2 Study manipulation
 
-## Before you finish
+The research team developed two robot prototypes and wanted to test which prototype would be optimal for classroom teaching. 
+In a controlled experiment, the researchers randomly assigned groups of students either Robot A(lpha) or Robot B(eta). Note this is one factor design (Robot assignment) made of two levels (Robot A or Robot B).
 
-a)  Make sure you save a copy of the script that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.
+Those individuals assigned Robot A(lpha) were denoted as belonging to 'Group A'.
+\
+Those individuals assigned Robot B(eta) were denoted as belonging to 'Group B'.
+\
+Note. The groups are mutually exclusively - i.e., a participant was assigned to either Group A/Robot A or Group B/Robot B, not both.
 
-b)  End your session on the RStudio server, this logs you out of the server and stops any ongoing activities and tasks you have set up, maybe in the background.
+![**Robot A(lpha)**](images/Wk1/RobotA.png)
 
-    ![](images/Wk1/power_button.png){width="2.5in"}
+![**Robot B(eta)**](https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)
+  
+******
+### 2.3 Dependent (a.k.a. Outcome) variables
 
-    There is a red "power" button near the top right of the R studio window (do ask for help if you can't find it). It's a good habit to get into to turn the session off
+Next, the researchers required some outcome measures to evaluate whether indeed the students had responded more positively toward one robot prototype over another.
 
-### Extra content for outside the lab class
+The research team settled on two dependent variables (or outcome measures). These measured student stats competence (something important!) and attitudes towards teaching support (something also very important!).
 
-a)  In the Howell text book on statistics, there's some R code on descriptive statistics. It is included in the script for you to look at and play with.
+DV1: Student stats competence was measured by a Psyc214 test score; ranging between 40-100.
 
-b)  in your own time and think about the following:
+DV2: Student attitudes towards the robot lab assistant was assessed with a likert scale response between 1-7; with 1 = 'strongly dislike' and 7 = 'strongly like'.
+  
+******
+### 2.4 Predictions of the research team
 
-In R, "\<-" is the assignment operator as in the command we used:
+The research team had their own expectations for which robot would be best received by students.
+Specifically, they predicted that:
 
-```{r eval=FALSE}
-PSYC121_week_1_data <- c(7,8,8,7,3,1,6,9,3,8)
+- Individuals assigned Robot B(eta) would score significantly higher in their Psyc214 tests (Hypothesis 1)
+
+- Robot B(eta) would be significantly more liked than Robot(A)lpha (Hypothesis 2)
+
+The researchers expected that this difference would be explained by Robot B(eta)'s closer resemblance to other human beings. Indeed, prior to the study, independent raters had reliably agreed that Robot B(eta) resembled a human being significantly more than Robot A(lpha).
+  
+******
+### 2.5 Refamiliarising with some basic features
+Now that you have opened the dataset and are aware of what the different variables for this study are, it's time to explore.
+
+In this first refresher session, we will be refamiliarising ourselves with some of the key functions and features learned in last year stats classes. 
+
+Earlier, we loaded the package `dplyr`, which is readily accessible from the `tidyverse` collection. This package allows us to use some nifty functions such as:
+
+- pipes `%>%`  
+- `arrange()`
+- `summary()`
+- `sd()`
+- IQR, etc.
+  
+******
+### 2.6 Examining and ordering data
+
+Now that we have our pieces in play, let's take a look at the data.
+
+We first want to get a brief overview of what the data set looks like. 
+To do this, we use the use the `head()` command, which displays the first rows present in the data frame.
+
+To view these first rows, please apply the following code:
+
+```{r}
+  head(lab1_data)
 ```
 
-We create the variable label on the left (`Analysis_week1_data`) and we give it those numbers on the right. The name`Analysis_week1_data` is largely arbitrary: try use a variable of your own naming (your own name?) instead - and then use that alternative name for the other commands.
+This shows us the first 6 rows. Note, while the default is six, you can also specify the number of rows as follows - please try it out.
 
-------------------------------------------------------------------------
+```{r, results = FALSE}
+  head(lab1_data, n=12)
+```
 
-Throughout this year, we'll use the convention of the "underscore" to separate words in labels (it_makes_them_easier_to_read than ifyoudidn'thaveanyspaces)
+Great. We can now see the first 12 rows of data. 
+One thing that is noticeable, however, is that the data are ordered by participant 'ID'. Say we want to get an overview of our data where we can see data ordered by the from lowest Psyc214 test score to highest. We can arrange data this way using the `arrange()` command, were we include 'Score' as the variable of interest. Please try the following:
 
-------------------------------------------------------------------------
+```{r}
+  lab1_data %>% arrange(Score)
+``` 
 
-## Task 4 -- Review the learnr sample / practice questions
+You will note that the command outputs 100+ data rows showing the values of over 100 of our participants.
 
-After every block of teaching in part-1 analysis (specifically, we mean in week 5, week 10, week 15 and week 20) there will be a class test. This will assess your knowledge and your understanding of the material that has been covered.
+This can be quite a whooper!
 
-The class test will comprise a set of Multiple Choice Questions (and the set of questions will be different for each student, as the test will involve random selection from a larger pool) under timed conditions.
+If we want to make this output more manageable we could always add an additional `>%>` pipe command which combines both arrange and head.
 
-In order to help you get (a) a broad or basic feel for the sort of questions you might get in the class test (b) self-review your progress through the term, we will provide MCQs each week for you to attempt.
+For example the code below, combining `arrange()` and `head()` allows us order the data based on lowest score and then to display *only* the top 10 results. 
 
-So these are for your benefit... you can take the questions when you choose to, and the learnr quiz will provide feedback on the answers your provide. Just bear in mind:
+```{r}
+  lab1_data %>% arrange(Score) %>% head(n=10)
+``` 
 
-a)  We place a set of questions at the end of the learnr pages so that you can attempt these at the end of each week, after you've completed lab activities, follow-up work, weekly Q&As etc. But it's up to you when you answer the questions
+Phew. This is more manageable.
 
-b)  These are meant as *indicative questions*. There's no point in learning/ memorising these questions (they won't be on the quiz!) and our advice is to reflect on how the teaching and content links to the sorts of questions that get posed.
+This table provides some interesting information. We can see that the lowest scores were 40, which was the bottom cutoff point of our measurement scale. 
 
-## Task 5 -- Data collection exercise
+A quick eyeballing of the data rows suggests the lowest 10 test scores predominately have participants who were assigned to Group A(lpha). In fact, 9 out of 10 of the lowest scores belonged to individuals from Group A.
 
-In order to learn about psychology and data analysis techniques, we need data! Rather than rely too much on artificial data (certainly it is sometimes useful to say "Here are a bunch of numbers and this is what we can do with them" -- think about the R Studio example for this week's lab) for the most part, we prefer to draw on datasets that are a bit more engaging and meaningful that you have a stake in yourself! By using a common data set, that we can return to over the year, we can also build up familiarity and confidence in the data and remove a potential obstacle to thinking about the more important analysis part.
+It would also be prudent to check the top 10 highest scores and to get a feel for what the top marks were like. We can again order our data using the `arrange()` function. This time however, we add the term `arrange(desc())` to show that we are asking R for descending ordering.
 
-So a key task will be for everyone to have a go at taking our online survey, and contribute to a dataset that can be used throughout the year.
+Please try the following command to examine the top scorers
+```{r, results = FALSE}
+  lab1_data %>% arrange(desc(Score))
+```
 
-The survey runs [by following this link](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_5cNHoTIRd5ZVYlE){target="_blank"}
+You will note in your own output, that the scores are once again showing over 100 values!
 
-## Post - lab recap: The slides we used
+To make this more manageable, please try writing your own code combining the `arrange(desc())` command, a pipe `%>%` and the `head(n = x)` command. If stuck, refer to the command we used higher up.
 
-Want to see again the introduction slides that we used in the Levy lab? They are [available here](data/Week_1/week_1_levylab_slides.pptx)
+```{r}
+#ANSWER CODE
+lab1_data %>% arrange(desc(Score)) %>% head(n=10)
+```
+
+You now should have an output of descending scores which are more manageable.
+
+```{r echo = FALSE}
+lab1_data %>% arrange(desc(Score)) %>% head(n=10)
+```
+
+Try eyeballing these scores and group IDs to see whether the higher scores tend to be associated with one group over another. Any thoughts?
+  
+******
+### 2.7 Assessing the descriptives
+
+As of yet, we have not examined the basic descriptive statistics of our data, so let's take a look now.
+
+We can compute the minimum and maximum values, 1st and 3rd quartiles, median and mean all at once using the `summary()` command:
+
+```{r}
+summary(lab1_data)
+```
+
+There are still a number of descriptives which may be interesting, but that the `summary()` function does not provide, however.
+
+For example, we may be interested in ... (remember from last lecture ;) ...:
+
+- the range of our data points (i.e., the difference between the lowest and highest values)
+- the interquartile range of data (i.e., the difference between the first and third quartiles) 
+- the standard deviation (i.e.,  the dispersion of a dataset relative to its mean, that being the square root of the variance)
+
+These can all be calculated relatively easily with the following commands:
+
+- the range of our data points: `range()`
+- the interquartile range: `IQR()`
+- the standard deviation: `sd()`
+
+```{r}
+range(lab1_data$Score)
+IQR(lab1_data$Score)
+sd(lab1_data$Score)
+```
+
+Note that this only provides the information for the 'Scores' dependent variable - I.e., DV1.
+
+We do not know what the respective values are for the 'Likeability' dependent variable (DV2).
+
+If we want to examine multiple variables simultaneously, we can use the `sapply()` function, which can take multiple lists/vector/data frames as inputs within a single command. Nifty.
+
+Here, we need to specify which columns we would like to assess. In our data the 'Scores' dependent variable (DV1) and 'Likeability' dependent variable (DV2) are columns 4 and 3 of the datasheet, respectively.
+
+Let's try in with the range.
+
+```{r}
+sapply(lab1_data[, 4:3], range)
+```
+
+Here we see that the range in Psyc214 test scores (i.e., the min and max scores in the cohort of all participants) ranged between 40 and 88.
+
+Also, the min and max ratings for the likeability scores were between 0 and 7, respectively.
+
+Now, please try to apply the code above yourself, but change 'range' with the standard deviation 'sd' function to get the standard deviation for both the score and likeability variables simultaneously.
+
+```{r}
+#ANSWER CODE
+sapply(lab1_data[, 4:3], sd)
+```
+
+If done correctly, you should received the following output:
+```{r, echo=FALSE}
+sapply(lab1_data[, 4:3], sd)
+```
+
+  
+******
+### 2.8 Descriptives by group condition
+
+Now that we have some information regarding the overall data, we can rejoice.
+
+Well only briefly...
+
+Although this information is useful, it gives information regarding all data points and does not generate these values based on the two assigned independent groups - i.e., the two levels (Group Robot A, Group Robot B) of our single factor (Robot Assignment).
+
+Although there are work arounds for this, simpler functions are available in the rstatix() package (previously loaded).
+
+Using the package's `group_by()` command and pipes `%>%` we can ask R to separate our data based on the group assigned. Note, here the name of the grouping variable for our dataset is 'Group'.
+
+Let's ask for the mean for our two groups with the following command. 
+First we tell R we are using the lab1_data. Then we say within this data set we want to separate the data by the 'Group' variable. Finally we ask for summary stats for the DV1 the Score. We will ask only for the mean.
+  
+```{r}
+  lab1_data %>%
+  group_by(Group) %>%
+  get_summary_stats(Score, type = "mean")
+```
+
+Great. Now let's do the same again, but this time we will ask for summary statistics for both the Score (DV1) and Likeability (DV2) variables. Furthermore, let's also ask for the sd, min, max and iqr.
+
+```{r}
+  lab1_data %>%
+  group_by(Group) %>%
+  get_summary_stats(Score, Likeability, show = c("mean", "sd", "min", "max", "iqr"))
+```
+
+Ok, perfect. This now tells us a lot of information. For example, we can see that the mean test scores for Group A and B are 56.6 and 62.8 respectively. On reflection, and considering the importance of getting a nice score, these means do seem quite different from one another. 
+  
+******
+
+## 3. And more
+
+### 3.1 Visualising data
+
+As a next step, let's plot the data and see the distribution of data points in visual form. To do this, we've already loaded the excellent data visualization package `ggpubr`.
+
+To plot the data we use the `ggboxplot()` command.
+First we are required to say what dataset we'll be using, which is again 'lab1_data'. Next we type 'main=' to specify the title for the plot. Let's call the plot "Box plot of test scores by robot condition". We then need to specify what data we would like to use for each axis. For the x-axis we would like to plot the different groups, so let's add x = "Group". Our y-axis will be the "Score". We can colour the groups also and add shapes to data points. Finally, let's give the x-axis and y-axis each a descriptive label. "Robot group condition" and "Psyc214 test score" seem appropriate here.
+
+```{r}
+  # Box plot of test scores by Robot Condition
+ggboxplot(lab1_data,main="Box plot of test scores by robot condition", 
+               x = "Group", y = "Score", #variables for axes
+                color = "Group", palette =c("#999999", "#333333"), #colour of data
+                add = "jitter", shape = "Group", # shape of data
+               xlab="Robot group condition", ylab="Psyc214 test score") #labels for axes
+```
+
+Observing the spread of data points for Group A and B, respectively, we can see trends in which Group B tends to have more data points clustered higher on the test score axis than Group A. Group A has more data points clustered lower on the test score axis than Group B and these distributions are reflected by the boxplots. Again it seems we have a signficant difference, but we will need a statistical test to be certain.
+  
+******
+### 3.2 Independent 2-group T-test
+
+To get to the bottom of this we need to perform an independent 2-group t-test. This inferential statistical test is appropriate when you want to examine whether there are any statistically significant differences between the means of two unrelated groups. This can be run using the `t_test()` function, where 'Score' is our y (dependent variable) and 'Group' is our predictive factor x (independent variable).
+
+```{r}
+# independent 2-group t-test
+  #t_test(Score ~ Group) # where y is numeric Score and x is a binary factor 
+# Compute t-test
+ t.test(formula = Score ~ Group, pool.sd = FALSE, var.equal = TRUE, data = lab1_data)
+```
+
+The output provides the t-value and it’s 95% confidence interval - i.e., we can be 95% certain that the true value of t falls within the the lower and upper confidence intervals. We also get the means of our groups, the degrees of freedom for our t-test and the p-value. 
+This p-value is significantly lower than 0.05 meaning that we reject the null hypothesis - i.e., we accept that the true difference is not roughly equal to zero. As such, there is a statistical difference in Psyc214 assessment scores between the two groups. What we are yet to discover is whether this represents a small, moderate or large effect.
+
+To calculate the effect size, where 0.2 = small effect, 0.5 = moderate effect, 0.8 = large effect (Cohen, 1988), we use the 'cohens_d()' function.
+
+```{r}
+  # Cohen's d effect size calculation
+cohens_d(Score ~ Group,  # Formula
+       data = lab1_data) # Dataframe containing the variables
+```
+
+This output shows us that we have a moderate negative effect of -0.62 ; note. it is negative because of the order of our factors - i.e., Group A (which is presented first in our equation) has a lower set of scores than Group B. As you typically report the effect size as a value between 0-1 we need to treat the result as an absolute value, meaning we ignore the minus symbol when reporting our results.
+  
+******
+### 3.3 Reporting the results of the independent 2-group T-test in APA format
+
+All results should be written up in accordance with the American Psychological Association's (APA) guidance. This ensures that your results are easy to interpret and that all the relevant information is present for those wishing to review/replicate your work.
+
+The current results can be reported as following:
+"An independent 2-group T-test was carried out to examine whether there were statistical differences in the Psyc214 assessment scores between those students assigned Robot A(lpha) and those assigned Robot B(eta). This test was found to be statistically significant, *t*(198)= -4.42, 95% CI [-8.90, -3.40], *p* < .001, *d* = 0.62. This effect size represents a moderate effect (Cohen, 1988). These results indicate that individuals assigned Robot A(lpha) (*M* = 56.61, *SD* = 9.05) typically received lower Psyc214 assessment scores than those individuals assigned Robot B(eta) (*M* = 62.76, *SD* = 10.60)"
+  
+******
+## 4. Further tasks
+
+1. repeat the steps in '2.8 Descriptives by group condition', this time examining the summary statistics for our second dependent variable - 'Likeability'.
+
+```{r}
+  #ANSWER CODE
+  lab1_data %>%
+  group_by(Group) %>%
+  get_summary_stats(Likeability, type = "mean")
+```
+
+2. repeat the steps in '3.1 Visualising data', this time creating box plots for our second dependent variable - 'Likeability'. Rename the title and axes to something more suitable and perhaps even change the colour of data points. Describe the trends in data to a classmate or your inner self.
+
+```{r}
+#ANSWER CODE
+  # Box plot of likeability scores by Robot Condition
+ggboxplot(lab1_data,main="Box plot of test scores by robot condition", 
+               x = "Group", y = "Likeability", #variables for axes
+                color = "Group", palette =c("#999999", "#333333"), #colour of data
+                add = "jitter", shape = "Group", # shape of data
+               xlab="Robot group condition", ylab="Likeability scores") #labels for axes
+```
+
+3. compute an independent t-test (steps 3.2) to examine whether there are any statistical differences between the means of our two groups in their Likeability ratings. Write up the results in APA style.
+
+```{r}
+#ANSWER CODE
+# independent 2-group t-test
+  #t_test(Score ~ Group) # where y is numeric Score and x is a binary factor 
+# Compute t-test
+ t.test(formula = Likeability ~ Group, pool.sd = FALSE, var.equal = TRUE, data = lab1_data)
+
+  # Cohen's d effect size calculation
+cohens_d(Likeability ~ Group,  # Formula
+       data = lab1_data) # Dataframe containing the variables
+```
+
+4. before you finish, make sure you save a copy of the script that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.
+
+Please end your session on the RStudio server, this logs you out of the server and stops any ongoing activities and tasks you have set up, maybe in the background.
+
+![Ending session on R Studio](https://tombeesley.github.io/PSYC121_2022-23/files/Week_1/power_button.png)
+
+5. ...
+
+Now breathe! You've rocked it!!!
+
+![Top work!](https://images.unsplash.com/photo-1536193533103-5bb31b6fb667?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80)
+
+
+# Lab Feedback (voluntary)
+
+This is a voluntary, super fast [survey](https://modules.lancaster.ac.uk/mod/url/view.php?id=1905311), just to gauge how you found the difficulty of the content and any additional feedback.

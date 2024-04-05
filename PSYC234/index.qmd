@@ -1,0 +1,20 @@
+---
+title: "Statistics: from association to modelling causality"
+subtitle: "Course coordinators: Tom Beesley, John Towse"
+email-obfuscation: javascript
+
+---
+
+# Welcome
+
+This is filler text introducing students to the course in general. Perhaps what's expected of them, the course aims, and other information of use.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in est non nisi eleifend vulputate a et magna. Mauris vulputate felis lacus, ut bibendum lectus sollicitudin vel. Integer vestibulum arcu et risus vestibulum, in ullamcorper magna consectetur. Donec ut tempus enim, at vulputate libero. Integer porta metus eget elit cursus, sit amet hendrerit ipsum facilisis. Maecenas mollis, elit gravida ornare tempus, est lectus mattis velit, et commodo nunc lectus eu enim. Aenean luctus, felis ac sodales accumsan, dolor nunc euismod lorem, vel vulputate ipsum orci quis ipsum. Quisque placerat, velit vitae dictum feugiat, lectus lorem rutrum ligula, at fringilla ex enim consectetur felis. Aliquam erat volutpat. Nunc a nisi eget ex ornare dictum.
+
+# Course Contacts
+
+|             | Email Address                                                  |
+|-------------|----------------------------------------------------------------|
+| Tom Beesley | [t.beesley\@lancaster.ac.uk](mailto:t.beesley@lancaster.ac.uk) |
+| John Towse  | [j.towse\@lancaster.ac.uk](mailto:j.towse@lancaster.ac.uk)     |
+|             |                                                                |

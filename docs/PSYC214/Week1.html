@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists - 1. Introduction to PSYC121</title>
+<title>Statistics for Psychologists - 1. Measurement, Variance and Inferential Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../PSYC214/Week2.html" rel="next">
 <link href="../PSYC214/index.html" rel="prev">
 <link href="../Images/favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -136,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">MSc</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.qmd" rel="" target="">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
  <span class="menu-text">And More…</span></a>
   </li>  
 </ul>
@@ -150,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week1.html">1. Introduction to PSYC121</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week1.html">1. Measurement, Variance and Inferential Statistics</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -172,34 +173,130 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../PSYC204/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PSYC204</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC214</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC204/Week1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1. Introduction to PSYC121</span></a>
+  <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. One-Factor Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Revision of One-Factor ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Introduction to Factorial Designs and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Two-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Two-Factor Mixed and Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Three-Factor ANOVA</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PSYC214</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC234</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">1. Introduction to PSYC121</span></a>
+  <a href="../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Review of correlation, simple regression and demonstration of multiple regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Mediation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Binary logistic regression models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Expanding on binary logistic regression</span></a>
   </div>
 </li>
       </ul>
@@ -214,27 +311,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lectures-for-week-1" id="toc-lectures-for-week-1" class="nav-link active" data-scroll-target="#lectures-for-week-1">Lectures for week 1</a></li>
-  <li><a href="#analysis-labs-and-pre-lab-activity" id="toc-analysis-labs-and-pre-lab-activity" class="nav-link" data-scroll-target="#analysis-labs-and-pre-lab-activity">Analysis labs and ‘pre-lab’ activity</a></li>
-  <li><a href="#activities-for-this-week" id="toc-activities-for-this-week" class="nav-link" data-scroll-target="#activities-for-this-week">Activities for this week</a>
+  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
   <ul class="collapse">
-  <li><a href="#task-1---check-in-with-the-university-attendance-register" id="toc-task-1---check-in-with-the-university-attendance-register" class="nav-link" data-scroll-target="#task-1---check-in-with-the-university-attendance-register">Task 1 - check-in with the University attendance register</a></li>
-  <li><a href="#task-2---getting-dicy" id="toc-task-2---getting-dicy" class="nav-link" data-scroll-target="#task-2---getting-dicy">Task 2 - Getting dicy</a></li>
-  <li><a href="#task-3---using-rstudio" id="toc-task-3---using-rstudio" class="nav-link" data-scroll-target="#task-3---using-rstudio">Task 3 - Using RStudio</a>
+  <li><a href="#general-introduction" id="toc-general-introduction" class="nav-link" data-scroll-target="#general-introduction">1 - General Introduction</a>
   <ul class="collapse">
-  <li><a href="#introducing-r-studio" id="toc-introducing-r-studio" class="nav-link" data-scroll-target="#introducing-r-studio">Introducing R Studio</a></li>
-  <li><a href="#getting_started" id="toc-getting_started" class="nav-link" data-scroll-target="#getting_started">Getting started with RStudio</a></li>
-  <li><a href="#what-does-rstudio-look-like" id="toc-what-does-rstudio-look-like" class="nav-link" data-scroll-target="#what-does-rstudio-look-like">What does RStudio look like?</a></li>
-  <li><a href="#lets-get-started" id="toc-lets-get-started" class="nav-link" data-scroll-target="#lets-get-started">Let’s get started!</a></li>
+  <li><a href="#access-to-r-studio" id="toc-access-to-r-studio" class="nav-link" data-scroll-target="#access-to-r-studio">1.1 Access to R Studio</a></li>
+  <li><a href="#creating-a-folder-for-todays-session" id="toc-creating-a-folder-for-todays-session" class="nav-link" data-scroll-target="#creating-a-folder-for-todays-session">1.2 Creating a folder for today’s session</a></li>
+  <li><a href="#uploading-todays-data-file-and-creating-a-script" id="toc-uploading-todays-data-file-and-creating-a-script" class="nav-link" data-scroll-target="#uploading-todays-data-file-and-creating-a-script">1.3 Uploading today’s data file and creating a script</a></li>
+  <li><a href="#setting-the-working-directory-and-opening-the-data-file" id="toc-setting-the-working-directory-and-opening-the-data-file" class="nav-link" data-scroll-target="#setting-the-working-directory-and-opening-the-data-file">1.4 Setting the working directory and opening the data file</a></li>
+  <li><a href="#loading-the-relevant-library" id="toc-loading-the-relevant-library" class="nav-link" data-scroll-target="#loading-the-relevant-library">1.5 loading the relevant library</a></li>
   </ul></li>
-  <li><a href="#before-you-finish" id="toc-before-you-finish" class="nav-link" data-scroll-target="#before-you-finish">Before you finish</a>
+  <li><a href="#todays-lab-activities" id="toc-todays-lab-activities" class="nav-link" data-scroll-target="#todays-lab-activities">2 - Today’s lab activities</a>
   <ul class="collapse">
-  <li><a href="#extra-content-for-outside-the-lab-class" id="toc-extra-content-for-outside-the-lab-class" class="nav-link" data-scroll-target="#extra-content-for-outside-the-lab-class">Extra content for outside the lab class</a></li>
+  <li><a href="#some-background-information-about-the-dataset" id="toc-some-background-information-about-the-dataset" class="nav-link" data-scroll-target="#some-background-information-about-the-dataset">2.1 Some background information about the dataset</a></li>
+  <li><a href="#study-manipulation" id="toc-study-manipulation" class="nav-link" data-scroll-target="#study-manipulation">2.2 Study manipulation</a></li>
+  <li><a href="#dependent-a.k.a.-outcome-variables" id="toc-dependent-a.k.a.-outcome-variables" class="nav-link" data-scroll-target="#dependent-a.k.a.-outcome-variables">2.3 Dependent (a.k.a. Outcome) variables</a></li>
+  <li><a href="#predictions-of-the-research-team" id="toc-predictions-of-the-research-team" class="nav-link" data-scroll-target="#predictions-of-the-research-team">2.4 Predictions of the research team</a></li>
+  <li><a href="#refamiliarising-with-some-basic-features" id="toc-refamiliarising-with-some-basic-features" class="nav-link" data-scroll-target="#refamiliarising-with-some-basic-features">2.5 Refamiliarising with some basic features</a></li>
+  <li><a href="#examining-and-ordering-data" id="toc-examining-and-ordering-data" class="nav-link" data-scroll-target="#examining-and-ordering-data">2.6 Examining and ordering data</a></li>
+  <li><a href="#assessing-the-descriptives" id="toc-assessing-the-descriptives" class="nav-link" data-scroll-target="#assessing-the-descriptives">2.7 Assessing the descriptives</a></li>
+  <li><a href="#descriptives-by-group-condition" id="toc-descriptives-by-group-condition" class="nav-link" data-scroll-target="#descriptives-by-group-condition">2.8 Descriptives by group condition</a></li>
   </ul></li>
-  <li><a href="#task-4-review-the-learnr-sample-practice-questions" id="toc-task-4-review-the-learnr-sample-practice-questions" class="nav-link" data-scroll-target="#task-4-review-the-learnr-sample-practice-questions">Task 4 – Review the learnr sample / practice questions</a></li>
-  <li><a href="#task-5-data-collection-exercise" id="toc-task-5-data-collection-exercise" class="nav-link" data-scroll-target="#task-5-data-collection-exercise">Task 5 – Data collection exercise</a></li>
-  <li><a href="#post---lab-recap-the-slides-we-used" id="toc-post---lab-recap-the-slides-we-used" class="nav-link" data-scroll-target="#post---lab-recap-the-slides-we-used">Post - lab recap: The slides we used</a></li>
+  <li><a href="#and-more" id="toc-and-more" class="nav-link" data-scroll-target="#and-more">3. And more</a>
+  <ul class="collapse">
+  <li><a href="#visualising-data" id="toc-visualising-data" class="nav-link" data-scroll-target="#visualising-data">3.1 Visualising data</a></li>
+  <li><a href="#independent-2-group-t-test" id="toc-independent-2-group-t-test" class="nav-link" data-scroll-target="#independent-2-group-t-test">3.2 Independent 2-group T-test</a></li>
+  <li><a href="#reporting-the-results-of-the-independent-2-group-t-test-in-apa-format" id="toc-reporting-the-results-of-the-independent-2-group-t-test-in-apa-format" class="nav-link" data-scroll-target="#reporting-the-results-of-the-independent-2-group-t-test-in-apa-format">3.3 Reporting the results of the independent 2-group T-test in APA format</a></li>
   </ul></li>
+  <li><a href="#further-tasks" id="toc-further-tasks" class="nav-link" data-scroll-target="#further-tasks">4. Further tasks</a></li>
+  </ul></li>
+  <li><a href="#lab-feedback-voluntary" id="toc-lab-feedback-voluntary" class="nav-link" data-scroll-target="#lab-feedback-voluntary">Lab Feedback (voluntary)</a></li>
   </ul>
 </nav>
     </div>
@@ -244,7 +351,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Statistics for Psychologists</h1>
-<p class="subtitle lead">Written by John Towse &amp; Tom Beesley</p>
+<p class="subtitle lead">Richard Philpot, Mark Hurlstone</p>
 </div>
 
 
@@ -259,67 +366,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="lectures-for-week-1" class="level1">
-<h1>Lectures for week 1</h1>
-<p>Watch the introduction: Lecture Part 1</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=be47e4bd-902a-4fcf-90d3-b0920087c849&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe>
-<p>Watch Lecture Part 2</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c05d4cbb-cf04-437e-8d98-b0920089f555&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe>
-<p>Watch Lecture Part 3</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=a177a0a9-67c5-4700-9a98-b092008e0cfc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe>
-<p>Watch Lecture Part 4</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=237ed51b-aa37-4e10-9f3b-b0920091b16b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player"></iframe>
-<p>Download the lecture slides <a href="data/Week_1/week1_lecture_student_slides.pptx">here</a></p>
+<section id="lecture" class="level1">
+<h1>Lecture</h1>
+<p>Watch Part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981602">here</a></p>
+<p>Watch Part 2 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981612">here</a></p>
+<p>Watch Part 3 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981614">here</a></p>
+<p>Watch Part 4 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981618">here</a></p>
+<p>Watch Part 5 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981621">here</a></p>
+<p>Download the lecture slides <a href="data/Wk1/Lecture 1 - Student Slides.pdf">here</a>, and <a href="data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf">here</a> for a larger version.</p>
 </section>
-<section id="analysis-labs-and-pre-lab-activity" class="level1">
-<h1>Analysis labs and ‘pre-lab’ activity</h1>
-<p>For each lab session that you have been scheduled to attend, please come “prepared’. By this we mean</p>
-<ul>
-<li><p>You have watched the lecture video, made notes, and developed questions where you have them.</p></li>
-<li><p>You have worked through the online “prelab” preparation materials - <a href="https://ma-rconnect.lancs.ac.uk/W1_prelab" target="_blank">Here is the one for Week 1</a></p></li>
-<li><p>You read the lab sheet (this one) to get a sense of what we’re going to be doing, and you anticipate potential problems so that you can focus on these in the session.</p></li>
-</ul>
-<p>The lecture is designed to deliver important ideas and procedures for learning about analysis. Pre-lab material is then designed to help consolidate this learning, or enhance, expand and apply it in ways that set the scene for the lab session activity. We want to prepare you to be ready to go in the session itself and make the most of your time there.</p>
-<p>Want additional support? Keep in mind that the Department has endorsed and will use the Statistics textbook by David Howell called “<strong>Fundamental statistics for the behavioral sciences</strong>”</p>
-<p>The book covers principles of statistics as well as some tutorials on using R. You can access a library copy <a href="https://onesearch.lancaster-university.uk/permalink/f/cssk39/44LAN_ALMA_DS51180136050001221" target="_blank">from the library pages</a></p>
-</section>
-<section id="activities-for-this-week" class="level1">
-<h1>Activities for this week</h1>
-<section id="task-1---check-in-with-the-university-attendance-register" class="level2">
-<h2 class="anchored" data-anchor-id="task-1---check-in-with-the-university-attendance-register">Task 1 - check-in with the University attendance register</h2>
-<p>When you arrive, make sure you have checked-in to your Analysis session in the Levy lab. All students are required by the University to <a href="https://www.lancaster.ac.uk/student-and-education-services/check-in/" target="_blank">confirm attendance at taught session</a></p>
-<p>Staff will remind you of this in your class.</p>
-</section>
-<section id="task-2---getting-dicy" class="level2">
-<h2 class="anchored" data-anchor-id="task-2---getting-dicy">Task 2 - Getting dicy</h2>
-<p><img src="images/Wk1/dice.png" class="img-fluid" style="width:3in"></p>
-<p>Here’s a simple task for you to complete as a group around each of the workstations;</p>
-<p>You will be given a pair of dice</p>
-<ol type="1">
-<li><p>Working in pairs, one person rolls both dice.</p></li>
-<li><p>Add up the total on each of them and have someone record that total (if you don’t have some spare paper or a pen, use your computer)</p></li>
-<li><p>Repeat those steps 20 times.</p></li>
-<li><p>Then swap over your roles (the person rolling the dice, the person recording the outcome)</p></li>
-<li><p>Once everyone at the workstation has had a turn at this, each person should attempt to work out (a) the mean and (b) the median of their dice roll total.</p></li>
-<li><p>Check each others working, and discuss any differences or problems you have.</p></li>
-</ol>
-<p>Are all your answers the same? Why / why not? If not, are they very different or very similar?</p>
-</section>
-<section id="task-3---using-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="task-3---using-rstudio">Task 3 - Using RStudio</h2>
-<section id="introducing-r-studio" class="level3">
-<h3 class="anchored" data-anchor-id="introducing-r-studio">Introducing R Studio</h3>
-<p>R and RStudio is the software that we will be using to explore and learn about analysis in your Psychology degree. It’s a computational engine: a very snazzy calculator that you should see as your friend and ally in the journey to understand and appreciate psychology. It sits <em>alongside</em> what we teach about the concepts and interpretation of statistical analysis.</p>
-<p>R is the core software, RStudio is the interface for interacting with it. Put another way, <em>R is the engine, RStudio is the cockpit.</em></p>
-<p>Like even a simplest calculator, it just does what you ask (at least when you ask nicely!) but it requires the user to know what they want from it and to understand what it is telling you. A calculator can’t help a kid get the right answer to a multiplication problem if they don’t know the difference between multiplication and division and addition etc. And whilst a calculator is brilliant at doing the number crunching (and as a bonus, R Studio can help with turning the numbers into beautiful graphs and images too), even a calculator requires a thoughtful person to take the answers and make sensible interpretations from them.</p>
-<p>Therefore, we need to learn both about the concepts of statistical analysis on the one hand, and the processing of statistical information -through R- on the other. The lectures will provide the starting point and the direction for statistical concepts, whilst these analysis labs provide the more practical experiences in how to use R, and how to make R your ally. Over the next year, in these labs we will increasingly be using RStudio to focus on the latter, processing side, which will allow you to focus your energies on the conceptual side and its relevance for appreciating psychology.</p>
-</section>
-<section id="getting_started" class="level3">
-<h3 class="anchored" data-anchor-id="getting_started">Getting started with RStudio</h3>
-<p>For Lancaster University Psychology Students in 2023, we will be learning about R Studio through a simple but powerful web server architecture. That is, through the power of the internet, you can access and use R Studio by logging into a free account that we have provided and we will maintain for your use.</p>
-<blockquote class="blockquote">
-<p>Here’s a little secret: There are several different ways to access RStudio. For example, you can download a copy of the software onto your computer, or use a Virtual Machine set up to run a copy. There’s nothing to stop you having your local copy, but please note - we can’t support your own version through lab classes. We’re using the web server to make sure everyone has the same, controlled experience.</p>
-</blockquote>
+<section id="lab" class="level1">
+<h1>Lab</h1>
+<p>Welcome back to Lancaster University and congratulations on your progression to Year 2!</p>
+<p>This will be the first lab session for Psyc214 - Statistics for Psychologists. In these lab sessions you will work from sheets (like this one) which detail activities and provide hands on experience of working and problem solving in R. At times these sheets will offer step-by-step instructions of how to wrangle data and to run a relevant command or analysis. At other times, and to reinforce learning, you will be asked to ‘fill in the gaps’ yourselves or to rewrite the code to solve a new problem. Myself (Richard Philpot), Mark Hurlstone and an apt team of GTAs will be on hand to help you through this journey - so please do not panic - you’re never alone. In Psyc214, we also encourage peer engagment and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let’s get started!💪</p>
+<hr>
+<section id="general-introduction" class="level2">
+<h2 class="anchored" data-anchor-id="general-introduction">1 - General Introduction</h2>
+<p><em>“Once more unto the breach, dear friends, once more”</em> | King Henry V, by William Shakespeare.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.pexels.com/photos/1301413/pexels-photo-1301413.jpeg?cs=srgb&amp;dl=pexels-magda-ehlers-1301413.jpg&amp;fm=jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Fifty shades of rust</figcaption>
+</figure>
+</div>
+<p>The formation of rust can occur quickly and within minutes or slowly, over many years. It all depends on the material that is rusting, it’s lack of use and the environment!</p>
+<p>In this analogy, let’s consider our ‘R brains’ as the material vulnerable to rusting. With individual differences, some of us may remember more of last year’s statistic course than others - and that’s completely normal.</p>
+<p>When considering repeated use and our environments, it is also unlikely that many of us have interacted with R and statistics over the intervening summer months. Quite sensibly we’ve enjoyed a non-academic environment - holidays, summer jobs, commitments to family and friends, these are all important things that have rightly taken priority!</p>
+<p>It therefore an entirely natural process for folks to feel rusty and hesitant when re-engaging with R and statistics. As such, in this first session, let’s get re-accustomed with our old friend ‘R’.</p>
+<hr>
+<section id="access-to-r-studio" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-r-studio">1.1 Access to R Studio</h3>
+<p>You will recall from last year that R Studio is a free, open-source data science engine that works as a giant calculator on steroids. Beyond number crunching, R studio allows you to organise your data, construct beautiful tables and graphs, as well as document your code and findings for others to inspect.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.unsplash.com/photo-1607370883617-9720ac853cc4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1650&amp;q=80" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Vintage computational power and R Studio</figcaption>
+</figure>
+</div>
 <p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
 <p>When you are connected, navigate to <a href="https://psy-rstudio.lancaster.ac.uk">https://psy-rstudio.lancaster.ac.uk</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
 <p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
@@ -339,117 +422,702 @@ Note
 <p>If you have already logged in through the university login already, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
 </div>
 </div>
+<hr>
 </section>
-<section id="what-does-rstudio-look-like" class="level3">
-<h3 class="anchored" data-anchor-id="what-does-rstudio-look-like">What does RStudio look like?</h3>
-<p>When RStudio starts, it will look something like this: <img src="images/Wk1/RStudio_starup_screen.png" class="img-fluid" alt="Startup screen"></p>
-<p>RStudio has three panels or windows: there are tabs for Console (taking up the left hand side), Environment (and History top right) , Current file (bottom right). You will also see a 4th window for a script or set of commands you develop, also (on the left hand side).</p>
+<section id="creating-a-folder-for-todays-session" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-folder-for-todays-session">1.2 Creating a folder for today’s session</h3>
+<p>Once you are logged into the server, create a folder for today’s session. This will be where we will house today’s data and script. This will allow you to save you store your work and return at a later date (for example, around exam time - wink wink)</p>
+<p>Navigate to the bottom right panel (see figure below) and click Home. Next, under the Files option select the New Folder option. Name the new folder psyc214_lab_1. Please ensure that you spell this correctly otherwise when you set the directory using the command given below it will return an error.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lab1_folder.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Creating a folder on your server</figcaption>
+</figure>
+</div>
+<hr>
 </section>
-<section id="lets-get-started" class="level3">
-<h3 class="anchored" data-anchor-id="lets-get-started">Let’s get started!</h3>
-<p>The first thing we want to do in RStudio is to create a folder for this week so that we can put the relevant material there and keep it tidy.</p>
-<p>From the lower-right panel of RStudio, click the files tab.</p>
-<p>Select the “new folder” option and create a new folder (eg “week 1”)</p>
-<p>Click on that folder to open it</p>
-<p>Next, we’ve prepared some <em>instructions</em> for RStudio to use - this is called a “script”. So we need to get this script into the server for you to explore and play with</p>
+<section id="uploading-todays-data-file-and-creating-a-script" class="level3">
+<h3 class="anchored" data-anchor-id="uploading-todays-data-file-and-creating-a-script">1.3 Uploading today’s data file and creating a script</h3>
+<p>Now that you have created a folder for today’s session, it’s time to add the Week 1 data file. You can download the file from <a href="data/Wk1/week1_robo_lab.csv">here</a>.</p>
+<p>Next, in the RStudio Server open your new psyc214_lab_1 folder. When in the new folder, select the Upload tab (see figure below). This will present a box that will ask where the data is that you want to upload. Click on Browse, find the <code>week1_robo_lab.csv</code> file on your desktop and click OK.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lab1_upload_files.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Uploading today’s data</figcaption>
+</figure>
+</div>
+<p>So we can save this session on the server, click File on the top ribbon and select New project. Next, select existing directory and name the working directory <code>~/psyc213_lab_1</code> before selecting create project.</p>
+<p>Finally, open a script for executing today’s coding exercises. Navigate to the top left pane of RStudio, select File -&gt; New File -&gt; R Script. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lab1_script.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Creating a script</figcaption>
+</figure>
+</div>
+<p><strong>Be sure to save the script using the File -&gt; Save As….</strong></p>
+<hr>
+</section>
+<section id="setting-the-working-directory-and-opening-the-data-file" class="level3">
+<h3 class="anchored" data-anchor-id="setting-the-working-directory-and-opening-the-data-file">1.4 Setting the working directory and opening the data file</h3>
+<p>A working directory is the default location or folder on your computer/server by which R will read/save any files. It can be set with the following R code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">"/PSYC214"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now you’ve downloaded the data and set the working directory it’s time to open the data file in R studio. To do this, please type the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"week1_robo_lab.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>where ‘lab1_data’ is the name we’ve assigned that R will recognise when it calls up our data, ‘read.csv’ is the R command to pull up the data and ‘week1_robo_lab.csv’ is the name of the original data file you downloaded and stored.</p>
+<p><em>Note. During the rest of this session, you will not need to refer to the original downloaded .csv data file. R has all the information stored under the ‘lab1_data’ variable. Further note, you could have called ‘lab1_data’ by pretty much any name you like… ‘df1’, ‘robo_1’, ‘I.love.stats.com’, etc. - the name is somewhat arbitrary. For the purpose of this lab session and for ease of read, ‘lab1_data’, is perhaps more suitable.</em></p>
+<hr>
+</section>
+<section id="loading-the-relevant-library" class="level3">
+<h3 class="anchored" data-anchor-id="loading-the-relevant-library">1.5 loading the relevant library</h3>
+<p>Finally, let’s load the relevant libraries that we will be using in today’s session:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="todays-lab-activities" class="level2">
+<h2 class="anchored" data-anchor-id="todays-lab-activities">2 - Today’s lab activities</h2>
+<p>Now that you have loaded the dataset, let’s have a play.</p>
+<section id="some-background-information-about-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="some-background-information-about-the-dataset">2.1 Some background information about the dataset</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Introducing the robo-lab study</figcaption>
+</figure>
+</div>
+<p>In this lab session, we will examine the fictitious ‘robo_lab’ dataset. Here, a team of researchers wanted to know whether LU statistics students would respond well to a new, ambitious initiative to deploy a team of synthetic robots as lab assistants.</p>
+<hr>
+</section>
+<section id="study-manipulation" class="level3">
+<h3 class="anchored" data-anchor-id="study-manipulation">2.2 Study manipulation</h3>
+<p>The research team developed two robot prototypes and wanted to test which prototype would be optimal for classroom teaching. In a controlled experiment, the researchers randomly assigned groups of students either Robot A(lpha) or Robot B(eta). Note this is one factor design (Robot assignment) made of two levels (Robot A or Robot B).</p>
+<p>Those individuals assigned Robot A(lpha) were denoted as belonging to ‘Group A’.<br>
+Those individuals assigned Robot B(eta) were denoted as belonging to ‘Group B’.<br>
+Note. The groups are mutually exclusively - i.e., a participant was assigned to either Group A/Robot A or Group B/Robot B, not both.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Wk1/RobotA.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Robot A(lpha)</strong></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Robot B(eta)</strong></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="dependent-a.k.a.-outcome-variables" class="level3">
+<h3 class="anchored" data-anchor-id="dependent-a.k.a.-outcome-variables">2.3 Dependent (a.k.a. Outcome) variables</h3>
+<p>Next, the researchers required some outcome measures to evaluate whether indeed the students had responded more positively toward one robot prototype over another.</p>
+<p>The research team settled on two dependent variables (or outcome measures). These measured student stats competence (something important!) and attitudes towards teaching support (something also very important!).</p>
+<p>DV1: Student stats competence was measured by a Psyc214 test score; ranging between 40-100.</p>
+<p>DV2: Student attitudes towards the robot lab assistant was assessed with a likert scale response between 1-7; with 1 = ‘strongly dislike’ and 7 = ‘strongly like’.</p>
+<hr>
+</section>
+<section id="predictions-of-the-research-team" class="level3">
+<h3 class="anchored" data-anchor-id="predictions-of-the-research-team">2.4 Predictions of the research team</h3>
+<p>The research team had their own expectations for which robot would be best received by students. Specifically, they predicted that:</p>
+<ul>
+<li><p>Individuals assigned Robot B(eta) would score significantly higher in their Psyc214 tests (Hypothesis 1)</p></li>
+<li><p>Robot B(eta) would be significantly more liked than Robot(A)lpha (Hypothesis 2)</p></li>
+</ul>
+<p>The researchers expected that this difference would be explained by Robot B(eta)’s closer resemblance to other human beings. Indeed, prior to the study, independent raters had reliably agreed that Robot B(eta) resembled a human being significantly more than Robot A(lpha).</p>
+<hr>
+</section>
+<section id="refamiliarising-with-some-basic-features" class="level3">
+<h3 class="anchored" data-anchor-id="refamiliarising-with-some-basic-features">2.5 Refamiliarising with some basic features</h3>
+<p>Now that you have opened the dataset and are aware of what the different variables for this study are, it’s time to explore.</p>
+<p>In this first refresher session, we will be refamiliarising ourselves with some of the key functions and features learned in last year stats classes.</p>
+<p>Earlier, we loaded the package <code>dplyr</code>, which is readily accessible from the <code>tidyverse</code> collection. This package allows us to use some nifty functions such as:</p>
+<ul>
+<li>pipes <code>%&gt;%</code><br>
+</li>
+<li><code>arrange()</code></li>
+<li><code>summary()</code></li>
+<li><code>sd()</code></li>
+<li>IQR, etc.</li>
+</ul>
+<hr>
+</section>
+<section id="examining-and-ordering-data" class="level3">
+<h3 class="anchored" data-anchor-id="examining-and-ordering-data">2.6 Examining and ordering data</h3>
+<p>Now that we have our pieces in play, let’s take a look at the data.</p>
+<p>We first want to get a brief overview of what the data set looks like. To do this, we use the use the <code>head()</code> command, which displays the first rows present in the data frame.</p>
+<p>To view these first rows, please apply the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID Group Likeability Score
+1  1     A           3    55
+2  2     A           2    72
+3  3     A           2    45
+4  4     A           3    50
+5  5     A           2    45
+6  6     A           5    63</code></pre>
+</div>
+</div>
+<p>This shows us the first 6 rows. Note, while the default is six, you can also specify the number of rows as follows - please try it out.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(lab1_data, <span class="at">n=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Great. We can now see the first 12 rows of data. One thing that is noticeable, however, is that the data are ordered by participant ‘ID’. Say we want to get an overview of our data where we can see data ordered by the from lowest Psyc214 test score to highest. We can arrange data this way using the <code>arrange()</code> command, were we include ‘Score’ as the variable of interest. Please try the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     ID Group Likeability Score
+1    33     A           2    40
+2    60     A           1    40
+3   165     B           5    40
+4    81     A           3    41
+5    46     A           3    42
+6    52     A           2    42
+7    18     A           4    43
+8    44     A           3    43
+9    95     A           3    43
+10   50     A           3    44
+11   53     A           1    44
+12   87     A           3    44
+13    3     A           2    45
+14    5     A           2    45
+15    7     A           4    45
+16   26     A           1    45
+17   28     A           4    46
+18  126     B           5    46
+19   39     A           4    47
+20   61     A           1    47
+21   66     A           4    47
+22   85     A           3    47
+23  133     B           3    47
+24   51     A           3    48
+25   57     A           2    48
+26   86     A           3    48
+27   96     A           4    48
+28   12     A           6    49
+29   40     A           3    49
+30  144     B           4    49
+31  162     B           4    49
+32  167     B           5    49
+33  172     B           4    49
+34  192     B           5    49
+35    4     A           3    50
+36   43     A           2    50
+37   79     A           2    50
+38  173     B           3    50
+39  191     B           5    50
+40   71     A           7    51
+41   91     A           4    51
+42  140     B           5    51
+43  147     B           6    51
+44  166     B           5    51
+45  170     B           6    51
+46  200     B           5    51
+47   24     A           3    52
+48  121     B           6    52
+49  176     B           4    52
+50   17     A           5    53
+51   38     A           4    53
+52   42     A           2    53
+53   62     A           2    53
+54   97     A           4    53
+55  105     B           4    53
+56  110     B           6    53
+57  131     B           7    53
+58   13     A           1    54
+59   64     A           3    54
+60   74     A           2    54
+61  101     B           4    54
+62  194     B           4    54
+63    1     A           3    55
+64   31     A           3    55
+65   37     A           1    55
+66   49     A           2    55
+67   70     A           3    55
+68  111     B           5    55
+69  128     B           6    55
+70  155     B           4    55
+71  163     B           3    55
+72  174     B           4    55
+73  177     B           5    55
+74   72     A           1    56
+75   82     A           3    56
+76  104     B           3    56
+77  136     B           6    56
+78  151     B           3    56
+79  184     B           5    56
+80   14     A           3    57
+81   15     A           2    57
+82   20     A           3    57
+83   45     A           3    57
+84  106     B           5    57
+85  135     B           4    57
+86  139     B           4    57
+87  149     B           4    57
+88  153     B           4    57
+89  168     B           5    57
+90   23     A           3    58
+91   35     A           4    58
+92   36     A           3    58
+93   48     A           2    58
+94   76     A           4    58
+95  109     B           4    58
+96  113     B           7    58
+97  180     B           5    58
+98    9     A           4    59
+99   54     A           2    59
+100  55     A           3    59
+101 102     B           3    59
+102 118     B           3    59
+103 125     B           5    59
+104 150     B           4    59
+105 186     B           5    59
+106 190     B           6    59
+107  16     A           3    60
+108  69     A           2    60
+109  83     A           3    60
+110  90     A           2    60
+111 115     B           5    60
+112 120     B           4    60
+113 143     B           4    60
+114 185     B           4    60
+115 187     B           5    60
+116 193     B           4    60
+117  22     A           2    61
+118  59     A           3    61
+119  92     A           4    61
+120 161     B           5    61
+121  21     A           3    62
+122  27     A           2    62
+123  32     A           2    62
+124  75     A           3    62
+125  77     A           3    62
+126  89     A           4    62
+127 148     B           5    62
+128   6     A           5    63
+129  80     A           4    63
+130  99     A           3    63
+131 100     A           4    63
+132 158     B           7    63
+133  19     A           2    64
+134  25     A           4    64
+135  41     A           3    64
+136  56     A           2    64
+137  68     A           3    64
+138  98     A           4    64
+139 122     B           5    64
+140 152     B           4    64
+141 181     B           4    64
+142 188     B           4    64
+143  58     A           3    65
+144  67     A           0    65
+145  78     A           3    65
+146  84     A           4    65
+147  88     A           4    65
+148  93     A           4    66
+149 119     B           5    66
+150 137     B           5    66
+151 196     B           5    66
+152  29     A           3    67
+153  34     A           4    67
+154  63     A           3    67
+155 130     B           2    67
+156 171     B           3    67
+157 199     B           6    67
+158  73     A           3    68
+159 103     B           3    68
+160 114     B           6    68
+161 123     B           5    68
+162 195     B           5    68
+163   8     A           4    69
+164 116     B           5    69
+165 129     B           3    69
+166 164     B           4    69
+167 198     B           3    69
+168  47     A           3    70
+169  65     A           1    70
+170 112     B           5    70
+171 141     B           5    70
+172 154     B           3    70
+173 157     B           4    70
+174 132     B           6    71
+175 146     B           4    71
+176 179     B           2    71
+177 182     B           5    71
+178   2     A           2    72
+179  11     A           3    72
+180 169     B           4    72
+181 197     B           5    72
+182  94     A           3    73
+183 107     B           3    73
+184 127     B           5    74
+185 159     B           4    75
+186 142     B           5    76
+187  30     A           6    78
+188 160     B           6    78
+189 117     B           5    80
+190 189     B           4    80
+191 108     B           3    81
+192 124     B           4    81
+193 138     B           5    81
+194 145     B           4    82
+195  10     A           1    83
+196 156     B           4    83
+197 183     B           4    85
+198 134     B           5    86
+199 175     B           5    88
+200 178     B           5    88</code></pre>
+</div>
+</div>
+<p>You will note that the command outputs 100+ data rows showing the values of over 100 of our participants.</p>
+<p>This can be quite a whooper!</p>
+<p>If we want to make this output more manageable we could always add an additional <code>&gt;%&gt;</code> pipe command which combines both arrange and head.</p>
+<p>For example the code below, combining <code>arrange()</code> and <code>head()</code> allows us order the data based on lowest score and then to display <em>only</em> the top 10 results.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    ID Group Likeability Score
+1   33     A           2    40
+2   60     A           1    40
+3  165     B           5    40
+4   81     A           3    41
+5   46     A           3    42
+6   52     A           2    42
+7   18     A           4    43
+8   44     A           3    43
+9   95     A           3    43
+10  50     A           3    44</code></pre>
+</div>
+</div>
+<p>Phew. This is more manageable.</p>
+<p>This table provides some interesting information. We can see that the lowest scores were 40, which was the bottom cutoff point of our measurement scale.</p>
+<p>A quick eyeballing of the data rows suggests the lowest 10 test scores predominately have participants who were assigned to Group A(lpha). In fact, 9 out of 10 of the lowest scores belonged to individuals from Group A.</p>
+<p>It would also be prudent to check the top 10 highest scores and to get a feel for what the top marks were like. We can again order our data using the <code>arrange()</code> function. This time however, we add the term <code>arrange(desc())</code> to show that we are asking R for descending ordering.</p>
+<p>Please try the following command to examine the top scorers</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You will note in your own output, that the scores are once again showing over 100 values!</p>
+<p>To make this more manageable, please try writing your own code combining the <code>arrange(desc())</code> command, a pipe <code>%&gt;%</code> and the <code>head(n = x)</code> command. If stuck, refer to the command we used higher up.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    ID Group Likeability Score
+1  175     B           5    88
+2  178     B           5    88
+3  134     B           5    86
+4  183     B           4    85
+5   10     A           1    83
+6  156     B           4    83
+7  145     B           4    82
+8  108     B           3    81
+9  124     B           4    81
+10 138     B           5    81</code></pre>
+</div>
+</div>
+<p>You now should have an output of descending scores which are more manageable.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>    ID Group Likeability Score
+1  175     B           5    88
+2  178     B           5    88
+3  134     B           5    86
+4  183     B           4    85
+5   10     A           1    83
+6  156     B           4    83
+7  145     B           4    82
+8  108     B           3    81
+9  124     B           4    81
+10 138     B           5    81</code></pre>
+</div>
+</div>
+<p>Try eyeballing these scores and group IDs to see whether the higher scores tend to be associated with one group over another. Any thoughts?</p>
+<hr>
+</section>
+<section id="assessing-the-descriptives" class="level3">
+<h3 class="anchored" data-anchor-id="assessing-the-descriptives">2.7 Assessing the descriptives</h3>
+<p>As of yet, we have not examined the basic descriptive statistics of our data, so let’s take a look now.</p>
+<p>We can compute the minimum and maximum values, 1st and 3rd quartiles, median and mean all at once using the <code>summary()</code> command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       ID            Group            Likeability        Score      
+ Min.   :  1.00   Length:200         Min.   :0.000   Min.   :40.00  
+ 1st Qu.: 50.75   Class :character   1st Qu.:3.000   1st Qu.:53.00  
+ Median :100.50   Mode  :character   Median :4.000   Median :59.00  
+ Mean   :100.50                      Mean   :3.725   Mean   :59.69  
+ 3rd Qu.:150.25                      3rd Qu.:5.000   3rd Qu.:66.00  
+ Max.   :200.00                      Max.   :7.000   Max.   :88.00  </code></pre>
+</div>
+</div>
+<p>There are still a number of descriptives which may be interesting, but that the <code>summary()</code> function does not provide, however.</p>
+<p>For example, we may be interested in … (remember from last lecture ;) …:</p>
+<ul>
+<li>the range of our data points (i.e., the difference between the lowest and highest values)</li>
+<li>the interquartile range of data (i.e., the difference between the first and third quartiles)</li>
+<li>the standard deviation (i.e., the dispersion of a dataset relative to its mean, that being the square root of the variance)</li>
+</ul>
+<p>These can all be calculated relatively easily with the following commands:</p>
+<ul>
+<li>the range of our data points: <code>range()</code></li>
+<li>the interquartile range: <code>IQR()</code></li>
+<li>the standard deviation: <code>sd()</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(lab1_data<span class="sc">$</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 40 88</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(lab1_data<span class="sc">$</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(lab1_data<span class="sc">$</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10.29689</code></pre>
+</div>
+</div>
+<p>Note that this only provides the information for the ‘Scores’ dependent variable - I.e., DV1.</p>
+<p>We do not know what the respective values are for the ‘Likeability’ dependent variable (DV2).</p>
+<p>If we want to examine multiple variables simultaneously, we can use the <code>sapply()</code> function, which can take multiple lists/vector/data frames as inputs within a single command. Nifty.</p>
+<p>Here, we need to specify which columns we would like to assess. In our data the ‘Scores’ dependent variable (DV1) and ‘Likeability’ dependent variable (DV2) are columns 4 and 3 of the datasheet, respectively.</p>
+<p>Let’s try in with the range.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(lab1_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">3</span>], range)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Score Likeability
+[1,]    40           0
+[2,]    88           7</code></pre>
+</div>
+</div>
+<p>Here we see that the range in Psyc214 test scores (i.e., the min and max scores in the cohort of all participants) ranged between 40 and 88.</p>
+<p>Also, the min and max ratings for the likeability scores were between 0 and 7, respectively.</p>
+<p>Now, please try to apply the code above yourself, but change ‘range’ with the standard deviation ‘sd’ function to get the standard deviation for both the score and likeability variables simultaneously.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(lab1_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">3</span>], sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Score Likeability 
+  10.296888    1.344774 </code></pre>
+</div>
+</div>
+<p>If done correctly, you should received the following output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      Score Likeability 
+  10.296888    1.344774 </code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="descriptives-by-group-condition" class="level3">
+<h3 class="anchored" data-anchor-id="descriptives-by-group-condition">2.8 Descriptives by group condition</h3>
+<p>Now that we have some information regarding the overall data, we can rejoice.</p>
+<p>Well only briefly…</p>
+<p>Although this information is useful, it gives information regarding all data points and does not generate these values based on the two assigned independent groups - i.e., the two levels (Group Robot A, Group Robot B) of our single factor (Robot Assignment).</p>
+<p>Although there are work arounds for this, simpler functions are available in the rstatix() package (previously loaded).</p>
+<p>Using the package’s <code>group_by()</code> command and pipes <code>%&gt;%</code> we can ask R to separate our data based on the group assigned. Note, here the name of the grouping variable for our dataset is ‘Group’.</p>
+<p>Let’s ask for the mean for our two groups with the following command. First we tell R we are using the lab1_data. Then we say within this data set we want to separate the data by the ‘Group’ variable. Finally we ask for summary stats for the DV1 the Score. We will ask only for the mean.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Score, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  Group variable     n  mean
+  &lt;chr&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;
+1 A     Score      100  56.6
+2 B     Score      100  62.8</code></pre>
+</div>
+</div>
+<p>Great. Now let’s do the same again, but this time we will ask for summary statistics for both the Score (DV1) and Likeability (DV2) variables. Furthermore, let’s also ask for the sd, min, max and iqr.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Score, Likeability, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"iqr"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 8
+  Group variable        n  mean    sd   min   max   iqr
+  &lt;chr&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 A     Score         100 56.6   9.05    40    83    14
+2 A     Likeability   100  2.94  1.15     0     7     2
+3 B     Score         100 62.8  10.6     40    88    15
+4 B     Likeability   100  4.51  1.03     2     7     1</code></pre>
+</div>
+</div>
+<p>Ok, perfect. This now tells us a lot of information. For example, we can see that the mean test scores for Group A and B are 56.6 and 62.8 respectively. On reflection, and considering the importance of getting a nice score, these means do seem quite different from one another.</p>
+<hr>
+</section>
+</section>
+<section id="and-more" class="level2">
+<h2 class="anchored" data-anchor-id="and-more">3. And more</h2>
+<section id="visualising-data" class="level3">
+<h3 class="anchored" data-anchor-id="visualising-data">3.1 Visualising data</h3>
+<p>As a next step, let’s plot the data and see the distribution of data points in visual form. To do this, we’ve already loaded the excellent data visualization package <code>ggpubr</code>.</p>
+<p>To plot the data we use the <code>ggboxplot()</code> command. First we are required to say what dataset we’ll be using, which is again ‘lab1_data’. Next we type ‘main=’ to specify the title for the plot. Let’s call the plot “Box plot of test scores by robot condition”. We then need to specify what data we would like to use for each axis. For the x-axis we would like to plot the different groups, so let’s add x = “Group”. Our y-axis will be the “Score”. We can colour the groups also and add shapes to data points. Finally, let’s give the x-axis and y-axis each a descriptive label. “Robot group condition” and “Psyc214 test score” seem appropriate here.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Box plot of test scores by Robot Condition</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(lab1_data,<span class="at">main=</span><span class="st">"Box plot of test scores by robot condition"</span>, </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Score"</span>, <span class="co">#variables for axes</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Psyc214 test score"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week1_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Observing the spread of data points for Group A and B, respectively, we can see trends in which Group B tends to have more data points clustered higher on the test score axis than Group A. Group A has more data points clustered lower on the test score axis than Group B and these distributions are reflected by the boxplots. Again it seems we have a signficant difference, but we will need a statistical test to be certain.</p>
+<hr>
+</section>
+<section id="independent-2-group-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="independent-2-group-t-test">3.2 Independent 2-group T-test</h3>
+<p>To get to the bottom of this we need to perform an independent 2-group t-test. This inferential statistical test is appropriate when you want to examine whether there are any statistically significant differences between the means of two unrelated groups. This can be run using the <code>t_test()</code> function, where ‘Score’ is our y (dependent variable) and ‘Group’ is our predictive factor x (independent variable).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># independent 2-group t-test</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#t_test(Score ~ Group) # where y is numeric Score and x is a binary factor </span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute t-test</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">t.test</span>(<span class="at">formula =</span> Score <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  Score by Group
+t = -4.4152, df = 198, p-value = 1.658e-05
+alternative hypothesis: true difference in means between group A and group B is not equal to 0
+95 percent confidence interval:
+ -8.896848 -3.403152
+sample estimates:
+mean in group A mean in group B 
+          56.61           62.76 </code></pre>
+</div>
+</div>
+<p>The output provides the t-value and it’s 95% confidence interval - i.e., we can be 95% certain that the true value of t falls within the the lower and upper confidence intervals. We also get the means of our groups, the degrees of freedom for our t-test and the p-value. This p-value is significantly lower than 0.05 meaning that we reject the null hypothesis - i.e., we accept that the true difference is not roughly equal to zero. As such, there is a statistical difference in Psyc214 assessment scores between the two groups. What we are yet to discover is whether this represents a small, moderate or large effect.</p>
+<p>To calculate the effect size, where 0.2 = small effect, 0.5 = moderate effect, 0.8 = large effect (Cohen, 1988), we use the ‘cohens_d()’ function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cohen's d effect size calculation</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(Score <span class="sc">~</span> Group,  <span class="co"># Formula</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> lab1_data) <span class="co"># Dataframe containing the variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+  .y.   group1 group2 effsize    n1    n2 magnitude
+* &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;ord&gt;    
+1 Score A      B       -0.624   100   100 moderate </code></pre>
+</div>
+</div>
+<p>This output shows us that we have a moderate negative effect of -0.62 ; note. it is negative because of the order of our factors - i.e., Group A (which is presented first in our equation) has a lower set of scores than Group B. As you typically report the effect size as a value between 0-1 we need to treat the result as an absolute value, meaning we ignore the minus symbol when reporting our results.</p>
+<hr>
+</section>
+<section id="reporting-the-results-of-the-independent-2-group-t-test-in-apa-format" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-the-results-of-the-independent-2-group-t-test-in-apa-format">3.3 Reporting the results of the independent 2-group T-test in APA format</h3>
+<p>All results should be written up in accordance with the American Psychological Association’s (APA) guidance. This ensures that your results are easy to interpret and that all the relevant information is present for those wishing to review/replicate your work.</p>
+<p>The current results can be reported as following: “An independent 2-group T-test was carried out to examine whether there were statistical differences in the Psyc214 assessment scores between those students assigned Robot A(lpha) and those assigned Robot B(eta). This test was found to be statistically significant, <em>t</em>(198)= -4.42, 95% CI [-8.90, -3.40], <em>p</em> &lt; .001, <em>d</em> = 0.62. This effect size represents a moderate effect (Cohen, 1988). These results indicate that individuals assigned Robot A(lpha) (<em>M</em> = 56.61, <em>SD</em> = 9.05) typically received lower Psyc214 assessment scores than those individuals assigned Robot B(eta) (<em>M</em> = 62.76, <em>SD</em> = 10.60)”</p>
+<hr>
+</section>
+</section>
+<section id="further-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="further-tasks">4. Further tasks</h2>
 <ol type="1">
-<li><p>Download the “zip” file by <a href="data/Week_1/week_1.zip">clicking this link</a></p></li>
-<li><p>Find the location of the file on your computer and check it is saved as a “.zip” file</p></li>
-<li><p>Return to RStudio</p></li>
-<li><p>Click “Upload”</p></li>
-<li><p>Click choose file and find the file on your computer.</p></li>
-<li><p>Select the file and click “Open”. Click “OK”</p></li>
+<li>repeat the steps in ‘2.8 Descriptives by group condition’, this time examining the summary statistics for our second dependent variable - ‘Likeability’.</li>
 </ol>
-<p>You should now see the files extracted in the directory.</p>
-<p>You should now have the script available in RStudio.</p>
-<p>Use “Save…As” to create a new version of the script. By doing this, you’ll be able to have a “before” and “after” version of the script and can go back over the changes</p>
-<p>In the script, select or highlight the first line of text, which is this one:</p>
-<section id="run-your-first-ever-r-instruction" class="level4">
-<h4 class="anchored" data-anchor-id="run-your-first-ever-r-instruction">Run your first ever R instruction!</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ANSWER CODE</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Likeability, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  Group variable        n  mean
+  &lt;chr&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
+1 A     Likeability   100  2.94
+2 B     Likeability   100  4.51</code></pre>
 </div>
-<p>and “run” this line. That tells RStudio to carry out the instruction.</p>
-<p>You should see that in the console tab, RStudio calculates the answer to this incredibly hard maths challenge! (amazing huh? OK, maybe not *that* amazing…).</p>
-</section>
-<section id="modify-your-first-ever-r-instruction" class="level4">
-<h4 class="anchored" data-anchor-id="modify-your-first-ever-r-instruction">Modify your first ever R instruction!</h4>
-<p>Use your imagination – add a new line to the script and ask a different simple arithmetic question of your own choosing! What happens?</p>
-</section>
-<section id="calculate-descriptive-stats-in-r-for-the-first-time" class="level4">
-<h4 class="anchored" data-anchor-id="calculate-descriptive-stats-in-r-for-the-first-time">Calculate descriptive stats in R for the first time!</h4>
-<p>In this week’s analysis lecture, we looked at measures of central tendency and how to calculate them. So let’s get R to do these calculations also!</p>
-<p>First, we tell R about the data used in the lecture. We’ve already created the instruction that will do exactly this and it is in the script, so run this line from the script</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>week_1_lecture_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">3</span>,<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This creates an “object” called <code>week_1_lecture_data</code>. We can then perform calculations on this object. For example, we can find the mean by running the following command (use the script to do this)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(week_1_lecture_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Check the answer is the same we found in the lecture (it should be 6!).</p>
-<p>Next, let’s ask for the median by running this line from the script:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(week_1_lecture_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This also should be the answer from the lecture (7)</p>
-<p>R doesn’t have a single corresponding command for the <em>mode</em>, but we can use the block of code in the script for this that starts and ends with the “getmode” text (there are 6 lines of text)</p>
-<p>This is just a bit of clever jiggery-pokery that gets the mode. What does R say the mode is?</p>
-</section>
-<section id="your-challenge" class="level4">
-<h4 class="anchored" data-anchor-id="your-challenge">Your challenge</h4>
-<p>How can you get RStudio to verify / check the dice calculations that you attempted earlier? Think about how you might solve this problem, on the basis of what we have covered so far.</p>
-<p>We will discuss this in class and attempt to get RStudio to check your answers. In doing so, annotate the script (add notes for you - not RStudio) using the “#” command</p>
-</section>
-</section>
-</section>
-<section id="before-you-finish" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-finish">Before you finish</h2>
-<ol type="a">
-<li><p>Make sure you save a copy of the script that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.</p></li>
-<li><p>End your session on the RStudio server, this logs you out of the server and stops any ongoing activities and tasks you have set up, maybe in the background.</p>
-<p><img src="images/Wk1/power_button.png" class="img-fluid" style="width:2.5in"></p>
-<p>There is a red “power” button near the top right of the R studio window (do ask for help if you can’t find it). It’s a good habit to get into to turn the session off</p></li>
+<ol start="2" type="1">
+<li>repeat the steps in ‘3.1 Visualising data’, this time creating box plots for our second dependent variable - ‘Likeability’. Rename the title and axes to something more suitable and perhaps even change the colour of data points. Describe the trends in data to a classmate or your inner self.</li>
 </ol>
-<section id="extra-content-for-outside-the-lab-class" class="level3">
-<h3 class="anchored" data-anchor-id="extra-content-for-outside-the-lab-class">Extra content for outside the lab class</h3>
-<ol type="a">
-<li><p>In the Howell text book on statistics, there’s some R code on descriptive statistics. It is included in the script for you to look at and play with.</p></li>
-<li><p>in your own time and think about the following:</p></li>
-</ol>
-<p>In R, “&lt;-” is the assignment operator as in the command we used:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>PSYC121_week_1_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">3</span>,<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Box plot of likeability scores by Robot Condition</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(lab1_data,<span class="at">main=</span><span class="st">"Box plot of test scores by robot condition"</span>, </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Likeability"</span>, <span class="co">#variables for axes</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Likeability scores"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week1_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
-<p>We create the variable label on the left (<code>Analysis_week1_data</code>) and we give it those numbers on the right. The name<code>Analysis_week1_data</code> is largely arbitrary: try use a variable of your own naming (your own name?) instead - and then use that alternative name for the other commands.</p>
-<hr>
-<p>Throughout this year, we’ll use the convention of the “underscore” to separate words in labels (it_makes_them_easier_to_read than ifyoudidn’thaveanyspaces)</p>
-<hr>
-</section>
-</section>
-<section id="task-4-review-the-learnr-sample-practice-questions" class="level2">
-<h2 class="anchored" data-anchor-id="task-4-review-the-learnr-sample-practice-questions">Task 4 – Review the learnr sample / practice questions</h2>
-<p>After every block of teaching in part-1 analysis (specifically, we mean in week 5, week 10, week 15 and week 20) there will be a class test. This will assess your knowledge and your understanding of the material that has been covered.</p>
-<p>The class test will comprise a set of Multiple Choice Questions (and the set of questions will be different for each student, as the test will involve random selection from a larger pool) under timed conditions.</p>
-<p>In order to help you get (a) a broad or basic feel for the sort of questions you might get in the class test (b) self-review your progress through the term, we will provide MCQs each week for you to attempt.</p>
-<p>So these are for your benefit… you can take the questions when you choose to, and the learnr quiz will provide feedback on the answers your provide. Just bear in mind:</p>
-<ol type="a">
-<li><p>We place a set of questions at the end of the learnr pages so that you can attempt these at the end of each week, after you’ve completed lab activities, follow-up work, weekly Q&amp;As etc. But it’s up to you when you answer the questions</p></li>
-<li><p>These are meant as <em>indicative questions</em>. There’s no point in learning/ memorising these questions (they won’t be on the quiz!) and our advice is to reflect on how the teaching and content links to the sorts of questions that get posed.</p></li>
+</div>
+<ol start="3" type="1">
+<li>compute an independent t-test (steps 3.2) to examine whether there are any statistical differences between the means of our two groups in their Likeability ratings. Write up the results in APA style.</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># independent 2-group t-test</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#t_test(Score ~ Group) # where y is numeric Score and x is a binary factor </span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute t-test</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">t.test</span>(<span class="at">formula =</span> Likeability <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  Likeability by Group
+t = -10.155, df = 198, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group A and group B is not equal to 0
+95 percent confidence interval:
+ -1.874879 -1.265121
+sample estimates:
+mean in group A mean in group B 
+           2.94            4.51 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cohen's d effect size calculation</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(Likeability <span class="sc">~</span> Group,  <span class="co"># Formula</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> lab1_data) <span class="co"># Dataframe containing the variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+  .y.         group1 group2 effsize    n1    n2 magnitude
+* &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;ord&gt;    
+1 Likeability A      B        -1.44   100   100 large    </code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>before you finish, make sure you save a copy of the script that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.</li>
+</ol>
+<p>Please end your session on the RStudio server, this logs you out of the server and stops any ongoing activities and tasks you have set up, maybe in the background.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://tombeesley.github.io/PSYC121_2022-23/files/Week_1/power_button.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Ending session on R Studio</figcaption>
+</figure>
+</div>
+<ol start="5" type="1">
+<li>…</li>
+</ol>
+<p>Now breathe! You’ve rocked it!!!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.unsplash.com/photo-1536193533103-5bb31b6fb667?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Top work!</figcaption>
+</figure>
+</div>
 </section>
-<section id="task-5-data-collection-exercise" class="level2">
-<h2 class="anchored" data-anchor-id="task-5-data-collection-exercise">Task 5 – Data collection exercise</h2>
-<p>In order to learn about psychology and data analysis techniques, we need data! Rather than rely too much on artificial data (certainly it is sometimes useful to say “Here are a bunch of numbers and this is what we can do with them” – think about the R Studio example for this week’s lab) for the most part, we prefer to draw on datasets that are a bit more engaging and meaningful that you have a stake in yourself! By using a common data set, that we can return to over the year, we can also build up familiarity and confidence in the data and remove a potential obstacle to thinking about the more important analysis part.</p>
-<p>So a key task will be for everyone to have a go at taking our online survey, and contribute to a dataset that can be used throughout the year.</p>
-<p>The survey runs <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_5cNHoTIRd5ZVYlE" target="_blank">by following this link</a></p>
 </section>
-<section id="post---lab-recap-the-slides-we-used" class="level2">
-<h2 class="anchored" data-anchor-id="post---lab-recap-the-slides-we-used">Post - lab recap: The slides we used</h2>
-<p>Want to see again the introduction slides that we used in the Levy lab? They are <a href="data/Week_1/week_1_levylab_slides.pptx">available here</a></p>
+<section id="lab-feedback-voluntary" class="level1">
+<h1>Lab Feedback (voluntary)</h1>
+<p>This is a voluntary, super fast <a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=1905311">survey</a>, just to gauge how you found the difficulty of the content and any additional feedback.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -693,6 +1361,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../PSYC214/Week2.html" class="pagination-link">
+        <span class="nav-page-text">2. One-Factor Between-Participants ANOVA</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

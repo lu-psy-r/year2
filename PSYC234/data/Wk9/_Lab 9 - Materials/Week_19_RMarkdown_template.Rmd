@@ -1,0 +1,18 @@
+---
+title: "Week 19 - Lab"
+author: "" # your group's name
+date: "" # today's date
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(car)
+library(DescTools) 
+library(tidyverse)
+library(MASS)
+library(brant)
+
+
+options(scipen = 999) # shows numeric values rather than scientific notations in the output. 
+```

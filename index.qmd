@@ -34,11 +34,11 @@ Here we have some filler text that explains the psyc2xx structure or whatever - 
   <div class="row">
     <div class="col">
 
-    <a href="PSYC204/">
-      <button type="button" class="btn btn-landing btn-lg">PSYC204</button>
-    </a>
     <a href="PSYC214/">
       <button type="button" class="btn btn-landing btn-lg">PSYC214</button>
+    </a>
+    <a href="PSYC234/">
+      <button type="button" class="btn btn-landing btn-lg">PSYC234</button>
     </a>
     
     </div>

@@ -1,0 +1,578 @@
+---
+title: 4. Mediation
+subtitle: Emma Mills
+order: 5
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(warning = TRUE)
+knitr::opts_chunk$set(message = TRUE)
+```
+
+# Lecture
+
+Watch the lecture on mediation theory [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=2048690)
+
+Watch the mediation demonstration [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=2048691)
+
+## Differences between means
+
+T-tests helps answer the question:
++ 'Is there a difference between two groups in performance on X?'
+
+ANOVA helps answer the question:
++ 'Is there a difference between two or more groups / factors in performance on X?'
+
+With a 3rd variable we can see if this affects performace at different levels – we can introduce an interaction term...
+
+## Association:  Correlation -> Regression
+
+Measures of association help answer the question 'What is the relationship between two variables?'
+
+Correlation looks at pairs of variables
+
+```{r}
+library(DiagrammeR)
+
+grViz(diagram = "digraph flowchart {
+  rankdir=LR;
+  node [fontname = arial, shape = oval]
+  tab1 [label = '@@1']
+  tab2 [label = '@@2']
+
+  tab1 -> tab2 [dir='both'];
+}
+  
+  [1]: 'X'
+  [2]: 'Y'
+  ") 
+```
+
+
+Regressions chooses one as the outcome variable & one as the predictor variable
++ Simple regression = 1 outcome and 1 predictor
+
+```{r}
+grViz(diagram = "digraph flowchart {
+  rankdir=LR;
+  node [fontname = arial, shape = oval]
+  tab1 [label = '@@1']
+  tab2 [label = '@@2']
+
+  tab1 -> tab2;
+}
+  
+  [1]: 'X'
+  [2]: 'Y'
+  ") 
+```
+
++ Multiple regression = 1 outcome and 1+ predictor
+  + Interactions also possible
+
+```{r}
+grViz(diagram = "digraph flowchart {
+  rankdir=LR;
+  node [fontname = arial, shape = oval]
+  tab1 [label = '@@1']
+  tab2 [label = '@@2']
+  tab3 [label = '@@3']
+
+  tab1 -> tab3;
+  tab2 -> tab3;
+
+  {rank=same; tab1, tab2}
+
+}
+  
+  [1]: 'X1'
+  [2]: 'X2'
+  [3]: 'Y'
+  ") 
+```
+
+
+## Mediation: a causal model
+
+Mediation helps answer the question:
++ 'how does a predictor variable (X) influence / effect the outcome variable (Y)?'
+
+We assume a third variable is involved
++ The third variable is called the mediator (M)
++ It is situated between the predictor (X) and outcome variable (Y)
+
+```{r}
+grViz(diagram = "digraph {
+  rankdir=LR;
+  node [fontname = arial, shape = circle]
+  ranksep = .5;
+
+  tab1 [label = 'X']
+  tab2 [label = 'M']
+  tab3 [label = 'Y']
+
+  tab1 -> tab3;
+  tab1 -> tab2 -> tab3;
+
+
+}
+  ") 
+```
+
+## Mediation: parts of the model
+
+Unmediated relationship
++ path of total effect = c
+
+```{r}
+grViz(diagram = "digraph flowchart {
+  rankdir=LR;
+  node [fontname = arial, shape = oval]
+  tab1 [label = '@@1']
+  tab2 [label = '@@2']
+
+  tab1 -> tab2 [label = 'c'];
+}
+  
+  [1]: 'X'
+  [2]: 'Y'
+  ") 
+```
+
+Mediated relationship
++ mediator variable (M)
++ path of indirect effect = ab
+  + a = X predicts M
+  + b = M predicts Y
++ path of direct effect = c’
++ ab + c’ = c = total effect of X on Y
+  + either partial or full mediation
+
+
+```{r}
+grViz(diagram = "digraph {
+  rankdir=LR;
+  node [fontname = arial, shape = circle]
+  ranksep = .5;
+
+  tab1 [label = 'X']
+  tab2 [label = 'M']
+  tab3 [label = 'Y']
+
+  tab1 -> tab3 [label = 'c`'];
+  tab1 -> tab2 [label = 'a'];
+  tab2-> tab3 [label = 'b'];
+
+
+}
+  ") 
+```
+
+## Mediation: conditions
+
+1. X need not be a significant predictor of Y
+2. M must not be a primary predictor variable
+3. M must not be any of the study conditions
+4. M must be dependent upon X
+5. M must reduce or eradicate the impact of X on Y
+
+## Mediation: Different types: partial and full
+
+When path c’ is reduced but non-zero
+Mediation is said to be partial
+
+```{r}
+grViz(diagram = "digraph {
+  rankdir=LR;
+  node [fontname = arial, shape = circle]
+  ranksep = .5;
+
+  tab1 [label = 'X']
+  tab2 [label = 'M']
+  tab3 [label = 'Y']
+
+  tab1 -> tab3 [label = 'c` >0'];
+  tab1 -> tab2 [label = '>0 a'];
+  tab2-> tab3 [label = 'b >0'];
+
+
+}
+  ") 
+```
+
+When path c’ is at 0
+Mediation is said to be complete or full
+
+```{r}
+grViz(diagram = "digraph {
+  rankdir=LR;
+  node [fontname = arial, shape = circle]
+  ranksep = .5;
+
+  tab1 [label = 'X']
+  tab2 [label = 'M']
+  tab3 [label = 'Y']
+
+  tab1 -> tab3 [label = 'c` =0'];
+  tab1 -> tab2 [label = '>0 a'];
+  tab2-> tab3 [label = 'b >0'];
+
+
+}
+  ") 
+```
+
+But be mindful of power – bootstrap method offers strongest solution here.
+
+## Additional assumptions to the linear model assumptions
+
+A mediated model follows all the assumptions of linear regression
+
+As an explanatory process, a predictor (X) can be said to be ‘causally’ related to the outcome (Y) when:
++ X is associated with Y
++ X precedes changes in Y
++ No other unmeasured variables are related to X and also affect Y
+
+X should / could precede M in time
+
+M should significantly predict Y but Y could also significantly predict M
++ M and Y could be correlated if they are both causally related to X. 
++ Swapping the order of variables can check this
+High power
++Study design can help this: from weakest to strongest for assumptions
+  +Cross-sectional design (v. popular in student projects – beware…)
+  +Panel designs that allow for staggered measurement in waves
+  +Experimental designs with random assignment and manipulated variables
+
+## Method: 4 step approach (Baron & Kenny, 1986)
+
+### Step 1:
+
+Test path of total effect
+=    Test the significance of slope c
+=    Linear regression of X on Y
+ 𝑌=𝑏_(0  ) + 𝑏_1 𝑋
+= a simple, straightforward simple regression
+
+### Step 2 & 3:
+
+Test path of indirect effect a and b
+=    Test the significance of slope a and slope b in two independent models
+=    Linear regression of X on M
+ M =𝑏_(0  )+ 𝑏_1 𝑋
+=    Linear regression of M on Y while controlling for X
+=     Y =𝑏_(0  )+𝑏_1 𝑋+𝑏_2 𝑀
+
+### Step 4:
+
+Test if c’ < c
+=     $Y=b_0=  b_1X + b_2M$ 
+(step 3 and 4 are in the same equation / model)
+
+If c’ is significant = partial mediation
+If c’ is non- significant = full mediation
+
+## Method: Bootstrap test(Preacher & Hayes, 2004, 2008)
+
++ Automated process
++ Resampling method for the indirect pathway using the model data with replacement
++ Indirect pathway (ab) estimated for each set of sampled data
++ Average = indirect effect estimate
++ Generates confidence intervals also
++ `mediation` package (Tingley et al., 2013) in R
+
+## Reporting Results
+
+Report the indirect effect and its confidence intervals
++ This is generally the effect with the most power
++ A nonsignificant test for c’ may occur due to low power 
+  + i.e. give a Type II Error 
+  + Be careful of claiming full / complete mediation given this information
+Report each pathway with either its significance value or confidence interval
++ Pathways a, b, c’ and c
+Discuss how the additional assumptions of mediation analysis are met
+Muller et al. (2008) give further details.
+
+## Interpreting Results
+
++ Benefits of a direct effect in the context of a significant indirect effect (partial mediation) – it informs theory development
++ Size of the indirect effect indicates the strength of mediation
++ Zhao et al. (2010) gave descriptive labels to mediation as a function of the directions of effect for the direct and indirect pathways:
+  + Complementary – effects for both pathways are in the same direction
+  + Competitive – effects for both pathways are in opposite directions
+
+## Extensions
+
+Hayes (2018)  talks about:
++ Moderated mediation
++ The mediator depends on a fourth variable (!eek) and it could be
++ partial moderated mediation
++ conditional moderated mediation
++ moderated moderated mediation
+
+Out of scope for this module, but have a think when you are designing your studies!
+
+
+## Demonstration 
+
+```{r setup, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(include = TRUE)
+library(tidyverse)
+library(effects)
+library(broom)
+library(gridExtra)
+library(PerformanceAnalytics)
+library(diagram)
+library(mediation)
+library(haven) # reading in .sav file
+```
+
+### Mediation analysis
+
+In this demonstration, we will model a mediation analysis. The total effect of an unmediated relationship is below in pathway c.
+
+```{r}
+data <- c(0, "a", 0,
+          0, 0, 0, 
+          "b", "c", 0)
+M<- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)
+plot<- plotmat (M, pos=c(1,2), 
+                name= c( "M",
+                         "Supervision", 
+                         "Dissertation \nPerformance"), 
+                box.type = "rect", 
+                box.size = 0.12, 
+                box.prop=0.5,  
+                curve=0)
+
+```
+
+We are going to test for the mediator variable of `self esteem`.  This needs the prime mark added to the direct pathway "c" text!
+
+```{r}
+data <- c(0, "a", 0,
+          0, 0, 0, 
+          "b", "c", 0)
+M<- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)
+plot<- plotmat (M, pos=c(1,2), 
+                name= c( "Self-esteem",
+                         "Supervision", 
+                         "Dissertation \nPerformance"), 
+                box.type = "rect", 
+                box.size = 0.12, 
+                box.prop=0.5,  
+                curve=0)
+
+```
+
+### Read in the data
+
+First download the data file from [here](data/Wk4/mediation exercise 2 data.sav) and upload to the R server.
+
+
+```{r, eval=FALSE}
+d_full <- read_sav("mediation exercise 2 data.sav")
+
+head(d_full)
+```
+```{r, echo=FALSE}
+d_full <- read_sav("data/Wk4/mediation exercise 2 data.sav")
+
+head(d_full)
+```
+
+Early in the construction of the script, I noticed that there were different levels of missingness across the models - this means that coefficients are estimated on different datasets, so we are introducing a potential source of systematic error if we do not correct for this.
+
+Checking for missingness:
+```{r}
+summary(d_full)
+```
+For the purposes of this analysis, I will remove the observations (rows) with NA values. This is not the best way of working with missingness, but for the purposes of the demonstration it is ok.
+
+```{r}
+d <- na.omit(d_full) # 4 observations removed
+summary(d) # no NA values listed
+```
+
+I am going to copy and rename the variables to save on typing
+
+ X = supervision
+ Y = dissertation_performance
+ M = self_esteem
+ 
+```{r}
+d <- d %>% 
+  mutate(X = supervision,
+         Y = dissertation_performance,
+         M = self_esteem)
+```
+ 
+
+### Longhand - Steps of Baron & Kenny (1986)
+
+Four independent linear regression models
+
+  1. The effect of X on Y (total effect = pathway c)
+  2. The effect of X on M (indirect effect pathway a)
+  3. The effect of M on Y (indirect effect pathway b) while controlling for X
+  4. The effect of X and M on Y (for direct effect estimation = pathway c')
+  
+When running your models, you need to assign them to objects in the environment to then be able to use them in a call to the `mediation` package.
+
+#### Step 1: Test the total effect - pathway c
+
+
+
+$$
+Y = b_0 + b_1 * X + e
+$$
+
+via a simple regression model:
+
+```{r total effect}
+(fit_total <-  summary(lm(Y ~ X, d)))
+```
+
+The total effect of our predictor on our outcome is significant.  In other words, supervision on dissertation performance is significant (*p* < .001). A change in one unit of supervision is associated with an increase in dissertation performance of 0.44.
+
+There is an effect that can be tested for mediation.
+
+#### Step 2: Test the a pathway of the indirect effect
+
+$$
+M = b_0 + b_1 * X + e
+$$
+a second simple regression model, using X as a predictor but this time, M (self esteem here) is our outcome variable:
+
+```{r indirect effect a}
+(fit_indirecta <- summary(lm(M ~ X, d)))
+```
+
+The indirect effect pathway a (X on M) is also significant (*p* = .009). A change in one unit of supervision is associated with an increase in self-esteem of 0.30.
+
+So now we know that X and M share some variance - they are correlated.  We have met one of the assumptions that we need to be able to perform a mediation analysis.
+
+#### Step 3 & 4: Test the b pathway of the indirect effect & the direct effect (pathway c')
+
+$$
+Y = b_0 + b_1 * X + b_2 * M + e
+$$
+A multiple regression model, with Y (dissertation performance) as our outcome variable, and X (supervision) and M (self-esteem) as predictors.  Remember that this model is controlling for the effect of X on Y, because interpreting one predictor in a multiple regression model always assumes that the effect of the other predictors are already taken care of, or controlled for.
+
+```{r indirect effect b}
+(fit_indirectb <- summary(lm(Y ~ X + M, d)))
+```
+
+The indirect effect pathway b (M on Y), while controlling for X is also significant (*p* < .001). A change in one unit of self-esteem is associated with an increase in dissertation-performance of 0.68 of a unit. The predictor (X) relationship with the outcome (Y and pathway c' - the direct effect) remains significant also (*p* < .02 , but reduced relative to the step 1 model coefficient (step 1 $b$ = 0.44, step 4 $b$ = 0.23).  
+
+Since the direct pathway c' is significant, we can say that we have a partially mediated effect of self-esteem on the relationship between supervision and dissertation performance.  Supervision predicts self esteem and dissertation performance, while self esteem also predicts dissertation performance.
+
+If instead the X coefficient in the model above had been > .05 i.e. no significant, we could have claimed a full or complete mediation of self esteem on the relationship between supervision and dissertation performance
+
+### Using the power of R and the `mediation` package
+
+The `mediation` package is called by the library() function loaded at the top of the document.  
+
+ - It takes the models for pathways a and b (`fit_indirecta` and `fitindirectb` here), 
+ - It needs us to tell it the name of the predictor or treatment variable and the name of the mediator variable as labelled in the models 
+ - and we set the `boot` argument to T for TRUE, to be able to generate confidence intervals on our co-efficients.
+
+```{r}
+results <- mediate(fit_indirecta, 
+                   fit_indirectb, 
+                   treat = 'X', 
+                   mediator = 'M', 
+                   boot = T, 
+                   dropobs = TRUE)
+```
+
+```{r}
+summary(results)
+```
+
+ - **ACME** stands for *average causal mediation effects* and is the product of pathway a and pathway b from `fit indirecta` (X = 0.3037992) and `fit_indirectb` (M = 0.6786069).
+ - **ADE** stands for average direct effects or pathway c'.  This is the X coefficient in our `fit_indirectb`
+ - **Total Effect** does what it says on the tin.  It is the sum of the direct and indirect effect, ACME + ADE, and also calculated  as X in model `fit_total`.
+ - **Prop. Mediated** is the proportion of the effect of X on Y that goes through M.  We divide ACME (or ab) by the total effect (c).
+ 
+```{r}
+plot(results)
+```
+
+### Reporting the mediation analysis
+
+and to use our diagram from the top of the document:
+
+We are going to test for the mediator variable of `self esteem`.  (This needs the prime mark added to the direct pathway "c" text!)
+
+
+
+```{r}
+data <- c(0, 0.30, 0,
+          0, 0, 0, 
+          0.68, 0.23, 0)
+M<- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)
+plot<- plotmat (M, pos=c(1,2), 
+                name= c( "Self-esteem",
+                         "Supervision", 
+                         "Dissertation \nPerformance"), 
+                box.type = "rect", 
+                box.size = 0.12, 
+                box.prop=0.5,  
+                curve=0)
+
+```
+(Remember that these data are not standardised so we cannot compare between them for strength of relationships!)
+
+The effect of supervision on dissertation performance was partially mediated via self-esteem.  The effect of supervision on dissertation performance and the effect of self-esteem on dissertation performance were independently significant predictors.  The indirect effect equals (.3)*(0.68) = .0.21.  We tested the significance of this indirect effect using bootstrapping procedures. We computed the average indirect effect over 1,000 bootstrapped samples with 95% confidence intervals (bootstrapped indirect effect = 0.21 95% CI [0.06, 0.38]). Since the confidence intervals do not cross zero, we infer statistical significance.
+
+
+# Lab Tasks
+
+You can download the .zip folder that's needed for this lab from [here](data/Wk4/Lab 4 Materials.zip), which contains a starter .Rmd file and the data needed.
+
+Use the lecture script as a model to help you.
+
+## Descriptive Statistics:  describe the variables:
+
++ Prompts:  continuous / categorical?  Levels? Which one is the reference level if categorical?
++ Report the outcome variable (Y)
++ Report the predictor variables (Xs)
++ Summary stats for continuous variables = calculate and report the mean and sd values for each variable.
+
+Mediation analysis – 4 step approach
+
+Step 1:  Total effect: Run the code and write a short paragraph of results
+
+Step 2: Indirect effect path a: Run the code and write a short paragraph of results.
+
+Step 3 & 4: Indirect effect path b and direct effect path: Run the code and write a short paragraph of results.
+
+## Questions
+
+1. Is there a total effect?
+2. Is there an indirect path effect for X predicting the mediator M?
+3. Is there an effect for indirect path of mediator M on outcome Y?
+4. Is there an effect of direct path of X on Y?
+5. Is there a mediated effect of coffee on problem solving?
+6. If so, what type of mediation is it?
+7.Why have you decided that type of mediation? 
+
+## Bootstrap method
+
+Run the bootstrap method
+Report the following values to 2 dp.
+
+8.	What is the average causal mediation effect value?
+9.	What is the average direct effect value?
+10.	What is the total effect value?
+11.	What proportion of variance goes through the indirect pathway?
+
+Draw the mediation analysis diagram with the correct values on the pathways.
+
+Report the bootstrap analysis and the results.  
+
+# Submit Scripts
+
+Remember to submit your group scripts if you want to receive and see feedback on your own and other groups' scripts.

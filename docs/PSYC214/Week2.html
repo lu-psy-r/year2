@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics for Psychologists - 2. One-Factor Between-Participants ANOVA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../PSYC214/Week3.html" rel="next">
+<link href="../PSYC214/Week1.html" rel="prev">
+<link href="../Images/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
+ <span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
+ <span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
+ <span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
+ <span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week2.html">2. One-Factor Between-Participants ANOVA</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC214</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. One-Factor Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Revision of One-Factor ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Introduction to Factorial Designs and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Two-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Two-Factor Mixed and Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Three-Factor ANOVA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC234</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Review of correlation, simple regression and demonstration of multiple regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Mediation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Binary logistic regression models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Expanding on binary logistic regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
+  <ul class="collapse">
+  <li><a href="#general-introduction-to-lab-2" id="toc-general-introduction-to-lab-2" class="nav-link" data-scroll-target="#general-introduction-to-lab-2">1 - General Introduction to Lab 2</a>
+  <ul class="collapse">
+  <li><a href="#access-to-r-studio" id="toc-access-to-r-studio" class="nav-link" data-scroll-target="#access-to-r-studio">1.1 Access to R Studio</a></li>
+  <li><a href="#loading-the-packages-dependencies-and-loading-the-data-set" id="toc-loading-the-packages-dependencies-and-loading-the-data-set" class="nav-link" data-scroll-target="#loading-the-packages-dependencies-and-loading-the-data-set">1.2 Loading the packages (dependencies) and loading the data set</a></li>
+  <li><a href="#reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" id="toc-reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" class="nav-link" data-scroll-target="#reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format">3.2 Reporting the results of the one-factor between-participants ANOVA in APA format</a></li>
+  <li><a href="#creating-an-apa-barchart" id="toc-creating-an-apa-barchart" class="nav-link" data-scroll-target="#creating-an-apa-barchart">3.3 Creating an APA barchart</a></li>
+  </ul></li>
+  <li><a href="#further-tasks" id="toc-further-tasks" class="nav-link" data-scroll-target="#further-tasks">4 Further tasks</a></li>
+  </ul></li>
+  <li><a href="#lab-feedback-voluntary" id="toc-lab-feedback-voluntary" class="nav-link" data-scroll-target="#lab-feedback-voluntary">Lab Feedback (voluntary)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics for Psychologists</h1>
+<p class="subtitle lead">Richard Philpot, Mark Hurlstone</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="lecture" class="level1">
+<h1>Lecture</h1>
+<p>Watch Part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1993847">here</a></p>
+<p>Watch Part 2 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1993848">here</a></p>
+<p>Watch Part 3 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1993851">here</a></p>
+<p>Watch Part 4 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1993852">here</a></p>
+<p>Download the lecture slides <a href="data/Wk2/Psyc214 - Lecture 2 [small].pdf">here</a>, and <a href="data/Wk2/Psyc214 - Lecture 2 [large].pdf">here</a> for a larger version.</p>
+</section>
+<section id="lab" class="level1">
+<h1>Lab</h1>
+<p>Welcome back to Lab 2 of Year 2 Stats!</p>
+<p>It was incredibly pleasant meeting you last week and also getting snug and reacquainted with our old flame - R. Once again, this week, we will be working from an activity sheet, which outlines a bunch of “fun” tasks to complete in R Studio. The objectives of today’s lab are three fold:</p>
+<ol type="1">
+<li>Describing and wrangling a new and shiny data set</li>
+<li>Running and reporting (to APA standards) a one-factor between participants analysis of variance</li>
+<li>Creating a publication quality bar chart (no pressure), which plots our data</li>
+</ol>
+<p>As always, myself (Richard Philpot), Mark Hurlstone (weeks 6-10) and an apt team of GTAs will be on hand to help you through this journey - so please do not panic - you’re never alone. In Psyc214, we also encourage peer engagement and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let’s get started!💪</p>
+<hr>
+<section id="general-introduction-to-lab-2" class="level2">
+<h2 class="anchored" data-anchor-id="general-introduction-to-lab-2">1 - General Introduction to Lab 2</h2>
+<p><em>“There is no education like adversity”</em> | Benjamin Disraeli.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/person/image/987/Benjamin-Disraeli.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Benjamin Disraeli</figcaption>
+</figure>
+</div>
+<hr>
+<section id="access-to-r-studio" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-r-studio">1.1 Access to R Studio</h3>
+<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
+<p>When you are connected, navigate to <a href="https://psy-rstudio.lancaster.ac.uk">https://psy-rstudio.lancaster.ac.uk</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
+<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
+<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
+<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
+<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have already logged in through the university login already, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="loading-the-packages-dependencies-and-loading-the-data-set" class="level3">
+<h3 class="anchored" data-anchor-id="loading-the-packages-dependencies-and-loading-the-data-set">1.2 Loading the packages (dependencies) and loading the data set</h3>
+<p>Perfect. If you are this far you’re in R Studio - the hot bed of statistical joys.</p>
+<p>Similar to last week, we first need to access the dataset.</p>
+<ol type="1">
+<li><p>Step 1. To access today’s dataset, we first just need to download it from <a href="data/wk2/week2_robo_lab.csv">here</a></p></li>
+<li><p>Now that you have the data saved on your machine, we next need to make a space on our own individual R Studio servers in which to house the data. Like last week, to do this, we first need to create a folder. On the server, please navigate to the bottom right panel (see figure below). Here, under the ‘files’ you will see the option to add ‘New Folder’. Click on this and name the new folder <em>psyc214_lab_2</em> Note. This needs to be spelled correctly and we need to make sure we that we specify this is lab_2! We roll with the times, and lab_1 is now an artifact :)</p></li>
+<li><p>Great. You have now created a brand, spanking new folder for week 2’s content. To upload today’s <em>week2_robo_lab.csv</em> file into this folder, please open your new <em>psyc214_lab_2</em> folder. When in the new folder, select the ‘Upload’ tab (see figure below). This will present a box that will ask where the data is that you want to upload. Click on “Browse…”, find where you have the <em>week2_robo_lab.csv</em> data file on your computer and click ‘OK’</p></li>
+</ol>
+<p>Top work! The data is now chillaxing on your own R Studio server, ready to be called upon.</p>
+<p><strong>STOPPPPPPPPP!!!!! We’ll want to be able to save this session on our server: to do so please:</strong> <strong>click ‘File’ on the top ribbon –&gt; New project.</strong> <strong>Next, select existing directory and name the working directory ~/psyc214_lab_2 –&gt; hit ’create project</strong></p>
+<p>This will now create a project in this week’s R Studio Server lab 2 folder where it will save your progress! You can then return to this at a later date - likely close to the exam <em>wink wink</em></p>
+<p>Like last week, it is important that you work through a script and not through the console. A script is a posh text editor that allows you to write, edit, annotate and save lines of of code. Navigate to the top left pane of RStudio, select File -&gt; New File -&gt; R Script. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.</p>
+<p><strong>Be sure to save the script using the File -&gt; Save As….</strong></p>
+<p>Let’s start by loading the packages (i.e., the dependencies) we’ll use for this session.</p>
+<p>Please copy or type the following commands into R Studio to get these packages activated:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># allows pipes, arrang(), summary(), aov(), etc</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix) <span class="co"># allows group_by()</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize) <span class="co"># a neat little package that provides the effect size</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rmisc) <span class="co"># allows shorthand calculations of standard errors and confidence intervals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>More on these packages later.</p>
+<p>Data… Assemble! Ok - Let’s load the data and crack on with today’s work.</p>
+<ol start="4" type="1">
+<li>First we need to set the working directory to ‘psyc214_lab_2’, i.e., tell R Studio the location in which today’s data sits, waiting to stand to attention . To recap, the working directory is the default location or folder on your computer or server by which R will read/save any files.</li>
+</ol>
+<p>The working directory can be set with the following R code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Great. Now we’re ready to load the dataset which we kindly housed on our server. To do this, please type the following code:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a> lab2_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"week2_robo_lab.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>where ‘lab2_data’ is the name we’ve assigned that R will recognise when it calls up our data, <code>read_csv</code> is the R command to pull up the data and “week2_robo_lab.csv” is the name of the data file stored on the server.</p>
+<p><em>Note. During the rest of this session, you will not need to refer to the original downloaded .csv data file. R has all the information stored under the ‘lab2_data’ variable. Further note, you could have called ‘lab2_data’ by pretty much any name you like… ‘my_data’, ‘robo_2’, ‘stat_attack’, etc. - the name is somewhat arbitrary. For the purpose of this lab session and for ease of read, ‘lab2_data’, is perhaps more suitable.</em></p>
+<table class="table">
+<colgroup>
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>## 2 - Today’s lab activities</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Signif. codes: 0 ‘<em><strong>’ 0.001 ’</strong>’ 0.01 ’</em>’ 0.05 ‘.’ 0.1 ’ ’ 1 1 observation deleted due to missingness ``` :::</td>
+</tr>
+<tr class="even">
+<td><code>{.r .cell-code} effectsize(Model_1) # we ask for an eta2 effect size for our model</code></td>
+</tr>
+<tr class="odd">
+<td>::: {.cell-output .cell-output-stderr}</td>
+</tr>
+<tr class="even">
+<td>::: {.cell-output .cell-output-stdout} ``` # Effect Size for ANOVA</td>
+</tr>
+<tr class="odd">
+<td>Parameter | Eta2 | 95% CI</td>
+</tr>
+</tbody>
+</table>
+<p>Group | 0.56 | [0.50, 1.00]</p>
+<ul>
+<li>One-sided CIs: upper bound fixed at [1.00].</li>
+</ul>
+<pre><code>:::
+:::
+
+
+This has provided us with a whole bunch of useful information! 
+It shows us the between group variability value (do you remember, the numerator value in our F ratio equation from lecture 2?), which R has named the Group Mean Square (a value here of 130.80). 
+
+It also provides the within group variability value - aka the error term (do you remember, the denominator in our F ratio equation from lecture 2), which R has named the Residuals mean square (a value here of 0.86)
+
+It provides the crucial F-ratio statistic, here a value of 151.3. 
+**note, like in lecture 2, you could have calculated this value yourselves by dividing the 130.80 numerator by the 0.86 denominator. Try it in the r console by typing: Note, the value will differ slightly because of rounding - i.e., the number of decimals R works with versus us**
+
+
+::: {.cell}
+
+```{.r .cell-code}
+130.80 / 0.86</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 152.093</code></pre>
+</div>
+<p>:::</p>
+<p>The output also shows the Eta-squared (η2) effect size. As a rule of thumb, η2 = 0.01 indicates a small effect; η2 = 0.06 indicates a medium effect; η2 = 0.14 indicates a large effect. Our eta-squared (η2) represents a very large effect - i.e., the effect of our experimental manipulation on the Likeability scores was very large indeed.</p>
+<hr>
+</section>
+<section id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format">3.2 Reporting the results of the one-factor between-participants ANOVA in APA format</h3>
+<p>All results should be written up in accordance with the American Psychological Association’s (APA) guidance. This ensures that your results are easy to interpret and that all the relevant information is present for those wishing to review/replicate your work.</p>
+<p>The current results can be reported as following: “A one-factor between-participants ANOVA revealed that likeability scores were significantly different between our robot groups (Robot A <em>M</em> = 2.50, <em>SD</em> = 0.93; Robot B <em>M</em> = 4.50, <em>SD</em> = 1.01; Robot O <em>M</em> = 2.11, <em>SD</em> = 0.85), <em>F</em>(2,236) = 151.3, <em>p</em> &lt; .001, η2 = 0.56, 95% CI[0.50, 1.00].</p>
+<p><em>Please note. While the ANOVA tells us that there are differences between groups, it doesn’t tell us specifically which groups differ from one another. For example do Group A and B statistically differ? A and O? B and O? The only way to know this definitively is to carry out posthoc/planned contrast tests. We won’t do this today, as this will be a key facet of Lecture 3 and Lab 3, but please be aware that without these supplementary analyses the above APA reporting is incomplete</em></p>
+<hr>
+</section>
+<section id="creating-an-apa-barchart" class="level3">
+<h3 class="anchored" data-anchor-id="creating-an-apa-barchart">3.3 Creating an APA barchart</h3>
+<p>When reporting the results of an ANOVA in an APA report or publication, it is typical to include a barchart, illustrating the average scores and error bars for each group.</p>
+<p>As this is a formal chart, it is more sterile and less jazzy than the coloured graphs you have produced before. There are also important APA aesthetics which are required, such as grey colour scales, white background, black axes and text, etc. Before you fall asleep, let’s make one of these posh plots.</p>
+<p>Please copy and paste the following code. Please pay attention to the #annotations, which provide detail as to what each line of code is doing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span> <span class="co">#our dataset</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> Group, <span class="co"># specifying our X axis</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> Likeability, <span class="co"># specifying our Y axis</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> Group)) <span class="sc">+</span> <span class="co"># How we will colour our separate bars</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># width of columns and space between columns</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars - yuck!</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># trick to remove space below 0 on y axis</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>), <span class="co"># set limit of Y axis to 7</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># set the breaks between yaxis points</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># removing the default grey background panel</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># creating black axes lines</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># removing the legend, which is redundant</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 rows containing missing values (`geom_col()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Week2_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This looks great. But to make it APA publishable we need to add some error bars to our plot. To add things like error bars and 95% Confidence intervals, we first need work out the values of these summary statistics. Luckily, an amazing package called <strong>Rmisc</strong> will provide these values for us with a simple command.</p>
+<p>Let’s make a new dataset for plotting our graphs which will include these values - using the summarySE() function of <strong>Rmisc</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Like_plot <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(lab2_data, <span class="at">measurevar=</span><span class="st">"Likeability"</span>, <span class="at">groupvars=</span><span class="fu">c</span>(<span class="st">"Group"</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co">#Like_plot is the name of our plot data set and na.rm asks R Studio to ignore our missing data point when calculating there summaries</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Not let’s view this new data using head()</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Like_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Group  N Likeability        sd         se        ci
+1     A 80    2.500000 0.9277713 0.10372798 0.2064654
+2     B 80    4.500000 1.0063092 0.11250879 0.2239431
+3     O 79    2.113924 0.8471270 0.09530923 0.1897461</code></pre>
+</div>
+</div>
+<p>You can see it now gives us a summary of our Likeability data, including the Means, Standard Deviations, Standard Errors and confidence intervals.</p>
+<p>Now let’s add the Standard Error Bars to our graph. To do this, we repeat the same plotting code from above, but with two key differences. 1. We need to ensure that we change the dataset for the graph from <em>lab2_data</em> to <em>Like_plot</em> (our new summary data). 2. We add the function geom_errorbar() to specify that we would like to include error bars for our graph.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Like_plot <span class="sc">%&gt;%</span> <span class="co">#our dataset</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> Group, <span class="co"># our X axis</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> Likeability, <span class="co"># our Y axis</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> Group)) <span class="sc">+</span> <span class="co"># How we will colour our seperate bars</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># width of columns and space between columns</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># trick to remove space below 0 on y axis</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># set limit of Y axis to 7</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># removing the background panel colour</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># creating black axes lines</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># removing the legend, which is redundant</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Likeability<span class="sc">-</span>se, <span class="at">ymax=</span>Likeability<span class="sc">+</span>se, <span class="at">width =</span> <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week2_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Perfect! Error bars accomplished.</p>
+<hr>
+</section>
+</section>
+<section id="further-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="further-tasks">4 Further tasks</h2>
+<ol type="1">
+<li>We have seen that there are signficant differences between at least two groups when it comes to the Likeability scores. Now please eye ball the means and the barchart and try to predict which groups differed. Talk this over with a lab mate or instructor. We will test this with further analyses next week!</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>We have yet to look for statistical differences between in Psyc214 Scores between our groups. Run another one-factor between-participants ANOVA following the instructions above. This time, be sure to replace our previous DV Likeability with our other DV Scores.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>Model_2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> lab2_data, Score <span class="sc">~</span> Group)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model_2)<span class="co">#We ask for a summary of this model. This provides F statistic and P value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+Group         2   1223   611.3   12.52 6.77e-06 ***
+Residuals   237  11571    48.8                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(Model_2) <span class="co"># we ask for an eta2 effect size for our model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>For one-way between subjects designs, partial eta squared is equivalent
+  to eta squared. Returning eta squared.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA
+
+Parameter | Eta2 |       95% CI
+-------------------------------
+Group     | 0.10 | [0.04, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].</code></pre>
+</div>
+</div>
+<p>When completely correctly, you should get the following output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+Group         2   1223   611.3   12.52 6.77e-06 ***
+Residuals   237  11571    48.8                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>For one-way between subjects designs, partial eta squared is equivalent
+  to eta squared. Returning eta squared.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA
+
+Parameter | Eta2 |       95% CI
+-------------------------------
+Group     | 0.10 | [0.04, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Report this second ANOVA to APA standards following example above (3.2)</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Repeat the steps 3.3 and again create an APA standard barchart - this time plotting our three different groups and their Psyc214 Scores. Please finish this off with error bars. *Hint for the error bars - you will need to create a new ‘Scores_plot’ sub data set using the summarySE() function.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Scores_plot <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(lab2_data, <span class="at">measurevar=</span><span class="st">"Score"</span>, <span class="at">groupvars=</span><span class="fu">c</span>(<span class="st">"Group"</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co">#Like_plot is the name of our plot data set and na.rm asks R Studio to ignore our missing data point when calculating there summaries</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Scores_plot <span class="sc">%&gt;%</span> <span class="co">#our dataset</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> Group, <span class="co"># our X axis</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> Score, <span class="co"># our Y axis</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> Group)) <span class="sc">+</span> <span class="co"># How we will colour our seperate bars</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># width of columns and space between columns</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># trick to remove space below 0 on y axis</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">90</span>),</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">90</span>, <span class="dv">5</span>)) <span class="sc">+</span> <span class="co"># set limit of Y axis to 7</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># removing the background panel colour</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># creating black axes lines</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># removing the legend, which is redundant</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Score<span class="sc">-</span>se, <span class="at">ymax=</span>Score<span class="sc">+</span>se, <span class="at">width =</span> <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week2_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Again, try to think which groups may significantly differ from one another by eyeballing the means and barchart information. We will confirm this all next week.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>Before you finish, make sure you save a copy of the script that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.</li>
+</ol>
+<p>Please end your session on the RStudio server, this logs you out of the server and stops any ongoing activities and tasks you have set up, maybe in the background.</p>
+<ol start="7" type="1">
+<li>…………………. Now breathe! You’ve rocked it!!!</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.pexels.com/photos/92870/pexels-photo-92870.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260%22%20width=%22420%22%20height=%22250" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Top work!</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="lab-feedback-voluntary" class="level1">
+<h1>Lab Feedback (voluntary)</h1>
+<p>This is a voluntary, super fast <a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=1905313">survey</a>, just to gauge how you found the difficulty of the content and any additional feedback.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../PSYC214/Week1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1. Measurement, Variance and Inferential Statistics</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../PSYC214/Week3.html" class="pagination-link">
+        <span class="nav-page-text">3. Assumptions of ANOVA and Follow-Up Procedures</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../previous-content/index.html">Previous Content</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
