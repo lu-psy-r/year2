@@ -153,20 +153,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/index 2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistics for Psychologists I</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week1 2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1. Introduction to PSYC121</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -294,7 +282,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
+  <li><a href="#welcome-to-psyc234" id="toc-welcome-to-psyc234" class="nav-link active" data-scroll-target="#welcome-to-psyc234">Welcome to PSYC234!</a>
+  <ul class="collapse">
+  <li><a href="#structure-and-content" id="toc-structure-and-content" class="nav-link" data-scroll-target="#structure-and-content">Structure and Content:</a></li>
+  </ul></li>
   <li><a href="#course-contacts" id="toc-course-contacts" class="nav-link" data-scroll-target="#course-contacts">Course Contacts</a></li>
   </ul>
 </nav>
@@ -305,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Statistics: from association to modelling causality</h1>
-<p class="subtitle lead">Course coordinators: Tom Beesley, John Towse</p>
+<p class="subtitle lead">Teaching team: Emma Mills (module coordinator) and Amy Atkinson</p>
 </div>
 
 
@@ -320,10 +311,35 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="welcome" class="level1">
-<h1>Welcome</h1>
-<p>This is filler text introducing students to the course in general. Perhaps what’s expected of them, the course aims, and other information of use.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in est non nisi eleifend vulputate a et magna. Mauris vulputate felis lacus, ut bibendum lectus sollicitudin vel. Integer vestibulum arcu et risus vestibulum, in ullamcorper magna consectetur. Donec ut tempus enim, at vulputate libero. Integer porta metus eget elit cursus, sit amet hendrerit ipsum facilisis. Maecenas mollis, elit gravida ornare tempus, est lectus mattis velit, et commodo nunc lectus eu enim. Aenean luctus, felis ac sodales accumsan, dolor nunc euismod lorem, vel vulputate ipsum orci quis ipsum. Quisque placerat, velit vitae dictum feugiat, lectus lorem rutrum ligula, at fringilla ex enim consectetur felis. Aliquam erat volutpat. Nunc a nisi eget ex ornare dictum.</p>
+<section id="welcome-to-psyc234" class="level1">
+<h1>Welcome to PSYC234!</h1>
+<p>PSYC234 builds upon your prior learning of t-tests (PSYC121), correlation and simple regression (PSYC122) and ANOVA (PSYC214). All of these can be thought of as components that use parts of a statistical framework called the “general linear model” and PSYC234 moves into models of multiple linear regression. The “multiple” part here means more than one predictor variable.</p>
+<p>The linear model is extremely flexible in that it can use continuous and categorical predictors, and can model continuous (week 11 - 14) and categorical (week 18 &amp; 19) outcome variables. Rather than conducting planned comparisons or post hoc tests as we do when using ANOVA techniques, the planned comparisons can be structured into the regression model. We can also fit interactions and non-linear relationships within the linear model.</p>
+<p>Non-parametric statistical techniques (week 16 - 17): These are a range of techniques that are called upon when our data violates the assumptions upon which parametric models are built. The t-test, correlation, ANOVA and regression are all parametric tests, so it is a good back-up to have knowledge of the alternative methods, should you find your data does not meet parametric analysis method assumptions.</p>
+<p>PSYC234 is also the last statistics module before the independent work of your final year project begins, so throughout the labs there is a focus on independent R script generation while practising construction, interpretation and reporting of data analyses. Each lab will be centred around a new dataset, a research output (either model summaries or effects plots) and small group work will involve the construction of the analysis steps to recreate the output.</p>
+<p>We encourage you to try writing your own scripts outside of the lab scheduled slot, and use the lab time to clarify the teaching team’s experience, asking questions about analysis steps, getting feedback on code. So the focus in labs is much more on the analytic workflow process, problem solving using the given dataset and R code, rather than structured worksheets for which you generate an output to answer questions. This way of working is very much the way that you will work with your own data that you collect for your third year project, so it is a good chance to rehearse ways of working and get a feel for practising data analysis with R away from the lab space, using your peers and the wider R community for support.</p>
+<p>It is a different way of working from your previous statistics modules. There may be many methods to get to the same end result - which is okay. Hopefully, over the nine weeks of labs, you will become more confident in your choices and skills taking you from generating descriptive statistics to inferential test results.</p>
+<section id="structure-and-content" class="level2">
+<h2 class="anchored" data-anchor-id="structure-and-content">Structure and Content:</h2>
+<p><b>Weeks 11-14: Multiple Linear Regression (all in the class test in week 20)</b></p>
+<p>Lecturer: Emma Mills</p>
+<p>Lecture 1: Review of correlation, simple regression and demonstration of multiple regression</p>
+<p>Lecture 2: Multiple regression including categorical predictors and planned contrasts</p>
+<p>Lecture 3: Multiple regression models that include interactions (moderated variables)</p>
+<p>Lecture 4: Multiple regression and mediation</p>
+<p><b>Week 15: Factor Analysis and Binomial Tests</b></p>
+<p>We have split lecture 5 into two parts.</p>
+<p>Lecture 5 Part 1: Factor analysis (Emma Mills) - not in the class test in week 20</p>
+<p>Lecture 5 Part 2: Binomial test (Amy Atkinson) - in the class test in week 20</p>
+<p><b>Weeks 16-17: Non Parametric Tests - in the class test in week 20</b></p>
+<p>Lecturer: Dr Amy Atkinson</p>
+<p>Lecture 6: Wilcoxon rank-sum test and Wilcoxon signed-rank test</p>
+<p>Lecture 7: Kruskal-Wallis test and Friedman’s ANOVA</p>
+<p><b>Weeks 18- 19: Non-linear regression models - in the class test in week 20.</b></p>
+<p>Lecturer: Dr Amy Atkinson</p>
+<p>Lecture 8: Binary logistic regression models.</p>
+<p>Lecture 9: Multiple binary logistic regression &amp; ordinal logistic regression models.</p>
+</section>
 </section>
 <section id="course-contacts" class="level1">
 <h1>Course Contacts</h1>
@@ -336,22 +352,22 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Tom Beesley</td>
+<td>Emma Mills</td>
 <td><script type="text/javascript">
 <!--
-h='&#108;&#x61;&#110;&#x63;&#x61;&#x73;&#116;&#x65;&#114;&#46;&#x61;&#x63;&#46;&#x75;&#x6b;';a='&#64;';n='&#116;&#46;&#98;&#x65;&#x65;&#x73;&#108;&#x65;&#x79;';e=n+a+h;
+h='&#108;&#x61;&#110;&#x63;&#x61;&#x73;&#116;&#x65;&#114;&#46;&#x61;&#x63;&#46;&#x75;&#x6b;';a='&#64;';n='&#x65;&#46;&#x6d;&#x69;&#108;&#108;&#x73;';e=n+a+h;
 document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
 // -->
-</script><noscript>t.beesley at lancaster dot ac dot uk</noscript></td>
+</script><noscript>e.mills at lancaster dot ac dot uk</noscript></td>
 </tr>
 <tr class="even">
-<td>John Towse</td>
+<td>Amy Atkinson</td>
 <td><script type="text/javascript">
 <!--
-h='&#108;&#x61;&#110;&#x63;&#x61;&#x73;&#116;&#x65;&#114;&#46;&#x61;&#x63;&#46;&#x75;&#x6b;';a='&#64;';n='&#106;&#46;&#116;&#x6f;&#x77;&#x73;&#x65;';e=n+a+h;
+h='&#108;&#x61;&#110;&#x63;&#x61;&#x73;&#116;&#x65;&#114;&#46;&#x61;&#x63;&#46;&#x75;&#x6b;';a='&#64;';n='&#x61;&#x6d;&#x79;&#46;&#x61;&#116;&#x6b;&#x69;&#110;&#x73;&#x6f;&#110;';e=n+a+h;
 document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
 // -->
-</script><noscript>j.towse at lancaster dot ac dot uk</noscript></td>
+</script><noscript>amy.atkinson at lancaster dot ac dot uk</noscript></td>
 </tr>
 <tr class="odd">
 <td></td>

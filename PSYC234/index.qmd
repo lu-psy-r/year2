@@ -1,20 +1,66 @@
 ---
 title: "Statistics: from association to modelling causality"
-subtitle: "Course coordinators: Tom Beesley, John Towse"
+subtitle: "Teaching team: Emma Mills (module coordinator) and Amy Atkinson"
 email-obfuscation: javascript
 
 ---
 
-# Welcome
+# Welcome to PSYC234!
 
-This is filler text introducing students to the course in general. Perhaps what's expected of them, the course aims, and other information of use.
+PSYC234 builds upon your prior learning of t-tests (PSYC121), correlation and simple regression (PSYC122) and ANOVA (PSYC214). All of these can be thought of as components that use parts of a statistical framework called the "general linear model" and PSYC234 moves into models of multiple linear regression. The "multiple" part here means more than one predictor variable. 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in est non nisi eleifend vulputate a et magna. Mauris vulputate felis lacus, ut bibendum lectus sollicitudin vel. Integer vestibulum arcu et risus vestibulum, in ullamcorper magna consectetur. Donec ut tempus enim, at vulputate libero. Integer porta metus eget elit cursus, sit amet hendrerit ipsum facilisis. Maecenas mollis, elit gravida ornare tempus, est lectus mattis velit, et commodo nunc lectus eu enim. Aenean luctus, felis ac sodales accumsan, dolor nunc euismod lorem, vel vulputate ipsum orci quis ipsum. Quisque placerat, velit vitae dictum feugiat, lectus lorem rutrum ligula, at fringilla ex enim consectetur felis. Aliquam erat volutpat. Nunc a nisi eget ex ornare dictum.
+The linear model is extremely flexible in that it can use continuous and categorical predictors, and can model continuous (week 11 - 14) and categorical (week 18 & 19) outcome variables. Rather than conducting planned comparisons or post hoc tests as we do when using ANOVA techniques, the planned comparisons can be structured into the regression model.  We can also fit interactions and non-linear relationships within the linear model.
+
+Non-parametric statistical techniques (week 16 - 17): These are a range of techniques that are called upon when our data violates the assumptions upon which parametric models are built.   The t-test, correlation, ANOVA and regression are all parametric tests, so it is a good back-up to have knowledge of the alternative methods, should you find your data does not meet parametric analysis method assumptions.
+
+PSYC234 is also the last statistics module before the independent work of your final year project begins, so throughout the labs there is a focus on independent R script generation while practising construction, interpretation and reporting of data analyses.  Each lab will be centred around a new dataset, a research output (either model summaries or effects plots) and small group work will involve the construction of the analysis steps to recreate the output.  
+
+We encourage you to try writing your own scripts outside of the lab scheduled slot, and use the lab time to clarify the teaching team's experience, asking questions about analysis steps, getting feedback on code. So the focus in labs is much more on the analytic workflow process, problem solving using the given dataset and R code, rather than structured worksheets for which you generate an output to answer questions. This way of working is very much the way that you will work with your own data that you collect for your third year project, so it is a good chance to rehearse ways of working and get a feel for practising data analysis with R away from the lab space, using your peers and the wider R community for support.
+
+It is a different way of working from your previous statistics modules.  There may be many methods to get to the same end result - which is okay.  Hopefully, over the nine weeks of labs, you will become more confident in your choices and skills taking you from generating descriptive statistics to inferential test results.
+
+## Structure and Content:
+
+<b>Weeks 11-14: Multiple Linear Regression (all in the class test in week 20)</b>
+
+Lecturer: Emma Mills
+
+Lecture 1: Review of correlation, simple regression and demonstration of multiple regression
+
+Lecture 2: Multiple regression including categorical predictors and planned contrasts
+
+Lecture 3: Multiple regression models that include interactions (moderated variables)
+
+Lecture 4: Multiple regression and mediation
+
+<b>Week 15: Factor Analysis and Binomial Tests</b>
+
+We have split lecture 5 into two parts.
+
+Lecture 5 Part 1: Factor analysis (Emma Mills) - not in the class test in week 20
+
+Lecture 5 Part 2: Binomial test (Amy Atkinson) - in the class test in week 20
+
+<b>Weeks 16-17: Non Parametric Tests - in the class test in week 20</b>
+
+Lecturer: Dr Amy Atkinson
+
+Lecture 6: Wilcoxon rank-sum test and Wilcoxon signed-rank test
+
+Lecture 7: Kruskal-Wallis test and Friedman's ANOVA
+
+<b>Weeks 18- 19: Non-linear regression models - in the class test in week 20.</b>
+
+Lecturer: Dr Amy Atkinson
+
+Lecture 8: Binary logistic regression models.
+
+Lecture 9: Multiple binary logistic regression & ordinal logistic regression models.
 
 # Course Contacts
 
 |             | Email Address                                                  |
 |-------------|----------------------------------------------------------------|
-| Tom Beesley | [t.beesley\@lancaster.ac.uk](mailto:t.beesley@lancaster.ac.uk) |
-| John Towse  | [j.towse\@lancaster.ac.uk](mailto:j.towse@lancaster.ac.uk)     |
+| Emma Mills | [e.mills\@lancaster.ac.uk](mailto:e.mills@lancaster.ac.uk) |
+| Amy Atkinson  | [amy.atkinson\@lancaster.ac.uk](mailto:amy.atkinson@lancaster.ac.uk)     |
 |             |                                                                |

@@ -1,6 +1,6 @@
 ---
 title: Statistics for Group Comparisons
-subtitle: "Course coordinators: Richard Philpot, Mark Hurlestone"
+subtitle: "Teaching team: Sam Russell and Mark Hurlstone (module coordinator)"
 email-obfuscation: javascript
 order: 1
 
@@ -10,18 +10,44 @@ order: 1
 #  contents: guide.yml
 ---
 
-# Welcome
+# Welcome to PSYC214!
+
+In this module, you will learn about a statistical technique for performing group comparisons known as Analysis of Variance (ANOVA). It is one of the most common statistical techniques, so it is important to have a thorough understanding of it, which is why we are devoting an entire module to the technique. We will cover a range of statistical tests associated with ANOVA, starting with designs involving a single independent variable (single factor designs), before moving onto designs involving multiple independent variables (factorial designs). We will also cover various follow-up procedures (procedures for identifying which specific conditions differ from one another), including planned comparisons and post-hoc tests, and how to interpret interactions (when the effect of one independent variable depends on the effect of another independent variable, and vice versa). The R statistical package is used throughout and students are expected to develop the skills for conducting appropriate analyses and interpreting the resulting output.
 
 Watch the introduction to 214 video [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1982172).
 
-This is filler text introducing students to the course in general. Perhaps what's expected of them, the course aims, and other information of use.
+## Structure and Content:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in est non nisi eleifend vulputate a et magna. Mauris vulputate felis lacus, ut bibendum lectus sollicitudin vel. Integer vestibulum arcu et risus vestibulum, in ullamcorper magna consectetur. Donec ut tempus enim, at vulputate libero. Integer porta metus eget elit cursus, sit amet hendrerit ipsum facilisis. Maecenas mollis, elit gravida ornare tempus, est lectus mattis velit, et commodo nunc lectus eu enim. Aenean luctus, felis ac sodales accumsan, dolor nunc euismod lorem, vel vulputate ipsum orci quis ipsum. Quisque placerat, velit vitae dictum feugiat, lectus lorem rutrum ligula, at fringilla ex enim consectetur felis. Aliquam erat volutpat. Nunc a nisi eget ex ornare dictum.
+<b>Weeks 1-5: Single-Factor Designs - Taught by Dr Sam Russell</b>
+
+- Week 1: Measurement, Variance and Inferential Statistics
+
+- Week 2: One-Factor Between-Participants ANOVA
+
+- Week 3: Assumptions of ANOVA and Follow-Up Procedures
+
+- Week 4: One-Factor Within-Participants ANOVA
+
+- Week 5: Interim Summary
+
+<b>Weeks 6-10: Factorial Designs - Taught by Dr Mark Hurlstone</b>
+
+- Week 6: Introduction To Factorial Designs
+
+- Week 7: Two-Factor Between-Participants ANOVA
+
+- Week 8: Two-Factor Mixed and Within-Participants ANOVA
+
+- Week 9: Three-Factor ANOVA
+
+- Week 10: Class Test
+
+
 
 # Course Contacts
 
 |             | Email Address                                                  |
 |-------------|----------------------------------------------------------------|
-| Tom Beesley | [t.beesley\@lancaster.ac.uk](mailto:t.beesley@lancaster.ac.uk) |
-| John Towse  | [j.towse\@lancaster.ac.uk](mailto:j.towse@lancaster.ac.uk)     |
+| Sam Russell | [s.russell1\@lancaster.ac.uk](mailto:s.russell1@lancaster.ac.uk) |
+| Mark Hurlstone  | [m.hurlstone\@lancaster.ac.uk](mailto:m.hurlstone@lancaster.ac.uk)     |
 |             |                                                                |
