@@ -1,8 +1,13 @@
 ---
 title: 3. Assumptions of ANOVA and Follow-Up Procedures
-subtitle: "Richard Philpot, Mark Hurlstone"
+subtitle: "Sam Russell, Mark Hurlstone"
 order: 4
 ---
+
+::: {.callout-caution}
+This page is under construction for 24/25 and may be subject to change before the teaching week.
+:::
+
 
 # Lecture
 
@@ -26,7 +31,7 @@ It's that wonderful time of the week again - a time to tango with R studio. As w
 2. Run and report planned comparisons and post-hoc tests - You choose which ;)
 3. Debug code which isn't doing the business.
 
-As always, myself (Richard Philpot, weeks 1-4), Mark Hurlstone (weeks 5-9) and an apt team of GTAs will be circulating through the room and answering any queries you may have. In Psyc214, we also encourage peer engagement and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
+As always, myself (Sam Russell, weeks 1-4), Mark Hurlstone (weeks 5-9) and an apt team of GTAs will be circulating through the room and answering any queries you may have. In Psyc214, we also encourage peer engagement and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
   
 ******
 ### 1 - General Introduction to Lab 3
@@ -139,7 +144,7 @@ A grumpy reviewer, however, suggested the research was flawed, as it did not inc
 #### 2.5 Refamiliarizing with our data
 Just for a recap, let's open our data and look at the top 50 data points:
 
-**Full disclaimer, from this point on, we will start to include some bugs in code which you will need to resolve. Wicked of us, I know, but it is important that you are able to engage with the code and correct it when needs be. Myself (Richard) and Mark H have more experience in R than yourselves, but still frequently and inadvertently write funky code that requires us to go back and work through our (il)logic - it's a fact of coding life that never goes away.**
+**Full disclaimer, from this point on, we will start to include some bugs in code which you will need to resolve. Wicked of us, I know, but it is important that you are able to engage with the code and correct it when needs be. Myself (Sam) and Mark H have more experience in R than yourselves, but still frequently and inadvertently write funky code that requires us to go back and work through our (il)logic - it's a fact of coding life that never goes away.**
 
 ![The frustration of debugging!]https://images.pexels.com/photos/2868257/pexels-photo-2868257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
 

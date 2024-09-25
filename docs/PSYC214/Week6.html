@@ -201,12 +201,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week1 2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1. Introduction to PSYC121</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
   </div>
@@ -360,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Statistics for Psychologists</h1>
-<p class="subtitle lead">Mark Hurlstone, Richard Philpot</p>
+<p class="subtitle lead">Mark Hurlstone, Sam Russell</p>
 </div>
 
 
@@ -375,6 +369,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is under construction for 24/25 and may be subject to change before the teaching week.</p>
+</div>
+</div>
 <section id="lecture" class="level1">
 <h1>Lecture</h1>
 <p>Watch Part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013495">here</a></p>
@@ -731,7 +738,7 @@ Note
 </section>
 <section id="plotting-multiple-graphs-and-interpreting-simple-main-effects" class="level2">
 <h2 class="anchored" data-anchor-id="plotting-multiple-graphs-and-interpreting-simple-main-effects">Plotting multiple graphs and interpreting simple main effects</h2>
-<p>Sometimes, we want to plot multiple graphs within the same figure. In ggplot, we can plot multiple graphs using the <code>facet_wrap</code> command, which you may have encountered in Richard’s lab classes. For the first example, I am going to generate three different line plots in the same figure, each illustrating an interaction between factors. I am then going to get you to identify the simple main effects in each graph, as we did earlier.</p>
+<p>Sometimes, we want to plot multiple graphs within the same figure. In ggplot, we can plot multiple graphs using the <code>facet_wrap</code> command, which you may have encountered in Sam’s lab classes. For the first example, I am going to generate three different line plots in the same figure, each illustrating an interaction between factors. I am then going to get you to identify the simple main effects in each graph, as we did earlier.</p>
 <p>In this example, we have three examples of alternative hypothetical interactions between the <code>Fear</code> and <code>Efficacy</code> manipulations for our COVID-19 experiment. The data are contained in the following tibble (note, we already have the means, so we don’t need to generate any descriptive statistics):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>threeInteractions <span class="ot">=</span> <span class="fu">tibble</span>(</span>

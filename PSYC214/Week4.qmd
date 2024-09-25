@@ -1,8 +1,12 @@
 ---
 title: 4. One-Factor Within-Participants ANOVA
-subtitle: "Richard Philpot, Mark Hurlstone"
+subtitle: "Sam Russell, Mark Hurlstone"
 order: 5
 ---
+
+::: {.callout-caution}
+This page is under construction for 24/25 and may be subject to change before the teaching week.
+:::
 
 # Lecture
 
@@ -24,7 +28,7 @@ We are now in our 4th engagement of the new academic year with our good friend, 
 2. Running and reporting a within-participants ANOVA and follow up tests.
 3. Debugging code which is misbehaving.
 
-As always, myself (Richard Philpot, weeks 1-4), Mark Hurlstone (weeks 5-9) and an apt team of GTAs will be circulating through the room and answering any queries you may have. In Psyc214, we also encourage peer engagement and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
+As always, myself (Sam Russell, weeks 1-4), Mark Hurlstone (weeks 5-9) and an apt team of GTAs will be circulating through the room and answering any queries you may have. In Psyc214, we also encourage peer engagement and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
   
 ******
 ### 1 - General Introduction to Lab 4

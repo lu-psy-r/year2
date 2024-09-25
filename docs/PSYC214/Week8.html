@@ -201,12 +201,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week1 2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1. Introduction to PSYC121</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
   </div>
@@ -363,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Statistics for Psychologists</h1>
-<p class="subtitle lead">Mark Hurlstone, Richard Philpot</p>
+<p class="subtitle lead">Mark Hurlstone, Sam Russell</p>
 </div>
 
 
@@ -378,6 +372,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is under construction for 24/25 and may be subject to change before the teaching week.</p>
+</div>
+</div>
 <section id="lecture" class="level1">
 <h1>Lecture</h1>
 <p>Watch Part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2019968">here</a></p>
@@ -487,7 +494,7 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE TO CONVERT "GROUP" INTO A FACTOR ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The next thing we need to do is convert our data from wide format into long format. Richard discussed the distinction between these two formats in his Week 4 lab session and we covered it again in our Week 5 lab session. In brief, we need to create a new variable called <code>TrialType</code> that contains the different levels of this factor, congruent and incongruent, which are currently located in different columns. We can do this using the following piece of code which users the <code>gather()</code> function encountered previously:</p>
+<p>The next thing we need to do is convert our data from wide format into long format. Sam discussed the distinction between these two formats in his Week 4 lab session and we covered it again in our Week 5 lab session. In brief, we need to create a new variable called <code>TrialType</code> that contains the different levels of this factor, congruent and incongruent, which are currently located in different columns. We can do this using the following piece of code which users the <code>gather()</code> function encountered previously:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert data into long format</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>stroopMixedLong <span class="ot">=</span> <span class="fu">gather</span>(stroopMixed,TrialType,RT,Congruent<span class="sc">:</span>Incongruent,<span class="at">factor_key =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -805,7 +812,7 @@ Note
 </div>
 </div>
 <p>Time is limited, so we are once again going to skip over the usual checks, which you should otherwise always perform.</p>
-<p>However, because one of our within-participants factors contains three levels (i.e., Block) there is one check that will be performed when we run the ANOVA. Specifically, this is a check to establish whether the <strong>sphericity assumption</strong> has been violated. Richard introduced you to this assumption when he discussed single-factor within-participants ANOVA, so I will only describe it briefly. The sphericity assumption states that <em>for a within-participants design with three or more levels, the variance of the difference scores between one pair of levels should not differ significantly from the variances of the difference scores for every other possible pair of levels.</em></p>
+<p>However, because one of our within-participants factors contains three levels (i.e., Block) there is one check that will be performed when we run the ANOVA. Specifically, this is a check to establish whether the <strong>sphericity assumption</strong> has been violated. Sam introduced you to this assumption when he discussed single-factor within-participants ANOVA, so I will only describe it briefly. The sphericity assumption states that <em>for a within-participants design with three or more levels, the variance of the difference scores between one pair of levels should not differ significantly from the variances of the difference scores for every other possible pair of levels.</em></p>
 <p>The assumption is tested using Mauchly’s test of sphericity, which is applied to any outcome involving a factor with three or more levels. If the test result is significant, then the assumption has been violated. If this occurs, then we must adopt the Greenhouse-Geisser correction for violations of this assumption.</p>
 </section>
 <section id="running-the-mixed-anova-1" class="level3">

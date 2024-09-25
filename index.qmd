@@ -12,10 +12,16 @@ back-to-top-navigation: false
 ![](Images/LUPsychology.svg){fig-alt="University Logo" fig-align="center"}
 
 ::: {.div style="font-size:2em;"}
-Welcome
+Welcome to Year 2 statistics!
 :::
 
-Welcome to Year 2 statistics! 
+This year you will have the opportunity to build on the skills you developed last year - both in terms of statistical expertise and data coding in R. The year, you will complete two statistics modules: 
+
+- PSYC214: Statistics for group comparisons, with Sam Russell and Mark Hurlstone
+
+- PSYC234: Statistics: from association to modelling causality, with Emma Mills and Amy Atkinson
+
+The Year 2 teaching team are looking forward to meeting you and working with you to develop your statistical expertise and data analysis skills further!
 
 ```{=html}
 

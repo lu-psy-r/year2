@@ -1,8 +1,12 @@
 ---
 title: '6. Introduction to Factorial Designs and Interactions'
-subtitle: "Mark Hurlstone, Richard Philpot"
+subtitle: "Mark Hurlstone, Sam Russell"
 order: 7
 ---
+
+::: {.callout-caution}
+This page is under construction for 24/25 and may be subject to change before the teaching week.
+:::
 
 # Lecture
 
@@ -387,7 +391,7 @@ ggsave("FearAppealBarPlot.png", height = 6, width = 5, dpi = 300)
 
 ## Plotting multiple graphs and interpreting simple main effects
 
-Sometimes, we want to plot multiple graphs within the same figure. In ggplot, we can plot multiple graphs using the `facet_wrap` command, which you may have encountered in Richard's lab classes. For the first example, I am going to generate three different line plots in the same figure, each illustrating an interaction between factors. I am then going to get you to identify the simple main effects in each graph, as we did earlier.
+Sometimes, we want to plot multiple graphs within the same figure. In ggplot, we can plot multiple graphs using the `facet_wrap` command, which you may have encountered in Sam's lab classes. For the first example, I am going to generate three different line plots in the same figure, each illustrating an interaction between factors. I am then going to get you to identify the simple main effects in each graph, as we did earlier.
 
 In this example, we have three examples of alternative hypothetical interactions between the `Fear` and `Efficacy` manipulations for our COVID-19 experiment. The data are contained in the following tibble (note, we already have the means, so we don't need to generate any descriptive statistics):
 

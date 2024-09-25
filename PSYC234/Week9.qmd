@@ -4,6 +4,11 @@ subtitle: Amy Atkinson
 order: 10
 ---
 
+::: {.callout-caution}
+This page is under construction for 24/25 and may be subject to change before the teaching week.
+:::
+
+
 # Lecture
 
 Watch part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066739)

@@ -1,8 +1,12 @@
 ---
 title: '8. Two-Factor Mixed and Within-Participants ANOVA'
-subtitle: "Mark Hurlstone, Richard Philpot"
+subtitle: "Mark Hurlstone, Sam Russell"
 order: 9
 ---
+
+::: {.callout-caution}
+This page is under construction for 24/25 and may be subject to change before the teaching week.
+:::
 
 
 # Lecture
@@ -124,7 +128,7 @@ Once you have done this, you need to convert the `Group` variable into a factor.
 stroopMixed$Group = factor(stroopMixed$Group, levels = c("Healthy","Schizophrenia"))
 ```
 
-The next thing we need to do is convert our data from wide format into long format. Richard discussed the distinction between these two formats in his Week 4 lab session and we covered it again in our Week 5 lab session. In brief, we need to create a new variable called `TrialType` that contains the different levels of this factor, congruent and incongruent, which are currently located in different columns. We can do this using the following piece of code which users the `gather()` function encountered previously:
+The next thing we need to do is convert our data from wide format into long format. Sam discussed the distinction between these two formats in his Week 4 lab session and we covered it again in our Week 5 lab session. In brief, we need to create a new variable called `TrialType` that contains the different levels of this factor, congruent and incongruent, which are currently located in different columns. We can do this using the following piece of code which users the `gather()` function encountered previously:
 
 ```{r, message = FALSE}
 # Convert data into long format
@@ -388,7 +392,7 @@ withinDescriptives = stroopWithinLongSep %>%
 
 Time is limited, so we are once again going to skip over the usual checks, which you should otherwise always perform. 
 
-However, because one of our within-participants factors contains three levels (i.e., Block) there is one check that will be performed when we run the ANOVA. Specifically, this is a check to establish whether the **sphericity assumption** has been violated. Richard introduced you to this assumption when he discussed single-factor within-participants ANOVA, so I will only describe it briefly. The sphericity assumption states that *for a within-participants design with three or more levels, the variance of the difference scores between one pair of levels should not differ significantly from the variances of the difference scores for every other possible pair of levels.* 
+However, because one of our within-participants factors contains three levels (i.e., Block) there is one check that will be performed when we run the ANOVA. Specifically, this is a check to establish whether the **sphericity assumption** has been violated. Sam introduced you to this assumption when he discussed single-factor within-participants ANOVA, so I will only describe it briefly. The sphericity assumption states that *for a within-participants design with three or more levels, the variance of the difference scores between one pair of levels should not differ significantly from the variances of the difference scores for every other possible pair of levels.* 
 
 The assumption is tested using Mauchly's test of sphericity, which is applied to any outcome involving a factor with three or more levels. If the test result is significant, then the assumption has been violated. If this occurs, then we must adopt the Greenhouse-Geisser correction for violations of this assumption.
 

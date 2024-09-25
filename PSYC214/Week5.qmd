@@ -1,8 +1,12 @@
 ---
 title: '5. Revision of One-Factor ANOVA'
-subtitle: "Mark Hurlstone, Richard Philpot"
+subtitle: "Mark Hurlstone, Sam Russell"
 order: 6
 ---
+
+::: {.callout-caution}
+This page is under construction for 24/25 and may be subject to change before the teaching week.
+:::
 
 # Lecture
 
@@ -25,14 +29,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br>
 <br>
-I have noticed Richard's penchant for commencing these sessions with some words of philosophical wisdom to motivate and inspire you and will continue the trend. Here's one of my favorite quotes from Frederick Nietzsche. It embodies the Stoic philosophical principle of *Amor Fati*, which is a mindset that entails a commitment to making the best out of anything that happens, whether good or bad. It's about treating every moment, no matter how challenging and difficult, as something to be embraced rather than avoided.
+I have noticed these sessions often commence with some words of philosophical wisdom to motivate and inspire you and will continue the trend. Here's one of my favorite quotes from Frederick Nietzsche. It embodies the Stoic philosophical principle of *Amor Fati*, which is a mindset that entails a commitment to making the best out of anything that happens, whether good or bad. It's about treating every moment, no matter how challenging and difficult, as something to be embraced rather than avoided.
 
 > *Not merely bear what is necessary, still less conceal it … but love it.* --Frederick Nietzsche
 
 ![Frederick Nietzsche](images/Frederick Nietzsche.png){width=50%}
 
 # Learning Objectives
-Over the past four weeks, Richard has given you a comprehensive introduction to single-factor ANOVA. In Weeks 6-10, I'll be taking over the reigns and teaching you about factorial ANOVA. This is the version of ANOVA that we use to analyze the results of factorial studies where we have two or more factors. Before moving onto factorial ANOVA, it is important to consolidate some of the key things that Richard has taught you so far. Accordingly, in this week's lab class we will be reviewing some (but not all) of the key things you have learned about one-factor ANOVA in the context of R. Specifically, we will be running through: (a) the sequence of steps for performing a between-participants one-factor ANOVA, and (b) the sequence of steps for performing a within-participants one-factor ANOVA. As there is a lot to cover, we will be working with clean data sets and there will be no debugging exercises in this session. **However, when copying the coding examples into R, please pay close attention to each line of code and the associated comments, so it is clear what the code is actually doing. Where possible, type the code out manually yourself as you will learn better this way.**
+Over the past four weeks, Sam has given you a comprehensive introduction to single-factor ANOVA. In Weeks 6-10, I'll be taking over the reigns and teaching you about factorial ANOVA. This is the version of ANOVA that we use to analyze the results of factorial studies where we have two or more factors. Before moving onto factorial ANOVA, it is important to consolidate some of the key things that Sam has taught you so far. Accordingly, in this week's lab class we will be reviewing some (but not all) of the key things you have learned about one-factor ANOVA in the context of R. Specifically, we will be running through: (a) the sequence of steps for performing a between-participants one-factor ANOVA, and (b) the sequence of steps for performing a within-participants one-factor ANOVA. As there is a lot to cover, we will be working with clean data sets and there will be no debugging exercises in this session. **However, when copying the coding examples into R, please pay close attention to each line of code and the associated comments, so it is clear what the code is actually doing. Where possible, type the code out manually yourself as you will learn better this way.**
 
 # Getting Started
 
@@ -239,7 +243,7 @@ For the 2-2-2 *vs.* 3-3 comparison, the Cohen's *d* effect size is equal to --0.
 
 A single-factor between-participants Analysis of Variance (ANOVA) was performed, with condition as the independent variable (control *vs.* 2-2-2 *vs.* 3-3) and verbal recall accuracy as the dependent variable. There was a significant effect of condition, *F*(2, 87) = 8.81, *p* < .001, $\eta^2$ = .17. Planned comparisons revealed that verbal recall accuracy did not differ significantly between the ungrouped condition (*M* = 62.00, *SD* = 11.40) and the 2-2-2 condition (*M* = 63.80, *SD* = 9.18), *t*(58) = --0.657, $p$ = .514, *d* = --.17, whereas verbal recall accuracy was higher in the 3-3 condition (*M* = 72.20, *SD* = 9.44) than in the 2-2-2 condition, *t*(58) = --3.51, $p$ < .001, *d* = --.91. 
 
-Note: you can also include the 95% CIs for the $\eta^2$ and Cohen's *d* effect sizes (as Richard has showed you in previous labs) but I haven't included them above. Their inclusion is optional and since I have not requested you include them in your PSYC204 Short Report CWA, I thought you might think me hypocritical if I included them here (I may be many things, but I'm not a hypocrite).
+Note: you can also include the 95% CIs for the $\eta^2$ and Cohen's *d* effect sizes (as Sam has showed you in previous labs) but I haven't included them above. Their inclusion is optional and since I have not requested you include them in your PSYC204 Short Report CWA, I thought you might think me hypocritical if I included them here (I may be many things, but I'm not a hypocrite).
 
 Okay, that's all the exercises for the first data set complete, well done, but there's no time for a break because we have another data set to contend with.
 
@@ -270,9 +274,9 @@ First things first, let's load the data set:
 wLengthData = read_csv("data/Wk5/WordLength.csv")
 ```
 
-We have four columns: Participant (the participant number ranging from 1 to 75), Short_Words (percentage of list items recalled in the correct order for the short word condition), Medium_Words (percentage of list items recalled in the correct order for the medium word condition), and Long_Words (percentage of list items recalled in the correct order for the long word condition). The data are therefore in so-called "wide format" (Richard discussed the distinction between *wide format* and *long format* in the last practical session)---each repeated measurement (short words, medium words, long words) has its own column and contains the values of the dependent variable for that measurement. Whenever we use repeated measurements, that is, when we employ a within-participants design, the resulting data is stored in wide format. 
+We have four columns: Participant (the participant number ranging from 1 to 75), Short_Words (percentage of list items recalled in the correct order for the short word condition), Medium_Words (percentage of list items recalled in the correct order for the medium word condition), and Long_Words (percentage of list items recalled in the correct order for the long word condition). The data are therefore in so-called "wide format" (Sam discussed the distinction between *wide format* and *long format* in the last practical session)---each repeated measurement (short words, medium words, long words) has its own column and contains the values of the dependent variable for that measurement. Whenever we use repeated measurements, that is, when we employ a within-participants design, the resulting data is stored in wide format. 
 
-However, as Richard told you in your Week 4 lab session, to analyse such data in R, we first need to convert the data from wide format into long format. We can do this using the following piece of code:
+However, as Sam told you in your Week 4 lab session, to analyse such data in R, we first need to convert the data from wide format into long format. We can do this using the following piece of code:
 
 ```{r}
 # This gathers the data in Short_Words, Medium_Words, and Long_Words within the data frame "wLengthData" and reorganises them into two columns, Condition (containing the three levels of our repeated measurement) and Accuracy (verbal recall accuracy), before assigning them to a new data frame "wLengthDataLong". The argument factor_key = TRUE ensures that the new column Condition is treated as a factor. 
@@ -345,7 +349,7 @@ The first part of the table gives us the results of our uncorrected ANOVA. The s
 
 The second part of the table presents the results of Mauchly's test of sphericity, which tests whether the sphericity assumption has been violated or not. In this case, the test is nonsignificant, *p* = .162, which means that the sphericity assumption has been satisfied on this occassion. 
 
-However, as Richard has forewarned you, the sphericity assumption is frequently violated. When it is, the degrees of freedom will be overestimated and the *F* value will be inflated. In these circumstances, we must adopt the Greenhouse-Geisser correction, which is given in the final part of the table. This correction adjusts the degrees of freedom to compensate for the violation of the sphericity assumption. The adjusted degrees of freedom for the numerator and denominator are given in the column DF[GG] (1.91 and 141.14, respectively) and the Greenhouse-Geisser corrected *p* value is under the column p[GG] and is 0.0000118, which is significant at *p* < .001.
+However, as Sam has forewarned you, the sphericity assumption is frequently violated. When it is, the degrees of freedom will be overestimated and the *F* value will be inflated. In these circumstances, we must adopt the Greenhouse-Geisser correction, which is given in the final part of the table. This correction adjusts the degrees of freedom to compensate for the violation of the sphericity assumption. The adjusted degrees of freedom for the numerator and denominator are given in the column DF[GG] (1.91 and 141.14, respectively) and the Greenhouse-Geisser corrected *p* value is under the column p[GG] and is 0.0000118, which is significant at *p* < .001.
 
 **If we had violated the sphericity assumption, then it is the quantities in this final section (rather than the first section) that we would report when writing the results and drawing our conclusions from the analysis.** 
 

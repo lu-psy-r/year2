@@ -1,8 +1,12 @@
 ---
 title: 1. Measurement, Variance and Inferential Statistics
-subtitle: "Richard Philpot, Mark Hurlstone"
+subtitle: "Sam Russell, Mark Hurlstone"
 order: 2
 ---
+
+::: {.callout-caution}
+This page is under construction for 24/25 and may be subject to change before the teaching week.
+:::
 
 # Lecture
 
@@ -23,7 +27,7 @@ Download the lecture slides [here](data/Wk1/Lecture 1 - Student Slides.pdf), and
 Welcome back to Lancaster University and congratulations on your progression to Year 2!
 
 
-This will be the first lab session for Psyc214 - Statistics for Psychologists. In these lab sessions you will work from sheets (like this one) which detail activities and provide hands on experience of working and problem solving in R. At times these sheets will offer step-by-step instructions of how to wrangle data and to run a relevant command or analysis. At other times, and to reinforce learning, you will be asked to 'fill in the gaps' yourselves or to rewrite the code to solve a new problem. Myself (Richard Philpot), Mark Hurlstone and an apt team of GTAs will be on hand to help you through this journey - so please do not panic - you're never alone. In Psyc214, we also encourage peer engagment and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
+This will be the first lab session for Psyc214 - Statistics for Psychologists. In these lab sessions you will work from sheets (like this one) which detail activities and provide hands on experience of working and problem solving in R. At times these sheets will offer step-by-step instructions of how to wrangle data and to run a relevant command or analysis. At other times, and to reinforce learning, you will be asked to 'fill in the gaps' yourselves or to rewrite the code to solve a new problem. Myself (Sam Russell), Mark Hurlstone and an apt team of GTAs will be on hand to help you through this journey - so please do not panic - you're never alone. In Psyc214, we also encourage peer engagment and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
   
 ******
 ## 1 - General Introduction

@@ -4,6 +4,10 @@ subtitle: Emma Mills
 order: 3
 ---
 
+::: {.callout-caution}
+This page is under construction for 24/25 and may be subject to change before the teaching week.
+:::
+
 ```{r, include=FALSE}
 knitr::opts_chunk$set(message = FALSE)
 knitr::opts_chunk$set(warning = FALSE)

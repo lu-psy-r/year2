@@ -1,8 +1,12 @@
 ---
 title: 2. One-Factor Between-Participants ANOVA
-subtitle: "Richard Philpot, Mark Hurlstone"
+subtitle: "Sam Russell, Mark Hurlstone"
 order: 3
 ---
+
+::: {.callout-caution}
+This page is under construction for 24/25 and may be subject to change before the teaching week.
+:::
 
 # Lecture
 
@@ -26,7 +30,7 @@ It was incredibly pleasant meeting you last week and also getting snug and reacq
 2. Running and reporting (to APA standards) a one-factor between participants analysis of variance
 3. Creating a publication quality bar chart (no pressure), which plots our data 
 
-As always, myself (Richard Philpot), Mark Hurlstone (weeks 6-10) and an apt team of GTAs will be on hand to help you through this journey - so please do not panic - you're never alone. In Psyc214, we also encourage peer engagement and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
+As always, myself (Sam Russell), Mark Hurlstone (weeks 6-10) and an apt team of GTAs will be on hand to help you through this journey - so please do not panic - you're never alone. In Psyc214, we also encourage peer engagement and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
   
 ******
 ## 1 - General Introduction to Lab 2
