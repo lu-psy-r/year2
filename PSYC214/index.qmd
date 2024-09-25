@@ -1,6 +1,5 @@
 ---
 title: Statistics for Group Comparisons
-subtitle: "Teaching team: Sam Russell and Mark Hurlstone (module coordinator)"
 email-obfuscation: javascript
 order: 1
 
@@ -10,7 +9,9 @@ order: 1
 #  contents: guide.yml
 ---
 
-# Welcome to PSYC214!
+# Welcome to PSYC214: Statistics for group comparisons
+
+Teaching team: Sam Russell and Mark Hurlstone (module coordinator)
 
 In this module, you will learn about a statistical technique for performing group comparisons known as Analysis of Variance (ANOVA). It is one of the most common statistical techniques, so it is important to have a thorough understanding of it, which is why we are devoting an entire module to the technique. We will cover a range of statistical tests associated with ANOVA, starting with designs involving a single independent variable (single factor designs), before moving onto designs involving multiple independent variables (factorial designs). We will also cover various follow-up procedures (procedures for identifying which specific conditions differ from one another), including planned comparisons and post-hoc tests, and how to interpret interactions (when the effect of one independent variable depends on the effect of another independent variable, and vice versa). The R statistical package is used throughout and students are expected to develop the skills for conducting appropriate analyses and interpreting the resulting output.
 

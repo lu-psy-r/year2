@@ -1,11 +1,12 @@
 ---
-title: "Statistics: from association to modelling causality"
-subtitle: "Teaching team: Emma Mills (module coordinator) and Amy Atkinson"
+title: From association to modelling causality
 email-obfuscation: javascript
 
 ---
 
-# Welcome to PSYC234!
+# Welcome to PSYC234: Statistics: from association to modelling causality
+
+Teaching team: Emma Mills (module coordinator) and Amy Atkinson
 
 PSYC234 builds upon your prior learning of t-tests (PSYC121), correlation and simple regression (PSYC122) and ANOVA (PSYC214). All of these can be thought of as components that use parts of a statistical framework called the "general linear model" and PSYC234 moves into models of multiple linear regression. The "multiple" part here means more than one predictor variable. 
 
