@@ -103,7 +103,7 @@ lab1_data <- read.csv("week1_robo_lab.csv")
 lab1_data <- read.csv("data/Wk1/week1_robo_lab.csv")
 ```
   
-  where 'lab1_data' is the name we've assigned that R will recognise when it calls up our data, 'read.csv' is the R command to pull up the data and 'week1_robo_lab.csv' is the name of the original data file you downloaded and stored.
+where 'lab1_data' is the name we've assigned that R will recognise when it calls up our data, `read.csv` is the R function to import the data, and 'week1_robo_lab.csv' is the name of the original data file you downloaded and stored.
 
 *Note. During the rest of this session, you will not need to refer to the original downloaded .csv data file. R has all the information stored under the ‘lab1_data’ variable. Further note, you could have called ‘lab1_data’ by pretty much any name you like… ‘df1’, ‘robo_1', ‘I.love.stats.com’, etc. - the name is somewhat arbitrary. For the purpose of this lab session and for ease of read, ‘lab1_data’, is perhaps more suitable.*
   
@@ -190,7 +190,7 @@ Earlier, we loaded the package `dplyr`, which is readily accessible from the `ti
 Now that we have our pieces in play, let's take a look at the data.
 
 We first want to get a brief overview of what the data set looks like. 
-To do this, we use the use the `head()` command, which displays the first rows present in the data frame.
+To do this, we use the use the `head()` function, which displays the first rows present in the data frame.
 
 To view these first rows, please apply the following code:
 
@@ -205,13 +205,13 @@ head(lab1_data, n=12)
 ```
 
 Great. We can now see the first 12 rows of data. 
-One thing that is noticeable, however, is that the data are ordered by participant 'ID'. Say we want to get an overview of our data where we can see data ordered by the from lowest Psyc214 test score to highest. We can arrange data this way using the `arrange()` command, were we include 'Score' as the variable of interest. Please try the following:
+One thing that is noticeable, however, is that the data are ordered by participant 'ID'. Say we want to get an overview of our data where we can see data ordered by the from lowest Psyc214 test score to highest. We can arrange data this way using the `arrange()` function, were we include 'Score' as the variable of interest. Please try the following:
 
 ```{r}
 lab1_data %>% arrange(Score)
 ``` 
 
-You will note that the command outputs 100+ data rows showing the values of over 100 of our participants.
+You will note that this outputs 100+ data rows showing the values of over 100 of our participants.
 
 This can be quite a whooper!
 
@@ -232,13 +232,14 @@ A quick eyeballing of the data rows suggests the lowest 10 test scores predomina
 It would also be prudent to check the top 10 highest scores and to get a feel for what the top marks were like. We can again order our data using the `arrange()` function. This time however, we add the term `arrange(desc())` to show that we are asking R for descending ordering.
 
 Please try the following command to examine the top scorers
+
 ```{r, results = FALSE}
 lab1_data %>% arrange(desc(Score))
 ```
 
 You will note in your own output, that the scores are once again showing over 100 values!
 
-To make this more manageable, please try writing your own code combining the `arrange(desc())` command, a pipe `%>%` and the `head(n = x)` command. If stuck, refer to the command we used higher up.
+To make this more manageable, please try writing your own code combining the `arrange(desc())` function, a pipe `%>%` and the `head(n = x)` function. If stuck, refer to the command we used higher up.
 
 ```{r}
 #ANSWER CODE
@@ -283,7 +284,7 @@ head(lab1_data)
 
 As of yet, we have not examined the basic descriptive statistics of our data, so let's take a look now.
 
-We can compute the minimum and maximum values, 1st and 3rd quartiles, median and mean all at once using the `summary()` command:
+We can compute the minimum and maximum values, 1st and 3rd quartiles, median and mean all at once using the `summary()` function:
 
 ```{r}
 summary(lab1_data)
@@ -297,7 +298,7 @@ For example, we may be interested in ... (remember from last lecture ;) ...:
 - the interquartile range of data (i.e., the difference between the first and third quartiles) 
 - the standard deviation (i.e.,  the dispersion of a dataset relative to its mean, that being the square root of the variance)
 
-These can all be calculated relatively easily with the following commands:
+These can all be calculated relatively easily with the following functions:
 
 - the range of our data points: `range()`
 - the interquartile range: `IQR()`
@@ -359,9 +360,9 @@ Although this information is useful, it gives information regarding all data poi
 
 Although there are work arounds for this, simpler functions are available in the rstatix() package (previously loaded).
 
-Using the package's `group_by()` command and pipes `%>%` we can ask R to separate our data based on the group assigned. Note, here the name of the grouping variable for our dataset is 'Group'.
+Using the package's `group_by()` function and pipes `%>%` we can ask R to separate our data based on the group assigned. Note, here the name of the grouping variable for our dataset is 'Group'.
 
-Let's ask for the mean for our two groups with the following command. 
+Let's ask for the mean for our two groups with the following bit of code. 
 First we tell R we are using the lab1_data. Then we say within this data set we want to separate the data by the 'Group' variable. Finally we ask for summary stats for the DV1 the Score. We will ask only for the mean.
   
 ```{r}
@@ -388,8 +389,7 @@ Ok, perfect. This now tells us a lot of information. For example, we can see tha
 
 As a next step, let's plot the data and see the distribution of data points in visual form. To do this, we've already loaded the excellent data visualization package `ggpubr`.
 
-To plot the data we use the `ggboxplot()` command.
-First we are required to say what dataset we'll be using, which is again 'lab1_data'. Next we type 'main=' to specify the title for the plot. Let's call the plot "Box plot of test scores by robot condition". We then need to specify what data we would like to use for each axis. For the x-axis we would like to plot the different groups, so let's add x = "Group". Our y-axis will be the "Score". We can colour the groups also and add shapes to data points. Finally, let's give the x-axis and y-axis each a descriptive label. "Robot group condition" and "Psyc214 test score" seem appropriate here.
+To plot the data we use the `ggboxplot()` function. First we are required to say what dataset we'll be using, which is again 'lab1_data'. Next we type 'main=' to specify the title for the plot. Let's call the plot "Box plot of test scores by robot condition". We then need to specify what data we would like to use for each axis. For the x-axis we would like to plot the different groups, so let's add x = "Group". Our y-axis will be the "Score". We can colour the groups also and add shapes to data points. Finally, let's give the x-axis and y-axis each a descriptive label. "Robot group condition" and "Psyc214 test score" seem appropriate here.
 
 ```{r}
 # Box plot of test scores by Robot Condition

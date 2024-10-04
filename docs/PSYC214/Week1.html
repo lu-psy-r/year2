@@ -476,7 +476,7 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"week1_robo_lab.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>where ‘lab1_data’ is the name we’ve assigned that R will recognise when it calls up our data, ‘read.csv’ is the R command to pull up the data and ‘week1_robo_lab.csv’ is the name of the original data file you downloaded and stored.</p>
+<p>where ‘lab1_data’ is the name we’ve assigned that R will recognise when it calls up our data, <code>read.csv</code> is the R function to import the data, and ‘week1_robo_lab.csv’ is the name of the original data file you downloaded and stored.</p>
 <p><em>Note. During the rest of this session, you will not need to refer to the original downloaded .csv data file. R has all the information stored under the ‘lab1_data’ variable. Further note, you could have called ‘lab1_data’ by pretty much any name you like… ‘df1’, ‘robo_1’, ‘I.love.stats.com’, etc. - the name is somewhat arbitrary. For the purpose of this lab session and for ease of read, ‘lab1_data’, is perhaps more suitable.</em></p>
 <hr>
 </section>
@@ -561,7 +561,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <section id="examining-and-ordering-data" class="level3">
 <h3 class="anchored" data-anchor-id="examining-and-ordering-data">2.6 Examining and ordering data</h3>
 <p>Now that we have our pieces in play, let’s take a look at the data.</p>
-<p>We first want to get a brief overview of what the data set looks like. To do this, we use the use the <code>head()</code> command, which displays the first rows present in the data frame.</p>
+<p>We first want to get a brief overview of what the data set looks like. To do this, we use the use the <code>head()</code> function, which displays the first rows present in the data frame.</p>
 <p>To view these first rows, please apply the following code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -579,7 +579,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data, <span class="at">n=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Great. We can now see the first 12 rows of data. One thing that is noticeable, however, is that the data are ordered by participant ‘ID’. Say we want to get an overview of our data where we can see data ordered by the from lowest Psyc214 test score to highest. We can arrange data this way using the <code>arrange()</code> command, were we include ‘Score’ as the variable of interest. Please try the following:</p>
+<p>Great. We can now see the first 12 rows of data. One thing that is noticeable, however, is that the data are ordered by participant ‘ID’. Say we want to get an overview of our data where we can see data ordered by the from lowest Psyc214 test score to highest. We can arrange data this way using the <code>arrange()</code> function, were we include ‘Score’ as the variable of interest. Please try the following:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -786,7 +786,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 200 178     B           5    88</code></pre>
 </div>
 </div>
-<p>You will note that the command outputs 100+ data rows showing the values of over 100 of our participants.</p>
+<p>You will note that this outputs 100+ data rows showing the values of over 100 of our participants.</p>
 <p>This can be quite a whooper!</p>
 <p>If we want to make this output more manageable we could always add an additional <code>&gt;%&gt;</code> pipe command which combines both arrange and head.</p>
 <p>For example the code below, combining <code>arrange()</code> and <code>head()</code> allows us order the data based on lowest score and then to display <em>only</em> the top 10 results.</p>
@@ -815,7 +815,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You will note in your own output, that the scores are once again showing over 100 values!</p>
-<p>To make this more manageable, please try writing your own code combining the <code>arrange(desc())</code> command, a pipe <code>%&gt;%</code> and the <code>head(n = x)</code> command. If stuck, refer to the command we used higher up.</p>
+<p>To make this more manageable, please try writing your own code combining the <code>arrange(desc())</code> function, a pipe <code>%&gt;%</code> and the <code>head(n = x)</code> function. If stuck, refer to the command we used higher up.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -881,7 +881,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <section id="assessing-the-descriptives" class="level3">
 <h3 class="anchored" data-anchor-id="assessing-the-descriptives">2.7 Assessing the descriptives</h3>
 <p>As of yet, we have not examined the basic descriptive statistics of our data, so let’s take a look now.</p>
-<p>We can compute the minimum and maximum values, 1st and 3rd quartiles, median and mean all at once using the <code>summary()</code> command:</p>
+<p>We can compute the minimum and maximum values, 1st and 3rd quartiles, median and mean all at once using the <code>summary()</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -908,7 +908,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <li>the interquartile range of data (i.e., the difference between the first and third quartiles)</li>
 <li>the standard deviation (i.e., the dispersion of a dataset relative to its mean, that being the square root of the variance)</li>
 </ul>
-<p>These can all be calculated relatively easily with the following commands:</p>
+<p>These can all be calculated relatively easily with the following functions:</p>
 <ul>
 <li>the range of our data points: <code>range()</code></li>
 <li>the interquartile range: <code>IQR()</code></li>
@@ -966,8 +966,8 @@ Fig.11 - Hold up!
 <p>Well only briefly…</p>
 <p>Although this information is useful, it gives information regarding all data points and does not generate these values based on the two assigned independent groups - i.e., the two levels (Group Robot A, Group Robot B) of our single factor (Robot Assignment).</p>
 <p>Although there are work arounds for this, simpler functions are available in the rstatix() package (previously loaded).</p>
-<p>Using the package’s <code>group_by()</code> command and pipes <code>%&gt;%</code> we can ask R to separate our data based on the group assigned. Note, here the name of the grouping variable for our dataset is ‘Group’.</p>
-<p>Let’s ask for the mean for our two groups with the following command. First we tell R we are using the lab1_data. Then we say within this data set we want to separate the data by the ‘Group’ variable. Finally we ask for summary stats for the DV1 the Score. We will ask only for the mean.</p>
+<p>Using the package’s <code>group_by()</code> function and pipes <code>%&gt;%</code> we can ask R to separate our data based on the group assigned. Note, here the name of the grouping variable for our dataset is ‘Group’.</p>
+<p>Let’s ask for the mean for our two groups with the following bit of code. First we tell R we are using the lab1_data. Then we say within this data set we want to separate the data by the ‘Group’ variable. Finally we ask for summary stats for the DV1 the Score. We will ask only for the mean.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
@@ -1004,7 +1004,7 @@ Fig.11 - Hold up!
 <section id="visualising-data" class="level3">
 <h3 class="anchored" data-anchor-id="visualising-data">3.1 Visualising data</h3>
 <p>As a next step, let’s plot the data and see the distribution of data points in visual form. To do this, we’ve already loaded the excellent data visualization package <code>ggpubr</code>.</p>
-<p>To plot the data we use the <code>ggboxplot()</code> command. First we are required to say what dataset we’ll be using, which is again ‘lab1_data’. Next we type ‘main=’ to specify the title for the plot. Let’s call the plot “Box plot of test scores by robot condition”. We then need to specify what data we would like to use for each axis. For the x-axis we would like to plot the different groups, so let’s add x = “Group”. Our y-axis will be the “Score”. We can colour the groups also and add shapes to data points. Finally, let’s give the x-axis and y-axis each a descriptive label. “Robot group condition” and “Psyc214 test score” seem appropriate here.</p>
+<p>To plot the data we use the <code>ggboxplot()</code> function. First we are required to say what dataset we’ll be using, which is again ‘lab1_data’. Next we type ‘main=’ to specify the title for the plot. Let’s call the plot “Box plot of test scores by robot condition”. We then need to specify what data we would like to use for each axis. For the x-axis we would like to plot the different groups, so let’s add x = “Group”. Our y-axis will be the “Score”. We can colour the groups also and add shapes to data points. Finally, let’s give the x-axis and y-axis each a descriptive label. “Robot group condition” and “Psyc214 test score” seem appropriate here.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot of test scores by Robot Condition</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(lab1_data,<span class="at">main=</span><span class="st">"Box plot of test scores by robot condition"</span>, </span>
