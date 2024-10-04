@@ -466,7 +466,7 @@ Note
 <h3 class="anchored" data-anchor-id="setting-the-working-directory-and-opening-the-data-file">1.4 Setting the working directory and opening the data file</h3>
 <p>A working directory is the default location or folder on your computer/server by which R will read/save any files. It can be set with the following R code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">"/PSYC214"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/PSYC214"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -563,7 +563,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>We first want to get a brief overview of what the data set looks like. To do this, we use the use the <code>head()</code> command, which displays the first rows present in the data frame.</p>
 <p>To view these first rows, please apply the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID Group Likeability Score
 1  1     A           3    55
@@ -576,11 +576,11 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 </div>
 <p>This shows us the first 6 rows. Note, while the default is six, you can also specify the number of rows as follows - please try it out.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(lab1_data, <span class="at">n=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data, <span class="at">n=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great. We can now see the first 12 rows of data. One thing that is noticeable, however, is that the data are ordered by participant ‘ID’. Say we want to get an overview of our data where we can see data ordered by the from lowest Psyc214 test score to highest. We can arrange data this way using the <code>arrange()</code> command, were we include ‘Score’ as the variable of interest. Please try the following:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     ID Group Likeability Score
 1    33     A           2    40
@@ -790,7 +790,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>If we want to make this output more manageable we could always add an additional <code>&gt;%&gt;</code> pipe command which combines both arrange and head.</p>
 <p>For example the code below, combining <code>arrange()</code> and <code>head()</code> allows us order the data based on lowest score and then to display <em>only</em> the top 10 results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    ID Group Likeability Score
 1   33     A           2    40
@@ -811,7 +811,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>It would also be prudent to check the top 10 highest scores and to get a feel for what the top marks were like. We can again order our data using the <code>arrange()</code> function. This time however, we add the term <code>arrange(desc())</code> to show that we are asking R for descending ordering.</p>
 <p>Please try the following command to examine the top scorers</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You will note in your own output, that the scores are once again showing over 100 values!</p>
 <p>To make this more manageable, please try writing your own code combining the <code>arrange(desc())</code> command, a pipe <code>%&gt;%</code> and the <code>head(n = x)</code> command. If stuck, refer to the command we used higher up.</p>
@@ -936,9 +936,9 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>Using the package’s <code>group_by()</code> command and pipes <code>%&gt;%</code> we can ask R to separate our data based on the group assigned. Note, here the name of the grouping variable for our dataset is ‘Group’.</p>
 <p>Let’s ask for the mean for our two groups with the following command. First we tell R we are using the lab1_data. Then we say within this data set we want to separate the data by the ‘Group’ variable. Finally we ask for summary stats for the DV1 the Score. We will ask only for the mean.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Score, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summary_stats</span>(Score, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   Group variable     n  mean
@@ -949,9 +949,9 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 </div>
 <p>Great. Now let’s do the same again, but this time we will ask for summary statistics for both the Score (DV1) and Likeability (DV2) variables. Furthermore, let’s also ask for the sd, min, max and iqr.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Score, Likeability, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"iqr"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summary_stats</span>(Score, Likeability, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"iqr"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 8
   Group variable        n  mean    sd   min   max   iqr
@@ -975,10 +975,10 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Box plot of test scores by Robot Condition</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(lab1_data,<span class="at">main=</span><span class="st">"Box plot of test scores by robot condition"</span>, </span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Score"</span>, <span class="co">#variables for axes</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Psyc214 test score"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Score"</span>, <span class="co">#variables for axes</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Psyc214 test score"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Week1_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -993,7 +993,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># independent 2-group t-test</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#t_test(Score ~ Group) # where y is numeric Score and x is a binary factor </span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute t-test</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">t.test</span>(<span class="at">formula =</span> Score <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> Score <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -1037,10 +1037,10 @@ mean in group A mean in group B
 <li>repeat the steps in ‘2.8 Descriptives by group condition’, this time examining the summary statistics for our second dependent variable - ‘Likeability’.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ANSWER CODE</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  lab1_data <span class="sc">%&gt;%</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Likeability, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summary_stats</span>(Likeability, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   Group variable        n  mean
@@ -1054,12 +1054,12 @@ mean in group A mean in group B
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Box plot of likeability scores by Robot Condition</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot of likeability scores by Robot Condition</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(lab1_data,<span class="at">main=</span><span class="st">"Box plot of test scores by robot condition"</span>, </span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Likeability"</span>, <span class="co">#variables for axes</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Likeability scores"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Likeability"</span>, <span class="co">#variables for axes</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Likeability scores"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Week1_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1072,7 +1072,7 @@ mean in group A mean in group B
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># independent 2-group t-test</span></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#t_test(Score ~ Group) # where y is numeric Score and x is a binary factor </span></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute t-test</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">t.test</span>(<span class="at">formula =</span> Likeability <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> Likeability <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -1086,7 +1086,7 @@ sample estimates:
 mean in group A mean in group B 
            2.94            4.51 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cohen's d effect size calculation</span></span>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohen's d effect size calculation</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(Likeability <span class="sc">~</span> Group,  <span class="co"># Formula</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> lab1_data) <span class="co"># Dataframe containing the variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

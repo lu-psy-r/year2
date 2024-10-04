@@ -86,7 +86,7 @@ Finally, open a script for executing today’s coding exercises. Navigate to the
 A working directory is the default location or folder on your computer/server by which R will read/save any files. It can be set with the following R code:
 
 ```{r eval = FALSE}
-  setwd("/PSYC214")
+setwd("/PSYC214")
 ```
 
 ```{r eval = FALSE}
@@ -195,20 +195,20 @@ To do this, we use the use the `head()` command, which displays the first rows p
 To view these first rows, please apply the following code:
 
 ```{r}
-  head(lab1_data)
+head(lab1_data)
 ```
 
 This shows us the first 6 rows. Note, while the default is six, you can also specify the number of rows as follows - please try it out.
 
 ```{r, results = FALSE}
-  head(lab1_data, n=12)
+head(lab1_data, n=12)
 ```
 
 Great. We can now see the first 12 rows of data. 
 One thing that is noticeable, however, is that the data are ordered by participant 'ID'. Say we want to get an overview of our data where we can see data ordered by the from lowest Psyc214 test score to highest. We can arrange data this way using the `arrange()` command, were we include 'Score' as the variable of interest. Please try the following:
 
 ```{r}
-  lab1_data %>% arrange(Score)
+lab1_data %>% arrange(Score)
 ``` 
 
 You will note that the command outputs 100+ data rows showing the values of over 100 of our participants.
@@ -220,7 +220,7 @@ If we want to make this output more manageable we could always add an additional
 For example the code below, combining `arrange()` and `head()` allows us order the data based on lowest score and then to display *only* the top 10 results. 
 
 ```{r}
-  lab1_data %>% arrange(Score) %>% head(n=10)
+lab1_data %>% arrange(Score) %>% head(n=10)
 ``` 
 
 Phew. This is more manageable.
@@ -233,7 +233,7 @@ It would also be prudent to check the top 10 highest scores and to get a feel fo
 
 Please try the following command to examine the top scorers
 ```{r, results = FALSE}
-  lab1_data %>% arrange(desc(Score))
+lab1_data %>% arrange(desc(Score))
 ```
 
 You will note in your own output, that the scores are once again showing over 100 values!
@@ -332,17 +332,17 @@ Let's ask for the mean for our two groups with the following command.
 First we tell R we are using the lab1_data. Then we say within this data set we want to separate the data by the 'Group' variable. Finally we ask for summary stats for the DV1 the Score. We will ask only for the mean.
   
 ```{r}
-  lab1_data %>%
-  group_by(Group) %>%
-  get_summary_stats(Score, type = "mean")
+lab1_data %>%
+group_by(Group) %>%
+get_summary_stats(Score, type = "mean")
 ```
 
 Great. Now let's do the same again, but this time we will ask for summary statistics for both the Score (DV1) and Likeability (DV2) variables. Furthermore, let's also ask for the sd, min, max and iqr.
 
 ```{r}
-  lab1_data %>%
-  group_by(Group) %>%
-  get_summary_stats(Score, Likeability, show = c("mean", "sd", "min", "max", "iqr"))
+lab1_data %>%
+group_by(Group) %>%
+get_summary_stats(Score, Likeability, show = c("mean", "sd", "min", "max", "iqr"))
 ```
 
 Ok, perfect. This now tells us a lot of information. For example, we can see that the mean test scores for Group A and B are 56.6 and 62.8 respectively. On reflection, and considering the importance of getting a nice score, these means do seem quite different from one another. 
@@ -361,10 +361,10 @@ First we are required to say what dataset we'll be using, which is again 'lab1_d
 ```{r}
   # Box plot of test scores by Robot Condition
 ggboxplot(lab1_data,main="Box plot of test scores by robot condition", 
-               x = "Group", y = "Score", #variables for axes
-                color = "Group", palette =c("#999999", "#333333"), #colour of data
-                add = "jitter", shape = "Group", # shape of data
-               xlab="Robot group condition", ylab="Psyc214 test score") #labels for axes
+       x = "Group", y = "Score", #variables for axes
+        color = "Group", palette =c("#999999", "#333333"), #colour of data
+        add = "jitter", shape = "Group", # shape of data
+       xlab="Robot group condition", ylab="Psyc214 test score") #labels for axes
 ```
 
 Observing the spread of data points for Group A and B, respectively, we can see trends in which Group B tends to have more data points clustered higher on the test score axis than Group A. Group A has more data points clustered lower on the test score axis than Group B and these distributions are reflected by the boxplots. Again it seems we have a signficant difference, but we will need a statistical test to be certain.
@@ -378,7 +378,7 @@ To get to the bottom of this we need to perform an independent 2-group t-test. T
 # independent 2-group t-test
   #t_test(Score ~ Group) # where y is numeric Score and x is a binary factor 
 # Compute t-test
- t.test(formula = Score ~ Group, pool.sd = FALSE, var.equal = TRUE, data = lab1_data)
+t.test(formula = Score ~ Group, pool.sd = FALSE, var.equal = TRUE, data = lab1_data)
 ```
 
 The output provides the t-value and it’s 95% confidence interval - i.e., we can be 95% certain that the true value of t falls within the the lower and upper confidence intervals. We also get the means of our groups, the degrees of freedom for our t-test and the p-value. 
@@ -408,22 +408,22 @@ The current results can be reported as following:
 1. repeat the steps in '2.8 Descriptives by group condition', this time examining the summary statistics for our second dependent variable - 'Likeability'.
 
 ```{r}
-  #ANSWER CODE
-  lab1_data %>%
-  group_by(Group) %>%
-  get_summary_stats(Likeability, type = "mean")
+#ANSWER CODE
+lab1_data %>%
+group_by(Group) %>%
+get_summary_stats(Likeability, type = "mean")
 ```
 
 2. repeat the steps in '3.1 Visualising data', this time creating box plots for our second dependent variable - 'Likeability'. Rename the title and axes to something more suitable and perhaps even change the colour of data points. Describe the trends in data to a classmate or your inner self.
 
 ```{r}
 #ANSWER CODE
-  # Box plot of likeability scores by Robot Condition
+# Box plot of likeability scores by Robot Condition
 ggboxplot(lab1_data,main="Box plot of test scores by robot condition", 
-               x = "Group", y = "Likeability", #variables for axes
-                color = "Group", palette =c("#999999", "#333333"), #colour of data
-                add = "jitter", shape = "Group", # shape of data
-               xlab="Robot group condition", ylab="Likeability scores") #labels for axes
+       x = "Group", y = "Likeability", #variables for axes
+        color = "Group", palette =c("#999999", "#333333"), #colour of data
+        add = "jitter", shape = "Group", # shape of data
+       xlab="Robot group condition", ylab="Likeability scores") #labels for axes
 ```
 
 3. compute an independent t-test (steps 3.2) to examine whether there are any statistical differences between the means of our two groups in their Likeability ratings. Write up the results in APA style.
@@ -433,9 +433,9 @@ ggboxplot(lab1_data,main="Box plot of test scores by robot condition",
 # independent 2-group t-test
   #t_test(Score ~ Group) # where y is numeric Score and x is a binary factor 
 # Compute t-test
- t.test(formula = Likeability ~ Group, pool.sd = FALSE, var.equal = TRUE, data = lab1_data)
+t.test(formula = Likeability ~ Group, pool.sd = FALSE, var.equal = TRUE, data = lab1_data)
 
-  # Cohen's d effect size calculation
+# Cohen's d effect size calculation
 cohens_d(Likeability ~ Group,  # Formula
        data = lab1_data) # Dataframe containing the variables
 ```
