@@ -1,12 +1,12 @@
----
-title: '9. Three-Factor ANOVA'
-subtitle: "Mark Hurlstone, Sam Russell"
-order: 10
----
-
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
+# ---
+# title: '9. Three-Factor ANOVA'
+# subtitle: "Mark Hurlstone, Sam Russell"
+# order: 10
+# ---
+# 
+# ::: {.callout-caution}
+# This page is under construction for 24/25 and may be subject to change before the teaching week.
+# :::
 
 
 <!-- # Lecture -->
