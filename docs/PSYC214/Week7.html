@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -100,8 +66,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
 </head>
@@ -136,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Year 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../year3/index.html" rel="" target="">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html" rel="" target="">
  <span class="menu-text">Year 3</span></a>
   </li>  
   <li class="nav-item">
@@ -189,20 +153,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/index 2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistics for Psychologists I</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week1 2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1. Introduction to PSYC121</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -326,37 +278,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
-  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
-  <ul class="collapse">
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
-  </ul></li>
-  <li><a href="#todays-lab-activities" id="toc-todays-lab-activities" class="nav-link" data-scroll-target="#todays-lab-activities">Today’s Lab Activities</a>
-  <ul class="collapse">
-  <li><a href="#analysing-the-hypothetical-covid-19-vaccination-study-data" id="toc-analysing-the-hypothetical-covid-19-vaccination-study-data" class="nav-link" data-scroll-target="#analysing-the-hypothetical-covid-19-vaccination-study-data">Analysing the Hypothetical COVID-19 Vaccination Study Data</a>
-  <ul class="collapse">
-  <li><a href="#descriptives-statistics-and-assumption-checks" id="toc-descriptives-statistics-and-assumption-checks" class="nav-link" data-scroll-target="#descriptives-statistics-and-assumption-checks">Descriptives statistics and assumption checks</a></li>
-  <li><a href="#running-the-anova" id="toc-running-the-anova" class="nav-link" data-scroll-target="#running-the-anova">Running the ANOVA</a></li>
-  <li><a href="#generating-the-simple-main-effects" id="toc-generating-the-simple-main-effects" class="nav-link" data-scroll-target="#generating-the-simple-main-effects">Generating the simple main effects</a></li>
-  <li><a href="#how-to-write-up-the-results" id="toc-how-to-write-up-the-results" class="nav-link" data-scroll-target="#how-to-write-up-the-results">How to write up the results</a></li>
-  <li><a href="#additional-tasks" id="toc-additional-tasks" class="nav-link" data-scroll-target="#additional-tasks">Additional tasks</a></li>
-  <li><a href="#final-remarks" id="toc-final-remarks" class="nav-link" data-scroll-target="#final-remarks">Final remarks</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistics for Psychologists</h1>
+<h1 class="title">7. Two-Factor Between-Participants ANOVA</h1>
 <p class="subtitle lead">Mark Hurlstone, Richard Philpot</p>
 </div>
 
@@ -372,357 +301,281 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="lecture" class="level1">
-<h1>Lecture</h1>
-<p>Watch Part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017092">here</a></p>
-<p>Watch Part 2 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017093">here</a></p>
-<p>Watch Part 3 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017094">here</a></p>
-<p>Watch Part 4 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017245">here</a></p>
-<p>Watch Part 5 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017257">here</a></p>
-<p>Download the lecture slides <a href="data/Wk7/Two-Factor Between-Participants Designs HANDOUT.pdf">here</a>, and <a href="data/Wk7/Two-Factor Between-Participants Designs.pdf">here</a> for a larger version.</p>
-</section>
-<section id="lab" class="level1">
-<h1>Lab</h1>
-<p><br> <br></p>
-<blockquote class="blockquote">
-<p><em>We must make the best of those things that are in our power, and take the rest as nature gives it.</em> —Epictetus, <em>Discourses</em>, 1.1</p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Epictetus.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">Epictetus</figcaption>
-</figure>
-</div>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p>In this week’s lecture, we demonstrated the steps involved in performing a two-factor between-participants ANOVA by hand using the simplest possible instance of such a design, namely a 2 <span class="math inline">\(\times\)</span> 2 factorial design. We saw that the analysis entails between 1–2 stages. In the first stage, we perform the ANOVA to establish whether either of the two main effects or interaction is significant. If the interaction is not significant, then the analysis stops here. However, if there is a significant interaction, then we must proceed to a second stage and perform a simple main effects analysis to establish the nature of the significant interaction. In today’s lab session, we will demonstrate how to perform a 2 <span class="math inline">\(\times\)</span> 2 between-participants factorial ANOVA in R, including the calculation of the simple main effects. We will also demonstrate how to write up the results of a factorial ANOVA.</p>
-<!-- **Note: today, and in future lab sessions, we will only be demonstrating how to do things that you have not previously done before. From now on, you will be generating your own code for a large portion of the lab exercises. So, it would be a good idea to have the lab class materials from previous weeks readily accessible to remind you how to accomplish different tasks.** -->
-<!-- **If you get stuck at any point, be proactive and ask for help from one of the GTAs.** -->
-</section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
-<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
-<p>When you are connected, navigate to <a href="https://psy-rstudio.lancaster.ac.uk">https://psy-rstudio.lancaster.ac.uk</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
-<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
-<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
-<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
-<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you have already logged in through the university login already, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+<p>This page is under construction for 24/25 and may be subject to change before the teaching week.</p>
 </div>
 </div>
-<p>Once you are logged into the server, create a folder for today’s session. Navigate to the bottom right panel and under the <code>Files</code> option select the <code>New Folder</code> option. Name the new folder <code>psyc214_lab_7</code>. <strong>Please ensure that you spell this correctly</strong> otherwise when you set the directory using the command given below it will return an error.</p>
-<p>Se we can save this session on the server, click <code>File</code> on the top ribbon and select <code>New project</code>. Next, select existing directory and name the working directory <code>~/psyc214_lab_7</code> before selecting <code>create project</code>.</p>
-<p>Finally, open a script for executing today’s coding exercises. Navigate to the top left pane of RStudio, select <code>File</code> –&gt; <code>New File</code> –&gt; <code>R Script</code>. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.</p>
-<p><img src="images/RScript.png" class="img-fluid" style="width:75.0%"></p>
-<p>Let’s set our working directory:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_7"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now that you have created a folder for today’s session, it’s time to add the Week 7 data file. Download the data <a href="data/wk7/COVID19Data.csv"><code>COVID19Data.csv</code></a>. Next, in the RStudio Server open your new pscy214_lab_7 folder. When in the new folder, select the <code>Upload</code> tab. This will present a box that will ask where the data is that you want to upload. Click on <code>Browse</code>, find the <code>COVID19Data.csv</code> file on your desktop and click <code>OK</code>.</p>
-<p>Before moving on, let’s load the relevant libraries that we will be using in today’s session.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)  <span class="co"># For data storage and manipulation</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyr"</span>)      <span class="co"># For tidy data</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rstatix"</span>)    <span class="co"># For descriptives statistics, outlier detection etc.</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"effectsize"</span>) <span class="co"># For generating effect sizes for the ANOVA and simple main effects</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)     <span class="co"># For generating QQ plots</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"phia"</span>)       <span class="co"># For calculating simple main effects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="todays-lab-activities" class="level1">
-<h1>Today’s Lab Activities</h1>
-<section id="analysing-the-hypothetical-covid-19-vaccination-study-data" class="level2">
-<h2 class="anchored" data-anchor-id="analysing-the-hypothetical-covid-19-vaccination-study-data">Analysing the Hypothetical COVID-19 Vaccination Study Data</h2>
-<p>Today, we are going to analyse the hypothetical COVID-19 vaccination study data that we plotted in last week’s lab session. As a reminder, the table below summarises the four different conditions of our 2 <span class="math inline">\(\times\)</span> 2 between-participant study.</p>
-<p><img src="images/DataMatrix.png" class="img-fluid" style="width:75.0%"></p>
-<p>The data set consists of the following four columns:</p>
-<ul>
-<li><p><strong>Par:</strong> represents the participant number, which ranges from 1–200, with <span class="math inline">\(N\)</span> = 50 participants in each of the four conditions resulting from the combination of our two factors, described next.</p></li>
-<li><p><strong>Fear:</strong> represents whether the participant indicated by the row received (Fear Appeal) or did not receive (No Fear Appeal) the fear appeal.</p></li>
-<li><p><strong>Efficacy:</strong> represents whether the participant indicated by the row received (Efficacy Message) or did not receive (No Efficacy Message) the self-efficacy message.</p></li>
-<li><p><strong>Likelihood:</strong> represents the vaccination likelihood score of the participant indicated by the row.</p></li>
-</ul>
-<p>The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as <code>covid19Data</code>. Once you have done this, you need to re-level the factors <code>Fear</code> and <code>Efficacy</code> so that “No Fear Appeal” is the baseline level for the former factor, and “No Efficacy Message” is the baseline level for the latter factor. We showed you how to do this in the Week 6 lab session.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE HERE IMPORTING THE DATA AND RE-LEVELLING THE FACTORS ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Once you have done the above, type <code>(covid19Data)</code> into the console to view the first 10 rows of the data. We want to check that the columns for <code>Fear</code> and <code>Efficacy</code> have the labels <code>&lt;fct&gt;</code> beneath them. This means that R has stored these variables as factors, which is necessary for us to perform the ANOVA. By default, R will import these variables as characters, in which case the variables would have the labels <code>&lt;chr&gt;</code> beneath them. If that is the case for your data, then you will need to modify this before proceeding further.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 200 × 4
-     Par Fear           Efficacy            Likelihood
-   &lt;dbl&gt; &lt;fct&gt;          &lt;fct&gt;                    &lt;dbl&gt;
- 1     1 No Fear Appeal No Efficacy Message          6
- 2     2 No Fear Appeal No Efficacy Message          4
- 3     3 No Fear Appeal No Efficacy Message          7
- 4     4 No Fear Appeal No Efficacy Message          8
- 5     5 No Fear Appeal No Efficacy Message          5
- 6     6 No Fear Appeal No Efficacy Message          6
- 7     7 No Fear Appeal No Efficacy Message          2
- 8     8 No Fear Appeal No Efficacy Message          6
- 9     9 No Fear Appeal No Efficacy Message          5
-10    10 No Fear Appeal No Efficacy Message          3
-# ℹ 190 more rows</code></pre>
-</div>
-</div>
-<section id="descriptives-statistics-and-assumption-checks" class="level3">
-<h3 class="anchored" data-anchor-id="descriptives-statistics-and-assumption-checks">Descriptives statistics and assumption checks</h3>
-<p>The next step is to generate some descriptive statistics. We want the means, standard deviations, and confidence intervals for our four conditions. You have done this before, so you can generate these descriptive statistics for yourselves. When you invoke the <code>group_by()</code> function, remember to include the variables for both factors, <code>(Fear, Efficacy)</code> with a comma seperating them, as I have done here. Make sure you name your descriptive statistics <code>descriptives</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE FOR GENERATING THE DESCRIPTIVE STATISTICS ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Once you have written and executed the code in RStudio, type <code>descriptives</code> in the console to view the descriptive statistics, it should yield the following output:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>            Fear            Efficacy   variable  n mean    sd    ci
-1 No Fear Appeal No Efficacy Message Likelihood 50 5.16 2.024 0.575
-2 No Fear Appeal    Efficacy Message Likelihood 50 4.66 1.869 0.531
-3    Fear Appeal No Efficacy Message Likelihood 50 4.80 1.829 0.520
-4    Fear Appeal    Efficacy Message Likelihood 50 7.12 1.769 0.503</code></pre>
-</div>
-</div>
-<p>We won’t linger on these descriptive statistics because we inspected them in last week’s lab session.</p>
-<p>The next steps are for us to perform our usual checks to make sure that the data are fit for analysis using ANOVA.</p>
-<p>The first check we are going to perform is to establish whether there are any outliers or extreme values in the data set. Again, you have done this on numerous occasions before, so it is over to you to generate your own code to identify if there are any outliers or extreme values. As per when you generated the descriptive statistic, remember we have two factors, so when you invoke <code>group_by()</code> you will need to include the arguments <code>(Fear, Efficacy)</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE FOR CHECKING FOR OUTLIERS AND EXTREME VALUES ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If you have entered your code correctly, then it should generate the following:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 6
-  Fear           Efficacy              Par Likelihood is.outlier is.extreme
-  &lt;fct&gt;          &lt;fct&gt;               &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;      &lt;lgl&gt;     
-1 No Fear Appeal No Efficacy Message    28         10 TRUE       FALSE     
-2 Fear Appeal    No Efficacy Message   126          0 TRUE       FALSE     </code></pre>
-</div>
-</div>
-<p>There are only two outliers in the data, participant 28 who received the combination of No Fear Appeal/No Efficacy Message and participant 126 who received the combination of Fear Appeal/No Efficacy Message. Fortunately, there are no extreme values in the data, so we are safe to proceed without having to remove or transform any scores.</p>
-<p>The next check that we need to undertake is to ensure that the homogeneity of variance assumption has been met. As we have seen in previous lectures and labs, this is an important assumption for single-factor between-participants ANOVA, and the same is true for between-participants factorial ANOVA. Applied to the latter, this assumption states that the variances of the different conditions created through the combination of factors should not differ systematically from one another. For our 2 <span class="math inline">\(\times\)</span> 2 between-participants factorial design, this means that the variances for the four conditions created by the combination of our two factors should be roughly comparable.</p>
-<p>We can test whether the data satisfy the homogeneity of variance assumption using Levene’s test, as we have done in previous lab classes. As you are familiar with the code for running Levene’s test, you can write this out for yourself. However, when you invoke Levene’s test using <code>levene_test()</code> you will need to enter <code>(Likelihood ~ Fear * Efficacy)</code> as the arguments. The argument <code>Likelihood</code> is our dependent measure, and the argument <code>Fear * Efficacy</code> tells the function that we want to run the test on the four conditions created through the combination of our two factors (that’s what the <code>*</code> is for; note you can also substitute the <code>*</code> with <code>:</code> which has the same meaning and yields the same result).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE FOR RUNNING LEVENE'S </span><span class="al">TEST</span><span class="co"> ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If you have entered your code correctly, then it should return the following output:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 4
-    df1   df2 statistic     p
-  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
-1     3   196     0.231 0.875</code></pre>
-</div>
-</div>
-<p>The test result is nonsignificant (<em>p</em> = .875), which indicates that the variances of the four conditions do not differ appreciably from one another. Accordingly, based on Levene’s criterion, we can be satisfied that the homogeneity of variance assumption has been satisfied.</p>
-<p>The next check we need to perform is to ensure that our data satisfy the normality assumption. We can do this by running a Shapiro Wilk test on the data for each of our four conditions to determine if the distribution of scores in each differs significantly from a normal distribution. Remember the rule for using this test—if there is less than <span class="math inline">\(N\)</span> = 50 observations per condition, the Shapiro Wilk test is likely to yield an accurate test result, whereas if it is equal to or greater than this number, we are better off inspecting the QQ plots. Our sample size per condition is right on the threshold, so we will use both approaches to testing the normality assumption.</p>
-<p>You have executed this test many times before, so once more it’s over to you to generate the code. Just remember once again that when invoking the function <code>group_by</code> you need to supply the arguments <code>(Fear,Efficacy)</code> given that we have two factors.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE FOR RUNNING THE SHAPIRO WILK </span><span class="al">TEST</span><span class="co"> ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If you have executed your code correct, then you should see the following output:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 5
-  Fear           Efficacy            variable   statistic       p
-  &lt;fct&gt;          &lt;fct&gt;               &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;
-1 No Fear Appeal No Efficacy Message Likelihood     0.936 0.00971
-2 No Fear Appeal Efficacy Message    Likelihood     0.958 0.0752 
-3 Fear Appeal    No Efficacy Message Likelihood     0.956 0.0587 
-4 Fear Appeal    Efficacy Message    Likelihood     0.949 0.0313 </code></pre>
-</div>
-</div>
-<p>Two of the test results are nonsignificant, indicating that the distributions of scores in the No Fear Appeal/Efficacy Message condition and Fear Appeal/No Efficacy Message condition do not differ significantly from a normal distribution (<em>p</em> = .075 and <span class="math inline">\(p\)</span> = .059, respectively). However, the other two test results are significant, indicating that the distributions of scores in the No Fear Appeal/No Efficacy Message condition and Fear Appeal/Efficacy Message condition do differ significantly from a normal distribution (<em>p</em> = .010 and <span class="math inline">\(p\)</span> = .031, respectively).</p>
-<p>Let’s not panic just yet. Remember, we are right on the threshold of accuracy for the Shapiro Wilk test, so we should take a look at the QQ plots before taking action.</p>
-<p>I am going to assist with you with this next bit. We generate QQ plots (these have been described previously, most recently in the Week 5 lab session, so I won’t go into the details of what they plot and how to interpret them here again) using the <code>ggqqplot()</code> function. Previously, when you have used this function, you only had a single factor and you would have written something like this: <code>ggqqplot(covid19Data, "Likelihood", facet.by = "Fear")</code>, where <code>Fear</code> in this context is the one and only factor in the study. However, we have two factors in our study, so to get what we want we have to pass through our two factors to <code>facet.by</code> as a vector using <code>c("Fear", "Efficacy")</code>. The complete code is as follows:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify covid19Data as the data; "Likelihood" as the dependent measure; and facet.by the "Fear" and "Efficacy" factors to create separate plots for the four different conditions.   </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(covid19Data, <span class="st">"Likelihood"</span>, <span class="at">facet.by =</span> <span class="fu">c</span>(<span class="st">"Fear"</span>, <span class="st">"Efficacy"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="Week7_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>The QQ plots look very reasonable. The only mildly concerning plot is in the top left-hand corner, which plots the distribution of scores for the No Fear Appeal/No Efficacy Message Condition. Several of the data points at the top end of the scale depart from the diagonal criterion line. I know from experience inspecting these plots that this is not a radical departure, so I’m happy to proceed without taking further action in this instance.</p>
-<p>All in all, our data are looking in good shape, so we are ready to perform our ANOVA.</p>
-</section>
-<section id="running-the-anova" class="level3">
-<h3 class="anchored" data-anchor-id="running-the-anova">Running the ANOVA</h3>
-<p>To run our ANOVA, we are going to use the <code>aov()</code> function that Richard introduced you to (in your Week 2 lab session) that you used to run a single-factor between-participants ANOVA. We can also use this function to run a between-participants factorial ANOVA.</p>
-<p>Let’s suppose, for a moment, that we only had a single factor in our study, Fear. To run the ANOVA we could use: <code>covidModel = aov(data = covid19Data, Likelihood ~ Fear)</code>. Here we are asking R to run an ANOVA in which the data is <code>covid19Data</code> (the first argument), the dependent measure is <code>Likelihood</code> (the second argument), and the factor is <code>Fear</code> (the third argument), and we are storing the results in a variable called <code>covidModel</code> — the value to the left of the <code>=</code> sign. The <code>~</code> sign after <code>Likelihood</code> tells R that we have declared our dependent measure, and what follows after this symbol are the factors for the analysis.</p>
-<p>How do we extend this to a two-factor study? Intuitively, you might think we would write something like this: <code>covidModel = aov(data = covid19Data, Likelihood ~ Fear + Efficacy)</code>. Now, after the <code>~</code>, we have added both factors in our study <code>Fear + Efficacy</code> seperated by a <code>+</code> sign. This is part of what we need, but not all that we need. What this code would do is generate the two main effects for Fear and Efficacy, but it would <em>not</em> test the interaction. To test the interaction, we need to modify the code following <code>~</code> as follows: <code>Fear + Efficacy + Fear * Efficacy</code>. The new bit <code>+ Fear * Efficacy</code> tells R that we want to test the interaction as well (that’s what the <code>*</code> between the two factors indicates; we can also use <code>:</code> in place of <code>*</code> which has the same meaning).</p>
-<p>The complete piece of code we need to run our ANOVA is as follows:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify our ANOVA model (see the main text for details)</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>covidModel <span class="ot">=</span> <span class="fu">aov</span>(<span class="at">data =</span> covid19Data, Likelihood <span class="sc">~</span> Fear <span class="sc">+</span> Efficacy <span class="sc">+</span> Fear <span class="sc">*</span> Efficacy)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This bit prompts R to produce our summary ANOVA table</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(covidModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-Fear            1   55.1   55.12   15.68 0.000105 ***
-Efficacy        1   41.4   41.40   11.78 0.000732 ***
-Fear:Efficacy   1   99.4   99.40   28.27 2.86e-07 ***
-Residuals     196  689.2    3.52                     
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-<p>Let’s take a look at the resulting ANOVA table. The first column corresponds to the source of the effect:</p>
-<ul>
-<li><p><code>Fear</code> corresponds to the main effect of Fear.</p></li>
-<li><p><code>Efficacy</code> corresponds to the main effect of Efficacy.</p></li>
-<li><p><code>Fear:Efficacy</code> corresponds to the interaction between the two factors.</p></li>
-<li><p><code>Residuals</code> corresponds to the error term used to test the above effects.</p></li>
-</ul>
-<p>The second column gives us the degrees of freedom for each effect indicated by the row (DF), the third column gives us the Sum of Squares (Sum Sq), the fourth column gives us the Mean Square (Mean Sq), the fifth column gives us the <em>F</em> value (F value), and the final column gives us the <em>p</em> value associated with each effect (PR<span class="math inline">\(&gt;\)</span>F). Let’s run some sanity checks, starting with the Mean Square. These values should be equal to the Sum of Squares divided by the degrees of freedom for the effect indicated by the row, which they are (check for yourself). The <em>F</em> values should be equal to the Mean Square divided by the error term (3.52) for the effect indicated by the row, which they are once again (check for yourself).</p>
-<p>We can see from the final column that both the main effects and the interaction are significant (all <em>p</em> &lt; .001). To help quantify the size of these effects, let’s get some effect size estimates using the <code>effectsize()</code> function from the effectsize package that we have used previously:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(covidModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Effect Size for ANOVA (Type I)
+<!-- # Lecture -->
+<!-- Watch Part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017092) -->
+<!-- Watch Part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017093) -->
+<!-- Watch Part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017094) -->
+<!-- Watch Part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017245) -->
+<!-- Watch Part 5 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2017257) -->
+<!-- Download the lecture slides [here](data/Wk7/Two-Factor Between-Participants Designs HANDOUT.pdf), and [here](data/Wk7/Two-Factor Between-Participants Designs.pdf) for a larger version. -->
+<!-- # Lab -->
+<!-- ```{r setup, include=FALSE} -->
+<!-- knitr::opts_chunk$set(echo = TRUE) -->
+<!-- ``` -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- > *We must make the best of those things that are in our power, and take the rest as nature gives it.* ---Epictetus, *Discourses*, 1.1 -->
+<!-- ![Epictetus](images/Epictetus.png){width=50%} -->
+<!-- ## Learning Objectives -->
+<!-- In this week's lecture, we demonstrated the steps involved in performing a two-factor between-participants ANOVA by hand using the simplest possible instance of such a design, namely a 2 $\times$ 2 factorial design. We saw that the analysis entails between 1--2 stages. In the first stage, we perform the ANOVA to establish whether either of the two main effects or interaction is significant. If the interaction is not significant, then the analysis stops here. However, if there is a significant interaction, then we must proceed to a second stage and perform a simple main effects analysis to establish the nature of the significant interaction. In today's lab session, we will demonstrate how to perform a 2 $\times$ 2 between-participants factorial ANOVA in R, including the calculation of the simple main effects. We will also demonstrate how to write up the results of a factorial ANOVA.  -->
+<!-- ## Getting Started -->
+<!-- {{< include /Includes/_login.qmd >}} -->
+<!-- Once you are logged into the server, create a folder for today's session. Navigate to the bottom right panel and under the `Files` option select the `New Folder` option. Name the new folder `psyc214_lab_7`. **Please ensure that you spell this correctly** otherwise when you set the directory using the command given below it will return an error.    -->
+<!-- Se we can save this session on the server, click `File` on the top ribbon and select `New project`. Next, select existing directory and name the working directory `~/psyc214_lab_7` before selecting `create project`. -->
+<!-- Finally, open a script for executing today's coding exercises. Navigate to the top left pane of RStudio, select `File` -> `New File` -> `R Script`. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.  -->
+<!-- ![](images/RScript.png){width=75%} -->
+<!-- Let's set our working directory: -->
+<!-- ```{r eval = FALSE} -->
+<!-- setwd("~/psyc214_lab_7") -->
+<!-- ``` -->
+<!-- Now that you have created a folder for today's session, it’s time to add the Week 7 data file. Download the data [`COVID19Data.csv`](data/wk7/COVID19Data.csv). Next, in the RStudio Server open your new pscy214_lab_7 folder. When in the new folder, select the `Upload` tab. This will present a box that will ask where the data is that you want to upload. Click on `Browse`, find the `COVID19Data.csv` file on your desktop and click `OK`.  -->
+<!-- Before moving on, let's load the relevant libraries that we will be using in today's session. -->
+<!-- ```{r, message = FALSE} -->
+<!-- library("tidyverse")  # For data storage and manipulation -->
+<!-- library("tidyr")      # For tidy data -->
+<!-- library("rstatix")    # For descriptives statistics, outlier detection etc. -->
+<!-- library("effectsize") # For generating effect sizes for the ANOVA and simple main effects -->
+<!-- library("ggpubr")     # For generating QQ plots -->
+<!-- library("phia")       # For calculating simple main effects -->
+<!-- ``` -->
+<!-- # Today's Lab Activities -->
+<!-- ## Analysing the Hypothetical COVID-19 Vaccination Study Data -->
 
-Parameter     | Eta2 (partial) |       95% CI
----------------------------------------------
-Fear          |           0.07 | [0.03, 1.00]
-Efficacy      |           0.06 | [0.02, 1.00]
-Fear:Efficacy |           0.13 | [0.06, 1.00]
+<!-- Today, we are going to analyse the hypothetical COVID-19 vaccination study data that we plotted in last week's lab session. As a reminder, the table below summarises the four different conditions of our 2 $\times$ 2 between-participant study. -->
+<!-- ![](images/DataMatrix.png){width=75%} -->
+<!-- The data set consists of the following four columns: -->
+<!-- * **Par:** represents the participant number, which ranges from 1--200, with $N$ = 50 participants in each of the four conditions resulting from the combination of our two factors, described next.  -->
+<!-- * **Fear:** represents whether the participant indicated by the row received (Fear Appeal) or did not receive (No Fear Appeal) the fear appeal. -->
+<!-- * **Efficacy:** represents whether the participant indicated by the row received (Efficacy Message) or did not receive (No Efficacy Message) the self-efficacy message. -->
+<!-- * **Likelihood:** represents the vaccination likelihood score of the participant indicated by the row. -->
+<!-- The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as `covid19Data`. Once you have done this, you need to re-level the factors `Fear` and `Efficacy` so that "No Fear Appeal" is the baseline level for the former factor, and "No Efficacy Message" is the baseline level for the latter factor. We showed you how to do this in the Week 6 lab session.  -->
+<!-- ```{r} -->
+<!-- # *** ENTER YOUR OWN CODE HERE IMPORTING THE DATA AND RE-LEVELLING THE FACTORS *** -->
+<!-- ``` -->
+<!-- Once you have done the above, type `(covid19Data)` into the console to view the first 10 rows of the data. We want to check that the columns for `Fear` and `Efficacy` have the labels `<fct>` beneath them. This means that R has stored these variables as factors, which is necessary for us to perform the ANOVA. By default, R will import these variables as characters, in which case the variables would have the labels `<chr>` beneath them. If that is the case for your data, then you will need to modify this before proceeding further.    -->
+<!-- ```{r, echo = FALSE, message = FALSE} -->
+<!-- covid19Data = read_csv("data/Wk7/COVID19Data.csv") -->
+<!-- # The following ensures that "No Fear Appeal" is Level 1 of the Fear factor and "No Efficacy Message" is Level 1 of the Efficacy factor -->
+<!-- covid19Data$Fear = factor(covid19Data$Fear, levels = c("No Fear Appeal","Fear Appeal")) -->
+<!-- covid19Data$Efficacy = factor(covid19Data$Efficacy, levels = c("No Efficacy Message","Efficacy Message")) -->
+<!-- (covid19Data) -->
+<!-- ``` -->
+<!-- ### Descriptives statistics and assumption checks -->
+<!-- The next step is to generate some descriptive statistics. We want the means, standard deviations, and confidence intervals for our four conditions. You have done this before, so you can generate these descriptive statistics for yourselves. When you invoke the `group_by()` function, remember to include the variables for both factors, `(Fear, Efficacy)` with a comma seperating them, as I have done here. Make sure you name your descriptive statistics `descriptives`.  -->
+<!-- ```{r} -->
+<!-- # *** ENTER YOUR OWN CODE FOR GENERATING THE DESCRIPTIVE STATISTICS *** -->
+<!-- ``` -->
+<!-- Once you have written and executed the code in RStudio, type `descriptives` in the console to view the descriptive statistics, it should yield the following output: -->
+<!-- ```{r, echo = FALSE, message = FALSE} -->
+<!-- # Get descriptive statistics -->
+<!-- descriptives = covid19Data %>% -->
+<!--   # Organise the output by the "Fear" and "Efficacy" factors -->
+<!--   group_by(Fear, Efficacy) %>% -->
+<!--   # Request means, standard deviations, and confidence intervals -->
+<!--   get_summary_stats(Likelihood, show = c("mean", "sd", "ci")) -->
+<!--   # Print the results -->
+<!--   print.data.frame(descriptives) -->
+<!-- ``` -->
+<!-- We won't linger on these descriptive statistics because we inspected them in last week's lab session.  -->
+<!-- The next steps are for us to perform our usual checks to make sure that the data are fit for analysis using ANOVA.  -->
+<!-- The first check we are going to perform is to establish whether there are any outliers or extreme values in the data set. Again, you have done this on numerous occasions before, so it is over to you to generate your own code to identify if there are any outliers or extreme values. As per when you generated the descriptive statistic, remember we have two factors, so when you invoke `group_by()` you will need to include the arguments `(Fear, Efficacy)`. -->
+<!-- ```{r} -->
+<!-- # *** ENTER YOUR OWN CODE FOR CHECKING FOR OUTLIERS AND EXTREME VALUES *** -->
+<!-- ``` -->
+<!-- If you have entered your code correctly, then it should generate the following: -->
+<!-- ```{r, echo = FALSE, message = FALSE} -->
+<!-- # Check for outliers and extreme values -->
+<!-- covid19Data %>% -->
+<!--   # Organise the output by the "Fear" and "Efficacy" factors -->
+<!--   group_by(Fear,Efficacy) %>% -->
+<!--   # Identify outliers and extreme values -->
+<!--   identify_outliers("Likelihood") -->
+<!-- ``` -->
+<!-- There are only two outliers in the data, participant 28 who received the combination of No Fear Appeal/No Efficacy Message and participant 126 who received the combination of Fear Appeal/No Efficacy Message. Fortunately, there are no extreme values in the data, so we are safe to proceed without having to remove or transform any scores.  -->
+<!-- The next check that we need to undertake is to ensure that the homogeneity of variance assumption has been met. As we have seen in previous lectures and labs, this is an important assumption for single-factor between-participants ANOVA, and the same is true for between-participants factorial ANOVA. Applied to the latter, this assumption states that the variances of the different conditions created through the combination of factors should not differ systematically from one another. For our 2 $\times$ 2 between-participants factorial design, this means that the variances for the four conditions created by the combination of our two factors should be roughly comparable. -->
+<!-- We can test whether the data satisfy the homogeneity of variance assumption using Levene's test, as we have done in previous lab classes. As you are familiar with the code for running Levene's test, you can write this out for yourself. However, when you invoke Levene's test using `levene_test()` you will need to enter `(Likelihood ~ Fear * Efficacy)` as the arguments. The argument `Likelihood` is our dependent measure, and the argument `Fear * Efficacy` tells the function that we want to run the test on the four conditions created through the combination of our two factors (that's what the `*` is for; note you can also substitute the `*` with `:` which has the same meaning and yields the same result). -->
+<!-- ```{r} -->
+<!-- # *** ENTER YOUR OWN CODE FOR RUNNING LEVENE'S TEST *** -->
+<!-- ``` -->
+<!-- If you have entered your code correctly, then it should return the following output: -->
+<!-- ```{r, echo = FALSE, message = FALSE} -->
+<!-- # Levene's test for homogeneity of variance -->
+<!-- covid19Data %>%  -->
+<!--   levene_test(Likelihood ~ Fear * Efficacy) -->
+<!-- ``` -->
+<!-- The test result is nonsignificant (*p* = .875), which indicates that the variances of the four conditions do not differ appreciably from one another. Accordingly, based on Levene's criterion, we can be satisfied that the homogeneity of variance assumption has been satisfied. -->
+<!-- The next check we need to perform is to ensure that our data satisfy the normality assumption. We can do this by running a Shapiro Wilk test on the data for each of our four conditions to determine if the distribution of scores in each differs significantly from a normal distribution. Remember the rule for using this test---if there is less than $N$ = 50 observations per condition, the Shapiro Wilk test is likely to yield an accurate test result, whereas if it is equal to or greater than this number, we are better off inspecting the QQ plots. Our sample size per condition is right on the threshold, so we will use both approaches to testing the normality assumption.  -->
+<!-- You have executed this test many times before, so once more it's over to you to generate the code. Just remember once again that when invoking the function `group_by` you need to supply the arguments `(Fear,Efficacy)` given that we have two factors. -->
+<!-- ```{r} -->
+<!-- # *** ENTER YOUR OWN CODE FOR RUNNING THE SHAPIRO WILK TEST *** -->
+<!-- ``` -->
+<!-- If you have executed your code correct, then you should see the following output: -->
+<!-- ```{r, echo = FALSE, message = FALSE} -->
+<!-- # Shapiro Wilk test for normality -->
+<!-- covid19Data %>% -->
+<!--   # Organise the output by the "Fear" and "Efficacy" factors -->
+<!--   group_by(Fear,Efficacy) %>% -->
+<!--   # Run Shapiro Wilk test -->
+<!--   shapiro_test(Likelihood) -->
+<!-- ``` -->
+<!-- Two of the test results are nonsignificant, indicating that the distributions of scores in the No Fear Appeal/Efficacy Message condition and Fear Appeal/No Efficacy Message condition do not differ significantly from a normal distribution (*p* = .075 and $p$ = .059, respectively). However, the other two test results are significant, indicating that the distributions of scores in the No Fear Appeal/No Efficacy Message condition and Fear Appeal/Efficacy Message condition do differ significantly from a normal distribution (*p* = .010 and $p$ = .031, respectively). -->
+<!-- Let's not panic just yet. Remember, we are right on the threshold of accuracy for the Shapiro Wilk test, so we should take a look at the QQ plots before taking action.  -->
+<!-- I am going to assist with you with this next bit. We generate QQ plots (these have been described previously, most recently in the Week 5 lab session, so I won't go into the details of what they plot and how to interpret them here again) using the `ggqqplot()` function. Previously, when you have used this function, you only had a single factor and you would have written something like this: `ggqqplot(covid19Data, "Likelihood", facet.by = "Fear")`, where `Fear` in this context is the one and only factor in the study. However, we have two factors in our study, so to get what we want we have to pass through our two factors to `facet.by` as a vector using `c("Fear", "Efficacy")`. The complete code is as follows: -->
+<!-- ```{r, message = FALSE} -->
+<!-- # Specify covid19Data as the data; "Likelihood" as the dependent measure; and facet.by the "Fear" and "Efficacy" factors to create separate plots for the four different conditions.    -->
+<!-- ggqqplot(covid19Data, "Likelihood", facet.by = c("Fear", "Efficacy")) -->
+<!-- ``` -->
+<!-- The QQ plots look very reasonable. The only mildly concerning plot is in the top left-hand corner, which plots the distribution of scores for the No Fear Appeal/No Efficacy Message Condition. Several of the data points at the top end of the scale depart from the diagonal criterion line. I know from experience inspecting these plots that this is not a radical departure, so I'm happy to proceed without taking further action in this instance.  -->
+<!-- All in all, our data are looking in good shape, so we are ready to perform our ANOVA.  -->
+<!-- ### Running the ANOVA -->
+<!-- To run our ANOVA, we are going to use the `aov()` function that Richard introduced you to (in your Week 2 lab session) that you used to run a single-factor between-participants ANOVA. We can also use this function to run a between-participants factorial ANOVA.  -->
+<!-- Let's suppose, for a moment, that we only had a single factor in our study, Fear. To run the ANOVA we could use: `covidModel = aov(data = covid19Data, Likelihood ~ Fear)`. Here we are asking R to run an ANOVA in which the data is `covid19Data` (the first argument), the dependent measure is `Likelihood` (the second argument), and the factor is `Fear` (the third argument), and we are storing the results in a variable called `covidModel` --- the value to the left of the `=` sign. The `~` sign after `Likelihood` tells R that we have declared our dependent measure, and what follows after this symbol are the factors for the analysis.  -->
+<!-- How do we extend this to a two-factor study? Intuitively, you might think we would write something like this: `covidModel = aov(data = covid19Data, Likelihood ~ Fear + Efficacy)`. Now, after the `~`, we have added both factors in our study `Fear + Efficacy` seperated by a `+` sign. This is part of what we need, but not all that we need. What this code would do is generate the two main effects for Fear and Efficacy, but it would *not* test the interaction. To test the interaction, we need to modify the code following `~` as follows: `Fear + Efficacy + Fear * Efficacy`. The new bit `+ Fear * Efficacy` tells R that we want to test the interaction as well (that's what the `*` between the two factors indicates; we can also use `:` in place of `*` which has the same meaning).  -->
+<!-- The complete piece of code we need to run our ANOVA is as follows: -->
+<!-- ```{r} -->
+<!-- # Specify our ANOVA model (see the main text for details) -->
+<!-- covidModel = aov(data = covid19Data, Likelihood ~ Fear + Efficacy + Fear * Efficacy) -->
 
-- One-sided CIs: upper bound fixed at [1.00].</code></pre>
-</div>
-</div>
-<p>The <span class="math inline">\(\eta^2\)</span> effect size estimates for the main effect of fear, efficacy, and the interaction are, .07, .06, and .13, respectively, corresponding to medium-, medium-, and large-sized effects (reminder: 0.01 = small effect; 0.06 = medium effect; 0.14 = large effect).</p>
-<p>Because the two main effects only comprise two levels, these results are easy to interpret as they involve a straightfoward pairwise comparison. Looking at the descriptive statistics we requested earlier, we can see that vaccination likelihood scores are higher in the presence of a fear appeal than in the absence of a fear appeal — this is the significant main effect of fear. We can also see that vaccination likelihood scores are higher in the presence of a self-efficacy message than in the absence of a self-efficacy message — this is the significant main effect of efficacy.</p>
-<p>The interaction is less straightforward to interpret. To identify the reason for the interaction between factors, we need to proceed to a second stage of analysis in which we test the simple main effects of each factor.</p>
-</section>
-<section id="generating-the-simple-main-effects" class="level3">
-<h3 class="anchored" data-anchor-id="generating-the-simple-main-effects">Generating the simple main effects</h3>
-<p>Remember that the simple main effects break down the main effects into their component parts. That is, we examine the effect of each factor at each level of the other factor. In a 2 <span class="math inline">\(\times\)</span> 2 factorial design, each factor has two simple main effects.</p>
-<p>We will start by looking at the two simple main effects of fear:</p>
-<ul>
-<li><p>We want to know whether there is a significant effect of fear (no fear appeal <span class="math inline">\(vs.\)</span> fear appeal) at the <em>no efficacy message</em> level of the efficacy factor.</p></li>
-<li><p>We want to know whether there is a significant effect of fear (no fear appeal <span class="math inline">\(vs.\)</span> fear appeal) at the <em>efficacy message</em> level of the efficacy factor.</p></li>
-</ul>
-<p>We can test these simple main effects using the <code>testInteractions()</code> function in the phia package (phia stands for Post-Hoc Interaciton Analysis) using the following code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the simple main effects of "Fear" at each level of the "Efficacy"  factor</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>smeFear <span class="ot">=</span> <span class="fu">testInteractions</span>(covidModel, <span class="at">fixed =</span> <span class="st">"Efficacy"</span>, <span class="at">across =</span> <span class="st">"Fear"</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>(smeFear)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>F Test: 
-P-value adjustment method: holm
-                    Value  Df Sum of Sq       F    Pr(&gt;F)    
-No Efficacy Message  0.36   1      3.24  0.9214    0.3383    
-   Efficacy Message -2.46   1    151.29 43.0238 9.398e-10 ***
-Residuals                 196    689.22                      
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-<p>Let’s clarify what we have just requested in the above code. The first argument we supplied to the function was our ANOVA model, <code>covidModel</code>. Next we specified which simple main effects we wanted to test via two further arguments to the function. Specifically, <code>fixed = "Efficacy</code> tells the function that we want to fix (or hold constant) the level of the factor efficacy, and <code>across = "Fear"</code> tells the function that for each of these levels, we want to compare the difference between the no fear appeal and fear appeal levels of the fear factor. Notice that we have made a specific assignment to a variable called <code>smeFear</code> — the value before the <code>=</code> sign. The reason for that will become clear shortly.</p>
-<p>Let’s look at the output that has been produced. It’s basically another ANOVA table with our two simple main effects (No Efficacy Message and Efficacy Message, respectively) and also the error term (Residuals) from the initial ANOVA (remember from the Week 7 lecture that we use the same error term from the initial ANOVA to test the simple main effects — notice that Sum of Squares for Residuals is 689.22, which is the same as in the ANOVA table for our initial analysis).</p>
-<p>The first row, shows the simple main effect of fear at the <em>no efficacy message</em> level of the efficacy factor. This simple main effect is nonsignificant (<em>p</em> = .338). Thus, in the absence of a self-efficacy message, the likelihood of vaccinating is unaffected by whether or not a person is a given a fear appeal.</p>
-<p>The secod row, shows the simple main effect of fear at the <em>efficacy message</em> level of the efficacy factor. This simple main effect is significant (<em>p</em> &lt; .001). Looking at the descriptive statistics we generated earlier, we can see that this is because in the presence of a self-efficacy message vaccination likelihood scores are higher in the presence than in the absence of a fear appeal.</p>
-<p>We can also request effect sizes for these simple main effects using the <code>effectsize()</code> function. This is why we saved our simple main effects to the variable <code>smeFear</code>. This allows us to get the effect sizes using the following bit of code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(smeFear)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Effect Size for ANOVA (Type I)
+<!-- # This bit prompts R to produce our summary ANOVA table -->
+<!-- summary(covidModel) -->
+<!-- ``` -->
 
-Parameter           | Eta2 (partial) |       95% CI
----------------------------------------------------
-No Efficacy Message |       4.68e-03 | [0.00, 1.00]
-Efficacy Message    |           0.18 | [0.11, 1.00]
+<!-- Let's take a look at the resulting ANOVA table. The first column corresponds to the source of the effect:  -->
+<!-- * `Fear` corresponds to the main effect of Fear. -->
+<!-- * `Efficacy` corresponds to the main effect of Efficacy. -->
+<!-- * `Fear:Efficacy` corresponds to the interaction between the two factors. -->
+<!-- * `Residuals` corresponds to the error term used to test the above effects. -->
+<!-- The second column gives us the degrees of freedom for each effect indicated by the row (DF), the third column gives us the Sum of Squares (Sum Sq), the fourth column gives us the Mean Square (Mean Sq), the fifth column gives us the *F* value (F value), and the final column gives us the *p* value associated with each effect (PR$>$F). Let's run some sanity checks, starting with the Mean Square. These values should be equal to the Sum of Squares divided by the degrees of freedom for the effect indicated by the row, which they are (check for yourself). The *F* values should be equal to the Mean Square divided by the error term (3.52) for the effect indicated by the row, which they are once again (check for yourself).  -->
+<!-- We can see from the final column that both the main effects and the interaction are significant (all *p* < .001). To help quantify the size of these effects, let's get some effect size estimates using the `effectsize()` function from the effectsize package that we have used previously: -->
+<!-- ```{r} -->
+<!-- effectsize(covidModel) -->
+<!-- ``` -->
+<!-- The $\eta^2$ effect size estimates for the main effect of fear, efficacy, and the interaction are, .07, .06, and .13, respectively, corresponding to medium-, medium-, and large-sized effects (reminder: 0.01 = small effect; 0.06 = medium effect; 0.14 = large effect). -->
+<!-- Because the two main effects only comprise two levels, these results are easy to interpret as they involve a straightfoward pairwise comparison. Looking at the descriptive statistics we requested earlier, we can see that vaccination likelihood scores are higher in the presence of a fear appeal than in the absence of a fear appeal --- this is the significant main effect of fear. We can also see that vaccination likelihood scores are higher in the presence of a self-efficacy message than in the absence of a self-efficacy message --- this is the significant main effect of efficacy.  -->
+<!-- The interaction is less straightforward to interpret. To identify the reason for the interaction between factors, we need to proceed to a second stage of analysis in which we test the simple main effects of each factor.  -->
+<!-- ### Generating the simple main effects -->
+<!-- Remember that the simple main effects break down the main effects into their component parts. That is, we examine the effect of each factor at each level of the other factor. In a 2 $\times$ 2 factorial design, each factor has two simple main effects.  -->
+<!-- We will start by looking at the two simple main effects of fear: -->
+<!-- * We want to know whether there is a significant effect of fear (no fear appeal $vs.$ fear appeal) at the *no efficacy message* level of the efficacy factor. -->
+<!-- * We want to know whether there is a significant effect of fear (no fear appeal $vs.$ fear appeal) at the *efficacy message* level of the efficacy factor. -->
+<!-- We can test these simple main effects using the `testInteractions()` function in the phia package (phia stands for Post-Hoc Interaciton Analysis) using the following code: -->
+<!-- ```{r} -->
+<!-- # Get the simple main effects of "Fear" at each level of the "Efficacy"  factor -->
+<!-- smeFear = testInteractions(covidModel, fixed = "Efficacy", across = "Fear") -->
+<!-- # Print the results -->
+<!-- (smeFear) -->
+<!-- ``` -->
+<!-- Let's clarify what we have just requested in the above code. The first argument we supplied to the function was our ANOVA model, `covidModel`. Next we specified which simple main effects we wanted to test via two further arguments to the function. Specifically, `fixed = "Efficacy` tells the function that we want to fix (or hold constant) the level of the factor efficacy, and `across = "Fear"` tells the function that for each of these levels, we want to compare the difference between the no fear appeal and fear appeal levels of the fear factor. Notice that we have made a specific assignment to a variable called `smeFear` --- the value before the `=` sign. The reason for that will become clear shortly.  -->
 
-- One-sided CIs: upper bound fixed at [1.00].</code></pre>
-</div>
-</div>
-<p>The effect size for the first simple main effect, which was nonsignificant, is nonsurprisingly very small (<span class="math inline">\(\eta^2\)</span> = .00), whereas the effect size for the second simple main effect, which was significant, is large (<span class="math inline">\(\eta^2\)</span> = .18).</p>
-<p>Next, we want to look at the two simple main effects of efficacy:</p>
-<ul>
-<li><p>We want to know whether there is a significant effect of efficacy (no efficacy message <span class="math inline">\(vs.\)</span> efficacy message) at the <em>no fear appeal</em> level of the fear factor.</p></li>
-<li><p>We want to know whether there is a significant effect of efficacy (no efficacy message <span class="math inline">\(vs.\)</span> efficacy message) at the <em>fear appeal</em> level of the fear factor.</p></li>
-</ul>
-<p>We can get these simple main effects using the following code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the simple main effects of "Efficacy" at each level of the "Fear" factor</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>smeEfficacy <span class="ot">=</span> <span class="fu">testInteractions</span>(covidModel, <span class="at">fixed =</span> <span class="st">"Fear"</span>, <span class="at">across =</span> <span class="st">"Efficacy"</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>(smeEfficacy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>F Test: 
-P-value adjustment method: holm
-               Value  Df Sum of Sq       F    Pr(&gt;F)    
-No Fear Appeal  0.50   1      6.25  1.7774     0.184    
-   Fear Appeal -2.32   1    134.56 38.2661 7.058e-09 ***
-Residuals            196    689.22                      
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-<p>This time, to generate the simple main effects of interest we set the second argument to <code>fixed = "Fear</code> which tells the function that we want to fix (or hold constant) the level of the factor fear, and we set the value of the third argument to <code>across = "Fear"</code> which tells the function that for each of those levels, we want to compare the difference between the no efficacy message and efficacy message levels of the efficacy factor. Notice that we have once again made a specific assignment to a variable called <code>smeEfficacy</code> — the value before the <code>=</code> sign, so we can get effect sizes for these simple main effects later.</p>
-<p>Let’s once again look at the output that has been produced.</p>
-<p>The first row, shows the simple main effect of efficacy at the <em>no fear appeal</em> level of the fear factor. This simple main effect is nonsignificant (<em>p</em> = .184). Thus, in the absence of a fear appeal, the likelihood of vaccinating is unaffected by whether or not a person is given a self-efficacy message.</p>
-<p>The secod row, shows the simple main effect of efficacy at the <em>fear appeal</em> level of the fear factor. This simple main effect is significant (<em>p</em> &lt; .001). Looking at the descriptive statistics we generated earlier, we can see that this is because in the presence of a fear appeal vaccination likelihood scores are higher in the presence than in the absence of a self-efficacy message.</p>
-<p>We can get the effect sizes of these simple main effects as follows:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(smeEfficacy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Effect Size for ANOVA (Type I)
-
-Parameter      | Eta2 (partial) |       95% CI
-----------------------------------------------
-No Fear Appeal |       8.99e-03 | [0.00, 1.00]
-Fear Appeal    |           0.16 | [0.09, 1.00]
-
-- One-sided CIs: upper bound fixed at [1.00].</code></pre>
-</div>
-</div>
-<p>The effect size for the first simple main effect, which was nonsignificant, is nonsurprisingly very small (<span class="math inline">\(\eta^2\)</span> = .01), whereas the effect size for the second simple main effect, which was significant, is large (<span class="math inline">\(\eta^2\)</span> = .16).</p>
-</section>
-<section id="how-to-write-up-the-results" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-write-up-the-results">How to write up the results</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/FearAppealLinePlot.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">Figure 1. Vaccination likelihood scores as a function of the fear and efficacy manipulations. Error bars represent 95% confidence intervals.</figcaption>
-</figure>
-</div>
-<p>Figure 1 shows vaccination likelihood scores as a function of the fear and efficacy manipulations. These data were subjected to a 2 (fear: no fear appeal <span class="math inline">\(vs.\)</span> fear appeal) <span class="math inline">\(\times\)</span> 2 (efficacy: no efficacy message <span class="math inline">\(vs.\)</span> efficacy message) between-participants Analysis of Variance. There was a significant main effect of fear, <em>F</em>(1, 196) = 15.68, <em>p</em> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .07, with vaccination likelihood scores being higher in the presence than in the absence of a fear appeal, a significant main effect of efficacy, <em>F</em>(1, 196) = 11.78, <em>p</em> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .06, with vaccination likelihood scores being higher in the presence than in the absence of a self-efficacy message, and a significant interaction between the two factors, <em>F</em>(1, 196) = 28.27, <em>p</em> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .13.</p>
-<p>To scrutinise the interaction, a simple main effects analysis was undertaken. In the absence of an efficacy message, there was no significant effect of fear, <em>F</em>(1, 196) = .92, <em>p</em> = .338, <span class="math inline">\(\eta^2\)</span> = .00, whereas in the presence of an efficacy message there was a significant effect of fear, <em>F</em>(1, 196) = 43.02, <em>p</em> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .18, with vaccination likelihood scores being higher in the presence than in the absence of a fear appeal. Mirroring these results, in the absence of a fear appeal, there was no significant effect of efficacy, <em>F</em>(1, 196) = 1.78, <em>p</em> = .184, <span class="math inline">\(\eta^2\)</span> = .01, whereas in the presence of a fear appeal there was a significant effect of efficacy, <em>F</em>(1, 196) = 38.27, <em>p</em> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .16, with vaccination likelihood scores being higher in the presence than in the absence of an efficacy message.</p>
-<p>Hence, people receiving a fear appeal had a higher likelihood of vaccinating against COVID-19 than those that did not receive a fear appeal, but only when the fear appeal was combined with a self-efficacy enhancing message.</p>
-</section>
-<section id="additional-tasks" class="level3">
-<h3 class="anchored" data-anchor-id="additional-tasks">Additional tasks</h3>
-<p>The final task is for you to generate the line graph of the data shown in Figure 1 above. This was generated using the code we supplied in last week’s lab session. However, we are now using confidence intervals for the error bars, so you will need to modify this aspect of the code.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># *** ENTER YOUR OWN CODE FOR GENERTING THE LINE GRAPH IN FIGURE 1 ***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-</div>
-</section>
-<section id="final-remarks" class="level3">
-<h3 class="anchored" data-anchor-id="final-remarks">Final remarks</h3>
-<p>In this lab session, we have analysed the simplest instance of a two-factor between-participants design—namely a 2 <span class="math inline">\(\times\)</span> 2 design. But what happens if one or both of the factors have more than two levels? In this case, the analysis is a bit more involved. If the main effect of a factor with three or more levels is significant, then we will need to perform follow-up tests (planned comparisons or post-hoc tests), just like we did for a one-factor between-participants ANOVA to interpret the significant main effect. Another implication is that, if the interaction is significant, the simple main effects for any factor with three or more levels will require follow-up tests. Suppose we have a 2 (factor A: Level A<span class="math inline">\(_{1}\)</span> vs.&nbsp;Level A<span class="math inline">\(_{2}\)</span>) <span class="math inline">\(\times\)</span> 3 (factor B: Level B<span class="math inline">\(_{1}\)</span> vs.&nbsp;Level B<span class="math inline">\(_{2}\)</span> vs.&nbsp;Level B<span class="math inline">\(_{3}\)</span>) between participants factorial design. The three simple main effects of factor A will involve only pairwise comparisons (namely A<span class="math inline">\(_{1}\)</span> <em>vs.</em> A<span class="math inline">\(_{2}\)</span>, at levels B<span class="math inline">\(_{1}\)</span>, B<span class="math inline">\(_{2}\)</span>, and B<span class="math inline">\(_{3}\)</span>). However, the two simple main effects of factor B will encompass comparisons between three levels (namely B<span class="math inline">\(_{1}\)</span> <em>vs.</em> B<span class="math inline">\(_{2}\)</span> <em>vs</em> B<span class="math inline">\(_{3}\)</span> at levels A<span class="math inline">\(_{1}\)</span> and A<span class="math inline">\(_{2}\)</span>). These latter simple main effects are like running one-factor ANOVA’s on factors with three levels—if the test result is significant, it only tells us that the means differ, but we need to perform follow-up tests to identify the location of those differences. We will consider this issue in more detail in the next lecture and lab class.</p>
-<p>For now, well done! We’ll see you again next week.</p>
-<p><strong>FYI: at the end of the week I will upload a version of these lab materials to the lab folder that contains the full working code for the analyses.</strong></p>
-<p><br> <br></p>
+<!-- Let's look at the output that has been produced. It's basically another ANOVA table with our two simple main effects (No Efficacy Message and Efficacy Message, respectively) and also the error term (Residuals) from the initial ANOVA (remember from the Week 7 lecture that we use the same error term from the initial ANOVA to test the simple main effects --- notice that Sum of Squares for Residuals is 689.22, which is the same as in the ANOVA table for our initial analysis).  -->
+<!-- The first row, shows the simple main effect of fear at the *no efficacy message* level of the efficacy factor. This simple main effect is nonsignificant (*p* = .338). Thus, in the absence of a self-efficacy message, the likelihood of vaccinating is unaffected by whether or not a person is a given a fear appeal. -->
+<!-- The secod row, shows the simple main effect of fear at the *efficacy message* level of the efficacy factor. This simple main effect is significant (*p* < .001). Looking at the descriptive statistics we generated earlier, we can see that this is because in the presence of a self-efficacy message vaccination likelihood scores are higher in the presence than in the absence of a fear appeal. -->
+<!-- We can also request effect sizes for these simple main effects using the `effectsize()` function. This is why we saved our simple main effects to the variable `smeFear`. This allows us to get the effect sizes using the following bit of code: -->
+<!-- ```{r} -->
+<!-- effectsize(smeFear) -->
+<!-- ``` -->
+<!-- The effect size for the first simple main effect, which was nonsignificant, is nonsurprisingly very small ($\eta^2$ = .00), whereas the effect size for the second simple main effect, which was significant, is large ($\eta^2$ = .18).  -->
+<!-- Next, we want to look at the two simple main effects of efficacy: -->
+<!-- * We want to know whether there is a significant effect of efficacy (no efficacy message $vs.$ efficacy message) at the *no fear appeal* level of the fear factor. -->
+<!-- * We want to know whether there is a significant effect of efficacy (no efficacy message $vs.$ efficacy message) at the *fear appeal* level of the fear factor. -->
+<!-- We can get these simple main effects using the following code: -->
+<!-- ```{r} -->
+<!-- # Get the simple main effects of "Efficacy" at each level of the "Fear" factor -->
+<!-- smeEfficacy = testInteractions(covidModel, fixed = "Fear", across = "Efficacy") -->
+<!-- (smeEfficacy) -->
+<!-- ``` -->
+<!-- This time, to generate the simple main effects of interest we set the second argument to `fixed = "Fear` which tells the function that we want to fix (or hold constant) the level of the factor fear, and we set the value of the third argument to `across = "Fear"` which tells the function that for each of those levels, we want to compare the difference between the no efficacy message and efficacy message levels of the efficacy factor. Notice that we have once again made a specific assignment to a variable called `smeEfficacy` --- the value before the `=` sign, so we can get effect sizes for these simple main effects later. -->
+<!-- Let's once again look at the output that has been produced.  -->
+<!-- The first row, shows the simple main effect of efficacy at the *no fear appeal* level of the fear factor. This simple main effect is nonsignificant (*p* = .184). Thus, in the absence of a fear appeal, the likelihood of vaccinating is unaffected by whether or not a person is given a self-efficacy message. -->
+<!-- The secod row, shows the simple main effect of efficacy at the *fear appeal* level of the fear factor. This simple main effect is significant (*p* < .001). Looking at the descriptive statistics we generated earlier, we can see that this is because in the presence of a fear appeal  vaccination likelihood scores are higher in the presence than in the absence of a self-efficacy message. -->
+<!-- We can get the effect sizes of these simple main effects as follows: -->
+<!-- ```{r} -->
+<!-- effectsize(smeEfficacy) -->
+<!-- ``` -->
+<!-- The effect size for the first simple main effect, which was nonsignificant, is nonsurprisingly very small ($\eta^2$ = .01), whereas the effect size for the second simple main effect, which was significant, is large ($\eta^2$ = .16).  -->
+<!-- ### How to write up the results -->
+<!-- ![Figure 1. Vaccination likelihood scores as a function of the fear and efficacy manipulations. Error bars represent 95% confidence intervals.](images/FearAppealLinePlot.png){width=50%} -->
+<!-- Figure 1 shows vaccination likelihood scores as a function of the fear and efficacy manipulations. These data were subjected to a 2 (fear: no fear appeal $vs.$ fear appeal) $\times$ 2 (efficacy: no efficacy message $vs.$ efficacy message) between-participants Analysis of Variance. There was a significant main effect of fear, *F*(1, 196) = 15.68, *p* < .001, $\eta^2$ = .07, with vaccination likelihood scores being higher in the presence than in the absence of a fear appeal, a significant main effect of efficacy, *F*(1, 196) = 11.78, *p* < .001, $\eta^2$ = .06, with vaccination likelihood scores being higher in the presence than in the absence of a self-efficacy message, and a significant interaction between the two factors, *F*(1, 196) = 28.27, *p* < .001, $\eta^2$ = .13.  -->
+<!-- To scrutinise the interaction, a simple main effects analysis was undertaken. In the absence of an efficacy message, there was no significant effect of fear, *F*(1, 196) = .92, *p* = .338, $\eta^2$ = .00, whereas in the presence of an efficacy message there was a significant effect of fear, *F*(1, 196) = 43.02, *p* < .001, $\eta^2$ = .18, with vaccination likelihood scores being higher in the presence than in the absence of a fear appeal. Mirroring these results, in the absence of a fear appeal, there was no significant effect of efficacy, *F*(1, 196) = 1.78, *p* = .184, $\eta^2$ = .01, whereas in the presence of a fear appeal there was a significant effect of efficacy, *F*(1, 196) = 38.27, *p* < .001, $\eta^2$ = .16, with vaccination likelihood scores being higher in the presence than in the absence of an efficacy message.  -->
+<!-- Hence, people receiving a fear appeal had a higher likelihood of vaccinating against COVID-19 than those that did not receive a fear appeal, but only when the fear appeal was combined with a self-efficacy enhancing message.  -->
+<!-- ### Additional tasks -->
+<!-- The final task is for you to generate the line graph of the data shown in Figure 1 above. This was generated using the code we supplied in last week's lab session. However, we are now using confidence intervals for the error bars, so you will need to modify this aspect of the code.  -->
+<!-- ```{r} -->
+<!-- # *** ENTER YOUR OWN CODE FOR GENERTING THE LINE GRAPH IN FIGURE 1 *** -->
+<!-- ``` -->
+<!-- ```{r, echo=FALSE,fig.show='hide'} -->
+<!-- jitt = position_dodge(0.1) # Jitter to prevent data points from overlapping -->
+<!-- # We want "Fear" on the x-axis, "Intention" on the y-axis, and separate lines (groups) for the two levels of the  -->
+<!-- # "Efficacy" factor  -->
+<!--   ggplot(data = descriptives, mapping = aes(x = Fear, y = mean, group = Efficacy)) + -->
+<!--     # geom_line produces two lines: one for "no efficacy message" and one for "efficacy message" -->
+<!--     geom_line(size = 1, position = jitt, aes(color = Efficacy)) +  -->
+<!--     # geom_point adds points to our lines -->
+<!--     geom_point(size = 3, position = jitt, aes(color = Efficacy)) + -->
+<!--     # geom_errorbar adds error bars to our geom_points - here we are using the standard error -->
+<!--     geom_errorbar(position = jitt, mapping = aes(ymin = mean - ci, ymax = mean + ci, color = Efficacy), size = 1, width = .05) + -->
+<!--     # Here we are manually setting the colour of the lines and points -->
+<!--     scale_color_manual(values=c("#355C7D", "#F67280")) + -->
+<!--     # Use the full y-axis range  -->
+<!--     ylim(0,10) + -->
+<!--     # Manually set the x- and y-axis titles -->
+<!--     labs(x = "Fear", y = "Vaccination Likelihood") + -->
+<!--     # Black and white theme for background -->
+<!--     theme_bw() + -->
+<!--     # Theme allows us to set various properties of our figure manually -->
+<!--     theme(panel.grid.major      = element_blank(),  -->
+<!--           # Removes the major gridlines -->
+<!--           panel.grid.minor      = element_blank(), -->
+<!--           # Removes the minor gridlines -->
+<!--           panel.background      = element_blank(), -->
+<!--           # Removes the default ggplot background -->
+<!--           panel.border          = element_rect(colour = "black", fill = NA), -->
+<!--           # Adds a black border around our figure -->
+<!--           axis.line             = element_blank(), -->
+<!--           # Removes the default axis line  -->
+<!--           axis.title.x          = element_text(size = 14, face = "bold"), -->
+<!--           # Adjusts the font style and size of the x-axis label -->
+<!--           axis.text.x           = element_text(size = 12, color = "black"), -->
+<!--           # Adjusts the size and colour of the x-axis text -->
+<!--           axis.title.y          = element_text(size = 14, face = "bold"), -->
+<!--           # Adjusts the font style and size of the y-axis label -->
+<!--           axis.text.y           = element_text(size = 12, color = "black"), -->
+<!--           # Adjusts the size and colour of the y-axis text -->
+<!--           legend.title          = element_text(size = 14, face = "bold"), -->
+<!--           # Adjusts the font style and size of the legend title -->
+<!--           legend.background     = element_blank(), -->
+<!--           # Removes the legend background -->
+<!--           legend.box.background = element_rect(colour = "black"), -->
+<!--           # Adds a black border around the legend -->
+<!--           legend.text           = element_text(size = 12), -->
+<!--           # Adjusts the size of the legend text labels -->
+<!--           legend.position       = "bottom", -->
+<!--           # Positions the legend at the bottom of the graph -->
+<!--           legend.direction      = "vertical" -->
+<!--           # Orients the legend in the vertical direction -->
+<!--   ) -->
+<!-- ``` -->
+<!-- ### Final remarks -->
+<!-- In this lab session, we have analysed the simplest instance of a two-factor between-participants design---namely a 2 $\times$ 2 design. But what happens if one or both of the factors have more than two levels? In this case, the analysis is a bit more involved. If the main effect of a factor with three or more levels is significant, then we will need to perform follow-up tests (planned comparisons or post-hoc tests), just like we did for a one-factor between-participants ANOVA to interpret the significant main effect. Another implication is that, if the interaction is significant, the simple main effects for any factor with three or more levels will require follow-up tests. Suppose we have a 2 (factor A: Level A$_{1}$ vs. Level A$_{2}$) $\times$ 3 (factor B: Level B$_{1}$ vs. Level B$_{2}$ vs. Level B$_{3}$) between participants factorial design. The three simple main effects of factor A will involve only pairwise comparisons (namely A$_{1}$ *vs.* A$_{2}$, at levels B$_{1}$, B$_{2}$, and B$_{3}$). However, the two simple main effects of factor B will encompass comparisons between three levels (namely B$_{1}$ *vs.* B$_{2}$ *vs* B$_{3}$ at levels A$_{1}$ and A$_{2}$). These latter simple main effects are like running one-factor ANOVA's on factors with three levels---if the test result is significant, it only tells us that the means differ, but we need to perform follow-up tests to identify the location of those differences. We will consider this issue in more detail in the next lecture and lab class. -->
+<!-- For now, well done! We'll see you again next week.  -->
+<!-- **FYI: at the end of the week I will upload a version of these lab materials to the lab folder that contains the full working code for the analyses.** -->
+<!-- <br> -->
+<!-- <br> -->
 
 
-</section>
-</section>
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

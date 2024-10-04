@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../PSYC234/index.html" rel="next">
+<link href="../PSYC214/Week2.html" rel="next">
 <link href="../PSYC214/Week8.html" rel="prev">
 <link href="../Images/favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -159,12 +159,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
   </div>
@@ -203,6 +197,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../PSYC214/Week9.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">9. Three-Factor ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week2</span></a>
   </div>
 </li>
       </ul>
@@ -332,9 +332,9 @@ Caution
 <!-- **If you get stuck at any point, be proactive and ask for help from one of the GTAs.** -->
 <!-- ## Getting Started -->
 <!-- {{< include /Includes/_login.qmd >}} -->
-<!-- Once you are logged into the server, create a folder for today's session. Navigate to the bottom right panel and under the `Files` option select the `New Folder` option. Name the new folder `psyc214_lab_9`. **Please ensure that you spell this correctly** otherwise when you set the directory using the command given below it will return an error.    -->
+<!-- Once you are logged into the server, create a folder for today's session. Navigate to the bottom right panel and under the `Files` option select the `New Folder` option. Name the new folder `psyc214_lab_9`. **Please ensure that you spell this correctly** otherwise when you set the directory using the command given below it will return an error. -->
 <!-- Se we can save this session on the server, click `File` on the top ribbon and select `New project`. Next, select existing directory and name the working directory `~/psyc214_lab_9` before selecting `create project`. -->
-<!-- Finally, open a script for executing today's coding exercises. Navigate to the top left pane of RStudio, select `File` -> `New File` -> `R Script`. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.  -->
+<!-- Finally, open a script for executing today's coding exercises. Navigate to the top left pane of RStudio, select `File` -> `New File` -> `R Script`. Working from a script will make it easier to edit your code and you will be able to save your work for a later date. -->
 <!-- ![](images/RScript.png){width=75%} -->
 <!-- Let's set our working directory: -->
 <!-- ```{r eval = FALSE} -->
@@ -357,22 +357,22 @@ Caution
 <!-- # Today's Lab Activities -->
 <!-- ## Analysing the hypothetical data for the memory and context study -->
 <!-- A memory researcher wants to know if memory is better when material is tested in the same context it was learned in. The researcher also wants to know whether recall and recognition memory are equally context dependent. The researcher manipulates three factors in a 2 $\times$ 2 $\times$ 2 fully within-participants design: -->
-<!-- * **memory task** (recall *vs.* recognition)  -->
-<!-- * **learning context** (learn underwater *vs.* learn land)  -->
+<!-- * **memory task** (recall *vs.* recognition) -->
+<!-- * **learning context** (learn underwater *vs.* learn land) -->
 <!-- * **testing context** (test underwater *vs.* test land) -->
-<!-- Participants are given words to remember in a specific learning context (either under water or on land) and are then tested in either the same context (e.g., under water if the words were learned under water) or a different context (e.g., on land if the words were learned under water). Memory is tested using a recall procedure (by asking participants to recall the studied words) or a recognition procedure (by presenting participants with a list of words and asking them to indicate which they had studied previously). The dependent measure is the number of words remembered correctly.  -->
+<!-- Participants are given words to remember in a specific learning context (either under water or on land) and are then tested in either the same context (e.g., under water if the words were learned under water) or a different context (e.g., on land if the words were learned under water). Memory is tested using a recall procedure (by asking participants to recall the studied words) or a recognition procedure (by presenting participants with a list of words and asking them to indicate which they had studied previously). The dependent measure is the number of words remembered correctly. -->
 <!-- The data set contains the following variables: -->
-<!-- * **Participant:** represents the participant number, which ranges from 1--5.  -->
-<!-- * **Recall_Under_Under:** the number of words *recalled* correctly when material was learned under water and tested under water.    -->
-<!-- * **Recall_Under_Land:** the number of words *recalled* correctly when material was learned under water and tested on land.         -->
-<!-- * **Recall_Land_Under:** the number of words *recalled* correctly when material was learned on land and tested under water.         -->
-<!-- * **Recall_Land_Land:**    the number of words *recalled* correctly when material was learned on land and tested on land.       -->
-<!-- * **Recognition_Under_Under:** the number of words *recognised* correctly when material was learned under water and tested under water.     -->
-<!-- * **Recognition_Under_Land:** the number of words *recognised* correctly when material was learned under water and tested on land.  -->
+<!-- * **Participant:** represents the participant number, which ranges from 1--5. -->
+<!-- * **Recall_Under_Under:** the number of words *recalled* correctly when material was learned under water and tested under water. -->
+<!-- * **Recall_Under_Land:** the number of words *recalled* correctly when material was learned under water and tested on land. -->
+<!-- * **Recall_Land_Under:** the number of words *recalled* correctly when material was learned on land and tested under water. -->
+<!-- * **Recall_Land_Land:**    the number of words *recalled* correctly when material was learned on land and tested on land. -->
+<!-- * **Recognition_Under_Under:** the number of words *recognised* correctly when material was learned under water and tested under water. -->
+<!-- * **Recognition_Under_Land:** the number of words *recognised* correctly when material was learned under water and tested on land. -->
 <!-- * **Recognition_Land_Under:** the number of words *recognised* correctly when material was learned on land and tested under water. -->
-<!-- * **Recognition_Land_Land:** the number of words *recognised* correctly when material was learned on land and tested on land.       -->
+<!-- * **Recognition_Land_Land:** the number of words *recognised* correctly when material was learned on land and tested on land. -->
 <!-- ### Import data, set variables as factors, and generate descriptive statistics -->
-<!-- The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as `memoryContext`.  -->
+<!-- The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as `memoryContext`. -->
 <!-- ```{r} -->
 <!-- # *** ENTER YOUR OWN CODE HERE TO IMPORT THE DATA *** -->
 <!-- ``` -->
@@ -426,9 +426,9 @@ Caution
 <!--   # Print the results -->
 <!--   print.data.frame(descriptives) -->
 <!-- ``` -->
-<!-- Notice the code we have added to round the descriptive statistics to two-decimal places. We use the function `round()`, specifying how many decimal places we want to round the values (in this case 2). Inside this function, we place the variable we want to be rounded. Because our data are in a dataframe, we need to specify the name of our dataframe followed by a dollar sign and the name of the variable in the dataframe to be rounded (e.g., descriptives\$mean tells R to round the values of the variable `mean` in the dataframe `descriptives`). We also need to re-assign the rounded values to the dataframe, so that the variable gets updated (e.g., that's what the descriptives\$mean = bit does).  -->
+<!-- Notice the code we have added to round the descriptive statistics to two-decimal places. We use the function `round()`, specifying how many decimal places we want to round the values (in this case 2). Inside this function, we place the variable we want to be rounded. Because our data are in a dataframe, we need to specify the name of our dataframe followed by a dollar sign and the name of the variable in the dataframe to be rounded (e.g., descriptives\$mean tells R to round the values of the variable `mean` in the dataframe `descriptives`). We also need to re-assign the rounded values to the dataframe, so that the variable gets updated (e.g., that's what the descriptives\$mean = bit does). -->
 
-<!-- Notice also that our standard deviations have been reported to two decimal places, but our means haven't. Why so? This is because the numbers after the first decimal place in this instance are all zeros, so R doesn't report them. Bearing in mind that APA style requires we report descriptive statistics to two-decimal places, we would just add a single zero to each of the means at the second decimal place. For example, the first mean in the table, 7.6, would be reported as 7.60.  -->
+<!-- Notice also that our standard deviations have been reported to two decimal places, but our means haven't. Why so? This is because the numbers after the first decimal place in this instance are all zeros, so R doesn't report them. Bearing in mind that APA style requires we report descriptive statistics to two-decimal places, we would just add a single zero to each of the means at the second decimal place. For example, the first mean in the table, 7.6, would be reported as 7.60. -->
 <!-- At this stage, we would ordinarily perform various checks including identifying possible outliers and checking that our data satisfy the normality assumption. However, as per last week, time is limited, so we won't perform those checks today (just remember that ordinarily you should not skip this part!). One assumption that is important in within-participants designs is the sphericity assumption, but remember that this only applies to designs with within-participants factors with three or more levels. All of our factors have two levels, so this assumption is not relevant in this instance (it's also not relevant for our second data set that we analyse later, for which the within-participants factors also only comprise two levels). -->
 <!-- ### Running the ANOVA, follow-up ANOVAs, and simple main effects -->
 <!-- To run our ANOVA, we are going to use the `anova_test` function from the `rstatix` package. This is the same function that we used in the Week 8 lab session to analyse two-factor fully within-participants and mixed designs. The code required to run the ANOVA is given below: -->
@@ -440,7 +440,7 @@ Caution
 <!-- # Print the model summary -->
 <!-- (memoryContextModel) -->
 <!-- ``` -->
-<!-- To create the model, the first argument we supplied to `anova_test` was the name of our data, `memoryContextLongSep`. The second argument we supplied was our dependent variable, `Accuracy`. The third argument we supplied was `Participant`, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our within-participants factors, `MemoryTask`, `LearningContext`, and `TestingContext`.  -->
+<!-- To create the model, the first argument we supplied to `anova_test` was the name of our data, `memoryContextLongSep`. The second argument we supplied was our dependent variable, `Accuracy`. The third argument we supplied was `Participant`, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our within-participants factors, `MemoryTask`, `LearningContext`, and `TestingContext`. -->
 
 <!-- As we saw in last week's lab session, the resulting ANOVA table is different in format to those given in the lecture, which follow a more conventional style. In the ANOVA tables given in the lecture, each outcome (each main effect and interaction) is given on a separate row, with the error term used to test it given in the row directly beneath it. However, `anova_test` gives each outcome and its associated error term all in the same row. Specifically, the row corresponding to each outcome contains the between-group degrees of freedom (DFn), the error degrees of freedom (DFd), the between-group sums of squares (SSn), the error sums of squares (SSd), the $F$ ratio (F), the *p* (p) value, and the generalised eta squared (ges) value (a measure of effect size). What `anova_test` does not give us is the between-group mean squares and the error mean squares that are used to calculate the $F$ ratios. However, I showed you how to calculate these in last week's lab session if you should ever have need for these (you probably won't). -->
 <!-- You might be wondering why `anova_test` has not given us Mauchly's test of sphericity and the Greenhouse-Geisser correction. This is because all of our factors have only two levels, so the sphericity assumption does not apply. Remember, the `anova_test` function only generates these tests and corrections when at least one of the within-participants factors has three or more levels. -->
@@ -453,10 +453,10 @@ Caution
 <!-- ```{r, message = FALSE, warning = FALSE} -->
 <!-- # Get the data for the "Recall" condition only -->
 <!-- recallOnly = memoryContextLongSep %>% -->
-<!--   filter(MemoryTask == "Recall")  -->
+<!--   filter(MemoryTask == "Recall") -->
 <!-- ``` -->
-<!-- The command `filter(MemoryTask == "Recall")` tells R that we only want the data for the recall condition of the Memory Task factor.  -->
-<!-- Next, we can run our two-factor ANOVA on this filtered data set. The steps are the same as above, except that we need to drop the Memory Task factor included previously (remember, we are only analysing the recall condition of the Memory Task factor).  -->
+<!-- The command `filter(MemoryTask == "Recall")` tells R that we only want the data for the recall condition of the Memory Task factor. -->
+<!-- Next, we can run our two-factor ANOVA on this filtered data set. The steps are the same as above, except that we need to drop the Memory Task factor included previously (remember, we are only analysing the recall condition of the Memory Task factor). -->
 <!-- ```{r, message = FALSE, warning = FALSE} -->
 <!-- # Run the two-factor ANOVA for the "Recall" condition only -->
 <!-- recallModel = anova_test(data = recallOnly, dv = Accuracy, wid = Participant, within = c(LearningContext, TestingContext), detailed = TRUE) -->
@@ -489,7 +489,7 @@ Caution
 <!-- Then, we need to specify which simple main effects we want to generate. We are first going to calculate the simple main effects of the factor Learning Context at Testing Context. This means, we are going to: -->
 <!-- * Test the difference between learning under water and learning on land when tested *under water* only. -->
 <!-- * Test the difference between learning under water and learning on land when tested *on land* only. -->
-<!-- To do this, we need to declare Learning Context as the "fixed" factor (we are always comparing learning under water and learning on land) and Testing Context as the "across" factor (the comparison between learning under water and learning on land occurs "across" the test under water and test on land levels of the Testing Context factor):  -->
+<!-- To do this, we need to declare Learning Context as the "fixed" factor (we are always comparing learning under water and learning on land) and Testing Context as the "across" factor (the comparison between learning under water and learning on land occurs "across" the test under water and test on land levels of the Testing Context factor): -->
 <!-- ```{r, message=FALSE} -->
 <!-- # Create "fixed" and "across" factors -->
 <!-- fixed  = "LearningContext" -->
@@ -508,7 +508,7 @@ Caution
 <!-- Next, we are going to calculate the simple main effects of the factor Testing Context at Learning Context. This means, we are going to: -->
 <!-- * Test the difference between testing under water and testing on land when material was learned *under water* only. -->
 <!-- * Test the difference between testing under water and testing on land when material was learned *on land* only. -->
-<!-- To do this, we now need to declare Testing Context as the "fixed" factor and Learning Context as the "across" factor:  -->
+<!-- To do this, we now need to declare Testing Context as the "fixed" factor and Learning Context as the "across" factor: -->
 <!-- ```{r, message=FALSE} -->
 <!-- # Create "fixed" and "across" factors -->
 <!-- fixed  = "TestingContext" -->
@@ -523,17 +523,17 @@ Caution
 <!-- smeTestingContext$P = round(smeTestingContext$P, 3) -->
 <!-- (smeTestingContext) -->
 <!-- ``` -->
-<!-- We can see that there is a significant simple main effect of Testing Context at learn under water, $p$ = .010; when the material is learned under water, recall memory scores are higher when tested under water than when tested on land. There is also a significant simple main effect of Testing Context at learn land, $p$ = .007; when the material is learned on land, recall memory scores are higher when tested on land than when tested under water.   -->
+<!-- We can see that there is a significant simple main effect of Testing Context at learn under water, $p$ = .010; when the material is learned under water, recall memory scores are higher when tested under water than when tested on land. There is also a significant simple main effect of Testing Context at learn land, $p$ = .007; when the material is learned on land, recall memory scores are higher when tested on land than when tested under water. -->
 <!-- In sum, from the simple main effects analysis what we can see is that recall memory is context sensitive; that is, recall memory performance is better when people are tested in the same context that they learned the information than when they are tested in a different context to that which they learned the information. -->
 <!-- What about recognition memory? -->
 <!-- That brings us to our second two-factor ANOVA. For this, we now need to produce a filtered version of our data set called `recognitionOnly` that only includes the results for the recognition memory task condition. We can create that with the following piece of code: -->
 <!-- ```{r, message = FALSE, warning = FALSE} -->
 <!-- # Get the data for the "Recognition" condition only -->
 <!-- recognitionOnly = memoryContextLongSep %>% -->
-<!--   filter(MemoryTask == "Recognition")  -->
-<!-- ```   -->
-<!-- The command `filter(MemoryTask == "Recognition")` tells R that we only want the data for the recognition condition of the Memory Task factor.  -->
-<!-- Next, we can run our two-factor ANOVA on this filtered data set.   -->
+<!--   filter(MemoryTask == "Recognition") -->
+<!-- ``` -->
+<!-- The command `filter(MemoryTask == "Recognition")` tells R that we only want the data for the recognition condition of the Memory Task factor. -->
+<!-- Next, we can run our two-factor ANOVA on this filtered data set. -->
 <!-- ```{r, message = FALSE, warning = FALSE} -->
 <!-- # Run the two-factor ANOVA for the "Recognition" condition only -->
 <!-- recognitionModel = anova_test(data = recognitionOnly, dv = Accuracy, wid = Participant, within = c(LearningContext, TestingContext), detailed = TRUE) -->
@@ -542,15 +542,15 @@ Caution
 <!-- # Print the model summary -->
 <!-- (recognitionModel) -->
 <!-- ``` -->
-<!-- The key result is that this time the critical two-way interaction is nonsignificant, *p* = 0.553. What this indicates is that, unlike recall memory, recognition memory is not context sensitive. This is the reason for the three-way interaction; recall memory is sensitive to the learning and testing context, whereas recognition memory is apparently insensitive to the learning and testing context.  -->
+<!-- The key result is that this time the critical two-way interaction is nonsignificant, *p* = 0.553. What this indicates is that, unlike recall memory, recognition memory is not context sensitive. This is the reason for the three-way interaction; recall memory is sensitive to the learning and testing context, whereas recognition memory is apparently insensitive to the learning and testing context. -->
 <!-- ### Writing up the results -->
 <!-- ![Figure 1. Memory scores as a function of learning context and testing context for the recall memory task (left panel) and the recognition memory task (right panel).](images/MemoryContextData.png){width=75%} -->
 <!-- Figure 1 shows memory scores as a function of learning context and testing context for the recall and recognition memory tasks. These data were subjected to a 2 (memory task: recall *vs.* recognition) $\times$ 2 (learning context: learn under water *vs.* learn land) $\times$ 2 (testing context: test under water *vs.* test land) within-participants ANOVA. There was no significant main effect of memory task, *F*(1, 4) = 1.00, *p* = .374, no significant main effect of learning context, *F*(1, 4) = 1.59, *p* = .276, and no significant main effect of testing context, *F*(1, 4) = 0.01, *p* = .911. Neither the memory task $\times$ learning context interaction, *F*(1, 4) = 2.95, *p* = .161, nor the memory task $\times$ testing context interaction, *F*(1, 4) = 0.71, *p* = .446, were significant. However, the learning context $\times$ testing context interaction was significant, *F*(1, 4) = 27.22, *p* = .006. Critically, there was also a significant three-way interaction, *F*(1,4) = 27.13, *p* = .006. -->
-<!-- To explore the three-way interaction, two 2 (learning context) $\times$ 2 (testing context) ANOVAs were conducted; one using the data for the recall memory task only, and the second using the data for the recognition memory task only. For the first ANOVA on the recall memory task data, there was a significant interaction, *F*(1, 4) = 62.06, *p* = .001. A simple main effects analysis revealed that when tested under water, recall memory was better when the material was learned under water than when it was learned on land, *F*(1, 4) = 44.10, *p* = .005, and when tested on land, recall memory was better when the material was learned on land than when it was learned under water, *F*(1, 4) = 12.10, *p* = .041. Mirroring these results, when the material was learned under water, recall memory was better when tested under water than when tested on land, *F*(1, 4) = 22.50, *p* = .010, and when the material was learned on land, recall memory was better when tested on land than when tested under water, *F*(1, 4) = 28.90, *p* = .007.  -->
+<!-- To explore the three-way interaction, two 2 (learning context) $\times$ 2 (testing context) ANOVAs were conducted; one using the data for the recall memory task only, and the second using the data for the recognition memory task only. For the first ANOVA on the recall memory task data, there was a significant interaction, *F*(1, 4) = 62.06, *p* = .001. A simple main effects analysis revealed that when tested under water, recall memory was better when the material was learned under water than when it was learned on land, *F*(1, 4) = 44.10, *p* = .005, and when tested on land, recall memory was better when the material was learned on land than when it was learned under water, *F*(1, 4) = 12.10, *p* = .041. Mirroring these results, when the material was learned under water, recall memory was better when tested under water than when tested on land, *F*(1, 4) = 22.50, *p* = .010, and when the material was learned on land, recall memory was better when tested on land than when tested under water, *F*(1, 4) = 28.90, *p* = .007. -->
 <!-- For the second ANOVA on the recognition memory task data, there was no significant interaction, *F*(1, 4) = 0.42, *p* = .553. -->
-<!-- In brief, the three-way interaction reflects the fact that recall memory is sensitive to the learning and testing context, whereas recognition memory is apparently not sensitive to such contextual factors.  -->
+<!-- In brief, the three-way interaction reflects the fact that recall memory is sensitive to the learning and testing context, whereas recognition memory is apparently not sensitive to such contextual factors. -->
 <!-- ## Analysing the hypothetical data for the word pronunciation study -->
-<!-- A researcher wants to investigate the development in children’s ability to pronounce regular and irregular words. The researcher adopts a 2 $\times$ 2 $\times$ 2 mixed design:  -->
+<!-- A researcher wants to investigate the development in children’s ability to pronounce regular and irregular words. The researcher adopts a 2 $\times$ 2 $\times$ 2 mixed design: -->
 <!-- * **age** (7 years old *vs.* 9 years old) is a between-participants factor -->
 <!-- * **word frequency** (low *vs.* high) is a within-participants factor -->
 <!-- * **word type** (regular *vs.* irregular) is also a within-participants factor -->
@@ -563,7 +563,7 @@ Caution
 <!-- * **Low_Regular:** pronunciation errors for low frequency regular words. -->
 <!-- * **Low_Irregular:** pronunciation errors for low frequency irregular words. -->
 <!-- ### Import data, set variables as factors, and generate descriptive statistics -->
-<!-- The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as `wordPron`.  -->
+<!-- The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as `wordPron`. -->
 <!-- ```{r} -->
 <!-- # *** ENTER YOUR OWN CODE HERE TO IMPORT THE DATA *** -->
 <!-- ``` -->
@@ -591,7 +591,7 @@ Caution
 <!-- We have a new variable `Group` that contains our two independent variables, Frequency and Word Type, and a new variable `Errors` that contains our dependent measure. The next step is to use the `separate()` function to divide the variable `Group` into two new variables, one called `Frequency` and one called `WordType`. Again, we gave you an example of this earlier, so try your own code out for this bit. Just make sure you call your new data set `wordPronLngSep`. -->
 <!-- ```{r} -->
 <!-- # *** ENTER YOUR OWN CODE HERE TO SEPARATE "GROUP" INTO SEPARATE VARIABLES FOR "FREQUENCY" AND "WORDTYPE" *** -->
-<!-- ```   -->
+<!-- ``` -->
 <!-- Assuming you have executed your code correctly, you should see the following output: -->
 <!-- ```{r, echo = FALSE, message = FALSE} -->
 <!-- # Now separate into separate columns for each factor -->
@@ -636,10 +636,10 @@ Caution
 <!-- # Print the model summary -->
 <!-- (wordPronModel) -->
 <!-- ``` -->
-<!-- To create the model, the first argument we supplied to `anova_test` was the name of our data, `wordPronLngSep`. The second argument we supplied was our dependent variable, `Errors`. The third argument we supplied was `Participant`, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our between-participants factor, `Age`. The fifth argument we supplied as our within-participants factors, `Frequency` and `WordType`.  -->
-<!-- As in our first example, our factors have only two levels, so `anova_test` does not give us Mauchly's test of sphericity or the Greenhouse-Geisser correction for the within-participants factors.  -->
+<!-- To create the model, the first argument we supplied to `anova_test` was the name of our data, `wordPronLngSep`. The second argument we supplied was our dependent variable, `Errors`. The third argument we supplied was `Participant`, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our between-participants factor, `Age`. The fifth argument we supplied as our within-participants factors, `Frequency` and `WordType`. -->
+<!-- As in our first example, our factors have only two levels, so `anova_test` does not give us Mauchly's test of sphericity or the Greenhouse-Geisser correction for the within-participants factors. -->
 
-<!-- Inspecting the ANOVA table, rows two to four give the main effects of Age, Frequency, and Word Type; rows five to seven give the Age $\times$ Frequency, Age $\times$ Word Type, and Frequency $\times$ Word Type two-way interactions; and row eight gives the Age $\times$ Frequency $\times$ Word Type three-way interaction. Looking at the $p$ values, we can see that all the main effects, two-way interactions, and the three-way interaction are significant.  -->
+<!-- Inspecting the ANOVA table, rows two to four give the main effects of Age, Frequency, and Word Type; rows five to seven give the Age $\times$ Frequency, Age $\times$ Word Type, and Frequency $\times$ Word Type two-way interactions; and row eight gives the Age $\times$ Frequency $\times$ Word Type three-way interaction. Looking at the $p$ values, we can see that all the main effects, two-way interactions, and the three-way interaction are significant. -->
 <!-- Because the three-way interaction is significant, we need to analyse it further. As before, to do this we need to re-analyse the data as a series of two-factor ANOVAs. First, we must decide which factor to split the analysis by and the obvious contender is the between-participants factor of age. Accordingly, what we need to do is to perform two, two-factor ANOVAs: -->
 <!-- 1. a 2 (frequency: low *vs.* high) $\times$ 2 (word type: regular *vs.* irregular) ANOVA for the *7-year-olds* only. -->
 <!-- 1. a 2 (frequency: low *vs.* high) $\times$ 2 (word type: regular *vs.* irregular) ANOVA for the *9-year-olds* only. -->
@@ -647,9 +647,9 @@ Caution
 <!-- ```{r, message = FALSE, warning = FALSE} -->
 <!-- # Get the data for the "7 Year Olds" only -->
 <!-- sevenYearsOnly = wordPronLngSep %>% -->
-<!--   filter(Age == "7 Year Olds")  -->
+<!--   filter(Age == "7 Year Olds") -->
 <!-- ``` -->
-<!-- Next, we can run our two-factor ANOVA on this filtered data set. The steps are the same as above, except that we need to drop the Age factor included previously (remember, we are only analysing the data for the 7-year-olds).  -->
+<!-- Next, we can run our two-factor ANOVA on this filtered data set. The steps are the same as above, except that we need to drop the Age factor included previously (remember, we are only analysing the data for the 7-year-olds). -->
 <!-- ```{r, message = FALSE, warning = FALSE} -->
 <!-- # Run the two-factor ANOVA for the "7 Year Olds" only -->
 <!-- sevenYearsModel = anova_test(data = sevenYearsOnly, dv = Errors, wid = Participant, within = c(Frequency, WordType), detailed = TRUE) -->
@@ -664,10 +664,10 @@ Caution
 <!-- That brings us to our second two-factor ANOVA. For this, we now need to produce a filtered version of our data set called `nineYearsOnly` that only includes the results for the 9-year-old children. We can create that with the following piece of code: -->
 <!-- ```{r, message = FALSE, warning = FALSE} -->
 <!-- nineYearsOnly = wordPronLngSep %>% -->
-<!--   filter(Age == "9 Year Olds")  -->
+<!--   filter(Age == "9 Year Olds") -->
 <!-- ``` -->
-<!-- The command `filter(Age == "9 Year Olds")` tells R that we only want the data for the 9-year-old children.  -->
-<!-- Next, we can run our two-factor ANOVA on this filtered data set.   -->
+<!-- The command `filter(Age == "9 Year Olds")` tells R that we only want the data for the 9-year-old children. -->
+<!-- Next, we can run our two-factor ANOVA on this filtered data set. -->
 <!-- ```{r, message = FALSE, warning = FALSE} -->
 <!-- # Run the two-factor ANOVA for the "9 Year Olds" only -->
 <!-- nineYearsModel = anova_test(data = nineYearsOnly, dv = Errors, wid = Participant, within = c(Frequency, WordType), detailed = TRUE) -->
@@ -698,7 +698,7 @@ Caution
 <!-- Then, we need to specify which simple main effects we want to generate. We are first going to calculate the simple main effects of the factor Frequency at Word Type. This means, we are going to: -->
 <!-- * Test the difference between low and high frequency *regular* words only. -->
 <!-- * Test the difference between low and high frequency *irregular* words only. -->
-<!-- To do this, we need to declare Frequency as the "fixed" factor (we are always comparing low and high frequency words) and Word Type as the "across" factor (the comparison between low and high frequency words occurs "across" the regular and irregular levels of the Word Type factor):  -->
+<!-- To do this, we need to declare Frequency as the "fixed" factor (we are always comparing low and high frequency words) and Word Type as the "across" factor (the comparison between low and high frequency words occurs "across" the regular and irregular levels of the Word Type factor): -->
 <!-- ```{r, message=FALSE} -->
 <!-- # Create "fixed" and "across" factors -->
 <!-- fixed  = "Frequency" -->
@@ -717,7 +717,7 @@ Caution
 <!-- Now, let's calculate the simple main effects of Word Type at Frequency. This means, we are going to: -->
 <!-- * Test the difference between regular and irregular *low* frequency words only. -->
 <!-- * Test the difference between regular and irregular *high* frequency words only. -->
-<!-- To do this, we need to declare Word Type as the "fixed" factor and Frequency as the "across" factor:  -->
+<!-- To do this, we need to declare Word Type as the "fixed" factor and Frequency as the "across" factor: -->
 <!-- ```{r, message=FALSE} -->
 <!-- # Create "fixed" and "across" factors -->
 <!-- fixed  = "WordType" -->
@@ -736,11 +736,9 @@ Caution
 <!-- In short, the three-way interaction arose because pronunciation errors in 7-year-old children are unaffected by word frequency and word type, whereas pronunciation errors in 9-year-old children are influenced by these factors. Specifically, low frequency irregular words are associated with more pronunciation errors than low frequency regular words, but there is no difference between the frequency of pronunciation errors for high frequency irregular and regular words. This pattern can be seen in Figure 2 below which plots the data for the word pronunciation study. -->
 <!-- ![Figure 2. Pronunciation errors as a function of word frequency and word type for 7-year-old children (left panel) and 9-year-old children (right panel).](images/WordPronunciationDatax.png){width=75%} -->
 <!-- ### Writing up the results -->
-<!-- The conventions for writing up the results of a mixed three-factor ANOVA are the same as for a fully within-participants three-factor ANOVA (and indeed a fully between-participants three-factor ANOVA), so see my example write-up for the memory and context study.  -->
-<!-- <!-- Why don't you have a go at writing up these results? I'll give an example write-up when I post the instructor's copy of the materials online at the end of the week. -->
-<p>–&gt;</p>
+<!-- The conventions for writing up the results of a mixed three-factor ANOVA are the same as for a fully within-participants three-factor ANOVA (and indeed a fully between-participants three-factor ANOVA), so see my example write-up for the memory and context study. -->
 <!-- ### Additional tasks -->
-<!-- Phew!! That's probably the most we have covered in any of our lab sessions. Well done for making it through to the end!  -->
+<!-- Phew!! That's probably the most we have covered in any of our lab sessions. Well done for making it through to the end! -->
 <!-- Here are some additional tasks you might consider doing: -->
 <!-- * Write-up the results of the word pronunciation study. -->
 <!-- * Generate the interaction plots in Figures 1 and 2, but add error bars (confidence intervals) to the data points. -->
@@ -993,8 +991,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../PSYC234/index.html" class="pagination-link">
-        <span class="nav-page-text">PSYC234</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../PSYC214/Week2.html" class="pagination-link">
+        <span class="nav-page-text">Week2</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
