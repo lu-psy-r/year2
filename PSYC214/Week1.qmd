@@ -4,23 +4,17 @@ subtitle: "Sam Russell, Mark Hurlstone"
 order: 2
 ---
 
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
-
 # Lecture
 
-Arriving shortly ...
+Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2c6f4358-28f6-4e04-b357-b1e90083ac08)
 
-<!-- Watch Part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981602) -->
+Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=12c90d11-442f-4c3c-96e0-b1e90097a372)
 
-<!-- Watch Part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981612) -->
+Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1a6b887e-8680-4778-9df7-b1e900bb63bf)
 
-<!-- Watch Part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981614) -->
+Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=161f8d76-755d-4bd7-a910-b1e900ec0783)
 
-<!-- Watch Part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981618) -->
-
-<!-- Watch Part 5 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981621) -->
+Watch Part 5 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e629f4a3-cf1d-4486-8d1b-b1e90100ff45)
 
 Download the lecture slides [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf). 
 
