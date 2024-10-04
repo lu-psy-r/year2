@@ -10,6 +10,8 @@ This page is under construction for 24/25 and may be subject to change before th
 
 # Lecture
 
+Arriving shortly ...
+
 <!-- Watch Part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981602) -->
 
 <!-- Watch Part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981612) -->
@@ -20,7 +22,7 @@ This page is under construction for 24/25 and may be subject to change before th
 
 <!-- Watch Part 5 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981621) -->
 
-<!-- Download the lecture slides [here](data/Wk1/Lecture 1 - Student Slides.pdf), and [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf) for a larger version. -->
+Download the lecture slides [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf). 
 
 # Lab
 
