@@ -10,24 +10,24 @@ This page is under construction for 24/25 and may be subject to change before th
 
 # Lecture
 
-Watch Part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981602)
+<!-- Watch Part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981602) -->
 
-Watch Part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981612)
+<!-- Watch Part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981612) -->
 
-Watch Part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981614)
+<!-- Watch Part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981614) -->
 
-Watch Part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981618)
+<!-- Watch Part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981618) -->
 
-Watch Part 5 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981621)
+<!-- Watch Part 5 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1981621) -->
 
-Download the lecture slides [here](data/Wk1/Lecture 1 - Student Slides.pdf), and [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf) for a larger version.
+<!-- Download the lecture slides [here](data/Wk1/Lecture 1 - Student Slides.pdf), and [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf) for a larger version. -->
 
 # Lab
 
 Welcome back to Lancaster University and congratulations on your progression to Year 2!
 
 
-This will be the first lab session for Psyc214 - Statistics for Psychologists. In these lab sessions you will work from sheets (like this one) which detail activities and provide hands on experience of working and problem solving in R. At times these sheets will offer step-by-step instructions of how to wrangle data and to run a relevant command or analysis. At other times, and to reinforce learning, you will be asked to 'fill in the gaps' yourselves or to rewrite the code to solve a new problem. Myself (Sam Russell), Mark Hurlstone and an apt team of GTAs will be on hand to help you through this journey - so please do not panic - you're never alone. In Psyc214, we also encourage peer engagment and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
+This will be the first lab session for Psyc214 - Statistics for Psychologists. In these lab sessions you will work from sheets (like this one) which detail activities and provide hands on experience of working and problem solving in R. At times these sheets will offer step-by-step instructions of how to wrangle data and to run a relevant command or analysis. At other times, and to reinforce learning, you will be asked to 'fill in the gaps' yourselves or to rewrite the code to solve a new problem. Myself (Richard Philpot), Mark Hurlstone and an apt team of GTAs will be on hand to help you through this journey - so please do not panic - you're never alone. In Psyc214, we also encourage peer engagment and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪
   
 ******
 ## 1 - General Introduction
@@ -42,7 +42,6 @@ In this analogy, let's consider our 'R brains' as the material vulnerable to rus
 
 When considering repeated use and our environments, it is also unlikely that many of us have interacted with R and statistics over the intervening summer months. Quite sensibly we've enjoyed a non-academic environment - holidays, summer jobs, commitments to family and friends, these are all important things that have rightly taken priority!
 
-
 It therefore an entirely natural process for folks to feel rusty and hesitant when re-engaging with R and statistics. As such, in this first session, let's get re-accustomed with our old friend 'R'.
 
 
@@ -55,6 +54,7 @@ You will recall from last year that R Studio is a free, open-source data science
 ![Vintage computational power and R Studio](https://images.unsplash.com/photo-1607370883617-9720ac853cc4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80)
 
 {{< include /Includes/_login.qmd >}}
+
 
 ******
 ### 1.2 Creating a folder for today's session
