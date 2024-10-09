@@ -6,17 +6,17 @@ order: 2
 
 # Lecture
 
-Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2c6f4358-28f6-4e04-b357-b1e90083ac08)
+Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4497bcd1-8a1b-45c5-9e3b-b20200bb11c3) 
 
-Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=12c90d11-442f-4c3c-96e0-b1e90097a372)
+Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f439543e-859a-484f-9b44-b20200fa951b) 
 
-Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1a6b887e-8680-4778-9df7-b1e900bb63bf)
+Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=15cc2f3c-3a8b-432a-a506-b2020100107b) 
 
-Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=161f8d76-755d-4bd7-a910-b1e900ec0783)
+Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a0c883d0-ab71-4e50-a497-b202010e69f7) 
 
-Watch Part 5 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e629f4a3-cf1d-4486-8d1b-b1e90100ff45)
+Watch Part 5 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=47206df8-cbe0-45d3-be67-b20201135faa#)
 
-Download the lecture slides [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf). 
+Download the lecture slides [here](data/Wk1/Lecture 1 - Student Slides.pdf), and [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf) for a larger version.
 
 # Lab
 
