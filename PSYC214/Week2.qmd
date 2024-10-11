@@ -4,10 +4,6 @@ subtitle: "Sam Russell, Mark Hurlstone"
 order: 3
 ---
 
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
-
 # Lecture
 
 Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ed894bd3-86e5-4d97-9849-b202008e3ba7) 
