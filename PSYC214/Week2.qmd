@@ -173,7 +173,7 @@ Specifically, the experimental hypotheses were that:
 Prior to the experiment, independent raters reliably agreed that Robot O(mega) more closely resembled a human being than Robot B(eta) [second closest resemblance] and Robot A(lpha) [lowest resemblance].
 
 ******
-#### 2.5 Classifying our variables
+### 2.5 Classifying our variables
 Unlike last week, where we skimmed over a bit, we should really start our session by classifying our variables. Classifying variables means assigning them to specific categories or types, such as numeric, factor, character, or logical, based on their nature and the kind of data they represent. We do this to ensure that the data is processed and analyzed correctly in statistical software.
 
 Typical data classes include:
@@ -253,7 +253,7 @@ class(lab2_data$Group)
 ```
 
 ******
-#### 2.6 Exploring our data
+### 2.6 Exploring our data
 Now that you are familiar with the research setting and the classification of our variables, let's explore this week's data.
 
 Let's start with a nose, by looking a the top 20 rows of our dataset - like last week we will use the <span style="color: red;">head()</span> command.
@@ -359,7 +359,7 @@ head(superlikers_data, n=14)
 ```
 
 ******
-#### 2.7 Creating some histograms and looking at descriptives
+### 2.7 Creating some histograms and looking at descriptives
 
 Ok. Having a go at filtering data and working with data subsets was a lovely distraction, but let's get back to business and work with the full data set again.
 
@@ -408,7 +408,7 @@ Once again, it seems that we may have different values between groups. However, 
 ******
 ## 3. And more
 
-#### 3.1 One-factor between group ANOVA
+### 3.1 One-factor between group ANOVA
 
 To identify whether the differences between groups are statistically significant, we need to perform an Analysis of Variance (ANOVA). First, let's be sure we have chosen the correct type of ANOVA. We have one factor. This is because we have one Independent Variable (Robot) with three levels (Robot A, B and O). Also, the design is between group, as each participant is assigned to only one robot, and data from only one time point is taken.
 
@@ -448,7 +448,7 @@ print.data.frame(descriptives) # print descriptives
 ```
 
 ******
-#### 3.2 Reporting the results of the one-factor between-participants ANOVA in APA format
+### 3.2 Reporting the results of the one-factor between-participants ANOVA in APA format
 
 All results should be written up in accordance with the American Psychological Association's (APA) guidance. This ensures that your results are easy to interpret and that all the relevant information is present for those wishing to review/replicate your work.
 
@@ -458,7 +458,7 @@ The current results can be reported as following:
 *Please note. While the ANOVA tells us that there are differences between groups, it doesn't tell us specifically which groups differ from one another. For example do Group A and B statistically differ? A and O? B and O? The only way to know this definitively is to carry out posthoc/planned contrast tests. We won't do this today, as this will be a key facet of Lecture 3 and Lab 3, but please be aware that without these supplementary analyses the above APA reporting is incomplete*
 
 ******
-#### 3.3 Creating an APA barchart
+### 3.3 Creating an APA barchart
 
 When reporting the results of an ANOVA in an APA report or publication, it is typical to  include a barchart, illustrating the average scores and error bars for each group.
 
@@ -521,7 +521,7 @@ Like_plot %>% #our dataset
 Perfect! Error bars accomplished.
 
 ******
-#### 4 Further tasks
+## 4 Further tasks
 
 1. We have seen that there are signficant differences between at least two groups when it comes to the Likeability scores. Now please eye ball the means and the barchart and try to predict which groups differed. Talk this over with a lab mate or your inner self. We will test this with further analyses next week!
 

@@ -330,8 +330,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#study-manipulation" id="toc-study-manipulation" class="nav-link" data-scroll-target="#study-manipulation">2.2 Study manipulation</a></li>
   <li><a href="#outcome-a.k.a-dependent-variables" id="toc-outcome-a.k.a-dependent-variables" class="nav-link" data-scroll-target="#outcome-a.k.a-dependent-variables">2.3 Outcome (a.k.a dependent) variables</a></li>
   <li><a href="#predictions-of-the-research-team" id="toc-predictions-of-the-research-team" class="nav-link" data-scroll-target="#predictions-of-the-research-team">2.4 Predictions of the research team</a></li>
+  <li><a href="#classifying-our-variables" id="toc-classifying-our-variables" class="nav-link" data-scroll-target="#classifying-our-variables">2.5 Classifying our variables</a></li>
+  <li><a href="#exploring-our-data" id="toc-exploring-our-data" class="nav-link" data-scroll-target="#exploring-our-data">2.6 Exploring our data</a></li>
+  <li><a href="#creating-some-histograms-and-looking-at-descriptives" id="toc-creating-some-histograms-and-looking-at-descriptives" class="nav-link" data-scroll-target="#creating-some-histograms-and-looking-at-descriptives">2.7 Creating some histograms and looking at descriptives</a></li>
   </ul></li>
-  <li><a href="#and-more" id="toc-and-more" class="nav-link" data-scroll-target="#and-more">3. And more</a></li>
+  <li><a href="#and-more" id="toc-and-more" class="nav-link" data-scroll-target="#and-more">3. And more</a>
+  <ul class="collapse">
+  <li><a href="#one-factor-between-group-anova" id="toc-one-factor-between-group-anova" class="nav-link" data-scroll-target="#one-factor-between-group-anova">3.1 One-factor between group ANOVA</a></li>
+  <li><a href="#reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" id="toc-reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" class="nav-link" data-scroll-target="#reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format">3.2 Reporting the results of the one-factor between-participants ANOVA in APA format</a></li>
+  <li><a href="#creating-an-apa-barchart" id="toc-creating-an-apa-barchart" class="nav-link" data-scroll-target="#creating-an-apa-barchart">3.3 Creating an APA barchart</a></li>
+  </ul></li>
+  <li><a href="#further-tasks" id="toc-further-tasks" class="nav-link" data-scroll-target="#further-tasks">4 Further tasks</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -515,8 +524,9 @@ Note
 </ul>
 <p>Prior to the experiment, independent raters reliably agreed that Robot O(mega) more closely resembled a human being than Robot B(eta) [second closest resemblance] and Robot A(lpha) [lowest resemblance].</p>
 <hr>
-<section id="classifying-our-variables" class="level4">
-<h4 class="anchored" data-anchor-id="classifying-our-variables">2.5 Classifying our variables</h4>
+</section>
+<section id="classifying-our-variables" class="level3">
+<h3 class="anchored" data-anchor-id="classifying-our-variables">2.5 Classifying our variables</h3>
 <p>Unlike last week, where we skimmed over a bit, we should really start our session by classifying our variables. Classifying variables means assigning them to specific categories or types, such as numeric, factor, character, or logical, based on their nature and the kind of data they represent. We do this to ensure that the data is processed and analyzed correctly in statistical software.</p>
 <p>Typical data classes include:<br>
 <br>
@@ -587,8 +597,8 @@ You can check the class of any object in R using the class() function. For insta
 </div>
 <hr>
 </section>
-<section id="exploring-our-data" class="level4">
-<h4 class="anchored" data-anchor-id="exploring-our-data">2.6 Exploring our data</h4>
+<section id="exploring-our-data" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-our-data">2.6 Exploring our data</h3>
 <p>Now that you are familiar with the research setting and the classification of our variables, let’s explore this week’s data.</p>
 <p>Let’s start with a nose, by looking a the top 20 rows of our dataset - like last week we will use the <span style="color: red;">head()</span> command.</p>
 <p>To view these first rows, please apply the following code:</p>
@@ -786,8 +796,8 @@ Wow, looking at the data it seems that Robot B(eta) is extremely likeable - cute
 </div>
 <hr>
 </section>
-<section id="creating-some-histograms-and-looking-at-descriptives" class="level4">
-<h4 class="anchored" data-anchor-id="creating-some-histograms-and-looking-at-descriptives">2.7 Creating some histograms and looking at descriptives</h4>
+<section id="creating-some-histograms-and-looking-at-descriptives" class="level3">
+<h3 class="anchored" data-anchor-id="creating-some-histograms-and-looking-at-descriptives">2.7 Creating some histograms and looking at descriptives</h3>
 <p>Ok. Having a go at filtering data and working with data subsets was a lovely distraction, but let’s get back to business and work with the full data set again.</p>
 <p>Now that we’re back working with ‘lab2_data’, let’s use the <span style="color: red;">ggplot</span> package to create two histograms to inspect the distribution of all data points for both Likeability and Scores variables. First we call up the ggplot function. In the brackets, we first inform the function the name of the dataset - for us, lab2_data. Then, we write <span style="color: red;">aes()</span> <em>shorthand for for astethics</em> followed by the variable we would like on the x asis - for us ‘Likeability’. Finally, we choose number of bins (e.g., how many columns we’d like for our plot) and choose a fill colour - I have grey, but as this is exploratory and not an official APA style report feel free to try other colours you like.</p>
 <div class="cell">
@@ -838,11 +848,10 @@ Note here (and unlike last week) that we are using the ‘=’ symbol to assign 
 <hr>
 </section>
 </section>
-</section>
 <section id="and-more" class="level2">
 <h2 class="anchored" data-anchor-id="and-more">3. And more</h2>
-<section id="one-factor-between-group-anova" class="level4">
-<h4 class="anchored" data-anchor-id="one-factor-between-group-anova">3.1 One-factor between group ANOVA</h4>
+<section id="one-factor-between-group-anova" class="level3">
+<h3 class="anchored" data-anchor-id="one-factor-between-group-anova">3.1 One-factor between group ANOVA</h3>
 <p>To identify whether the differences between groups are statistically significant, we need to perform an Analysis of Variance (ANOVA). First, let’s be sure we have chosen the correct type of ANOVA. We have one factor. This is because we have one Independent Variable (Robot) with three levels (Robot A, B and O). Also, the design is between group, as each participant is assigned to only one robot, and data from only one time point is taken.</p>
 <p>To run our one-factor between participants ANOVA, we will use tidyverse’s <span style="color: red;">‘aov()’</span> function. Let’s set ‘Likeability’ as our first dependent variable of examination. ‘Group’ is then our predictive factor (independent variable). Note, in the code below, the DV and the IV are separated by the ‘~’ character. Please carry out the following command. This also includes requesting a summary and effectsize for our model.</p>
 <div class="cell">
@@ -900,15 +909,15 @@ Group     | 0.56 | [0.50, 1.00]
 </div>
 <hr>
 </section>
-<section id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" class="level4">
-<h4 class="anchored" data-anchor-id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format">3.2 Reporting the results of the one-factor between-participants ANOVA in APA format</h4>
+<section id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format">3.2 Reporting the results of the one-factor between-participants ANOVA in APA format</h3>
 <p>All results should be written up in accordance with the American Psychological Association’s (APA) guidance. This ensures that your results are easy to interpret and that all the relevant information is present for those wishing to review/replicate your work.</p>
 <p>The current results can be reported as following: “A one-factor between-participants ANOVA revealed that likeability scores were significantly different between our robot groups (Robot A <em>M</em> = 2.50, <em>SD</em> = 0.93; Robot B <em>M</em> = 4.50, <em>SD</em> = 1.01; Robot O <em>M</em> = 2.11, <em>SD</em> = 0.85), <em>F</em>(2,236) = 151, <em>p</em> &lt; .001, η2 = 0.56, 95% CI[0.50, 1.00].</p>
 <p><em>Please note. While the ANOVA tells us that there are differences between groups, it doesn’t tell us specifically which groups differ from one another. For example do Group A and B statistically differ? A and O? B and O? The only way to know this definitively is to carry out posthoc/planned contrast tests. We won’t do this today, as this will be a key facet of Lecture 3 and Lab 3, but please be aware that without these supplementary analyses the above APA reporting is incomplete</em></p>
 <hr>
 </section>
-<section id="creating-an-apa-barchart" class="level4">
-<h4 class="anchored" data-anchor-id="creating-an-apa-barchart">3.3 Creating an APA barchart</h4>
+<section id="creating-an-apa-barchart" class="level3">
+<h3 class="anchored" data-anchor-id="creating-an-apa-barchart">3.3 Creating an APA barchart</h3>
 <p>When reporting the results of an ANOVA in an APA report or publication, it is typical to include a barchart, illustrating the average scores and error bars for each group.</p>
 <p>As this is a formal chart, it is more sterile and less jazzy than the coloured graphs you have produced before. There are also important APA aesthetics which are required, such as grey colour scales, white background, black axes and text, etc. Before you fall asleep, let’s make one of these posh plots.</p>
 <p>Please copy and paste the following code. Please pay attention to the #annotations, which provide detail as to what each line of code is doing:</p>
@@ -973,8 +982,9 @@ Group     | 0.56 | [0.50, 1.00]
 <p>Perfect! Error bars accomplished.</p>
 <hr>
 </section>
-<section id="further-tasks" class="level4">
-<h4 class="anchored" data-anchor-id="further-tasks">4 Further tasks</h4>
+</section>
+<section id="further-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="further-tasks">4 Further tasks</h2>
 <ol type="1">
 <li>We have seen that there are signficant differences between at least two groups when it comes to the Likeability scores. Now please eye ball the means and the barchart and try to predict which groups differed. Talk this over with a lab mate or your inner self. We will test this with further analyses next week!</li>
 </ol>
@@ -1057,7 +1067,6 @@ Top work!
 </p>
 
 
-</section>
 </section>
 </section>
 
