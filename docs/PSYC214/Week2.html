@@ -330,15 +330,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#study-manipulation" id="toc-study-manipulation" class="nav-link" data-scroll-target="#study-manipulation">2.2 Study manipulation</a></li>
   <li><a href="#outcome-a.k.a-dependent-variables" id="toc-outcome-a.k.a-dependent-variables" class="nav-link" data-scroll-target="#outcome-a.k.a-dependent-variables">2.3 Outcome (a.k.a dependent) variables</a></li>
   <li><a href="#predictions-of-the-research-team" id="toc-predictions-of-the-research-team" class="nav-link" data-scroll-target="#predictions-of-the-research-team">2.4 Predictions of the research team</a></li>
-  <li><a href="#exploring-our-data" id="toc-exploring-our-data" class="nav-link" data-scroll-target="#exploring-our-data">2.5 Exploring our data</a></li>
   </ul></li>
-  <li><a href="#and-more" id="toc-and-more" class="nav-link" data-scroll-target="#and-more">3. And more</a>
-  <ul class="collapse">
-  <li><a href="#one-factor-between-group-anova" id="toc-one-factor-between-group-anova" class="nav-link" data-scroll-target="#one-factor-between-group-anova">3.1 One-factor between group ANOVA</a></li>
-  <li><a href="#reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" id="toc-reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" class="nav-link" data-scroll-target="#reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format">3.2 Reporting the results of the one-factor between-participants ANOVA in APA format</a></li>
-  <li><a href="#creating-an-apa-barchart" id="toc-creating-an-apa-barchart" class="nav-link" data-scroll-target="#creating-an-apa-barchart">3.3 Creating an APA barchart</a></li>
-  </ul></li>
-  <li><a href="#further-tasks" id="toc-further-tasks" class="nav-link" data-scroll-target="#further-tasks">4 Further tasks</a></li>
+  <li><a href="#and-more" id="toc-and-more" class="nav-link" data-scroll-target="#and-more">3. And more</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -433,10 +426,10 @@ Note
 <p>Let’s start by loading the packages (i.e., the dependencies) we’ll use for this session.</p>
 <p>Please copy or type the following commands into R Studio to get these packages activated:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># allows pipes, arrang(), summary(), aov(), etc</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix) <span class="co"># allows group_by()</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># allows pipes, arrang(), summary(), aov(), etc</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)    <span class="co"># allows group_by()</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize) <span class="co"># a neat little package that provides the effect size</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rmisc) <span class="co"># allows shorthand calculations of standard errors and confidence intervals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rmisc)      <span class="co"># allows shorthand calculations of standard errors and confidence intervals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>More on these packages later.</p>
 <p>Data… Assemble! Ok - Let’s load the data and crack on with today’s work.</p>
@@ -445,13 +438,13 @@ Note
 </ol>
 <p>The working directory can be set with the following R code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="5" type="1">
 <li>Great. Now we’re ready to load the dataset which we kindly housed on our server. To do this, please type the following code:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a> lab2_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"week2_robo_lab.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"week2_robo_lab.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>where ‘lab2_data’ is the name we’ve assigned that R will recognise when it calls up our data, <code>read_csv</code> is the R command to pull up the data and “week2_robo_lab.csv” is the name of the data file stored on the server.</p>
 <p><em>Note. During the rest of this session, you will not need to refer to the original downloaded .csv data file. R has all the information stored under the ‘lab2_data’ variable. Further note, you could have called ‘lab2_data’ by pretty much any name you like… ‘my_data’, ‘robo_2’, ‘stat_attack’, etc. - the name is somewhat arbitrary. For the purpose of this lab session and for ease of read, ‘lab2_data’, is perhaps more suitable.</em></p>
@@ -522,18 +515,89 @@ Note
 </ul>
 <p>Prior to the experiment, independent raters reliably agreed that Robot O(mega) more closely resembled a human being than Robot B(eta) [second closest resemblance] and Robot A(lpha) [lowest resemblance].</p>
 <hr>
+<section id="classifying-our-variables" class="level4">
+<h4 class="anchored" data-anchor-id="classifying-our-variables">2.5 Classifying our variables</h4>
+<p>Unlike last week, where we skimmed over a bit, we should really start our session by classifying our variables. Classifying variables means assigning them to specific categories or types, such as numeric, factor, character, or logical, based on their nature and the kind of data they represent. We do this to ensure that the data is processed and analyzed correctly in statistical software.</p>
+<p>Typical data classes include:<br>
+<br>
+<em>Numeric</em>: These are the general number data type in R, which can be of type integer (i.e., whole number) or double (i.e., with decimals).<br>
+<br>
+<em>Factor</em>: Factors are used to handle categorical data. They can store both strings and integers, and each unique value in a factor has a level associated with it.<br>
+<br>
+<em>Character</em>: This is the basic type to represent strings.<br>
+<br>
+<em>Logical</em>: Represents TRUE or FALSE values.<br>
+<br>
+<em>Date and Time</em>: R has special classes like Date, POSIXct, and POSIXlt to handle date and time.<br>
+<br>
+You can check the class of any object in R using the class() function. For instance:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(lab2_data<span class="sc">$</span>Likeability)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>This tell us that our likeability variable is a numeric data. This makes sense, as our participants were asked to score how much they liked their robot on a scale of 1-7.</p>
+<p>We also have three other variables in this dataset, however, named ‘ID’, ‘Group’ and ‘Score’. Please adjust the code directly above to check the classification type for each of the additional three variables.</p>
+<p>Let’s start with ‘ID’</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If done correctly, you should receive the following output</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>Now let’s check the classification for ‘Group’</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should receive the following output</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>And finally, for ‘Score’</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With the output as follows</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>Ok, great. So this is telling us that our ‘ID’ and ‘Score’ variables are both numerical variables, while ‘Group’ is classified as a character variable - i.e., is a text string.</p>
+<p>This latter classification of ‘character’ isn’t so helpful, because our ‘Group’ variable in fact represents our experimental factor (i.e., our Independent Variable). Therefore, we need to convert this variable into a factor. To do this, we run the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the group variable into a factor with three levels, "A", "B" and "O" </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>lab2_data<span class="sc">$</span>Group <span class="ot">=</span> <span class="fu">factor</span>(lab2_data<span class="sc">$</span>Group, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"O"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Perfect. Now let’s check that everything worked and that ‘Group’ is now recognised as a factor. Please repeat the step above to check the classification of ‘Group’ using the <span style="color: red;">class()</span> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If everything is hunky, dory you will receive the following output</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+</div>
+<hr>
 </section>
-<section id="exploring-our-data" class="level3">
-<h3 class="anchored" data-anchor-id="exploring-our-data">2.5 Exploring our data</h3>
-<p>Now that you are familiar with the research setting, let’s explore this week’s data.</p>
-<p>Let’s start with a nose, by looking a the top 20 rows of our dataset - like last week we will use the <code>head()</code> command.</p>
+<section id="exploring-our-data" class="level4">
+<h4 class="anchored" data-anchor-id="exploring-our-data">2.6 Exploring our data</h4>
+<p>Now that you are familiar with the research setting and the classification of our variables, let’s explore this week’s data.</p>
+<p>Let’s start with a nose, by looking a the top 20 rows of our dataset - like last week we will use the <span style="color: red;">head()</span> command.</p>
 <p>To view these first rows, please apply the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab2_data, <span class="at">n =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab2_data, <span class="at">n =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 4
       ID Group Likeability Score
-   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+   &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
  1     1 A               2    71
  2     2 A               2    53
  3     3 A               3    62
@@ -556,13 +620,13 @@ Note
 20    20 A               3    47</code></pre>
 </div>
 </div>
-<p>Because of the way we ordered our data in the original .csv spreadsheet, we are not able to see beyond the first 20 cases in Group A. Therefore, let’s use the arrange() function to order our data instead by Score - we can combine this with the head() through the use of a pipe %&gt;%. <em>Please recall, a pipe works as a specialized chain, letting you pass an intermediate result onto the next function</em>.</p>
+<p>Because of the way we ordered our data in the original .csv spreadsheet, we are not able to see beyond the first 20 cases in Group A. Therefore, let’s use the <span style="color: red;">arrange()</span> function to order our data instead by Score - we can combine this with the <span style="color: red;">head()</span> through the use of a pipe <span style="color: red;">%&gt;%</span>. <em>Please recall, a pipe works as a specialized chain, letting you pass an intermediate result onto the next function</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 4
       ID Group Likeability Score
-   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+   &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
  1   207 O               2    79
  2   199 O               2    77
  3   222 O               1    77
@@ -588,40 +652,14 @@ Note
 <p>This all looks fine. We can see that the highest score a student received was 79. We also see a tendency in data in which the highest scores are achieved by the Robot Beta and Omega groups (i.e., groups B and O).</p>
 <p>Now let’s do the same and check the 20 highest Likeability values. To do this, please copy the code above, but change ‘Score’ to ‘Likeability’</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Likeability)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 20 × 4
-      ID Group Likeability Score
-   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
- 1   238 O              33    63
- 2   126 B               7    50
- 3    83 B               6    53
- 4    94 B               6    72
- 5    99 B               6    64
- 6   108 B               6    70
- 7   115 B               6    64
- 8   116 B               6    60
- 9   123 B               6    63
-10   129 B               6    60
-11   133 B               6    64
-12   145 B               6    63
-13   147 B               6    71
-14   150 B               6    69
-15   154 B               6    61
-16    82 B               5    52
-17    86 B               5    67
-18    92 B               5    62
-19    95 B               5    48
-20    96 B               5    62</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If done correctly you will receive the following output</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 4
       ID Group Likeability Score
-   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+   &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
  1   238 O              33    63
  2   126 B               7    50
  3    83 B               6    53
@@ -644,25 +682,25 @@ Note
 20    96 B               5    62</code></pre>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://images.unsplash.com/photo-1542707309-4f9de5fd1d9c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=987&amp;q=80" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Hold up!</figcaption>
-</figure>
-</div>
+<img src="https://images.unsplash.com/photo-1542707309-4f9de5fd1d9c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=987&amp;q=80" width="400" height="500">
+<p align="left">
+Fig.10 - Hold up!
+</p>
+<p><br>
+</p>
 <p>Now wait! This data looks proper dodgy. We can see that the highest likeability score was 33. This can’t be right? Can it?! Nope, definitely not, the scale should range from 1 - 7, meaning this is an error.</p>
 <p>What on earth happened? Perhaps the ‘3’ key was hit twice by mistake? Perhaps the researcher dropped their biscuit on the keyboard when working? As we do not know what happened, we need to ensure that this data point is recorded as missing. To do this, please type or copy/paste the following command</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lab2_data<span class="sc">$</span>Likeability[lab2_data<span class="sc">$</span>Likeability <span class="sc">&gt;</span> <span class="dv">7</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>lab2_data<span class="sc">$</span>Likeability[lab2_data<span class="sc">$</span>Likeability <span class="sc">&gt;</span> <span class="dv">7</span>] <span class="ot">=</span> <span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This is asking R Studio to scan the likeability column of our dataset and to set any value above 7 as missing.</p>
 <p>Now let’s check out the top 20 likeability scores again, just to be sure the 33 has gone.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  lab2_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Likeability)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Likeability)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 4
       ID Group Likeability Score
-   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+   &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
  1   126 B               7    50
  2    83 B               6    53
  3    94 B               6    72
@@ -685,52 +723,114 @@ Note
 20   105 B               5    61</code></pre>
 </div>
 </div>
-<p>Phew, that’s all sorted now. Wow, looking at the data it seems that Robot B(eta) is extremely likeable - cute little fella.</p>
-<p>Next, let’s use the ggplot package to create two histograms to inspect the distribution of all data points for both Likeability and Scores variables. First we call up the ggplot function. In the brackets, we first inform the function the name of the dataset - for us, lab2_data. Then, we write aes() <em>shorthand for for astethics</em> followed by the variable we would like on the x asis - for us ‘Likeability’. Finally, we choose number of bins (e.g., how many columns we’d like for our plot) and choose a fill colour - I have grey, but as this is exploratory and not an official APA style report feel free to try other colours you like.</p>
+<p>Phew, that’s all sorted now.<br>
+Wow, looking at the data it seems that Robot B(eta) is extremely likeable - cute little fella.</p>
+<p>Something that may be useful now, but also for your third year dissertation, is to filter out some cases. By filtering data, researchers can focus on specific subsets of the data that are most pertinent to their questions. For example, maybe you only want participants who passed a manipulation check or those of a certain age group. You can then use this filtered data or return to your original, larger data set.</p>
+<p>Just for fun, let’s try filtering some of our data. I know! What about if we filter out only participants who provided a likeability score of 6 or more - the superlikers? How would we go about filtering this?</p>
+<p>To do this, we need to use the <span style="color: red;">filter()</span> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> lab2_data, <span class="fu">aes</span>(<span class="at">x =</span> Likeability)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"grey"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new sub- data set called 'superlikers' by filtering out those cases in lab2_data whose likeability score &gt;= 6</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>superlikers_data <span class="ot">=</span> lab2_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Likeability <span class="sc">&gt;=</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This has (should have) then created a new sub- data set called ‘superlikers_data’.</p>
+<p>Let’s use the head() function here to call this new sub- data set and see if it exists.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(superlikers_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+     ID Group Likeability Score
+  &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
+1    83 B               6    53
+2    94 B               6    72
+3    99 B               6    64
+4   108 B               6    70
+5   115 B               6    64
+6   116 B               6    60</code></pre>
+</div>
+</div>
+<p>It’s there alright. Ok! So what if we want to work with the subset and ask it some pressing questions? Well we can work with this data in the same way we work with the larger dataset, we just need to make sure we call the correct data - i.e., we call our new ‘superlikers_data’ and not our older / larger ‘lab2_data’.</p>
+<p>Let’s give it a go. For example, if we wanted to count how many cases we have in this dataset - i.e., how many superlikers we have - we could write out the following code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># count the number of data rows in superlikers_data and show this value</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(<span class="fu">nrow</span>(superlikers_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14</code></pre>
+</div>
+</div>
+<p>Now we know that there are 14 superlikers in total, we can use the <span style="color: red;">head()</span> function together with combined with the <span style="color: red;">n=</span> specifier to bring to glimpse at all cases for our ‘superlikers_data’.</p>
+<p>Please give it a go. Hint, this is one line of code: head(nameofdataset, n=xx)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should receive the following</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 4
+      ID Group Likeability Score
+   &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
+ 1    83 B               6    53
+ 2    94 B               6    72
+ 3    99 B               6    64
+ 4   108 B               6    70
+ 5   115 B               6    64
+ 6   116 B               6    60
+ 7   123 B               6    63
+ 8   126 B               7    50
+ 9   129 B               6    60
+10   133 B               6    64
+11   145 B               6    63
+12   147 B               6    71
+13   150 B               6    69
+14   154 B               6    61</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="creating-some-histograms-and-looking-at-descriptives" class="level4">
+<h4 class="anchored" data-anchor-id="creating-some-histograms-and-looking-at-descriptives">2.7 Creating some histograms and looking at descriptives</h4>
+<p>Ok. Having a go at filtering data and working with data subsets was a lovely distraction, but let’s get back to business and work with the full data set again.</p>
+<p>Now that we’re back working with ‘lab2_data’, let’s use the <span style="color: red;">ggplot</span> package to create two histograms to inspect the distribution of all data points for both Likeability and Scores variables. First we call up the ggplot function. In the brackets, we first inform the function the name of the dataset - for us, lab2_data. Then, we write <span style="color: red;">aes()</span> <em>shorthand for for astethics</em> followed by the variable we would like on the x asis - for us ‘Likeability’. Finally, we choose number of bins (e.g., how many columns we’d like for our plot) and choose a fill colour - I have grey, but as this is exploratory and not an official APA style report feel free to try other colours you like.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lab2_data, <span class="fu">aes</span>(<span class="at">x =</span> Likeability)) <span class="sc">+</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"grey"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 1 row containing non-finite outside the scale range
 (`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Week2_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="Week2_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>This gives us some general information. Have a chat with a study neighbour or with your inner self about how the number of occurrences tend to be distributed across our Likeability measure.</p>
 <p>Now, I would like you to borrow from the example above and try to make your own histogram plot for our other DV, Score. This will require the careful replacing of the x = Likeability to our other dependent variable name. Also, please change the number of bins (aka columns) to 12.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> lab2_data, <span class="fu">aes</span>(<span class="at">x =</span> Score)) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">12</span>, <span class="at">fill =</span> <span class="st">"grey"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="Week2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
-</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If done correctly, you should receive the following output:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="Week2_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="Week2_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>One again, this provides some nice frequency information. Have a chat with a study neighbour or with your inner self about how the number of occurrences tend to be distributed across our Score measure.</p>
 <p>Although this information is useful, we are restricted to frequency data (i.e., number of occurrences data) and aggregated data (i.e., we’re seeing all data points, regardless of the group assigned)</p>
-<p>Therefore, let’s use the <code>rstatix()</code> package again to get some neat and tidy summary statistics. We first specify the dataset we will use - which is lab2_data. After this we will use a pipe to ask R Studio to pass this data set on to the next function. Here, we use the group_by() function to specify that we want to distinguish between our three different groups - a variable conveniently named ‘Group’. We then use another pipe to pass the intermediate result onto the next function - the get_summary_stats(). In the parentheses we include our two DVs ‘Likeability’ and ‘Score’. Finally we are asked to specify what ‘type’ of summary statistic we would like. Let’s go for mean, standard deviation, min and max values.</p>
+<p>Therefore, let’s use the <span style="color: red;">rstatix()</span> package again to get some neat and tidy summary statistics. We first specify the dataset we will use - which is lab2_data. After this we will use a pipe to ask R Studio to pass this data set on to the next function. Here, we use the <span style="color: red;">group_by()</span> function to specify that we want to distinguish between our three different groups - a variable conveniently named ‘Group’. We then use another pipe to pass the intermediate result onto the next function - the <span style="color: red;">get_summary_stats()</span>. In the parentheses we include our two DVs ‘Likeability’ and ‘Score’. Finally we are asked to specify what ‘type’ of summary statistic we would like. Let’s go for mean, standard deviation, min and max values.<br>
+Note here (and unlike last week) that we are using the ‘=’ symbol to assign the result of our operations to a specific variable. Here we have called it ‘descriptives’ but we could have a called it almost anything at all. This means we can call up ‘descriptives’ at a later time, if needs be, without needing to reproduce all of the code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  lab2_data <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Likeability, Score, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>descriptives <span class="ot">=</span> lab2_data <span class="sc">%&gt;%</span> <span class="co">#Access our data </span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span> <span class="co">#Seperate data by group</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#get the mean, sd, min and max values for Likeability and Score</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Likeability, Score, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>))</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">4</span>) <span class="co"># round the results to *at least* two-decimal places - you can play with the digits to see how it varies</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print.data.frame</span>(descriptives) <span class="co"># print descriptives</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-  Group variable        n  mean    sd   min   max
-  &lt;chr&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 A     Likeability    80  2.5  0.928     1     4
-2 A     Score          80 58.1  6.45     44    72
-3 B     Likeability    80  4.5  1.01      2     7
-4 B     Score          80 60.4  7.27     40    74
-5 O     Likeability    79  2.11 0.847     1     4
-6 O     Score          80 63.6  7.22     47    79</code></pre>
+<pre><code>  Group    variable  n   mean    sd min max
+1     A Likeability 80  2.500 0.928   1   4
+2     A       Score 80 58.100 6.449  44  72
+3     B Likeability 80  4.500 1.006   2   7
+4     B       Score 80 60.362 7.266  40  74
+5     O Likeability 79  2.114 0.847   1   4
+6     O       Score 80 63.600 7.217  47  79</code></pre>
 </div>
 </div>
 <p>Ok, perfect. This now tells us a lot of information. For example, we can see that the mean Likeability scores for Groups A, B, O are 2.5, 4.5, 2.11, respectively.</p>
@@ -738,24 +838,25 @@ Note
 <hr>
 </section>
 </section>
+</section>
 <section id="and-more" class="level2">
 <h2 class="anchored" data-anchor-id="and-more">3. And more</h2>
-<section id="one-factor-between-group-anova" class="level3">
-<h3 class="anchored" data-anchor-id="one-factor-between-group-anova">3.1 One-factor between group ANOVA</h3>
-<p>To identify whether the differences between groups are statistically significant, we need to perform an Analysis of Variance. First, let’s be sure we have chosen the correct type of ANOVA. We have one factor. This is because we have one Independent Variable (Robot) with three levels (Robot A, B and O). Also, the design is between group, as each participant is assigned to only one robot, and data from only one time point is taken.</p>
-<p>To run our one-factor between participants ANOVA, we will use tidyverse’s ‘aov()’ function. Let’s set ‘Likeability’ as our first dependent variable of examination. ‘Group’ is then our predictive factor (independent variable). Note, in the code below, the DV and the IV are separated by the ‘~’ character. Please carry out the following command. This also includes requesting a summary and effectsize for our model.</p>
+<section id="one-factor-between-group-anova" class="level4">
+<h4 class="anchored" data-anchor-id="one-factor-between-group-anova">3.1 One-factor between group ANOVA</h4>
+<p>To identify whether the differences between groups are statistically significant, we need to perform an Analysis of Variance (ANOVA). First, let’s be sure we have chosen the correct type of ANOVA. We have one factor. This is because we have one Independent Variable (Robot) with three levels (Robot A, B and O). Also, the design is between group, as each participant is assigned to only one robot, and data from only one time point is taken.</p>
+<p>To run our one-factor between participants ANOVA, we will use tidyverse’s <span style="color: red;">‘aov()’</span> function. Let’s set ‘Likeability’ as our first dependent variable of examination. ‘Group’ is then our predictive factor (independent variable). Note, in the code below, the DV and the IV are separated by the ‘~’ character. Please carry out the following command. This also includes requesting a summary and effectsize for our model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Model_1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> lab2_data, Likeability <span class="sc">~</span> Group) <span class="co">#We name our overarching model Model_1</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model_1)<span class="co">#We ask for a summary of this model. This provides F statistic and P value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>Model_1 <span class="ot">=</span> <span class="fu">aov</span>(<span class="at">data =</span> lab2_data, Likeability <span class="sc">~</span> Group) <span class="co">#We name our overarching model Model_1</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">summary</span>(Model_1), <span class="at">digits =</span> <span class="dv">5</span>) <span class="co">#We print a summary of this model. This provides F statistic and P value. Change                                       the number of digits to alter the number of displayed decimal places.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
-Group         2  261.6  130.80   151.3 &lt;2e-16 ***
-Residuals   236  204.0    0.86                   
+<pre><code>             Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+Group         2 261.61 130.803  151.34 &lt; 2.2e-16 ***
+Residuals   236 203.97   0.864                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 1 observation deleted due to missingness</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(Model_1) <span class="co"># we ask for an eta2 effect size for our model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">effectsize</span>(Model_1) <span class="co">#We ask for an eta2 effect size for our model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>For one-way between subjects designs, partial eta squared is equivalent
   to eta squared. Returning eta squared.</code></pre>
@@ -770,135 +871,128 @@ Group     | 0.56 | [0.50, 1.00]
 - One-sided CIs: upper bound fixed at [1.00].</code></pre>
 </div>
 </div>
-<p>This has provided us with a whole bunch of useful information! It shows us the between group variability value (do you remember, the numerator value in our F ratio equation from lecture 2?), which R has named the Group Mean Square (a value here of 130.80).</p>
-<p>It also provides the within group variability value - aka the error term (do you remember, the denominator in our F ratio equation from lecture 2), which R has named the Residuals mean square (a value here of 0.86)</p>
-<p>It provides the crucial F-ratio statistic, here a value of 151.3. <strong>note, like in lecture 2, you could have calculated this value yourselves by dividing the 130.80 numerator by the 0.86 denominator. Try it in the r console by typing: Note, the value will differ slightly because of rounding - i.e., the number of decimals R works with versus us</strong></p>
+<p>This has provided us with a whole bunch of useful information! It shows us the between group variability value (do you remember, the numerator value in our F ratio equation from lecture 2?), which R has named the Group Mean Square (a value here of 130.803).</p>
+<p>It also provides the within group variability value - aka the error term (do you remember, the denominator in our F ratio equation from lecture 2), which R has named the Residuals mean square (a value here of 0.864)</p>
+<p>It provides the crucial F-ratio statistic, here a value of 151.34.</p>
+<p><strong>note, like in lecture 2, you could have calculated this value yourselves by dividing the 130.803 numerator by the 0.864 denominator. Try it in the r console by typing: Note, the value will differ slightly because of rounding - i.e., the number of decimals R works with versus us</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fl">130.80</span> <span class="sc">/</span> <span class="fl">0.86</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fl">130.803</span> <span class="sc">/</span> <span class="fl">0.864</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 152.093</code></pre>
+<pre><code>[1] 151.4</code></pre>
 </div>
 </div>
 <p>The output also shows the Eta-squared (η2) effect size. As a rule of thumb, η2 = 0.01 indicates a small effect; η2 = 0.06 indicates a medium effect; η2 = 0.14 indicates a large effect. Our eta-squared (η2) represents a very large effect - i.e., the effect of our experimental manipulation on the Likeability scores was very large indeed.</p>
+<p>Just for fun - remember before when we generated the descriptive statistics and it was mentioned that they are stored to be reviewed again at our leisure? Let’s bring them back up again and take another peek. Why not?!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>IF done correctly, you will get the following</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  Group    variable  n   mean    sd min max
+1     A Likeability 80  2.500 0.928   1   4
+2     A       Score 80 58.100 6.449  44  72
+3     B Likeability 80  4.500 1.006   2   7
+4     B       Score 80 60.362 7.266  40  74
+5     O Likeability 79  2.114 0.847   1   4
+6     O       Score 80 63.600 7.217  47  79</code></pre>
+</div>
+</div>
 <hr>
 </section>
-<section id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" class="level3">
-<h3 class="anchored" data-anchor-id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format">3.2 Reporting the results of the one-factor between-participants ANOVA in APA format</h3>
+<section id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format" class="level4">
+<h4 class="anchored" data-anchor-id="reporting-the-results-of-the-one-factor-between-participants-anova-in-apa-format">3.2 Reporting the results of the one-factor between-participants ANOVA in APA format</h4>
 <p>All results should be written up in accordance with the American Psychological Association’s (APA) guidance. This ensures that your results are easy to interpret and that all the relevant information is present for those wishing to review/replicate your work.</p>
-<p>The current results can be reported as following: “A one-factor between-participants ANOVA revealed that likeability scores were significantly different between our robot groups (Robot A <em>M</em> = 2.50, <em>SD</em> = 0.93; Robot B <em>M</em> = 4.50, <em>SD</em> = 1.01; Robot O <em>M</em> = 2.11, <em>SD</em> = 0.85), <em>F</em>(2,236) = 151.3, <em>p</em> &lt; .001, η2 = 0.56, 95% CI[0.50, 1.00].</p>
+<p>The current results can be reported as following: “A one-factor between-participants ANOVA revealed that likeability scores were significantly different between our robot groups (Robot A <em>M</em> = 2.50, <em>SD</em> = 0.93; Robot B <em>M</em> = 4.50, <em>SD</em> = 1.01; Robot O <em>M</em> = 2.11, <em>SD</em> = 0.85), <em>F</em>(2,236) = 151, <em>p</em> &lt; .001, η2 = 0.56, 95% CI[0.50, 1.00].</p>
 <p><em>Please note. While the ANOVA tells us that there are differences between groups, it doesn’t tell us specifically which groups differ from one another. For example do Group A and B statistically differ? A and O? B and O? The only way to know this definitively is to carry out posthoc/planned contrast tests. We won’t do this today, as this will be a key facet of Lecture 3 and Lab 3, but please be aware that without these supplementary analyses the above APA reporting is incomplete</em></p>
 <hr>
 </section>
-<section id="creating-an-apa-barchart" class="level3">
-<h3 class="anchored" data-anchor-id="creating-an-apa-barchart">3.3 Creating an APA barchart</h3>
+<section id="creating-an-apa-barchart" class="level4">
+<h4 class="anchored" data-anchor-id="creating-an-apa-barchart">3.3 Creating an APA barchart</h4>
 <p>When reporting the results of an ANOVA in an APA report or publication, it is typical to include a barchart, illustrating the average scores and error bars for each group.</p>
 <p>As this is a formal chart, it is more sterile and less jazzy than the coloured graphs you have produced before. There are also important APA aesthetics which are required, such as grey colour scales, white background, black axes and text, etc. Before you fall asleep, let’s make one of these posh plots.</p>
 <p>Please copy and paste the following code. Please pay attention to the #annotations, which provide detail as to what each line of code is doing:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span> <span class="co">#our dataset</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> Group, <span class="co"># specifying our X axis</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> Likeability, <span class="co"># specifying our Y axis</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> Group)) <span class="sc">+</span> <span class="co"># How we will colour our separate bars</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># width of columns and space between columns</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars - yuck!</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># trick to remove space below 0 on y axis</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>), <span class="co"># set limit of Y axis to 7</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># set the breaks between yaxis points</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># removing the default grey background panel</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># creating black axes lines</span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># removing the legend, which is redundant</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span> <span class="co">#our dataset</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> Group, <span class="co"># specifying our X axis</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> Likeability, <span class="co"># specifying our Y axis</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> Group)) <span class="sc">+</span> <span class="co"># How we will colour our separate bars</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># width of columns and space between columns</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars - yuck!</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># trick to remove space below 0 on y axis</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>), <span class="co"># set limit of Y axis to 7</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># set the breaks between yaxis points</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># removing the default grey background panel</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># creating black axes lines</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># removing the legend, which is redundant</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
 (`geom_col()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Week2_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="Week2_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>This looks great. But to make it APA publishable we need to add some error bars to our plot. To add things like error bars and 95% Confidence intervals, we first need work out the values of these summary statistics. Luckily, an amazing package called <strong>Rmisc</strong> will provide these values for us with a simple command.</p>
-<p>Let’s make a new dataset for plotting our graphs which will include these values - using the summarySE() function of <strong>Rmisc</strong></p>
+<p>Let’s make a new dataset for plotting our graphs which will include these values - using the <span style="color: red;">summarySE()</span> function of <strong>Rmisc</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>Like_plot <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(lab2_data, <span class="at">measurevar=</span><span class="st">"Likeability"</span>, <span class="at">groupvars=</span><span class="fu">c</span>(<span class="st">"Group"</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co">#Like_plot is the name of our plot data set and na.rm asks R Studio to ignore our missing data point when calculating there summaries</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>Like_plot <span class="ot">=</span> <span class="fu">summarySE</span>(lab2_data, <span class="at">measurevar=</span><span class="st">"Likeability"</span>, <span class="at">groupvars=</span><span class="fu">c</span>(<span class="st">"Group"</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co">#Like_plot is the name of our plot data set and na.rm asks R Studio to ignore our missing data point when calculating the summaries</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Not let’s view this new data using head()</p>
+<p>Not let’s view this new data using <span style="color: red;">head()</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Like_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Like_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Group  N Likeability        sd         se        ci
-1     A 80    2.500000 0.9277713 0.10372798 0.2064654
-2     B 80    4.500000 1.0063092 0.11250879 0.2239431
-3     O 79    2.113924 0.8471270 0.09530923 0.1897461</code></pre>
+<pre><code>  Group  N Likeability     sd      se     ci
+1     A 80       2.500 0.9278 0.10373 0.2065
+2     B 80       4.500 1.0063 0.11251 0.2239
+3     O 79       2.114 0.8471 0.09531 0.1897</code></pre>
 </div>
 </div>
 <p>You can see it now gives us a summary of our Likeability data, including the Means, Standard Deviations, Standard Errors and confidence intervals.</p>
-<p>Now let’s add the Standard Error Bars to our graph. To do this, we repeat the same plotting code from above, but with two key differences. 1. We need to ensure that we change the dataset for the graph from <em>lab2_data</em> to <em>Like_plot</em> (our new summary data). 2. We add the function geom_errorbar() to specify that we would like to include error bars for our graph.</p>
+<p>Now let’s add the Standard Error Bars to our graph. To do this, we repeat the same plotting code from above, but with two key differences. 1. We need to ensure that we change the dataset for the graph from <em>lab2_data</em> to <em>Like_plot</em> (our new summary data). 2. We add the function <span style="color: red;">geom_errorbar()</span> to specify that we would like to include error bars for our graph.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Like_plot <span class="sc">%&gt;%</span> <span class="co">#our dataset</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> Group, <span class="co"># our X axis</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> Likeability, <span class="co"># our Y axis</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> Group)) <span class="sc">+</span> <span class="co"># How we will colour our seperate bars</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># width of columns and space between columns</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># trick to remove space below 0 on y axis</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>),</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># set limit of Y axis to 7</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># removing the background panel colour</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># creating black axes lines</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># removing the legend, which is redundant</span></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Likeability<span class="sc">-</span>se, <span class="at">ymax=</span>Likeability<span class="sc">+</span>se, <span class="at">width =</span> <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>Like_plot <span class="sc">%&gt;%</span> <span class="co">#our dataset</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> Group, <span class="co"># our X axis</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> Likeability, <span class="co"># our Y axis</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> Group)) <span class="sc">+</span> <span class="co"># How we will colour our seperate bars</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># width of columns and space between columns</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># trick to remove space below 0 on y axis</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>),</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># set limit of Y axis to 7</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># removing the background panel colour</span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># creating black axes lines</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># removing the legend, which is redundant</span></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Likeability<span class="sc">-</span>se, <span class="at">ymax=</span>Likeability<span class="sc">+</span>se, <span class="at">width =</span> <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Week2_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<p><img src="Week2_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Perfect! Error bars accomplished.</p>
 <hr>
 </section>
-</section>
-<section id="further-tasks" class="level2">
-<h2 class="anchored" data-anchor-id="further-tasks">4 Further tasks</h2>
+<section id="further-tasks" class="level4">
+<h4 class="anchored" data-anchor-id="further-tasks">4 Further tasks</h4>
 <ol type="1">
-<li>We have seen that there are signficant differences between at least two groups when it comes to the Likeability scores. Now please eye ball the means and the barchart and try to predict which groups differed. Talk this over with a lab mate or instructor. We will test this with further analyses next week!</li>
+<li>We have seen that there are signficant differences between at least two groups when it comes to the Likeability scores. Now please eye ball the means and the barchart and try to predict which groups differed. Talk this over with a lab mate or your inner self. We will test this with further analyses next week!</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
-<li>We have yet to look for statistical differences between in Psyc214 Scores between our groups. Run another one-factor between-participants ANOVA following the instructions above. This time, be sure to replace our previous DV Likeability with our other DV Scores.</li>
+<li>We have yet to look for statistical differences between in Psyc214 Scores between our groups. Run another one-factor between-participants ANOVA following the instructions above. This time, be sure to replace our previous DV Likeability with our other DV - Score.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>Model_2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> lab2_data, Score <span class="sc">~</span> Group)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model_2)<span class="co">#We ask for a summary of this model. This provides F statistic and P value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-Group         2   1223   611.3   12.52 6.77e-06 ***
-Residuals   237  11571    48.8                     
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(Model_2) <span class="co"># we ask for an eta2 effect size for our model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>For one-way between subjects designs, partial eta squared is equivalent
-  to eta squared. Returning eta squared.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># Effect Size for ANOVA
-
-Parameter | Eta2 |       95% CI
--------------------------------
-Group     | 0.10 | [0.04, 1.00]
-
-- One-sided CIs: upper bound fixed at [1.00].</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When completely correctly, you should get the following output:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-Group         2   1223   611.3   12.52 6.77e-06 ***
-Residuals   237  11571    48.8                     
+<pre><code>             Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+Group         2  1222.7  611.34  12.522 6.768e-06 ***
+Residuals   237 11570.9   48.82                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -920,53 +1014,50 @@ Group     | 0.10 | [0.04, 1.00]
 <li>Report this second ANOVA to APA standards following example above (3.2)</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
-<li>Repeat the steps 3.3 and again create an APA standard barchart - this time plotting our three different groups and their Psyc214 Scores. Please finish this off with error bars. *Hint for the error bars - you will need to create a new ‘Scores_plot’ sub data set using the summarySE() function.</li>
+<li>Repeat the steps 3.3 and again create an APA standard barchart - this time plotting our three different groups and their Psyc214 Scores. Please finish this off with error bars. *Hint for the error bars - you will need to create a new ‘Scores_plot’ sub data set using the <span style="color: red;">summarySE()</span> function.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>Scores_plot <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(lab2_data, <span class="at">measurevar=</span><span class="st">"Score"</span>, <span class="at">groupvars=</span><span class="fu">c</span>(<span class="st">"Group"</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co">#Like_plot is the name of our plot data set and na.rm asks R Studio to ignore our missing data point when calculating there summaries</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>Scores_plot <span class="sc">%&gt;%</span> <span class="co">#our dataset</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> Group, <span class="co"># our X axis</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> Score, <span class="co"># our Y axis</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> Group)) <span class="sc">+</span> <span class="co"># How we will colour our seperate bars</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># width of columns and space between columns</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars</span></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># trick to remove space below 0 on y axis</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">90</span>),</span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">90</span>, <span class="dv">5</span>)) <span class="sc">+</span> <span class="co"># set limit of Y axis to 7</span></span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># removing the background panel colour</span></span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># creating black axes lines</span></span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># removing the legend, which is redundant</span></span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Score<span class="sc">-</span>se, <span class="at">ymax=</span>Score<span class="sc">+</span>se, <span class="at">width =</span> <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="Week2_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
-</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="5" type="1">
 <li>Again, try to think which groups may significantly differ from one another by eyeballing the means and barchart information. We will confirm this all next week.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="6" type="1">
-<li>Before you finish, make sure you save a copy of the script that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.</li>
+<li>Just for fun, produce descriptive statistics (mean, sd, min, max) for our ‘superlikers’. When you do this, <strong>don’t</strong> group data by Groups A, B and O. Talk to yourself or class mate about these statistics and what they tell you.</li>
 </ol>
-<p>Please end your session on the RStudio server, this logs you out of the server and stops any ongoing activities and tasks you have set up, maybe in the background.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol start="7" type="1">
+<li>Produce a histogram for the superlikers sub- data set, checking the distribution of their test ‘Scores’.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="8" type="1">
+<li>Before you finish, make sure you <span style="color: red;">save a copy of the script</span> that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.</li>
+</ol>
+<p><span style="color: red;">Please end your session on the RStudio server, this logs you out of the server and stops any ongoing activities and tasks you have set up, maybe in the background.</span></p>
+<img src="https://tombeesley.github.io/PSYC121_2022-23/files/Week_1/power_button.png" width="300" height="150">
+<p align="left">
+Ending session on R Studio
+</p>
+<ol start="9" type="1">
 <li>…………………. Now breathe! You’ve rocked it!!!</li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://images.pexels.com/photos/92870/pexels-photo-92870.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260%22%20width=%22420%22%20height=%22250" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Top work!</figcaption>
-</figure>
-</div>
+<img src="https://images.pexels.com/photos/92870/pexels-photo-92870.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" width="420" height="250">
+<p align="left">
+Top work!
+</p>
 
 
+</section>
 </section>
 </section>
 

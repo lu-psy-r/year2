@@ -72,10 +72,10 @@ Let's start by loading the packages (i.e., the dependencies) we'll use for this 
 Please copy or type the following commands into R Studio to get these packages activated:
 
 ```{r, warning=FALSE, message=FALSE}
-library(tidyverse) # allows pipes, arrang(), summary(), aov(), etc
-library(rstatix) # allows group_by()
+library(tidyverse)  # allows pipes, arrang(), summary(), aov(), etc
+library(rstatix)    # allows group_by()
 library(effectsize) # a neat little package that provides the effect size
-library(Rmisc) # allows shorthand calculations of standard errors and confidence intervals
+library(Rmisc)      # allows shorthand calculations of standard errors and confidence intervals
 ```
 
 More on these packages later.
@@ -87,20 +87,20 @@ Data... Assemble! Ok - Let's load the data and crack on with today's work.
   The working directory can be set with the following R code:
 
 ```{r eval=FALSE}
-  setwd("~/psyc214_lab_2")
+setwd("~/psyc214_lab_2")
 ```
 
   5. Great. Now we're ready to load the dataset which we kindly housed on our server. To do this, please type the following code:
 
 ```{r, message=FALSE, eval=FALSE}
- lab2_data <- read_csv("week2_robo_lab.csv")
+lab2_data <- read_csv("week2_robo_lab.csv")
 ```
 
 ```{r, message=FALSE, echo=FALSE}
- lab2_data <- read_csv("data/wk2/week2_robo_lab.csv")
+lab2_data <- read_csv("data/wk2/week2_robo_lab.csv")
 ```
 
-  where 'lab2_data' is the name we've assigned that R will recognise when it calls up our data, `read_csv` is the R command to pull up the data and "week2_robo_lab.csv" is the name of the data file stored on the server.
+where 'lab2_data' is the name we've assigned that R will recognise when it calls up our data, `read_csv` is the R command to pull up the data and "week2_robo_lab.csv" is the name of the data file stored on the server.
 
 *Note. During the rest of this session, you will not need to refer to the original downloaded .csv data file. R has all the information stored under the 'lab2_data' variable. Further note, you could have called 'lab2_data' by pretty much any name you like... 'my_data', 'robo_2', 'stat_attack', etc. - the name is somewhat arbitrary. For the purpose of this lab session and for ease of read, 'lab2_data', is perhaps more suitable.*
 
@@ -151,8 +151,6 @@ Those individuals assigned Robot O(mega) were denoted as beloning to 'Group O'.
 
 Note. The groups are mutually exclusively - i.e., a participant was assigned to *either* Group A/Robot A, Group B/Robot B, Group O/Robot O.
 
-
-
 ******
 ### 2.3 Outcome (a.k.a dependent) variables
 
@@ -175,10 +173,90 @@ Specifically, the experimental hypotheses were that:
 Prior to the experiment, independent raters reliably agreed that Robot O(mega) more closely resembled a human being than Robot B(eta) [second closest resemblance] and Robot A(lpha) [lowest resemblance].
 
 ******
-### 2.5 Exploring our data
-Now that you are familiar with the research setting, let's explore this week's data.
+#### 2.5 Classifying our variables
+Unlike last week, where we skimmed over a bit, we should really start our session by classifying our variables. Classifying variables means assigning them to specific categories or types, such as numeric, factor, character, or logical, based on their nature and the kind of data they represent. We do this to ensure that the data is processed and analyzed correctly in statistical software.
 
-Let's start with a nose, by looking a the top 20 rows of our dataset - like last week we will use the `head()` command.
+Typical data classes include:
+\
+\
+*Numeric*: These are the general number data type in R, which can be of type integer (i.e., whole number) or double (i.e., with decimals).
+\
+\
+*Factor*: Factors are used to handle categorical data. They can store both strings and integers, and each unique value in a factor has a level associated with it.
+\
+\
+*Character*: This is the basic type to represent strings.
+\
+\
+*Logical*: Represents TRUE or FALSE values.
+\
+\
+*Date and Time*: R has special classes like Date, POSIXct, and POSIXlt to handle date and time.
+\
+\
+You can check the class of any object in R using the class() function. For instance:
+```{r}
+class(lab2_data$Likeability)
+```
+
+This tell us that our likeability variable is a numeric data. This makes sense, as our participants were asked to score how much they liked their robot on a scale of 1-7. 
+
+We also have three other variables in this dataset, however, named 'ID', 'Group' and 'Score'. Please adjust the code directly above to check the classification type for each of the additional three variables.
+
+Let's start with 'ID'
+```{r}
+# STUDENT COMPLETES
+```
+If done correctly, you should receive the following output
+```{r, echo=FALSE}
+class(lab2_data$ID)
+```
+
+Now let's check the classification for 'Group'
+```{r}
+# STUDENT COMPLETES
+```
+
+You should receive the following output
+```{r, echo=FALSE}
+class(lab2_data$Group)
+```
+
+And finally, for 'Score'
+```{r}
+# STUDENT COMPLETES
+```
+With the output as follows
+```{r, echo=FALSE}
+class(lab2_data$Score)
+```
+
+Ok, great. So this is telling us that our 'ID' and 'Score' variables are both numerical variables, while 'Group' is classified as a character variable - i.e., is a text string.
+
+This latter classification of 'character' isn't so helpful, because our 'Group' variable in fact represents our experimental factor (i.e., our Independent Variable). Therefore, we need to convert this variable into a factor.
+To do this, we run the following code:
+
+```{r}
+# Convert the group variable into a factor with three levels, "A", "B" and "O" 
+lab2_data$Group = factor(lab2_data$Group, levels = c("A","B","O"))
+```
+
+Perfect. Now let's check that everything worked and that 'Group' is now recognised as a factor. Please repeat the step above to check the classification of 'Group' using the <span style="color: red;">class()</span> function.
+
+```{r}
+# STUDENT COMPLETES
+```
+
+If everything is hunky, dory you will receive the following output
+```{r, echo=FALSE}
+class(lab2_data$Group)
+```
+
+******
+#### 2.6 Exploring our data
+Now that you are familiar with the research setting and the classification of our variables, let's explore this week's data.
+
+Let's start with a nose, by looking a the top 20 rows of our dataset - like last week we will use the <span style="color: red;">head()</span> command.
 
 To view these first rows, please apply the following code:
 
@@ -186,11 +264,11 @@ To view these first rows, please apply the following code:
 head(lab2_data, n = 20)
 ```
 
-Because of the way we ordered our data in the original .csv spreadsheet, we are not able to see beyond the first 20 cases in Group A. Therefore, let's use the arrange() function to order our data instead by Score - we can combine this with the head() through the use of a pipe %>%. *Please recall, a pipe works as a specialized chain, letting you pass an intermediate result onto the next function*.
+Because of the way we ordered our data in the original .csv spreadsheet, we are not able to see beyond the first 20 cases in Group A. Therefore, let's use the <span style="color: red;">arrange()</span> function to order our data instead by Score - we can combine this with the <span style="color: red;">head()</span> through the use of a pipe <span style="color: red;">%>%</span>. *Please recall, a pipe works as a specialized chain, letting you pass an intermediate result onto the next function*.
 
 ```{r}
 lab2_data %>% arrange(desc(Score)) %>% head(n=20)
-```
+``` 
 
 This all looks fine. We can see that the highest score a student received was 79. We also see a tendency in data in which the highest scores are achieved by the Robot Beta and Omega groups (i.e., groups B and O).
 
@@ -198,24 +276,29 @@ Now let's do the same and check the 20 highest Likeability values.
 To do this, please copy the code above, but change 'Score' to 'Likeability'
 
 ```{r}
-#ANSWER CODE
-lab2_data %>% arrange(desc(Likeability)) %>% head(n=20)
+# STUDENT COMPLETES
 ```
 
 If done correctly you will receive the following output
+
 ```{r, echo=FALSE}
-  lab2_data %>% arrange(desc(Likeability)) %>% head(n=20)
+lab2_data %>% arrange(desc(Likeability)) %>% head(n=20)
 ```
 
-![Hold up!](https://images.unsplash.com/photo-1542707309-4f9de5fd1d9c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80)
-
+  <img src="https://images.unsplash.com/photo-1542707309-4f9de5fd1d9c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80" width="400" height="500" />
+  <p align = "left">
+  Fig.10 - Hold up!
+  </p>
+\
+  
+  
 Now wait! This data looks proper dodgy. We can see that the highest likeability score was 33. This can't be right? Can it?! Nope, definitely not, the scale should range from 1 - 7, meaning this is an error.
 
 What on earth happened? Perhaps the '3' key was hit twice by mistake? Perhaps the researcher dropped their biscuit on the keyboard when working? As we do not know what happened, we need to ensure that this data point is recorded as missing.
 To do this, please type or copy/paste the following command
 
 ```{r}
-lab2_data$Likeability[lab2_data$Likeability > 7] <- NA
+lab2_data$Likeability[lab2_data$Likeability > 7] = NA
 ```
 
 This is asking R Studio to scan the likeability column of our dataset and to set any value above 7 as missing.
@@ -223,16 +306,67 @@ This is asking R Studio to scan the likeability column of our dataset and to set
 Now let's check out the top 20 likeability scores again, just to be sure the 33 has gone.
 
 ```{r}
-  lab2_data %>% arrange(desc(Likeability)) %>% head(n=20)
-```
+lab2_data %>% arrange(desc(Likeability)) %>% head(n=20)
+``` 
 
-Phew, that's all sorted now.
+Phew, that's all sorted now.  
 Wow, looking at the data it seems that Robot B(eta) is extremely likeable - cute little fella.
 
-Next, let's use the ggplot  package to create two histograms to inspect the distribution of all data points for both Likeability and Scores variables. First we call up the ggplot function. In the brackets, we first inform the function the name of the dataset - for us, lab2_data. Then, we write aes() *shorthand for for astethics* followed by the variable we would like on the x asis - for us 'Likeability'. Finally, we choose number of bins (e.g., how many columns we'd like for our plot) and choose a fill colour - I have grey, but as this is exploratory and not an official APA style report feel free to try other colours you like.
+Something that may be useful now, but also for your third year dissertation, is to filter out some cases. 
+By filtering data, researchers can focus on specific subsets of the data that are most pertinent to their questions. For example, maybe you only want participants who passed a manipulation check or those of a certain age group.
+You can then use this filtered data or return to your original, larger data set.
+
+Just for fun, let's try filtering some of our data.
+I know! What about if we filter out only participants who provided a likeability score of 6 or more - the superlikers?
+How would we go about filtering this?
+
+To do this, we need to use the <span style="color: red;">filter()</span> function.
 
 ```{r}
-  ggplot(data = lab2_data, aes(x = Likeability)) +
+# create new sub- data set called 'superlikers' by filtering out those cases in lab2_data whose likeability score >= 6
+superlikers_data = lab2_data %>% filter(Likeability >= 6)
+``` 
+
+This has (should have) then created a new sub- data set called 'superlikers_data'.
+
+Let's use the head() function here to call this new sub- data set and see if it exists.
+
+```{r}
+head(superlikers_data)
+```
+
+It's there alright. Ok! So what if we want to work with the subset and ask it some pressing questions?
+Well we can work with this data in the same way we work with the larger dataset, we just need to make sure we call the correct data - i.e., we call our new 'superlikers_data' and not our older / larger 'lab2_data'.
+
+Let's give it a go. 
+For example, if we wanted to count how many cases we have in this dataset - i.e., how many superlikers we have - we could write out the following code. 
+
+```{r}
+# count the number of data rows in superlikers_data and show this value
+show(nrow(superlikers_data))
+```
+
+Now we know that there are 14 superlikers in total, we can use the <span style="color: red;">head()</span> function together with combined with the <span style="color: red;">n=</span> specifier to bring to glimpse at all cases for our 'superlikers_data'.
+
+Please give it a go. Hint, this is one line of code: head(nameofdataset, n=xx)
+```{r}
+# STUDENT COMPLETES
+```
+
+You should receive the following
+```{r, echo=FALSE}
+head(superlikers_data, n=14)
+```
+
+******
+#### 2.7 Creating some histograms and looking at descriptives
+
+Ok. Having a go at filtering data and working with data subsets was a lovely distraction, but let's get back to business and work with the full data set again.
+
+Now that we're back working with 'lab2_data', let's use the <span style="color: red;">ggplot</span>  package to create two histograms to inspect the distribution of all data points for both Likeability and Scores variables. First we call up the ggplot function. In the brackets, we first inform the function the name of the dataset - for us, lab2_data. Then, we write <span style="color: red;">aes()</span> *shorthand for for astethics* followed by the variable we would like on the x asis - for us 'Likeability'. Finally, we choose number of bins (e.g., how many columns we'd like for our plot) and choose a fill colour - I have grey, but as this is exploratory and not an official APA style report feel free to try other colours you like. 
+
+```{r}
+ggplot(data = lab2_data, aes(x = Likeability)) + 
   geom_histogram(bins = 5, fill = "grey")
 ```
 
@@ -241,14 +375,12 @@ This gives us some general information. Have a chat with a study neighbour or wi
 Now, I would like you to borrow from the example above and try to make your own histogram plot for our other DV, Score. This will require the careful replacing of the x = Likeability to our other dependent variable name. Also, please change the number of bins (aka columns) to 12.
 
 ```{r}
-#ANSWER CODE
-  ggplot(data = lab2_data, aes(x = Score)) +
-  geom_histogram(bins = 12, fill = "grey")
+# STUDENT COMPLETES
 ```
 
 If done correctly, you should receive the following output:
 ```{r, echo=FALSE}
-  ggplot(data = lab2_data, aes(x = Score)) +
+ggplot(data = lab2_data, aes(x = Score)) + 
   geom_histogram(bins = 12, fill = "grey")
 ```
 
@@ -256,12 +388,17 @@ One again, this provides some nice frequency information. Have a chat with a stu
 
 Although this information is useful, we are restricted to frequency data (i.e., number of occurrences data) and aggregated data (i.e., we're seeing all data points, regardless of the group assigned)
 
-Therefore, let's use the `rstatix()` package again to get some neat and tidy summary statistics. We first specify the dataset we will use - which is lab2_data. After this we will use a pipe to ask R Studio to pass this data set on to the next function. Here, we use the group_by() function to specify that we want to distinguish between our three different groups - a variable conveniently named 'Group'. We then use another pipe to pass the intermediate result onto the next function - the get_summary_stats(). In the parentheses we include our two DVs 'Likeability' and 'Score'. Finally we are asked to specify what 'type' of summary statistic we would like. Let's go for mean, standard deviation, min and max values.
+Therefore, let's use the <span style="color: red;">rstatix()</span> package again to get some neat and tidy summary statistics. We first specify the dataset we will use - which is lab2_data. After this we will use a pipe to ask R Studio to pass this data set on to the next function. Here, we use the <span style="color: red;">group_by()</span> function to specify that we want to distinguish between our three different groups - a variable conveniently named 'Group'. We then use another pipe to pass the intermediate result onto the next function - the <span style="color: red;">get_summary_stats()</span>. In the parentheses we include our two DVs 'Likeability' and 'Score'. Finally we are asked to specify what 'type' of summary statistic we would like. Let's go for mean, standard deviation, min and max values. 
+\
+Note here (and unlike last week) that we are using the '=' symbol to assign the result of our operations to a specific variable. Here we have called it 'descriptives' but we could have a called it almost anything at all. This means we can call up 'descriptives' at a later time, if needs be, without needing to reproduce all of the code. 
 
 ```{r}
-  lab2_data %>%
-  group_by(Group) %>%
+descriptives = lab2_data %>% #Access our data 
+  group_by(Group) %>% #Seperate data by group
+  #get the mean, sd, min and max values for Likeability and Score
   get_summary_stats(Likeability, Score, show = c("mean", "sd", "min", "max"))
+  options(digits = 4) # round the results to *at least* two-decimal places - you can play with the digits to see how it varies
+  print.data.frame(descriptives) # print descriptives
 ```
 
 Ok, perfect. This now tells us a lot of information. For example, we can see that the mean Likeability scores for Groups A, B, O are 2.5, 4.5, 2.11, respectively.
@@ -269,47 +406,59 @@ Ok, perfect. This now tells us a lot of information. For example, we can see tha
 Once again, it seems that we may have different values between groups. However, it is impossible to know whether there are statistically differences based on eye-balling the means. Rather, we need to statistically examine the degree of shared within and between group variances.
 
 ******
-
 ## 3. And more
 
-### 3.1 One-factor between group ANOVA
+#### 3.1 One-factor between group ANOVA
 
-To identify whether the differences between groups are statistically significant, we need to perform an Analysis of Variance. First, let's be sure we have chosen the correct type of ANOVA. We have one factor. This is because we have one Independent Variable (Robot) with three levels (Robot A, B and O). Also, the design is between group, as each participant is assigned to only one robot, and data from only one time point is taken.
+To identify whether the differences between groups are statistically significant, we need to perform an Analysis of Variance (ANOVA). First, let's be sure we have chosen the correct type of ANOVA. We have one factor. This is because we have one Independent Variable (Robot) with three levels (Robot A, B and O). Also, the design is between group, as each participant is assigned to only one robot, and data from only one time point is taken.
 
-To run our one-factor between participants ANOVA, we will use tidyverse's 'aov()' function. Let's set 'Likeability' as our first dependent variable of examination. 'Group' is then our predictive factor (independent variable). Note, in the code below, the DV and the IV are separated by the '~' character. Please carry out the following command. This also includes requesting a summary and effectsize for our model.
-
-```{r}
-Model_1 <- aov(data = lab2_data, Likeability ~ Group) #We name our overarching model Model_1
-summary(Model_1)#We ask for a summary of this model. This provides F statistic and P value
-effectsize(Model_1) # we ask for an eta2 effect size for our model
-```
-
-This has provided us with a whole bunch of useful information!
-It shows us the between group variability value (do you remember, the numerator value in our F ratio equation from lecture 2?), which R has named the Group Mean Square (a value here of 130.80).
-
-It also provides the within group variability value - aka the error term (do you remember, the denominator in our F ratio equation from lecture 2), which R has named the Residuals mean square (a value here of 0.86)
-
-It provides the crucial F-ratio statistic, here a value of 151.3.
-**note, like in lecture 2, you could have calculated this value yourselves by dividing the 130.80 numerator by the 0.86 denominator. Try it in the r console by typing: Note, the value will differ slightly because of rounding - i.e., the number of decimals R works with versus us**
+To run our one-factor between participants ANOVA, we will use tidyverse's <span style="color: red;">'aov()'</span> function. Let's set 'Likeability' as our first dependent variable of examination. 'Group' is then our predictive factor (independent variable). Note, in the code below, the DV and the IV are separated by the '~' character. Please carry out the following command. This also includes requesting a summary and effectsize for our model.
 
 ```{r}
-130.80 / 0.86
+Model_1 = aov(data = lab2_data, Likeability ~ Group) #We name our overarching model Model_1
+  print(summary(Model_1), digits = 5) #We print a summary of this model. This provides F statistic and P value. Change                                       the number of digits to alter the number of displayed decimal places.
+  effectsize(Model_1) #We ask for an eta2 effect size for our model
 ```
 
-The output also shows the Eta-squared (η2) effect size. As a rule of thumb, η2 = 0.01 indicates a small effect; η2 = 0.06 indicates a medium effect; η2 = 0.14 indicates a large effect. Our eta-squared (η2) represents a very large effect - i.e., the effect of our experimental manipulation on the Likeability scores was very large indeed.
+This has provided us with a whole bunch of useful information! 
+It shows us the between group variability value (do you remember, the numerator value in our F ratio equation from lecture 2?), which R has named the Group Mean Square (a value here of 130.803). 
+
+It also provides the within group variability value - aka the error term (do you remember, the denominator in our F ratio equation from lecture 2), which R has named the Residuals mean square (a value here of 0.864)
+
+It provides the crucial F-ratio statistic, here a value of 151.34.
+
+**note, like in lecture 2, you could have calculated this value yourselves by dividing the 130.803 numerator by the 0.864 denominator. Try it in the r console by typing: Note, the value will differ slightly because of rounding - i.e., the number of decimals R works with versus us**
+
+```{r}
+130.803 / 0.864
+```
+
+The output also shows the Eta-squared (η2) effect size. As a rule of thumb, η2 = 0.01 indicates a small effect; η2 = 0.06 indicates a medium effect; η2 = 0.14 indicates a large effect. Our eta-squared (η2) represents a very large effect - i.e., the effect of our experimental manipulation on the Likeability scores was very large indeed. 
+
+Just for fun - remember before when we generated the descriptive statistics and it was mentioned that they are stored to be reviewed again at our leisure? Let's bring them back up again and take another peek. Why not?!
+
+```{r}
+# STUDENT COMPLETES
+```
+
+IF done correctly, you will get the following
+
+```{r, echo=FALSE}
+print.data.frame(descriptives) # print descriptives
+```
 
 ******
-### 3.2 Reporting the results of the one-factor between-participants ANOVA in APA format
+#### 3.2 Reporting the results of the one-factor between-participants ANOVA in APA format
 
 All results should be written up in accordance with the American Psychological Association's (APA) guidance. This ensures that your results are easy to interpret and that all the relevant information is present for those wishing to review/replicate your work.
 
 The current results can be reported as following:
-"A one-factor between-participants ANOVA revealed that likeability scores were significantly different between our robot groups (Robot A *M* = 2.50, *SD* = 0.93; Robot B *M* = 4.50, *SD* = 1.01; Robot O *M* = 2.11, *SD* = 0.85), *F*(2,236) = 151.3, *p* < .001, η2 = 0.56, 95% CI[0.50, 1.00].
+"A one-factor between-participants ANOVA revealed that likeability scores were significantly different between our robot groups (Robot A *M* = 2.50, *SD* = 0.93; Robot B *M* = 4.50, *SD* = 1.01; Robot O *M* = 2.11, *SD* = 0.85), *F*(2,236) = 151, *p* < .001, η2 = 0.56, 95% CI[0.50, 1.00].
 
 *Please note. While the ANOVA tells us that there are differences between groups, it doesn't tell us specifically which groups differ from one another. For example do Group A and B statistically differ? A and O? B and O? The only way to know this definitively is to carry out posthoc/planned contrast tests. We won't do this today, as this will be a key facet of Lecture 3 and Lab 3, but please be aware that without these supplementary analyses the above APA reporting is incomplete*
 
 ******
-### 3.3 Creating an APA barchart
+#### 3.3 Creating an APA barchart
 
 When reporting the results of an ANOVA in an APA report or publication, it is typical to  include a barchart, illustrating the average scores and error bars for each group.
 
@@ -335,13 +484,13 @@ lab2_data %>% #our dataset
 
 This looks great. But to make it APA publishable we need to add some error bars to our plot. To add things like error bars and 95% Confidence intervals, we first need work out the values of these summary statistics. Luckily, an amazing package called **Rmisc** will provide these values for us with a simple command.
 
-Let's make a new dataset for plotting our graphs which will include these values - using the summarySE() function of **Rmisc**
+Let's make a new dataset for plotting our graphs which will include these values - using the <span style="color: red;">summarySE()</span> function of **Rmisc**
 
 ```{r}
-Like_plot <- summarySE(lab2_data, measurevar="Likeability", groupvars=c("Group"), na.rm = TRUE) #Like_plot is the name of our plot data set and na.rm asks R Studio to ignore our missing data point when calculating there summaries
+Like_plot = summarySE(lab2_data, measurevar="Likeability", groupvars=c("Group"), na.rm = TRUE) #Like_plot is the name of our plot data set and na.rm asks R Studio to ignore our missing data point when calculating the summaries
 ```
 
-Not let's view this new data using head()
+Not let's view this new data using <span style="color: red;">head()</span>
 ```{r}
 head(Like_plot)
 ```
@@ -350,7 +499,7 @@ You can see it now gives us a summary of our Likeability data, including the Mea
 
 Now let's add the Standard Error Bars to our graph. To do this, we repeat the same plotting code from above, but with two key differences.
 1. We need to ensure that we change the dataset for the graph from *lab2_data* to *Like_plot* (our new summary data).
-2. We add the function geom_errorbar() to specify that we would like to include error bars for our graph.
+2. We add the function <span style="color: red;">geom_errorbar()</span> to specify that we would like to include error bars for our graph.
 
 ```{r}
 Like_plot %>% #our dataset
@@ -371,70 +520,71 @@ Like_plot %>% #our dataset
 
 Perfect! Error bars accomplished.
 
-
 ******
-## 4 Further tasks
+#### 4 Further tasks
 
-1. We have seen that there are signficant differences between at least two groups when it comes to the Likeability scores. Now please eye ball the means and the barchart and try to predict which groups differed. Talk this over with a lab mate or instructor. We will test this with further analyses next week!
+1. We have seen that there are signficant differences between at least two groups when it comes to the Likeability scores. Now please eye ball the means and the barchart and try to predict which groups differed. Talk this over with a lab mate or your inner self. We will test this with further analyses next week!
 
 ```{r}
-#STUDENT COMPLETES
+# STUDENT COMPLETES
 ```
 
-2. We have yet to look for statistical differences between in Psyc214 Scores between our groups. Run another one-factor between-participants ANOVA following the instructions above. This time, be sure to replace our previous DV Likeability with our other DV Scores.
+2. We have yet to look for statistical differences between in Psyc214 Scores between our groups. Run another one-factor between-participants ANOVA following the instructions above. This time, be sure to replace our previous DV Likeability with our other DV - Score.
 
 ```{r}
-#ANSWER CODE
-Model_2 <- aov(data = lab2_data, Score ~ Group)
-summary(Model_2)#We ask for a summary of this model. This provides F statistic and P value
-effectsize(Model_2) # we ask for an eta2 effect size for our model
+# STUDENT COMPLETES
 ```
 
 When completely correctly, you should get the following output:
 ```{r, echo=FALSE}
-Model_2 <- aov(data = lab2_data, Score ~ Group)
-summary(Model_2)#We ask for a summary of this model. This provides F statistic and P value
-effectsize(Model_2) # we ask for an eta2 effect size for our model
+Model_2 = aov(data = lab2_data, Score ~ Group)
+  print(summary(Model_2), digits = 5) #We print a summary of this model. This provides F statistic and P value. Change                                       the number of digits to alter the number of displayed decimal places.
+  effectsize(Model_2) #We ask for an eta2 effect size for our model
 ```
 
 3. Report this second ANOVA to APA standards following example above (3.2)
 
 ```{r}
-#STUDENT COMPLETES
+# STUDENT COMPLETES
 ```
 
-4. Repeat the steps 3.3 and again create an APA standard barchart - this time plotting our three different groups and their Psyc214 Scores. Please finish this off with error bars. *Hint for the error bars - you will need to create a new 'Scores_plot' sub data set using the summarySE() function.
+4. Repeat the steps 3.3 and again create an APA standard barchart - this time plotting our three different groups and their Psyc214 Scores. Please finish this off with error bars. *Hint for the error bars - you will need to create a new 'Scores_plot' sub data set using the <span style="color: red;">summarySE()</span> function.
 
 ```{r}
-Scores_plot <- summarySE(lab2_data, measurevar="Score", groupvars=c("Group"), na.rm = TRUE) #Like_plot is the name of our plot data set and na.rm asks R Studio to ignore our missing data point when calculating there summaries
-
-Scores_plot %>% #our dataset
-    ggplot(aes(x= Group, # our X axis
-               y = Score, # our Y axis
-               fill = Group)) + # How we will colour our seperate bars
-    geom_col(width = .7, position = position_dodge(.3)) + # width of columns and space between columns
-    scale_fill_manual(values = c("#D4D4D4", "#737373", "#323232")) + # APA colours for bars
-    scale_y_continuous(expand = expansion(0), # trick to remove space below 0 on y axis
-                       limits = c(0, 90),
-                       breaks = seq(0, 90, 5)) + # set limit of Y axis to 7
-    theme(panel.background = element_blank(), # removing the background panel colour
-          axis.line = element_line(color = "black"), # creating black axes lines
-          axis.ticks.x = element_blank(),
-          legend.position = "none") + # removing the legend, which is redundant
-    geom_errorbar(aes(ymin=Score-se, ymax=Score+se, width = 0.2))
+# STUDENT COMPLETES
 ```
 
 5. Again, try to think which groups may significantly differ from one another by eyeballing the means and barchart information. We will confirm this all next week.
 
 ```{r}
-#STUDENT COMPLETES
+# STUDENT COMPLETES
 ```
 
-6. Before you finish, make sure you save a copy of the script that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.
+6. Just for fun, produce descriptive statistics (mean, sd, min, max) for our 'superlikers'. When you do this, **don't** group data by Groups A, B and O. Talk to yourself or class mate about these statistics and what they tell you.
 
-Please end your session on the RStudio server, this logs you out of the server and stops any ongoing activities and tasks you have set up, maybe in the background.
+```{r}
+# STUDENT COMPLETES
+```
+
+7. Produce a histogram for the superlikers sub- data set, checking the distribution of their test 'Scores'.
+
+```{r}
+# STUDENT COMPLETES
+```
 
 
-7. ...................... Now breathe! You've rocked it!!!
+8. Before you finish, make sure you <span style="color: red;">save a copy of the script</span> that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.
 
-![Top work!](https://images.pexels.com/photos/92870/pexels-photo-92870.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" width="420" height="250)
+<span style="color: red;">Please end your session on the RStudio server, this logs you out of the server and stops any ongoing activities and tasks you have set up, maybe in the background.</span>
+
+<img src="https://tombeesley.github.io/PSYC121_2022-23/files/Week_1/power_button.png" width="300" height="150" />
+  <p align = "left">
+  Ending session on R Studio
+  </p>
+
+9. ...................... Now breathe! You've rocked it!!!
+
+<img src="https://images.pexels.com/photos/92870/pexels-photo-92870.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" width="420" height="250" />
+  <p align = "left">
+  Top work!
+  </p>
