@@ -242,7 +242,7 @@ You will note in your own output, that the scores are once again showing over 10
 To make this more manageable, please try writing your own code combining the `arrange(desc())` function, a pipe `%>%` and the `head(n = x)` function. If stuck, refer to the command we used higher up.
 
 ```{r}
-#ANSWER CODE
+# ANSWER CODE
 lab1_data %>% arrange(desc(Score)) %>% head(n=10)
 ```
 
@@ -274,7 +274,7 @@ Ok! I'm pretty sure you've now created a new variable entitled 'Score_Category'.
 ```
 
 If done correctly, you should received the following output:
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 head(lab1_data)
 ```
 
@@ -329,6 +329,10 @@ Here we see that the range in Psyc214 test scores (i.e., the min and max scores 
 Also, the min and max ratings for the likeability scores were between 0 and 7, respectively.
 
 Now, please try to apply the code above yourself, but change 'range' with the standard deviation 'sd' argument to get the standard deviation for both the score and likeability variables simultaneously.
+
+```{r}
+# STUDENT COMPLETES
+```
 
 ```{r include = FALSE}
 #ANSWER CODE
