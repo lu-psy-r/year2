@@ -446,7 +446,7 @@ The current results can be reported as following:
 1. repeat the steps in '2.8 Descriptives by group condition', this time examining the summary statistics for our second dependent variable - 'Likeability'.
 
 ```{r include = TRUE}
-  #ANSWER CODE
+# ANSWER CODE
 lab1_data %>%
   group_by(Group) %>%
   get_summary_stats(Likeability, type = "mean")
@@ -455,7 +455,7 @@ lab1_data %>%
 2. repeat the steps in '3.1 Visualising data', this time creating box plots for our second dependent variable - 'Likeability'. Rename the title and axes to something more suitable and perhaps even change the colour of data points. Describe the trends in data to a classmate or your inner self.
 
 ```{r include = TRUE}
-#ANSWER CODE
+# ANSWER CODE
 # Box plot of likeability scores by Robot Condition
 ggboxplot(lab1_data,main="Box plot of test scores by robot condition", 
      x = "Group", y = "Likeability", #variables for axes
@@ -467,7 +467,7 @@ ggboxplot(lab1_data,main="Box plot of test scores by robot condition",
 3. compute an independent t-test (steps 3.2) to examine whether there are any statistical differences between the means of our two groups in their Likeability ratings. Write up the results in APA style.
 
 ```{r include = TRUE}
-#ANSWER CODE
+# ANSWER CODE
 # independent 2-group t-test
   #t_test(Score ~ Group) # where y is numeric Score and x is a binary factor 
 # Compute t-test
@@ -488,7 +488,7 @@ Marks greater than 69 is 'Distinction'.
 Then, check that the command worked and that there is now a new variable in your data set called 'Score_Band' using the `head()` function.
 
 ```{r include = TRUE}
-#ANSWER CODE
+# ANSWER CODE
 lab1_data <- lab1_data %>%
   mutate(Score_Band = case_when(
     Score <= 48 ~ "Fail",
