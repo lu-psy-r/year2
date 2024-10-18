@@ -243,6 +243,7 @@ And finally, for 'Score'
 ```{r}
 # STUDENT COMPLETES
 ```
+
 With the output as follows
 ```{r, echo=FALSE}
 class(lab2_data$Score)
