@@ -212,6 +212,7 @@ Typical data classes include:
 \
 \
 You can check the class of any object in R using the class() function. For instance:
+
 ```{r}
 class(lab2_data$Likeability)
 ```
@@ -221,31 +222,38 @@ This tell us that our likeability variable is a numeric data. This makes sense, 
 We also have three other variables in this dataset, however, named 'ID', 'Group' and 'Score'. Please adjust the code directly above to check the classification type for each of the additional three variables.
 
 Let's start with 'ID'
+
 ```{r}
 # STUDENT COMPLETES
 ```
+
 If done correctly, you should receive the following output
-```{r, echo=FALSE}
+
+```{r, echo=TRUE}
 class(lab2_data$ID)
 ```
 
 Now let's check the classification for 'Group'
+
 ```{r}
 # STUDENT COMPLETES
 ```
 
 You should receive the following output
-```{r, echo=FALSE}
+
+```{r, echo=TRUE}
 class(lab2_data$Group)
 ```
 
 And finally, for 'Score'
+
 ```{r}
 # STUDENT COMPLETES
 ```
 
 With the output as follows
-```{r, echo=FALSE}
+
+```{r, echo=TRUE}
 class(lab2_data$Score)
 ```
 
@@ -266,7 +274,8 @@ Perfect. Now let's check that everything worked and that 'Group' is now recognis
 ```
 
 If everything is hunky, dory you will receive the following output
-```{r, echo=FALSE}
+
+```{r, echo=TRUE}
 class(lab2_data$Group)
 ```
 
@@ -299,7 +308,7 @@ To do this, please copy the code above, but change 'Score' to 'Likeability'
 
 If done correctly you will receive the following output
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 lab2_data %>% arrange(desc(Likeability)) %>% head(n=20)
 ```
 
@@ -367,12 +376,14 @@ show(nrow(superlikers_data))
 Now we know that there are 14 superlikers in total, we can use the <span style="color: red;">head()</span> function together with combined with the <span style="color: red;">n=</span> specifier to bring to glimpse at all cases for our 'superlikers_data'.
 
 Please give it a go. Hint, this is one line of code: head(nameofdataset, n=xx)
+
 ```{r}
 # STUDENT COMPLETES
 ```
 
 You should receive the following
-```{r, echo=FALSE}
+
+```{r, echo=TRUE}
 head(superlikers_data, n=14)
 ```
 
@@ -397,7 +408,8 @@ Now, I would like you to borrow from the example above and try to make your own 
 ```
 
 If done correctly, you should receive the following output:
-```{r, echo=FALSE}
+
+```{r, echo=TRUE}
 ggplot(data = lab2_data, aes(x = Score)) + 
   geom_histogram(bins = 12, fill = "grey")
 ```
@@ -461,7 +473,7 @@ Just for fun - remember before when we generated the descriptive statistics and 
 
 IF done correctly, you will get the following
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 print.data.frame(descriptives) # print descriptives
 ```
 
@@ -509,6 +521,7 @@ Like_plot = summarySE(lab2_data, measurevar="Likeability", groupvars=c("Group"),
 ```
 
 Not let's view this new data using <span style="color: red;">head()</span>
+
 ```{r}
 head(Like_plot)
 ```
@@ -547,14 +560,18 @@ Perfect! Error bars accomplished.
 # STUDENT COMPLETES
 ```
 
-2. We have yet to look for statistical differences between in Psyc214 Scores between our groups. Run another one-factor between-participants ANOVA following the instructions above. This time, be sure to replace our previous DV Likeability with our other DV - Score.
+2. We have yet to look for statistical differences between in Psyc214 Scores between our groups. Run another one-factor between-participants ANOVA following the instructions above. This time, be sure to replace our previous DV Likeability with our other DV - Score. 
 
-```{r}
-# STUDENT COMPLETES
+```{r, echo=TRUE}
+# ANSWER CODE
+Model_2 = aov(data = lab2_data, Score ~ Group)
+  print(summary(Model_2), digits = 5) #We print a summary of this model. This provides F statistic and P value. Change                                       the number of digits to alter the number of displayed decimal places.
+  effectsize(Model_2) #We ask for an eta2 effect size for our model
 ```
 
 When completely correctly, you should get the following output:
-```{r, echo=FALSE}
+
+```{r, echo=TRUE}
 Model_2 = aov(data = lab2_data, Score ~ Group)
   print(summary(Model_2), digits = 5) #We print a summary of this model. This provides F statistic and P value. Change                                       the number of digits to alter the number of displayed decimal places.
   effectsize(Model_2) #We ask for an eta2 effect size for our model
@@ -568,8 +585,23 @@ Model_2 = aov(data = lab2_data, Score ~ Group)
 
 4. Repeat the steps 3.3 and again create an APA standard barchart - this time plotting our three different groups and their Psyc214 Scores. Please finish this off with error bars. *Hint for the error bars - you will need to create a new 'Scores_plot' sub data set using the <span style="color: red;">summarySE()</span> function.
 
-```{r}
-# STUDENT COMPLETES
+```{r, echo=TRUE}
+Scores_plot = summarySE(lab2_data, measurevar="Score", groupvars=c("Group"), na.rm = TRUE) #Like_plot is the name of our plot data set and na.rm asks R Studio to ignore our missing data point when calculating there summaries
+
+Scores_plot %>% #our dataset
+    ggplot(aes(x= Group, # our X axis
+               y = Score, # our Y axis
+               fill = Group)) + # How we will colour our seperate bars
+    geom_col(width = .7, position = position_dodge(.3)) + # width of columns and space between columns
+    scale_fill_manual(values = c("#D4D4D4", "#737373", "#323232")) + # APA colours for bars
+    scale_y_continuous(expand = expansion(0), # trick to remove space below 0 on y axis
+                       limits = c(0, 90),
+                       breaks = seq(0, 90, 5)) + # set limit of Y axis to 7
+    theme(panel.background = element_blank(), # removing the background panel colour
+          axis.line = element_line(color = "black"), # creating black axes lines
+          axis.ticks.x = element_blank(),
+          legend.position = "none") + # removing the legend, which is redundant
+    geom_errorbar(aes(ymin=Score-se, ymax=Score+se, width = 0.2))
 ```
 
 5. Again, try to think which groups may significantly differ from one another by eyeballing the means and barchart information. We will confirm this all next week.
@@ -580,16 +612,22 @@ Model_2 = aov(data = lab2_data, Score ~ Group)
 
 6. Just for fun, produce descriptive statistics (mean, sd, min, max) for our 'superlikers'. When you do this, **don't** group data by Groups A, B and O. Talk to yourself or class mate about these statistics and what they tell you.
 
-```{r}
-# STUDENT COMPLETES
+```{r, echo=TRUE}
+# ANSWER CODE
+descriptives_superlikers = superlikers_data %>% #Access our data 
+  #get the mean, sd, min and max values for Likeability and Score
+  get_summary_stats(Likeability, Score, show = c("mean", "sd", "min", "max"))
+  options(digits = 3) # round the results to *at least* two-decimal places - you can play with the digits to see how it varies
+  print.data.frame(descriptives_superlikers) # print descriptives
 ```
 
 7. Produce a histogram for the superlikers sub- data set, checking the distribution of their test 'Scores'.
 
-```{r}
-# STUDENT COMPLETES
+```{r, echo=TRUE}
+# ANSWER CODE
+ggplot(data = superlikers_data, aes(x = Score)) + 
+  geom_histogram(bins = 5, fill = "grey")
 ```
-
 
 8. Before you finish, make sure you <span style="color: red;">save a copy of the script</span> that you have been working on by the end of the session. This provides you with the record - the digital trace - on what you have done. And it means you can come back and repeat any of the work you have performed.
 
@@ -597,12 +635,12 @@ Model_2 = aov(data = lab2_data, Score ~ Group)
 
 <img src="https://tombeesley.github.io/PSYC121_2022-23/files/Week_1/power_button.png" width="300" height="150" />
   <p align = "left">
-  Ending session on R Studio
+  Fig 11. Ending session on R Studio
   </p>
 
 9. ...................... Now breathe! You've rocked it!!!
 
 <img src="https://images.pexels.com/photos/92870/pexels-photo-92870.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" width="420" height="250" />
   <p align = "left">
-  Top work!
+  Fig 12. Top work!
   </p>
