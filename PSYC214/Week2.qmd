@@ -445,7 +445,7 @@ To identify whether the differences between groups are statistically significant
 To run our one-factor between participants ANOVA, we will use tidyverse's <span style="color: red;">'aov()'</span> function. Let's set 'Likeability' as our first dependent variable of examination. 'Group' is then our predictive factor (independent variable). Note, in the code below, the DV and the IV are separated by the '~' character. Please carry out the following command. This also includes requesting a summary and effectsize for our model.
 
 ```{r}
-Model_1 = aov(data = lab2_data, Likeability ~ Group) #We name our overarching model Model_1
+Model_1 = aov(data = lab2_data, Likeability ~ Group) # We name our overarching model Model_1
   print(summary(Model_1), digits = 5) #We print a summary of this model. This provides F statistic and P value. Change                                       the number of digits to alter the number of displayed decimal places.
   effectsize(Model_1) #We ask for an eta2 effect size for our model
 ```
