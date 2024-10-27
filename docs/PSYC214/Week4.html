@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -283,6 +317,35 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
+  <ul class="collapse">
+  <li><a href="#general-introduction-to-lab-4" id="toc-general-introduction-to-lab-4" class="nav-link" data-scroll-target="#general-introduction-to-lab-4">1 - General Introduction to Lab 4</a>
+  <ul class="collapse">
+  <li><a href="#access-to-r-studio" id="toc-access-to-r-studio" class="nav-link" data-scroll-target="#access-to-r-studio">1.1 Access to R Studio</a></li>
+  <li><a href="#creating-a-new-folder-project-and-script---loading-the-data-set-and-dependencies" id="toc-creating-a-new-folder-project-and-script---loading-the-data-set-and-dependencies" class="nav-link" data-scroll-target="#creating-a-new-folder-project-and-script---loading-the-data-set-and-dependencies">1.2 Creating a new folder, project and script - loading the data set and dependencies</a></li>
+  </ul></li>
+  <li><a href="#todays-lab-activities" id="toc-todays-lab-activities" class="nav-link" data-scroll-target="#todays-lab-activities">2 - Today’s lab activities</a>
+  <ul class="collapse">
+  <li><a href="#some-background-information-about-the-dataset" id="toc-some-background-information-about-the-dataset" class="nav-link" data-scroll-target="#some-background-information-about-the-dataset">2.1 Some background information about the dataset</a></li>
+  <li><a href="#familiarizing-ourselves-with-the-data" id="toc-familiarizing-ourselves-with-the-data" class="nav-link" data-scroll-target="#familiarizing-ourselves-with-the-data">2.2 Familiarizing ourselves with the data:</a></li>
+  <li><a href="#reformatting-the-data" id="toc-reformatting-the-data" class="nav-link" data-scroll-target="#reformatting-the-data">2.3 Reformatting the data:</a></li>
+  </ul></li>
+  <li><a href="#assumptions-of-a-within-participants-anova" id="toc-assumptions-of-a-within-participants-anova" class="nav-link" data-scroll-target="#assumptions-of-a-within-participants-anova">3 Assumptions of a within-participants ANOVA:</a>
+  <ul class="collapse">
+  <li><a href="#outliers-and-extreme-values" id="toc-outliers-and-extreme-values" class="nav-link" data-scroll-target="#outliers-and-extreme-values">3.1 Outliers and extreme values</a></li>
+  <li><a href="#assumption-of-normality" id="toc-assumption-of-normality" class="nav-link" data-scroll-target="#assumption-of-normality">3.2 Assumption of normality</a></li>
+  <li><a href="#assumption-of-sphericity." id="toc-assumption-of-sphericity." class="nav-link" data-scroll-target="#assumption-of-sphericity.">3.3 Assumption of sphericity.</a></li>
+  </ul></li>
+  <li><a href="#running-a-one-factor-within-participants-anova" id="toc-running-a-one-factor-within-participants-anova" class="nav-link" data-scroll-target="#running-a-one-factor-within-participants-anova">4 Running a one-factor within-participants ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format" id="toc-reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format" class="nav-link" data-scroll-target="#reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format">4.1 Reporting the results of the one-factor within-participants ANOVA in APA format</a></li>
+  <li><a href="#running-further-pairwise-comparisons" id="toc-running-further-pairwise-comparisons" class="nav-link" data-scroll-target="#running-further-pairwise-comparisons">4.2 Running further pairwise comparisons</a></li>
+  <li><a href="#reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format-1" id="toc-reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format-1" class="nav-link" data-scroll-target="#reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format-1">4.3 Reporting the results of the one-factor within-participants ANOVA in APA format</a></li>
+  <li><a href="#apa-barchart" id="toc-apa-barchart" class="nav-link" data-scroll-target="#apa-barchart">4.4 APA barchart</a></li>
+  </ul></li>
+  <li><a href="#working-with-a-simulated-dataset---pixelville-the-digital-frontier" id="toc-working-with-a-simulated-dataset---pixelville-the-digital-frontier" class="nav-link" data-scroll-target="#working-with-a-simulated-dataset---pixelville-the-digital-frontier">5 Working with a simulated dataset - Pixelville, the digital frontier</a></li>
+  <li><a href="#further-tasks" id="toc-further-tasks" class="nav-link" data-scroll-target="#further-tasks">6 Further tasks</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -291,7 +354,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">4. One-Factor Within-Participants ANOVA</h1>
+<h1 class="title">Statistics for Psychologists</h1>
 <p class="subtitle lead">Sam Russell, Mark Hurlstone</p>
 </div>
 
@@ -313,360 +376,1007 @@ ul.task-list li input[type="checkbox"] {
 <p>Watch Part 2 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=0f6a86ba-b7fb-4918-863e-b214007cec3b">here</a></p>
 <p>Watch Part 3 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=45380ca3-2a93-461b-8d5c-b2140086af81">here</a></p>
 <p>Download the lecture slides <a href="data/Wk4/Lecture 4 - student slides [small].pdf">here</a>, and <a href="data/Wk4/Lecture 4 - student slides [large].pdf">here</a> for a larger version.</p>
-<!-- # Lab -->
-<!-- Welcome back to Lab 4 of Year 2 Stats! -->
-<!-- We are now in our 4th engagement of the new academic year with our good friend, R. As with preceding weeks, we will be working from an activity sheet, which outlines a number of decent tasks to complete in R Studio. The objectives of today's lab are three fold: -->
-<!-- 1. Running tests of the assumptions of the within-participants ANOVA. -->
-<!-- 2. Running and reporting a within-participants ANOVA and follow up tests. -->
-<!-- 3. Debugging code which is misbehaving. -->
+</section>
+<section id="lab" class="level1">
+<h1>Lab</h1>
+<p>Welcome back to Lab 4 of Year 2 Stats!</p>
+<p>We are now in our 4th engagement of the new academic year with our good friend, R. As with preceding weeks, we will be working from an activity sheet, which outlines a number of decent tasks to complete in R Studio. The objectives of today’s lab are three fold:</p>
+<ol type="1">
+<li>Running tests of the assumptions of the within-participants ANOVA.</li>
+<li>Running and reporting a within-participants ANOVA and follow up tests.</li>
+<li>Debugging code which is misbehaving.</li>
+</ol>
+<p>As always, myself (Sam Russell, weeks 1-4), Mark Hurlstone (weeks 5-9) and an apt team of GTAs will be circulating through the room and answering any queries you may have. In Psyc214, we also encourage peer engagement and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let’s get started!💪</p>
+<hr>
+<section id="general-introduction-to-lab-4" class="level2">
+<h2 class="anchored" data-anchor-id="general-introduction-to-lab-4">1 - General Introduction to Lab 4</h2>
+<p><br>
+| <em>“I never dreamed about success, I worked for it”</em> | Estee Lauder.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/richardphilpot/LU_Stats_Y2-/main/Estee_Lauder_NYWTS.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Estee Lauder (left)</figcaption>
+</figure>
+</div>
+<hr>
+<section id="access-to-r-studio" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-r-studio">1.1 Access to R Studio</h3>
+<p>Here we are, ready to log back into the R Studio Server again.</p>
+<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
+<p>When you are connected, navigate to <a href="https://psy-rstudio.lancaster.ac.uk">https://psy-rstudio.lancaster.ac.uk</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
+<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
+<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
+<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
+<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have already logged in through the university login already, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="creating-a-new-folder-project-and-script---loading-the-data-set-and-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-new-folder-project-and-script---loading-the-data-set-and-dependencies">1.2 Creating a new folder, project and script - loading the data set and dependencies</h3>
+<p>We have again been whisked away up into the clouds of our R Studio server. Please proceed through the following steps:</p>
+<ol type="1">
+<li><p>Step 1. Please download the <em>week4_meat_consumption.csv</em> file from <a href="data/Wk4/week4_meat_consumption.csv">here</a></p></li>
+<li><p>Now that you have the data saved on your machine, it would be good practice to make a dedicated space on our own individual R Studio servers in which to house today’s data, project and script.</p></li>
+</ol>
+<p>To do this, we first need to <strong>create a new folder</strong>. On the server, please navigate to the bottom right panel (see figure below). Click on ‘Home’ to ensure you are not working from last week’s folder. Here, under the ‘files’ you will see the option to add ‘New Folder’. Click on this and name the new folder <em>psyc214_lab_4</em> Note. Please ensure this is spelled correctly.</p>
+<img src="https://raw.githubusercontent.com/richardphilpot/LU_Stats_Y2-/main/lab4_folder.png" width="600" height="400">
+<p align="left">
+R Studio Server - Creating a folder on your server
+</p>
+<ol start="3" type="1">
+<li>Now that you have a folder in waiting, it’s time to add week 3’s data file. To *upload today’s data** - the <em>week4_meat_consumption.csv</em> file - please open your new <em>psyc214_lab_4</em> folder. When in the new folder, select the ‘Upload’ tab (see figure below). This will present a box that will ask where the data is that you want to upload. Click on “Browse…”, find where you have the <em>week4_meat_consumption.csv</em> data file on your computer and click ‘OK’</li>
+</ol>
+<img src="https://raw.githubusercontent.com/richardphilpot/LU_Stats_Y2-/main/lab4_upload.png" width="600" height="400">
+<p align="left">
+R Studio Server - Uploading data to your new folder
+</p>
+<p>Perfect! The data is now sat patiently in the right place.</p>
+<ol start="4" type="1">
+<li><p>We’ll want to be able to <strong>create a project</strong> session on our server: to do so please: click ‘File’ on the top ribbon -&gt; New project. Next, select existing directory and name the working directory ~/psyc214_lab_4 -&gt; hit ‘create project’. A new workspace will now open up.</p></li>
+<li><p>The next thing to do is to <strong>create a script</strong>. While it is possible to work directly from the console (bottom left area of R Studio), scripts offer greater flexibility both for editing your lines of code and for saving the commands which you may want to rerun/share in the future. To create a script, please click ‘File’ -&gt; ‘New file’ -&gt; ‘Create new R script’ (please see image below)**</p></li>
+</ol>
+<img src="https://raw.githubusercontent.com/richardphilpot/LU_Stats_Y2-/main/lab3_script.png" width="500" height="200">
+<p align="left">
+R Studio Server - creating a script
+</p>
+<p>This will now create a blank text space in the top left hand of the screen where you can write and run your commands. You can save the text you write by clicking ‘File’ -&gt; ‘Save as’. The script file will then be safely stored in your psyc214_lab_4 folder.</p>
+<ol start="6" type="1">
+<li>The last bit of house keeping before we start our analysis is to <strong>load the packages</strong> (i.e., the dependencies) we’ll use for this session.</li>
+</ol>
+<p>Please copy or type the following commands into R Studio to get these packages activated:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># Allows pipes, arrang(), summary(), aov(), etc</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)    <span class="co"># Allows group_by()</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)     <span class="co"># Allows us to examine QQ Plots</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rmisc)      <span class="co"># Allows shorthand calculations of standard errors and confidence intervals</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(furniture)  <span class="co"># Helps create composite variables of averages</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)   <span class="co"># For data simulation</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize) <span class="co"># For cohen's D effectsize</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>More on these packages later.</p>
+<p>Ok - Time to load this week’s data and to push on with today’s work.</p>
+<ol start="7" type="1">
+<li>First we need to <strong>set the working directory</strong> to ‘psyc214_lab_4’, i.e., tell R Studio the location in which today’s data patiently sits. To recap, the working directory is the default location or folder on your computer or server by which R will read/save any files.</li>
+</ol>
+<p>The working directory can be set with the following R code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/psyc214_lab_4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Now the have the directory set up, let’s type the command to have R Studio <strong>read the stored data</strong>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lab4_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"week4_meat_consumption.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Where ‘lab4_data’ is the name we’ve assigned that R will recognise when it calls up our data, ‘read_csv’ is the R tidyverse command to pull up the data and “week4_meat_consumption.csv” is the name of the data file stored on the server.</p>
+</section>
+</section>
+<section id="todays-lab-activities" class="level2">
+<h2 class="anchored" data-anchor-id="todays-lab-activities">2 - Today’s lab activities</h2>
+<p>With all of our house keeping in order, it is time to have a play.</p>
+<section id="some-background-information-about-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="some-background-information-about-the-dataset">2.1 Some background information about the dataset</h3>
+<p>In recent weeks, we have been preoccupied with the Psyc214 robots and their impact on Psyc214 student learning. This week we will be moving away from our metallic friends and will examine the topic of meat consumption in Psyc214 students.</p>
+<p>The basic premise of today’s work was introduced in Lecture 4. Here, a researcher was interested in whether a person’s typical meat consumption would alter after watching the documentary ‘Cowspiracy: The Sustainability Secret’. This documentary, for those unfamiliar, investigates environmental impact of animal agriculture.<br>
+</p>
+<p>The researcher’s broad research hypothesis was that meat consumption would decrease after watching the documentary. The researcher was also interested in whether this decrease in meat consumption would sustain over time.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/richardphilpot/LU_Stats_Y2-/main/lab4_meat.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Introducing the meat consumption study</figcaption>
+</figure>
+</div>
+<p>To examine this, a psychology researcher decided to commandeer a seminar comprising of 50 students. The researcher played the Cowspiracy documentary and adminstered a set of comprehension questions to ensure that all students had been alert and paid attention - they all had, of course. Prior to this ‘treatment’, the researcher asked the student participants to record the number of burgers and sausages they consumed in the week preceding the lecture.<br>
+</p>
+<p>A week later the same students returned for their next seminar. The researcher again asked the participants to record the number of burgers and sausages they had eaten over the last week.<br>
+</p>
+<p>Finally, the researcher wanted to examine the prolonged effect (if any) of the documentary on meat consumption. To this end, the researcher hijacked yet another seminar, 3 weeks later (4 after the original documentary showcasing), and asked participants to record the number of burgers and sausages they consumed in prior the week. As such, the research design represents a one-factor within-participants design with three levels (pre documentary, one week post documentary, four weeks post documentary).</p>
+<p>The researcher had the following experimental hypotheses:</p>
+<ul>
+<li><p>Participants would eat significantly less meat products in the week after watching Cowspiracy than the week prior to watching Cowspiracy <strong>(Hypothesis 1)</strong><br>
+</p></li>
+<li><p>Participants meat consumption would be significantly higher in the four weeks after watching Cowspiracy than the week after watching Cowspiracy <strong>(Hypothesis 2)</strong><br>
+</p></li>
+<li><p>TAKE A MOMENT TO PAUSE AND THINK ABOUT WHAT A FURTHER H3 HYPOTHESIS COULD BE? DISCUSS WITH YOUR INNER SELF OR A CLASSMATE.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.pexels.com/photos/6237990/pexels-photo-6237990.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">A pensive looking student!</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="familiarizing-ourselves-with-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="familiarizing-ourselves-with-the-data">2.2 Familiarizing ourselves with the data:</h3>
+<p>Ok, now the hypothesis generation is over, let’s take a look at our data.</p>
+<p>Please call up the data using the <code>head()</code> function, and ask for the top 50 data points.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab4 data, <span class="at">n =</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Straight away, we can see there is a bug in our code. <em>Hint, it’s something with the data name and number of data points being called.</em></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab4_data, <span class="at">n =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 50 × 5
+   participant a1_meat a2_meat a3_burgers a3_sausages
+         &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
+ 1           1       6       3          3           3
+ 2           2       3       4          4           2
+ 3           3       8       1          1           2
+ 4           4       6       5          3           2
+ 5           5       9       0          0           0
+ 6           6       8       1          2           4
+ 7           7       9       2          1           1
+ 8           8       5       4          2           5
+ 9           9       7       4          1           0
+10          10       8       6          2           1
+# ℹ 40 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We can see all data for our 50 participants. the columns show us the: - <em>participant ID</em> - the <em>a1_meat</em> value, which is the total number of burgers and sausages consumed in the week prior to the watching the documentary - the <em>a2_meat</em> value, which is the total number of burgers and sausages consumed in the week succeeding having watched the documentary - the <em>a3_burgers</em> value, which is the total number of burgers consumed in a week one month after watching the documentary - the <em>a3_sausages</em> value, which is the total number of sausages consumed in a week one month after watching the documentary.</p>
+<p>Have a look over this dataframe and describe the data to your inner self or a classmate.</p>
+<p><strong>The particularly eagle-eyed individuals among us will see that we appear to have a mistake in our data! While we have burger and sausage consumption together as a single total value for time a1 and a2, we failed to create the equivalent composite variable for time a3. Yep, definitely a mistake - a3 burger and a3 sausages have yet to be summed together to get a total.</strong><br>
+</p>
+<p>Well, it’s up to us to sort this out. To do this, let’s make this new variable using the <code>mutate()</code> function. Using this function, we can add up the total number of burgers and sausages consumed at time A3 and create a new ‘a3_meat’ total variable.**</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lab4_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a3_meat =</span> (a3_burgers <span class="sc">+</span> a3_sausages)) <span class="ot">-&gt;</span> lab4_data <span class="co"># Create a new composite variable 'a3_meat' and add this as a column to the pre-existing lab4_data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>OK. We should now have a new variable in our dataset called ‘a3_meat’. Let’s check and see if this has all worked.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lab4_data <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 50 × 6
+   participant a1_meat a2_meat a3_burgers a3_sausages a3_meat
+         &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+ 1           1       6       3          3           3       6
+ 2           2       3       4          4           2       6
+ 3           3       8       1          1           2       3
+ 4           4       6       5          3           2       5
+ 5           5       9       0          0           0       0
+ 6           6       8       1          2           4       6
+ 7           7       9       2          1           1       2
+ 8           8       5       4          2           5       7
+ 9           9       7       4          1           0       1
+10          10       8       6          2           1       3
+# ℹ 40 more rows</code></pre>
+</div>
+</div>
+<p>We can see that it has worked, but the surplus a3_burger and a3_sausage columns remain. Just to keep it all tidy, let’s remove these redundant columns with the <code>select()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lab4_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(a3_burgers, a3_sausages)) <span class="ot">-&gt;</span> lab4_data <span class="co"># Remove 'a3_burgers' and 'a3_sausages' columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now let’s check again using the <code>head()</code> function and see if we’re happy. Please ask again for the first 50 rows.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lab4_data <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 50 × 4
+   participant a1_meat a2_meat a3_meat
+         &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1           1       6       3       6
+ 2           2       3       4       6
+ 3           3       8       1       3
+ 4           4       6       5       5
+ 5           5       9       0       0
+ 6           6       8       1       6
+ 7           7       9       2       2
+ 8           8       5       4       7
+ 9           9       7       4       1
+10          10       8       6       3
+# ℹ 40 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>phew! that worked a treat!</strong></p>
+<p><strong>Special note, the above code will make a new variable by adding together two existing ones - great. However, often we will want to make a new variable by taking the average of multiple rows of data (e.g., adding multiple scores together and then dividing by the number of rows).</strong></p>
+<p><strong>To do that, you could, for example, replace (a3_burgers + a3_sausages) in the <code>mutate()</code> function with ((a3_burgers + a3_sausages)/2) - where 2 is the number of rows. This example was given in a Moodle announcement, recently.</strong></p>
+<p><strong>Alternatively you could incorporate the <code>rowmeans()</code> function from the ‘furniture’ package, e.g., rowmeans(a3_burgers, a3_sausages). The rest of the code for the argument would stay the same. You don’t need to do this now, as this will mess with what we do for the rest of the session!!!! It is just to inform you for future work.</strong></p>
+<hr>
+</section>
+<section id="reformatting-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="reformatting-the-data">2.3 Reformatting the data:</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.unsplash.com/photo-1542707309-4f9de5fd1d9c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=987&amp;q=80" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Hold Up!</figcaption>
+</figure>
+</div>
+<p><strong>Hang on a sec folks. The data are currently presented with our repeated measures (A1_meat, A2_meat, A3_meat) formatted on the columns level. To run within-participant ANOVAs in R Studio, however, it is preferable that data are presented in a long format. Essentially, what this means is that all meat consumption scores should belong to a single long column. The grouping variable time (a1_meat, a2_meat, a3_meat) is then housed in its own single column.</strong></p>
+<p>To convert the data from seperate columns for each level to one long column, please execute the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>lab4_data_long <span class="ot">&lt;-</span> lab4_data <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"time"</span>, <span class="at">value =</span> <span class="st">"meat"</span>, a1_meat, a2_meat, a3_meat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You will note, using the &lt;- defining function, we have created a brand new data frame named <strong>lab4_data_long</strong><br>
+</p>
+<p>Let’s view this new <strong>lab4_data_long</strong> dataframe and make sure it looks as we would expect. Here, we can again use the <code>head()</code> function - remember, however, that our number of rows have now increased 150 (all data in one column). Alternatively, you could also use the <code>view()</code> function.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lab4_data_long <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">150</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 150 × 3
+   participant time     meat
+         &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+ 1           1 a1_meat     6
+ 2           2 a1_meat     3
+ 3           3 a1_meat     8
+ 4           4 a1_meat     6
+ 5           5 a1_meat     9
+ 6           6 a1_meat     8
+ 7           7 a1_meat     9
+ 8           8 a1_meat     5
+ 9           9 a1_meat     7
+10          10 a1_meat     8
+# ℹ 140 more rows</code></pre>
+</div>
+</div>
+<p>We can now see that our data are arranged in long format - huzzah.</p>
+</div>
+</div>
+</div>
+<p>We now have three columns. ‘participant’ ID (as before), but also ‘time’ - which holds our A1, A2 and A3 levels - and ‘meat’ - which is the total number of burgers/sausages consumed for that time point.<br>
+</p>
+<p>From now on, we will be working with our newly created <strong>lab4_data_long</strong> data frame. Let’s go ahead and look at the descriptive statistics for our data. As with previous weeks, we will use the rstatix() package to get some neat and tidy summary statistics.</p>
+<p>We first specify the dataset we will use - which is <strong>lab4_data_long</strong>. After this we will use a pipe to ask R Studio to pass this data set on to the next function. Here, we use the <code>group_by()</code> function to specify that we want to distinguish between our three different levels - the variable we named ‘time’. We then use another pipe to pass the intermediate result onto the next function - the <code>get_summary_stats()</code>. In the parentheses we include our single ‘meat’ dependent variable. Finally we are asked to specify what ‘type’ of summary statistic we would like. Let’s go for mean, standard deviation, min and max values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Descriptives <span class="ot">=</span> lab4_data_long %</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Time) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(meat, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print.data.frame</span>(Descriptives)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Oh blast. There seems to be some bugs in the code. Please go through and try to fix them. Hint, there are two errors in the code. When fixed, you will get the following:</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Descriptives <span class="ot">=</span> lab4_data_long <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(meat, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print.data.frame</span>(Descriptives)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     time variable  n mean    sd min max
+1 a1_meat     meat 50 6.16 2.024   2  10
+2 a2_meat     meat 50 2.80 1.414   0   6
+3 a3_meat     meat 50 4.56 1.886   0   8</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>There do seem to be some tendencies and trends in data. Speak with a classmate or your inner self about what these data indicate.</p>
+<hr>
+</section>
+</section>
+<section id="assumptions-of-a-within-participants-anova" class="level2">
+<h2 class="anchored" data-anchor-id="assumptions-of-a-within-participants-anova">3 Assumptions of a within-participants ANOVA:</h2>
+<p>Before we progress on and see if there are differences in meat consumption between the different time levels, we first need to check our assumptions of the within-participants ANOVA. This is to ensure that we are not violating expectations of data, which may misconstrue our conclusions.</p>
+<p>As you will recall from Lecture 4, there are 3 key assumptions of a within-participants ANOVA.<br>
+1) The assumption of independence (i.e., are our participants independent from one another? - let’s say ‘yes!’)<br>
+2) The assumption of normality (i.e., are our levels [a.k.a time groups] showing normal distributions with their data points?)<br>
+3) The assumption of sphericity (i.e., is the variance in data points similar across levels?)<br>
+</p>
+<p>The first one - assumption of independence - we need to search our souls and ask if this is the case. Let’s say “yes, yes it was”.</p>
+<p>The other two - assumption of normality and sphericity - we can test by analytical means. We should also check if are there any extreme values in our data - remember Lecture 3.</p>
+<p>Let’s give it a go!</p>
+<hr>
+<section id="outliers-and-extreme-values" class="level3">
+<h3 class="anchored" data-anchor-id="outliers-and-extreme-values">3.1 Outliers and extreme values</h3>
+<p>We can eye ball boxplots to look for suspicious data points, or we can test for extreme values very easily using the rstatix() package. It has this wonderful function called <code>identify_outliers()</code>, which will tell us if we have any outliers or extreme values. As a rule, outliers are typically fine to work with, extremes however are when things become a bit hairy.</p>
+<p>Please copy the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>lab4_data_long <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">identify_outliers</span>(meat) <span class="co"># The function to identify outliers and extreme values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] time        participant meat        is.outlier  is.extreme 
+&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+</div>
+</div>
+<p>This is marvellous. We find zero outliers or extreme data points.</p>
+<hr>
+</section>
+<section id="assumption-of-normality" class="level3">
+<h3 class="anchored" data-anchor-id="assumption-of-normality">3.2 Assumption of normality</h3>
+<p>Like last week, we can test whether our data are normal using QQ plots and a Shapiro-Wilk test of normality. The QQ plot maps out the correlation between our data and a normal distribution. If many data points fall away from our reference line and outside the band of the 95% confidence interval we can assume that data are non-normal.<br>
+</p>
+<p>The Shapiro-Wilk test statistically calculates whether our data are ‘normal’. If the p-value for our Shapiro-Wilk statistic is equal to or less than <em>p</em> = .05, then this indicates we have failed the test and have non-normal data - not good! The Shapiro-Wilk test, however, becomes less useful as we have a larger N. The larger the sample, the more likely it is that you will get a statistically significant Shapiro-Wilk test result and our data will be assumed to be non-normal.<br>
+</p>
+<p>Let’s start off by examining the QQ plot. Please enter or type the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(lab4_data_long, <span class="st">"meat"</span>, <span class="at">facet.by =</span> <span class="st">"time"</span>) <span class="co"># Where we use "" around our variable names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week4_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Discuss with yourself or a colleague whether the data appear normal.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>My two cents: Data look largely normal. For the A1 (pre) and A3 (after 1 month) levels the data fit nicely within the 95% confidence intervals. Level A2 (after 1 week) looks a little dicier, with some data points falling outside the 95% confidence intervals.</p>
+</div>
+</div>
+</div>
+<p>Let’s run a Shapiro-Wilk test and see what it also tells us.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>lab4_data <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(meat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Uh oh. There is a bug here. Let’s try figuring out the problem. The red error message is telling us that there is no ‘time’ variable, but it is spelled correctly. The problem must be somewhere else. Can you figure it out? Hint, it is only one problem.<br>
+</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>lab4_data_long <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(meat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  time    variable statistic      p
+  &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 a1_meat meat         0.967 0.167 
+2 a2_meat meat         0.940 0.0139
+3 a3_meat meat         0.963 0.116 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Have a think what the test is telling us before you scroll down for the answer. Remember, we are hoping that our values are non-signficant!</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Shapiro-Wilk test indicates that while data for levels A1 and A3 are normally distributed, the A2 level is not. Given that ANOVAs are pretty robust to violations of normality (Roberts &amp; Russo, 1999), that we have 150 data points, and that the A2 Shapiro-Wilk test is not highly statistical ((<em>p</em> &gt; .01), I think we are safe to run the ANOVA without transformations.<br>
+</p>
+</div>
+</div>
+</div>
+<p>In an official report or publication, a researcher should be transparent and inform the reader when the checks of normality fail. The researcher should also justify (with relevant literature) occasions in which they decide to continue on and run an ANOVA when data violations are present.</p>
+<hr>
+</section>
+<section id="assumption-of-sphericity." class="level3">
+<h3 class="anchored" data-anchor-id="assumption-of-sphericity.">3.3 Assumption of sphericity.</h3>
+<p>There is no need to run a separate statistical test to check sphericity. This is because R Studio will automatically check for violations of sphericity with a Mauchly’s test when computing the within-participants ANOVA itself. If data violate the assumption of sphericity - and trust me, within-participant designs <em>frequently</em> violate this assumption of ANOVA - the analysis function will automatically apply a Greenhouse-Geisser sphericity correction to handle this issue. Specifically, in cases of sphericity violations, the ANOVA table will correct the degrees of freedom and automatically include an adjusted ‘eta2[g]’ - or a ‘generalized effect size with Greenhouse-Geisser sphericity correction’.</p>
+<hr>
+</section>
+</section>
+<section id="running-a-one-factor-within-participants-anova" class="level2">
+<h2 class="anchored" data-anchor-id="running-a-one-factor-within-participants-anova">4 Running a one-factor within-participants ANOVA</h2>
+<p>To compute our one factor within participants ANOVA, let’s use the <em>rstatix</em> package <code>anova_test()</code> function.</p>
+<p>Please enter the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> lab4_data_long <span class="sc">%&gt;%</span> <span class="co"># Run an ANOVA with our long data</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">anova_test</span>(<span class="at">dv =</span> meat, <span class="at">wid =</span> participant, <span class="at">within =</span> time) <span class="co"># Specify the DV, which rows belong to which participant and that time is the between-participant factor</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_anova_table</span>(model) <span class="co"># Pull up this model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
 
-<!-- As always, myself (Sam Russell, weeks 1-4), Mark Hurlstone (weeks 5-9) and an apt team of GTAs will be circulating through the room and answering any queries you may have. In Psyc214, we also encourage peer engagement and joined problem solving - so please do not hesitate to ask for help from another on your table or to work together in small groups. Right, that enough for now, so let's get started!💪 -->
-<!-- ****** -->
-<!-- ### 1 - General Introduction to Lab 4 -->
-<!-- \ -->
-<!-- | *"I never dreamed about success, I worked for it"* | Estee Lauder. -->
-<!-- ![Estee Lauder (left)](https://raw.githubusercontent.com/richardphilpot/LU_Stats_Y2-/main/Estee_Lauder_NYWTS.jpg) -->
-<!-- ****** -->
-<!-- #### 1.1 Access to R Studio -->
-<!-- Here we are, ready to log back into the R Studio Server again. -->
-<!-- {{< include /Includes/_login.qmd >}} -->
-<!-- ****** -->
-<!-- #### 1.2 Creating a new folder, project and script - loading the data set and dependencies -->
-<!-- We have again been whisked away up into the clouds of our R Studio server. -->
-<!-- The first task is to access the dataset for today's session from Moodle. -->
-<!-- 1. Step 1. Please ensure that you **download today's data** from the psyc214 week 4 'lab' folder in Moodle. Please download the *week4_meat_consumption.csv* file from [here](data/Wk4/week4_meat_consumption.csv) -->
-<!-- 2. Now that you have the data saved on your machine, it would be good practice to make a dedicated space on our own individual R Studio servers in which to house today's data, project and script. -->
-<!-- To do this, we first need to **create a new folder**. On the server, please navigate to the bottom right panel (see figure below). Click on 'Home' to ensure you are not working from last week's folder. Here, under the 'files' you will see the option to add 'New Folder'. Click on this and name the new folder *psyc214_lab_4* Note. Please ensure this is spelled correctly. -->
-<!-- 3. Now that you have a folder in waiting, it's time to add week 3's data file. To *upload today's data** - the *week4_meat_consumption.csv* file - please open your new *psyc214_lab_4* folder. When in the new folder, select the 'Upload' tab (see figure below). This will present a box that will ask where the data is that you want to upload. Click on "Browse...", find where you have the *week4_meat_consumption.csv* data file on your computer and click 'OK' -->
-<!-- Perfect! The data is now sat patiently in the right place. -->
-<!-- 4. We'll want to be able to **create a project** session on our server: to do so please: -->
-<!-- click 'File' on the top ribbon -> New project. -->
-<!-- Next, select existing directory and name the working directory ~/psyc214_lab_4 -> hit 'create project'. A new workspace will now open up. -->
-<!-- 5. The next thing to do is to **create a script**. While it is possible to work directly from the console (bottom left area of R Studio), scripts offer greater flexibility both for editing your lines of code and for saving the commands which you may want to rerun/share in the future. To create a script, please click 'File' -> 'New file' -> 'Create new R script' (please see image below)** -->
-<!-- This will now create a blank text space in the top left hand of the screen where you can write and run your commands. You can save the text you write by clicking 'File' -> 'Save as'. The script file will then be safely stored in your psyc214_lab_4 folder. -->
-<!-- 6. The last bit of house keeping before we start our analysis is to **load the packages** (i.e., the dependencies) we'll use for this session. -->
-<!-- Please copy or type the following commands into R Studio to get these packages activated: -->
-<!-- ```{r, warning=FALSE, message=FALSE} -->
-<!-- library(rstatix) # allows group_by() -->
-<!-- library(tidyverse) # allows pipes, arrange(), summary(), aov(), etc -->
-<!-- library(ggpubr) # allows us to examine QQ Plots -->
-<!-- library(Rmisc) # allows shorthand calculations of standard errors and confidence intervals -->
-<!-- library(furniture) # helps create composite variables of averages -->
-<!-- ``` -->
-<!-- More on these packages later. -->
-<!-- Ok - Time to load this week's data and to push on with today's work. -->
-<!--   7. First we need to **set the working directory** to 'psyc214_lab_4', i.e., tell R Studio the location in which today's data patiently sits. To recap, the working directory is the default location or folder on your computer or server by which R will read/save any files. -->
-<!--   The working directory can be set with the following R code: -->
-<!-- ```{r eval=FALSE} -->
-<!--   setwd("~/psyc214_lab_4") -->
-<!-- ``` -->
-<!--   5. Now the have the directory set up, let's type the command to have R Studio **read the stored data**. -->
-<!-- ```{r, message=FALSE, eval=FALSE} -->
-<!--  lab4_data <- read_csv("week4_meat_consumption.csv") -->
-<!-- ``` -->
-<!-- ```{r, message=FALSE, echo=FALSE} -->
-<!--  lab4_data <- read_csv("data/wk4/week4_meat_consumption.csv") -->
-<!-- ``` -->
-<!--   where 'lab4_data' is the name we've assigned that R will recognise when it calls up our data, 'read_csv' is the R tidyverse command to pull up the data and "week4_meat_consumption.csv" is the name of the data file stored on the server. -->
-<!-- ------ -->
-<!-- ## 2 - Today's lab activities -->
-<!-- With all of our house keeping in order, it is time to have a play. -->
-<!-- ### 2.1 Some background information about the dataset -->
-<!-- In recent weeks, we have been preoccupied with the Psyc214 robots and their impact on Psyc214 student learning. This week we will be moving away from our metallic friends and will examine the topic of meat consumption in Psyc214 students. -->
-<!-- The basic premise of today's work was introduced in Lecture 4. Here, a researcher was interested in whether a person's typical meat consumption would alter after watching the documentary 'Cowspiracy: The Sustainability Secret'. This documentary, for those unfamiliar, investigates environmental impact of animal agriculture.\ -->
-<!-- The researcher's broad research hypothesis was that meat consumption would decrease after watching the documentary. The researcher was also interested in whether this decrease in meat consumption would sustain over time. -->
-<!-- ![Introducing the meat consumption study](https://raw.githubusercontent.com/richardphilpot/LU_Stats_Y2-/main/lab4_meat.png) -->
-<!-- To examine this, a psychology researcher decided to commandeer a seminar comprising of 50 students. The researcher played the Cowspiracy documentary and adminstered a set of comprehension questions to ensure that all students had been alert and paid attention - they all had, of course. Prior to this 'treatment', the researcher asked the student participants to record the number of burgers and sausages they consumed in the week preceding the lecture.\ -->
-<!-- A week later the same students returned for their next seminar. The researcher again asked the participants to record the number of burgers and sausages they had eaten over the last week.\ -->
-<!-- Finally, the researcher wanted to examine the prolonged effect (if any) of the documentary on meat consumption. To this end, the researcher hijacked yet another seminar, 3 weeks later (4 after the original documentary showcasing), and asked participants to record the number of burgers and sausages they consumed in prior the week. As such, the research design represents a one-factor within-participants design with three levels (pre documentary, one week post documentary, four weeks post documentary). -->
-<!-- The researcher had the following experimental hypotheses: -->
-<!-- - Participants would eat significantly less meat products in the week after watching Cowspiracy than the week prior to watching Cowspiracy  **(Hypothesis 1)**\ -->
-<!-- - Participants meat consumption would be significantly higher in the four weeks after watching Cowspiracy than the week after watching Cowspiracy **(Hypothesis 2)**\ -->
-<!-- - TAKE A MOMENT TO PAUSE AND THINK ABOUT WHAT A FURTHER H3 HYPOTHESIS COULD BE? DISCUSS WITH YOUR INNER SELF OR A CLASSMATE. -->
-<!-- ![A pensive looking student!](https://images.pexels.com/photos/6237990/pexels-photo-6237990.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) -->
-<!-- ****** -->
-<!-- ### 2.2 Familiarizing ourselves with the data: -->
-<!-- Ok, now the hypothesis generation is over, let's take a look at our data. -->
-<!-- Please call up the data using the head() function, and ask for the top 50 data points. -->
-<!-- ```{r, eval=FALSE} -->
-<!--   head(lab4 data, n = x) -->
-<!-- ``` -->
-<!-- Straight away, we can see there is a bug in our code. *hint, it's something with the data name and number of data points being called.* -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- ```{r} -->
-<!-- #ANSWER CODE -->
-<!-- head(lab4_data, n = 50) -->
-<!-- ``` -->
-<!-- If all has gone well, you should get the following: -->
-<!-- ```{r, echo=FALSE} -->
-<!--   head(lab4_data, n = 50) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- We can see all data for our 50 participants. the columns show us the: -->
-<!-- - *participant ID* -->
-<!-- - the *a1_meat* value, which is the total number of burgers and sausages consumed in the week prior to the watching the documentary -->
-<!-- - the *a2_meat* value, which is the total number of burgers and sausages consumed in the week succeeding having watched the documentary -->
-<!-- - the *a3_burgers* value, which is the total number of burgers consumed in a week one month after watching the documentary -->
-<!-- - the *a3_sausages* value, which is the total number of sausages consumed in a week one month after watching the documentary. -->
-<!-- Have a look over this dataframe and describe the data to your inner self or a classmate. -->
-<!-- **The particularly eagle-eyed individuals among us will see that we appear to have a mistake in our data! While we have burger and sausage consumption together as a single total value for time a1 and a2, we failed to create the equivalent composite variable for time a3. Yep, definitely  a mistake - a3 burger and a3 sausages have yet to be summed together to get a total.**\ -->
-<!-- Well, it's up to us to sort this out. To do this, let's make this new variable using the mutate() function. Using this function, we can add up the total number of burgers and sausages consumed at time A3 and create a new 'a3_meat' total variable.** -->
-<!-- ```{r} -->
-<!-- lab4_data %>% -->
-<!--   mutate(a3_meat = (a3_burgers + a3_sausages)) -> lab4_data #create a new composite variable 'a3_meat' and add this as a column to the pre-existing lab4_data -->
-<!-- ``` -->
-<!-- OK. We should now have a new variable in our dataset called 'a3_meat'. Let's check and see if this has all worked. -->
-<!-- ```{r} -->
-<!-- lab4_data %>% head(n=50) -->
-<!-- ``` -->
-<!-- We can see that it has worked, but the surplus a3_burger and a3_sausage columns remain. Just to keep it all tidy, let's remove these redundant columns with the select() function. -->
-<!-- ```{r} -->
-<!-- lab4_data %>% select(-c(a3_burgers, a3_sausages)) -> lab4_data # remove 'a3_burgers' and 'a3_sausages' columns -->
-<!-- ``` -->
-<!-- Now let's check again using the head() function and see if we're happy. Please ask again for the first 50 rows. -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- ```{r} -->
-<!-- #ANSWER CODE -->
-<!-- lab4_data %>% head(n=50) -->
-<!-- ``` -->
-<!-- Hopefully you can check your dataframe and see the following... -->
-<!-- ```{r, echo=FALSE} -->
-<!-- lab4_data %>% head(n=50) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- **phew! that worked a treat!** -->
-<!-- **Special note, the above code will make a new variable by adding together two existing ones - great. However, often we will want to make a new variable by taking the average of multiple rows of data (e.g., adding multiple scores together and then dividing by the number of rows). To do that, you could, for example, replace (a3_burgers + a3_sausages) in the mutate() function with ((a3_burgers + a3_sausages)/2) - where 2 is the number of rows. Alternatively you could incorporate the rowmeans() function from the 'furniture' package, e.g., rowmeans(a3_burgers, a3_sausages). The rest of the code for the argument would stay the same. You don't need to do this now, as this will mess with what we do for the rest of the session!!!! It is just to inform you for future work.** -->
-<!-- ****** -->
-<!-- ### 2.3 Reformatting the data: -->
-<!--   ![Hold Up!](https://images.unsplash.com/photo-1542707309-4f9de5fd1d9c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80) -->
-<!-- **Hang on a sec folks. The data are currently presented with our repeated measures (A1_meat, A2_meat, A3_meat) formatted on the columns level. To run within-participant ANOVAs in R Studio, however, it is preferable that data are presented in a long format. Essentially, what this means is that all meat consumption scores should belong to a single long column. The grouping variable time (a1_meat, a2_meat, a3_meat) is then housed in its own single column.** -->
-<!-- To convert the data from seperate columns for each level to one long column, please execute the following code: -->
-<!-- ```{r} -->
-<!-- lab4_data_long <- lab4_data %>% -->
-<!--   gather(key = "time", value = "meat", a1_meat, a2_meat, a3_meat) -->
-<!-- ``` -->
-<!-- You will note, using the <- defining function, we have created a brand new data frame named **lab4_data_long**\ -->
-<!-- Let's view this new **lab4_data_long** dataframe and make sure it looks as we would expect. Here, we can again use the head() function - remember, however, that our number of rows have now increased 150 (all data in one column). Alternatively, you could also use the view(lab4_data_long) function. -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- ```{r} -->
-<!-- #ANSWER CODE -->
-<!-- lab4_data_long %>% head(n=150) -->
-<!-- ``` -->
-<!-- We can now see that our data are arranged in long format - huzzah. -->
-<!-- ```{r, echo=FALSE} -->
-<!-- lab4_data_long %>% head(n=150) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- We now have three columns. 'participant' ID (as before), but also 'time' - which holds our A1, A2 and A3 levels - and 'meat' - which is the total number of burgers/sausages consumed for that time point.\ -->
-<!-- From now on, we will be working with our newly created **lab4_data_long** data frame. Let's go ahead and look at the descriptive statistics for our data. As with previous weeks, we will use the rstatix() package to get some neat and tidy summary statistics. -->
-<!-- We first specify the dataset we will use - which is **lab4_data_long**. After this we will use a pipe to ask R Studio to pass this data set on to the next function. Here, we use the group_by() function to specify that we want to distinguish between our three different levels - the variable we named 'time'. We then use another pipe to pass the intermediate result onto the next function - the get_summary_stats(). In the parentheses we include our single 'meat' dependent variable. Finally we are asked to specify what 'type' of summary statistic we would like. Let's go for mean, standard deviation, min and max values. -->
-<!-- ```{r, eval=FALSE} -->
-<!-- Descriptives = lab4_data_long % -->
-<!--   group_by(Time) %>% -->
-<!--   get_summary_stats(meat, show = c("mean", "sd", "min", "max")) -->
-<!-- options(digits = 4) -->
-<!-- print.data.frame(Descriptives) -->
-<!-- ``` -->
-<!-- Oh blast. There seems to be some bugs in the code. Please go through and try to fix them. Hint, there are two errors in the code. -->
-<!-- When fixed, you will get the following: -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- ```{r} -->
-<!-- #ANSWER CODE -->
-<!-- Descriptives = lab4_data_long %>% -->
-<!--   group_by(time) %>% -->
-<!--   get_summary_stats(meat, show = c("mean", "sd", "min", "max")) -->
-<!-- options(digits = 4) -->
-<!-- print.data.frame(Descriptives) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- There do seem to be some tendencies and trends in data. Speak with a classmate or your inner self about what these data indicate. -->
-<!-- ****** -->
-<!-- ## 3 Assumptions of a within-participants ANOVA: -->
-<!-- Before we progress on and see if there are differences in meat consumption between the different time levels, we first need to check our assumptions of the within-participants ANOVA. This is to ensure that we are not violating expectations of data, which may misconstrue our conclusions. -->
-<!-- As you will recall from Lecture 4, there are 3 key assumptions of a within-participants ANOVA.\ -->
-<!-- 1) The assumption of independence (i.e., are our participants independent from one another? - let's say 'yes!')\ -->
-<!-- 2) The assumption of normality (i.e., are our levels [a.k.a time groups] showing normal distributions with their data points?)\ -->
-<!-- 3) The assumption of sphericity (i.e., is the variance in data points similar across levels?)\ -->
-<!-- The first one - assumption of independence - we need to search our souls and ask if this is the case. Let's say "yes, yes it was". -->
-<!-- The other two - assumption of normality and sphericity - we can test by analytical means. We should also check if are there any extreme values in our data - remember Lecture 3. -->
-<!-- Let's give it a go! -->
-<!-- ****** -->
-<!-- ### 3.1 Outliers and extreme values -->
-<!-- We can eye ball boxplots to look for suspicious data points, or we can test for extreme values very easily using the rstatix() package. It has this wonderful function called identify_outliers(), which will tell us if we have any outliers or extreme values. As a rule, outliers are typically fine to work with, extremes however are when things become a bit hairy. -->
-<!-- Please copy the following code: -->
-<!-- ``` {r} -->
-<!-- lab4_data_long %>% -->
-<!--   group_by(time) %>% -->
-<!--   identify_outliers(meat)# the function to identify outliers and extreme values -->
-<!-- ``` -->
-<!-- This is marvellous. We find zero outliers or extreme data points. -->
-<!-- ****** -->
-<!-- ### 3.2 Assumption of normality -->
-<!-- Like last week, we can test whether our data are normal using QQ plots and a Shapiro-Wilk test of normality. The QQ plot maps out the correlation between our data and a normal distribution. If many data points fall away from our reference line and outside the band of the 95% confidence interval we can assume that data are non-normal.\ -->
-<!-- The Shapiro-Wilk test statistically calculates whether our data are 'normal'. If the p-value for our Shapiro-Wilk statistic is equal to or less than *p* = .05, then this indicates we have failed the test and have non-normal data - not good! The Shapiro-Wilk test, however, becomes less useful as we have a larger N. The larger the sample, the more likely it is that you will get a statistically significant Shapiro-Wilk test result and our data will be assumed to be non-normal.\ -->
-<!-- Let's start off by examining the QQ plot. Please enter or type the following code: -->
-<!-- ``` {r, warning=FALSE, message=FALSE} -->
-<!-- ggqqplot(lab4_data_long, "meat", facet.by = "time") # where we use "" around our variable names -->
-<!-- ``` -->
-<!-- Discuss with yourself of a colleague whether the data appear normal. -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- My two cents: Data look largely normal. For the A1 (pre) and A3 (after 1 month) levels the data fit nicely within the 95% confidence intervals. Level A2 (after 1 week) looks a little dicier, with some data points falling outside the 95% confidence intervals. -->
-<!-- ::: -->
-<!-- Let's run a Shapiro-Wilk test and see what it also tells us. -->
-<!-- ``` {r, eval=FALSE} -->
-<!-- lab4_data %>% -->
-<!--   group_by(time) %>% -->
-<!--   shapiro_test(meat) -->
-<!-- ``` -->
-<!-- Uh oh. There is a bug here. Let's try figuring out the problem. The red error message is telling us that there is no 'time' variable, but it is spelled correctly. The problem must be somewhere else. Can you figure it out? Hint, it is only one problem.\ -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- If run correctly, you should receive the following output. -->
-<!-- ``` {r} -->
-<!-- #ANSWER CODE -->
-<!-- lab4_data_long %>% -->
-<!--   group_by(time) %>% -->
-<!--   shapiro_test(meat) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- Have a think what the test is telling us before you scroll down for the answer. Remember, we are hoping that our values are non-signficant! -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- The Shapiro-Wilk test indicates that while data for levels A1 and A3 are normally distributed, the A2 level is not. Given that ANOVAs are pretty robust to violations of normality (Roberts & Russo, 1999), that we have 150 data points, and that the A2 Shapiro-Wilk test is not highly statistical ((*p* > .01), I think we are safe to run the ANOVA without transformations.\ -->
-<!-- ::: -->
-<!-- In an official report or publication, a researcher should be transparent and inform the reader when the checks of normality fail. The researcher should also justify (with relevant literature) occasions in which they decide to continue on and run an ANOVA when data violations are present. -->
-<!-- ****** -->
-<!-- ### 3.3 Assumption of sphericity. -->
+  Effect  DFn  DFd     F        p p&lt;.05   ges
+1   time 1.75 85.7 47.47 1.54e-13     * 0.374</code></pre>
+</div>
+</div>
+<p>This provides us with a tonne of information. The ‘F’ value is our F statistic. ‘DFn’ and ‘DFd’ show the degres of freedom for the numerator and denominator of our F ratio formula (remember Lecture 4?). The ‘p’ shows us the p-value for our F statistic, while the ‘ges’ is our effect size with the the Greenhouse-Geisser sphericity correction - yep, we did fail the assumption of sphericity - not to worry.</p>
+<p>Have a think about what the ANOVA output is telling us.</p>
+<hr>
+<section id="reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format">4.1 Reporting the results of the one-factor within-participants ANOVA in APA format</h3>
+<p>As always, it is important that we are able to write up our results for others. The following is an example of how we could do so.</p>
+<p>Meat consumption was analysed using a one factor within-participants ANOVA, comprising three time levels (pre-documentary, one-week after the documentary, and one month after the documentary). A Mauchly’s test indicated that the assumption of sphericity had been violated - the degrees of freedom were therefore corrected using Greenhouse-Geisser estimates of sphericity. The meat consumption of participants statistically differed between the different time points, <em>F</em>(1.75, 85.7) = 47.47, <em>p</em> &lt; 0.001, ηp2 = 0.37.</p>
+<hr>
+</section>
+<section id="running-further-pairwise-comparisons" class="level3">
+<h3 class="anchored" data-anchor-id="running-further-pairwise-comparisons">4.2 Running further pairwise comparisons</h3>
+<p>As you will recall, the ANOVA tells us that we have differences between our groups, but not specifically which groups differ. For our between-participants robot ANOVA, we discussed the possibility of running pairwise comparisons and/or posthoc tests.<br>
+</p>
+<p>As we are running a <strong>within-participants</strong> ANOVA - and many of the posthoc tests assume that data are from independent groups (i.e., not repeated measures) - we would be better off in the current situation running multiple pairwise t-tests with Bonferroni corrections (see Lecture 3 again if this is hard to follow).</p>
+<p>To run our pairwise comparisons, please type or paste the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pairwise_comparisons <span class="ot">&lt;-</span> lab4_data_long <span class="sc">%&gt;%</span> <span class="co"># Name object pairwise_comparisons</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    meat <span class="sc">~</span> time, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="co"># Indicate this is paired (within participants) data</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span> <span class="co"># Adjust for bonferroni correction</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>(pairwise_comparisons) <span class="co"># Show the output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 10
+  .y.   group1 group2    n1    n2 statistic    df        p    p.adj p.adj.signif
+* &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       
+1 meat  a1_me… a2_me…    50    50     10.4     49 5.31e-14 1.59e-13 ****        
+2 meat  a1_me… a3_me…    50    50      3.96    49 2.43e- 4 7.29e- 4 ***         
+3 meat  a2_me… a3_me…    50    50     -5.89    49 3.52e- 7 1.06e- 6 ****        </code></pre>
+</div>
+</div>
+<p>And to get our Cohen’s D effect sizes, please type or paste the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Cohen's d for each pairwise comparison</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>cohens_d_a1_a2 <span class="ot">=</span> <span class="fu">cohens_d</span>(lab4_data_long<span class="sc">$</span>meat[lab4_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"a1_meat"</span>], </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                             lab4_data_long<span class="sc">$</span>meat[lab4_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"a2_meat"</span>], </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>cohens_d_a1_a3 <span class="ot">=</span> <span class="fu">cohens_d</span>(lab4_data_long<span class="sc">$</span>meat[lab4_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"a1_meat"</span>], </span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>                                  lab4_data_long<span class="sc">$</span>meat[lab4_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"a3_meat"</span>], </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>cohens_d_a2_a3 <span class="ot">=</span> <span class="fu">cohens_d</span>(lab4_data_long<span class="sc">$</span>meat[lab4_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"a2_meat"</span>], </span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>                                   lab4_data_long<span class="sc">$</span>meat[lab4_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"a3_meat"</span>], </span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>(cohens_d_a1_a2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |       95% CI
+------------------------
+1.47      | [1.07, 1.87]</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>(cohens_d_a1_a3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |       95% CI
+------------------------
+0.56      | [0.26, 0.86]</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>(cohens_d_a2_a3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.83     | [-1.15, -0.51]</code></pre>
+</div>
+</div>
+<p>STOP. Please have a look at the different combination of levels: a1_meat and a2_meat a1_meat and a3_meat a2_meat and a3_meat</p>
+<p>Do they statistically differ from one another? What do the data tell us?</p>
+<p>We need to write this up also!</p>
+<hr>
+</section>
+<section id="reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format-1" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-the-results-of-the-one-factor-within-participants-anova-in-apa-format-1">4.3 Reporting the results of the one-factor within-participants ANOVA in APA format</h3>
+<p>Meat consumption was analysed using a one factor within-participants ANOVA, comprising three time levels (pre-documentary, one-week after the documentary, and one month after the documentary). A Mauchly’s test indicated that the assumption of sphericity had been violated - the degrees of freedom were corrected accordingly using Greenhouse-Geisser estimates of sphericity. The meat consumption of participants statistically differed between the different time points <em>F</em>(1.75, 85.7) = 47.47, <em>p</em> &lt; 0.001, ηp2 = 0.37. Paired pairwise comparisons with Bonferroni corrections found that meat consumption varied between all three time levels (<em>adjusted p</em> &lt; .001 for all three possible combinations). Participants consumed the highest amount of meat prior to watching the documentary (see figure 1). Participants consumed the lowest amount of meat in the one week following the documentary. Participants, on average, consumed significantly less meat a month after watching the documentary than they did before watching the documentary. Participants, however, ate significantly more meat one month after watching the documentary than they did in the week after the documentary.</p>
+<p><em>Note, the results section was already getting quite wordy and so no mean values of the different levels were included. Instead, the reader was directed to figure 1 - let’s make that now.</em></p>
+<hr>
+</section>
+<section id="apa-barchart" class="level3">
+<h3 class="anchored" data-anchor-id="apa-barchart">4.4 APA barchart</h3>
+<p>Here, we are going to borrow some code from our week 2 lab. We will adapt it for current purposes.</p>
+<p>Like in week 2, let’s start off by creating a new dataset with standard errors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>meat_plot <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(lab4_data_long, <span class="at">measurevar=</span><span class="st">"meat"</span>, <span class="at">groupvars=</span><span class="fu">c</span>(<span class="st">"time"</span>)) <span class="co"># Create data with standard errors which we can apply for our barchart</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ok, great. Now let’s adapt our APA barchart code from week two to make a new figure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>meat_plot <span class="sc">%&gt;%</span> <span class="co"># Our dataset</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> time, <span class="co"># Our X axis</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> meat, <span class="co"># Our Y axis</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> time)) <span class="sc">+</span> <span class="co"># How we will colour our seperate bars</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># Width of columns and space between columns</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># Trick to remove space below 0 on y axis</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>),</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># Set limit of Y axis to 7</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Time since watching documentary"</span>) <span class="sc">+</span> <span class="co"># Rename the x axis label</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Average number of burgers and sausages consumed over a week"</span>) <span class="sc">+</span> <span class="co"># Rename the y axis label</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'one week prior'</span>,<span class="st">'one week after'</span>,<span class="st">'one month after'</span>)) <span class="sc">+</span> <span class="co"># Rename the groups on x axis</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># Removing the background panel colour</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># Creating black axes lines</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># Removing the legend, which is redundant</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>meat<span class="sc">-</span>se, <span class="at">ymax=</span>meat<span class="sc">+</span>se, <span class="at">width =</span> <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week4_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>That is all looking hunky dorie. We now have a figure that we can add to our results section, to provide a visual aid regarding the average scores and error bars for our three levels.</p>
+<hr>
+</section>
+</section>
+<section id="working-with-a-simulated-dataset---pixelville-the-digital-frontier" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-a-simulated-dataset---pixelville-the-digital-frontier">5 Working with a simulated dataset - Pixelville, the digital frontier</h2>
+<p>In the realm of research and data science, we often envision large teams of researchers meticulously collecting data from various sources, be it through surveys, experiments, or observations. However, there are instances when the data we seek is not readily available, or when it’s impractical to collect real data. Enter: simulated data.</p>
+<p>Simulated data refers to artificially created data that mimics the properties and characteristics of real-world data. It’s generated under controlled conditions, usually by leveraging computational algorithms and statistical methods.</p>
+<p>In this activity, we’ll be diving into the world of simulated data to explore a hypothetical scenario involving the residents of Pixelville. Remember, while the data is simulated, the methods and techniques we’ll use mirror those applied to real-world data.</p>
+<p>Now, let’s move to our Pixelville story!</p>
+<img src="https://images.unsplash.com/photo-1564585447193-cd9a0cf42a36?auto=format&amp;fit=crop&amp;q=80&amp;w=3862&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="600" height="400">
+<p align="left">
+Welcome to Pixelville!
+</p>
+<p>In our technologically driven era, there’s an ongoing debate about the effects of continuous digital exposure on our mental well-being. The quaint town of Pixelville, curious and concerned about this, initiated a “Digital Detox Challenge” for its residents. The challenge? A week without smartphones, social media, and all things digital - yes, even cat videos. The goal? To determine if taking a break from the digital world can significantly reduce stress levels.</p>
+<p>In this activity, we’ll simulate and analyze data to explore the potential impact of such a detox on the stress levels of Pixelville’s residents.</p>
+<p>We’ll start off by actually simulating stress levels for 40 residents of Pixelville across three time points. Don’t worry, the code is already prepared here for you.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting a seed for reproducibility</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">214</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining the number of participants</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>n_participants <span class="ot">=</span> <span class="dv">40</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating stress levels before the digital detox</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>pre_detox <span class="ot">=</span> <span class="fu">rnorm</span>(n_participants, <span class="dv">8</span>, <span class="fl">1.2</span>)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating stress levels immediately after the digital detox</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>post_detox <span class="ot">=</span> <span class="fu">rnorm</span>(n_participants, <span class="dv">6</span>, <span class="fl">1.4</span>)</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating stress levels one month after the digital detox</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>one_month_post <span class="ot">=</span> <span class="fu">rnorm</span>(n_participants, <span class="dv">7</span>, <span class="fl">1.3</span>)</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Combining the data into a dataframe</span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>detox_data <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">participant =</span> <span class="dv">1</span><span class="sc">:</span>n_participants,</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>                         <span class="at">pre_detox =</span> pre_detox,</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>                         <span class="at">post_detox =</span> post_detox,</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>                         <span class="at">one_month_post =</span> one_month_post)</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the data</span></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(detox_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  participant pre_detox post_detox one_month_post
+1           1     7.439      6.821          7.582
+2           2     8.049      6.515          7.438
+3           3     9.204      5.341          8.943
+4           4    10.430      5.844          8.062
+5           5     8.368      7.405          4.901
+6           6     8.511      4.936          6.904</code></pre>
+</div>
+</div>
+<p>Ok great. Now we have our data, it’s time to analyse it.</p>
+<ol type="1">
+<li>For our analysis, we first need to reshape our data into a ‘long format’. Please follow the instructions of ‘2.3 Reformating the data’ being sure to adapt the code to fit the ‘Pixelville’ scenario.</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>detox_data_long <span class="ot">=</span> detox_data <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"time"</span>, <span class="at">value =</span> <span class="st">"stress"</span>, pre_detox, post_detox, one_month_post)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Next, please generate some descriptive statistics, so we have an idea of stress ratings alter over time. How do they look? Speak to inner self or a class mate. Again, feel free to adapt code from earlier in this lab.</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>Descriptives <span class="ot">=</span> detox_data_long <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(stress, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>))</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print.data.frame</span>(Descriptives)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            time variable  n  mean    sd   min    max
+1 one_month_post   stress 40 6.985 1.124 4.872  9.349
+2     post_detox   stress 40 5.759 1.235 1.808  7.685
+3      pre_detox   stress 40 8.215 1.260 4.849 10.430</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Great. Now, let’s determine if the detox challenge statistically influenced the residents’ stress levels. To do this, please run a within-participants ANOVA and if required, subsequent pairwise comparisons and Cohen’s <em>d</em> effect size estimates. Hint, adapt code from 4 and 4.2.</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>model_2 <span class="ot">=</span> detox_data_long <span class="sc">%&gt;%</span> <span class="co"># Run an ANOVA with our long data</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">anova_test</span>(<span class="at">dv =</span> stress, <span class="at">wid =</span> participant, <span class="at">within =</span> time) <span class="co"># Specify the DV, which rows belong to which participant and that time is the between-participant factor</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_anova_table</span>(model_2) <span class="co"># Pull up this model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
 
-<!-- There is no need to run a separate statistical test to check sphericity (equal variance across levels). This is because R Studio will automatically check for violations of sphericity with a Mauchly’s test when computing the within-participants ANOVA itself. If data violate the assumption of sphericity - and trust me, within-participant designs *frequently* violate this assumption of ANOVA - the analysis function will automatically apply a Greenhouse-Geisser sphericity correction to handle this issue. Specifically, in cases of sphericity violations, the ANOVA table will correct the degrees of freedom and automatically include an adjusted 'eta2[g]' - or a 'generalized effect size with Greenhouse-Geisser sphericity correction'. -->
-<!-- ****** -->
-<!-- ## 4 Running a one-factor within-participants ANOVA -->
-<!-- To compute our one factor within participants ANOVA, let's use the *rstatix* package anova_test() function. -->
-<!-- Please enter the following code: -->
-<!-- ``` {r} -->
-<!-- model <- lab4_data_long %>% #Run an ANOVA with our long data -->
-<!--     anova_test(dv = meat, wid = participant, within = time) # specify the dv, which rows belong to which participant and that time is the between-participant factor -->
+  Effect DFn DFd     F        p p&lt;.05   ges
+1   time   2  78 39.78 1.23e-12     * 0.414</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pairwise_comparisons <span class="ot">=</span> detox_data_long <span class="sc">%&gt;%</span> <span class="co"># Name object pairwise_comparisons</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    stress <span class="sc">~</span> time, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="co"># Indicate this is paired (within participants) data</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span> <span class="co"># Adjust for bonferroni correction</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>(pairwise_comparisons) <span class="co"># Show the output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 10
+  .y.   group1 group2    n1    n2 statistic    df        p    p.adj p.adj.signif
+* &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       
+1 stre… one_m… post_…    40    40      4.15    39 1.74e- 4 5.22e- 4 ***         
+2 stre… one_m… pre_d…    40    40     -4.64    39 3.85e- 5 1.16e- 4 ***         
+3 stre… post_… pre_d…    40    40     -9.28    39 2.03e-11 6.09e-11 ****        </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Cohen's d for each pairwise comparison</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>cohens_d_pre_post <span class="ot">=</span> <span class="fu">cohens_d</span>(detox_data_long<span class="sc">$</span>stress[detox_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"pre_detox"</span>],</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>                             detox_data_long<span class="sc">$</span>stress[detox_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"post_detox"</span>],</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>cohens_d_pre_one_month <span class="ot">=</span> <span class="fu">cohens_d</span>(detox_data_long<span class="sc">$</span>stress[detox_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"pre_detox"</span>],</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>                                  detox_data_long<span class="sc">$</span>stress[detox_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"one_month_post"</span>],</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>cohens_d_post_one_month <span class="ot">=</span> <span class="fu">cohens_d</span>(detox_data_long<span class="sc">$</span>stress[detox_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"post_detox"</span>],</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>                                   detox_data_long<span class="sc">$</span>stress[detox_data_long<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"one_month_post"</span>],</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>(cohens_d_pre_post)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |       95% CI
+------------------------
+1.47      | [1.01, 1.91]</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>(cohens_d_pre_one_month)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |       95% CI
+------------------------
+0.73      | [0.38, 1.08]</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>(cohens_d_post_one_month)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.66     | [-1.00, -0.31]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Fantastic. Before moving on to the further taks, please ask yourself the following: Did the digital detox challenge meet its goal in Pixelville? Are there long-term benefits to a short digital detox?</p>
+</section>
+<section id="further-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="further-tasks">6 Further tasks</h2>
+<p>Well done for completing yet another new test! Some things you may wish to try…</p>
+<ol type="1">
+<li>Regarding the meat study - the bar chart looks good, but the labels of the axes could, potentially, be improved. Rename the x-axis, y-axis and group labels to alternative names that still make sense given the study context.</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>meat_plot <span class="sc">%&gt;%</span> <span class="co"># Our dataset</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> time, <span class="co"># Our X axis</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> meat, <span class="co"># Our Y axis</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> time)) <span class="sc">+</span> <span class="co"># How we will colour our seperate bars</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># Width of columns and space between columns</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># Trick to remove space below 0 on y axis</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>),</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># Set limit of Y axis to 7</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"STUDENT CAN CHOOSE XLABEL"</span>) <span class="sc">+</span> <span class="co"># Rename the x axis label</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"STUDENT CAN CHOOSE YLABEL"</span>) <span class="sc">+</span> <span class="co"># Rename the y axis label</span></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'one week prior'</span>,<span class="st">'one week after'</span>,<span class="st">'one month after'</span>)) <span class="sc">+</span> <span class="co"># Rename the groups on x axis</span></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># Removing the background panel colour</span></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># Creating black axes lines</span></span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># Removing the legend, which is redundant</span></span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>meat<span class="sc">-</span>se, <span class="at">ymax=</span>meat<span class="sc">+</span>se, <span class="at">width =</span> <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week4_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>To practice with making an composite variable using an average score of multiple values, please return up to the text marked “Special note” which is just above “2.3 Reformating the data” and try your hand at making a new average score variable from some existing variable. note, your data will need to be in the original wide format (i.e., the lab4_data), as opposed to long format (i.e., lab4_data_wide).</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>lab4_data <span class="ot">=</span> lab4_data <span class="sc">%&gt;%</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meat_average =</span> (<span class="fu">rowmeans</span>(a1_meat, a2_meat, a3_meat)))</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a> <span class="co"># Create a new composite variable 'meat_average', which is the average amount of meat a participant consumed per week across the three time points - i.e., ((amount of meat consumed at time 1 + amount of meat consumed at time 2 + amount of meat consumed at time 3) divided by 3). Add this new composite as a variable to the pre-existing lab4_data</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># CHECK IT IS CORRECT AND NEW VARIABLE EXISTS</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lab4_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 50 × 5
+   participant a1_meat a2_meat a3_meat meat_average
+         &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;        &lt;dbl&gt;
+ 1           1       6       3       6         5   
+ 2           2       3       4       6         4.33
+ 3           3       8       1       3         4   
+ 4           4       6       5       5         5.33
+ 5           5       9       0       0         3   
+ 6           6       8       1       6         5   
+ 7           7       9       2       2         4.33
+ 8           8       5       4       7         5.33
+ 9           9       7       4       1         4   
+10          10       8       6       3         5.67
+# ℹ 40 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>In the meat data, the normality assumption was violated for level a2 - the shame, oh the shame. Why not plot the a2 data using a histogram (see lab sheet week 2). Does the histogram make you feel more or less convinced that your decision to continue your analysis was justified?</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram for A2. We have 7 bins, because scores ranged from 0-6 [min-max] (see summary statistics of 2.3 as a reminder)</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>lab4_data <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> a2_meat)) <span class="sc">+</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">7</span>, <span class="at">fill =</span> <span class="st">"grey"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week4_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>With your inner self of a study buddy, think about the following theoretical questions:</li>
+</ol>
+<ol type="A">
+<li>Why might participants eat less meat after watching the documentary?</li>
+<li>Why might they increase their consumption a month later?</li>
+<li>What real-life scenarios can you think of where a within-participants ANOVA is applied?</li>
+<li>When would a within-participants ANOVA be preferable to a between-participants ANOVA?</li>
+</ol>
+<ol start="5" type="1">
+<li>Let’s revisit Pixelville! Something we didn’t do was test our assumptions - or construct an APA style bar chart. Please try do these now.</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>detox_data_long <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">identify_outliers</span>(stress) <span class="co"># The function to identify outliers and extreme values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  time       participant stress is.outlier is.extreme
+  &lt;chr&gt;            &lt;int&gt;  &lt;dbl&gt; &lt;lgl&gt;      &lt;lgl&gt;     
+1 post_detox          12   1.81 TRUE       FALSE     
+2 pre_detox           11   4.85 TRUE       FALSE     </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(detox_data_long, <span class="st">"stress"</span>, <span class="at">facet.by =</span> <span class="st">"time"</span>) <span class="co"># Where we use "" around our variable names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week4_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>detox_data_long <span class="sc">%&gt;%</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(stress)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  time           variable statistic      p
+  &lt;chr&gt;          &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 one_month_post stress       0.978 0.609 
+2 post_detox     stress       0.940 0.0356
+3 pre_detox      stress       0.972 0.425 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>detox_plot <span class="ot">=</span> <span class="fu">summarySE</span>(detox_data_long, <span class="at">measurevar=</span><span class="st">"stress"</span>, <span class="at">groupvars=</span><span class="fu">c</span>(<span class="st">"time"</span>)) <span class="co"># Create data with standard errors which we can apply for our barchart</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>detox_plot <span class="sc">%&gt;%</span> <span class="co"># Our dataset</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> time, <span class="co"># Our X axis</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> stress, <span class="co"># Our Y axis</span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> time)) <span class="sc">+</span> <span class="co"># How we will colour our seperate bars</span></span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">3</span>)) <span class="sc">+</span> <span class="co"># Width of columns and space between columns</span></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D4D4D4"</span>, <span class="st">"#737373"</span>, <span class="st">"#323232"</span>)) <span class="sc">+</span> <span class="co"># APA colours for bars</span></span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="co"># Trick to remove space below 0 on y axis</span></span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>),</span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># Set limit of Y axis to 7</span></span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Detox time"</span>) <span class="sc">+</span> <span class="co"># Rename the x axis label</span></span>
+<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Average stress levels"</span>) <span class="sc">+</span> <span class="co"># Rename the y axis label</span></span>
+<span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'one week prior'</span>,<span class="st">'one week after'</span>,<span class="st">'one month after'</span>)) <span class="sc">+</span> <span class="co"># Rename the groups on x axis</span></span>
+<span id="cb61-15"><a href="#cb61-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="co"># Removing the background panel colour</span></span>
+<span id="cb61-16"><a href="#cb61-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>), <span class="co"># Creating black axes lines</span></span>
+<span id="cb61-17"><a href="#cb61-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb61-18"><a href="#cb61-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># Cemoving the legend, which is redundant</span></span>
+<span id="cb61-19"><a href="#cb61-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>stress<span class="sc">-</span>se, <span class="at">ymax=</span>stress<span class="sc">+</span>se, <span class="at">width =</span> <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Week4_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Please chill, you’ve done incredible.</li>
+</ol>
+<img src="https://images.pexels.com/photos/289998/pexels-photo-289998.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" width="420" height="250">
+<p align="left">
+Top work!
+</p>
+<p></p>
 
-<!-- get_anova_table(model) # pull up this model -->
-<!-- ``` -->
-<!-- This provides us with a tonne of information. The 'F' value is our F statistic. 'DFn' and 'DFd' show the degres of freedom for the numerator and denominator of our F ratio formula (remember Lecture 4?). The 'p' shows us the p-value for our F statistic, while the 'ges' is our effect size with the the Greenhouse-Geisser sphericity correction - yep, we did fail the assumption of sphericity - not to worry. -->
-<!-- Have a think about what the ANOVA output is telling us. -->
-<!-- ****** -->
-<!-- ### 4.1 Reporting the results of the one-factor within-participants ANOVA in APA format -->
-<!-- As always, it is important that we are able to write up our results for others. The following is an example of how we could do so. -->
-<!-- Meat consumption was analysed using a one factor within-participants ANOVA, comprising three time levels (pre-documentary, one-week after the documentary, and one month after the documentary). A Mauchly’s test indicated that the assumption of sphericity had been violated - the degrees of freedom were therefore corrected using Greenhouse-Geisser estimates of sphericity. The meat consumption of participants statistically differed between the different time points  *F*(1.75, 85.7) = 47.47, *p* < 0.001, ηp2 = 0.37. -->
-<!-- ****** -->
-<!-- ### 4.2 Running further pairwise comparisons -->
-<!-- As you will recall, the ANOVA tells us that we have differences between our groups, but not specifically which groups differ. For our between-participants robot ANOVA, we discussed the possibility of running pairwise comparisons and/or posthoc tests.\ -->
-<!-- As we are running a **within-participants** ANOVA - and many of the posthoc tests assume that data are from independent groups (i.e., not repeated measures) - we would be better off in the current situation running multiple pairwise t-tests with Bonferroni corrections (see Lecture 3 again if this is hard to follow). -->
-<!-- To run our pairwise comparisons, please type or paste the following: -->
-<!-- ```{r} -->
-<!-- pairwise_comparisons <- lab4_data_long %>% # name object pairwise_comparisons -->
-<!--   pairwise_t_test( -->
-<!--     meat ~ time, paired = TRUE, var.equal = TRUE, # indicate this is paired (within participants) data -->
-<!--     p.adjust.method = "bonferroni" #adjust for bonferroni correction -->
-<!--     ) -->
-<!-- (pairwise_comparisons) # show the output -->
-<!-- ``` -->
-<!-- STOP. Please have a look at the different combination of levels: -->
-<!-- - a1_meat and a2_meat -->
-<!-- - a1_meat and a3_meat -->
-<!-- - a2_meat and a3_meat -->
-<!-- Do they statistically differ from one another? What do the data tell us? -->
-<!-- We need to write this up also! -->
-<!-- ****** -->
-<!-- ### 4.3 Reporting the results of the one-factor within-participants ANOVA in APA format -->
-<!-- Meat consumption was analysed using a one factor within-participants ANOVA, comprising three time levels (pre-documentary, one-week after the documentary, and one month after the documentary). A Mauchly’s test indicated that the assumption of sphericity had been violated - the degrees of freedom were corrected accordingly using Greenhouse-Geisser estimates of sphericity. The meat consumption of participants statistically differed between the different time points  *F*(1.75, 85.7) = 47.47, *p* < 0.001, ηp2 = 0.37. Paired pairwise comparisons with Bonferroni corrections found that meat consumption varied between all three time levels (*adjusted p* < .001 for all three possible combinations). Participants consumed the highest amount of meat prior to watching the documentary (see figure 1). Participants consumed the lowest amount of meat in the one week following the documentary. Participants, on average, consumed significantly less meat a month after watching the documentary than they did before watching the documentary. Participants, however, ate significantly more meat one month after watching the documentary than they did in the week after the documentary. -->
-<!-- *Note, the results section was already getting quite wordy and so no mean values of the different levels were included. Instead, the reader was directed to figure 1 - let's make that now.* -->
-<!-- ****** -->
-<!-- ### 4.4 APA barchart -->
-<!-- Here, we are going to borrow some code from our week 2 lab. We will adapt it for current purposes. -->
-<!-- Like in week 2, let's start off by creating a new dataset with standard errors. -->
-<!-- ``` {r} -->
-<!-- meat_plot <- summarySE(lab4_data_long, measurevar="meat", groupvars=c("time")) #create data with standard errors which we can apply for our barchart -->
-<!-- ``` -->
-<!-- Ok, great. Now let's adapt our APA barchart code from week two to make a new figure. -->
-<!-- ```{r} -->
-<!-- meat_plot %>% #our dataset -->
-<!--     ggplot(aes(x= time, # our X axis -->
-<!--                y = meat, # our Y axis -->
-<!--                fill = time)) + # How we will colour our seperate bars -->
-<!--     geom_col(width = .7, position = position_dodge(.3)) + # width of columns and space between columns -->
-<!--     scale_fill_manual(values = c("#D4D4D4", "#737373", "#323232")) + # APA colours for bars -->
-<!--     scale_y_continuous(expand = expansion(0), # trick to remove space below 0 on y axis -->
-<!--                        limits = c(0, 7), -->
-<!--                        breaks = seq(0, 7, 1)) + # set limit of Y axis to 7 -->
-<!--   xlab("Time since watching documentary") + #rename the x axis label -->
-<!--   ylab("Average number of burgers and sausages consumed over a week") + #rename the y axis label -->
-<!--   scale_x_discrete(labels = c('one week prior','one week after','one month after')) + #rename the groups on x axis -->
-<!--     theme(panel.background = element_blank(), # removing the background panel colour -->
-<!--           axis.line = element_line(color = "black"), # creating black axes lines -->
-<!--           axis.ticks.x = element_blank(), -->
-<!--           legend.position = "none") + # removing the legend, which is redundant -->
-<!--     geom_errorbar(aes(ymin=meat-se, ymax=meat+se, width = 0.2)) -->
-<!-- ``` -->
-<!-- That is all looking hunky dorie. We now have a figure that we can add to our results section, to provide a visual aid regarding the average scores and error bars for our three levels. -->
-<!-- If you've finished this and are happy, please go on to '5 Further tasks'. -->
-<!-- ****** -->
-<!-- ## 5 Further tasks -->
-<!-- Well done for completing yet another new test! There are not a lot of additional tasks this week. Some things you may wish to try though... -->
-<!-- 1. The bar chart looks good, but the labels of the axes could, potentially, be improved. Rename the x-axis, y-axis and group labels to alternative names that still make sense given the study context. -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- ```{r} -->
-<!-- #ANSWER CODE -->
-<!-- meat_plot %>% #our dataset -->
-<!--     ggplot(aes(x= time, # our X axis -->
-<!--                y = meat, # our Y axis -->
-<!--                fill = time)) + # How we will colour our seperate bars -->
-<!--     geom_col(width = .7, position = position_dodge(.3)) + # width of columns and space between columns -->
-<!--     scale_fill_manual(values = c("#D4D4D4", "#737373", "#323232")) + # APA colours for bars -->
-<!--     scale_y_continuous(expand = expansion(0), # trick to remove space below 0 on y axis -->
-<!--                        limits = c(0, 7), -->
-<!--                        breaks = seq(0, 7, 1)) + # set limit of Y axis to 7 -->
-<!--   xlab("STUDENT CAN CHOOSE XLABEL") + #rename the x axis label -->
-<!--   ylab("STUDENT CAN CHOOSE YLABEL") + #rename the y axis label -->
-<!--   scale_x_discrete(labels = c('one week prior','one week after','one month after')) + #rename the groups on x axis -->
-<!--     theme(panel.background = element_blank(), # removing the background panel colour -->
-<!--           axis.line = element_line(color = "black"), # creating black axes lines -->
-<!--           axis.ticks.x = element_blank(), -->
-<!--           legend.position = "none") + # removing the legend, which is redundant -->
-<!--     geom_errorbar(aes(ymin=meat-se, ymax=meat+se, width = 0.2)) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- 2. To practice with making an composite variable using an average score of multiple values, please return up to the text marked "Special note" which is just above "2.3 Reformatting the data" and try your hand at making a new average score variable from some existing variable. note, your data will need to be in the original wide format (i.e., the lab4_data), as opposed to long format (i.e., lab4_data_wide). -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- ```{r} -->
-<!-- #ANSWER CODE -->
-<!-- lab4_data %>% -->
-<!--   mutate(meat_average = (rowmeans(a1_meat, a2_meat, a3_meat))) -> lab4_data #create a new composite variable 'meat_average', which is the average amount of meat a participant consumed per week across the three time points - i.e., ((amount of meat consumed at time 1 + amount of meat consumed at time 2 + amount of meat consumed at time 3) divided by 3). Add this new composite as a variable to the pre-existing lab4_data -->
-<!-- #CHECK IT IS CORRECT AND NEW VARIABLE EXISTS -->
-<!-- print(lab4_data) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- 3. In the current lab, the normality assumption was violated for level a2 - the shame, oh the shame. Why not plot the a2 data using a histogram (see lab sheet week 2). Does the histogram make you feel more or less convinced that your decision to continue your analysis was justified? -->
-<!-- ::: {.callout-warning icon="false" collapse="true"} -->
-<!-- ## Answer -->
-<!-- ```{r} -->
-<!-- #ANSWER CODE -->
-<!-- # Histogram for A2. We have 7 bins, because scores ranged from 0-6 [min-max] (see summary statistics of 2.3 as a reminder) -->
-<!-- lab4_data %>% -->
-<!--     ggplot(aes(x = a2_meat)) + -->
-<!--     geom_histogram(bins = 7, fill = "grey") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- 4. Please chill, you've done incredible. See you next week and top work. -->
-<!-- ![Top work!](https://images.pexels.com/photos/289998/pexels-photo-289998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) -->
-<!-- # Lab Feedback (voluntary) -->
-<!-- This is a voluntary, super fast [survey](https://modules.lancaster.ac.uk/mod/url/view.php?id=1905317), just to gauge how you found the difficulty of the content and any additional feedback. -->
 
-
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
