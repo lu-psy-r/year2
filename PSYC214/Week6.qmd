@@ -4,21 +4,17 @@ subtitle: "Mark Hurlstone, Sam Russell"
 order: 7
 ---
 
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
+# Lecture
 
-<!-- # Lecture -->
+Watch Part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013495)
 
-<!-- Watch Part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013495) -->
+Watch Part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013498)
 
-<!-- Watch Part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013498) -->
+Watch Part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013499)
 
-<!-- Watch Part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013499) -->
+Watch Part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013504)
 
-<!-- Watch Part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013504) -->
-
-<!-- Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions.pdf) for a larger version. -->
+Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions.pdf) for a larger version.
 
 <!-- # Lab -->
 
