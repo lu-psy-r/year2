@@ -14,7 +14,7 @@ Watch Part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013
 
 Watch Part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013504)
 
-Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions.pdf) for a larger version.
+Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions LARGE.pdf) for a larger version.
 
 # Lab
 
