@@ -6,13 +6,13 @@ order: 7
 
 # Lecture
 
-Watch Part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013495)
+Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c497616b-03ac-4184-bb14-af4b00c1e48d)
 
-Watch Part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013498)
+Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=465c5bc8-6b4c-42c9-b3d3-af4b00cdddab)
 
-Watch Part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013499)
+Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=dee1f63e-3314-48e6-8f86-af4b00d492de)
 
-Watch Part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2013504)
+Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1e24b443-f8dc-4885-a6f6-af4b00db48c1)
 
 Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions LARGE.pdf) for a larger version.
 
