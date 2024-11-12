@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists - 9. Three-Factor ANOVA</title>
+<title>9. Three-Factor ANOVA – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -48,7 +48,12 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -67,65 +73,65 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="https://lu-psy-r.github.io/">
     <span class="navbar-title">Statistics for Psychologists</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
- <span class="menu-text">Year 1</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
- <span class="menu-text">Year 2</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html" rel="" target="">
- <span class="menu-text">Year 3</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
- <span class="menu-text">MSc</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
- <span class="menu-text">And More…</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week9.html">9. Three-Factor ANOVA</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week9.html">9. Three-Factor ANOVA</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -134,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -146,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC214</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -211,7 +217,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC234</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -275,15 +281,15 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week9.html">9. Three-Factor ANOVA</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">9. Three-Factor ANOVA</h1>
 <p class="subtitle lead">Mark Hurlstone, Sam Russell</p>
@@ -299,7 +305,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -427,7 +435,6 @@ Caution
 <!--   print.data.frame(descriptives) -->
 <!-- ``` -->
 <!-- Notice the code we have added to round the descriptive statistics to two-decimal places. We use the function `round()`, specifying how many decimal places we want to round the values (in this case 2). Inside this function, we place the variable we want to be rounded. Because our data are in a dataframe, we need to specify the name of our dataframe followed by a dollar sign and the name of the variable in the dataframe to be rounded (e.g., descriptives\$mean tells R to round the values of the variable `mean` in the dataframe `descriptives`). We also need to re-assign the rounded values to the dataframe, so that the variable gets updated (e.g., that's what the descriptives\$mean = bit does). -->
-
 <!-- Notice also that our standard deviations have been reported to two decimal places, but our means haven't. Why so? This is because the numbers after the first decimal place in this instance are all zeros, so R doesn't report them. Bearing in mind that APA style requires we report descriptive statistics to two-decimal places, we would just add a single zero to each of the means at the second decimal place. For example, the first mean in the table, 7.6, would be reported as 7.60. -->
 <!-- At this stage, we would ordinarily perform various checks including identifying possible outliers and checking that our data satisfy the normality assumption. However, as per last week, time is limited, so we won't perform those checks today (just remember that ordinarily you should not skip this part!). One assumption that is important in within-participants designs is the sphericity assumption, but remember that this only applies to designs with within-participants factors with three or more levels. All of our factors have two levels, so this assumption is not relevant in this instance (it's also not relevant for our second data set that we analyse later, for which the within-participants factors also only comprise two levels). -->
 <!-- ### Running the ANOVA, follow-up ANOVAs, and simple main effects -->
@@ -441,10 +448,8 @@ Caution
 <!-- (memoryContextModel) -->
 <!-- ``` -->
 <!-- To create the model, the first argument we supplied to `anova_test` was the name of our data, `memoryContextLongSep`. The second argument we supplied was our dependent variable, `Accuracy`. The third argument we supplied was `Participant`, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our within-participants factors, `MemoryTask`, `LearningContext`, and `TestingContext`. -->
-
 <!-- As we saw in last week's lab session, the resulting ANOVA table is different in format to those given in the lecture, which follow a more conventional style. In the ANOVA tables given in the lecture, each outcome (each main effect and interaction) is given on a separate row, with the error term used to test it given in the row directly beneath it. However, `anova_test` gives each outcome and its associated error term all in the same row. Specifically, the row corresponding to each outcome contains the between-group degrees of freedom (DFn), the error degrees of freedom (DFd), the between-group sums of squares (SSn), the error sums of squares (SSd), the $F$ ratio (F), the *p* (p) value, and the generalised eta squared (ges) value (a measure of effect size). What `anova_test` does not give us is the between-group mean squares and the error mean squares that are used to calculate the $F$ ratios. However, I showed you how to calculate these in last week's lab session if you should ever have need for these (you probably won't). -->
 <!-- You might be wondering why `anova_test` has not given us Mauchly's test of sphericity and the Greenhouse-Geisser correction. This is because all of our factors have only two levels, so the sphericity assumption does not apply. Remember, the `anova_test` function only generates these tests and corrections when at least one of the within-participants factors has three or more levels. -->
-
 <!-- Inspecting the ANOVA table, rows two to four give the main effects of Memory Task, Learning Context, and Testing Context; rows five to seven give the Memory Task $\times$ Learning Context, Memory Task $\times$ Testing Context, and Learning Context $\times$ Testing Context two-way interactions; and row eight gives the Memory Task $\times$ Learning Context $\times$ Testing Context three-way interaction. Looking at the *p* values, we can see that there is a significant Learning Context $\times$ Testing Context two-way interaction, $p$ = .006, and a significant Memory Task $\times$ Learning Context $\times$ Testing Context three-way interaction, $p$ = .006. -->
 <!-- Because the three-way interaction is significant, we need to analyse it further. As explained in the lecture, a significant three-way interaction occurs when there are different two-way interactions between two of the factors according to the levels of the third factor. The simplest way to analyse a signiﬁcant three-way interaction is to re-analyse it as a series of two-factor ANOVAs. To do this, we first need to decide on a factor that we are going to split the analyses by. We can pick any factor we want, but there is usually one factor that stands out as being an obvious choice and in our case it is the memory task factor. So, what we need to do is to perform two, two-factor ANOVAs: -->
 <!-- 1. a 2 (learning context: learn under water *vs.* learn land) $\times$ 2 (testing context: test under water *vs.* test land) ANOVA for the *recall* memory test condition only. -->
@@ -465,13 +470,10 @@ Caution
 <!-- # Print the model summary -->
 <!-- (recallModel) -->
 <!-- ``` -->
-
 <!-- The only thing we are interested in from the ANOVA table is the outcome of the two-way interaction between Learning Context and Testing Context; you can ignore everything else. You can see that the interaction is significant, *p* = .001, so the next step is to perform a simple main effects analysis to identify the nature of the interaction. -->
 <!-- The procedure for performing the simple main effects analysis is the same as I demonstrated to you in our Week 8 lab session. That is, we use the **pooled error terms** approach, which means that the simple main effects of each factor are calculated using the same error term that was used to test the main effect of that factor in the ANOVA that preceded the simple main effects analysis (in this case, our two-factor ANOVA on the recall data only). -->
-
 <!-- Before we can calculate the simple main effects, there are a few things we need to do. First, we need to store our ANOVA table in a dataframe: -->
 <!-- ```{r, message=FALSE} -->
-
 <!-- # Get the recall ANOVA table -->
 <!-- recallAnovaTable = get_anova_table(recallModel) -->
 <!-- ``` -->
@@ -498,7 +500,6 @@ Caution
 <!-- We then generate the simple main effects of Learning Context by passing these variables into `simple()`: -->
 <!-- ```{r, message=FALSE} -->
 <!-- # Simple main effects of "Learning Context" at "TestingContext" -->
-
 <!-- smeLearningContext = simple(recallCellTotals,recallAnovaTable,fixed,across) -->
 <!-- # Round the p values to three decimal places -->
 <!-- smeLearningContext$P = round(smeLearningContext$P, 3) -->
@@ -517,7 +518,6 @@ Caution
 <!-- We then generate the simple main effects of Testing Context with the following: -->
 <!-- ```{r, message=FALSE} -->
 <!-- # Simple main effects of "Testing Context" at "LearningContext" -->
-
 <!-- smeTestingContext = simple(recallCellTotals,recallAnovaTable,fixed,across) -->
 <!-- # Round the p values to three decimal places -->
 <!-- smeTestingContext$P = round(smeTestingContext$P, 3) -->
@@ -638,7 +638,6 @@ Caution
 <!-- ``` -->
 <!-- To create the model, the first argument we supplied to `anova_test` was the name of our data, `wordPronLngSep`. The second argument we supplied was our dependent variable, `Errors`. The third argument we supplied was `Participant`, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our between-participants factor, `Age`. The fifth argument we supplied as our within-participants factors, `Frequency` and `WordType`. -->
 <!-- As in our first example, our factors have only two levels, so `anova_test` does not give us Mauchly's test of sphericity or the Greenhouse-Geisser correction for the within-participants factors. -->
-
 <!-- Inspecting the ANOVA table, rows two to four give the main effects of Age, Frequency, and Word Type; rows five to seven give the Age $\times$ Frequency, Age $\times$ Word Type, and Frequency $\times$ Word Type two-way interactions; and row eight gives the Age $\times$ Frequency $\times$ Word Type three-way interaction. Looking at the $p$ values, we can see that all the main effects, two-way interactions, and the three-way interaction are significant. -->
 <!-- Because the three-way interaction is significant, we need to analyse it further. As before, to do this we need to re-analyse the data as a series of two-factor ANOVAs. First, we must decide which factor to split the analysis by and the obvious contender is the between-participants factor of age. Accordingly, what we need to do is to perform two, two-factor ANOVAs: -->
 <!-- 1. a 2 (frequency: low *vs.* high) $\times$ 2 (word type: regular *vs.* irregular) ANOVA for the *7-year-olds* only. -->
@@ -658,7 +657,6 @@ Caution
 <!-- # Print the model summary -->
 <!-- (sevenYearsModel) -->
 <!-- ``` -->
-
 <!-- The only thing we are interested in from the ANOVA table is the outcome of the two-way interaction between Frequency and Word Type; you can ignore everything else. You can see that the interaction is nonsignificant in this instance, $p$ = .405. Thus, for 7-year-old children Frequency and Word Type do not combine with one another to influence pronunciation errors. -->
 <!-- What about 9-year-old children? -->
 <!-- That brings us to our second two-factor ANOVA. For this, we now need to produce a filtered version of our data set called `nineYearsOnly` that only includes the results for the 9-year-old children. We can create that with the following piece of code: -->
@@ -677,10 +675,8 @@ Caution
 <!-- (nineYearsModel) -->
 <!-- ``` -->
 <!-- This time the interaction between Frequency and Word Type is significant, *p* = .004, so we now need to perform a simple main effects analysis to determine why. -->
-
 <!-- Before we can calculate the simple main effects, there are a few things we need to do. First, we need to store our ANOVA table in a dataframe: -->
 <!-- ```{r, message=FALSE} -->
-
 <!-- # Get the 9 year olds ANOVA table -->
 <!-- nineYearsAnovaTable = get_anova_table(nineYearsModel) -->
 <!-- ``` -->
@@ -707,7 +703,6 @@ Caution
 <!-- We then generate the simple main effects of Frequency at Word Type with the following: -->
 <!-- ```{r, message=FALSE} -->
 <!-- # Simple main effects of "Frequency" at "WordType" -->
-
 <!-- smeFrequency = simple(nineYearsCellTotals,nineYearsAnovaTable,fixed,across) -->
 <!-- # Round the p values to three decimal places -->
 <!-- smeFrequency$P = round(smeFrequency$P, 3) -->
@@ -726,7 +721,6 @@ Caution
 <!-- We then generate the simple main effects of Word Type at Frequency as follows: -->
 <!-- ```{r, message = FALSE, warning = FALSE} -->
 <!-- # Simple main effects of "WordType" at "Frequency" -->
-
 <!-- smeWordType = simple(nineYearsCellTotals,nineYearsAnovaTable,fixed,across) -->
 <!-- # Round the p values to three decimal places -->
 <!-- smeWordType$P = round(smeWordType$P, 3) -->
@@ -786,18 +780,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -829,11 +812,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -843,8 +865,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -856,7 +887,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -900,6 +1054,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -925,6 +1080,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -986,12 +1167,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../PSYC214/Week8.html" class="pagination-link">
+      <a href="../PSYC214/Week8.html" class="pagination-link" aria-label="8. Two-Factor Mixed and Within-Participants ANOVA">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8. Two-Factor Mixed and Within-Participants ANOVA</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../PSYC234/index.html" class="pagination-link">
+      <a href="../PSYC234/index.html" class="pagination-link" aria-label="PSYC234">
         <span class="nav-page-text">PSYC234</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -999,19 +1180,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../previous-content/index.html">Previous Content</a>
+    <a class="nav-link" href="../previous-content/index.html">
+<p>Previous Content</p>
+</a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
+
 
 
 

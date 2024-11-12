@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists - 3. Assumptions of ANOVA and Follow-Up Procedures</title>
+<title>3. Assumptions of ANOVA and Follow-Up Procedures – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,7 +82,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -101,65 +107,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="https://lu-psy-r.github.io/">
     <span class="navbar-title">Statistics for Psychologists</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
- <span class="menu-text">Year 1</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
- <span class="menu-text">Year 2</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html" rel="" target="">
- <span class="menu-text">Year 3</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
- <span class="menu-text">MSc</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
- <span class="menu-text">And More…</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week3.html">3. Assumptions of ANOVA and Follow-Up Procedures</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week3.html">3. Assumptions of ANOVA and Follow-Up Procedures</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -168,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -180,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC214</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -245,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC234</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -309,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -349,9 +355,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week3.html">3. Assumptions of ANOVA and Follow-Up Procedures</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Statistics for Psychologists</h1>
+<h1 class="title">3. Assumptions of ANOVA and Follow-Up Procedures</h1>
 <p class="subtitle lead">Sam Russell, Mark Hurlstone</p>
 </div>
 
@@ -365,7 +371,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="lecture" class="level1">
 <h1>Lecture</h1>
@@ -389,7 +397,7 @@ It’s that wonderful time of the week again - a time to tango with R studio. As
 <hr>
 <section id="general-introduction-to-lab-3" class="level2">
 <h2 class="anchored" data-anchor-id="general-introduction-to-lab-3">1 - General Introduction to Lab 3</h2>
-<p><em>“It does not matter how slowly you go, as long as you do not stop.”</em> | Confucius.</p>
+<div class="line-block"><em>“It does not matter how slowly you go, as long as you do not stop.”</em> | Confucius.</div>
 <img src="https://cdn.britannica.com/10/184710-050-D6503292/Confucius-Shanghai-China.jpg" width="400" height="300">
 <p align="left">
 Confucius
@@ -473,7 +481,7 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Introducing the robo-lab study</figcaption>
+<figcaption>Introducing the robo-lab study</figcaption>
 </figure>
 </div>
 <p>We are now all well versed in the mad goings on at Lancaster University Psychology Department. The crazy cats there wanted to examine whether Psyc214 students would respond well to an ambitious initiative which would introduce synthetic robots as stats lab assistants. This began with the creation and assessment of two robots (Robot A[lpha] and B[eta]). Applying a between-participants design, the researchers found that those students assigned Robot B(eta) rated their robot as significantly more likable than those assigned Robot A(lpha). Furthermore, Robot B(eta) students did significantly better overall in their Psyc214 exam.</p>
@@ -491,7 +499,7 @@ Note
 <h3 class="anchored" data-anchor-id="refamiliarizing-with-our-data">2.2 Refamiliarizing with our data</h3>
 <p>Just for a recap, let’s open our data and look at the top 50 data points:</p>
 <p><strong>Full disclaimer, from this point on, we will start to include some bugs in code which you will need to resolve. Wicked of us, I know, but it is important that you are able to engage with the code and correct it when needs be. Myself (Sam) and Mark H have more experience in R than yourselves, but still frequently and inadvertently write funky code that requires us to go back and work through our (il)logic - it’s a fact of coding life that never goes away.</strong></p>
-<p>[The frustration of debugging!]https://images.pexels.com/photos/2868257/pexels-photo-2868257.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260)</p>
+<p>![The frustration of debugging!]https://images.pexels.com/photos/2868257/pexels-photo-2868257.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260)</p>
 <p>Please call up the data using the <code>head()</code> function, and ask for the top 50 data points.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(lab3 data, <span class="at">n =</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -669,7 +677,7 @@ Answer
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.unsplash.com/photo-1542707309-4f9de5fd1d9c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=987&amp;q=80" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Hold up!</figcaption>
+<figcaption>Hold up!</figcaption>
 </figure>
 </div>
 <p>Now wait! We almost forgot! Our data is a tad on the dodgy side. We can see that the highest likeability score was 33. This can’t be right? Can it?! Nope, definitely not, the scale should range from 1 - 7, meaning this is an error.</p>
@@ -682,7 +690,7 @@ Answer
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.unsplash.com/photo-1507162728832-5b8fdb5f99fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80%22" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Don’t lose your heads, guys!</figcaption>
+<figcaption>Don’t lose your heads, guys!</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -868,7 +876,11 @@ Answer
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(lab3_data, <span class="st">"Likeability"</span>, <span class="at">facet.by =</span> <span class="st">"Group"</span>) <span class="co"># where we use "" around our variable names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Week3_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Week3_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The plot generated shows how our data correlate to the normal distribution. As we have many data points away from the reference line, we should be concerned that these data are not normal.</p>
@@ -893,7 +905,11 @@ Answer
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ANSWER CODE</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(lab3_data, <span class="st">"Score"</span>, <span class="at">facet.by =</span> <span class="st">"Group"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Week3_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Week3_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="cell">
@@ -913,7 +929,11 @@ Answer
 <p>If run correctly, you should get the following.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="Week3_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Week3_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
@@ -1023,7 +1043,7 @@ Group     | 0.10 | [0.04, 1.00]
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.unsplash.com/photo-1542707309-4f9de5fd1d9c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=987&amp;q=80" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Hold up!</figcaption>
+<figcaption>Hold up!</figcaption>
 </figure>
 </div>
 <p>*Hold up!!! While the ANOVA tells us that there are differences between groups, it doesn’t tell us specifically which groups differ from one another. For example do Group A and B statistically differ? A and O? B and O? The only way to know this definitively is to carry out posthoc/planned contrast tests**</p>
@@ -1237,7 +1257,7 @@ Answer
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.unsplash.com/photo-1562776875-c8af826b1a29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2071&amp;q=80" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Top work!</figcaption>
+<figcaption>Top work!</figcaption>
 </figure>
 </div>
 
@@ -1281,18 +1301,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1324,11 +1333,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1338,8 +1386,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1351,7 +1408,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1395,6 +1575,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1420,6 +1601,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1481,12 +1688,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../PSYC214/Week2.html" class="pagination-link">
+      <a href="../PSYC214/Week2.html" class="pagination-link" aria-label="2. One-Factor Between-Participants ANOVA">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. One-Factor Between-Participants ANOVA</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../PSYC214/Week4.html" class="pagination-link">
+      <a href="../PSYC214/Week4.html" class="pagination-link" aria-label="4. One-Factor Within-Participants ANOVA">
         <span class="nav-page-text">4. One-Factor Within-Participants ANOVA</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1494,19 +1701,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../previous-content/index.html">Previous Content</a>
+    <a class="nav-link" href="../previous-content/index.html">
+<p>Previous Content</p>
+</a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
+
 
 
 

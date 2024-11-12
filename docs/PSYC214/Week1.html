@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists - 1. Measurement, Variance and Inferential Statistics</title>
+<title>1. Measurement, Variance and Inferential Statistics – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,7 +82,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -100,68 +106,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="https://lu-psy-r.github.io/">
     <span class="navbar-title">Statistics for Psychologists</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
- <span class="menu-text">Year 1</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
- <span class="menu-text">Year 2</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html" rel="" target="">
- <span class="menu-text">Year 3</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
- <span class="menu-text">MSc</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
- <span class="menu-text">And More…</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week1.html">1. Measurement, Variance and Inferential Statistics</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week1.html">1. Measurement, Variance and Inferential Statistics</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -170,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -182,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC214</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -247,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC234</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -311,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -354,9 +387,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC214/index.html">PSYC214</a></li><li class="breadcrumb-item"><a href="../PSYC214/Week1.html">1. Measurement, Variance and Inferential Statistics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Statistics for Psychologists</h1>
+<h1 class="title">1. Measurement, Variance and Inferential Statistics</h1>
 <p class="subtitle lead">Sam Russell, Mark Hurlstone</p>
 </div>
 
@@ -370,7 +403,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="lecture" class="level1">
 <h1>Lecture</h1>
@@ -388,11 +423,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="general-introduction" class="level2">
 <h2 class="anchored" data-anchor-id="general-introduction">1 - General Introduction</h2>
-<p><em>“Once more unto the breach, dear friends, once more”</em> | King Henry V, by William Shakespeare.</p>
+<div class="line-block"><em>“Once more unto the breach, dear friends, once more”</em> | King Henry V, by William Shakespeare.</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.pexels.com/photos/1301413/pexels-photo-1301413.jpeg?cs=srgb&amp;dl=pexels-magda-ehlers-1301413.jpg&amp;fm=jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Fifty shades of rust</figcaption>
+<figcaption>Fifty shades of rust</figcaption>
 </figure>
 </div>
 <p>The formation of rust can occur quickly and within minutes or slowly, over many years. It all depends on the material that is rusting, it’s lack of use and the environment!</p>
@@ -406,7 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.unsplash.com/photo-1607370883617-9720ac853cc4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1650&amp;q=80" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Vintage computational power and R Studio</figcaption>
+<figcaption>Vintage computational power and R Studio</figcaption>
 </figure>
 </div>
 <p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
@@ -437,7 +472,7 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Lab1_folder.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Creating a folder on your server</figcaption>
+<figcaption>Creating a folder on your server</figcaption>
 </figure>
 </div>
 <hr>
@@ -449,7 +484,7 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Lab1_upload_files.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Uploading today’s data</figcaption>
+<figcaption>Uploading today’s data</figcaption>
 </figure>
 </div>
 <p>So we can save this session on the server, click File on the top ribbon and select New project. Next, select existing directory and name the working directory <code>~/psyc213_lab_1</code> before selecting create project.</p>
@@ -457,7 +492,7 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Lab1_script.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Creating a script</figcaption>
+<figcaption>Creating a script</figcaption>
 </figure>
 </div>
 <p><strong>Be sure to save the script using the File -&gt; Save As….</strong></p>
@@ -484,9 +519,12 @@ Note
 <h3 class="anchored" data-anchor-id="loading-the-relevant-library">1.5 loading the relevant library</h3>
 <p>Finally, let’s load the relevant libraries that we will be using in today’s session:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
@@ -499,7 +537,7 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Introducing the robo-lab study</figcaption>
+<figcaption>Introducing the robo-lab study</figcaption>
 </figure>
 </div>
 <p>In this lab session, we will examine the fictitious ‘robo_lab’ dataset. Here, a team of researchers wanted to know whether LU statistics students would respond well to a new, ambitious initiative to deploy a team of synthetic robots as lab assistants.</p>
@@ -514,13 +552,13 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Wk1/RobotA.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Robot A(lpha)</strong></figcaption>
+<figcaption><strong>Robot A(lpha)</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Robot B(eta)</strong></figcaption>
+<figcaption><strong>Robot B(eta)</strong></figcaption>
 </figure>
 </div>
 <hr>
@@ -564,7 +602,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>We first want to get a brief overview of what the data set looks like. To do this, we use the use the <code>head()</code> function, which displays the first rows present in the data frame.</p>
 <p>To view these first rows, please apply the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID Group Likeability Score
 1  1     A           3    55
@@ -577,11 +615,11 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 </div>
 <p>This shows us the first 6 rows. Note, while the default is six, you can also specify the number of rows as follows - please try it out.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data, <span class="at">n=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data, <span class="at">n=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great. We can now see the first 12 rows of data. One thing that is noticeable, however, is that the data are ordered by participant ‘ID’. Say we want to get an overview of our data where we can see data ordered by the from lowest Psyc214 test score to highest. We can arrange data this way using the <code>arrange()</code> function, were we include ‘Score’ as the variable of interest. Please try the following:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     ID Group Likeability Score
 1    33     A           2    40
@@ -791,7 +829,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>If we want to make this output more manageable we could always add an additional <code>&gt;%&gt;</code> pipe command which combines both arrange and head.</p>
 <p>For example the code below, combining <code>arrange()</code> and <code>head()</code> allows us order the data based on lowest score and then to display <em>only</em> the top 10 results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Score) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    ID Group Likeability Score
 1   33     A           2    40
@@ -812,16 +850,16 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>It would also be prudent to check the top 10 highest scores and to get a feel for what the top marks were like. We can again order our data using the <code>arrange()</code> function. This time however, we add the term <code>arrange(desc())</code> to show that we are asking R for descending ordering.</p>
 <p>Please try the following command to examine the top scorers</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You will note in your own output, that the scores are once again showing over 100 values!</p>
 <p>To make this more manageable, please try writing your own code combining the <code>arrange(desc())</code> function, a pipe <code>%&gt;%</code> and the <code>head(n = x)</code> function. If stuck, refer to the command we used higher up.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Score)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    ID Group Likeability Score
 1  175     B           5    88
@@ -856,20 +894,20 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>OK, so we’ve organized the data we have a bit, but let’s also think about adding to the data by creating a new variable that will help us understand our data. To do this, let’s do a data transformation using the <code>mutate()</code> function.</p>
 <p>Let’s create a new variable that categorizes the score of each participant into low, medium, and high categories. These categories are somewhat arbitrary, and we could really name and value them however we like. For the purpose of this exercise let’s say that scores less than 50 are “Low” scores, between 51-70 “Medium” and &gt; 70 “High”. Please do so by entering the following code</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="ot">&lt;-</span> lab1_data <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_Category =</span> <span class="fu">case_when</span>(</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&lt;=</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">"Low"</span>,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">50</span> <span class="sc">&amp;</span> Score <span class="sc">&lt;=</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"High"</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="ot">&lt;-</span> lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_Category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&lt;=</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">"Low"</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">50</span> <span class="sc">&amp;</span> Score <span class="sc">&lt;=</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"High"</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ok! I’m pretty sure you’ve now created a new variable entitled ‘Score_Category’. However, it would be great to check and be sure. Please use the <code>head()</code> function to check your dataset and see how it looks.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRY ENTERING YOUR OWN CODE HERE. HINT. USE head() and the name of our dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRY ENTERING YOUR OWN CODE HERE. HINT. USE head() and the name of our dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If done correctly, you should received the following output:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID Group Likeability Score Score_Category
 1  1     A           3    55         Medium
@@ -887,7 +925,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>As of yet, we have not examined the basic descriptive statistics of our data, so let’s take a look now.</p>
 <p>We can compute the minimum and maximum values, 1st and 3rd quartiles, median and mean all at once using the <code>summary()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       ID            Group            Likeability        Score      
  Min.   :  1.00   Length:200         Min.   :0.000   Min.   :40.00  
@@ -919,15 +957,15 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <li>the standard deviation: <code>sd()</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(lab1_data<span class="sc">$</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(lab1_data<span class="sc">$</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 40 88</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(lab1_data<span class="sc">$</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(lab1_data<span class="sc">$</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 13</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(lab1_data<span class="sc">$</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(lab1_data<span class="sc">$</span>Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10.29689</code></pre>
 </div>
@@ -938,7 +976,7 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>Here, we need to specify which columns we would like to assess. In our data the ‘Scores’ dependent variable (DV1) and ‘Likeability’ dependent variable (DV2) are columns 4 and 3 of the datasheet, respectively.</p>
 <p>Let’s try in with the range.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(lab1_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">3</span>], range)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(lab1_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">3</span>], range)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Score Likeability
 [1,]    40           0
@@ -949,12 +987,12 @@ Note. The groups are mutually exclusively - i.e., a participant was assigned to 
 <p>Also, the min and max ratings for the likeability scores were between 0 and 7, respectively.</p>
 <p>Now, please try to apply the code above yourself, but change ‘range’ with the standard deviation ‘sd’ argument to get the standard deviation for both the score and likeability variables simultaneously.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># STUDENT COMPLETES</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If done correctly, you should received the following output:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(lab1_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">3</span>], sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(lab1_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">3</span>], sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Score Likeability 
   10.296888    1.344774 </code></pre>
@@ -978,9 +1016,9 @@ Fig.11 - Hold up!
 <p>Using the package’s <code>group_by()</code> function and pipes <code>%&gt;%</code> we can ask R to separate our data based on the group assigned. Note, here the name of the grouping variable for our dataset is ‘Group’.</p>
 <p>Let’s ask for the mean for our two groups with the following bit of code. First we tell R we are using the lab1_data. Then we say within this data set we want to separate the data by the ‘Group’ variable. Finally we ask for summary stats for the DV1 the Score. We will ask only for the mean.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summary_stats</span>(Score, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summary_stats</span>(Score, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   Group variable     n  mean
@@ -991,9 +1029,9 @@ Fig.11 - Hold up!
 </div>
 <p>Great. Now let’s do the same again, but this time we will ask for summary statistics for both the Score (DV1) and Likeability (DV2) variables. Furthermore, let’s also ask for the sd, min, max and iqr.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summary_stats</span>(Score, Likeability, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"iqr"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summary_stats</span>(Score, Likeability, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"iqr"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 8
   Group variable        n  mean    sd   min   max   iqr
@@ -1015,14 +1053,18 @@ Fig.11 - Hold up!
 <p>As a next step, let’s plot the data and see the distribution of data points in visual form. To do this, we’ve already loaded the excellent data visualization package <code>ggpubr</code>.</p>
 <p>To plot the data we use the <code>ggboxplot()</code> function. First we are required to say what dataset we’ll be using, which is again ‘lab1_data’. Next we type ‘main=’ to specify the title for the plot. Let’s call the plot “Box plot of test scores by robot condition”. We then need to specify what data we would like to use for each axis. For the x-axis we would like to plot the different groups, so let’s add x = “Group”. Our y-axis will be the “Score”. We can colour the groups also and add shapes to data points. Finally, let’s give the x-axis and y-axis each a descriptive label. “Robot group condition” and “Psyc214 test score” seem appropriate here.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot of test scores by Robot Condition</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(lab1_data,<span class="at">main=</span><span class="st">"Box plot of test scores by robot condition"</span>, </span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Score"</span>, <span class="co">#variables for axes</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Psyc214 test score"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot of test scores by Robot Condition</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(lab1_data,<span class="at">main=</span><span class="st">"Box plot of test scores by robot condition"</span>, </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Score"</span>, <span class="co">#variables for axes</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Psyc214 test score"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Week1_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Week1_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Observing the spread of data points for Group A and B, respectively, we can see trends in which Group B tends to have more data points clustered higher on the test score axis than Group A. Group A has more data points clustered lower on the test score axis than Group B and these distributions are reflected by the boxplots. Again it seems we have a signficant difference, but we will need a statistical test to be certain.</p>
@@ -1032,10 +1074,10 @@ Fig.11 - Hold up!
 <h3 class="anchored" data-anchor-id="independent-samples-t-test">3.2 Independent samples <span class="math inline">\(t\)</span>-test</h3>
 <p>To get to the bottom of this we need to perform an independent samples <span class="math inline">\(t\)</span>-test. This inferential statistical test is appropriate when you want to examine whether there are any statistically significant differences between the means of two unrelated groups. This can be run using the <code>t_test()</code> function, where ‘Score’ is our y (dependent variable) and ‘Group’ is our predictive factor x (independent variable).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># independent samples t-test</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#t_test(Score ~ Group) # where y is numeric Score and x is a binary factor </span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute t-test</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> Score <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># independent samples t-test</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#t_test(Score ~ Group) # where y is numeric Score and x is a binary factor </span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute t-test</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> Score <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -1053,9 +1095,9 @@ mean in group A mean in group B
 <p>The output provides the t-value and it’s 95% confidence interval - i.e., we can be 95% certain that the true value of t falls within the the lower and upper confidence intervals. We also get the means of our groups, the degrees of freedom for our t-test and the p-value. This p-value is significantly lower than 0.05 meaning that we reject the null hypothesis - i.e., we accept that the true difference is not roughly equal to zero. As such, there is a statistical difference in Psyc214 assessment scores between the two groups. What we are yet to discover is whether this represents a small, moderate or large effect.</p>
 <p>To calculate the effect size, where 0.2 = small effect, 0.5 = moderate effect, 0.8 = large effect (Cohen, 1988), we use the <code>cohens_d()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohen's d effect size calculation</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(Score <span class="sc">~</span> Group,  <span class="co"># Formula</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> lab1_data) <span class="co"># Dataframe containing the variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohen's d effect size calculation</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(Score <span class="sc">~</span> Group,  <span class="co"># Formula</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> lab1_data) <span class="co"># Dataframe containing the variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 7
   .y.   group1 group2 effsize    n1    n2 magnitude
@@ -1079,10 +1121,10 @@ mean in group A mean in group B
 <li>repeat the steps in ‘2.8 Descriptives by group condition’, this time examining the summary statistics for our second dependent variable - ‘Likeability’.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Likeability, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Likeability, <span class="at">type =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   Group variable        n  mean
@@ -1095,26 +1137,30 @@ mean in group A mean in group B
 <li>repeat the steps in ‘3.1 Visualising data’, this time creating box plots for our second dependent variable - ‘Likeability’. Rename the title and axes to something more suitable and perhaps even change the colour of data points. Describe the trends in data to a classmate or your inner self.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot of likeability scores by Robot Condition</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(lab1_data,<span class="at">main=</span><span class="st">"Box plot of test scores by robot condition"</span>, </span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Likeability"</span>, <span class="co">#variables for axes</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Likeability scores"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot of likeability scores by Robot Condition</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(lab1_data,<span class="at">main=</span><span class="st">"Box plot of test scores by robot condition"</span>, </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Likeability"</span>, <span class="co">#variables for axes</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span><span class="fu">c</span>(<span class="st">"#999999"</span>, <span class="st">"#333333"</span>), <span class="co">#colour of data</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="at">shape =</span> <span class="st">"Group"</span>, <span class="co"># shape of data</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Robot group condition"</span>, <span class="at">ylab=</span><span class="st">"Likeability scores"</span>) <span class="co">#labels for axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Week1_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Week1_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <ol start="3" type="1">
 <li>compute an independent t-test (steps 3.2) to examine whether there are any statistical differences between the means of our two groups in their Likeability ratings. Write up the results in APA style.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># independent 2-group t-test</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#t_test(Score ~ Group) # where y is numeric Score and x is a binary factor </span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute t-test</span></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> Likeability <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># independent 2-group t-test</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#t_test(Score ~ Group) # where y is numeric Score and x is a binary factor </span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute t-test</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> Likeability <span class="sc">~</span> Group, <span class="at">pool.sd =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -1128,9 +1174,9 @@ sample estimates:
 mean in group A mean in group B 
            2.94            4.51 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cohen's d effect size calculation</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(Likeability <span class="sc">~</span> Group,  <span class="co"># Formula</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> lab1_data) <span class="co"># Dataframe containing the variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cohen's d effect size calculation</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(Likeability <span class="sc">~</span> Group,  <span class="co"># Formula</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> lab1_data) <span class="co"># Dataframe containing the variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 7
   .y.         group1 group2 effsize    n1    n2 magnitude
@@ -1143,16 +1189,16 @@ mean in group A mean in group B
 </ol>
 <p>Please, use the <code>mutate()</code> function and the example from 2.6 to make a new variable called ‘Score_Band’ where: Marks below 49 is ‘Fail’ Marks between 49 and 58 is ‘Pass’ Marks between 59-68 is ‘Merit’ Marks greater than 69 is ‘Distinction’. Then, check that the command worked and that there is now a new variable in your data set called ‘Score_Band’ using the <code>head()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="ot">&lt;-</span> lab1_data <span class="sc">%&gt;%</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_Band =</span> <span class="fu">case_when</span>(</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&lt;=</span> <span class="dv">48</span> <span class="sc">~</span> <span class="st">"Fail"</span>,</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">48</span> <span class="sc">&amp;</span> Score <span class="sc">&lt;=</span> <span class="dv">58</span> <span class="sc">~</span> <span class="st">"Pass"</span>,</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">58</span> <span class="sc">&amp;</span> Score <span class="sc">&lt;=</span> <span class="dv">68</span> <span class="sc">~</span> <span class="st">"Merit"</span>,</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">69</span> <span class="sc">~</span> <span class="st">"Distinction"</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER CODE</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="ot">&lt;-</span> lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_Band =</span> <span class="fu">case_when</span>(</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&lt;=</span> <span class="dv">48</span> <span class="sc">~</span> <span class="st">"Fail"</span>,</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">48</span> <span class="sc">&amp;</span> Score <span class="sc">&lt;=</span> <span class="dv">58</span> <span class="sc">~</span> <span class="st">"Pass"</span>,</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">58</span> <span class="sc">&amp;</span> Score <span class="sc">&lt;=</span> <span class="dv">68</span> <span class="sc">~</span> <span class="st">"Merit"</span>,</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">69</span> <span class="sc">~</span> <span class="st">"Distinction"</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID Group Likeability Score Score_Category  Score_Band
 1  1     A           3    55         Medium        Pass
@@ -1170,7 +1216,7 @@ mean in group A mean in group B
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://tombeesley.github.io/PSYC121_2022-23/files/Week_1/power_button.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Ending session on R Studio</figcaption>
+<figcaption>Ending session on R Studio</figcaption>
 </figure>
 </div>
 <ol start="6" type="1">
@@ -1179,7 +1225,7 @@ mean in group A mean in group B
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://images.unsplash.com/photo-1536193533103-5bb31b6fb667?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Top work!</figcaption>
+<figcaption>Top work!</figcaption>
 </figure>
 </div>
 
@@ -1223,18 +1269,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1266,11 +1301,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1280,8 +1354,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1293,7 +1376,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1337,6 +1543,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1362,6 +1569,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1423,12 +1656,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../PSYC214/index.html" class="pagination-link">
+      <a href="../PSYC214/index.html" class="pagination-link" aria-label="PSYC214">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PSYC214</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../PSYC214/Week2.html" class="pagination-link">
+      <a href="../PSYC214/Week2.html" class="pagination-link" aria-label="2. One-Factor Between-Participants ANOVA">
         <span class="nav-page-text">2. One-Factor Between-Participants ANOVA</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1436,19 +1669,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../previous-content/index.html">Previous Content</a>
+    <a class="nav-link" href="../previous-content/index.html">
+<p>Previous Content</p>
+</a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
+
 
 
 
