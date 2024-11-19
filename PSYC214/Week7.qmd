@@ -54,7 +54,7 @@ Let's set our working directory:
 setwd("~/psyc214_lab_7")
 ```
 
-Now that you have created a folder for today's session, it’s time to add the Week 7 data file. Download the data [`COVID19Data.csv`](data/wk7/COVID19Data.csv). Next, in the RStudio Server open your new pscy214_lab_7 folder. When in the new folder, select the `Upload` tab. This will present a box that will ask where the data is that you want to upload. Click on `Browse`, find the `COVID19Data.csv` file on your desktop and click `OK`.
+Now that you have created a folder for today's session, it’s time to add the Week 7 data file. Download the data [COVID19Data.csv](data/wk7/COVID19Data.csv). Next, in the RStudio Server open your new pscy214_lab_7 folder. When in the new folder, select the `Upload` tab. This will present a box that will ask where the data is that you want to upload. Click on `Browse`, find the `COVID19Data.csv` file on your desktop and click `OK`.
 
 Before moving on, let's load the relevant libraries that we will be using in today's session.
 
