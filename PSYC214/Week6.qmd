@@ -51,7 +51,7 @@ Once you are logged into the server, create a folder for today's session. Naviga
 
 ![](images/NewFolder.png){width=75%}
 
-Now that you have created a folder for today's session, it’s time to add the Week 6 data file. Download the data file [fearVac.csv here](data/Wk/fearVac.csv). Next, in the RStudio Server open your new pscy214_lab_6 folder. When in the new folder, select the `Upload` tab. This will present a box that will ask where the data is that you want to upload. Click on `Browse`, find the `fearVac.csv` file on your desktop and click `OK`.
+Now that you have created a folder for today's session, it’s time to add the Week 6 data file. Download the data file [fearVac.csv here](data/Wk6/fearVac.csv). Next, in the RStudio Server open your new pscy214_lab_6 folder. When in the new folder, select the `Upload` tab. This will present a box that will ask where the data is that you want to upload. Click on `Browse`, find the `fearVac.csv` file on your desktop and click `OK`.
 
 Se we can save this session on the server, click `File` on the top ribbon and select `New project`. Next, select existing directory and name the working directory `~/psyc214_lab_6` before selecting `create project`.
 
