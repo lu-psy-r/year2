@@ -124,13 +124,13 @@ descriptives = covid19Data %>%
   # Request means, standard deviations, and confidence intervals
   get_summary_stats(Likelihood, show = c("mean", "sd", "ci"))
   # Show enough digits to permit rounding to 2 decimal places
-  options(digits = 5)
-# Print the results
-(descriptives)
+  options(digits = 6)
+  # Print the results
+  print.data.frame(descriptives)
 ```
 :::
 
-Once you have written and executed the code in RStudio, type `descriptives` in the console to view the descriptive statistics, it should yield the following output:
+Once you have written and executed the code in RStudio, type `print.data.frame(descriptives)` in the console to view the descriptive statistics, it should yield the following output:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Get descriptive statistics
@@ -140,9 +140,9 @@ descriptives = covid19Data %>%
   # Request means, standard deviations, and confidence intervals
   get_summary_stats(Likelihood, show = c("mean", "sd", "ci"))
   # Show enough digits to permit rounding to 2 decimal places
-  options(digits = 5)
-# Print the results
-(descriptives)
+  options(digits = 6)
+  # Print the results
+  print.data.frame(descriptives)
 ```
 
 We won't linger on these descriptive statistics because we inspected them in last week's lab session. 

@@ -506,32 +506,28 @@ Answer
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Request means, standard deviations, and confidence intervals</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Likelihood, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"ci"</span>))</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Show enough digits to permit rounding to 2 decimal places</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">5</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>(descriptives)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">6</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the results</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print.data.frame</span>(descriptives)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 7
-  Fear           Efficacy            variable       n  mean    sd    ci
-  &lt;fct&gt;          &lt;fct&gt;               &lt;fct&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 No Fear Appeal No Efficacy Message Likelihood    50  5.16  2.02 0.575
-2 No Fear Appeal Efficacy Message    Likelihood    50  4.66  1.87 0.531
-3 Fear Appeal    No Efficacy Message Likelihood    50  4.8   1.83 0.52 
-4 Fear Appeal    Efficacy Message    Likelihood    50  7.12  1.77 0.503</code></pre>
+<pre><code>            Fear            Efficacy   variable  n mean    sd    ci
+1 No Fear Appeal No Efficacy Message Likelihood 50 5.16 2.024 0.575
+2 No Fear Appeal    Efficacy Message Likelihood 50 4.66 1.869 0.531
+3    Fear Appeal No Efficacy Message Likelihood 50 4.80 1.829 0.520
+4    Fear Appeal    Efficacy Message Likelihood 50 7.12 1.769 0.503</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>Once you have written and executed the code in RStudio, type <code>descriptives</code> in the console to view the descriptive statistics, it should yield the following output:</p>
+<p>Once you have written and executed the code in RStudio, type <code>print.data.frame(descriptives)</code> in the console to view the descriptive statistics, it should yield the following output:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 7
-  Fear           Efficacy            variable       n  mean    sd    ci
-  &lt;fct&gt;          &lt;fct&gt;               &lt;fct&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 No Fear Appeal No Efficacy Message Likelihood    50  5.16  2.02 0.575
-2 No Fear Appeal Efficacy Message    Likelihood    50  4.66  1.87 0.531
-3 Fear Appeal    No Efficacy Message Likelihood    50  4.8   1.83 0.52 
-4 Fear Appeal    Efficacy Message    Likelihood    50  7.12  1.77 0.503</code></pre>
+<pre><code>            Fear            Efficacy   variable  n mean    sd    ci
+1 No Fear Appeal No Efficacy Message Likelihood 50 5.16 2.024 0.575
+2 No Fear Appeal    Efficacy Message Likelihood 50 4.66 1.869 0.531
+3    Fear Appeal No Efficacy Message Likelihood 50 4.80 1.829 0.520
+4    Fear Appeal    Efficacy Message Likelihood 50 7.12 1.769 0.503</code></pre>
 </div>
 </div>
 <p>We won’t linger on these descriptive statistics because we inspected them in last week’s lab session.</p>
@@ -740,10 +736,10 @@ Fear:Efficacy |           0.13 | [0.06, 1.00]
 <div class="cell-output cell-output-stdout">
 <pre><code>F Test: 
 P-value adjustment method: holm
-                    Value    SE  Df Sum of Sq     F  Pr(&gt;F)    
-No Efficacy Message  0.36   0.4   1       3.2  0.92    0.34    
-   Efficacy Message -2.46   0.4   1     151.3 43.02 9.4e-10 ***
-Residuals                 196.0 689                            
+                    Value     SE    Df Sum of Sq      F  Pr(&gt;F)    
+No Efficacy Message  0.36   0.38   1.0      3.24  0.921   0.338    
+   Efficacy Message -2.46   0.38   1.0    151.29 43.024 9.4e-10 ***
+Residuals                 196.00 689.2                             
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -780,10 +776,10 @@ Efficacy Message    |                | [ , 1.00]
 <div class="cell-output cell-output-stdout">
 <pre><code>F Test: 
 P-value adjustment method: holm
-               Value    SE  Df Sum of Sq     F  Pr(&gt;F)    
-No Fear Appeal  0.50   0.4   1       6.3  1.78    0.18    
-   Fear Appeal -2.32   0.4   1     134.6 38.27 7.1e-09 ***
-Residuals            196.0 689                            
+               Value     SE    Df Sum of Sq      F   Pr(&gt;F)    
+No Fear Appeal  0.50   0.38   1.0      6.25  1.777    0.184    
+   Fear Appeal -2.32   0.38   1.0    134.56 38.266 7.06e-09 ***
+Residuals            196.00 689.2                              
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
