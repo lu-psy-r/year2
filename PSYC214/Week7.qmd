@@ -5,19 +5,19 @@ order: 8
 ---
 
 
-# Lecture
+<!-- # Lecture -->
 
-Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=303bc7f8-9752-4453-925a-af510084b648)
+<!-- Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=303bc7f8-9752-4453-925a-af510084b648) -->
 
-Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=01f3f574-690a-40dd-9725-af51008cf954)
+<!-- Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=01f3f574-690a-40dd-9725-af51008cf954) -->
 
-Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d8ce2e3d-c7ad-4293-a3f3-af5100912abc)
+<!-- Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d8ce2e3d-c7ad-4293-a3f3-af5100912abc) -->
 
-Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=49c1c503-2896-400f-9efd-af5100b172b7)
+<!-- Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=49c1c503-2896-400f-9efd-af5100b172b7) -->
 
-Watch Part 5 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1a6ddc87-22ac-4990-8208-af5200cb54de)
+<!-- Watch Part 5 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1a6ddc87-22ac-4990-8208-af5200cb54de) -->
 
-Download the lecture slides [here](data/Wk7/Two-Factor Between-Participants Designs HANDOUT.pdf), and [here](data/Wk7/Two-Factor Between-Participants Designs.pdf) for a larger version.
+<!-- Download the lecture slides [here](data/Wk7/Two-Factor Between-Participants Designs HANDOUT.pdf), and [here](data/Wk7/Two-Factor Between-Participants Designs.pdf) for a larger version. -->
 
 # Lab
 
