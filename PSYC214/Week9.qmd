@@ -4,16 +4,15 @@ subtitle: "Mark Hurlstone, Sam Russell"
 order: 10
 ---
 
+# Lecture
 
-<!-- # Lecture -->
+Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=cfa151d1-f7b7-44c6-85f0-af5f007da1e3)
 
-<!-- Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=cfa151d1-f7b7-44c6-85f0-af5f007da1e3) -->
+Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3aafc734-cca4-47c3-9b92-af5f008a9495)
 
-<!-- Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3aafc734-cca4-47c3-9b92-af5f008a9495) -->
+Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=87754175-55e5-4f69-93c9-af5f00b4d5fb)
 
-<!-- Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=87754175-55e5-4f69-93c9-af5f00b4d5fb) -->
-
-<!-- Download the lecture slides [here](data/Wk9/Three-Factor ANOVA HANDOUT.pdf), and [here](data/Wk9/Three-Factor ANOVA.pdf) for a larger version. -->
+Download the lecture slides [here](data/Wk9/Three-Factor ANOVA HANDOUT.pdf), and [here](data/Wk9/Three-Factor ANOVA.pdf) for a larger version.
 
 # Lab
 
