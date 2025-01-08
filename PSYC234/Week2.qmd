@@ -19,7 +19,7 @@ knitr::opts_chunk$set(warning = FALSE)
 
 [Lecture Link](https://modules.lancaster.ac.uk/mod/url/view.php?id=2042339)
 
-The lecture materials, including and and R files are downloaded from [here](data/Wk2/Week2_lecture_materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+The lecture materials, including data and R files are downloaded from [here](data/Wk2/Week2_lecture_materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
 
 ## Part 1: Multiple Regression: 2 or more predictors
 

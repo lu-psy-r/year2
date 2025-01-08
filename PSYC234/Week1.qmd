@@ -4,7 +4,7 @@ subtitle: Emma Mills
 order: 2
 ---
 
-::: {.callout-caution}
+::: callout-caution
 This page is under construction for 24/25 and may be subject to change before the teaching week.
 :::
 
@@ -18,81 +18,197 @@ This page is under construction for 24/25 and may be subject to change before th
 
 ## Materials
 
-The lecture materials, including and and R files are downloaded from [here](data/Week1_lecture_materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+The lecture materials, including data and R files are downloaded from [here](data/Week1_lecture_materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
 
-# Overview
+# Overview of Learning Model in 234
 
-## What happens
+## What happens?
 
-1. In each lab:
-+ Model output, or model plot with dataset
-+ In small groups, work backwards to *plan* the analysis script that produced the model output
-  + Use lab time/staff to check plan
+::: {.callout-note icon="false"}
+## You asked; We did
 
-2. Independently of the lab:
-+ Generate the script as a group
-  + Help each other
-  + Scrape code from all your statistics modules
-    + The internet
-    + R books
+Through the staff student committee, feedback from PSYC 214 was for less cut and paste activities. Script generation in 234 *is* less cut and paste, however cutting and pasting snippets of code that do the right job is still highly recommended
+:::
 
-3. Submit for feedback (optional)
-+ Submit as group
-+ Random sample of scripts will get feedback
-+ No credit here – learning process as preparation for your own project!
-+ You can see all scripts per week __if you submit a script per week__
-  + You only get access to view when you submit a script – __to reduce freeloading behaviour__
-  + I will give feedback on 20% sample or maximum of 3 per lab group
-  + I will post the submitted scripts each week on moodle.
-+ Why should you contribute here?
-  + You are a massive community and can support each other going forward
-  + Breaks down the idea that there is one correct way to write an analysis script
-  + Give you greater exposure to code that shares a purpose
-  + Some students have asked for this potential for feedback on scripts – not just analysis
+1.  Before the lab
 
+    -   watch the weekly lecture
 
-## Planning Data Analysis
+        -   Seriously, there is no point coming to the lab if you haven't watched the lecture.
 
+2.  In each lab
 
-Data analysis requires the following steps 
+-   You will be given a dataset, codebook and model summary
+    -   Each week's model summary will include practice of the new parts of learning featured in the week's lecture
+-   In small groups, write the script that produced the model output
+    -   Give your group a unique name
+    -   One member of the group make an R project
+        -   Invite other group members
+    -   Alternatively, one member take responsibility for typing and work in one script with other members contributing. You can connect one computer to the big screen at the table in the Levy lab, and work together by looking at that script while finding code that works on personal laptops.
+    -   Use the analysis workflow diagram and process (see below)
+        -   Talk together about the model summary first
+        -   Look at which variables have been used in the model
+        -   Use the codebook to understand what each variable represents
+        -   Create some possible hypotheses that the model seeks to explain
+        -   Interpret the model summary
+    -   Collaborate in writing the script
+        -   Each person could work on a different step of the workflow while everyone helps debug / advise / review / find excerpts of code
+        -   Or you could work together to decide what is needed
+        -   You can scrape code from all your statistics modules and the web
+            -   The internet
+            -   R books
+    -   Refer to the demonstration script from the lecture
+    -   Use the lab time and staff to check your plan / process
 
-![Analysis Workflow](Images/Wk1/Wrangle.png)
+3.  Independent study time:
 
-With each step requiring its own blocks of code. Specifically, the communication sep requires us to produce plots and model summaries along wit text to help other people understand our research and what was completed.
+-   Continue to work on the script in the shared project space.
 
-![Analysis Workflow](Images/Wk1/WrangleUpdate2.png)
+4.  Submit for feedback
 
-Model plots and summaries are the output from our statistical analyses and look similar to the example below:
+-   Save your script as UniqueGroupName_LabWeekNumber.R
+-   Submit to e.mills\@lancaster.ac.uk
+    -   remember to attach your script
+    -   remember to tell me the name of your group members
+-   A random sample of 3 scripts per lab will get feedback via module moodle
+    -   No credit here – learning process as preparation for your own project!
 
-![Analysis Workflow](Images/Wk1/PlotSummary.png)
+::: {.callout-note icon="false"}
+## Why are we working like this?
 
-We, as communicators, need to present this information in text form too. So from the above figure and summary we can create a body of text. Text equating to a paragraph reporting model significance, then coefficients (emphasised in italics and bold below as: *statistics* + __verbal description__).
+Though not assessed group work, you are a massive peer-community and can support each other in your analysis planning and execution both now and in your final year. Learning from each other now, without any burden of assessment for the group work may help you see that there is more than one way to achieve an analysis output. It may also encourage knowledge exchange through people clarifying points about which they are unsure in their own peer group and with staff support.
+:::
 
-Example of model significance:  *The model predicting children’s test scores from mother’s graduation status, mother’s age and IQ was significant (F (3, 430) = 39.25, p < .001, R2 = 0.21).*
+## Data Analysis
 
-Example text for the 'c_mom_hs' coefficient:
+Any good data analysis requires the following steps:
 
-*The difference for whether the mother graduated high school or not is significant (b = 5.65, SE = 2.26, p = .013).*  __Holding all other predictors constant, the difference in scores for a child whose mother finished high school and a child whose mother did not finish high school is 5.64 test points.__
+-   *Importing* the data
+
+-   *Tidying* or cleaning the data
+
+-   Performing any necessary *transformations*
+
+-   *Visualising* the data
+
+-   *Modelling* the data
+
+-   *Communicating* the findings from the data
+
+These steps may be familiar to you and are represented in the diagram below:
+
+![Steps in any data analysis plan](Images/Wk1%20/Wrangle.png)
+
+You may remember the diagram itself from PSYC 122 and PSYC 214. Each step of the plan requires its own mini block of code that you will need to include in your scripts.
+
+Also, multiple regression, the focus model of PSYC 234, uses data that has many variables - hence the label 'multiple' - and the analysis that we may need to complete may be quite complex.
+
+Because the data has many variables, using raw data may mean that the first model we execute makes no sense and is hard to interpret. If a model is hard to interpret is it going to be even harder to communicate to a naive audience. For this reason, we will learn about some very useful transformations over the next few weeks. For one analysis, we may go around the Visualise-Transform-Model part of the diagram more than once before we have a model that we can interpret and communicate.
+
+Critically, performing these transformations *does not* change the information that is in the data and the relationships that exist between all the variables in the raw data. The change that we see through using these transformations is only in the final expression of the model. The transformations will assist in making a model that makes more sense with what we observe in everyday life. I will point this out as we see examples of this over the next few weeks.
+
+## Reporting a Linear Regression Analysis
+
+![To communicate, we need plots and text](Images/Wk1%20/WrangleUpdate2.png)
+
+Additionally, the communication step of the workflow requires us to visualise the findings by way of producing effects plots, tables and model summaries along with text to report our results and help other people understand our findings.
+
+Model plots and model summaries are generated from our statistical analyses and look similar to the example below:
+
+![An image of a multiple regression model summary](Images/Wk1%20/PlotSummary.png)
+
+The image is an example of an effects plot (left) and model summary output (right). We, as communicators, need to tidy these up so that they are presentable. We do this and include them, with text, in the results sections of reports.
+
+But what does the raw output contain? How do we use the information to understand what the data tells us?
+
+The raw model output is made up of four sections.  From top to bottom, these are:
+
+![Four Sections of Model Output](Images/Wk1%20/Summary4Sections.png)
+
+1.  Call = the model formula. This is the line of code that represents the dependent and independent variables upon which the model is built
+
+2.  Residuals = the unexplained variance that is left over when the variance that is explained by the independent variables has been partialled out.
+
+::: callout-tip
+## Normal Distribution of Residuals
+
+To do an eye-test of whether your model has not violated the assumption of normality, look at the `Min`, `Max` and the `Median` values in the Residuals section. Are the `Min` and `Max` values roughly the same numbers - but the `Min` has a minus sign? Is the `Median` value at zero or close to zero? If they are, then your model errors are probably normally distributed - which is good! And you can further verify with a test!
+:::
+
+3.  Coefficients = your results for each of the independent variables or predictors. Each row is for one predictor. Each column on each row is needed when you report a result for an individual predictor (see below for more detail).
+
+4.  Model Values (purple or bottom section) = these are statistics for the whole model. From this section, you want to report the *F* statistic, the *p* value and the Adjusted *R*^2^ (see below for more detail).
+
+::: callout-important
+Remember: the two *R*^2^ values in the model summary are reported as proportions. They need to be multiplied by 100 and reported as a percentage in your results section.
+:::
+
+### Communicating Findings from Linear Regression Models
+
+Any reporting of a linear regression model comes in two parts:
+
+1.  First we report the type of model, the model variables - outcomes & predictors (DVs and IVs in ANOVA langauge) and model statistics,
+
+2.  and then we report statistics for the individual coefficients from our hypotheses.
+
+As an example, we can use the model summary from above.
+
+#### Reporting the model
+
+The information for the the first part of reporting the model is located at the top of the output, in the `Call` section, and the bottom of the output, in the `Model Values` section:
+
+Example text for reporting model significance:
+
+We conducted a multiple linear regression with children's test scores as the outcome variable and mothers' graduation status, age and intelligence scores as predictor variables. The model was significant (*F* (3, 430) = 39.25, *p* \< .001) and explained 21% of the variance in children's test scores.
+
+#### Reporting an individual coefficient for an individual predictor
+
+The information for the second part of reporting the model comes from the `Coefficients` section. Reporting the regression coefficient for an individual predictor *that is statistically significant* also happens in two parts:
+
+a.  Reporting the statistic (estimate and SE) and the significance (*p* value)
+
+b.  Reporting a verbal description of the effect
+
+When a coefficient for a predictor was part of one of your hypotheses but is non-signficant in the model, then you only report part a.  You do not report a verbal description of the effect.
+
+The `c_mom_hs` is the coefficient label for the predictor that reflects a significant effect for whether a child's mother completed high school or not. An example excerpt of text to report the finding for this predictor variable could be:
+
+part a = Whether or not the mother graduated high school has a significant impact upon a child's test score (*b* = 5.65, SE = 2.26, *p* = .013).
+
+part b = Holding all other predictors constant, the difference in scores for a child whose mother finished high school and a child whose mother did not finish high school is 5.65 test points.
+
+The `c_mom_age` is the coefficient label for the predictor that reflects a non-significant effect for the age of the mother at the time that the child takes the test. An example excerpt of text to report the finding for this predictor variable could be:
+
+part a = The mother's age at the time that the child took the test does not have a significant impact on a child's test score (*b* = 0.22, SE = 0.33, *p* = .500).
+
+There is no part b because the effect is non-significant.
+
+Obviously, for the results section, these three excerpts are presented presented as a coherent body of text:
+
+We conducted a multiple linear regression with children's test scores as the outcome variable and mothers' graduation status, age and intelligence scores as predictor variables. The model was significant (*F* (3, 430) = 39.25, *p* \< .001) and explained 21% of the variance in children's test scores.  
+
+Whether or not the mother graduated high school has a significant impact upon a child's test score (*b* = 5.65, SE = 2.26, *p* = .013). Holding all other predictors constant, the difference in scores for a child whose mother finished high school and a child whose mother did not finish high school is 5.65 test points. The mother's age at the time that the child took the test does not have a significant impact on a child's test score (*b* = 0.22, SE = 0.33, *p* = .500).
+
+::: callout-important
+## APA 7 Formatting Demands Different Numbers of Decimal Places
+
+Remember that values for means, SDs, coefficients and SEs, and *p* values all need to be reported to differing numbers of decimal places and rounded up!
+:::
+
+Use this model for reporting predictor effects across the next few weeks.
 
 ## Staff role in labs
 
-* Get us to check your planning / answer your questions. 
+There will be two staff available during lab sessions. We will rotate around the room. You can raise your hand at any point to ask questions or get us to check your process as you go along.
 
-* We will:
-  + Identify gaps
-  + Tell you that there is an error somewhere with an indication of where to look more closely
-  + Give you hints
-  + Extend your thinking if you are working at your best level already….
+In response, you can expect staff to:
 
-* We won’t give you the answers straight out. Because most of your project experience is going to be about problem solving
+-   Tell you that there is an error somewhere with an indication of where to look more closely
+-   Give you hints
+-   Extend your thinking if you are working at your best level already….
 
-# Lab Task
+We won’t give you the answers straight away. This is to encourage self-reliance and independence. Plus, there may be more than one correct answer to some of the questions.
 
-1. Form groups to work with for the next few weeks – three or four people
+Please don't expect us to spend a lot of time with you if you have not watched the lecture beforehand.
 
-2. In your group:
-  + Talk about and list the R functions that you typically use at each stage of the analysis workflow
-  + Set up a group project on the server –  give access to each member in your group AND me (user = millse)
-  + Divide the sections of workflow between you into equal parts for finding examples of these code in modules 121, 122, 214
-  + _Homework - before next week’s lab_: Write a “boiler plate” script that has headers for each section and some commented out functions that you might use time and time again.
-    + This is also really good preparation for your Final Year Individual Project data analysis.
+# 
