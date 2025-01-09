@@ -4,21 +4,27 @@ subtitle: Emma Mills
 order: 2
 ---
 
-::: callout-caution
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
 
-# Lectures
+# Lecture
 
-[Part 1](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978183)
-
-[Part 2](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978184)
-
-[Part 3](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978185)
+The lecture for week 11 is [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=72b44e8c-e901-4f4c-baa7-b25f01282d16).  Please note, it is best to view the video using the screen viewer.  That way you see the moving cursor and when I move to the RStudio demonstration at around 37 minutes, you will see everything.  If you have the slide viewer selected, then around 37 minutes, you will need to move to the screen view so that you can see the RStudio demonstration.
 
 ## Materials
 
-The lecture materials, including data and R files are downloaded from [here](data/Week1_lecture_materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+The lecture materials, including pre-lab markdown files for review, and data and R files for the week 11 lab are downloaded from [here](data/Wk1/PSYC234_Week_11.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+
+```{r, include = FALSE, eval=FALSE}
+download.file("https://github.com/lu-psy-r/year2/blob/main/PSYC234/data/Wk1/PSYC234_Week_11.zip")
+```
+
+## Recommended Reading
+
+Chapters 9, 10 and 11 from Howell, D. C. (2017). Fundamental statistics for the behavioral sciences (Ninth edition.). Cengage.  There are online versions available from the library [at this link](https://onesearch.lancaster-university.uk/permalink/44LAN_INST/a1plrn/alma9930907993701221)
+
+## Test Yourself!
+
+The link to this week's multiple choice quiz is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506928)
+
 
 # Overview of Learning Model in 234
 
@@ -38,7 +44,7 @@ Through the staff student committee, feedback from PSYC 214 was for less cut and
 
 2.  In each lab
 
--   You will be given a dataset, codebook and model summary
+-   You will be given a dataset and model summary
     -   Each week's model summary will include practice of the new parts of learning featured in the week's lecture
 -   In small groups, write the script that produced the model output
     -   Give your group a unique name
