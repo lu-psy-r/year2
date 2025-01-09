@@ -4,10 +4,9 @@ subtitle: Emma Mills
 order: 2
 ---
 
-
 # Lecture
 
-The lecture for week 11 is [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=72b44e8c-e901-4f4c-baa7-b25f01282d16).  Please note, it is best to view the video using the screen viewer.  That way you see the moving cursor and when I move to the RStudio demonstration at around 37 minutes, you will see everything.  If you have the slide viewer selected, then around 37 minutes, you will need to move to the screen view so that you can see the RStudio demonstration.
+The lecture for week 11 is [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=72b44e8c-e901-4f4c-baa7-b25f01282d16). Please note, it is best to view the video using the screen viewer. That way you see the moving cursor and when I move to the RStudio demonstration at around 37 minutes, you will see everything. If you have the slide viewer selected, then around 37 minutes, you will need to move to the screen view so that you can see the RStudio demonstration.
 
 ## Materials
 
@@ -17,14 +16,25 @@ The lecture materials, including pre-lab markdown files for review, and data and
 download.file("https://github.com/lu-psy-r/year2/blob/main/PSYC234/data/Wk1/PSYC234_Week_11.zip")
 ```
 
+## Pre-Lab Activity
+
+1.  Please download the Week 11 materials (link above) and upload all of the .Rmd files and data files to your R account in preparation for the lab.
+
+2.  Please run through the three .Rmd files listed below by yourself. These all depend on the Covariance.csv data file
+
+-   Correlation Review
+-   Simple Regression Review
+-   Multiple Regression Review
+
+3.  Look at the Planning ANY Data Analysis 2025 powerpoint which is related to the lab in Week 11.
+
 ## Recommended Reading
 
-Chapters 9, 10 and 11 from Howell, D. C. (2017). Fundamental statistics for the behavioral sciences (Ninth edition.). Cengage.  There are online versions available from the library [at this link](https://onesearch.lancaster-university.uk/permalink/44LAN_INST/a1plrn/alma9930907993701221)
+Chapters 9, 10 and 11 from Howell, D. C. (2017). Fundamental statistics for the behavioral sciences (Ninth edition.). Cengage. There are online versions available from the library [at this link](https://onesearch.lancaster-university.uk/permalink/44LAN_INST/a1plrn/alma9930907993701221)
 
 ## Test Yourself!
 
 The link to this week's multiple choice quiz is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506928)
-
 
 # Overview of Learning Model in 234
 
@@ -127,7 +137,7 @@ The image is an example of an effects plot (left) and model summary output (righ
 
 But what does the raw output contain? How do we use the information to understand what the data tells us?
 
-The raw model output is made up of four sections.  From top to bottom, these are:
+The raw model output is made up of four sections. From top to bottom, these are:
 
 ![Four Sections of Model Output](Images/Wk1%20/Summary4Sections.png)
 
@@ -175,7 +185,7 @@ a.  Reporting the statistic (estimate and SE) and the significance (*p* value)
 
 b.  Reporting a verbal description of the effect
 
-When a coefficient for a predictor was part of one of your hypotheses but is non-signficant in the model, then you only report part a.  You do not report a verbal description of the effect.
+When a coefficient for a predictor was part of one of your hypotheses but is non-signficant in the model, then you only report part a. You do not report a verbal description of the effect.
 
 The `c_mom_hs` is the coefficient label for the predictor that reflects a significant effect for whether a child's mother completed high school or not. An example excerpt of text to report the finding for this predictor variable could be:
 
@@ -191,7 +201,7 @@ There is no part b because the effect is non-significant.
 
 Obviously, for the results section, these three excerpts are presented presented as a coherent body of text:
 
-We conducted a multiple linear regression with children's test scores as the outcome variable and mothers' graduation status, age and intelligence scores as predictor variables. The model was significant (*F* (3, 430) = 39.25, *p* \< .001) and explained 21% of the variance in children's test scores.  
+We conducted a multiple linear regression with children's test scores as the outcome variable and mothers' graduation status, age and intelligence scores as predictor variables. The model was significant (*F* (3, 430) = 39.25, *p* \< .001) and explained 21% of the variance in children's test scores.
 
 Whether or not the mother graduated high school has a significant impact upon a child's test score (*b* = 5.65, SE = 2.26, *p* = .013). Holding all other predictors constant, the difference in scores for a child whose mother finished high school and a child whose mother did not finish high school is 5.65 test points. The mother's age at the time that the child took the test does not have a significant impact on a child's test score (*b* = 0.22, SE = 0.33, *p* = .500).
 
