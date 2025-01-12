@@ -53,7 +53,7 @@ $$
   -  The predictors can be a mix of categorical and continuous predictors; there is no different notation between continuous and categorical predictors.
 
 
-### Import the data
+### Import the Data
 
 The data set is retrieved from https://www.kaggle.com/mirichoi0218/insurance
 
@@ -128,7 +128,9 @@ We can also look at the relationships between each of the continuous variables: 
 chart.Correlation(d[, c(1, 3, 4)], histogram=TRUE, pch=19)
 ```
 
-### Understand: Model
+## Understand: 
+
+### Model
 
 Our main focus for this week is working with the categorical variables. In regression, group differences are called contrasts and there are several ways to construct contrasts.  On import, R will code categorical variables using its default dummy contrast coding scheme. 
 
@@ -163,7 +165,7 @@ Notice how:
   - `smoker` becomes `smokeryes` to reflect that being a non-smoker is the reference level group.
   - the NE region does not have a coefficient in the model summary; since it is the reference level for the region variable, it is contained within the intercept.
 
-## Understand: Transform: Types of categorical contrasts
+### Transform: Types of Categorical Contrasts
 
 ### Dummy or Treatment Coding Scheme
 
@@ -203,7 +205,7 @@ The big change here is in the intercept.  By changing the reference levels, the 
 
 We will keep the reference levels like this going forward.
 
-### A quick check of model diagnostics
+### A Quick Check of Model Diagnostics
 
 Has our model explained all the structured variance? Lets look at diagnostic plots before we go any further:
 
@@ -408,7 +410,9 @@ And look down each column, then the quicker way to find out these differences be
 -448.01*-1
 ```
 
-### Unbalanced variables - transforming binary categorical to numerical variables and centering them
+### Unbalanced Binary Variables
+
+When binary variables are unbalanced, you can transform them into numerical variables nd mean-centre them.
 
 Look back at the visualisations of the dataset:
 
@@ -449,7 +453,7 @@ summary(d$smoker_n) # unbalanced variable - look at the mean value
 
 If this variable had equal numbers of smokers and non-smokers then the mean would be about 0.5 - half way between 1. However, there are many more zeros for non-smokers and this pulls the mean of the variable towards zero.
 
-### Mean centring a variable
+#### Mean Centring a Variable
 
 A mean centred variable is made by subtracting the mean of the variable from each observation in the variable.  
 
@@ -535,7 +539,7 @@ You'll notice that there is a change on the intercept value.  The intercept is n
 
 And the centred variable of `sex_c` now describes the full value of moving from female (in the intercept) to male for changes in insurance charges.
 
-### Standardising variables
+### Standardising Variables
 
 Create some more variables to store the standardised variables, which we will create next.
 
@@ -575,7 +579,7 @@ This line of code charts correlations between columns 18 - 20 of the dataset `d`
 chart.Correlation(d[, c(18:20)], histogram=TRUE, pch=19)
 ```
 
-### Refit the model with new standardised variables
+#### Refit the Model with Standardised Variables
 
 What happens when we use the standardised variables with the centred binary variables:
 
@@ -588,7 +592,7 @@ The intercept is the same, because no reference levels have changed; `sex` and `
 
 The gift of standardisation is that is calms down the model - gone is the huge $23,848 prediction for smokers.  And now we can see the relative strengths of predictors.  Smoking is the strongest predictor, followed by age and weight, with each associated with a positive relationship on insurance charges - as they increase so does insurance.
 
-### Transform:  Standardising by Two Standard Deviations - extra
+#### Transform:  Standardising by Two Standard Deviations - extra
 
 This is useful to know if you want to have your continuous variables act as if they are a dichotomous variable - so age = young or old / high or low.  This is not on the class test.
 
@@ -620,7 +624,7 @@ Only the axes have changed once more....the centre is still zero, the units are 
 As I said, you may not use this very much, but it might be a handy little trick in your future - you never know!
 
 
-### Ordered variables?
+### Ordered Variables?
 
 Consider the `children` variable - so far I have treated it as a continuous variable but it's categorical: look at the histogram above again. There are no values between the distinct categories.
 
@@ -677,7 +681,7 @@ The only significantly different change in insurance charges is the change from 
 
 For the purposes of model checking and reporting, we do not use this model; we revert back to the standardised model.
 
-##### Checking that assumptions of linear regression are not violated
+### Checking Model Assumptions and Diagnostics
 
 Every regression model is built upon the following assumptions:
 
@@ -782,17 +786,13 @@ abline(h=cutoff, lty=2, col="red")
 ```
 There are 77 observations that appear to be influential within the dataset, however the three labelled here are particularly offensive.  If we were to continue our analysis at this point, we may be be filtering out some observations and running the model once more as a sensitivity analysis. 
 
-#### Interpretation of the model
-
-#### Interpretation of the model
+## Communicate: 
 
 Lets reprint the summary to save scrolling but also save the summary to an object so that we can call the values while interpreting and reporting the model
 
 ```{r}
 (m6_zh_summary <- summary(m6_zh))
 ```
-
-#### What would a results section look like for this analysis?
 
 A results section for multiple regression may have three parts
 
@@ -825,7 +825,7 @@ table(d$region)
 
 # It would be up to you to choose how to arrange a table, given the different numbers of levels across the categorical variables.
 ```
-#### Correlations between (truly) continous predictors
+### Correlations between (truly) continous predictors
  
 ```{r}
 
@@ -839,7 +839,7 @@ table(d$region)
 
 ```
 
-#### Inferential Statistics - Model Coefficients, SEs, *t*-values and *p* values
+### Inferential Statistics - Model Coefficients, SEs, *t*-values and *p* values
 
 ```{r message=FALSE, warning=FALSE}
 # Get model predictions / coefficients
@@ -869,7 +869,7 @@ I have given you some code above that shows you how to manually extract the valu
 
 I leave it to you to format the `Model_values` dataframe into a table for presentation. Remember to also report your F ratio for the model and its significance value along with the variance explained.
 
-### Reporting text
+### Reporting Text
 
 We conducted a multiple regression for the association of several predictor variables with the outcome variable of insurance charges. We standardised all continuous predictors as well as the predictors for Sex and Smoker Status.  Region is a sum-coded variable, with South West being the reference level variable.  We treated the variable for number of children as an ordinal variable and applied a helmert contrast.
 
@@ -882,7 +882,7 @@ Age shows a positive association with insurance charges, with an increase in app
 We should be cautious with these interpretations as the residuals show that there is unexplained variability and there are a number of observations that are indicated as having high leverage or high influence so further terms and sensitivity analyses are warranted for a fuller understanding.
 
 
-##### Plotting predictions
+### Plotting predictions
 
 Plotting an individual effect (or lack of it) is very simple if we are not too worried about being pretty.  Plus - because we haven't changed any of the essential information in any of the coding / centring schemes,  you can choose how to plot them, based upon the model.  This is the skill of the communication part - which plot would make more sense to your reader - a plot with a standardised x-axis or a plot with raw units on the x-axis?
 
@@ -924,9 +924,7 @@ There are lots of things to do as we run a multiple regression model - both befo
   - choosing between different models
   - reporting models - ongoing
 
-
-
-# Lab Task
+## Pre-Lab Activity and Week 12 Task
 
 In this lab, you will be working with the R script and data stored [here](data/Wk2/Week2_lab_materials.zip), and the accompanying codebook is accessed [here](data/Wk2/Data_Codebook.pdf).
 
@@ -944,6 +942,6 @@ Work through the Week12_R_Script.Rmd file and enter in your own code to arrive a
 ![Predictor Walc](Images/Wk2/Predictor_plot_walc_h.png)
 ![Predictor Sex](Images/Wk2/PredictorPlot_sex_c.png)
 
-# Submit Scripts
+### Submit Scripts
 
-Remember to submit your group scripts if you want to receive and see feedback on your own and other groups' scripts.
+Remember to submit your group scripts if you want the chance to receive feedback on your own and other groups' scripts.

@@ -355,29 +355,36 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#week-12-multiple-regression-with-categorical-predictors" id="toc-week-12-multiple-regression-with-categorical-predictors" class="nav-link" data-scroll-target="#week-12-multiple-regression-with-categorical-predictors">Week 12: Multiple Regression with Categorical Predictors</a>
   <ul class="collapse">
-  <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data">Import the data</a></li>
+  <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data">Import the Data</a></li>
   <li><a href="#tidy" id="toc-tidy" class="nav-link" data-scroll-target="#tidy">Tidy</a></li>
   <li><a href="#visualise" id="toc-visualise" class="nav-link" data-scroll-target="#visualise">Visualise</a></li>
-  <li><a href="#understand-model" id="toc-understand-model" class="nav-link" data-scroll-target="#understand-model">Understand: Model</a></li>
   </ul></li>
-  <li><a href="#understand-transform-types-of-categorical-contrasts" id="toc-understand-transform-types-of-categorical-contrasts" class="nav-link" data-scroll-target="#understand-transform-types-of-categorical-contrasts">Understand: Transform: Types of categorical contrasts</a>
+  <li><a href="#understand" id="toc-understand" class="nav-link" data-scroll-target="#understand">Understand:</a>
   <ul class="collapse">
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">Model</a></li>
+  <li><a href="#transform-types-of-categorical-contrasts" id="toc-transform-types-of-categorical-contrasts" class="nav-link" data-scroll-target="#transform-types-of-categorical-contrasts">Transform: Types of Categorical Contrasts</a></li>
   <li><a href="#dummy-or-treatment-coding-scheme" id="toc-dummy-or-treatment-coding-scheme" class="nav-link" data-scroll-target="#dummy-or-treatment-coding-scheme">Dummy or Treatment Coding Scheme</a></li>
-  <li><a href="#a-quick-check-of-model-diagnostics" id="toc-a-quick-check-of-model-diagnostics" class="nav-link" data-scroll-target="#a-quick-check-of-model-diagnostics">A quick check of model diagnostics</a></li>
+  <li><a href="#a-quick-check-of-model-diagnostics" id="toc-a-quick-check-of-model-diagnostics" class="nav-link" data-scroll-target="#a-quick-check-of-model-diagnostics">A Quick Check of Model Diagnostics</a></li>
   <li><a href="#sum-or-deviation-coding-schemes" id="toc-sum-or-deviation-coding-schemes" class="nav-link" data-scroll-target="#sum-or-deviation-coding-schemes">Sum or Deviation Coding Schemes</a></li>
-  <li><a href="#unbalanced-variables---transforming-binary-categorical-to-numerical-variables-and-centering-them" id="toc-unbalanced-variables---transforming-binary-categorical-to-numerical-variables-and-centering-them" class="nav-link" data-scroll-target="#unbalanced-variables---transforming-binary-categorical-to-numerical-variables-and-centering-them">Unbalanced variables - transforming binary categorical to numerical variables and centering them</a></li>
-  <li><a href="#mean-centring-a-variable" id="toc-mean-centring-a-variable" class="nav-link" data-scroll-target="#mean-centring-a-variable">Mean centring a variable</a></li>
+  <li><a href="#unbalanced-binary-variables" id="toc-unbalanced-binary-variables" class="nav-link" data-scroll-target="#unbalanced-binary-variables">Unbalanced Binary Variables</a></li>
   <li><a href="#mean-centering-continuous-variables" id="toc-mean-centering-continuous-variables" class="nav-link" data-scroll-target="#mean-centering-continuous-variables">Mean Centering Continuous Variables</a></li>
-  <li><a href="#standardising-variables" id="toc-standardising-variables" class="nav-link" data-scroll-target="#standardising-variables">Standardising variables</a></li>
-  <li><a href="#refit-the-model-with-new-standardised-variables" id="toc-refit-the-model-with-new-standardised-variables" class="nav-link" data-scroll-target="#refit-the-model-with-new-standardised-variables">Refit the model with new standardised variables</a></li>
-  <li><a href="#transform-standardising-by-two-standard-deviations---extra" id="toc-transform-standardising-by-two-standard-deviations---extra" class="nav-link" data-scroll-target="#transform-standardising-by-two-standard-deviations---extra">Transform: Standardising by Two Standard Deviations - extra</a></li>
-  <li><a href="#ordered-variables" id="toc-ordered-variables" class="nav-link" data-scroll-target="#ordered-variables">Ordered variables?</a></li>
+  <li><a href="#standardising-variables" id="toc-standardising-variables" class="nav-link" data-scroll-target="#standardising-variables">Standardising Variables</a></li>
+  <li><a href="#ordered-variables" id="toc-ordered-variables" class="nav-link" data-scroll-target="#ordered-variables">Ordered Variables?</a></li>
+  <li><a href="#checking-model-assumptions-and-diagnostics" id="toc-checking-model-assumptions-and-diagnostics" class="nav-link" data-scroll-target="#checking-model-assumptions-and-diagnostics">Checking Model Assumptions and Diagnostics</a></li>
+  </ul></li>
+  <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">Communicate:</a>
+  <ul class="collapse">
   <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
-  <li><a href="#reporting-text" id="toc-reporting-text" class="nav-link" data-scroll-target="#reporting-text">Reporting text</a></li>
+  <li><a href="#correlations-between-truly-continous-predictors" id="toc-correlations-between-truly-continous-predictors" class="nav-link" data-scroll-target="#correlations-between-truly-continous-predictors">Correlations between (truly) continous predictors</a></li>
+  <li><a href="#inferential-statistics---model-coefficients-ses-t-values-and-p-values" id="toc-inferential-statistics---model-coefficients-ses-t-values-and-p-values" class="nav-link" data-scroll-target="#inferential-statistics---model-coefficients-ses-t-values-and-p-values">Inferential Statistics - Model Coefficients, SEs, <em>t</em>-values and <em>p</em> values</a></li>
+  <li><a href="#reporting-text" id="toc-reporting-text" class="nav-link" data-scroll-target="#reporting-text">Reporting Text</a></li>
+  <li><a href="#plotting-predictions" id="toc-plotting-predictions" class="nav-link" data-scroll-target="#plotting-predictions">Plotting predictions</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#lab-task" id="toc-lab-task" class="nav-link" data-scroll-target="#lab-task">Lab Task</a></li>
+  <li><a href="#pre-lab-activity-and-week-12-task" id="toc-pre-lab-activity-and-week-12-task" class="nav-link" data-scroll-target="#pre-lab-activity-and-week-12-task">Pre-Lab Activity and Week 12 Task</a>
+  <ul class="collapse">
   <li><a href="#submit-scripts" id="toc-submit-scripts" class="nav-link" data-scroll-target="#submit-scripts">Submit Scripts</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -446,7 +453,7 @@ Caution
 Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*X_3 + b_4*X_4 + b_5*X_5 + b_6*X_6 + e_i
 \]</span> - The predictors can be a mix of categorical and continuous predictors; there is no different notation between continuous and categorical predictors.</p>
 <section id="import-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="import-the-data">Import the data</h3>
+<h3 class="anchored" data-anchor-id="import-the-data">Import the Data</h3>
 <p>The data set is retrieved from https://www.kaggle.com/mirichoi0218/insurance</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Wk2/_Week2_lecture_materials/insurance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -555,8 +562,11 @@ Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*X_3 + b_4*X_4 + b_5*X_5 + b_6*X_6 + e_i
 </div>
 </div>
 </section>
-<section id="understand-model" class="level3">
-<h3 class="anchored" data-anchor-id="understand-model">Understand: Model</h3>
+</section>
+<section id="understand" class="level2">
+<h2 class="anchored" data-anchor-id="understand">Understand:</h2>
+<section id="model" class="level3">
+<h3 class="anchored" data-anchor-id="model">Model</h3>
 <p>Our main focus for this week is working with the categorical variables. In regression, group differences are called contrasts and there are several ways to construct contrasts. On import, R will code categorical variables using its default dummy contrast coding scheme.</p>
 <p>Take a look and see how R sees the categorical variables; the levels associated with 0 are the reference levels at the moment:</p>
 <div class="cell">
@@ -622,9 +632,9 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Lets have a quick look at the output and the coefficient labels column. All of the categorical variables are toward the bottom of the list because we entered them toward the end of the list in the model.</p>
 <p>Notice how: - the label for <code>sex</code> is <code>sexmale</code>, which tells us that the reference level for the sex variable is female is in the intercept - makes sense since the default is for the first group in the alphabet to be taken as the reference level group. - <code>smoker</code> becomes <code>smokeryes</code> to reflect that being a non-smoker is the reference level group. - the NE region does not have a coefficient in the model summary; since it is the reference level for the region variable, it is contained within the intercept.</p>
 </section>
+<section id="transform-types-of-categorical-contrasts" class="level3">
+<h3 class="anchored" data-anchor-id="transform-types-of-categorical-contrasts">Transform: Types of Categorical Contrasts</h3>
 </section>
-<section id="understand-transform-types-of-categorical-contrasts" class="level2">
-<h2 class="anchored" data-anchor-id="understand-transform-types-of-categorical-contrasts">Understand: Transform: Types of categorical contrasts</h2>
 <section id="dummy-or-treatment-coding-scheme" class="level3">
 <h3 class="anchored" data-anchor-id="dummy-or-treatment-coding-scheme">Dummy or Treatment Coding Scheme</h3>
 <p>It may make more sense to change the reference level of a variable. Your hypothesis may suggest a particular reference level. You can control the reference level in the dummy coding command: Using the <code>relevel</code>()` function.</p>
@@ -699,7 +709,7 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>We will keep the reference levels like this going forward.</p>
 </section>
 <section id="a-quick-check-of-model-diagnostics" class="level3">
-<h3 class="anchored" data-anchor-id="a-quick-check-of-model-diagnostics">A quick check of model diagnostics</h3>
+<h3 class="anchored" data-anchor-id="a-quick-check-of-model-diagnostics">A Quick Check of Model Diagnostics</h3>
 <p>Has our model explained all the structured variance? Lets look at diagnostic plots before we go any further:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># display plots in a 2 x 2 panel</span></span>
@@ -986,8 +996,9 @@ SW   -1   -1   -1</code></pre>
 </div>
 </div>
 </section>
-<section id="unbalanced-variables---transforming-binary-categorical-to-numerical-variables-and-centering-them" class="level3">
-<h3 class="anchored" data-anchor-id="unbalanced-variables---transforming-binary-categorical-to-numerical-variables-and-centering-them">Unbalanced variables - transforming binary categorical to numerical variables and centering them</h3>
+<section id="unbalanced-binary-variables" class="level3">
+<h3 class="anchored" data-anchor-id="unbalanced-binary-variables">Unbalanced Binary Variables</h3>
+<p>When binary variables are unbalanced, you can transform them into numerical variables nd mean-centre them.</p>
 <p>Look back at the visualisations of the dataset:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bar charts for categorical variables</span></span>
@@ -1033,9 +1044,8 @@ SW   -1   -1   -1</code></pre>
 </div>
 </div>
 <p>If this variable had equal numbers of smokers and non-smokers then the mean would be about 0.5 - half way between 1. However, there are many more zeros for non-smokers and this pulls the mean of the variable towards zero.</p>
-</section>
-<section id="mean-centring-a-variable" class="level3">
-<h3 class="anchored" data-anchor-id="mean-centring-a-variable">Mean centring a variable</h3>
+<section id="mean-centring-a-variable" class="level4">
+<h4 class="anchored" data-anchor-id="mean-centring-a-variable">Mean Centring a Variable</h4>
 <p>A mean centred variable is made by subtracting the mean of the variable from each observation in the variable.</p>
 <ul>
 <li>So all the non-smokers who are 0, will have 0.2048 subtracted from them, and will show as -0.2048.</li>
@@ -1095,6 +1105,7 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>The smoker_c now describes the full value of predictions that the model makes for insurance charges, rather than half of the value under the sum contrast coding scheme. And the intercept has changed again! It is even more negative than before - this is probably because, with the centred smoker variable, the model intercept is now representing non-smokers, and we know that they pay a lot les than smokers for their insurance. There is no change in our model output; remember the change we made was to help us for when we want to use interactions.</p>
+</section>
 </section>
 <section id="mean-centering-continuous-variables" class="level3">
 <h3 class="anchored" data-anchor-id="mean-centering-continuous-variables">Mean Centering Continuous Variables</h3>
@@ -1174,7 +1185,7 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>And the centred variable of <code>sex_c</code> now describes the full value of moving from female (in the intercept) to male for changes in insurance charges.</p>
 </section>
 <section id="standardising-variables" class="level3">
-<h3 class="anchored" data-anchor-id="standardising-variables">Standardising variables</h3>
+<h3 class="anchored" data-anchor-id="standardising-variables">Standardising Variables</h3>
 <p>Create some more variables to store the standardised variables, which we will create next.</p>
 <p>Remember to create a standardised variable, we first centre the variable and then divide it by its standard deviation</p>
 <div class="cell">
@@ -1221,9 +1232,8 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="refit-the-model-with-new-standardised-variables" class="level3">
-<h3 class="anchored" data-anchor-id="refit-the-model-with-new-standardised-variables">Refit the model with new standardised variables</h3>
+<section id="refit-the-model-with-standardised-variables" class="level4">
+<h4 class="anchored" data-anchor-id="refit-the-model-with-standardised-variables">Refit the Model with Standardised Variables</h4>
 <p>What happens when we use the standardised variables with the centred binary variables:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m6_z <span class="ot">&lt;-</span> <span class="fu">lm</span>(charges <span class="sc">~</span> age_z1 <span class="sc">+</span> bmi_z1 <span class="sc">+</span> child_z1 <span class="sc">+</span> sex_z1 <span class="sc">+</span> smoker_z1 <span class="sc">+</span> regionsum, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1259,8 +1269,8 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>The intercept is the same, because no reference levels have changed; <code>sex</code> and <code>smoker</code> are now smaller; the direction of effects remains similar: males are associated with less insurance charges, and smokers are associated with more than non-smokers. The region coefficients are the same because we didn’t change them; The magnitude of the coefficients for age, bmi and children are now bigger. But look at their t values - they have not changed. Nor is the variance explained.</p>
 <p>The gift of standardisation is that is calms down the model - gone is the huge $23,848 prediction for smokers. And now we can see the relative strengths of predictors. Smoking is the strongest predictor, followed by age and weight, with each associated with a positive relationship on insurance charges - as they increase so does insurance.</p>
 </section>
-<section id="transform-standardising-by-two-standard-deviations---extra" class="level3">
-<h3 class="anchored" data-anchor-id="transform-standardising-by-two-standard-deviations---extra">Transform: Standardising by Two Standard Deviations - extra</h3>
+<section id="transform-standardising-by-two-standard-deviations---extra" class="level4">
+<h4 class="anchored" data-anchor-id="transform-standardising-by-two-standard-deviations---extra">Transform: Standardising by Two Standard Deviations - extra</h4>
 <p>This is useful to know if you want to have your continuous variables act as if they are a dichotomous variable - so age = young or old / high or low. This is not on the class test.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new variables to store the standardised values</span></span>
@@ -1294,8 +1304,9 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Only the axes have changed once more….the centre is still zero, the units are still in standard deviations and look how the range is from a minus to the centre and then a centre to the plus. Two jumps to move from one end of the values to other end - a little bit like the sum coding procedure of moving from -1 to 1 in two jumps.</p>
 <p>As I said, you may not use this very much, but it might be a handy little trick in your future - you never know!</p>
 </section>
+</section>
 <section id="ordered-variables" class="level3">
-<h3 class="anchored" data-anchor-id="ordered-variables">Ordered variables?</h3>
+<h3 class="anchored" data-anchor-id="ordered-variables">Ordered Variables?</h3>
 <p>Consider the <code>children</code> variable - so far I have treated it as a continuous variable but it’s categorical: look at the histogram above again. There are no values between the distinct categories.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d<span class="sc">$</span>children) <span class="co"># summary as a continuous predictor</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1379,8 +1390,9 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Look at <code>children_h2</code>: the difference in insurance charges for families with two children and both families with one child <em>and</em> families with no children is approximately $480.00…and so on…</p>
 <p>The only significantly different change in insurance charges is the change from 0 or 1 child to two child families. Can you think of a reason why a familiy of two children is predicted to pay significantly higher insurance charges than a family of one child?</p>
 <p>For the purposes of model checking and reporting, we do not use this model; we revert back to the standardised model.</p>
-<section id="checking-that-assumptions-of-linear-regression-are-not-violated" class="level5">
-<h5 class="anchored" data-anchor-id="checking-that-assumptions-of-linear-regression-are-not-violated">Checking that assumptions of linear regression are not violated</h5>
+</section>
+<section id="checking-model-assumptions-and-diagnostics" class="level3">
+<h3 class="anchored" data-anchor-id="checking-model-assumptions-and-diagnostics">Checking Model Assumptions and Diagnostics</h3>
 <p>Every regression model is built upon the following assumptions:</p>
 <ol type="1">
 <li>The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is assumed to be linear (additive)</li>
@@ -1403,7 +1415,6 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p><strong>Normal Q-Q</strong>: If the residual points (open circles) follow the dashed line, you can assume the residuals are normally distributed. It doesn’t look great on the right hand side, does it?</p>
 <p><strong>Scale-Location</strong>: This is checking for constant variance in the residuals - not much here. A good indication would be a horizontal pink line with equally spread points. Our graph is not good.</p>
 <p><strong>Residuals vs Leverage</strong> - are there any points that are having a large influence on the regression results. They will be numbered and you can then inspect them in your data file. Observations that show standardised residuals (see the table above) above 3 would be problematic. As would observations of a hat value above <span class="math inline">\(2(p+1)/n\)</span> where <span class="math inline">\(p\)</span> = is the number of predictors (but see below) and <span class="math inline">\(n\)</span> = is the number of observations</p>
-</section>
 <section id="a-different-way-to-observe-points-with-high-leverage-and-high-influence" class="level4">
 <h4 class="anchored" data-anchor-id="a-different-way-to-observe-points-with-high-leverage-and-high-influence">A different way to observe points with high leverage and high influence:</h4>
 <p>In last week’s script, with a small data set, we used a formula for calculating hat values and Cook’s Distance values and looked across some values after calling our residuals using the <code>augment</code> function.</p>
@@ -1512,11 +1523,10 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>There are 77 observations that appear to be influential within the dataset, however the three labelled here are particularly offensive. If we were to continue our analysis at this point, we may be be filtering out some observations and running the model once more as a sensitivity analysis.</p>
 </section>
-<section id="interpretation-of-the-model" class="level4">
-<h4 class="anchored" data-anchor-id="interpretation-of-the-model">Interpretation of the model</h4>
 </section>
-<section id="interpretation-of-the-model-1" class="level4">
-<h4 class="anchored" data-anchor-id="interpretation-of-the-model-1">Interpretation of the model</h4>
+</section>
+<section id="communicate" class="level2">
+<h2 class="anchored" data-anchor-id="communicate">Communicate:</h2>
 <p>Lets reprint the summary to save scrolling but also save the summary to an object so that we can call the values while interpreting and reporting the model</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>(m6_zh_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(m6_zh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1553,17 +1563,12 @@ Multiple R-squared:  0.7519,    Adjusted R-squared:  0.7497
 F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-</section>
-<section id="what-would-a-results-section-look-like-for-this-analysis" class="level4">
-<h4 class="anchored" data-anchor-id="what-would-a-results-section-look-like-for-this-analysis">What would a results section look like for this analysis?</h4>
 <p>A results section for multiple regression may have three parts</p>
 <ul>
 <li>Descriptive statistics for continuous variables and quantities of observations in each categorty for categorical variables</li>
 <li>A correlation matrix that shows bivariate correlations between the continuous predictors</li>
 <li>A model summary and some narrative text to communicate the predictions from the model</li>
 </ul>
-</section>
-</section>
 <section id="descriptive-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
 <p>Depending on your hypothesis, you may report descriptive statistics differently from here. For instance if a hypothesis was present for an interaction of any of the predictors with sex, then the descriptive statistics section would be presented with means and sd and categories for the other variables split by gender.</p>
@@ -1610,8 +1615,9 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It would be up to you to choose how to arrange a table, given the different numbers of levels across the categorical variables.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="correlations-between-truly-continous-predictors" class="level4">
-<h4 class="anchored" data-anchor-id="correlations-between-truly-continous-predictors">Correlations between (truly) continous predictors</h4>
+</section>
+<section id="correlations-between-truly-continous-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="correlations-between-truly-continous-predictors">Correlations between (truly) continous predictors</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>(d_cor <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
 <span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, bmi, children) <span class="sc">%&gt;%</span> </span>
@@ -1626,8 +1632,8 @@ children 0.04 0.01</code></pre>
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The output here could be a second table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="inferential-statistics---model-coefficients-ses-t-values-and-p-values" class="level4">
-<h4 class="anchored" data-anchor-id="inferential-statistics---model-coefficients-ses-t-values-and-p-values">Inferential Statistics - Model Coefficients, SEs, <em>t</em>-values and <em>p</em> values</h4>
+<section id="inferential-statistics---model-coefficients-ses-t-values-and-p-values" class="level3">
+<h3 class="anchored" data-anchor-id="inferential-statistics---model-coefficients-ses-t-values-and-p-values">Inferential Statistics - Model Coefficients, SEs, <em>t</em>-values and <em>p</em> values</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get model predictions / coefficients</span></span>
 <span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>Estimate <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">coef</span>(m6_zh), <span class="dv">2</span>)</span>
@@ -1671,16 +1677,16 @@ children 0.04 0.01</code></pre>
 <p>I have given you some code above that shows you how to manually extract the values that we have used in the model outputs to form a table to be able to report the values. The broom package does this also. However, on small models (for numbers of predictors), I like the level of control to be able to do it like this. You may find another way as you learn and that is good too.</p>
 <p>I leave it to you to format the <code>Model_values</code> dataframe into a table for presentation. Remember to also report your F ratio for the model and its significance value along with the variance explained.</p>
 </section>
-</section>
 <section id="reporting-text" class="level3">
-<h3 class="anchored" data-anchor-id="reporting-text">Reporting text</h3>
+<h3 class="anchored" data-anchor-id="reporting-text">Reporting Text</h3>
 <p>We conducted a multiple regression for the association of several predictor variables with the outcome variable of insurance charges. We standardised all continuous predictors as well as the predictors for Sex and Smoker Status. Region is a sum-coded variable, with South West being the reference level variable. We treated the variable for number of children as an ordinal variable and applied a helmert contrast.</p>
 <p>Without engaging in any sensitivity analysis or outlier analysis, we report a model with a full set of predictors. The model is significant (<span class="math inline">\(F(12, 1325)\)</span> = 334.7, <em>p</em> &lt; 0.001). This set of predictors explains 75.19% of the variance in insurance charges.</p>
 <p>The following details the significant predictors in this model. Each value represents the change in insurance charges for a one standard deviation change in the predictor, holding all other variables constant.</p>
 <p>Age shows a positive association with insurance charges, with an increase in approximately $3613 for a one standard deviation unit change on the age scale (age: <em>t</em> = 21.59, <em>p</em> &lt; .001). A person’s body mass index (BMI) also shows a positive relationship and increases insurance charges by approximately $2054 with a one standard deviation change in BMI score (<em>t</em> = 11.77, <em>p</em> &lt; .001). The number of dependents included in insurance cover was only significant on insurance charges at the comparison between the 2 child families and the 0 and 1 child famiiles. Having two children increased insurance charges by approximately $480 (<em>t</em> = 3.24, <em>p</em> &lt; .005), compared to the mean levels for 0 and 1 child. Being a male individual is negatively associated with insurance charges, lowering insurance costs by approximately $65, however this increase is non-significant (<em>t</em> = -0.39, <em>p</em> = .700). Being a smoker is significantly and positively associated with an increase in insurance charges, raising insurance costs by approximately $9,622 (<em>t</em> = 57.56, <em>p</em> &lt; .001). While living in the northeast region of the country also shows a positive association with insurance charges compared to living in the southwest region (reference level), showing an increase of around $591 (<em>t</em> = -1.51, <em>p</em> = 0.044).</p>
 <p>We should be cautious with these interpretations as the residuals show that there is unexplained variability and there are a number of observations that are indicated as having high leverage or high influence so further terms and sensitivity analyses are warranted for a fuller understanding.</p>
-<section id="plotting-predictions" class="level5">
-<h5 class="anchored" data-anchor-id="plotting-predictions">Plotting predictions</h5>
+</section>
+<section id="plotting-predictions" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-predictions">Plotting predictions</h3>
 <p>Plotting an individual effect (or lack of it) is very simple if we are not too worried about being pretty. Plus - because we haven’t changed any of the essential information in any of the coding / centring schemes, you can choose how to plot them, based upon the model. This is the skill of the communication part - which plot would make more sense to your reader - a plot with a standardised x-axis or a plot with raw units on the x-axis?</p>
 <p>Look at the x-axis on the following two plots to compare and make your considered decision:</p>
 <div class="cell">
@@ -1773,10 +1779,8 @@ children 0.04 0.01</code></pre>
 </ul>
 </section>
 </section>
-</section>
-</section>
-<section id="lab-task" class="level1">
-<h1>Lab Task</h1>
+<section id="pre-lab-activity-and-week-12-task" class="level2">
+<h2 class="anchored" data-anchor-id="pre-lab-activity-and-week-12-task">Pre-Lab Activity and Week 12 Task</h2>
 <p>In this lab, you will be working with the R script and data stored <a href="data/Wk2/Week2_lab_materials.zip">here</a>, and the accompanying codebook is accessed <a href="data/Wk2/Data_Codebook.pdf">here</a>.</p>
 <p>Work through the Week12_R_Script.Rmd file and enter in your own code to arrive at the following model summary and figures.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1798,12 +1802,13 @@ children 0.04 0.01</code></pre>
 </figure>
 </div>
 <p><img src="Images/Wk2/Predictor_plot_absences_z1.png" class="img-fluid" alt="Predictor Absence"> <img src="Images/Wk2/Predictor_Plot_health_z1.png" class="img-fluid" alt="Predictor Health"> <img src="Images/Wk2/Predictor_Plot_school_c.png" class="img-fluid" alt="Predictor School"> <img src="Images/Wk2/Predictor_plot_walc_h.png" class="img-fluid" alt="Predictor Walc"> <img src="Images/Wk2/PredictorPlot_sex_c.png" class="img-fluid" alt="Predictor Sex"></p>
+<section id="submit-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="submit-scripts">Submit Scripts</h3>
+<p>Remember to submit your group scripts if you want the chance to receive feedback on your own and other groups’ scripts.</p>
+
+
 </section>
-<section id="submit-scripts" class="level1">
-<h1>Submit Scripts</h1>
-<p>Remember to submit your group scripts if you want to receive and see feedback on your own and other groups’ scripts.</p>
-
-
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
