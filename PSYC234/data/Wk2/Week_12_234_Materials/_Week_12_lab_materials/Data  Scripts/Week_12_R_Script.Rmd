@@ -1,7 +1,7 @@
 ---
 title: "PSYC234_Lab_2_Student"
 author: "Emma Mills"
-date: "23/01/2023"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -27,29 +27,25 @@ Many factors may predict academic success in young people that are not part of i
  - whether they attend extra private tutor classes
  - how much they drink at the weekend
  
-Use the `Data_Codebook.pdf` file in the lab folder to find out initial information such as variable names, their type and their levels or numerical ranges.
+Use the `Data_Codebook` .docx file in the lab folder to find out initial information such as variable names, their type and their levels or numerical ranges.
 
 
 ## Import Data
 
 ### Portuguese Scores
 
-```{r}
-d_raw <- read_csv("student-por.csv") # Portuguese scores
+You are working with the "student-por.csv"
 
-```
 
 ## Tidying
 
-You could choose to reduce the dataset to keep only the variables they need
+You could choose to reduce the dataset to keep only the variables they need; you don't need to do this - it is just about manageability.
 
-Select out the columns for manageability:  use the select() function
+If you want to do it, use the tidyverse `select()` function
+
+Remember to also keep demographic variables so that you could describe your sample in your descriptive statistics results section
 
 ```{r}
-
-# select the columns you need and put them in any order you want.
-
-# keep the raw data set separate, because you might want to describe the sample and will need age etc. for this.
 
 ```
 
@@ -57,7 +53,7 @@ Select out the columns for manageability:  use the select() function
 
 ### Predictors
 
-There is code above  to help you do this for the categorical and continuous predictors.
+There is code in the lecture .Rmd file to help you do this for the categorical and continuous predictors.
 
 Prompt questions to interrogate what you see:
 
@@ -73,14 +69,7 @@ Prompt questions to interrogate what you see:
   - Or if not, can we treat it as such for our test?
 
 ```{r message=FALSE, warning=FALSE}
-# bar charts for categorical variables
 
-
-
-# (so called) continuous variables
-
-
-grid.arrange(p_sex, p_sch, p_paid, p_health, p_absence, p_travel, p_walc, p_outcome)
 ```
 
 Write yourself some text here as descriptors or what you see that helps you to get to know this unfamiliar dataset.
@@ -88,9 +77,10 @@ Write yourself some text here as descriptors or what you see that helps you to g
 
 ### Correlations betweeen continuous predictors
 
-In the code below,  there is a bracket `c( )`.  You need to type the number of the columns that represent the columns in your dataset - so what number column is the outcome predictor etc.  Separate each number with a comma.
+In the code below,  there is a bracket c( ).  You need to type the number of the columns that represent the continuous columns for which you want to see correlations - so what number column is the outcome predictor etc.  Separate each number with a comma.
 
 ```{r warning=FALSE}
+
 chart.Correlation(d[, c( )], histogram=TRUE, pch=19)
 ```
 
@@ -114,7 +104,7 @@ Write a model and call a summary of the model
 ```
 ## Transforming Categorical Variables
 
-Given the predictors, and having watched the lecture, what is the best decision you can make about how the catgorical variables are coded in the model?
+Given the predictors, and having watched the lecture, what is the best decision you can make about how the categorical variables could be coded in the model?
 
 Consider:
 
@@ -135,28 +125,22 @@ Consider:
  - centred variables
  - standardised variables
  
-Make your decisions according to what is suggested by the model output and perform the transformations.  
+In the lecture, I demonstrated how I label my variables according to the type of transformations that I make.  Make your decisions according to what is suggested by the model output and perform the transformations.  
 
-Here is a blank r chunk that you can copy and paste to write your commands if you are working in RMarkdown.
-The keyboard shortcut to do that is Alt-Shift-I
-The menu item is Code >> Insert Chunk
+I am not going to generate any more chunks in this script.  You need to do the rest.  
+
+ - The keyboard shortcut to do that is Alt-Shift-I
+ - The menu item is Code >> Insert Chunk
+ 
+I strongly recommend that
+
+ - you keep chunks relatively short
+ - you run chunks after you have written code so that any error are identified in place and quickly - helping you to debug as you go along.
 
 ```{r}
 ```
-
-
-
-```{r}
-
-```
-
 
 ## Model 
-
-
-```{r}
-
-```
 
 ## Communicate
 
@@ -168,14 +152,15 @@ You should report how many females / males,  the mean age of both sexes and how 
 
 You should report:
 
+Your model summary in a table - remember to refer to the Table in your textual description.
+
   - the name of the outcome variable
   - the names of the predictors in the model
-  - then the omnibus test for the model (the F ratio and associated information)
-  - then the results of each predictor - i.e. report the levels of walc together.
+  - then the omnibus test for the model (the F ratio, dfs and associated p value plus the amount of explained variance for hte outcome variable)
+  - If you have a table, then you can report  the results of each significant predictor - i.e. report the levels of `walc` together, while referring the reader to the table for the other, non-significant results
+  - If you choose not to make a table, then all the model results need to be reported in text
   - when you are reporting the statistical results of each predictor, make sure you give a verbal description of the result when the coefficient is significant.
   
-Draw a table - remember to refer to the Table in your textual description.
-
 ### Plotting Predictions
 
 You can communicate through plots also.  Plot some predictor effects that you could use in a results section. 
@@ -183,11 +168,6 @@ You can communicate through plots also.  Plot some predictor effects that you co
 Use the screenshots of predictor effects as a self-check
 
 Remember to refer to them as Figures in your textual descriptions.
-
-```{r}
-
-
-```
 
 
 

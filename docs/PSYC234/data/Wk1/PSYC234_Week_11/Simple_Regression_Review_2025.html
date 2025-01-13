@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics for Psychologists - Simple Regression Review</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../Images/favicon.png" rel="icon" type="image/png">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search Year 2";};</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="https://lu-psy-r.github.io/">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Simple Regression Review</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../PSYC214/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC214</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. One-Factor Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC214/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Revision of One-Factor ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Introduction to Factorial Designs and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Two-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC214/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Two-Factor Mixed and Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC214/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Three-Factor ANOVA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../PSYC234/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC234</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Review of correlation, simple regression and demonstration of multiple regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Multiple Regression Including Categorical Predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC234/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Mediation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Binary logistic regression models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Expanding on binary logistic regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#model-for-simple-regression" id="toc-model-for-simple-regression" class="nav-link active" data-scroll-target="#model-for-simple-regression">Model for simple regression</a>
+  <ul class="collapse">
+  <li><a href="#section-1-longhand-calculations-for-simple-regression---useful-for-wba1-but-not-on-the-class-test" id="toc-section-1-longhand-calculations-for-simple-regression---useful-for-wba1-but-not-on-the-class-test" class="nav-link" data-scroll-target="#section-1-longhand-calculations-for-simple-regression---useful-for-wba1-but-not-on-the-class-test">Section 1: Longhand Calculations for Simple Regression - useful for WBA1 but not on the class test</a></li>
+  <li><a href="#example-of-calculating-a-regression-line-by-longhand" id="toc-example-of-calculating-a-regression-line-by-longhand" class="nav-link" data-scroll-target="#example-of-calculating-a-regression-line-by-longhand">Example of Calculating a Regression Line by Longhand</a></li>
+  <li><a href="#section-2-shorthand-using-the-lm-function---useful-for-wba1-and-labs-and-could-be-in-the-class-test" id="toc-section-2-shorthand-using-the-lm-function---useful-for-wba1-and-labs-and-could-be-in-the-class-test" class="nav-link" data-scroll-target="#section-2-shorthand-using-the-lm-function---useful-for-wba1-and-labs-and-could-be-in-the-class-test">Section 2: Shorthand Using the (lm) function - useful for WBA1, and labs and could be in the Class Test</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Simple Regression Review</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Regression models are wonderfully flexible. There are several variants of the basic model which are also the beginning of many other types of models which you may learn about if you go beyond an undergraduate degree! While we cover the basics in the next ten weeks, this is only the beginning.</p>
+<p>Regression is an extension of a correlation analysis. Instead of having two numerical variables for which we describe an association or a relationship, we denote one of the variables a predictor and the other variable the outcome. When both continuous variables are standardised (explained later), the regression coefficient for the slope (<span class="math inline">\(b\)</span>) is equivalent to Pearson’s <em>r</em>.</p>
+<p>Additionally, the predictor variable need not be a continuous variable. If your only predictor in a simple regression is a binary variable - one with two possible discrete responses - then a simple regression is equivalent to an independent t-test.</p>
+<p>A regression analysis will find the best possible set of values that <em>predict</em> values of the outcome variable given the observed values.</p>
+<section id="model-for-simple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="model-for-simple-regression">Model for simple regression</h2>
+<p>There is an equation for regression: This is the one I use in the lecture</p>
+<p><span class="math display">\[
+Y = b_0 + b_1*X_1+e
+\]</span></p>
+<p>This second equation is equivalent, it just uses different letters. This is the one that is used in WBA1 <span class="math display">\[
+Y = a + b_1*X_1+e
+\]</span> Where:</p>
+<ul>
+<li><span class="math inline">\(Y\)</span> is the outcome variable - the values to be predicted. Sometimes called the <em>criterion</em> variable.</li>
+<li><span class="math inline">\(X\)</span> is the predictor variable.
+<ul>
+<li>In ANOVA terms <span class="math inline">\(Y\)</span> is the dependent variable and <span class="math inline">\(X\)</span> is the independent variable.<br>
+</li>
+</ul></li>
+<li><span class="math inline">\(b_0\)</span> or <span class="math inline">\(a\)</span> is the intercept term;
+<ul>
+<li>In ANOVA terms <span class="math inline">\(a\)</span> is the grand mean.</li>
+</ul></li>
+<li><span class="math inline">\(b_1\)</span> is the beta coefficient and represents the slope of change in <span class="math inline">\(Y\)</span> - how <span class="math inline">\(Y\)</span> changes with unit increases in <span class="math inline">\(X\)</span>:
+<ul>
+<li>when <span class="math inline">\(b\)</span> = 1, a 1 unit increase in <span class="math inline">\(X\)</span> predicts a 1 unit increase in <span class="math inline">\(Y\)</span></li>
+<li>when <span class="math inline">\(b\)</span> &lt; 1, the rate of change between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> is slow and the slope is shallower</li>
+<li>when <span class="math inline">\(b\)</span> &gt; 1, the rate of change between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> is faster and the slope is steeper</li>
+<li>the sign of <span class="math inline">\(b\)</span> tells the direction of the effect - positive or negative</li>
+</ul></li>
+<li><span class="math inline">\(e\)</span> is the error term, the distance of each data point from the regression line</li>
+</ul>
+<p>Up until now, your statistics learning has been involved in null hypothesis significance testing. The null hypothesis for a regression analysis is that the value of the slope is zero or in other words, the regression coefficient for <span class="math inline">\(b\)</span> is 0, or in other words, there is no slope, only the intercept term.</p>
+<section id="section-1-longhand-calculations-for-simple-regression---useful-for-wba1-but-not-on-the-class-test" class="level3">
+<h3 class="anchored" data-anchor-id="section-1-longhand-calculations-for-simple-regression---useful-for-wba1-but-not-on-the-class-test">Section 1: Longhand Calculations for Simple Regression - useful for WBA1 but not on the class test</h3>
+<p>Longhand calculations can be useful to some people for understanding the underlying relationships of both the formula to the data but also the relationships between the different parts of the model. There are three parts of a regression model: The intercept, the slope and the error term (or residual term)</p>
+<p>In simple regression, where only one predictor is used, we can estimate the slope (<span class="math inline">\(\hat{b}\)</span>) with a formula:</p>
+<section id="slope-forumula" class="level4">
+<h4 class="anchored" data-anchor-id="slope-forumula">Slope forumula</h4>
+<p><span class="math display">\[
+\hat{b} = \frac{\Sigma(X_i*Y_i)- (N*\bar{X}*\bar{Y})}{\Sigma(X^2- (N*{X^2})}
+\]</span></p>
+<p>In words, the top line of the equation may read like: in the first brackets, multiply the paired observations of X and Y and add these all together; in the second brackets multiply the number of observations with the mean of the X variable and the mean of the Y variable. Take the result of the second term away from the results of the first term.</p>
+<p>The bottom line may read as: in the brackets, multiply the squared observation of X by the number of observations. Second, square the observation in X. Thirdly, take away the result of the brackets from the squared observation of X and finally, add all those values together.</p>
+<p>The slope is a result of dividing the top line by the bottom line.</p>
+</section>
+<section id="intercept-formula" class="level4">
+<h4 class="anchored" data-anchor-id="intercept-formula">Intercept formula</h4>
+<p>and we can estimate the value of the intercept (<span class="math inline">\(\hat{a}\)</span>):</p>
+<p><span class="math display">\[
+\hat{a} = \bar{Y} - \hat{b}*\bar{X}
+\]</span></p>
+<p>In words this may read like: multiply the mean of X by the slope term and take it away from the mean of Y</p>
+</section>
+<section id="predict-values-of-y-for-every-observation-of-y" class="level4">
+<h4 class="anchored" data-anchor-id="predict-values-of-y-for-every-observation-of-y">Predict values of Y for every observation of Y</h4>
+<p>and we can estimate the predicted values of each observation of <span class="math inline">\(Y_i\)</span>:</p>
+<p><span class="math display">\[
+\hat{Y_i} = \hat{a}+\hat{b}*X_i
+\]</span></p>
+<p>In words this may read like: multiply the X observation by the slope term and add it to the intercept term</p>
+</section>
+<section id="estimate-the-error-term" class="level4">
+<h4 class="anchored" data-anchor-id="estimate-the-error-term">Estimate the error term</h4>
+<p>and then we can estimate the error term (<span class="math inline">\(\hat{e_i}\)</span>): <span class="math display">\[
+\hat{e_i} = Y_i - \hat{Y_i}
+\]</span></p>
+<p>In words this may read like: From every observed value of Y, subtract the predicted value of Y.</p>
+</section>
+</section>
+<section id="example-of-calculating-a-regression-line-by-longhand" class="level3">
+<h3 class="anchored" data-anchor-id="example-of-calculating-a-regression-line-by-longhand">Example of Calculating a Regression Line by Longhand</h3>
+<p>We need two variables to complete an example:</p>
+<p>In the correlation review, we used Lets choose <code>IQ</code> and <code>Performance</code>. Lets do the same here. It is more intuitive to have <code>IQ</code> predict <code>Performance</code> so let <code>IQ</code> be <span class="math inline">\(X\)</span> and <code>Performance</code> be <span class="math inline">\(Y\)</span>.</p>
+<section id="read-in-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="read-in-the-data">Read in the data</h4>
+<p>This is a reduced set of values retrieved from Margriet’s first lecture in January 2021. We used these to review correlation. We will use them again to review simple regression</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Covariance_Data.csv"</span>) <span class="co"># calling my dataframe d to save typing!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 13 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (5): Participant_ID, Performance, IQ, Motivation, Social_Support
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</section>
+<section id="slope-term" class="level4">
+<h4 class="anchored" data-anchor-id="slope-term">Slope term</h4>
+<p>Lets start with estimating the slope term (<span class="math inline">\(\hat{b}\)</span>): <span class="math display">\[
+\hat{b} = \frac{\Sigma(X_i*Y_i)- (N*\bar{X}*\bar{Y})}{\Sigma{X^2}- (N*\bar{X^2})}
+\]</span></p>
+<p>We need several values:</p>
+<ul>
+<li>observations on <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> - already in our dataset</li>
+<li>the number of paired observations (<span class="math inline">\(N\)</span>),</li>
+<li>the mean values of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> (<span class="math inline">\(\bar{X}\)</span>, <span class="math inline">\(\bar{Y}\)</span>)</li>
+<li>squared values for each observation of <span class="math inline">\(X\)</span> (<span class="math inline">\(X^2\)</span>)</li>
+<li>squared value of mean of <span class="math inline">\(X\)</span> (<span class="math inline">\(\bar{X^2}\)</span>).</li>
+</ul>
+<p>We can use commands in the base R package to generate the values we need to compute the slope term long hand:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of paired observations in the dataset</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(d)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># mean values</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>IQ_Av <span class="ot">&lt;-</span> <span class="fu">mean</span>(d<span class="sc">$</span>IQ)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Perf_Av <span class="ot">&lt;-</span> <span class="fu">mean</span>(d<span class="sc">$</span>Performance)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># squared values of X</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new column for each observation</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>IQ_sq <span class="ot">&lt;-</span> d<span class="sc">$</span>IQ<span class="sc">*</span>d<span class="sc">$</span>IQ </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># squared value of mean of X</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>IQ_Av_sq <span class="ot">&lt;-</span> IQ_Av<span class="sc">*</span>IQ_Av</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The steps to calculate the top line of the formula will then be:</p>
+<ol type="1">
+<li>multiply <code>IQ</code> and <code>Performance</code> values together</li>
+<li>add all the values from step 1 together</li>
+<li>multiply number of observations by the mean of <code>IQ</code> and the mean of <code>Performance</code></li>
+<li>subtract step 3 from step 2</li>
+</ol>
+<p>We can perform each of those steps and add new columns where needed to our <code>d</code> dataset, so you can see what is happening along the way:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>IQP <span class="ot">&lt;-</span> d<span class="sc">$</span>IQ<span class="sc">*</span>d<span class="sc">$</span>Performance <span class="co"># multiply `IQ` and `Performance` values together</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>IQP_sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(d<span class="sc">$</span>IQP) <span class="co"># add all the values from step 1 together</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Av_IQP_N <span class="ot">&lt;-</span> N <span class="sc">*</span> IQ_Av <span class="sc">*</span> Perf_Av <span class="co"># multiply number of observations by the mean of `IQ` and the mean of `Performance`</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>(Top <span class="ot">&lt;-</span> IQP_sum <span class="sc">-</span> Av_IQP_N) <span class="co"># subtract step 3 from step 2 and print out result: this is the top line of the fraction</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -28.92308</code></pre>
+</div>
+</div>
+<p>So the value for the top line of the fraction - the numerator is -28.92308</p>
+<p>Remember I am not rounding to 2 decimal places here because I am not at the end of the formula.</p>
+<p>Now for the bottom line of the fraction:</p>
+<p>The steps to calculate the bottom line of the formula will then be:</p>
+<ol type="1">
+<li>square each <code>IQ</code> value (calculated earlier under <code>IQ_sq</code>)</li>
+<li>sum the squared <code>IQ</code> values</li>
+<li>multiply number of observations by the squared mean of <code>IQ</code></li>
+<li>subtract step 3 from step 2</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>IQ_sqsum <span class="ot">&lt;-</span> <span class="fu">sum</span>(d<span class="sc">$</span>IQ_sq) <span class="co"># sum the squared `IQ` values</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>IQ_Av_sqN <span class="ot">&lt;-</span> IQ_Av_sq <span class="sc">*</span> N <span class="co"># multiply number of observations by the squared mean of `IQ`</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>Bottom <span class="ot">&lt;-</span> IQ_sqsum <span class="sc">-</span> IQ_Av_sqN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we have all the values we need to be able to compute the slope term. Simply divide <code>Top</code> by <code>Bottom</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(slope <span class="ot">&lt;-</span> Top<span class="sc">/</span>Bottom) <span class="co"># remember that wrapping a command in brackets is automatic print out of value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.01317634</code></pre>
+</div>
+</div>
+<p>Our slope term = -0.01 to 2.d.p. This shows a negative direction of effect or relationship; as IQ values increase, job performance scores decrease. However, the value is very small.</p>
+</section>
+<section id="estimating-the-intercept" class="level4">
+<h4 class="anchored" data-anchor-id="estimating-the-intercept">Estimating the intercept</h4>
+<p>estimate the value of the intercept (<span class="math inline">\(\hat{a}\)</span>):</p>
+<p><span class="math display">\[
+\hat{a} = \bar{Y} - \hat{b}*\bar{X}
+\]</span></p>
+<p>We have the terms we need:</p>
+<ul>
+<li>mean of <code>Performance</code> <span class="math inline">\(\bar{Y}\)</span>,</li>
+<li>the slope term <span class="math inline">\(\hat{b}\)</span></li>
+<li>the mean of <code>IQ</code> <span class="math inline">\(\bar{X}\)</span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(intercept <span class="ot">&lt;-</span> Perf_Av <span class="sc">-</span> (slope <span class="sc">*</span> IQ_Av))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 79.03336</code></pre>
+</div>
+</div>
+<p>The intercept term = 79.03 (2 d.p).</p>
+</section>
+<section id="estimating-predicted-for-y-job-performance-values" class="level4">
+<h4 class="anchored" data-anchor-id="estimating-predicted-for-y-job-performance-values">Estimating predicted for Y (Job Performance) values</h4>
+<p>estimate the predicted values of each observation of <span class="math inline">\(Y_i\)</span></p>
+<p><span class="math display">\[
+\hat{Y_i} = \hat{a}+\hat{b}*X_i
+\]</span></p>
+<p>We need to do this for every observation of <span class="math inline">\(Y\)</span>. This is why the <span class="math inline">\(\hat{Y_i}\)</span> term has that little _i subscript, this is notation that represents each value of Y. That is, every single row in the dataset’s Y column.</p>
+<p>We have the values we need - we have:</p>
+<ul>
+<li>the intercept <span class="math inline">\(\hat{a}\)</span>,</li>
+<li>the slope term <span class="math inline">\(\hat{b}\)</span></li>
+<li>each observed value of <code>IQ</code> <span class="math inline">\(X_i\)</span>.</li>
+</ul>
+<p>We will create a new column in the dataset and call the variable <span class="math inline">\(Y_pred\)</span>.</p>
+<p>Because we are sending the result of this line of code to our dataset, it will not print out below. You have to click on the dataset and view it to inspect your new column with its values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>Y_Pred <span class="ot">&lt;-</span> intercept <span class="sc">+</span> (slope<span class="sc">*</span>d<span class="sc">$</span>IQ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="estimating-the-error-term-hate_i" class="level4">
+<h4 class="anchored" data-anchor-id="estimating-the-error-term-hate_i">Estimating the error term (<span class="math inline">\(\hat{e_i}\)</span>)</h4>
+<p><span class="math display">\[
+\hat{e_i} = Y_i - \hat{Y_i}
+\]</span> Again, we have the terms we need:</p>
+<ul>
+<li>the observed values of <code>Performance</code> <span class="math inline">\(Y_i\)</span></li>
+<li>the predicted values of <code>Performance</code> <span class="math inline">\(\hat{Y_i}\)</span> in the variable <code>Y_Pred</code>.</li>
+</ul>
+<p>We will create a new column in the dataset and call the variable for the error term <code>error</code>.</p>
+<p>Because we are sending the result of this line of code to our dataset, it will not print out below. You have to click on the dataset and view it to inspect your new column with its values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>error <span class="ot">&lt;-</span> d<span class="sc">$</span>Performance <span class="sc">-</span> d<span class="sc">$</span>Y_Pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We have calculated each term of the regression equation by hand.</p>
+<p><span class="math display">\[
+Y = a + b_1*X_1+e
+\]</span></p>
+<p><span class="math display">\[
+Performance = 79.03 + -0.01*X_1 + e
+\]</span></p>
+</section>
+</section>
+<section id="section-2-shorthand-using-the-lm-function---useful-for-wba1-and-labs-and-could-be-in-the-class-test" class="level3">
+<h3 class="anchored" data-anchor-id="section-2-shorthand-using-the-lm-function---useful-for-wba1-and-labs-and-could-be-in-the-class-test">Section 2: Shorthand Using the (lm) function - useful for WBA1, and labs and could be in the Class Test</h3>
+<p>The <code>lm()</code> function does all of the above for us in one very simple formula.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Performance <span class="sc">~</span> IQ, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Performance ~ IQ, data = d)
+
+Coefficients:
+(Intercept)           IQ  
+   79.03336     -0.01318  </code></pre>
+</div>
+</div>
+<p>This model printout is fairly economical. We get the model repeated, and the regression coefficients of the intercept and the <code>IQ</code> predictor. Note that they are identical to the longhand calculations.</p>
+<p>Calling a summary for the saved model gives us more information:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Performance ~ IQ, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-12.281  -3.755  -1.439   6.363  12.363 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept) 79.03336   17.87633   4.421  0.00103 **
+IQ          -0.01318    0.16492  -0.080  0.93775   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.727 on 11 degrees of freedom
+Multiple R-squared:  0.00058,   Adjusted R-squared:  -0.09028 
+F-statistic: 0.006384 on 1 and 11 DF,  p-value: 0.9378</code></pre>
+</div>
+</div>
+<p>You should be familiar with this output after working with it in weeks 16 - 19 of PSYC 122 in your first year. The four sections are also detailed in the text accompanying the first week of PSYC 234.</p>
+<p>Here is some sample text to report the model (but not the predictor variable):</p>
+<p>We used a linear regression model to predict Job Performance Scores from IQ scores. The model was non-significant (<em>F</em>(1, 11) = 0.006, <em>p</em> = 0.938) and explains 0% of the variance.</p>
+<section id="checking-whether-the-linear-regression-model-is-signficant-by-hand---fun-to-know-but-not-on-the-class-test" class="level4">
+<h4 class="anchored" data-anchor-id="checking-whether-the-linear-regression-model-is-signficant-by-hand---fun-to-know-but-not-on-the-class-test">Checking Whether the Linear Regression Model is Signficant By Hand - Fun to know but not on the class test!</h4>
+<p>Regression models are tested for significance using the F distribution and the F-test, for which we need sums of squared values for Y and error observations and degrees of freedom. You will be familiar with these from your ANOVA practice in PSYC 214 last term.</p>
+<p>The sums of squares needed to calculate the F-test for simple regression are:</p>
+<p><span class="math display">\[
+SS_{total} = \Sigma{Y_i^2}
+\]</span></p>
+<p>which is <code>d$Performance</code> values squared and summed:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#`Performance` values squared</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>P_sq <span class="ot">&lt;-</span> d<span class="sc">$</span>Performance<span class="sc">*</span>d<span class="sc">$</span>Performance </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sum of squared performance values</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>SS_total <span class="ot">&lt;-</span> <span class="fu">sum</span>(d<span class="sc">$</span>P_sq) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and <span class="math display">\[
+SS_{error} = \Sigma{e_i^2}
+\]</span></p>
+<p>which is <code>d$error</code> values squared and summed</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#`d$error` values squared</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>error_sq <span class="ot">&lt;-</span> d<span class="sc">$</span>error <span class="sc">*</span> d<span class="sc">$</span>error </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sum of squared error values</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>SS_error <span class="ot">&lt;-</span> <span class="fu">sum</span>(d<span class="sc">$</span>error_sq) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and the number of paired observations multiplied by the squared mean value of Y <span class="math display">\[
+SS_{a} = N * {\bar{Y}}^2
+\]</span></p>
+<p>which is number of paired observations multiplied by squared mean value of <code>Performance</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>SS_a <span class="ot">&lt;-</span> N <span class="sc">*</span> (Perf_Av<span class="sc">*</span>Perf_Av)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and the sums of squares for the slope which you get by subtracting SS_intercept and SS_error from SS_total: <span class="math display">\[
+SS_{b} = SS_{total} - SS_a - SS_{error}
+\]</span></p>
+<p>which is</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>SS_b <span class="ot">&lt;-</span> SS_total <span class="sc">-</span> SS_a <span class="sc">-</span> SS_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To calculate the degrees of freedom:</p>
+<ul>
+<li>one constant value of the intercept <span class="math inline">\(a\)</span> is calculated = <span class="math inline">\(df_a\)</span> = 1</li>
+<li>one value of <span class="math inline">\(b\)</span> is determined = <span class="math inline">\(df_b\)</span> = 1 (one predictor)</li>
+<li><span class="math inline">\(df_{error}\)</span> is always N - (other dfs)</li>
+</ul>
+<p>lets hard code these now:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dfa <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>dfb <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>dferror <span class="ot">&lt;-</span> N <span class="sc">-</span> (dfa <span class="sc">+</span>dfb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Just as in ANOVA we can use the sums of squares and corresponding degrees of freedom to calculate mean square terms, <span class="math inline">\(MS_a\)</span>:</p>
+<p><span class="math display">\[
+MS_a = \frac{SS_a}{df_a}
+\]</span></p>
+<p><span class="math inline">\(MS_b\)</span>: <span class="math display">\[
+MS_b = \frac{SS_b}{df_b}
+\]</span></p>
+<p>and <span class="math inline">\(MS_{error}\)</span> <span class="math display">\[
+MS_{error} = \frac{SS_{error}}{df_{error}}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>(MS_a <span class="ot">&lt;-</span> SS_a<span class="sc">/</span>dfa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 78313.92</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>(MS_b <span class="ot">&lt;-</span> SS_b<span class="sc">/</span>dfb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3811003</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>(MS_e <span class="ot">&lt;-</span> SS_error<span class="sc">/</span>dferror)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 59.69962</code></pre>
+</div>
+</div>
+<p>Now we have the mean-square terms we can calculate the Fa and Fb values. We can calculate an F value for both the intercept and the slope.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>(Fa <span class="ot">&lt;-</span> MS_a<span class="sc">/</span>MS_e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1311.799</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>(Fb <span class="ot">&lt;-</span> MS_b<span class="sc">/</span>MS_e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.006383629</code></pre>
+</div>
+</div>
+<p>We are not generally interested in the significance of the F value for the intercept term (Fa), only the slope term (Fb).</p>
+<p>So, remember the null hypothesis for the regression model is whether the slope term (<em>b</em>) is different from zero. We have calculated the observed <em>Fb</em> term and now we can compare this to a critical F with 1 degree of freedom in the numerator (MSa) and 11 degrees of freedom in the denominator (MSe). And, just as in ANOVA, we reject the null hypothesis if <span class="math inline">\(F_{observed}\)</span> &gt; <span class="math inline">\(F_{critical}\)</span>.</p>
+<p><span class="math inline">\(F_{critical}\)</span> for df = (1, 11) at the .05 level = 4.84. <span class="math inline">\(F_{observed}\)</span> = 0.006. It is not larger than <span class="math inline">\(F_{critical}\)</span> so we fail to reject the null hypothesis. The slope term is not different from zero.</p>
+</section>
+<section id="interpretation-of-the-relationship---could-be-on-the-class-test" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation-of-the-relationship---could-be-on-the-class-test">Interpretation of the relationship - Could be on the class test</h4>
+<p>When the <span class="math inline">\(F_b\)</span> is not significant then <span class="math inline">\(b\)</span> = 0 may be true. The data do not demonstrate any tendency for larger values of <span class="math inline">\(X\)</span> to be associated with smaller or larger values of <span class="math inline">\(Y\)</span>. For this sample, IQ and job performance appear to be unrelated. This is a very small sample, however, maybe there is a small effect but this sample is too small to detect it.</p>
+</section>
+<section id="plotting-the-effect-or-lack-of-it-is-very-simple-if-we-are-not-too-worried-about-being-pretty." class="level4">
+<h4 class="anchored" data-anchor-id="plotting-the-effect-or-lack-of-it-is-very-simple-if-we-are-not-too-worried-about-being-pretty.">Plotting the effect (or lack of it) is very simple if we are not too worried about being pretty.</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"IQ"</span>, m1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Simple_Regression_Review_2025_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Plotting it in this way also allows us, with a simple additional argument to the plot call, to see the partial residuals - thereby checking that we have residual values that are normally distributed (see below). I think the curved line probably tells us that we do not! We should be looking for an alternative way to analyse these two variables….or some transformations!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"IQ"</span>, m1, <span class="at">partial.residuals =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Simple_Regression_Review_2025_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="checking-linear-model-assumptions---useful-for-wba-1-and-could-be-on-the-class-test" class="level4">
+<h4 class="anchored" data-anchor-id="checking-linear-model-assumptions---useful-for-wba-1-and-could-be-on-the-class-test">Checking Linear Model Assumptions - Useful for WBA 1 and could be on the class test</h4>
+<p>Every regression model is built upon the following assumptions:</p>
+<ol type="1">
+<li>The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is assumed to be linear (additive)</li>
+<li>The residuals are not correlated (assumption of independence)</li>
+<li>The residuals have constant variance (homoscedasticity)</li>
+<li>The residual errors are normally distributed</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># display plots in a 2 x 2 panel</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1) <span class="co"># plot diagnostic plots for m1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Simple_Regression_Review_2025_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Residuals vs Fitted</strong>: “fitted” here means the predicted values. We want the pink line to align pretty closely with the horizontal dashed line. The graph here shows that some of the datapoints are critically far from the dashed line - datapoints are labelled as rows from the dataset; Notice how the line echoes that of the partial residuals plot above.</p>
+<p>We could try a log(x) transformation on the predictor coerce the residuals to show greater linearity</p>
+<p><strong>Normal Q-Q</strong>: If the residual points (open circles) follow the dashed line, you can assume the residuals are normally distributed</p>
+<p><strong>Scale-Location</strong>: This is checking for constant variance in the residuals - not much here. A good indication would be a horizontal pink line with equally spread points. Our graph is not good.</p>
+<p>We could also use a log(y) transformation on the outcome variable to help here.</p>
+<p><strong>Residuals vs Leverage</strong> - are there any points that are having a large influence on the regression results. They will be numbered and you can then inspect them in your data file. Observations that show standardised residuals (see the .std.resid column in the table above) above 3 would be problematic. In this graph, observations on row 3, 4 and 13 look to have high influence. In the table they do not show values higher than three but relative to the other values, they may be having an undue influence.</p>
+<p>As would observations of a hat value above <span class="math inline">\(2(p+1)/n\)</span>. Here, <span class="math inline">\(p\)</span> = is the number of predictors and <span class="math inline">\(n\)</span> = is the number of observations. The hat value for this model therefore is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>(m1_hat <span class="ot">&lt;-</span> (<span class="dv">2</span><span class="sc">*</span>(p<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span>N)  <span class="co"># model hat value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3076923</code></pre>
+</div>
+</div>
+<p>We can collect some diagnostic measures to find hat values above 0.31, using the <code>augment()</code> function from the <code>broom</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>(m1_metrics <span class="ot">&lt;-</span> <span class="fu">augment</span>(m1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 × 8
+   Performance    IQ .fitted  .resid   .hat .sigma  .cooksd .std.resid
+         &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+ 1          85   109    77.6   7.40  0.0778   7.73 0.0420       0.998 
+ 2          84   106    77.6   6.36  0.0781   7.83 0.0312       0.858 
+ 3          87   125    77.4   9.61  0.215    7.34 0.269        1.40  
+ 4          69    84    77.9  -8.93  0.331    7.33 0.494       -1.41  
+ 5          81    89    77.9   3.14  0.235    8.02 0.0331       0.464 
+ 6          71   109    77.6  -6.60  0.0778   7.81 0.0333      -0.889 
+ 7          76   121    77.4  -1.44  0.159    8.09 0.00388     -0.203 
+ 8          77   102    77.7  -0.689 0.0913   8.10 0.000440    -0.0936
+ 9          76   111    77.6  -1.57  0.0821   8.09 0.00201     -0.212 
+10          90   106    77.6  12.4   0.0781   7.01 0.118        1.67  
+11          74   107    77.6  -3.62  0.0771   8.02 0.00995     -0.488 
+12          74    97    77.8  -3.76  0.128    8.00 0.0199      -0.521 
+13          65   133    77.3 -12.3   0.370    6.46 1.18        -2.00  </code></pre>
+</div>
+</div>
+<p>Note that this only shows 10 rows of the table at a time; you need to toggle the pages of the table by using the buttons in the bottom right hand corner: Previous, 1, 2 or Next, to see all the rows.</p>
+<p>Columns <code>Performance</code> and <code>IQ</code> and are our two observed variables - the beginning data. <code>fitted</code> and <code>residuals</code> are what R calls our <code>Y_pred</code> and the <code>error</code> values we calculated long hand above. The final four columns we use below with some explanation.</p>
+<p>By this reckoning, observation number 4 and 13 are slightly above the hat value of 0.31 for the model. These two values may have a high leverage on the regression results.</p>
+<p>Checking for observations that are influential follows a similar pattern: observations that exceed the <em>Cook’s distance</em> value = <span class="math inline">\(4/(n-p-1)\)</span> are likely to have high influence and the regression results may change if you exclude them. In the presence of such observations that exceed Cook’s distance, unless you know the observation are errors, you probably need to estimate the model without the observations and report both sets of results.</p>
+<p>The Cook’s Distance value for this model is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>(m1_Cooks <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">/</span>(N<span class="sc">-</span>p<span class="dv">-1</span>)) <span class="co"># model Cook's distance value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3636364</code></pre>
+</div>
+</div>
+<p>Again, observations 4 and 13 are looking influential. Time to inspect, possibly exclude and rerun! The problem here however is that the sample is incredibly small to begin with. The real solution is to collect more data. Much more.</p>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../../../previous-content/index.html">
+<p>Previous Content</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists - 2. Multiple regression including categorical predictors</title>
+<title>Statistics for Psychologists - 2. Multiple Regression Including Categorical Predictors</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -191,7 +191,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week2.html">2. Multiple regression including categorical predictors</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week2.html">2. Multiple Regression Including Categorical Predictors</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -294,7 +294,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+ <span class="menu-text">2. Multiple Regression Including Categorical Predictors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -380,7 +380,7 @@ window.Quarto = {
   <li><a href="#reporting-text" id="toc-reporting-text" class="nav-link" data-scroll-target="#reporting-text">Reporting Text</a></li>
   <li><a href="#plotting-predictions" id="toc-plotting-predictions" class="nav-link" data-scroll-target="#plotting-predictions">Plotting predictions</a></li>
   </ul></li>
-  <li><a href="#pre-lab-activity-and-week-12-task" id="toc-pre-lab-activity-and-week-12-task" class="nav-link" data-scroll-target="#pre-lab-activity-and-week-12-task">Pre-Lab Activity and Week 12 Task</a>
+  <li><a href="#week-11---12-pre-lab-activity-and-week-12-lab-task" id="toc-week-11---12-pre-lab-activity-and-week-12-lab-task" class="nav-link" data-scroll-target="#week-11---12-pre-lab-activity-and-week-12-lab-task">Week 11 - 12 Pre-Lab Activity and Week 12 Lab Task</a>
   <ul class="collapse">
   <li><a href="#submit-scripts" id="toc-submit-scripts" class="nav-link" data-scroll-target="#submit-scripts">Submit Scripts</a></li>
   </ul></li>
@@ -391,9 +391,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week2.html">2. Multiple regression including categorical predictors</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week2.html">2. Multiple Regression Including Categorical Predictors</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">2. Multiple regression including categorical predictors</h1>
+<h1 class="title">2. Multiple Regression Including Categorical Predictors</h1>
 <p class="subtitle lead">Emma Mills</p>
 </div>
 
@@ -427,10 +427,10 @@ Caution
 <section id="lecture" class="level1">
 <h1>Lecture</h1>
 <p><a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=2042339">Lecture Link</a></p>
-<p>The lecture materials, including data and R files are downloaded from <a href="data/Wk2/Week2_lecture_materials.zip">here</a> as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.</p>
+<p>The lecture and lab materials, including slides, data and R files are downloaded from <a href="Week_12_234_Materials.zip">here</a> as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.</p>
 <section id="week-12-multiple-regression-with-categorical-predictors" class="level2">
 <h2 class="anchored" data-anchor-id="week-12-multiple-regression-with-categorical-predictors">Week 12: Multiple Regression with Categorical Predictors</h2>
-<p>In the demonstration sections, you can follow along using the <code>Multiple_Regression_Categorical_Predictors.Rmd</code> file.</p>
+<p>In the demonstration sections, you can follow along using the <code>Multiple_Regression_Categorical_Predictors_2025.Rmd</code> file.</p>
 <p>We will consider:</p>
 <ul>
 <li>dummy / treatment contrast coding</li>
@@ -456,7 +456,7 @@ Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*X_3 + b_4*X_4 + b_5*X_5 + b_6*X_6 + e_i
 <h3 class="anchored" data-anchor-id="import-the-data">Import the Data</h3>
 <p>The data set is retrieved from https://www.kaggle.com/mirichoi0218/insurance</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Wk2/_Week2_lecture_materials/insurance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Wk2/Week_12_234_Materials/_Week_12_lecture_materials/insurance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Looking at the information on reading the data in, we have three variables that R has detected as character variables: sex, smoker and region. Brilliant - three categorical variables.</p>
 <p>Just as in any methods section, lets describe our measures:</p>
@@ -1402,7 +1402,7 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># display plots in a 2 x 2 panel</span></span>
-<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m6_zh) <span class="co"># plot diagnostic plots for m6_zh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m6_z) <span class="co"># plot diagnostic plots for m6_zh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1419,17 +1419,17 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4 class="anchored" data-anchor-id="a-different-way-to-observe-points-with-high-leverage-and-high-influence">A different way to observe points with high leverage and high influence:</h4>
 <p>In last week’s script, with a small data set, we used a formula for calculating hat values and Cook’s Distance values and looked across some values after calling our residuals using the <code>augment</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">head</span>(m6zh_metrics <span class="ot">&lt;-</span> <span class="fu">augment</span>(m6_zh)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">head</span>(m6z_metrics <span class="ot">&lt;-</span> <span class="fu">augment</span>(m6_z)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 13
-  charges age_z1 bmi_z1 children_h sex_z1 smoker_z1 regionsum .fitted  .resid
-    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt;   &lt;dbl&gt;
-1  16885. -1.44  -0.453 0          -1.01      1.97  SW         25243. -8358. 
-2   1726. -1.51   0.509 1           0.989    -0.508 SE          3309. -1584. 
-3   4449. -0.798  0.383 3           0.989    -0.508 SE          6195. -1746. 
-4  21984. -0.442 -1.31  0           0.989    -0.508 NW          3702. 18283. 
-5   3867. -0.513 -0.292 0           0.989    -0.508 NW          5525. -1658. 
-6   3757. -0.584 -0.807 0          -1.01     -0.508 SE          3685.    71.9
+  charges age_z1 bmi_z1 child_z1 sex_z1 smoker_z1 regionsum .fitted  .resid
+    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+1  16885. -1.44  -0.453  -0.908  -1.01      1.97  SW         25294. -8409. 
+2   1726. -1.51   0.509  -0.0787  0.989    -0.508 SE          3449. -1723. 
+3   4449. -0.798  0.383   1.58    0.989    -0.508 SE          6707. -2258. 
+4  21984. -0.442 -1.31   -0.908   0.989    -0.508 NW          3755. 18230. 
+5   3867. -0.513 -0.292  -0.908   0.989    -0.508 NW          5592. -1726. 
+6   3757. -0.584 -0.807  -0.908  -1.01     -0.508 SE          3720.    36.8
 # ℹ 4 more variables: .hat &lt;dbl&gt;, .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;, .std.resid &lt;dbl&gt;</code></pre>
 </div>
 </div>
@@ -1443,25 +1443,25 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>use the hat value and filter out any observations from the augmented dataset that are above the threshold</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">coefficients</span>(m6_zh)) <span class="co"># number of parameters estimated by the model</span></span>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">coefficients</span>(m6_z)) <span class="co"># number of parameters estimated by the model</span></span>
 <span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(d) <span class="co"># number of observations</span></span>
 <span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) calulate the hat value</span></span>
-<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a>(m6zh_hat <span class="ot">&lt;-</span> (<span class="dv">2</span><span class="sc">*</span>(p<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span>N)  <span class="co"># model hat value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a>(m6z_hat <span class="ot">&lt;-</span> (<span class="dv">2</span><span class="sc">*</span>(p<span class="sc">+</span><span class="dv">1</span>))<span class="sc">/</span>N)  <span class="co"># model hat value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.02092676</code></pre>
+<pre><code>[1] 0.01494768</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) filter out observations that are above the hat value in the augmented dataset</span></span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>m6zh_hatvalues <span class="ot">&lt;-</span> m6zh_metrics <span class="sc">%&gt;%</span> </span>
-<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.hat <span class="sc">&gt;</span> <span class="fl">0.02092676</span>) </span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>m6z_hatvalues <span class="ot">&lt;-</span> m6z_metrics <span class="sc">%&gt;%</span> </span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.hat <span class="sc">&gt;</span> <span class="fl">0.01494768</span>) </span>
 <span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) this is equivalent code, rather than hard coding the hat value, you put in the </span></span>
 <span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="co"># object label that we just created for the hat value on line 663</span></span>
-<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a>m6zh_hatvalues_1 <span class="ot">&lt;-</span> m6zh_metrics <span class="sc">%&gt;%</span> </span>
-<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.hat <span class="sc">&gt;</span> m6zh_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a>m6z_hatvalues_1 <span class="ot">&lt;-</span> m6z_metrics <span class="sc">%&gt;%</span> </span>
+<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.hat <span class="sc">&gt;</span> m6z_hat) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Forty-three residuals are showing values of larger than the model hat value.</p>
+<p>Four residuals are showing values of larger than the model hat value.</p>
 <ol start="3" type="1">
 <li>Plot them: <code>hat.plot</code> function taken from Kabacoff, (2022), R in Action.</li>
 </ol>
@@ -1474,7 +1474,7 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">identify</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="fu">hatvalues</span>(fit), <span class="fu">names</span>(<span class="fu">hatvalues</span>(fit)))</span>
 <span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a>            }</span>
 <span id="cb109-8"><a href="#cb109-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-9"><a href="#cb109-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hat.plot</span>(m6_zh)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb109-9"><a href="#cb109-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hat.plot</span>(m6_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1488,30 +1488,30 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>Checking for observations that are influential follows a similar pattern: observations that exceed the <em>Cook’s distance</em> value = <span class="math inline">\(4/(n-p-1)\)</span> are likely to have high influence and the regression results may change if you exclude them. In the presence of such observations that exceed Cook’s distance, unless you know the observation are errors, you probably need to estimate the model without the observations and report both sets of results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>(m6zh_Cooks <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">/</span>(N<span class="sc">-</span>p<span class="dv">-1</span>)) <span class="co"># model Cook's distance value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>(m6z_Cooks <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">/</span>(N<span class="sc">-</span>p<span class="dv">-1</span>)) <span class="co"># model Cook's distance value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.003021148</code></pre>
+<pre><code>[1] 0.003012048</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>m6zh_Cooksvalues <span class="ot">&lt;-</span> m6zh_metrics <span class="sc">%&gt;%</span> </span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.cooksd <span class="sc">&gt;</span> <span class="fl">0.003021148</span>) </span>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>m6z_Cooksvalues <span class="ot">&lt;-</span> m6z_metrics <span class="sc">%&gt;%</span> </span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.cooksd <span class="sc">&gt;</span> <span class="fl">0.003012048</span>) </span>
 <span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
 <span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>m6zh_Cooksvalues_1 <span class="ot">&lt;-</span> m6zh_metrics <span class="sc">%&gt;%</span> </span>
-<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.cooksd <span class="sc">&gt;</span> m6zh_Cooks) </span>
+<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>m6z_Cooksvalues_1 <span class="ot">&lt;-</span> m6z_metrics <span class="sc">%&gt;%</span> </span>
+<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(.cooksd <span class="sc">&gt;</span> m6z_Cooks) </span>
 <span id="cb113-8"><a href="#cb113-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-9"><a href="#cb113-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 77 residuals</span></span>
+<span id="cb113-9"><a href="#cb113-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 83 residuals</span></span>
 <span id="cb113-10"><a href="#cb113-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb113-11"><a href="#cb113-11" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure your dataset is in nrow() function</span></span>
 <span id="cb113-12"><a href="#cb113-12" aria-hidden="true" tabindex="-1"></a><span class="co"># and your model is before $coefficients and in the plot line</span></span>
-<span id="cb113-13"><a href="#cb113-13" aria-hidden="true" tabindex="-1"></a><span class="co"># here it is m6_zh</span></span>
+<span id="cb113-13"><a href="#cb113-13" aria-hidden="true" tabindex="-1"></a><span class="co"># here it is m6_z</span></span>
 <span id="cb113-14"><a href="#cb113-14" aria-hidden="true" tabindex="-1"></a><span class="co"># when you are ready to draw the plot</span></span>
 <span id="cb113-15"><a href="#cb113-15" aria-hidden="true" tabindex="-1"></a><span class="co"># select all three lines at once and press control and enter</span></span>
 <span id="cb113-16"><a href="#cb113-16" aria-hidden="true" tabindex="-1"></a><span class="co"># or rerun the chunk by pressing the green arrow in the top right hand corner.</span></span>
-<span id="cb113-17"><a href="#cb113-17" aria-hidden="true" tabindex="-1"></a>cutoff <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">/</span>(<span class="fu">nrow</span>(d)<span class="sc">-</span><span class="fu">length</span>(m6_zh<span class="sc">$</span>coefficients)<span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb113-18"><a href="#cb113-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m6_zh, <span class="at">which=</span><span class="dv">4</span>, <span class="at">cook.levels=</span>cutoff)</span>
+<span id="cb113-17"><a href="#cb113-17" aria-hidden="true" tabindex="-1"></a>cutoff <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">/</span>(<span class="fu">nrow</span>(d)<span class="sc">-</span><span class="fu">length</span>(m6_z<span class="sc">$</span>coefficients)<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb113-18"><a href="#cb113-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m6_z, <span class="at">which=</span><span class="dv">4</span>, <span class="at">cook.levels=</span>cutoff)</span>
 <span id="cb113-19"><a href="#cb113-19" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>cutoff, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -1521,7 +1521,7 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
-<p>There are 77 observations that appear to be influential within the dataset, however the three labelled here are particularly offensive. If we were to continue our analysis at this point, we may be be filtering out some observations and running the model once more as a sensitivity analysis.</p>
+<p>There are 83 observations that appear to be influential within the dataset, however the three labelled here are particularly offensive. If we were to continue our analysis at this point, we may be be filtering out some observations and running the model once more as a sensitivity analysis.</p>
 </section>
 </section>
 </section>
@@ -1529,38 +1529,34 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h2 class="anchored" data-anchor-id="communicate">Communicate:</h2>
 <p>Lets reprint the summary to save scrolling but also save the summary to an object so that we can call the values while interpreting and reporting the model</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>(m6_zh_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(m6_zh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>(m6_z_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(m6_z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = charges ~ age_z1 + bmi_z1 + children_h + sex_z1 + 
+lm(formula = charges ~ age_z1 + bmi_z1 + child_z1 + sex_z1 + 
     smoker_z1 + regionsum, data = d)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--11689.4  -2902.6   -943.7   1492.2  30042.7 
+-11304.9  -2848.1   -982.1   1393.9  29992.8 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 13893.32     337.07  41.218  &lt; 2e-16 ***
-age_z1       3613.56     167.40  21.587  &lt; 2e-16 ***
-bmi_z1       2054.53     174.48  11.775  &lt; 2e-16 ***
-children_h1   195.49     210.68   0.928  0.35362    
-children_h2   480.10     148.35   3.236  0.00124 ** 
-children_h3    72.19     130.47   0.553  0.58017    
-children_h4   439.92     245.53   1.792  0.07341 .  
-children_h5   -11.94     243.80  -0.049  0.96094    
-sex_z1        -64.10     166.47  -0.385  0.70025    
-smoker_z1    9622.62     167.19  57.557  &lt; 2e-16 ***
-regionsum1   -441.62     291.54  -1.515  0.13006    
-regionsum2    591.52     293.16   2.018  0.04382 *  
-regionsum3    211.47     293.68   0.720  0.47160    
+(Intercept) 13289.09     165.95  80.079  &lt; 2e-16 ***
+age_z1       3608.82     167.18  21.587  &lt; 2e-16 ***
+bmi_z1       2068.47     174.40  11.860  &lt; 2e-16 ***
+child_z1      573.21     166.12   3.451 0.000577 ***
+sex_z1        -65.68     166.53  -0.394 0.693348    
+smoker_z1    9627.51     166.79  57.723  &lt; 2e-16 ***
+regionsum1   -448.01     291.24  -1.538 0.124219    
+regionsum2    587.01     293.11   2.003 0.045411 *  
+regionsum3    234.05     292.92   0.799 0.424427    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 6059 on 1325 degrees of freedom
-Multiple R-squared:  0.7519,    Adjusted R-squared:  0.7497 
-F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 6062 on 1329 degrees of freedom
+Multiple R-squared:  0.7509,    Adjusted R-squared:  0.7494 
+F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>A results section for multiple regression may have three parts</p>
@@ -1636,42 +1632,37 @@ children 0.04 0.01</code></pre>
 <h3 class="anchored" data-anchor-id="inferential-statistics---model-coefficients-ses-t-values-and-p-values">Inferential Statistics - Model Coefficients, SEs, <em>t</em>-values and <em>p</em> values</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get model predictions / coefficients</span></span>
-<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>Estimate <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">coef</span>(m6_zh), <span class="dv">2</span>)</span>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>Estimate <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">coef</span>(m6_z), <span class="dv">2</span>)</span>
 <span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the coefficient standard errors</span></span>
-<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a>SE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">vcov</span>(m6_zh)))</span>
+<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a>SE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">vcov</span>(m6_z)))</span>
 <span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the t-value of the t-test for each predictors coefficient</span></span>
 <span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">round</span>((Estimate <span class="sc">/</span> SE), <span class="dv">2</span>)</span>
 <span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the p-values of the predictors from the model</span></span>
-<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">summary</span>(m6_zh)<span class="sc">$</span>coefficients[, <span class="st">"Pr(&gt;|t|)"</span>], <span class="dv">3</span>)</span>
+<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">summary</span>(m6_z)<span class="sc">$</span>coefficients[, <span class="st">"Pr(&gt;|t|)"</span>], <span class="dv">3</span>)</span>
 <span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a>Predictor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Intercept"</span>, <span class="st">"Age"</span>, <span class="st">"BMI"</span>, <span class="st">"1 Child Family"</span>, </span>
-<span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"2 Child Family"</span>, <span class="st">"3 Child Family"</span>, <span class="st">"4 Child Family"</span>,</span>
-<span id="cb130-12"><a href="#cb130-12" aria-hidden="true" tabindex="-1"></a>               <span class="st">"5 Child Family"</span>, <span class="st">"Sex: Male"</span>, <span class="st">"Smoker: Yes"</span>,</span>
-<span id="cb130-13"><a href="#cb130-13" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Region: SE"</span>, <span class="st">"Region: NE"</span>, <span class="st">"Region: NW"</span>)</span>
-<span id="cb130-14"><a href="#cb130-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-15"><a href="#cb130-15" aria-hidden="true" tabindex="-1"></a>Model_values <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(Predictor,Estimate, SE, t, p,)</span>
-<span id="cb130-16"><a href="#cb130-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-17"><a href="#cb130-17" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy up p-values</span></span>
-<span id="cb130-18"><a href="#cb130-18" aria-hidden="true" tabindex="-1"></a>Model_values<span class="sc">$</span>p <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">==</span> <span class="fl">0.000</span>, <span class="st">"&lt; .001"</span>, p)</span>
-<span id="cb130-19"><a href="#cb130-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-20"><a href="#cb130-20" aria-hidden="true" tabindex="-1"></a>Model_values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a>Predictor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Intercept"</span>, <span class="st">"Age"</span>, <span class="st">"BMI"</span>, <span class="st">"No. of Children"</span>,</span>
+<span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Sex: Male"</span>, <span class="st">"Smoker: Yes"</span>,<span class="st">"Region: SE"</span>,</span>
+<span id="cb130-12"><a href="#cb130-12" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Region: NE"</span>, <span class="st">"Region: NW"</span>)</span>
+<span id="cb130-13"><a href="#cb130-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-14"><a href="#cb130-14" aria-hidden="true" tabindex="-1"></a>Model_values <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(Predictor,Estimate, SE, t, p,)</span>
+<span id="cb130-15"><a href="#cb130-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-16"><a href="#cb130-16" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy up p-values</span></span>
+<span id="cb130-17"><a href="#cb130-17" aria-hidden="true" tabindex="-1"></a>Model_values<span class="sc">$</span>p <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">==</span> <span class="fl">0.000</span>, <span class="st">"&lt; .001"</span>, p)</span>
+<span id="cb130-18"><a href="#cb130-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-19"><a href="#cb130-19" aria-hidden="true" tabindex="-1"></a>Model_values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 13 × 5
-   Predictor      Estimate    SE     t p     
-   &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
- 1 Intercept       13893.   337. 41.2  &lt; .001
- 2 Age              3614.   167. 21.6  &lt; .001
- 3 BMI              2055.   174. 11.8  &lt; .001
- 4 1 Child Family    195.   211.  0.93 0.354 
- 5 2 Child Family    480.   148.  3.24 0.001 
- 6 3 Child Family     72.2  130.  0.55 0.58  
- 7 4 Child Family    440.   246.  1.79 0.073 
- 8 5 Child Family    -11.9  244. -0.05 0.961 
- 9 Sex: Male         -64.1  166. -0.39 0.7   
-10 Smoker: Yes      9623.   167. 57.6  &lt; .001
-11 Region: SE       -442.   292. -1.51 0.13  
-12 Region: NE        592.   293.  2.02 0.044 
-13 Region: NW        211.   294.  0.72 0.472 </code></pre>
+<pre><code># A tibble: 9 × 5
+  Predictor       Estimate    SE     t p     
+  &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; 
+1 Intercept        13289.   166. 80.1  &lt; .001
+2 Age               3609.   167. 21.6  &lt; .001
+3 BMI               2068.   174. 11.9  &lt; .001
+4 No. of Children    573.   166.  3.45 0.001 
+5 Sex: Male          -65.7  167. -0.39 0.693 
+6 Smoker: Yes       9628.   167. 57.7  &lt; .001
+7 Region: SE        -448.   291. -1.54 0.124 
+8 Region: NE         587.   293.  2    0.045 
+9 Region: NW         234.   293.  0.8  0.424 </code></pre>
 </div>
 </div>
 <p>I have given you some code above that shows you how to manually extract the values that we have used in the model outputs to form a table to be able to report the values. The broom package does this also. However, on small models (for numbers of predictors), I like the level of control to be able to do it like this. You may find another way as you learn and that is good too.</p>
@@ -1679,10 +1670,10 @@ children 0.04 0.01</code></pre>
 </section>
 <section id="reporting-text" class="level3">
 <h3 class="anchored" data-anchor-id="reporting-text">Reporting Text</h3>
-<p>We conducted a multiple regression for the association of several predictor variables with the outcome variable of insurance charges. We standardised all continuous predictors as well as the predictors for Sex and Smoker Status. Region is a sum-coded variable, with South West being the reference level variable. We treated the variable for number of children as an ordinal variable and applied a helmert contrast.</p>
-<p>Without engaging in any sensitivity analysis or outlier analysis, we report a model with a full set of predictors. The model is significant (<span class="math inline">\(F(12, 1325)\)</span> = 334.7, <em>p</em> &lt; 0.001). This set of predictors explains 75.19% of the variance in insurance charges.</p>
+<p>We conducted a multiple regression for the association of several predictor variables with the outcome variable of insurance charges. We standardised all continuous predictors as well as the predictors for Sex and Smoker Status. Region is a sum-coded variable, with South West being the reference level variable.</p>
+<p>Without engaging in any sensitivity analysis or outlier analysis, we report a model with a full set of predictors. The model is significant (<span class="math inline">\(F(8, 1329)\)</span> = 500.81, <em>p</em> &lt; 0.001). This set of predictors explains 75.09% of the variance in insurance charges.</p>
 <p>The following details the significant predictors in this model. Each value represents the change in insurance charges for a one standard deviation change in the predictor, holding all other variables constant.</p>
-<p>Age shows a positive association with insurance charges, with an increase in approximately $3613 for a one standard deviation unit change on the age scale (age: <em>t</em> = 21.59, <em>p</em> &lt; .001). A person’s body mass index (BMI) also shows a positive relationship and increases insurance charges by approximately $2054 with a one standard deviation change in BMI score (<em>t</em> = 11.77, <em>p</em> &lt; .001). The number of dependents included in insurance cover was only significant on insurance charges at the comparison between the 2 child families and the 0 and 1 child famiiles. Having two children increased insurance charges by approximately $480 (<em>t</em> = 3.24, <em>p</em> &lt; .005), compared to the mean levels for 0 and 1 child. Being a male individual is negatively associated with insurance charges, lowering insurance costs by approximately $65, however this increase is non-significant (<em>t</em> = -0.39, <em>p</em> = .700). Being a smoker is significantly and positively associated with an increase in insurance charges, raising insurance costs by approximately $9,622 (<em>t</em> = 57.56, <em>p</em> &lt; .001). While living in the northeast region of the country also shows a positive association with insurance charges compared to living in the southwest region (reference level), showing an increase of around $591 (<em>t</em> = -1.51, <em>p</em> = 0.044).</p>
+<p>Age shows a positive association with insurance charges, with an increase in approximately $3608 for a one standard deviation unit change on the age scale (age: <em>t</em> = 21.59, <em>p</em> &lt; .001). A person’s body mass index (BMI) also shows a positive relationship and increases insurance charges by approximately $2068 with a one standard deviation change in BMI score (<em>t</em> = 11.86, <em>p</em> &lt; .001). An increase in number of children in a family was positively associated with an increase in insurance charges (<em>b</em> = 573.21, <em>t</em> = 3.45, <em>p</em> &lt; .001). Being a male individual is negatively associated with insurance charges, lowering insurance costs by approximately $65, however this increase is non-significant (<em>t</em> = -0.39, <em>p</em> = .693). Being a smoker is significantly and positively associated with an increase in insurance charges, raising insurance costs by approximately $9,627 (<em>t</em> = 57.72, <em>p</em> &lt; .001). While living in the northeast region of the country also shows a positive association with insurance charges compared to living in the southwest region (reference level), showing an increase of around $587 (<em>t</em> = 2, <em>p</em> = 0.045).</p>
 <p>We should be cautious with these interpretations as the residuals show that there is unexplained variability and there are a number of observations that are indicated as having high leverage or high influence so further terms and sensitivity analyses are warranted for a fuller understanding.</p>
 </section>
 <section id="plotting-predictions" class="level3">
@@ -1691,7 +1682,7 @@ children 0.04 0.01</code></pre>
 <p>Look at the x-axis on the following two plots to compare and make your considered decision:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardised variable plot</span></span>
-<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"age_z1"</span>, m6_zh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"age_z1"</span>, m6_z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1711,7 +1702,7 @@ children 0.04 0.01</code></pre>
 </div>
 <p>Here are the plots for the predictors from the final model, but you could change the code to reflect the predictor labels and the model labels. Just be consistent - choose one scale rather than jumping between multiple scales for your plots.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"age_z1"</span>, m6_zh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"age_z1"</span>, m6_z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1719,7 +1710,7 @@ children 0.04 0.01</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"bmi_z1"</span>, m6_zh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"bmi_z1"</span>, m6_z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1727,7 +1718,7 @@ children 0.04 0.01</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"children_h"</span>, m6_zh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"child_z1"</span>, m6_z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1735,7 +1726,7 @@ children 0.04 0.01</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"sex_z1"</span>, m6_zh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"sex_z1"</span>, m6_z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1743,7 +1734,7 @@ children 0.04 0.01</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"smoker_z1"</span>, m6_zh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"smoker_z1"</span>, m6_z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1751,7 +1742,7 @@ children 0.04 0.01</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"regionsum"</span>, m6_zh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predictorEffect</span>(<span class="st">"regionsum"</span>, m6_z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1779,10 +1770,10 @@ children 0.04 0.01</code></pre>
 </ul>
 </section>
 </section>
-<section id="pre-lab-activity-and-week-12-task" class="level2">
-<h2 class="anchored" data-anchor-id="pre-lab-activity-and-week-12-task">Pre-Lab Activity and Week 12 Task</h2>
-<p>In this lab, you will be working with the R script and data stored <a href="data/Wk2/Week2_lab_materials.zip">here</a>, and the accompanying codebook is accessed <a href="data/Wk2/Data_Codebook.pdf">here</a>.</p>
-<p>Work through the Week12_R_Script.Rmd file and enter in your own code to arrive at the following model summary and figures.</p>
+<section id="week-11---12-pre-lab-activity-and-week-12-lab-task" class="level2">
+<h2 class="anchored" data-anchor-id="week-11---12-pre-lab-activity-and-week-12-lab-task">Week 11 - 12 Pre-Lab Activity and Week 12 Lab Task</h2>
+<p>In this lab, you will be working with the R script, data and Codebook stored <a href="Week_12_234_Materials.zip_materials.zip">here</a>, and the accompanying codebook is accessed <a href="data/Wk2/Data_Codebook.pdf">here</a>.</p>
+<p>Work through the Week12_R_Script.Rmd file and enter in your own code to arrive at the following model summary and figures. All these images are stored in the Outputs folder that comes down in the Week 12 .zip file:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/Wk2/Model Summary Output.png" class="img-fluid figure-img"></p>
