@@ -17,9 +17,9 @@ knitr::opts_chunk$set(warning = FALSE)
 
 # Lecture
 
-[Lecture Link](https://modules.lancaster.ac.uk/mod/url/view.php?id=2042339)
+[Lecture Link](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9326aee0-b700-4373-b019-b26401385879&start=0)
 
-The lecture and lab materials, including slides, data and R files are downloaded from [here](Week_12_234_Materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+The lecture and lab materials, including slides, data and R files are downloaded from [here](data/Wk2/Week_12_234_Materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
 
 ## Week 12: Multiple Regression with Categorical Predictors
 
