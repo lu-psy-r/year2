@@ -4,20 +4,48 @@ subtitle: Emma Mills
 order: 3
 ---
 
-
-
 ```{r, include=FALSE}
 knitr::opts_chunk$set(message = FALSE)
 knitr::opts_chunk$set(warning = FALSE)
 
 ```
 
-
 # Lecture
 
 [Lecture Link](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9326aee0-b700-4373-b019-b26401385879&start=0)
 
-The lecture and lab materials, including slides, data and R files are downloaded from [here](data/Wk2/Week_12_234_Materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+## Materials
+
+There are two folders to download for week 12:  I separated the materials into files tha R will upload, or should upload with no error; and .docx or .pdf files that R would not like.  Please store the second folder somewhere for your use.
+
+ - The first folder is a zipped folder called Week 12 234 Materials.zip. It can be downloaded [here](data/Wk2/Week_12_234_Materials.zip). You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+ - The second folder is called "Week_12_234_Slides_Codebook". The slides are for the lecture; the Codebook is paired with the "student-por.csv" dataset, for the pre-lab and lab activity is available in a folder for download [here](data/Wk2/Week_12_234_Slides_Codebook).
+ 
+## Pre-Lab Activity
+
+  1. Watch the lecture before you attempt anything!
+  2. Download the zip files and upload to your R account
+  3. In the `Week 12 Lab Materials` folder is an `Outputs` folder - go and find the `Model Summary Output.png` file and have a look at the regression model output
+  4. Begin by interpreting the model summary, as far as you can (as we did in Lab 11).
+  5. Next get the analysis work flow diagram and begin to think about what piece of code do you need for each stage
+  6. Start a script and import the dataset.  Use the lecture and the model script `Multiple_Regression_Categorical_Predictors_2025.Rmd` in the `Week 12 lecture materials` folder to think about what processes may you need to perform to get to a model that looks like the output.
+  7. Write a plan of how you might approach an analysis to get to this model
+   - you could write bullet points against the stages of the analysis workflow diagram
+  8. You might want to stop at this point - wanting some confirmation from your peers or staff; you could:
+   - post to the discussion forum at this point and we could discuss it
+   - talk amongst your peers and work together on it in independent study time - forming a small study group for this process
+   - wait until the lab and bring ideas then...
+   
+     The first two suggestions will help you grow in confidence faster. I promise, talking to each other - those horizontal conversations - will both let you share understanding, and also identify where some of my messaging is unclear and needs clarification or that the group of you just don't get it and staff input would be helpful.  And at this point, the benefit is that you don't feel so alone in your uncertainty because you can see that other people are a bit stuck too.
+  
+::: {.callout-tip}
+## My predictor labels and suffixes
+The model output has several predictors with suffixes, demarcated by and underscore '_' and a letter e.g. '_h'; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.
+:::
+ 
+## Test Yourself
+
+The link to this week's multiple choice quiz, WBA 2, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506929)
 
 ## Week 12: Multiple Regression with Categorical Predictors
 
