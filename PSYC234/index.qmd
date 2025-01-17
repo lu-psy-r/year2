@@ -58,7 +58,13 @@ Lecture 8: Binary logistic regression models.
 
 Lecture 9: Multiple binary logistic regression & ordinal logistic regression models.
 
-# Course Contacts
+## Recommended Reading
+
+The following chapters support the first few weeks of the course at the very least:
+
+Chapters 9, 10 and 11 from Howell, D. C. (2017). Fundamental statistics for the behavioral sciences (Ninth edition.). Cengage. There are online versions available from the library [at this link](https://onesearch.lancaster-university.uk/permalink/44LAN_INST/a1plrn/alma9930907993701221)
+
+## Course Contacts
 
 |             | Email Address                                                  |
 |-------------|----------------------------------------------------------------|

@@ -1,12 +1,8 @@
 ---
-title: 2. Multiple regression including categorical predictors
+title: 2. Multiple Regression Including Categorical Predictors
 subtitle: Emma Mills
 order: 3
 ---
-
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(message = FALSE)
@@ -14,69 +10,54 @@ knitr::opts_chunk$set(warning = FALSE)
 
 ```
 
-
 # Lecture
 
-[Lecture Link](https://modules.lancaster.ac.uk/mod/url/view.php?id=2042339)
+[Lecture Link](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9326aee0-b700-4373-b019-b26401385879&start=0)
 
-The lecture materials, including and and R files are downloaded from [here](data/Wk2/Week2_lecture_materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+## Materials
 
-## Part 1: Multiple Regression: 2 or more predictors
+There are two folders to download for week 12:  I separated the materials into files tha R will upload, or should upload with no error; and .docx or .pdf files that R would not like.  Please store the second folder somewhere for your use.
 
-### Continuous predictors:
+ - The first folder is a zipped folder called Week 12 234 Materials.zip. It can be downloaded [here](data/Wk2/Week_12_234_Materials.zip). You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+ - The second folder is called "Week_12_234_Slides_Codebook". The slides are for the lecture; the Codebook is paired with the "student-por.csv" dataset, for the pre-lab and lab activity is available in a folder for download [here](data/Wk2/Week_12_234_Slides_Codebook).
+ 
+## Pre-Lab Activity
 
--   $Y = Intercept + predictor_{continuous} + predictor_{categorical} + Error$
--   $Y = b_0 + b_1X_1 + b_2X_2 +𝜀$
-
-Interpretation of Intercept term ($b_0$): Average when all continuous predictors are at 0 and categorical predictors are at their reference level
-
-Interpretation for continuous coefficients: + A one unit increase in $X_1$ gives a change in Y by the amount of $b_1$ + A one unit increase in $X_2$ gives a change in Y by the amount of $b_2$
-
-### Continuous OR categorical predictors
-
-$Y = Intercept + predictor_1 + predictor_2 + Error$ $Y = b0 + b_1X_1 + b_2X_2 +𝜀$
-
-Interpretation for continuous coefficients: A one unit increase in $X_1$ gives a change in Y by the amount of $b_1$
-
-Interpretation for categorical coefficients: + A change to another category within $X_2$ gives a change in Y by the amount of $b_2$
-
-### Binary categorical variables
-
-These are predictors with **only** two levels
-
-| Predictor | Level 1 | Level 2   |
-|-----------|---------|-----------|
-| Accuracy  | 0       | 1         |
-| Accuracy  | No      | Yes       |
-| Smoker    | No      | Yes       |
-| Group     | Control | Treatment |
-|           |         |           |
-
-: Examples of binary variables
-
-
-Regression models cope with the categorical nature by assigning numbers and creating 'contrasts'.
-+ Default contrast scheme in R for binary predictors:
-+ 0 to a level 1
-+ 1 to level 2
-+ this is known as 'Dummy coding' or 'treatment coding', and it automatically creates a 'reference level' = 0 which is the level that comes first in the alphabet/numerically. The reference level group is estimated in the Intercept coefficient.
-
-You can allow R to automatically set your reference, which is fine for a balanced variable (with equal numbers of participants/stimuli in each level of the variable), but setting a *different* reference level may make your hypothesis easier to interpret
-  + This may be useful in the context of factors with more than two levels
-  + You can change the reference level by using the relevel() function to manually reorder the levels of your grouping variable
+  1. Watch the lecture before you attempt anything!
+  2. Download the zip files and upload to your R account
+  3. In the `Week 12 Lab Materials` folder is an `Outputs` folder - go and find the `Model Summary Output.png` file and have a look at the regression model output
+  4. Begin by interpreting the model summary, as far as you can (as we did in Lab 11).
+  5. Next get the analysis work flow diagram and begin to think about what piece of code do you need for each stage
+  6. Start a script and import the dataset.  Use the lecture and the model script `Multiple_Regression_Categorical_Predictors_2025.Rmd` in the `Week 12 lecture materials` folder to think about what processes may you need to perform to get to a model that looks like the output.
+  7. Write a plan of how you might approach an analysis to get to this model
+   - you could write bullet points against the stages of the analysis workflow diagram
+  8. You might want to stop at this point - wanting some confirmation from your peers or staff; you could:
+   - post to the discussion forum at this point and we could discuss it
+   - talk amongst your peers and work together on it in independent study time - forming a small study group for this process
+   - wait until the lab and bring ideas then...
+   
+     The first two suggestions will help you grow in confidence faster. I promise, talking to each other - those horizontal conversations - will both let you share understanding, and also identify where some of my messaging is unclear and needs clarification or that the group of you just don't get it and staff input would be helpful.  And at this point, the benefit is that you don't feel so alone in your uncertainty because you can see that other people are a bit stuck too.
   
+::: {.callout-tip}
+## My predictor labels and suffixes
+The model output has several predictors with suffixes, demarcated by and underscore '_' and a letter e.g. '_h'; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.
+:::
+ 
+## Test Yourself
 
+The link to this week's multiple choice quiz, WBA 2, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506929)
 
+## Week 12: Multiple Regression with Categorical Predictors
 
+In the demonstration sections, you can follow along using the `Multiple_Regression_Categorical_Predictors_2025.Rmd` file.
 
-## Demonstration: Multiple regression with categorical predictors
+We will consider:
 
-In the demonstration sections, you can follow along using the `Multiple_Regression_Categorical_Predictors.Rmd` file.
-
- - dummy / treatment coding
- - sum coding
-   - changing the reference level
+ - dummy / treatment contrast coding
+ - changing the reference level
+ - sum coding - preparing for interactions
  - centring and standardising
+ - Helmert contrast coding for ordinal variables
 
 Make sure to load in the following libraries to follow along
 
@@ -88,41 +69,66 @@ library(gridExtra)
 library(PerformanceAnalytics)
 ```
 
-#### Model for multiple regression
-
 Keep the model for multiple regression in mind:
 
-You have seen the two predictor regression model equation before:
+You have seen the two predictor regression model equation before; today we have six
 
 $$
-Y_i = b_0 + b_1 * X_1 + b_2*X_2 + e_i
+Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*X_3 + b_4*X_4 + b_5*X_5 + b_6*X_6 + e_i
 $$
-  -  $X_1$ and $X_2$ can be categorical predictors here - there is no different notation between continuous and categorical predictors.
+  -  The predictors can be a mix of categorical and continuous predictors; there is no different notation between continuous and categorical predictors.
 
-### Import the data
+
+### Import the Data
 
 The data set is retrieved from https://www.kaggle.com/mirichoi0218/insurance
 
 ```{r cars}
-d <- read_csv("data/Wk2/_Week2_lecture_materials/insurance.csv")
+d <- read_csv("data/Wk2/Week_12_234_Materials/_Week_12_lecture_materials/insurance.csv")
 ```
 
 Looking at the information on reading the data in,  we have three variables that R has detected as character variables: sex, smoker and region.  Brilliant - three categorical variables.
 
-We also have three variables that are continuous: age, bmi, children
+Just as in any methods section,  lets describe our measures:
+
+ - `sex`:  a categorical measure of biological sex with two levels:  female; male
+ - `smoker`: a categorical measure of smoker status with two levels: no; yes
+ - `region`: a categorical measure of regions for where observations are located with four levels: NE; NW; SE; SW.
+ - `age`: a continuous variable of age in years
+ - `bmi`: a continuous variable of body mass index in BMI units
+ - `children`: a variable (continuous? ordinal?) that describes the number of children within a family, with six levels: 0 - 5
+ - `charges`: the outcome variable; a continous variable that describes expected insurance charges in dollars.
+
+If we call a summary on the dataset we will see the variables slightly differently.  
+
+```{r}
+summary(d)
+```
+
+Here is the first indication that we need a transformation; if we do not explicitly transform the character variables to factor variables, R will do it silently inside the modelling. But we want to be able to see a better level of information about our dataset, so we need to transform them now:
+
+But first, lets tidy up the region level labels by relabelling them.  Each level has long label names which will not look good on plots.  
 
 ### Tidy
 
-Purely for cosmetic reasons, I am going to change the region variable to acronyms of the geographic regions.  This is for labeling of plots:
+Purely for cosmetic reasons, I am going to change the region variable to acronyms of the geographic regions.  This is for labelling of plots:
 
 ```{r}
 # use nested ifelse() statements
 d$region <- ifelse(d$region == "northeast", "NE",
                    ifelse(d$region == "northwest", "NW",
                           ifelse(d$region == "southeast", "SE", "SW"))) 
+
+# change three character variables into factors
+d <- d %>% 
+  mutate(sex = factor(sex),
+         smoker = factor(smoker),
+         region = factor(region))
+
+summary(d)
 ```
 
-Very quickly, from the title of the dataset, it looks like several variables are being used as predictors for insurance `charges`.  You can read a little more at the website above if you like.
+Now we can see the number of observations that we have for each level in each categorical variable.  We can also see which of the levels in each categorical variable is the reference level.  It is the level that is listed first when you call the summary function, so here it is females, non-smokers and the NE region of USA.
 
 ### Visualise
 
@@ -142,92 +148,90 @@ p_child <- ggplot(d, aes(children)) + geom_histogram()
 grid.arrange(p_sex, p_smok, p_reg, p_age_hist, p_bmi, p_child)
 ```
 
-We can also look at the relationships between each of the variables:
+We can also look at the relationships between each of the continuous variables: `age`, `bmi` and `children`
 
 ```{r}
 chart.Correlation(d[, c(1, 3, 4)], histogram=TRUE, pch=19)
 ```
 
+## Understand: 
+
 ### Model
 
-we'll just add them all at this point:
+Our main focus for this week is working with the categorical variables. In regression, group differences are called contrasts and there are several ways to construct contrasts.  On import, R will code categorical variables using its default dummy contrast coding scheme. 
+
+Take a look and see how R sees the categorical variables; the levels associated with 0 are the reference levels at the moment:
+
+```{r}
+contrasts(d$sex)
+contrasts(d$smoker)
+contrasts(d$region)
+```
+
+During the estimation of the regression model, the reference levels are estimated within the intercept term. This means that you won't see the labels of the reference levels in any model summary; they are contained within the intercept.  To begin with, we will create a model using the raw data, building a model with all six predictor variables. This is the model that you worked with in labs in week 11.
+
+Here is the written regression model:
+
+$$
+Charges = b_0 + b_1 * X_{age} + b_2*X_{bmi} + b_3*X_{children} + b_4*X_{sex}+ b_5*X_{smoker} + b_6*X_{region} + e
+$$
+
+And here is the statistical model for the regression of insurance charges on the 6 predictors, for the raw data:
 
 ```{r}
 summary(m6 <- lm(charges ~ age + bmi + children + sex + smoker + region, d))
 ```
 
+Remembering that the intercept describes: a female, non-smoker of no age or weight, and no children, who lives in NE USA.
+
 Lets have a quick look at the output and the coefficient labels column.  All of the categorical variables are toward the bottom of the list because we entered them toward the end of the list in the model.
 
-  - the label for `sex` is `sexmale`, which tells us that the reference level for the sex variable is female - makes sense since the default is for the first group in the alphabet to be taken as the reference level group.
+Notice how:
+  - the label for `sex` is `sexmale`, which tells us that the reference level for the sex variable is female is in the intercept - makes sense since the default is for the first group in the alphabet to be taken as the reference level group.
   - `smoker` becomes `smokeryes` to reflect that being a non-smoker is the reference level group.
+  - the NE region does not have a coefficient in the model summary; since it is the reference level for the region variable, it is contained within the intercept.
+
+### Transform: Types of Categorical Contrasts
+
+### Dummy or Treatment Coding Scheme
+
+It may make more sense to change the reference level of a variable.  Your hypothesis may suggest a particular reference level. You can control the reference level in the dummy coding command:  Using the `relevel`()` function.
+
+```{r}
+
+d$smoker <- relevel(d$smoker, ref = "yes")
+d$sex <- relevel(d$sex, ref = "male")
+d$region <- relevel(d$region, ref = "SE")
+
+contrasts(d$sex)
+contrasts(d$smoker)
+contrasts(d$region)
+
+```
+
+Look at the top row for each variable where the zeroes are.  Notice how for sex and smoker, the reference levels are now the last word in the alphabet. We have changed the reference levels. 
+
+Any model that we now call has a different interpretation on the intercept.  The intercept now represents a male, smoker of no age, weight or children that lives in SE USA.
+
+Lets recall the model:  No changes to the code here:
+
+```{r}
+summary(m6 <- lm(charges ~ age + bmi + children + sex + smoker + region, d))
+```
+
+The formula is the same, the residuals are the same, the significance and variance explained is the same.  The change is in how the model estimates the coefficients given the reference levels of the variables.
+
+There is no change here for coefficients for our continuous variables.  The coefficients for our categorical variables have changed however:
+
+  - `sexfemale` now describes the difference in charges when you move from being male to female. The magnitude of the coefficient remains the same however the direction of the effect is reversed.  Before changing the reference level, the coefficient was negative, now it is positive. Changing from male to female is associated with an increase in insurance charges of approximately $131.00.
+  - `smokerno` now describes the difference in charges when you move from being smoker to a non-smoker. The magnitude of the coefficient remains the same however the direction of the effect is reversed.  Before changing the reference level, the coefficient was positive, now it is negative. Changing from being a smoker to a non-smoker is associated with a decrease in insurance charges of approximately $23,848.00.
+  - changing the `region` reference level from NE to SE now describes the difference in charges between residents of SE USA and the other regions. First look at the NE coefficient - that has stayed the same value but has changed direction. This is because NE used to be the reference level and this coefficient was always describing a difference in charges between NE and SE USA.  Living in the NE is associated with higher insurance charges.  The other two coefficients have changed in both direction and magnitude.  We can infer from this that the SE region is associated with the lower insurance charges across the group of regions because all the coefficients are postive, indicating an increase in insurance charges relative to the SE.  The coefficients have changed in magnitude because they now describe a different relationship - between SE and themselves rather than NE.
   
-and so on...
+The big change here is in the intercept.  By changing the reference levels, the intercept is now positive - people are amassing insurance charges, which makes more sense.  I am guessing that it is the huge coefficient of the `smoker` variable that has effected this change.
 
-## Part 2: Reference levels in the regression model
+We will keep the reference levels like this going forward.
 
-Reference level in dummy coding becomes hidden in the intercept for the categorical predictor. It’s a good idea to write out what your intercept represents before you start to interpret your model. If dummy coding is used, switching from one level of the categorical predictor to the second level is the same as moving along one unit of a continuous predictor. It follows that for a binary categorical predictor, the slope term is giving you the mean difference between the two groups. If sum coding is used, switching from one level of the categorical predictor to the second level is the same as moving along two units of a continuous predictor
-
-Much better choice if you are including interactions in your regression model. Instead of 0 and 1, -1 and +1 are used. Intercept is at 0 – 
-+ Like continuous predictors
-+ Categorical predictor is now 'centred' (explained later)
-+ This type of contrast can help for interpreting interactions that occur between categorical and continuous predictors
-
-
-## Demonstration: Types of categorical contrasts - transformations
-
-#### Dummy or Treatment Coding Scheme
-
-lets check how the model sees the categorical variables:  
-
-at the moment, R sees the variables as character variables:
-
-```{r}
-str(d)
-```
-
-To check the type of contrast coding we need convert the variables to factor class:
-
-```{r}
-d <- d %>% 
-  mutate(sex = factor(sex),
-         smoker = factor(smoker),
-         region = factor(region))
-```
-
-check that the class has been changed through calling str() once more
-
-```{r}
-str(d)
-```
-
-Now we use the `contrasts()` function to see how R views them:
-
-```{r}
-contrasts(d$sex) # reference level = female
-```
-
-```{r}
-contrasts(d$smoker) # reference level = non-smoker
-```
-
-```{r}
-contrasts(d$region) # reference level = NE
-```
-
-You can see from the rows that contain the zeroes (female, nonsmoker and northeast) that these reflect the reference levels automatically selected in the first full regression model summary print out above.
-
-As a quick demonstration, you can control the reference level in the dummy coding command:  Using the `contr.treatment()` function. 
-
-```{r}
-(contrasts(d$region) = contr.treatment(4, base = 3)) # change ref level to southeast (row 3)
-```
-
-Look at row three in the output - the row of zeros indicates that this is now the reference level. I'll change it back before moving forward.
-
-```{r}
-(contrasts(d$region) = contr.treatment(4, base = 1)) # change ref level back to northeast (row 1)
-```
-
+### A Quick Check of Model Diagnostics
 
 Has our model explained all the structured variance? Lets look at diagnostic plots before we go any further:
 
@@ -235,24 +239,27 @@ Has our model explained all the structured variance? Lets look at diagnostic plo
 par(mfrow = c(2, 2)) # display plots in a 2 x 2 panel
 plot(m6)
 ```
-So,  we know little about these variables, and we haven't even looked at the individual coefficients in the summary outputs but we can see that the percentage of variance explained in the `charges` variable is greater in the 6 predictor model (75%) over the 3 predictor model (12%) but it is clear from the  diagnostic plot above that there is still something not explained in the structure of the residuals.
+So,  we know little about these variables, and we haven't even looked at the individual coefficients in the summary outputs. We know that the model for the six predictors is significant but we can see that the percentage of variance explained in the `charges` variable is 75%. Looking at the residuals plot above, there is still a lot of clustering in the residuals, however.  And clustering should indicate to you that the residuals have some correlated relationship between them.  Which means we are either missing some predictors that would explain this correlation or the linear model is not a good choice of model.  Quite often, you would begin to consider interaction terms when you see this level of correlation in the residuals - we will consider interactions in week 13.  
 
-### Sum Coding Schemes
+If you are going to put interactions into a regression model, and you want to mix categorical and continuous predictors in the interaction term, there is a more effective contrast scheme to use with your categorical variables:  Sum or Deviation Contrasts.
+
+### Sum or Deviation Coding Schemes
 
 So, lets think about interactions - introduced in the context of ANOVA last term and thinking about many of the presentations in the 204 module at the end of last term, they are germain to the structure of experimental design whenever groups are included.
 
-What interactions could be plausible here? Just using what we know about medical problems and charges and the variables we have - could there be an interaction between bmi and smoker status?  Do lifestyle choices cluster together to effect medical insurance charges?  Does the number of children covered by insurance vary systematically by region?
+What interactions could be plausible here? Just using what we know about medical problems and charges and the variables we have - could there be an interaction between `bmi` and `smoker` status? Or `bmi` and `gender` for females who are experiencing the menopause? Do lifestyle choices cluster together to effect medical insurance charges?  Does the number of children covered by insurance vary systematically by region?
 
-Plausible interactions from the perspective of a layman (me) and I am not going to model them here.  But it may inform the choice of contrasting scheme.  If we want to interpret interactions between variables later on - either a mix of continuous and categorical or both categorical predictors, it makes sense to use sum coding.  Even though we have one categorical variable with four levels, we can still do this.
+Plausible interactions from the perspective of a layman (me) and I am not going to model them here.  But it may inform the choice of contrasting scheme.  If we want to interpret interactions between variables later on - either a mix of continuous and categorical or both categorical predictors, it makes sense to use sum coding. And even though we have one categorical variable with four levels (region), we can still do this.
 
-It's a good idea to make copies of variables so that your original variables remain intact.
+It's a good idea to make copies of variables so that your original variables remain intact.  I am making new variables with the suffix 'sum' so I know these are the sum coded ones
+
 
 ```{r}
+# copy categorical variables to the same dataset with a suffix to denote sum coding status
 d <- d %>% 
   mutate(sexsum = sex,
          smokersum = smoker,
-         regionsum = region) # copy categorical variables to the same dataset with a suffix to denote sum coding status
-
+         regionsum = region) 
 ```
 
 ```{r}
@@ -261,14 +268,16 @@ contrasts(d$sexsum) # dummy coded right now
 
 ```
 
+Now do the transformation using the `contr.sum()` function:
+
 ```{r}
 
-(contrasts(d$sexsum) <- contr.sum(2)) # levels are now 1 and -1 and variable is now centred
+(contrasts(d$sexsum) <- contr.sum(2)) # levels are now 1 and -1 and variable is now centred at 0
 ```
 
 ```{r}
 # repeat for the other two variables
-(contrasts(d$smokersum) <- contr.sum(2)) # levels are now 1 and -1 and variable is now centred
+(contrasts(d$smokersum) <- contr.sum(2)) # levels are now 1 and -1 and variable is now centred at 0
 
 ```
 
@@ -276,129 +285,168 @@ contrasts(d$sexsum) # dummy coded right now
 
 (contrasts(d$regionsum) <- contr.sum(4)) # levels are now 1 and -1 but variable is not centred (because this isn't a binary variable)
 
+contrasts(d$regionsum)
+
 ```
 
-Lets refit the regression model using this contrast scheme:
+Critically, it is the levels of the variable that are at '1' that will be reported in the model summary. So here:  males, smokers and SE, NE and NW of region. Lets refit the regression model using this contrast scheme:
+
+I am calling my model `m6_sum` to remind me that the model still has six predictors but the categorical variables are now sum coded.
 
 ```{r}
 summary(m6_sum <- lm(charges ~ age + bmi + children + sexsum + smokersum + regionsum, d))
 ```
 
-The intercept is massively reduced because: 
+The intercept has changed once more.  It is now negative once more.  We still see no material changes in the significance of the model or the effects, however.  Telling us that while we are changing the way we are modelling our variables, we are not changing the relationships within the data. 
 
- - the sum coding scheme has swapped the reference levels of the categorical predictors - For the `sex` and `smoker` coefficients, they now represent level 1s `female` and `non-smokers`.    
- - the binary categorical variables are now centred. You can see that the estimates are halved from the `m6` model that uses dummy / treatment contrast coding. 
- - The binary coefficient estimates shows how much a change in Y for level 1 of the coefficient. A minus sign means it is smaller than the intercept term.  No minus sign (a positive value) means it is more than the intercept term.
- - To find how much of a change for level -1 of the coefficient, you simply change the sign of the coefficient.
- 
+ - see how the binary categorical variables of `sex` and `smoker` coefficients are half what they were when dummy coded. You can see that the estimates are halved from the `m6` model that uses dummy / treatment contrast coding. 
 
+```{r}
+# raw coefficient for sex divided by 2
+# see the raw data model that we ran first
+-131.3 / 2
 
-Lets do the math:
+# raw coefficient for smoker divided by 2
+23848.5 / 2
+
+```
+
+In order to find the insurance charges for the -1 levels, we have to use the equation. Lets do some math to demonstrate this:
+
+Sex: The `sex` variable is our fourth predictor, so our maths equation looks like this:
 
 $$
-Y_i = b_0 + b_1 * X_1 + b_2*X_2 + e_i
-$$
-We are just going to do the maths for the `sex` variable for each level:  `female` and `male`.  The `sex` variable is our fourth predictor, so our maths equation looks like this:
-
-$$
-Y_i = b_0 + b_4 * X_4
+Y_i = b_0 + b_4 * X_{sex}
 $$
 
-We need the:  
+We need:  
 
- - `intercept` term = $b_0$ =  (-666.94)
- - the coefficient value for `sexsum1` (65.66) from the model output; this is the fourth predictor, so if we had written out our equation for all the predictors, it would be $b_4$ (as above)
- - we also need the labels for the two levels of the sex predictor:  female (1) and male (-1) because we are going to put those in our $X_4$ part of the equation.
+ - the `intercept` term = $b_0$ =  (-666.94)
+ - the coefficient value for `sexsum1` (-65.66) from the model output; this is the fourth predictor, so if we had written out our equation for all the predictors, it would be $b_4$ (as above)
+ - we also need the labels for the two levels of the sex predictor:  male (1) and female (-1) because we are going to put those in our $X_4$ part of the equation.
  
 Here we go:
 
 ```{r}
-
-(InsuranceCharge_Female <- -666.94 + (65.66 * 1))
-
-
+# charges for being male
+(InsuranceCharge_Male <- -666.94 + (-65.66 * 1))
 ```
 
 ```{r}
-
-(InsuranceCharge_Male <- -666.94 + (65.66 * -1))
-
+# charges for being female
+(InsuranceCharge_Female <- -666.94 + (-65.66 * -1))
 
 ``` 
+
+```{r}
+# calculate the difference between being male or female
+-732.6 - -601.28
+```
+
+The difference in insurance charges between females and males is still showing to be around $130.00 - which is the same value as in the dummy coded model
+
 Lets do the math for the `smoker` variable:
 
- The `smoker` variable is our fifth predictor, so our maths equation looks like this:
+The `smoker` variable is our fifth predictor, so our maths equation looks like this:
 
 $$
-Y_i = b_0 + b_5 * X_5
+Y_i = b_0 + b_5 * X_{smoker}
 $$
 
-We need the:  
+We need:  
 
- - `intercept` term = $b_0$ =  (-666.94)
- - the coefficient value for `smokersum1` (-11924.27) from the model output; this is the fifth predictor, so if we had written out our equation for all the predictors, it would be $b_5$ (as above)
- - we also need the labels for the two levels of the smoker variable:  no (1) and yes (-1) because we are going to put those in our $X_5$ part of the equation.
+ - the `intercept` term = $b_0$ =  (-666.94)
+ - the coefficient value for `smokersum1` (11924.27) from the model output; this is the fifth predictor, so if we had written out our equation for all the predictors, it would be $b_5$ (as above)
+ - we also need the labels for the two levels of the smoker variable:  yes (1) and no (-1) because we are going to put those in our $X_5$ part of the equation.
  
 Here we go:
 
 ```{r}
 
-(InsuranceCharge_nonsmoker <- -666.94 + (-11924.27 * 1))
-
-
+(InsuranceCharge_smoker <- -666.94 + (11924.27 * 1))
 ```
+
 
 ```{r}
 
-(InsuranceCharge_smoker <- -666.94 + (-11924.27 * -1))
-
+(InsuranceCharge_nonsmoker <- -666.94 + (11924.27 * -1))
 
 ``` 
 
- 
- - You can compare the continuous predictor coefficients and see no difference for their coefficients from model m6.
+```{r}
+11257.33- -12591.21 
+```
 
-The `region` variable is a little harder to interpret.  Remember that the reference level is now the southwest level of the variable and each region coefficient is the difference from the intercept. So if we want to find the value for southwest, we have to take away region 1 2 and 3 from the intercept term.
+The difference in insurance charges between non-smokers and smokers is still showing the same value as in the dummy coded model
+
+The `region` variable has four levels, NE, NW, SE and SW.  It is sum-coded in our model at the moment.  Because it has four levels it is a little harder to interpret than the categorical variables with two levels. Lets take a look at how R sees the variable levels in sum-coding format again; I don't know about you but I cannot hold the levels in my head for a long time and continually call them to remind myself when working this way.
 
 ```{r}
+contrasts(d$regionsum)
+```
+SE, NE and NW each have a value of 1 with the other values on their respective rows showing as zero, which represents the intercept.  So the coefficients that are shown in the model summary are telling us the difference in insurance charges from the intercept, for those regions. SE is region1 and so on...
 
-(InsuranceCharge_SW <- -666.94 + (-587.01 * 1) + (234.05 * 1) + (-448.01 *1))
+If we want to find the predicted value of insurance charges for a person who lives in the southwest, we have to do some more maths.  Lets get the summary of the model here again to reduce the need to scroll up:
+
+```{r}
+summary(m6_sum)
+```
+
+We need:  
+
+ - the `intercept` term = $b_0$ =  (-666.94)
+ - the three coefficient values for SE = `regionsum1` (-448.01), NE = `regionsum2` (587.01) and  NW = `regionsum3` (234.05) from the model output; The signs on the coefficients are critical for an accurate calculation so ensure that you have them right.
+
+We can either:
+
+ - add region SE, NE and NW together to find the value for the SW region or 
+ - to find the insurance charges for a person who lives in the SW region, we add SE, NE and NW to the intercept value.
+
+```{r}
+# add SE, NE and NW values together to get the insurance cost of living in the SW
+# add those to the intercept
+# don't forget the minus signs on the coefficients
+
+-666.94 + (-448.01 + -587.01 + 234.05)
 
 ```
 
+The insurance charges for living in SW USA = $1467.91. So, it looks as if the model is predicting lower insurance costs for a person who lives in the southwest region
 
-## Mean Centering Continuous Predictors
-
-If you have unequal numbers of participants in your groups:
-+ It may be better to transform your categorical variable to a numerical variable (sometimes called an indicator variable) 
-+ and mean centre the new variable as if it was a continuous variable
-  + Use ifelse() function `ifelse(d$sex == "female", 1,0)`
-  + Use x_mean <- x– mean(x) on the variable to mean centre `d$sex_n - mean(d$sex_n)`
-
-Remember that the raw intercept term represents the average value when all predictors are at zero, so the coefficients are interpreted as the change in Y for some value (larger than 0) the X predictor
-
-An Intercept like this often doesn't make sense for the verbal model,  i.e. the research questions or our hypotheses. What does an intercept term of 0 years or 0 kgs mean?
-
-If we mean-centre the continuous predictors, the Intercept now represents the average value when all continuous predictors are at their average value
-
-Subtract the mean value of  a variable from every observation in that variable
-+ The mean of the variable is then = 0
-+ All values are 'centred' around zero
-+ Some will be below zero, some will be above
-+ The intercept term in your model now represents the intercept at the average for the predictor
-+ The predictors are still in their raw units (e.g. years/kgs)
-+ (learn to do these techniques by hard coding – easy to do and the common function that is used, `scale()`, doesn’t always play very nicely with some other packages!)
-
-
-## Demonstration: Unbalanced variables - transforming binary categorical to numerical variables and centering them
-
-Look back at the visualisations of the dataset above.  Female and male participants in the sex variable are quite evenly spread. Smoker status, however, is very unbalanced.  Gelman (2007) recommends creating a new numeric variable in this case and then mean centring a binary variable in this case.  If you use this method,  do this across each binary categorical variable for consistency.
+If you want to find out the difference between say, living in SW USA and NW USA, then you have to take SE and NE away from SW
 
 ```{r}
+# difference in insurance charges for a person who lives in SE and SW USA
+-800.97 - (-448.01 + -587.01)
+```
+
+If you want to find out the difference between a person living in SW and SE, then you have to take away NE and NW
+```{r}
+-800.97 - (234.05 + -587.01)
+```
+
+If we go back to the contrast matrix once more:
+
+```{r}
+contrasts(d$regionsum)
+```
+And look down each column, then the quicker way to find out these differences between pairs of regions is to multiply each value by -1.  So the difference between living in SW and SE is $448.01
+
+```{r}
+-448.01*-1
+```
+
+### Unbalanced Binary Variables
+
+When binary variables are unbalanced, you can transform them into numerical variables nd mean-centre them.
+
+Look back at the visualisations of the dataset:
+
+```{r message=FALSE}
 # bar charts for categorical variables
-p_sex <- ggplot(d, aes(x = factor(sex), fill = factor(sex))) + geom_bar()
-p_smok <- ggplot(d, aes(x = factor(smoker), fill = factor(smoker))) + geom_bar()
-p_reg <- ggplot(d, aes(x = factor(region), fill = factor(region))) + geom_bar()
+p_sex <- ggplot(d, aes(x = sexsum, fill = sexsum)) + geom_bar()
+p_smok <- ggplot(d, aes(x = smokersum, fill = smokersum)) + geom_bar()
+p_reg <- ggplot(d, aes(x = regionsum, fill = regionsum)) + geom_bar()
 
 # (so called) continuous variables
 p_age <- ggplot(d, aes(x = age)) + geom_density(fill = "slateblue")
@@ -407,103 +455,117 @@ p_bmi <- ggplot(d, aes(bmi)) + geom_density(fill = "red")
 p_child <- ggplot(d, aes(children)) + geom_histogram()
 grid.arrange(p_sex, p_smok, p_reg, p_age_hist, p_bmi, p_child)
 ```
+Female and male participants in the `sex` variable are quite evenly spread. `smoker` status, however, is very unbalanced.  
 
-```{r}
-d$sex_n <- ifelse(d$sex == "female", 1, 0) # if sex = female recode as 1 otherwise as 0 in a new numeric variable
-```
+For categorical variables of two levels (binary variables), Gelman (2007) recommends creating a new numeric variable and then mean centring the new numeric version of the variable. If you use this method,  do this across each binary categorical variable for consistency.
 
-Have a look at what the summary of the new variable shows - should be quite symmetric:
-
-```{r}
-summary(d$sex_n) # balanced variable - look at the mean value
-```
-
-so if we transform it to be centred now, by subtracting the mean from each observation rather than leaving it to R:
-
-```{r}
-d$sex_c <- signif(d$sex_n - mean(d$sex_n), 3) # round to 3 significant figures for readability
-```
-
-```{r}
-summary(d$sex_c) #
-```
-
-have a look at the first few values of the variable:
-
-```{r}
-head(d$sex_c, 8) # female was 1 so is the positive numbers; male was zero so is the negative numbers here.
-```
-
-If we do the same for the `smoker` variable - we saw in the bar chart that this was a very unbalanced variable, however here are the actual numbers:
+Here are the actual numbers for the `smoker` variable:
 
 ```{r}
 table(factor(d$smoker))
 ```
 
-```{r}
-d$smoker_n <- ifelse(d$smoker == "yes", 1, 0) # if smoker = yes recode as 1 otherwise as 0 in a new variable
-
-summary(d$smoker_n) # value is not 0.5 which is would be if the variable was balanced in observations
-```
+To create a new numeric variable:  I give the new variable a suffix of _n, this tells me it is a numeric version of the original variable and keeps the raw form of the original variable intact.
 
 ```{r}
-d$smoker_c <- signif(d$smoker_n - mean(d$smoker_n), 3) # round to 3 significant figures for readability
+d$smoker_n <- ifelse(d$smoker == "yes", 1, 0) 
 ```
+
+Have a look at what the summary of the new variable shows; 
 
 ```{r}
-summary(d$smoker_c) # yes was coded as 1 so the positive values here are smokers and the negative values are non-smokers
+summary(d$smoker_n) # unbalanced variable - look at the mean value
 ```
 
-have a look at the first few values of the variable:
+If this variable had equal numbers of smokers and non-smokers then the mean would be about 0.5 - half way between 1. However, there are many more zeros for non-smokers and this pulls the mean of the variable towards zero.
+
+#### Mean Centring a Variable
+
+A mean centred variable is made by subtracting the mean of the variable from each observation in the variable.  
+
+ - So all the non-smokers who are 0, will have 0.2048 subtracted from them, and will show as -0.2048.
+ - And all the smokers who are 1, will have 0.2048 subtracted from them and so will show as approximately 0.7952
+ 
+I have created a further variable with '_c', to show it is mean-centred
 
 ```{r}
-head(d$smoker_c, 8)
+d$smoker_c <- round(d$smoker_n - mean(d$smoker_n), 3) # round to 3 figures for readability
 ```
 
-Let's refit the model with these variables:
+Taking a look at the summary of the variable should show you the minimum (non-smokers) and maximum (smokers) values in the variable
+```{r}
+summary(d$smoker_c) #
+```
+
+have a look at the first 5 rows of the centred smoker variable:
 
 ```{r}
-summary(m6_cen <- lm(charges ~ age + bmi + children + sex_c + smoker_c + regionsum, d))
+head(d$smoker_c, 5) # smoker was 1 so is the positive numbers; 
+                    # non-smoker was zero so is the negative numbers here.
 ```
 
-So - we have changes for the categorical variables - they are now "centred" - either automatically by R or we have hand coded, transforming our categorical variables into numeric variables.
+So here we have observations for yes, no, no, no, no. 
 
-For consistency - it would make sense to centre the continuous variables also. While you are learning, it's a good idea to do it longhand:
+Let's refit the model with the new centred `smoker_c` variable.  I have changed the model name to `m6_cen` to show that I am now using centred variables as well:
+
+```{r}
+summary(m6_cen <- lm(charges ~ age + bmi + children + sexsum + smoker_c + regionsum, d))
+```
+
+The smoker_c now describes the full value of predictions that the model makes for insurance charges, rather than half of the value under the sum contrast coding scheme. And the intercept has changed again!  It is even more negative than before - this is probably because, with the centred smoker variable, the model intercept is now representing non-smokers, and we know that they pay a lot les than smokers for their insurance. There is no change in our model output; remember the change we made was to help us for when we want to use interactions.
+
+### Mean Centering Continuous Variables
+
+However, once you begin to centre variables, it is a good idea to do it for all variables - including the continuous ones. While you are learning, it's a good idea to do it longhand:
 
 ```{r}
 # create new variables to keep the original variables intact:
 
+# transforming the binary variable of sex to be inline with the other variables.
+d$sex_n <- ifelse(d$sex == "female", 0, 1)
+
 d <- d %>% 
-  mutate(age_c = age - mean(age), # new variable = old variable minus the mean of the old variable
+  mutate(sex_c = sex_n - mean(sex_n),
+         age_c = age - mean(age), # new variable = old variable minus the mean of the old variable
          bmi_c = bmi - mean(bmi),
-         child_c = children - mean(children)
-         )
+         child_c = children - mean(children))
 ```
 
-You can check: redraw the plots to check the axes - Note now that the axes are centred around zero for the continuous predictors. Note also how no information has changed within and between the variables - all relative relationships remain the same.
+You do not lose any information by doing these transformation. You can check this by visualising the variables once more.  
+Redraw the plots and check the x axis values.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # bar charts for categorical variables
-p_sex_c <- ggplot(d, aes(x = factor(sex_c), fill = factor(sex_c))) + geom_bar()
-p_smok_c <- ggplot(d, aes(x = factor(smoker_c), fill = factor(smoker_c))) + geom_bar()
-p_regsum <- ggplot(d, aes(x = factor(regionsum), fill = factor(regionsum))) + geom_bar()
+p_sex <- ggplot(d, aes(x = sex_c, fill = sex_c)) + geom_bar()
+p_smok <- ggplot(d, aes(x = smoker_c, fill = smoker_c)) + geom_bar()
+p_reg <- ggplot(d, aes(x = regionsum, fill = regionsum)) + geom_bar()
 
-# frequency polygons for (so called) continuous variables
-p_age_c <- ggplot(d, aes(x = age_c)) + geom_histogram() # possibly a little more detail using a histogram?
-p_bmi_c <- ggplot(d, aes(bmi_c)) + geom_density(fill = "red")
-p_child_c <- ggplot(d, aes(child_c)) + geom_histogram()
-grid.arrange(p_sex_c, p_smok_c, p_regsum, p_age_c, p_bmi_c, p_child_c)
+# (so called) continuous variables
+p_age <- ggplot(d, aes(x = age_c)) + geom_density(fill = "slateblue")
+p_age_hist <- ggplot(d, aes(x = age_c)) + geom_histogram() # possibly a little more detail using a histogram?
+p_bmi <- ggplot(d, aes(bmi_c)) + geom_density(fill = "red")
+p_child <- ggplot(d, aes(child_c)) + geom_histogram()
+grid.arrange(p_sex, p_smok, p_reg, p_age_hist, p_bmi, p_child)
 ```
 
+- Note now that the axes are centred around zero for the now centred continuous predictors. The mid-point of the  distributions of observations are also hovering around the zero mark.  Note also how no information has changed within and between the variables - all relative relationships remain the same.
 
-Lets plug the centred continuous variables into the model:
+Lets plug the centred continuous variables and the `sex_c` centred variable into the model:
 
 ```{r}
 summary(m6_cen_all <- lm(charges ~ age_c + bmi_c + child_c + sex_c + smoker_c + regionsum, d))
 
 ```
 
-You'll notice that the only change is on the intercept value - because it is now at the average for each predictor, rather than when each predictor is 0...and it makes more sense, right - the intercept is no longer a negative unit value. Although it would be nice to think that people could pay negative insurance charges - what does that mean?  That everyone is in debt? That the health treatment costs less than 0?
+Remember that by centring our continuous predictors, the intercepts now represents the continuous predictors at the sample average.
+
+So what does the intercept represent now?  A non-smoking female of approximately 40 year of age, with a BMI value of about 30 units, with one child, who lives in SW USA.  That makes more sense.
+
+You'll notice that there is a change on the intercept value.  The intercept is no longer a negative unit value. Although it would be nice to think that people could pay negative insurance charges - what does that mean?  That everyone is in debt? That the health treatment costs less than 0?
+
+And the centred variable of `sex_c` now describes the full value of moving from female (in the intercept) to male for changes in insurance charges.
+
+### Standardising Variables
 
 Create some more variables to store the standardised variables, which we will create next.
 
@@ -511,20 +573,23 @@ Remember to create a standardised variable, we first centre the variable and the
 
 ```{r}
 # create new variables to store the standardised values
+# I use _z1 because they are z-scores that are made by dividing by 1 standard deviation
 # these are standardised by dividing by 1 x sd:
 
 d <- d %>% 
   mutate(age_z1 = (age - mean(age)) / sd(age), # new variable = centred variable divided by the standard deviation of the centred variable
          bmi_z1 = (bmi - mean(bmi)) / sd(bmi),
-         child_z1 = (children - mean(children)) / sd(children)
+         child_z1 = (children - mean(children)) / sd(children),
+         sex_z1 = sex_c / sd(sex_c),
+         smoker_z1 = smoker_c / sd(smoker_c)
          )
 ```
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # bar charts for categorical variables
-p_sex_c <- ggplot(d, aes(x = factor(sex_c), fill = factor(sex_c))) + geom_bar()
-p_smok_c <- ggplot(d, aes(x = factor(smoker_c), fill = factor(smoker_c))) + geom_bar()
-p_regsum <- ggplot(d, aes(x = factor(regionsum), fill = factor(regionsum))) + geom_bar()
+p_sex_c <- ggplot(d, aes(x = sex_z1, fill = sex_z1)) + geom_bar()
+p_smok_c <- ggplot(d, aes(x = smoker_z1, fill = smoker_z1)) + geom_bar()
+p_regsum <- ggplot(d, aes(x = regionsum, fill = regionsum)) + geom_bar()
 
 # frequency polygons for (so called) continuous variables
 p_age_z1 <- ggplot(d, aes(x = age_z1)) + geom_histogram() # possibly a little more detail using a histogram?
@@ -534,29 +599,28 @@ grid.arrange(p_sex_c, p_smok_c, p_regsum, p_age_z1, p_bmi_z1, p_child_z1)
 ```
 Only the axes have changed once more....the centre is still zero but the units are now in standard deviations.
 
-What happens when we use the standardised variables with the centred binary variables:
-
-```{r}
-summary(m6_z <- lm(charges ~ age_z1 + bmi_z1 + child_z1 + sex_c + smoker_c + regionsum, d))
-
-```
-
-No change in the original correlations either:
-
-This line of code charts correlations between columns 18 - 20 of the dataset `d` - i.e. the standardised varaibles we just made.
+This line of code charts correlations between columns 18 - 20 of the dataset `d` - i.e. the standardised varaibles we just made. The correlation coefficients are exactly the same as those that are between the raw variables (see earlier in the script).
 
 ```{r}
 chart.Correlation(d[, c(18:20)], histogram=TRUE, pch=19)
 ```
 
-## Transformation via Standardising
+#### Refit the Model with Standardised Variables
 
-Take your centred variable and divide each observation by one standard deviation of the variable. Interpretation is now a one standard deviation decrease / increase in the predictor is a (part of) standard deviation in the outcome variable. Because all predictors are now measured in standard deviation units, instead of their raw units, you can compare the size of their coefficients. You couldn’t do this before because they were in different units.
+What happens when we use the standardised variables with the centred binary variables:
 
-Dividing by 2 standard deviations allows you to directly compare the coefficients for continuous and binary predictors.
+```{r}
+summary(m6_z <- lm(charges ~ age_z1 + bmi_z1 + child_z1 + sex_z1 + smoker_z1 + regionsum, d))
 
+```
 
-## Demonstration: Standardising by Two Standard Deviations
+The intercept is the same, because no reference levels have changed; `sex` and `smoker` are now smaller; the direction of effects remains similar:  males are associated with less insurance charges, and smokers are associated with more than non-smokers. The region coefficients are the same because we didn't change them; The magnitude of the coefficients for age, bmi and children are now bigger.  But look at their t values - they have not changed. Nor is the variance explained.
+
+The gift of standardisation is that is calms down the model - gone is the huge $23,848 prediction for smokers.  And now we can see the relative strengths of predictors.  Smoking is the strongest predictor, followed by age and weight, with each associated with a positive relationship on insurance charges - as they increase so does insurance.
+
+#### Transform:  Standardising by Two Standard Deviations - extra
+
+This is useful to know if you want to have your continuous variables act as if they are a dichotomous variable - so age = young or old / high or low.  This is not on the class test.
 
 ```{r}
 # create new variables to store the standardised values
@@ -569,11 +633,11 @@ d <- d %>%
          )
 ```
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # bar charts for categorical variables
-p_sex_c <- ggplot(d, aes(x = factor(sex_c), fill = factor(sex_c))) + geom_bar()
-p_smok_c <- ggplot(d, aes(x = factor(smoker_c), fill = factor(smoker_c))) + geom_bar()
-p_regsum <- ggplot(d, aes(x = factor(regionsum), fill = factor(regionsum))) + geom_bar()
+p_sex_c <- ggplot(d, aes(x = sex_c, fill = sex_c)) + geom_bar()
+p_smok_c <- ggplot(d, aes(x = smoker_c)) + geom_bar()
+p_regsum <- ggplot(d, aes(x = regionsum, fill = regionsum)) + geom_bar()
 
 # frequency polygons for (so called) continuous variables
 p_age_z2 <- ggplot(d, aes(x = age_z2)) + geom_histogram() # possibly a little more detail using a histogram?
@@ -581,14 +645,14 @@ p_bmi_z2 <- ggplot(d, aes(bmi_z2)) + geom_density(fill = "red")
 p_child_z2 <- ggplot(d, aes(child_z2)) + geom_histogram()
 grid.arrange(p_sex_c, p_smok_c, p_regsum, p_age_z2, p_bmi_z2, p_child_z2)
 ```
-Only the axes have changed once more....the centre is still zero, the units are now in standard deviations.  The correlations remain the same also.  I leave it to the interested reader to cut and paste the code from above and visualise columns 21 - 23 to check this for themselves.
+Only the axes have changed once more....the centre is still zero, the units are still in standard deviations and look how the range is from a minus to the centre and then a centre to the plus.  Two jumps to move from one end of the values to other end - a little bit like the sum coding procedure of moving from -1 to 1 in two jumps.
+
+As I said, you may not use this very much, but it might be a handy little trick in your future - you never know!
 
 
-#### Ordered variables
+### Ordered Variables?
 
-We're not quite finished on our contrast journey...
-
-Consider the `children` variable - so far I have treated it as a continuous variable but it's definitely ordered: look at the histogram above again.  If we factorise the variable, we will better see the categories
+Consider the `children` variable - so far I have treated it as a continuous variable but it's categorical: look at the histogram above again. There are no values between the distinct categories.
 
 ```{r}
 summary(d$children) # summary as a continuous predictor
@@ -598,79 +662,52 @@ summary(d$children) # summary as a continuous predictor
 summary(d$children_f <- factor(d$children)) # wrap the factorising command within a summary command for speed
 ```
 
-and we can be pretty confident that the step from 0 - 1 and 3 - 4 is the same size unit of an increase in one person so `children` is the kind of variable that can be treated as continuous - it has a true zero, but it also is discrete....groups representing counts of different numbers of children...so what happens if we treat this as an ordered variable and use the `helmert` variant of contrast coding:
+The variable `children` could also be considered as ordinal in that within a family, birth order has meaning.  This gives us an opportunity to look at a final level of contrast coding for ordinal variables - `helmert` contrast coding.
+
+`Helmert` contrasts can work forwards and backwards.  The default function that we are going to use in R works backwards.  This means that each coefficient represents the difference in Y for the level in the factor, compared to all the previous levels (or the mean of the previous levels) in the factor.
+
+Lets look at an example to make this a little bit more clear:
+
+First we transform our `children` variable into a `helmert` contrasted variable:
 
 ```{r}
+# create a new variable first
 d$children_h <- factor(d$children)
+
+# and then apply an ordered contrast scheme
 (contrasts(d$children_h) <- contr.helmert(6))
 # levels(d$children_h) # checking the order of levels in the children_h variable
 ```
-This contrast coding tell us that the first regression coefficient (look at column [ ,1]) will be the comparison between the first two categories of the `children` variable - 0 children and one-child families.  The second regression coefficient (look at column [ ,2]) for the variable will show a comparison between families with two children and families with either 0 or one child and so on.
+
+You don't have to fully understand this matrix.  This level of detail will not be on the class test. However, some of you will appreciate the detail.  
+
+Look at column [ ,1] first. This tells us that the first beta coefficient for this variable in the model output will be the comparison between the first two categories of the `children_h` variable, which is between families with no children and families with one child.  
+
+Now look at column [ ,2]. This tells us that the second beta coefficient for the variable will show a comparison between families with two children and families with either no children or one child and so on.
+
+Lets fit the model one last time and include this helmert contrasted variable
 
 ```{r}
-summary(m6_zh <- lm(charges ~ age_z1 + bmi_z1 + children_h + sex_c + smoker_c + regionsum, d))
+summary(m6_zh <- lm(charges ~ age_z1 + bmi_z1 + children_h + sex_z1 + smoker_z1 + regionsum, d))
 
 ```
-This `children` predictor now has an independent coefficient for each level of the categorical variable.  Previously, we had entered the `children` predictor as continuous, and we were getting an even rate of change, which registered as a significant impact on insurance charges.
+The `children_h` predictor has an separate coefficient for each level of the categorical variable.  Previously, we had entered the `children` predictor as continuous, and we were getting an even rate of change in charges for each increase in one child to a family, which registered as a significant impact on insurance charges.
 
-Now that we have transformed the variable - and respected the structure of the variable data (it was never continuous), out interpretation of the model needs to change somewhat.  The rate of change in insurance chargest across the increase in children is not even (480.10 is not the same as 72.19).  This is not a linear relationship. The only significantly different change in insurance charges is the change from 0 or 1 child to two child families.  Can you think of a reason why a familiy of two children is predicted to pay significantly higher insurance charges than a family of one child? 
+First of all, check the residuals and the significance of the model; the maximum residual value is slightly bigger on this model.  And the F ratio is smaller.  This indicates to me that there is now more information in the residuals - which tells me that this is not as good a fit for the data as the last model. The variance explained has not changed, so we have estimated more coefficients, and generated more error for no real increase in explanatory power.
 
-There is a little more detail in this model than the previous ones - whether it is useful would depend upon the research question, or a better model than the previous ones, we could deduce using formal model comparison techniques - more of that later.
+However, we want to understand a little bit about helmert contrasts so we will carry on.
 
-Lets check the residuals once more:
+Now that we have transformed the variable, our interpretation of the model needs to change somewhat.  The rate of change in insurance charges across the increase in children is not even (480.10 is not the same as 72.19).  This is not a linear relationship (are we violating some of the model assumptions here?). 
 
-```{r}
-par(mfrow = c(2, 2)) # display plots in a 2 x 2 panel
-plot(m6_zh)
-```
-That structure is still there!
+Look at `children_h1`, the difference in insurance charges between families with no children and families with one child is approximately $195.00.
 
-#### Interpretation of the model
+Look at `children_h2`: the difference in insurance charges for families with two children and both families with one child *and* families with no children is approximately $480.00...and so on...
 
-Lets reprint the summary to save scrolling but also save the summary to an object so that we can call the values while interpreting and reporting the model
+The only significantly different change in insurance charges is the change from 0 or 1 child to two child families.  Can you think of a reason why a familiy of two children is predicted to pay significantly higher insurance charges than a family of one child? 
 
-```{r}
-(m6_zh_summary <- summary(m6_zh))
-```
+For the purposes of model checking and reporting, we do not use this model; we revert back to the standardised model.
 
-#### A possible interpretation and reporting: 
-
-We have modelled a dataset that has several variables that may be informative in the prediction of insurance charges.  With no guiding research questions or hypotheses, we have looked at the structure of the variables and entered them all into a multiple regression model.  This is a data-driven, exploratory analysis.
-
-Continuous variables have been standardised; gender and smoker status have been coerced to be numerical variables and mean centred.  The six levels of the children variable have been given a helmert type contrast to provide detail of which numbers of children are influential.
-
-Without engaging in any sensitivity analysis or outlier analysis, we report a model with a full set of predictors.  The model is significant ($F{_(}{_12,_1325}{_)}$ = `r round(m6_zh_summary$fstatistic[[1]], 2)`, *p* < 0.001). This set of predictors explains `r round(m6_zh_summary$r.squared*100, 2)`% of the variance in insurance charges.
-
-The following details the significant predictors in this model.  Each value represents a change in the predictor variable of one standard deviation and its impact upon the outcome variable while holding all other variables constant.  Because we have standardised the continuous variables this means they are held constant at their average level. The intercept therefore represents non smoking male individuals, with no children, that live in the SW region of the US.
-
-Age shows a positive association with insurance charges, with an increase in approximately \$3613.56 for a one standard deviation unit change on the age scale (age: *t* = `r round(m6_zh_summary$coefficients[[28]], 2)`, *p* < .001). A person's body mass index (BMI) also shows a positive relationship and increases insurance charges by approximately \$2054 with a one standard deviation change in BMI score (*t* = `r round(m6_zh_summary$coefficients[[29]], 2)`, *p* < .001). The number of dependents included in insurance cover was only significant on insurance charges at the comparison between 0 and 1 child to the two child level of coverage. Having two children increased insurance charges by approximately \$480 (*t* = `r round(m6_zh_summary$coefficients[[31]], 2)`, *p* < .005), compared to the mean levels for 0 and 1 child. Being a woman is positively associated with an increase in insurance charges, raising insurance costs by approximately \$128, however this increase is non-significant (*t* = `r round(m6_zh_summary$coefficients[[35]], 2)`, *p* = .700). Being a smoker is significantly and positively associated with an increase in insurance charges, raising insurance costs by approximately \$23,836 (*t* = `r round(m6_zh_summary$coefficients[[36]], 2)`, *p* < .001). While living in the northeast region of the country also shows a positive association with insurance charges compared to living in the southwest region (reference level), showing an increase of around \$591 (*t* = `r round(m6_zh_summary$coefficients[[37]], 2)`, *p* = `r round(m6_zh_summary$coefficients[[50]], 3)`).
-
-We should be cautious with these interpretations as the residuals show that there is unexplained variability and there are a number of observations that are indicated as having high leverage or high influence so further terms and sensitivity analyses are warranted for a fuller understanding.
-
-
-##### Plotting predictions
-
-Plotting an individual effect (or lack of it) is very simple if we are not too worried about being pretty.  Plus - because we haven't changed any of the essential information in any of the coding / centring schemes,  you can choose how to plot them, based upon the model.
-
-```{r}
-plot(predictorEffect("age_z1", m6_zh))
-plot(predictorEffect("bmi_z1", m6_zh))
-plot(predictorEffect("children_h", m6_zh))
-plot(predictorEffect("sex_c", m6_zh))
-plot(predictorEffect("smoker_c", m6_zh))
-plot(predictorEffect("regionsum", m6_zh))
-```
-
-##### Checking that assumptions of linear regression are not violated
-
-We can collect some diagnostic measures to help with assumption checking using the `augment()` function from the `broom` package:
-
-```{r}
-(m6zh_metrics <- augment(m6_zh))
-```
-
-Columns 1 - 7 are our variables. `fitted` and `residuals` are the predicted values of charges and the `error` values.  The final four columns we use below with some explanation.
-
+### Checking Model Assumptions and Diagnostics
 
 Every regression model is built upon the following assumptions:
 
@@ -681,42 +718,56 @@ Every regression model is built upon the following assumptions:
   
 ```{r}
 par(mfrow = c(2, 2)) # display plots in a 2 x 2 panel
-plot(m6_zh) # plot diagnostic plots for m6_zh
+plot(m6_z) # plot diagnostic plots for m6_zh
 ```
 
+**Residuals vs Fitted**: "fitted" here means the predicted values. We want the pink line to align pretty closely with the horizontal dashed line. Comparing this plot with that from the simple regression, this plot looks better. 
 
-**Residuals vs Fitted**: "fitted" here means the predicted values. We want the pink line to align pretty closely with the horizontal dashed line. Comparing this plot with that from the simple regression, this plot looks better. Take note of observation 13 - that was also labelled in the simple regression plots.
-
-**Normal Q-Q**: If the residual points (open circles) follow the dashed line, you can assume the residuals are normally distributed
+**Normal Q-Q**: If the residual points (open circles) follow the dashed line, you can assume the residuals are normally distributed.  It doesn't look great on the right hand side, does it?
 
 **Scale-Location**: This is checking for constant variance in the residuals - not much here.  A good indication would be a horizontal pink line with equally spread points.  Our graph is not good.
 
 **Residuals vs Leverage** - are there any points that are having a large influence on the regression results.  They will be numbered and you can then inspect them in your data file. Observations that show standardised residuals (see the table above) above 3 would be problematic.  As would observations of a hat value above $2(p+1)/n$ where $p$ = is the number of predictors (but see below) and $n$ = is the number of observations
 
-A different way to observe points with high leverage and high influence:
+#### A different way to observe points with high leverage and high influence:
 
-In the previous scripts, we used a formula for calculating hat values and Cook's Distance values.  Now we are modelling both continuous and categorical predictors that can have reference levels or more than two levels etc etc - each of which have their own model coefficient, it gets a little confusing remembering what 'p' stands for.  So an easier way is to graph your outlier observations:
-
-Graphing Model Hat Values and Observations with High Leverage: This is a larger dataset, so lets get R doing the sorting for us to check if there are any hat values larger than the model threshold:
-
-1) calculating hat value by hand
-2) using the hat value and filter out any observations from the augmented dataset
+In last week's script, with a small data set, we used a formula for calculating hat values and Cook's Distance values and looked across some values after calling our residuals using the `augment` function.  
 
 ```{r}
-p <- length(coefficients(m6_zh)) # number of parameters estimated by the model
+(head(m6z_metrics <- augment(m6_z)))
+```
+
+Columns 1 - 7 are our variables. `fitted` and `residuals` are the predicted values of charges and the `error` values, respectively.  And last week we manually inspected the `.hat` and the `.cooksd` column for values that were above a certain threshold.
+
+But this dataset has over 1000 observations. Plus,  we are modelling both continuous and categorical predictors.  It gets hard to manually inspect dataframes that have many observations and even harder to manage this for complex models. So an easier way is to have R sort out your high influence and leverage values and then plot them: 
+
+#### Graphing Model Hat Values and Observations with High Leverage: 
+
+  1. calculate hat value using the formula
+  2. use the hat value and filter out any observations from the augmented dataset that are above the threshold
+
+```{r}
+p <- length(coefficients(m6_z)) # number of parameters estimated by the model
 N <- nrow(d) # number of observations
 
 
 # 1) calulate the hat value
-(m6zh_hat <- (2*(p+1))/N)  # model hat value
+(m6z_hat <- (2*(p+1))/N)  # model hat value
 
 # 2) filter out observations that are above the hat value in the augmented dataset
-m6zh_hatvalues <- m6zh_metrics %>% 
-  filter(.hat > 0.02092676) 
+m6z_hatvalues <- m6z_metrics %>% 
+  filter(.hat > 0.01494768) 
+
+# 2) this is equivalent code, rather than hard coding the hat value, you put in the 
+# object label that we just created for the hat value on line 663
+m6z_hatvalues_1 <- m6z_metrics %>% 
+  filter(.hat > m6z_hat) 
 
 ```
 
-3) Plot them: hat.plot function taken from Kabacoff, (2022), R in Action.
+Four residuals are showing values of larger than the model hat value.
+
+3) Plot them: `hat.plot` function taken from Kabacoff, (2022), R in Action.
 
 ```{r}
 hat.plot <- function(fit) {
@@ -727,35 +778,161 @@ hat.plot <- function(fit) {
               identify(1:n, hatvalues(fit), names(hatvalues(fit)))
             }
 
-hat.plot(m6_zh)
+hat.plot(m6_z)
 
 ```
-
-
-43 of the datapoints above have hat values larger than the model hat threshold value.  
 
 Checking for observations that are influential follows a similar pattern:  observations that exceed the *Cook's distance* value = $4/(n-p-1)$ are likely to have high influence and the regression results may change if you exclude them.  In the presence of such observations that exceed Cook's distance, unless you know the observation are errors, you probably need to estimate the model without the observations and report both sets of results.
 
 ```{r}
-(m6zh_Cooks <- 4/(N-p-1)) # model Cook's distance value
+(m6z_Cooks <- 4/(N-p-1)) # model Cook's distance value
 ```
 
 ```{r}
-m6zh_Cooksvalues <- m6zh_metrics %>% 
-  filter(.cooksd > 0.003021148) 
+m6z_Cooksvalues <- m6z_metrics %>% 
+  filter(.cooksd > 0.003012048) 
+
+# or
+
+m6z_Cooksvalues_1 <- m6z_metrics %>% 
+  filter(.cooksd > m6z_Cooks) 
+
+# 83 residuals
 
 # make sure your dataset is in nrow() function
 # and your model is before $coefficients and in the plot line
-# here it is m6_zh
+# here it is m6_z
 # when you are ready to draw the plot
 # select all three lines at once and press control and enter
 # or rerun the chunk by pressing the green arrow in the top right hand corner.
-cutoff <- 4/(nrow(d)-length(m6_zh$coefficients)-1)
-plot(m6_zh, which=4, cook.levels=cutoff)
+cutoff <- 4/(nrow(d)-length(m6_z$coefficients)-1)
+plot(m6_z, which=4, cook.levels=cutoff)
 abline(h=cutoff, lty=2, col="red")
 
 ```
-There are 77 observations that appear to be influential within the dataset...So we may need to run a reduced dataset and compare the outputs
+There are 83 observations that appear to be influential within the dataset, however the three labelled here are particularly offensive.  If we were to continue our analysis at this point, we may be be filtering out some observations and running the model once more as a sensitivity analysis. 
+
+## Communicate: 
+
+Lets reprint the summary to save scrolling but also save the summary to an object so that we can call the values while interpreting and reporting the model
+
+```{r}
+(m6_z_summary <- summary(m6_z))
+```
+
+A results section for multiple regression may have three parts
+
+ - Descriptive statistics for continuous variables and quantities of observations in each categorty for categorical variables
+ - A correlation matrix that shows bivariate correlations between the continuous predictors
+ - A model summary and some narrative text to communicate the predictions from the model
+ 
+### Descriptive Statistics
+
+Depending on your hypothesis, you may report descriptive statistics differently from here.  For instance if a hypothesis was present for an interaction of any of the predictors with sex, then the descriptive statistics section would be presented with means and sd and categories for the other variables split by gender.  
+
+In this model, there is a flat structure, - i.e. no interactions, so we will go for basic mean and sd values or number of observations per category.  The code below pulls out all the relevant information; I leave it to you to manage the formatting for reporting in a results section.
+
+```{r}
+(Desc_stat <- d %>% 
+ # group_by(sex) %>% 
+  summarise(n = n(), # number of obs in each sex category
+            Age = round(mean(age),1),
+            `SD Age` = round(sd(age),1),
+            BMI = round(mean(bmi),1),
+            `SD BMI` = round(sd(bmi),1),
+            Children = round(mean(children),1),
+            `SD Children` = round(sd(children), 1)))
+
+
+table(d$children)
+table(d$smoker)
+table(d$sex)
+table(d$region)
+
+# It would be up to you to choose how to arrange a table, given the different numbers of levels across the categorical variables.
+```
+### Correlations between (truly) continous predictors
+ 
+```{r}
+
+(d_cor <- d %>% 
+  select(age, bmi, children) %>% 
+  cor() %>% 
+  as.dist() %>% 
+  round(2))
+
+# The output here could be a second table
+
+```
+
+### Inferential Statistics - Model Coefficients, SEs, *t*-values and *p* values
+
+```{r message=FALSE, warning=FALSE}
+# Get model predictions / coefficients
+Estimate <- round(coef(m6_z), 2)
+# calculate the coefficient standard errors
+SE <- sqrt(diag(vcov(m6_z)))
+# calculate the t-value of the t-test for each predictors coefficient
+t <- round((Estimate / SE), 2)
+# Extract the p-values of the predictors from the model
+p <- round(summary(m6_z)$coefficients[, "Pr(>|t|)"], 3)
+
+Predictor <- c("Intercept", "Age", "BMI", "No. of Children",
+               "Sex: Male", "Smoker: Yes","Region: SE",
+               "Region: NE", "Region: NW")
+
+Model_values <- data_frame(Predictor,Estimate, SE, t, p,)
+
+# tidy up p-values
+Model_values$p <- ifelse(p == 0.000, "< .001", p)
+
+Model_values
+
+```
+
+I have given you some code above that shows you how to manually extract the values that we have used in the model outputs to form a table to be able to report the values.  The broom package does this also. However, on small models (for numbers of predictors), I like the level of control to be able to do it like this.  You may find another way as you learn and that is good too.
+
+I leave it to you to format the `Model_values` dataframe into a table for presentation. Remember to also report your F ratio for the model and its significance value along with the variance explained.
+
+### Reporting Text
+
+We conducted a multiple regression for the association of several predictor variables with the outcome variable of insurance charges. We standardised all continuous predictors as well as the predictors for Sex and Smoker Status.  Region is a sum-coded variable, with South West being the reference level variable.
+
+Without engaging in any sensitivity analysis or outlier analysis, we report a model with a full set of predictors.  The model is significant ($F(8, 1329)$ = `r round(m6_z_summary$fstatistic[[1]], 2)`, *p* < 0.001). This set of predictors explains `r round(m6_z_summary$r.squared*100, 2)`% of the variance in insurance charges.
+
+The following details the significant predictors in this model.  Each value represents the change in insurance charges for a one standard deviation change in the predictor,  holding all other variables constant.
+
+Age shows a positive association with insurance charges, with an increase in approximately \$3608 for a one standard deviation unit change on the age scale (age: *t* = `r round(m6_z_summary$coefficients[[20]], 2)`, *p* < .001). A person's body mass index (BMI) also shows a positive relationship and increases insurance charges by approximately \$2068 with a one standard deviation change in BMI score (*t* = `r round(m6_z_summary$coefficients[[21]], 2)`, *p* < .001). An increase in number of children in a family was positively associated with an increase in insurance charges (*b* = 573.21, *t* = 3.45, *p* < .001). Being a male individual is negatively associated with insurance charges, lowering insurance costs by approximately \$65, however this increase is non-significant (*t* = `r round(m6_z_summary$coefficients[[23]], 2)`, *p* = .693). Being a smoker is significantly and positively associated with an increase in insurance charges, raising insurance costs by approximately \$9,627 (*t* = `r round(m6_z_summary$coefficients[[24]], 2)`, *p* < .001). While living in the northeast region of the country also shows a positive association with insurance charges compared to living in the southwest region (reference level), showing an increase of around \$587 (*t* = `r round(m6_z_summary$coefficients[[26]], 2)`, *p* = `r round(m6_z_summary$coefficients[[35]], 3)`).
+
+We should be cautious with these interpretations as the residuals show that there is unexplained variability and there are a number of observations that are indicated as having high leverage or high influence so further terms and sensitivity analyses are warranted for a fuller understanding.
+
+
+### Plotting predictions
+
+Plotting an individual effect (or lack of it) is very simple if we are not too worried about being pretty.  Plus - because we haven't changed any of the essential information in any of the coding / centring schemes,  you can choose how to plot them, based upon the model.  This is the skill of the communication part - which plot would make more sense to your reader - a plot with a standardised x-axis or a plot with raw units on the x-axis?
+
+Look at the x-axis on the following two plots to compare and make your considered decision:
+
+```{r}
+# standardised variable plot
+plot(predictorEffect("age_z1", m6_z))
+
+# raw unit plot
+plot(predictorEffect("age", m6))
+```
+
+Here are the plots for the predictors from the final model, but you could change the code to reflect the predictor labels and the model labels.  Just be consistent - choose one scale rather than jumping between multiple scales for your plots.
+
+```{r}
+plot(predictorEffect("age_z1", m6_z))
+plot(predictorEffect("bmi_z1", m6_z))
+plot(predictorEffect("child_z1", m6_z))
+plot(predictorEffect("sex_z1", m6_z))
+plot(predictorEffect("smoker_z1", m6_z))
+plot(predictorEffect("regionsum", m6_z))
+```
+
+I think plotting of the effects is probably much better for communication using the effects from the model with the raw data (the first model). I leave it to you to adapt the code to make this change.
 
 But the model building is not complete. It is likely that there are interactions that could be put into the model and age, as a variable, may be nonlinear - how to deal with both of these is for the next lecture.
 
@@ -772,24 +949,11 @@ There are lots of things to do as we run a multiple regression model - both befo
   - choosing between different models
   - reporting models - ongoing
 
-## More than two levels and ordered variables?
+## Week 11 - 12 Pre-Lab Activity and Week 12 Lab Task
 
-What about categorical variables with more than two levels?
-+ Dummy / treatment coding  - each level’s coefficient is the difference between the reference level and that level
-+ Sum coding – each level’s coefficient is the difference of the level from the intercept
-+ In variables with more than one level, To find the value of  -1 , you have to calculate the sum of the intercept and all the other levels of the variable.
+In this lab, you will be working with the R script, data and Codebook stored [here](Week_12_234_Materials.zip_materials.zip), and the accompanying codebook is accessed [here](data/Wk2/Data_Codebook.pdf).
 
-What about ordered categorical variables?
-+ Ordered outcome variables use ordinal regression model
-+ Ordered predictor variables use “helmert” coding
-+ Each level of the coefficient is the difference between those level or levels below them
-+ To get the value of the nth level in an ordered variable, you add all the other coefficients that come before that level to the intercept.
-
-# Lab Task
-
-In this lab, you will be working with the R script and data stored [here](data/Wk2/Week2_lab_materials.zip), and the accompanying codebook is accessed [here](data/Wk2/Data_Codebook.pdf).
-
-Work through the Week12_R_Script.Rmd file and enter in your own code to arrive at the following model summary and figures.
+Work through the Week12_R_Script.Rmd file and enter in your own code to arrive at the following model summary and figures. All these images are stored in the Outputs folder that comes down in the Week 12 .zip file:
 
 ![Model summary](Images/Wk2/Model Summary Output.png)
 
@@ -803,6 +967,6 @@ Work through the Week12_R_Script.Rmd file and enter in your own code to arrive a
 ![Predictor Walc](Images/Wk2/Predictor_plot_walc_h.png)
 ![Predictor Sex](Images/Wk2/PredictorPlot_sex_c.png)
 
-# Submit Scripts
+### Submit Scripts
 
-Remember to submit your group scripts if you want to receive and see feedback on your own and other groups' scripts.
+Remember to submit your group scripts if you want the chance to receive feedback on your own and other groups' scripts.
