@@ -4,17 +4,17 @@ subtitle: "Sam Russell, Mark Hurlstone"
 order: 4
 ---
 
-# Lecture
+<!-- # Lecture -->
 
-Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4fb23cdf-555c-42e2-95c7-b20a00e0042c)
+<!-- Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4fb23cdf-555c-42e2-95c7-b20a00e0042c) -->
 
-Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e01c2fc6-1ab8-427b-9be4-b20a0107c6fd)
+<!-- Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e01c2fc6-1ab8-427b-9be4-b20a0107c6fd) -->
 
-Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7c569aa7-6951-4a40-b071-b20b009ad673)
+<!-- Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7c569aa7-6951-4a40-b071-b20b009ad673) -->
 
-Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=214d093a-f77f-4b76-8736-b20b00a4fdac)
+<!-- Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=214d093a-f77f-4b76-8736-b20b00a4fdac) -->
 
-Download the lecture slides [here](data/Wk3/Psyc214 - Lecture 3 Slides [small].pdf), and [here](data/Wk3/Psyc214 - Lecture 3 Slides [large].pdf) for a larger version.
+<!-- Download the lecture slides [here](data/Wk3/Psyc214 - Lecture 3 Slides [small].pdf), and [here](data/Wk3/Psyc214 - Lecture 3 Slides [large].pdf) for a larger version. -->
 
 # Lab
 
