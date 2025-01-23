@@ -1,60 +1,701 @@
 ---
-title: 3. Multiple regression models that include interactions (moderated variables)
+title: 3. Multiple Regression Models that Include Interactions (Moderated Variables)
 subtitle: Emma Mills
 order: 4
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(warning = TRUE)
 knitr::opts_chunk$set(message = TRUE)
+
+rm(list=ls())
+knitr::opts_chunk$set(include = TRUE)
+library(tidyverse)
+library(effects)
+library(broom)
+library(gridExtra)
+library(PerformanceAnalytics)
+
 ```
 
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
 
 # Lecture
 
-Access the lecture [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=2045473)
+[Lecture
+Link](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7718c2a4-2676-4b85-ac17-b26d014265c0)
 
-The lecture materials, including and and R files are downloaded from [here](data/Wk3/Lecture 3 Materials.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+## Slides
 
+[Slides Link](data/Wk3/PSYC234_Week_13_Slides_Student.zip)
+
+## Materials
+
+There are two zipped folders to download for week 13:
+
+-   The first folder is a zipped folder called `Lecture_3_Materials.zip`.
+    It can be downloaded [here](data/Wk3/Lecture_3_Materials.zip). This has the
+    model lecture script and the `KidIQ.txt` file that was demonstrated in the lecture
+-   The second folder is called `Lab_3_Materials.zip`. In this folder is the 
+    `WorldHappinessReportData.csv` and a half prepared .Rmd file for the lab in week 13.  I did this because it is a really interesting dataset but the tidying and visualisation would take forever....please download it [here](data/Wk3/Lab_3_Materials.zip).
+    
+## Lab Task
+
+We are working with the `WorldHappinessReportData.csv` from the folder listed above.  Upload it to the R server, (preferably before you come to the lab) and complete the `Multiple_Regression_Interactions_Student.Rmd` file using that data.
+
+The model output you are aiming to match is below
+
+![Model output](Images/Wk3/Model%20Output.png)
+
+## Pre-Lab Activity
+
+1.  Watch the lecture before you attempt anything!
+2.  Download the zip files and upload to your R account
+3.  Look at the model outout above, begin by interpreting the model summary, 
+    as far as you can (as we did in Lab in week 11 & 12).
+4.  Next get the analysis work flow diagram and begin to think about
+    what piece of code do you need for each stage
+5.  Start a script and import the dataset. Use the lecture and the model
+    script as a guide
+6.  Write a plan of how you might approach an analysis to get to this
+    model
+-   you could write bullet points against the stages of the analysis
+    workflow diagram
+7.  You might want to stop at this point - wanting some confirmation
+    from your peers or staff; you could:
+
+-   post to the discussion forum at this point and we could discuss it
+
+-   talk amongst your peers and work together on it in independent study
+    time - forming a small study group for this process
+
+-   wait until the lab and bring ideas then...
+
+::: callout-tip
+## My predictor labels and suffixes
+
+The model output has several predictors with suffixes, demarcated by and
+underscore '\_' and a letter e.g. '\_h'; I explain these in the R Studio
+demonstrations in the lecture and you can use these as a guide to which
+kind of processes you may choose to use to transform any variables.
+:::
+
+## Test Yourself
+
+The link to this week's multiple choice quiz, WBA 3, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506930)
 
 ## Interactions
 
-+ When one variable moderates the effect of another variable on the outcome variable, Or
-  + When a coefficient for one predictor changes its size when it moves between the levels or values of another predictor, Or
-  + The change that one predictor predicts for the outcome variable depends on a specific level of another predictor
-+ Moderation – a process for exploring the differing conditions under which two or more variables may work together.  
+So far we have considered models with multiple variables - of both
+categorical and continuous types. One property of all these predictors
+in these models has been that they are functionally independent of each
+other.  
+What does functionally independent of each other mean? This means that,
+irrespective of any correlated relationship that we may have visualised
+as we got to know the data, when it came to coding the model, we did not
+let the variables talk to each other. We only let them talk to the
+outcome variable.  
+You have met interactions in PSYC214.  The focus of this week's lecture and lab
+is to introduce interactions in the context of a multiple regression model.
 
-In a simple regression, such as below, we test the effect of a single predictor on our dependent variable. In this case, the IQ of a mother on a child's test score.
+I am also going to introduce a concept called nested modelling.  This is where 
+a researcher builds a series of models and with each step, the model takes the previous
+model and builds directly onto it.  In this way, the previous model is contained, or nested,
+in the latest model.
 
-![Simply regression](Images/Wk3/Regression.png)
+This strategy of building a model has immediate benefits because you can test
+for a significant difference between the two models. For instance, when you are unsure about what
+predictors may make the best fitting model. Or if you were in an 
+exploratory research framework.  It can also have benefits for when you have 
+collected confounding or third variables. Finally, if you are unsure that using
+an interaction term in your model has resulted in a better fit for the data,
+having two models, with the first model also existing within the larger second 
+model, gives you the opportunity to test for the utility of that interaction term
 
-If we were to add in another variable that groups the data somehow, perhaps mother's high school completion (Yes or No), then we may see that there are two lines that represent the two groups in a plot:
+In summary, this week we are learning about and applying:
 
-![Regression with no interaction](Images/Wk3/RegressionGroup.png)
-In the example above, there is no interaction, regardless of group, child test scores increase as a constant rate from an effect of Mother's IQ. One may be slightly higher, indicating one group typically shows a greater IQ, but this increases at a constant rate.
+ - interaction terms within a multiple regression model
+ - nested modelling
+ - a principled method for saying that one model is a better fit for the data than another
+ 
+While also thinking about the workflow of a good analysis.  
 
-In the example below, the lines cross, which means that we have an interaction. Something in the two predictors, IQ and high school completion means that they interact with each other, and have an influence on each other as well as the dependent variable. 
+![Workflow](Images/Wk3/Wrangle.png)
 
-![Regression with amn interaction](Images/Wk3/RegressionInteract.png)
+Thinking and acting systematically will a) help your writing of any results section and b) help with your interpretation of models and ideas to write for your discussion section.
+ 
+### Import
+
+Before beginning, I will introduce the dataset to you:
+
+```{r}
+d <- read_csv("data/Wk3/Lecture_3_Materials/KidIQ.txt", col_types = cols(mom_work = col_skip()))
+
+# d <- read_csv("KidIQ.txt", col_types = cols(mom_work = col_skip()))
+summary(d)
+```
+
+There are 434 observations over four variables.  A simple dataset for our demonstration.  We have:
+
+ - `kid_score`: a continuous variable of test scores for children at 3 years-of-age; this is the outcome variable for this dataset
+ - `mom_hs`: a categorical variable describing whether the mother of the 3-year-old 
+ complete their high school education or not. Two levels: 0 = no; 1 = yes
+ - `mom_iq`: a continuous variable of IQ scores of the mothers in this sample.  The mean
+ in this sample is 100 - which reflects the wider population average
+ - `mom_age`: a continuous variable of age in years, captured at the time of testing of the child.
+ 
+### Tidy
+
+From the summary above, it appears to be a tidy dataset in as much as there are no missing observations. Woohoo!  
+
+However, `mom_hs` is currently viewed by R as a numerical variable, when it is a 
+categorical variable. For clarity, lets transform this now before visualising the 
+dataset
+
+```{r}
+d$mom_hs <- as.factor(d$mom_hs)
+summary(d)
+```
+With that small change, we can see the `mom_hs` much more clearly.  But still, a picture speaks a thousand words...
+
+
+### Visualise
+
+```{r message=FALSE, warning=FALSE}
+# bar charts for categorical variables
+p_hs <- ggplot(d, aes(x = mom_hs, fill = mom_hs)) + geom_bar() + theme_classic()
+
+# (so called) continuous variables
+p_score <- ggplot(d, aes(x = kid_score)) + geom_histogram()+ theme_classic()
+p_iq <- ggplot(d, aes(x = mom_iq)) + geom_histogram()+ theme_classic()
+p_age <- ggplot(d, aes(mom_age)) + geom_histogram()+ theme_classic()
+grid.arrange(p_score, p_hs, p_iq, p_age)
+```
+
+I have visualised the outcome variable here aswell, to help us get to know a little more about it. Notice also how
+I have used histograms rather than a smooth density plot for the continuous variables, because they are measured in
+whole points; there are no fractions of points in these measures. So we can still see the distributoin of the values,
+but using a histogram may remind you that the granularity of the measurement is in whole units, with no decimal values (not like something like milliseconds, for instance).
+
+Hopefully, after last week's lecture you will see that the continuous variables all show a pretty tolerable normal curve. You might say that there is a slight negative skew on the kid score and a slight positive skew on the mom_iq, but nothing too drastic.  
+
+But look at the `mom_hs` variable.  It is unbalanced - thankfully.  Within the group, I hope we all appreciate the value of a basic education.  So, within the sample, the mother's who completed their high school education are represented more than mothers who did not complete thrie high shcool education, at an approximate ratio of 3:1.  Quick check - what kind of transformation is indicated here (based on last week's learning)?
+
+### Correlations between continuous variables
+
+Because we have multiple predictors of a continuous variables, we may choose to look at (and put a less garish version of) a correlation matrix to understand correlations between pairs of variables before modelling.
+
+Here, I have left in the outcome variable `kid_score`.  You can leave it in or out. It is just for getting to know the data.
+
+```{r message=FALSE, warning=FALSE}
+chart.Correlation(d[, c(1, 3, 4)], histogram=TRUE, pch=19)
+```
+::: {.callout-tip}
+### Reading the correlation matrix
+
+Starting from the top left: From `kid_score`, move one square to the right and you get *r* = .45; then move one square down and you hit `mom_iq`. *r* = .45 is the correlation between those two variables
+
+From `kid_score`, move two squares to the right and you get *r* = .092; then move two squares down and you hit `mom_age`. *r* = .092 is the correlation between those two variables
+
+However many squares you count across, count the same amount of squares down to find the paired variable.
+:::
+
+I am going to leave the majority of the interpretation of this matrix to you for practice, but note one thing.  The predictor `mom_age` is only weakly correlated with both `mom_iq` and the outcome variable, `kid_score`.  Any thoughts on the whether it will be a significant predictor in a multiple regression model?
+
+### Transform
+
+I have an unbalanced variable, `mom_hs`, so I want to transform this variable.  I choose to `centre` the variable.  And by doing so, I should do it for `mom_iq` and `mom_age`, to aid with interpretation.
+
+```{r}
+
+table(d$mom_hs)
+
+```
+
+Completing high school = 1 here.
+
+```{r}
+# make mom_hs a numeric variable
+d$mom_hs_c <- ifelse(d$mom_hs == "1", 1, 0)
+
+summary(d$mom_hs_c)
+```
+
+The mean is quite high because of the greater quantity of 1 values in the variable; so when we mean centre, we will subtract 0.7857 from every observation.  Consequently, the group of mothers who did not complete high school will be negative values (0-0.7857), while the mothers who did complete high school will be positive numbers (1-0.7857).
+
+```{r}
+# now complete the rescaling by taking the mean away from every observation
+d$mom_hs_c <- d$mom_hs_c - mean(d$mom_hs_c)
+summary(d$mom_hs_c)
+```
+
+Repeat the centring with the two continuous variables.  You don't need to do the `ifelse` command in this case, as they are already numeric variables
+
+```{r}
+d$mom_iq_c <- d$mom_iq - mean(d$mom_iq)
+d$mom_age_c <- d$mom_age - mean(d$mom_age)
+```
+
+::: {.callout-tip}
+### What do the predictor variables mean now
+
+Remember under raw data, any regression coefficient is the change in the outcome variable for a one unit / level increase in the predictor variable *when all other predictors are at zero*
+
+Now we have mean centred, the interpretation changes:  any regression coefficient now represents a change in the outcome variable for a one unit / level increase in the predictor variable *when all other predictors are at their sample average*
+:::
+
+Scroll back up to the visualisations for the raw data to look for the average IQ score and Age, from the middle of the plots' x-axes.  It is good to have a real number in your head to make sense of the models.
+
+We are ready to build our first model.
+
+### Model
+
+I said I was going to introduce you to the practice of nested modelling in this lecture. We start this by building the first model: The intercept only model, or an empty model.  It is also sometimes called the null model, however the definition of a null model is not fixed.  A null model can also be a baseline model from which you measure change, and does not necessarily have to be an empty model.  While an empty model will always be an empty model because it has no predictors.  An intercept model will always be an intercept only model because it only models the intercept.
+
+#### The Empty / Intercept Only Model
+
+We can express an empty or intercept only model like this:
+
+$$
+Y = b_0 + e
+$$
+
+The empty or intercept only model for any dataset expresses its mean value of the outcome variable:
+
+```{r}
+mean(d$kid_score)
+```
+
+And here is the model as a regression model:
+
+```{r}
+summary(m0 <- lm(kid_score ~ 1, d))
+```
+The regression coefficient matches the raw mean value I called above. So at this point, we can say that in the sample, the average score for a 3 year old child is approximately 87 points.
+
+#### A Simple Regression - one predictor
+
+Let's add `mom_iq`.  To demonstrate how model `m0` is nested inside this larger model,
+I will write the formula out in words
+
+$$
+Model zero: Kid\_score = Intercept + error
+$$
+
+$$
+model one: Kid\_score = Intercept + Mom's IQ + error
+$$
+
+Hopefully, you can see how the first model is in the second model.  The change in the second model is the addition of one variable. I call my model `m1_c` because it has one predictor and it is a centred model.
+
+Here is the equation for the model - for those of you that like the numbers part:
+
+$$
+Y = b_0 + b_1 * X_{mom\_iq} + e
+$$
+
+
+
+Here is the code for this one predictor model:
+```{r}
+summary(m1_c <- lm(kid_score ~ 1 + mom_iq_c, d))
+```
+Where are your eyes looking as you first scan the model output?  The bottom line first:
+
+The model is significant (*F*(1, 432) = 108.6, *p* <.001) and explains approximately 20% of the variance in children's test scores.
+
+Next the regression coefficient:
+
+For every one point increase in Mother's IQ, a child's test score increases by 0.61 of a point (*t* = 10.42, *p* < .001).
+
+#### How do we judge that any model is a better fit than any other model?
+
+For models that are based **on the same data**, we can perform a test to see if the change in amount of variance explained from the smaller model to the larger model is significantly different.
+
+```{r}
+anova(m0, m1_c)
+```
+This is how we do it - we call an `anova` on the two models.  Look at the output
+
+From the top of the output, we have 
+
+ - the title of the output
+ - the next two lines repeat the model formulae
+ - Beginning with the fourth line, we are presented with an ANOVA table
+   -  What is important in these lines is:
+    - the number 1 line is for Model 1 in the table (not your model 1)
+    - the number 2 line is for Model 2 in th table
+    - you want to look at the *p* value; if the *p* value is lower than < .05, then the difference in the amount of variance explained on the outcome variable between the two models is larger than zero.  And the addition of that new variable (here `mom_iq`) is warranted.
+    
+#### A Multiple Regression with Two Independent Predictors
+
+Based upon the model comparison that we conducted, `m1_c` has greater predictive value than `m0`, so we will carry `m1_c` forward and introduce another predictor in `m2_c`.  We could now think of `m1_c` as a null model, because it is the base model with which we will eventually compare `m2_c`.
+
+We continue with our nesting principle, incrementally building a model, one predictor at a time so that the smaller mode is always present in the larger model.  Importantly, we are running all of these models on the same data so that we can use the model comparison technique.
+
+$$
+model one: Kid\_score = Intercept + Mom's IQ + error
+$$
+
+$$
+model two: Kid\_score = Intercept + Mom's IQ + Mom's Age + error
+$$
+
+These two predictors are independent of each other. We are hoping they will each predict a singificant amount of *unique* variance on Children's test scores. We can express a model with two independent predictors like this
+
+$$
+Y = b_0 + b_1 * X_{mom\_iq} + b_2*X_{mom\_age} + e
+$$
+
+And we can draw it like this:
+
+![Diagram of Independent
+Predictors](Images/Wk3/Diagram_Ind_Predictors.png)
+
+And the code for a model could look like this:
+
+```{r}
+summary(m2_c <- lm(kid_score ~ 1 + mom_iq_c + mom_age_c, d))
+```
+Because I am building multiple models, before I rush to formally interpret this, I am 
+going to perform my model comparison.  This time I am going to compare `m1_c` with `m2_c`. We don't need to worry about comparing the intercept only model because it was shown to be the weaker model in our last model comparison.
+
+```{r}
+anova(m1_c, m2_c)
+```
+As before, from the top of the table:
+
+  - the first line is the title
+  - the second line is the formula for the base model in this comparison
+  - the third line is the formula for the larger model in this comparison
+  - then we have the table itself - look for the *p* value:
+    - if it is lower than < .05, then the difference in the amount of change in the outcome variable between the two models is significant and the addition of the extra variable is warranted.
+    
+This comparison between models `m1_c` and `m2_c` shows a *p* value of 0.235.  The difference between the models is non-significant. The addition of `mom_age_c` to the model does not significantly increase the amount of variance explained and so to include this variable in the next stage of model building is not warranted.
+
+::: {.callout-warning}
+### Is you non-significant predictor included in your hypotheses?
+
+If your non-significant predictor is included in any of your hypotheses, then, by design, you have to keep them in your model and fully report them as non-significant.
+:::
+
+So we will leave out `mom_age_c` in our next model.  The next model, therefore, add the final predictor variable in our dataset, `mom_hs_c`, the variable that describes whether a child's mom complete their high school education.  We will reuse the `m2_c` label for the model because we still only have two independent predictors here.
+
+$$
+model one: Kid\_score = Intercept + Mom's IQ + error
+$$
+
+$$
+model two: Kid\_score = Intercept + Mom's IQ + Mom's HS status + error
+$$
+
+These two predictors are still independent of each other. We are hoping they will each predict a significant amount of *unique* variance on Children's test scores. We can express this particular model with these two independent predictors like this
+
+$$
+Y = b_0 + b_1 * X_{mom\_iq} + b_2*X_{mom\_hs} + e
+$$
+
+Here is the code:
+
+```{r}
+summary(m2_c <- lm(kid_score ~ 1 + mom_iq_c + mom_hs_c, d))
+```
+And as before, because I am building a series of models, I will perform my model comparison before interpreting the model.  This is a time-saving measure, as you may not want to spend time interpreting a larger model if the change in variance explained for the model is not significantly different from the smaller model.
+
+```{r}
+anova(m1_c, m2_c)
+```
+I will forego running through the layout of the table this time.  Suffice to say that the line that begins with "2" is the line with the *p* value for the comparison.  It is less than .05 so we can conclude that the change in the amount of variance explained between the two models is significant and the inclusion of the variable `mom_hs_c` is warranted. As we continue to build larger models, we should carry this verion of model `m2_c` forward.
+
+So now we can interpret it  - for practice. Let's call the summary of model `m2_c` again to reduce the need for scrolling.
+
+```{r}
+summary(m2_c)
+```
+The model is significant (*F*(2, 431) = 58.72, *p* < .001) and the amount of variance explained for Children's test scores is approximately 21%.
+
+Mother's IQ and children's test scores are positively associated.  A one unit increase in IQ is significantly associated with an increase in test scores of 0.56 test points (*t* = 9.31, *p* < .001). Whether the child's mother completed high school or not is also positively related to test scores.  The difference in test scores for a child whose mother did not complete high school and a child whose mother did complete high school is 5.95 points (*t* = 2.69, *p* = .007).
+
+If we run the mulitple regression model above, we may expect a plot of
+the regression to look something like this:
+
+![Regression with no interaction](Images/Wk3/Ind_Mul_Regression.png)
+
+I have put the raw data values on the X-axis for the best way to communicate the scale.
+I have also used the raw mom_hs factor here, again for simplicity.  Remember that the transformations we performed do not change the information within the data. So this is okay. 
+
+As soon as we see a plot, lets take a moment to interpret it. What do we
+see:
+
+-   a scatterplot with two groups - signified by the two colours of
+    black and grey dots
+    -   the legend shows black as 0 - the reference level here = mothers who did not complete high school
+    -   and grey as 1 = mothers who completed high school
+-   Mother's IQ score on the X-axis is predicting Child Test Score on
+    the Y-axis
+-   The black line is lower than the grey line: the black line is for test scores
+    of children whose mothers did not finish high school
+-   The grey line is higher than the black line: the grey line is for test scores
+    of children whose mothers did finish high school
+    
+We know two pieces of information, from looking at this plot:
+
+1) For all children, irrespective of whether their mom finished high school or not, as the mom's IQ score increases, so does the child's test score.
+
+2) For children whose mothers finished high school, they get higher test scores than children whose mothers did not finish high school.
+
+Earlier, I said that these two predictors were independent of each other. We can see this in the plot because the effect for the difference in scores is constant across the range of IQ scores.  The black and grey lines are parallel. And remain parallel across the span of the plot.
+
+#### A Multiple Regression with Independent Predictors and an Interaction Term
+
+What if we built a model that asked `mom_iq_c` and `mom_hs_c` to jointly predict some variance in the outcome variable.  To do this, we need the variables to share their information with each other. 
+
+We are still only adding one predictor, and the smaller model will be nested inside the larger model.  We are still using the same data.
+
+$$
+model two: Kid\_score = Intercept + Mom's IQ + Mom's HS status + error
+$$
+
+$$
+model three: Kid\_score = Intercept + Mom's IQ + Mom's HS status + IQ * HS + error
+$$
+
+These two predictors are still in the model as independent predictors, but we also include a term where the two predictors look like they are multiplied together.  This is what an interaction term is - the product of two or more variables added as an additional predictor in a model.  Now we are hoping to see some *unique* variance from the independent predictors and also some joint prediction of variance from our interaction term. We can express the interaction model like this
+
+$$
+Y = b_0 + b_1 * X_{mom\_iq} + b_2*X_{mom\_hs} + b_3 * (X_{mom\_iq} * X_{mom\_hs}) + e
+$$
+
+Here is the code:  I am calling it `m3_c_int` because it has 3 predictors, and contains an interaction term
+
+```{r}
+summary(m3_c_int <- lm(kid_score ~ 1 + mom_iq_c + mom_hs_c + mom_iq_c:mom_hs_c, d))
+```
+
+Before going any further, lets compare:
+
+```{r}
+anova(m2_c, m3_c_int)
+```
+My eyes have gone straight to the *p* value now:  *p* = .003. It is smaller than .05 so we can conclude that the difference in the amount of variance explained in the outcome variable is significantly different in the larger model.  The inclusion of the interaction term is warranted.  If we were to build a larger model, then this larger model is the model that should be carried forward to the next step.
+
+But we are not building any more models, as this dataset was a compact dataset and we have used up our variables.
+
+When you come to the end of the line with model building in this incremental, step-wise fashion, you will interpret and present:
+
+ - the model that you hypothesised you would build
+ - if there were several possible models from your hypotheses, you would present the one that was significantly the best predictor of variance.
+  - Note - this may not be the model with the most variables!
+
+The model plot, with the addition of the interaction between mother's IQ and high school education, looks like this:
+
+![Regression with an interaction](Images/Wk3/Int_Mul_Regression.png)
+
+#### Interpreting a Model with an Interaction Term
+
+Up until now, we have been working with models of multiple independent predictors.  Now we have a model with independent predictors and interaction terms.  These take a little more interpretation.  We will look at how to do that here.
+
+When interpreting any interaction term, you will need:
+
+  - The regression coefficients for the  independent predictors upon which the interaction term is based
+  - The regression coefficient(s) for the interaction term.
+  
+First of all, do a model summary inspection as you would with any other model: Is the model significant?  How much variance in the outcome variable does the model explain? What does the intercept represent? 
+
+Then move on to the predictors.  Interpret your independent predictors first.  Our demonstration model is a very simple model.  When you have models with more predictors, some of which may only be in the model as independent predictor, I suggest you look at those first before looking at the predictors that are involved in any interaction term.
+
+When you are ready to interpret the interaction term,  I suggest the following approach:
+
+ 1) look at your first predictor and interpret it
+ 2) look at the second predictor and intpret it
+ 3) then look at the interaction term.  Look at the sign of the regression coefficient first.
+    - a positive coefficient suggests that at some point, the effect gets stronger than for the independent predictor
+    - a negative coefficient suggests that at some point, the effect gets weaker than the independent predictor.
+    
+Lets do this for the `m3_c_int`. Lets call the summary here again to reduce the need for scrolling:
+
+```{r}
+summary(m3_c_int)
+```
+
+`mom_iq_c` is significant; for a one point increase in IQ points, a child's test scores increase by 0.58 points (*t* = 9.71, *p* <.001).
+`mom_hs_c` is not significant. Notice that this is a change from the independent predictor model of `m2_c`.  But we still need to understand what the coefficient suggests because we are going to interpret the interaction term. And this variable is also in the interaction term.  This model predicts that for a mother who has completed high school, a child's score increases by 2.84
+points. 
+The interaction term `mom_iq_c:mom_hs_c` is significant.  It is negative. For one of the levels of high school completion, as IQ increases, that predicted 2.84 point increase for the independent predictor `mom_hs_c` is diminished or decreases by 0.48 points.
+
+So lets now express this in plain(er) English:
+
+As mom IQ increases, then a child's test score increases and if mom completed high school, initially, those child test scores are stronger than test scores for children whos mom didn't increase high school.  But, and here is the impact of what the interaction coefficient is describing....that 2.84 initial advantage gets smaller and smaller (by about 0.48 point each time) with every increase in IQ.
+
+To aid interpretation, look at the plot once more:
+
+![Regression with an interaction](Images/Wk3/Int_Mul_Regression.png)
+
+Interpret once more:
+
+-   Still a scatterplot using raw data with two groups - signified by the two colours of black and grey dots
+    -   the legend shows black as 0 - the reference level here and grey as 1
+    -   0 refers to mothers who did not finish high school in America
+    -   1 refers to mothers who did finish high school
+-   Still with Mother's IQ score on the X-axis is predicting Child Test Score on the Y-axis
+-   The two lines are still showing that advantage for the group whose mothers completed high school because the grey line is higher than the black line to begin with
+- but now, as we move from left to right across the plot, moving up the IQ scale, the grey line is not parallel to the black line.The grey line appears to be a shallower line - or have a slower rate of change - for every point increase in IQ, than the black line. This is the effect of losing 0.48 of a point as we increase in IQ.
+    -   The black line appears to be a steeper line - or have a faster rate of change - for every point increase in IQ than the grey line.  This is because with every increase in IQ they are not feeling that loss of 0.48 of a point. It only applies to the group of children whose mothers completed high school.
+    
+The two pieces of information from the earlier plot, that we thought we knew have changed from looking at this plot:
+
+1) The statement "For all children, irrespecitve of whether their mom finished high school or not, as the mom's IQ score increases, so does the child's test score" is still true but is not the entire interpretation.  We now need to consider that the slopes are no longer parallel - they have different gradients...
+
+2a) The statement "For children whose mothers finished high school (grey line and dots), they get higher test scores than children whose mothers did not finish high school (black line and dots)" is only true for some of those children.  And looking at the plot, I would say this is true for IQ levels that are lower than 100 (visual inspection of the plot).
+2b) The inverse is true:  "For children whose mothers finished high school (grey line and dots), they get lower test scores than children whose mothers did not finish high school (black line and dots)" is only true for some of those children.  And looking at the plot, I would say this is true for IQ levels that are higher than 100 (visual inspection of the plot).
+
+3a) We could add this:  For children whose mothers did not finish high school (black line and dots), they get lower test scores than children whose mothers finished high school (grey line and dots) when the mom's IQ level is lower than 100.
+3b) For children whose mothers did not finish high school (black line and dots), they get higher test scores than children whose mothers finished high school (grey line and dots) when the mom's IQ level higher than 100.
+
+So the a child's test score does not depend only on the mom's IQ score or whether they finished their own education.  Mom's IQ score and high school education status interact with each other such that any child whose mom has an IQ scores higher than 100 is predicted to get a higher score than a child with a mom's who has a lower than 100 IQ score, but for children in the group with mom's who dropped out, the higher IQ scores seems to predict even higher scores than for those children whose mom finished their education.
+
+This is the nature of an interaction.  The effect of one predictor variable, or the rate of change or the size of the coefficient for one prediction variable may be different across the levels of a second predictor variable.
+
+The two variables work together, rather than independently, on the outcome variable.
+
+Lets look at the model summary that gave us this plot:
+
+Lets do the math to show this numerically:
+
+First look again at the high school variable
+
+```{r}
+summary(d$mom_hs_c)
+```
+Because this variable has been centred, the negative `Min` value represents the level of the variable for not finishing high school (-0.7857), the positive `Max` value represents the level of the variable for finishing high school (0.2143).  You will put these values into some of the sums below.
+
+The model says that at lower IQ scores, the children whose mum did finish high school have higher scores than children whose mum did not finish high school
+
+Lets do the maths for 20 points below the average:  We can model 80 IQ points as a prediction for lower IQ (modelled as -20 here as the sample average is 100 and 100 - 20 = 80)
+
+Test score for a child with a mum who did not finish high school and an IQ of 80 (black line on the plot)
+Intercept + not_finishing high school + IQ 80 + Interaction term
+```{r}
+87.63892 + (0.58839*-20) + (2.84076*-0.7857) + -0.48427*(-0.7857*-20) # -0.7857 = represents mothers who did not finish high school
+```
+
+
+Test score for a child with a mum who did  finish high school and an IQ of 80 (grey line on the plot)
+Intercept + not_finishing high school + IQ 80 + Interaction term
+```{r}
+87.63892 +  (0.58839*-20) + (2.84076*0.2143) + -0.48427*(0.2143*-20) # 0.2143 = represents mothers who did finish high school
+```
+
+```{r}
+(78.55548 - 66.02932)
+```
+
+As the model predicts, the advantage is for the children whos mothers did finish high school.  The size of the advantage, when mums IQ is at 80, is approximately 12.5 points.
+
+Lets look at what the scores are like for an IQ of 81...we should see a difference of 12.52616-0.48...the size of the advantage has gotten smaller by about 0.48 points
+
+IQ is now -19 (because 100-19 = 81)
+
+Test score for a child with a mum who did not finish high school and an IQ of 81 (black line on the plot)
+Intercept + not_finishing high school + IQ 81 + Interaction term
+```{r}
+87.63892 + (0.58839*-19) + (2.84076*-0.7857) + -0.48427*(-0.7857*-19) # -0.7857 = represents mothers who did not finish high school
+```
+
+Test score for a child with a mum who did  finish high school and an IQ of 81 (grey line on the plot)
+Intercept + not_finishing high school + IQ 81 + Interaction term
+```{r}
+87.63892 + (0.58839*-19) + (2.84076*0.2143) + -0.48427*(0.2143*-19) # 0.2143 = represents mothers who did finish high school
+```
+
+```{r}
+# point difference between groups
+(79.04009 -  66.9982)
+```
+the point score difference at 80 IQ points, is 12.53, the point score difference at 81 IQ points is 12.04
+
+If we take 12.52616 from 12.04189, we get:
+
+```{r}
+(12.04189-12.52616)
+```
+Which is the negative regression coefficient for the interaction term.  As we increase the IQ points from 80 to 81, the difference in scores decreases between the groups by about half a point.
+
+Lets look at the size of hte gap at the sample IQ points of 101:  if you look back at the plot, the lines are almost meeting at this point, any advantage that any group has will be much smaller.
+
+IQ is now expressed in this sum as 1, because the IQ variable in the model is centred at the sample average for IQ which is 100.  So and IQ of 101 = +1
+
+Finding the Test score for a child with a mum who did not finish high school and an IQ of 101 (black line on the plot)
+Intercept + not_finishing high school + IQ 101 + Interaction term
+```{r}
+87.63892 + (0.58839*1) + (2.84076*-0.7857) + -0.48427*(-0.7857*1)
+```
+
+
+Test score for a child with a mum who did  finish high school and an IQ of 101 (grey line on the plot)
+Intercept + not_finishing high school + IQ 101 + Interaction term
+```{r}
+87.63892 + (0.58839*1) + (2.84076*0.2143) + -0.48427*(0.2143*1)
+```
+The difference at IQ 101 is much smaller than at IQ 81,  but there does still seem to be a slight advantage for the group whose mum finished high school.
+
+And once more Lets move the IQ a bit higher: to 120
+
+Test score for a child with a mum who did not finish high school and an IQ of 120 (black line on the plot)
+Intercept + not_finishing high school + IQ 120 + Interaction term
+```{r}
+87.63892 + (0.58839*20) + (2.84076*-0.7857) + -0.48427*(-0.7857*20)
+```
+
+Test score for a child with a mum who did  finish high school and an IQ of 120 (grey line on the plot)
+Intercept + not_finishing high school + IQ 120 + Interaction term
+
+```{r}
+87.63892 + (0.58839*20) + (2.84076*0.2143) + -0.48427*(0.2143*20)
+```
+
+At IQ of 101, the children with mothers who had finished high school were slightly higher than children whose mothers had not finished high school, but the effect of that advantage has decreased as IQ increased. At IQ 120, the group whose mum did not finish high school (black line) are now showing a score advantage over the group whose mum did finish high school with the difference being approximately 7 points between the two groups).
+
+
+### Model diagnostics
+
+```{r}
+par(mfrow = c(2, 2)) # display plots in a 2 x 2 panel
+plot(m3_c_int)
+```
+This model looks pretty healthy on the residuals!
+
+### Communicate
+
+A sample text for communicating this model:
+
+We ran a multiple regression model to predict children's test scores at age 3-years, from mother's IQ score, whether they had completed high school or not and the interaction between the two. We centred the predictors before putting them into the model.
+
+```{r}
+summary(m3_c_int)
+```
+
+The model was significant (*F*(3, 430) = 42.84, *p* < .001) and explained 23% of the variance in the children's test scores.
+Mother's IQ is positively related to children's test scores, with each increase in IQ, test scores increased by 0.58 of a point (*t* = 9.71, *p* < .001). The predictor for whether or not a mother had completed their high school education was not significant (*b* = 2.84, *t* = 1.17, *p* = 0.242) however the interaction term for mother's IQ and education status was significant (*b* = -0.48, *t* = -2.99, *p* = .003). This indicates that while the test scores for children whose mothers completed high school show an initial advantage of 2.84 points, this advantage decreases with each increase of an IQ point by 0.48 of a test point.  Indeed, Figure 1 shows that at the higher levels of IQ in this sample, the group of children whose mothers did not finish high school, have higher test scores than those children whose mothers did finish high school.
+
 ### What are interaction terms?
 
-Model for multiple regression with two independent predictors:
-$Y=𝑏_0+ 𝑏_1𝑋_1 + 𝑏_2𝑋_2 + 𝑒$
+-   We interpret each predictor as representing a value of the
+    variable’s influence on the outcome variable while holding all other
+    predictors constant
+-   The coefficient for each predictor tells us how the outcome variable
+    increases or decreases over incremental increases of a predictor - a
+    constant rate of change...adding one unit each time, increases or
+    decreases the outcome variable by the values of the coefficient
 
-+ We interpret each predictor as representing a value of the variable’s influence on the outcome variable while holding all other predictors constant
-
-In the diagram of the multiple regression model below, note that $X_1$ and $X_2$ do not talk to each other – only Y
-
-
-```{r, include=FALSE}
+```{r include = FALSE}
 library(DiagrammeR)
 
 grViz(diagram = "digraph flowchart {
   rankdir=LR;
-  node [fontname = arial, shape = oval]
+  node [fontname = arial, shape = rectangle]
   tab1 [label = '@@1']
   tab2 [label = '@@2']
   tab3 [label = '@@3']
@@ -72,16 +713,10 @@ grViz(diagram = "digraph flowchart {
   ") 
 ```
 
-Sometimes, we need to consider one variable’s influence on the outcome variable at different levels of another predictor:  we need interactions.
-These are expressed like this in the equation:
-$Y=𝑏_0 + 𝑏_1X_1 + 𝑏_2X_2 + b_3\times(X_1𝑋_2)+ 𝑒$
-
-See how in the diagram below, $X_1$ and $X_2$ *do*  talk to each other – and they both talk to Y as well
-
-```{r, include=FALSE}
+```{r include = FALSE}
 grViz(diagram = "digraph flowchart {
   rankdir=LR;
-  node [fontname = arial, shape = oval]
+  node [fontname = arial, shape = rectangle]
   tab1 [label = '@@1']
   tab2 [label = '@@2']
   tab3 [label = '@@3']
@@ -102,602 +737,90 @@ grViz(diagram = "digraph flowchart {
 
 ```
 
-Interactions are the product term of two (or more) predictors
-+ We multiply two (or more) variables together
-+ You can do this outside the model and create a new variable in your dataset
-+ Or you can write it into your model formula
+Interactions are the product term of two (or more) predictors. There are several ways to create them:
 
-Introducing an interaction term means that the predictors within the term are no longer acting independently of each other
-+ Interaction terms tend to strengthen or weaken the coefficients’ independent effects
+ - We can do a maths sum: multiply two (or more) variables together and save them to your dataset then call that predictor in your model
+ + You can use R code to write the interaction term into your model (so it is not a physical varaible in your dataset)
+   - we did this in model `m3_c_int`.
+   
+Putting it into your model formula can be expressed in two ways.  There is the use of a colon (:) as here:
 
-Now, a predictor’s effect is conditional upon the level of another predictor (example coming)
+```{r}
+m3_c_int_colon <- lm(kid_score ~ 1 + mom_iq_c + mom_hs_c + mom_iq_c:mom_hs_c, d)
+
+```
+
+Or, an equivalent model to `m3_c_int` is expressed using a shorter form of code, using an asterisk (*)
+
+```{r}
+m3_c_int_Asterisk <- lm(kid_score ~ 1 + mom_iq_c*mom_hs_c, d)
+```
 
 
-## When are interaction terms used?
+both of these types of model code give the exact same model output:
 
-Theory may predict them, and so research questions/hypotheses may predict them.
+```{r}
+summary(m3_c_int_colon)
+```
 
-Study design may implicitly suggest them (groups?)
+```{r}
+summary(m3_c_int_Asterisk)
+```
 
-Results may suggest them
-+ Regression coefficients that seem large when modelled independently may suggest the need for an interaction term
-+ Make sure you are aware of where you are in the analysis workflow
-+ Don’t just add them
-+ Save any unplanned additions of interaction terms for  an exploratory analysis phase...
 
-## Statistical Power of Interactions
+### When are interaction terms used?
+
+ - Theory may predict them, and so research questions/hypotheses may
+predict them.
+ - Study design may implicitly suggest them (groups?)
+ - Results may suggest them
+   - Regression coefficients that seem large when
+modelled independently may suggest the need for an interaction term
+
+### Statistical Power of Interactions
 
 Many effect sizes in psychology hover around Cohen’s *d* = 0.4
 
-Based upon an effect size like this:
-+ The power of an interaction can be a small as 1/16th of the independent effects within a model (Gelman et al. 2020) 
-+ This is for ANOVA and regression methods
-+ This is when all the assumptions of the model are met
-+ Most models violate model assumptions in some way
-+ Although relatively tolerant of violations:
-+ Power of the effects are thus reduced further...
-
-## Preparation of data for using interactions
-
-Centre or standardise your continuous variables as standardising puts both predictors on the same scale. So interpreting the effect of one predictor on the other will be using the same scale of units
-
-Consider how to use your categorical variables
-+ Dummy coding..?
-+ Sum coding..?
-+ Making new binary variables…?
-+ Coercing a binary variable to numeric class and mean centring
-+ (so many choices! So little time!)
-
-## Building a model with interactions
-
-Plan to build the model suggested by your research questions/hypotheses/theory. If that includes the interaction term, build it as the first model. If not, 
-+ Build an independent predictor model first
-+ Build a further model that includes independent and interaction terms
-
-Question:  does a study design that uses different groups of people, implicitly motivate an interaction term?
-
-This implies more than one model; multiple regression equals multiple models
-
-A cautious and conservative approach to multiple regression is to create several models, each one building upon the next
-+ These are called “nested” models
-+ Every model uses exactly the same data
-+ The latest model has all of the previous models within it
-+ The latest model can differ by +1 predictor or more
-
-![Nested models](Images/Wk3/Nested.png)
-
-## What model to report?
-
-You can inspect the $R^2$ or adj. $R^2$ values to see if the more complex model explains more variance in the outcome variable.
-But more principled is to use an inferential test:
-+ Use `anova()` to formally test the null hypothesis that two models explain the same amount of variance in the outcome variable = model comparison
-+ If so, p-value is > .05, 
-+ we fail to reject the null hypothesis
-+ AND we choose the simpler model
-+ If the p-value of the anova < .05
-+ we reject the null hypothesis 
-+ we choose the more complex model
-
-![Comparison of models](Images/Wk3/aov.png)
-### Hazard Warning!
-
-This is where *p*-hacking, cherry picking and HARKing can occur really easily. Strategies to defend against such questionable research practices: (remember from PSYC123 last year)
-+ State clearly whether you are in confirmatory or exploratory analysis mode
-+ Explain your process to yourself and your future reader before you start (at best in a pre-registration; at the very least before you begin)
-+ Report all models – use a script such as .Rmd file or an interactive notebook so that the process is recorded and can be reproduced
-+ Be honest and comprehensive in your reporting.
-
-
-## Import Packages and Data
-
-```{r setup}
-knitr::opts_chunk$set(include = TRUE)
-
-library(tidyverse)
-library(effects)
-library(broom)
-library(gridExtra)
-library(PerformanceAnalytics)
-```
-
-```{r importdata, eval=FALSE}
-d <- read_csv("KidIQ.txt", col_types = cols(mom_work = col_skip()))
-
-```
-
-```{r, echo=FALSE}
-d <- read_csv("data/Wk3/_Lecture 3 Materials/KidIQ.txt", col_types = cols(mom_work = col_skip()))
-
-```
-Notice how I have turned the `knitr::opts_chunk$set(include = TRUE)` line of code above to TRUE, this is what prints the code and output when you knit the document.  Switching TRUE to FALSE will stop the code from printing out when you knit - try it.  You can't break anything!
-
-Last week, we worked with multiple regression models that contained both continuous and categorical predictors.  This week we continue to work with a mix of predictor variables and introduce the next step - interaction terms.
-
-When an interaction term is entered into a model and is found to be significant (*p* < .05), this means that the rate of change in the outcome variable changes as the levels in the predictor variables change.  We have to consider the independent effects of the predictors that are in the interaction term and infer whether the interaction effect is a weakening or a strengthening of the outcome variable.  Here is a plot to illustrate what I mean:
-
-## Visualise
-
-```{r, echo = FALSE}
-m4_raw <- lm(kid_score ~ mom_hs + mom_age + mom_iq + mom_hs:mom_iq, d)
-```
-
-```{r}
-ggplot(d, aes(mom_iq, kid_score)) +
-  geom_point() +
-  geom_abline(
-  intercept = c(-10),
-  slope = c(1),
-  color = c("black")) +
-  scale_color_manual(values = c("black")) +
-  labs(x = "Mother IQ Score", y = "Child Test Score") + 
-  theme_bw()
-```
-
-
-```{r}
-# code to show parallel lines as illustration of no interaction.
-# ggplot(d, aes(mom_iq, kid_score)) +
-#   geom_point(aes(color = factor(mom_hs)), show.legend = FALSE) +
-#   geom_abline(
-#   intercept = c(-20.59, 11), # different starting places.
-#   slope = c(1, 1),  # both slopes rise at the same rate - no differences 
-#   color = c("black", "grey")) +
-#   scale_color_manual(values = c("black", "grey")) +
-#   labs(x = "Mother IQ Score", y = "Child Test Score") + 
-#   theme_bw()
-```
-
-
-```{r, echo = FALSE}
-ggplot(d, aes(mom_iq, kid_score)) +
-  geom_point(aes(color = factor(mom_hs)), show.legend = FALSE) +
-  geom_abline(
-    intercept = c(coef(m4_raw)[1], sum(coef(m4_raw)[1:2])),
-    slope = c(coef(m4_raw)[4], sum(coef(m4_raw)[4:5])),
-    color = c("black", "grey")) +
-  scale_color_manual(values = c("black", "grey")) +
-  labs(x = "Mother IQ Score", y = "Child test Score") + 
-  theme_bw()
-```
-This plot shows a distribution of 3 year old child test scores (y- axis - outcome variable) and how they correlate with their mother's IQ Score (x-axis, predictor variable).  They grey and the black colours of the dots further denote a grouping variable - whether the mother of the child finished high school or not (yes or no).
-
-For the purposes of illustrating the interaction, it is not important to know which colour represents which group.  Suffice it to say that the plot shows an interaction between high school graduation status and mother's IQ score.  We know this because the black and grey regression lines are not parallel across the plot.  The rate of change for Mother's IQ on child test scores is not the same for both levels of mother's high school graduation status.
-
-Above, I talked about an interaction effect either weakening or strengthening a relationship with the outcome variable.  Both are present here and it depends which group you want to focus on to decided whether the relationship is weaker or stronger.
-
-Look at the black line on the plot - at the left hand side, it begins at a lower starting score than the grey line.  As you move across the values of mother's IQ, however (move to the right in the plot, tracing the black line), and as mother's IQ gets higher,  the black line crosses the grey line, and those children whose mother is in the black group for high school completion status and whose mother has higher IQ, end up scoring higher test scores than the child who mother is in the grey group for high school completion status and also has the same level of IQ.  This is a strengthening relationship.
-
-Let's draw the plot again to reduce the need to scroll up and down the page:
-
-```{r, echo = FALSE}
-ggplot(d, aes(mom_iq, kid_score)) +
-  geom_point(aes(color = factor(mom_hs)), show.legend = FALSE) +
-  geom_abline(
-    intercept = c(coef(m4_raw)[1], sum(coef(m4_raw)[1:2])),
-    slope = c(coef(m4_raw)[4], sum(coef(m4_raw)[4:5])),
-    color = c("black", "grey")) +
-  scale_color_manual(values = c("black", "grey")) +
-  labs(x = "Mother IQ Score", y = "Child test Score") + 
-  theme_bw()
-```
-Now focus on the grey line.  This is the other group for mother's high school completion status.  At lower IQ levels, the children in this group begin with higher test scores than the other children whose mothers are in the black group,  however, by the time we get to the higher levels of mother's IQ at the right hand side of the plot, the children of this group have lower test scores.  The rate of change in test scores for children in the grey group is slower across the values of Mother's IQ.  It is a weakened relationship of the influence of Mother's IQ on the child's test scores within this group.
-
-You can also see the relationship in the slant of the slopes:
-
-Irrespective of whether the coefficient shows a positive or a negative relationship:
-
-A slower rate of change, or a weakening relationship will have a flatter or a more shallow slope.
-
-A faster rate of change, or a strengthening relationship will have a steeper slope.
-
-In this demonstration, we will model an interaction term, and interpret it. First we will build models that contain only the independent predictors. Then we will add onto the model the interaction term.   We will use a model comparison routine to look support decision making as to which model is a better fit for the data.
-
-
-## The Multilple Regression Equation
-
-### Multiple Regression With Only Independent Predictors
-
-Keep the model for multiple regression in mind:
-
-You have seen the two predictor regression model equation before:
-
-$$
-Y_i = b_0 + b_1 * X_1 + b_2*X_2 + e_i
-$$
-
-### Multiple Regression With Independent Predictors & Interaction Term
-A small extension includes the product of $X_1$ and $X_2$ multiplied by a further beta coefficient
-
-$$
-Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*(X_1*X_2) +e_i
-$$
-  -  $X_1$ and $X_2$ can be categorical predictors, continuous predictors or a mix of each.
-
-## Visualise The Data
-
-The data set is retrieved from https://github.com/avehtari/ROS-Examples/tree/master/KidIQ/
-
-```{r cars}
-head(d)
-```
- - kid_score = test score @ 3 yrs of age = outcome variable
- - mom_hs = a categorical variable. At the moment, R is seeing it as numerical so we can use it as an indicator variable. 1 = kid's mom completed high school, 0 = kid's mom did not complete high school.
- - mom_iq = the IQ score of the kid's mom
- - mom_age = mother's age at the time of birth
- 
-```{r}
-summary(d) # look at means and ranges within each variable
-```
-
-Right now, the R environment sees all the variables as numeric, (blue button also). Lets visualise the variables now and have a look at the relationships between them:  
-
-When using this code,  the c(2:4) part is calling the numeric columns of the dataset. Notice that I don't include kid_score in this group.  That's because I am going to use this as the outcome variable.
-
-### Graphical Visualisation
-
-```{r warning=FALSE}
-chart.Correlation(d[, c(2:4)], histogram=TRUE, pch=19)
-```
-
-Even though R sees all the variables as numeric, you can clearly see the binary structure of the `mom_hs` variable with two levels at 0 and 1, and that the values are not evenly split within the variable.
-
-```{r}
-table(d$mom_hs) # how many values are in each level of mom_hs?
-```
-
-## Model
-
-Progress in school is often talked about as better for children whose parents value school. We could use the variable `mom_hs` as a proxy measure for this. We can see from the `table()` function above that there are almost 4 times as many parents who completed high school than didn't in the dataset - an unbalanced variable.    But before we do that, lets begin to build some models.  Lets construct an intercept only or an empty model and see what the average 3 year old test score for this sample is:
-
-An intercept only model is basically a model for the average test score:  you can test this by calculating the mean before you model:
-
-```{r}
-mean(d$kid_score)
-```
-
-
-```{r}
-summary(m0 <- lm(kid_score ~ 1, d)) # putting just 1 = estimate the intercept.
-```
-With no other predictors, the average test score is 86.  We can reject the null hypothesis that the kids score is zero (one sample t(433) = 88.59, *p* < .001)
-
-Lets build another model: Above we discussed how a parent's value or belief in education is theorised to predict their offspring's progress.  We have operationalised this theory by having the `mom_hs` variable predict the `kid_score` outcome variable:  completing high school represents behaviour that shows a belief in education.
-
-Before we do - think about how R sees this binary variable - two levels - 0 and 1, with the lowest numerical value being estimated in the intercept.
-
-```{r}
-summary(m1 <- lm(kid_score ~ mom_hs, d)) # by default, lm() will model the "1" so it does not needed to be hard coded when other predictors are present
-```
-Remember that the mother's who did not complete high school are represented in the intercept term, so the coefficient for `mom_hs` represents the difference in test scores between 3 year olds whose mothers did not and who did complete high school - a difference of approximately 12 points.
-
-## Transform
-
-But the variable was unbalanced, remember. Ninety-three moms had not completed high school compared to 341 who had, and it was recommended by Gelman and colleagues (2020) to code those variables as 0 and 1 and then take away the mean - effectively centring your binary categorical variable:
-
-```{r}
-d$c_mom_hs <- d$mom_hs - mean(d$mom_hs) # mean centring mom_hs
-
-head(d$c_mom_hs) # positive values = mom completed high school
-```
-
-## Model
-```{r}
-summary(m1_c <- lm(kid_score ~ c_mom_hs, d)) # by default, lm() will model the "1" so it does not needed to be hard coded when other predictors are present
-```
-
-Now the intercept is for test scores with mom's high school completion at their mid value: the average value of `kid_score` has returned, because the intercept reflects the average when the predictors are at 0 - the grand mean.
-
-Lets do the math: predicted kid score = intercept + ($b_1$ * mom_hs status):
-
-```{r}
-86.797 + (11.771 * 0.2142857) # predicted score for child who mom completed hs
-
-86.797 + (11.771 * -0.7857143) # predicted score for child whose mom did not complete hs
-```
-
-The predicted score for children whose mom didn't complete high school in model 1_c is the same as the predicted score in model 1 where the intercept reflects that group.
-
-## Communicate
-
-If this was the only model we constructed, we could interpret the model like this:
-
-Our model of mother's high school predicting test scores is significant (F(1, 432) = 25.69, *p* < .001). The proportion of variance on test scores explained by the model is approximately 6%.  Mother's educational status significantly predicts kids' test scores (t = 5.07, *p* < .001). We can reject the null hypothesis that the status of mom's high school education has no effect on kids_score.  The difference between a child's test score when mom did not complete high school and a child's test score when mom did complete high school is 11.77 points.
-
-When you get a model output, try interpreting it and writing it out.  You can use the above as a template / model upon which to base your early attempts.  If you are unsure about what happens, compute the maths.
-
-### Comparing models
-
-But when we make a series of models, we don't interpret every model fully each time. Before we interpret a model, we need to make a decision about which is the better model.  
-
-Two ways of thinking about making a series of regression models:
-
-1: A principled method is to construct the model that is indicated by the research questions and report that model.  This may be in the context of a confirmatory analysis or be regarded as a theory guided approach.  
-
-2: When a line of research is very new, data may be collected in an exploratory research framework.  The data may be analysed to reveal patterns that then lead to research questions and confirmatory research designs.  Model comparison is a method that can guide model choice. Essentially, it will help you decide if a more complex model (a model with more predictors or independent & interaction terms) is warranted.  
-
-`m0` above is an intercept model.  `m1` and `m1_c` are equivalent models - it's just that the predictor has been transformed in `m1_c`. These are models with the intercept term plus one predictor.  `m1` is the more complex model of the two.
-
-It is much better to choose a simpler model when two models differ only on the number of predictors but pretty much explain the same amount of variance in the outcome variable.
-
-The difference between `m0` and the others seems to be about 5% of the explained variance (m1 $R^2$ = 5%), so they seem to be doing a better job of predicting test scores.  But we can check this using an inferential test.
-
-We can check how models compare to each other using the `anova()` function:  I will demonstrate first rather than explain so that we have something concrete to refer to:
-
-```{r}
-anova(m0, m1) # test for a difference between the models
-```
-
-The output shows an analysis of variance table - you have seen these before. Our two models are model 0 and model 1 in the raw variables,  look at the formula lines of `Model 1` and `Model 2`, and the `anova` function has used each of the models as if they are factors, like in an ANOVA study.
-
-The degrees of freedom are from the models, as are the residual sums of squares (RSS):
-
-```{r}
-metrics_m0 <- augment(m0)
-metrics_m0$RSS <- metrics_m0$.resid*metrics_m0$.resid
-sum(metrics_m0$RSS)
-
-
-metrics_m1 <- augment(m1)
-metrics_m1$RSS <- metrics_m1$.resid*metrics_m1$.resid
-sum(metrics_m1$RSS)
-
-```
-
-And the *F* ratio tests calculates the difference between these two values, to see if the difference in the variance explained is significantly different from zero.
-
-I said to you that the models `m1` and `m1_c` were equivalent. Lets check the ANOVA table for the model `m1_c` in comparison with `m1`
-
-```{r}
-anova(m1, m1_c) # test for a difference between the models
-```
-There is no difference.
-
-```{r}
-anova(m0, m1_c) # test for a difference between the models
-```
-And the comparison between `m0` and `m1_c` gives exactly the same output as the ANOVA for `m0` and `m1`.
-
-To interpret these kinds of model comparison tests:
-
-Model 1 is the first model in the list that we give to the ANOVA function, Model 2 is the second, and so on. We need to check that one of the models differs from the other model in complexity by checking the `Df` column.  Here, it reads as 1 so model two is more complex by one predictor. And then we see that the *p* value is < .001. The variance explained by adding the additional predictor is significantly different from the variance explained by the smaller model.  The significant difference, justifies the added complexity, so the more complex model is preferred.
-
-And then we choose whether we build another model. Can you see how the visualise - transform - model cycle iterates again and again in the analysis workflow?
-
-Next we'll add `mom_age` at birth of the child.  I am choosing to do this, reasoning that the it may be more likely for younger mothers to have not completed high school. What is the range of the age of mom's at the time they had their children?
-
-## Visualise
-
-```{r}
-range(d$mom_age) # show the minimum and maximum values in mom_age
-```
-
-This is a feasible relationship.  American high school finishes at 18 years of age. 
-
-Because we have centred the first variable, it makes sense to centre this variable also.  And, the intercept term would otherwise represent age at 0 years, which also doesn't make sense, right?
-
-## Transform
-
-```{r}
-d$c_mom_age <- d$mom_age - mean(d$mom_age) #
-
-```
-
-And then build a new model by adding it to the previous model formula:
-
-## Model
-
-```{r}
-summary(m2_c <- lm(kid_score ~ c_mom_hs + c_mom_age, d))
-```
-
-So for every year that a child's mother is older than the average aged mother, the child's test score is increased by 0.32 of a point. The effect is non-significant (*p* = .368).
-
-I'm betting that `m2` is not a better model than `m1_c` given the weak prediction that `c_mom_age` seems to have on kid's score.
-
-We check again with a model comparison:
-
-```{r}
-anova(m1_c, m2_c)
-```
-
-So, very quickly we have a demonstration of when a model comparison shows that the more complex model does not do a better job of explaining variance in the outcome variable. With a *p* = .368, we fail to reject a null hypothesis of no difference and the simpler model, `m1_c`, remains the preferred model.
-
-You probably already knew that by looking at `m2_c`'s $R^2$ value ,(m2_c $R^2$ = 5.8%), but the inferential test makes it official.
-
-And, if you think about it - there could be an explanation.  The "value" of school to the "mom" is in the first variable.  And the lower values of the age range are 17 and 18 - which suggests that there are observations in the data that represent mums who didn't finish school - both variables contain a similar *type* of information.
-
-The visualisation of the data we did earlier, hints at this; lets repeat this again to have a closer look:
-
-```{r warning=FALSE}
-chart.Correlation(d[, c(2:4)], histogram=TRUE, pch=19)
-```
-
-if we change the code, ever so slightly, we can remove mom's iq from the image so that the information stands out to you:
-
-```{r warning=FALSE}
-chart.Correlation(d[, c(2, 4)], histogram=TRUE, pch=19)
-```
-
-`mom_hs` and `mom_age` at birth have a small correlation of *r* = 0.21. Which tells you that the two variables are measuring a similar construct to a weak extent.
-
-The astute student is going "yeah but they're not the variables in the model - we used the centred variables."
-
-A quick change from c(2, 4) to c(5, 6) to select the matching columns for those variables:
-
-```{r warning=FALSE}
-chart.Correlation(d[, c(5, 6)], histogram=TRUE, pch=19)
-```
-
-Remember - centring and standardising your variables does not change the relationships between your variables.  It changes how your model works with the data and makes your model easier to interpret.
-
-## Adding `mom_iq`
-
-Let's add `mom_iq`, because a supporting hypothesis could be that mom's IQ is a hereditary trait?  Or even that given a level of IQ, mom's completion of high school is affected which in turn may predict test scores...
-
-## Transform using a population mean rather than the variable mean
-
-..and again, we can centre the variable.  IQ has a meaningful mean at the population level (100) - so we could use that value to mean centre `mom_iq` (and it just so happens that the mean of the sample is identical: sample mean = `r mean(d$mom_iq)`).
-
-```{r}
-d$c_mom_iq <- d$mom_iq - mean(d$mom_iq)
-```
-
-## Model
-
-So now the intercept reflects the test score for the child at the average level of high school completion, average age and average IQ for the mothers.
-
-```{r}
-summary(m3_c <- lm(kid_score ~ c_mom_hs + c_mom_age + c_mom_iq, d))
-```
-With the addition of the `c_mom_iq`, the model remains significant and a larger amount of variance is explained (21.5%).  `c_mom_iq` is also a significant predictor in the model (t = 9.276, *p* < .001).  It shows a positive relationship with kids score, with every point increase in IQ, a kid's score improves by 0.6 points.  Also, look at what has happened to the other coefficients - reduced in size.  `c_mom_iq`, while having its own independent effect, seems to have an effect upon the other coefficients - suggestive of interactions.
-
-## Model comparison
-
-```{r}
-anova(m1_c, m3_c) 
-```
-
-I have performed model comparison using `m1_c` rather than `m2_c`, because the last model comparison showed that `m2_c` was not a better model fit for the data. We could have removed the `c_mom_age` variable, but I had a feasible reason for it to be included, and it feels like *p*-hacking to put it in and then take it out just because it was not significant.
-
-Anyway, `m3_c` is a significantly better fit than `m1_c` (*F*(2, 430) = 43.51, *p* < .001), so we will take this one forward as the new preferred model and introduce an interaction term.  
-
-## Adding an interaction term
-It felt like a long time getting here - sorry about that, but think about it - the steps along the way have been like setting up your different levels of ANOVA, and that took a couple of weeks too.
-
-For instance:
-
-M1 = one way ANOVA
-M2 = if you had young and old groups for age, instead of a continuum of age, you would have a two way ANOVA
-M3 = similarly, if you had low and high IQ, instead of a continuum, you would have three factors and a three way ANOVA
-
-Hopefully you can see how ANOVA and regression are linked.  Not quite equivalent but linked.
-
-We will introduce the interaction between the centred variables of `c_mom_hs` and `c_mom_iq`.  We write it like this: `c_mom_hs:c_mom_iq`.  This piece of code is *transforming* two variables into one interaction term in the model.
-
-## Model
-
-```{r}
-(m4_summary <- summary(m4_c <- lm(kid_score ~ c_mom_hs + 
-                                  c_mom_age + 
-                                  c_mom_iq + 
-                                  c_mom_hs:c_mom_iq, d))) # save the output for use in inline code for the model reporting
-```
-
-Before we interpret anything, lets see if adding the interaction term is justified by performing the model comparison:
-
-```{r}
-anova(m3_c, m4_c) 
-```
-
-`m4_c` has the interaction term as the model with added complexity. The difference between `m3_c` and `m4_c` is significant (F (1, 429) = 9.58, *p* = .002). `m4_c` is the preferred model.  
-
-## Communicate
-
-So what does the model output say?  Lets reprint the summary to reduce the need for scrolling.
-
-```{r}
-m4_summary
-```
-Look once more at the coefficients.  `c_mom_hs` is no longer significant; `c_mom_age` remains non-significant, as does `c_mom_iq`, and the new predcitor, the interaction between mother's high school graduation status and IQ is signfificant, showing a negative relationship.  
-
-From earlier: When an interaction term is entered into a model and is found to be significant (*p* < .05), this means that the rate of change in the outcome variable changes as the levels in the predictor variables change.  We have to consider the independent effects of the predictors that are in the interaction term and infer whether the interaction effect is a weakening or a strengthening of the outcome variable.
-
-Further, most of the focus for interpretation will now go onto the interaction term rather than the independent level effects of those predictors. We can no longer, usefully interpret the independent effects of high school graduation status and IQ as independent predictors because their rates of change are NOT uniform across all levels of predictor.
-
-When you have performed a model comparison:
-
-  1. Tell your readers which model was preferred first.  
-  2. Then describe the significance of the whole model... 
-  3. ...and then describe a range of predictors.  
-  4. Once you have described an individual predictor, interpret it in real terms i.e. what the variables mean:
-  
-If you present the full model summary in a table, you don't have to interpret all the coefficients in a paragraph.  So here we will just talk about the significant predictors, and imagine that we would be putting the full model summary in a table.
-
-Example:
-
-  1. We built a series of models, with the model containing the interaction term being preferred by model comparison (F(1, 429) = 9.58, *p* = .002).  
-  2. A multiple linear regression with a combination of the mother's high school completion status, age at  child's birth, mother's intelligence score and an interaction between mother's high school completion and mother's intelligence score was a significant model (F (4, 429) = 32.42, *p* < .001) and explained 23.2% of the variance in kids' test scores.
-  3. Neither high school completion status nor mother's age at the child's birth was significant (*p* = 0.373 and *p* = 0.286).  Mother's intelligence was significant (t = 9.7, *p* < .001) and so was the interaction term between high school completion status and mother's intelligence (t = -3.1, *p* = .002).
-  4. The relationship between test scores and mother's high school graduation status and test scores and mothers IQ is positive, suggesting that high school graduation status means that test scores are higher on average he positive relationship that we see between test scores and mother's intelligence predicts that for each point increase in IQ, the test score for a child who's mother did not complete school increases by 0.59 of a test point. And while having a mother that completed high school increases test scores by 2.23 points,  the negative direction of the interaction between high school successfully completed and a point increase in IQ actually weakens the strength of this effect by 0.51. 
-  
-### Model diagnostics
-
-```{r}
-par(mfrow = c(2, 2)) # display plots in a 2 x 2 panel
-plot(m4_c)
-```
-
-phew! looks a little healthier than the last dataset analysis!
-
-### A possible reporting and interpretation of the model
-
-Our multiple regression modelled 3-year-old test scores as a function of whether their mothers completed high school, the mother's age at the child's birth and their IQ score.  We also included an interaction term for the relationship between high school completion and IQ score.  We tentatively framed feasible research questions and built a series of models, using model comparison to select models to carry forward. All variables were centred before being entered into the model.
-
-The full model with all independent predictors plus the interaction term was significant ($F{_(}{_4}{_,}{_4}{_2}{_9}{_)}$ = `r round(m4_summary$fstatistic[[1]], 2)`, *p* < 0.001). and the best model of the four completed (*p* = .002). This set of predictors explains `r round(m4_summary$r.squared*100, 2)`% of the variance in child test scores.  While the status of the mother's high school completion status was not significant (mom_hs: *t* = `r round(m4_summary$coefficients[[12]], 2)`, *p* = `r round(m4_summary$coefficients[[17]], 3)`), the mother's IQ score was (mom_iq: *t* = `r round(m4_summary$coefficients[[14]], 2)`, *p* < .001).  This showed a positive relationship with the child test scores, indicating that as the mother's IQ increased, so to did the test scores. The interaction however, showed a negative relationship which indicated that this increase was shallower for those children whose mother had completed high school (hs x iq interaction: *t* = `r round(m4_summary$coefficients[[15]], 2)`, *p* = `r round(m4_summary$coefficients[[20]], 3)`).
-
-We inspected diagnostic plots which show reasonable dispersion of residuals.  There are a number of points that could be influential or show high leverage however they don't appear to be aberrant.
-
-
-### Plotting the raw values to show the interaction
-
-This is the same code and plot as we started with at the top of the script.  Repeated here.
-
-```{r}
-m4_raw <- lm(kid_score ~ mom_hs + mom_age + mom_iq + mom_hs:mom_iq, d)
-```
-
-```{r}
-ggplot(d, aes(mom_iq, kid_score)) +
-  geom_point(aes(color = factor(mom_hs)), show.legend = FALSE) +
-  geom_abline(
-    intercept = c(coef(m4_raw)[1], sum(coef(m4_raw)[1:2])),
-    slope = c(coef(m4_raw)[4], sum(coef(m4_raw)[4:5])),
-    color = c("black", "grey")) +
-  scale_color_manual(values = c("black", "grey")) +
-  labs(x = "Mother IQ Score", y = "Child Test Score") + 
-  theme_bw()
-```
-
-### Plotting the fitted model
-
-```{r}
-ggplot(d, aes(c_mom_iq, kid_score)) +
-  geom_point(aes(color = factor(c_mom_hs)), show.legend = FALSE) +
-  geom_abline(
-    intercept = c(coef(m4_c)[1], sum(coef(m4_c)[1:2])),
-    slope = c(coef(m4_c)[4], sum(coef(m4_c)[4:5])),
-    color = c("black", "grey")) +
-  scale_color_manual(values = c("black", "grey")) +
-  labs(x = "Mother IQ score", y = "Child test score") + 
-  theme_bw()
-```
-
-I've taken this code from the website from which the data was retrieved - it is a much cleaner plot and great code! I have adapted the code to fit the model fitted and the raw data above and plotted two versions to demonstrate that the transformations do not change the information about the comparisons / effects within the model - only the scale of measurement as observed on the plot axes.
-
-The grey circles represent the group of children whose mothers completed high school (HS) while the black circles represent the group of children whose mothers did not complete high school (no HS).  The interaction indicates that while the mother's IQ score is below a score of approximately 105, the no HS child test scores are lower than the HS child test scores, however rising above approximately 105 IQ points, the no HS child test scores are higher than the HS child test scores.  One interpretation could be that having an above average IQ score, in the context of not completing high school is a protective factor for an offspring's attainment at the age of 3!
-
-How are we doing in our list of things to think about - We need to look at:
-
-  - a model with some significant predictors! - done
-  - correlation matrices - done
-  - centering predictors - done
-  - standardising predictors - done
-  - models with categorical predictors - done & ongoing
-    - interpreting models with categorical predictors - done & ongoing
-  - models with interaction terms - done
-  - the properties of multicollinearity
-  - choosing between different models - done
-  - reporting models - ongoing
-
-
-# Lab Task
-
-Upload [this zip file](data/Wk3/Lab_3_Materials.zip) to the R server, and complete the `Multiple_Regression_Interactions_Student.Rmd` file using the data included in the zip file.
-
-The model output you are aiming to match is below
-
-![Model output](Images/Wk3/Model Output.png)
-
-# Submit Scripts
-
-Remember to submit your group scripts if you want to receive and see feedback on your own and other groups' scripts.
+Based upon an effect size like this: 
+
+ - The power of an interaction can be a small as 1/16th of the independent effects within a model (Gelman
+et al. 2020)
+ - This is for ANOVA and regression methods
+ - This is when all the assumptions of the model are met
+   + Most models violate model assumptions in some way 
+   - Although relatively tolerant of violations: Power of the effects are thus reduced further...
+
+### Preparation of data for using interactions
+
+Centre or standardise your continuous variables as standardising puts
+both predictors on the same scale. So interpreting the effect of one
+predictor on the other will be using the same scale of units
+
+Consider how to use your categorical variables:
+  - Dummy coding..?
+  - Sum coding..?
+  - Making new binary variables…?
+  - Coercing a binary variable to numeric class and mean centring
+
+### Building a model with interactions
+
+Plan to build the model suggested by your research
+questions/hypotheses/theory. If that includes the interaction term,
+build it as the first model. If not, build an independent predictor
+model first and then build a further model that includes independent and
+interaction terms.  Perform a model comparison as above to see if your interaction term has
+given you more explained variance at a significant level.
+
+How are we doing in our list of things to think about - We need to look
+at:
+
+-   a model with some significant predictors! - done
+-   correlation matrices - done
+-   centering predictors - done
+-   standardising predictors - done
+-   models with categorical predictors - done & ongoing
+    -   interpreting models with categorical predictors - done & ongoing
+-   models with interaction terms - done
+-   the properties of multicollinearity - week 15
+-   choosing between different models - done & ongoing
+-   reporting models - ongoing

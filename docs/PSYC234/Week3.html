@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3. Multiple regression models that include interactions (moderated variables) – Statistics for Psychologists</title>
+<title>Statistics for Psychologists - 3. Multiple Regression Models that Include Interactions (Moderated Variables)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -106,12 +106,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="../site_libs/viz-1.8.2/viz.js"></script>
 <link href="../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="../site_libs/grViz-binding-1.0.9/grViz.js"></script>
+<script src="../site_libs/grViz-binding-1.0.11/grViz.js"></script>
 <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search Year 2";};</script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -156,7 +156,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -187,19 +187,19 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week3.html">3. Multiple regression models that include interactions (moderated variables)</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week3.html">3. Multiple Regression Models that Include Interactions (Moderated Variables)</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -220,7 +220,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC214</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -285,7 +285,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC234</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -299,13 +299,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+ <span class="menu-text">2. Multiple Regression Including Categorical Predictors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+ <span class="menu-text">3. Multiple Regression Models that Include Interactions (Moderated Variables)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -358,58 +358,37 @@ window.Quarto = {
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a>
   <ul class="collapse">
-  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions">Interactions</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a></li>
+  <li><a href="#lab-task" id="toc-lab-task" class="nav-link" data-scroll-target="#lab-task">Lab Task</a></li>
+  <li><a href="#pre-lab-activity" id="toc-pre-lab-activity" class="nav-link" data-scroll-target="#pre-lab-activity">Pre-Lab Activity</a></li>
+  <li><a href="#test-yourself" id="toc-test-yourself" class="nav-link" data-scroll-target="#test-yourself">Test Yourself</a></li>
+  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions">Interactions</a>
+  <ul class="collapse">
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
+  <li><a href="#tidy" id="toc-tidy" class="nav-link" data-scroll-target="#tidy">Tidy</a></li>
+  <li><a href="#visualise" id="toc-visualise" class="nav-link" data-scroll-target="#visualise">Visualise</a></li>
+  <li><a href="#correlations-between-continuous-variables" id="toc-correlations-between-continuous-variables" class="nav-link" data-scroll-target="#correlations-between-continuous-variables">Correlations between continuous variables</a></li>
+  <li><a href="#transform" id="toc-transform" class="nav-link" data-scroll-target="#transform">Transform</a></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">Model</a></li>
+  <li><a href="#model-diagnostics" id="toc-model-diagnostics" class="nav-link" data-scroll-target="#model-diagnostics">Model diagnostics</a></li>
+  <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">Communicate</a></li>
+  <li><a href="#what-are-interaction-terms" id="toc-what-are-interaction-terms" class="nav-link" data-scroll-target="#what-are-interaction-terms">What are interaction terms?</a></li>
   <li><a href="#when-are-interaction-terms-used" id="toc-when-are-interaction-terms-used" class="nav-link" data-scroll-target="#when-are-interaction-terms-used">When are interaction terms used?</a></li>
   <li><a href="#statistical-power-of-interactions" id="toc-statistical-power-of-interactions" class="nav-link" data-scroll-target="#statistical-power-of-interactions">Statistical Power of Interactions</a></li>
   <li><a href="#preparation-of-data-for-using-interactions" id="toc-preparation-of-data-for-using-interactions" class="nav-link" data-scroll-target="#preparation-of-data-for-using-interactions">Preparation of data for using interactions</a></li>
   <li><a href="#building-a-model-with-interactions" id="toc-building-a-model-with-interactions" class="nav-link" data-scroll-target="#building-a-model-with-interactions">Building a model with interactions</a></li>
-  <li><a href="#what-model-to-report" id="toc-what-model-to-report" class="nav-link" data-scroll-target="#what-model-to-report">What model to report?</a></li>
-  <li><a href="#import-packages-and-data" id="toc-import-packages-and-data" class="nav-link" data-scroll-target="#import-packages-and-data">Import Packages and Data</a></li>
-  <li><a href="#visualise" id="toc-visualise" class="nav-link" data-scroll-target="#visualise">Visualise</a></li>
-  <li><a href="#the-multilple-regression-equation" id="toc-the-multilple-regression-equation" class="nav-link" data-scroll-target="#the-multilple-regression-equation">The Multilple Regression Equation</a>
-  <ul class="collapse">
-  <li><a href="#multiple-regression-with-only-independent-predictors" id="toc-multiple-regression-with-only-independent-predictors" class="nav-link" data-scroll-target="#multiple-regression-with-only-independent-predictors">Multiple Regression With Only Independent Predictors</a></li>
-  <li><a href="#multiple-regression-with-independent-predictors-interaction-term" id="toc-multiple-regression-with-independent-predictors-interaction-term" class="nav-link" data-scroll-target="#multiple-regression-with-independent-predictors-interaction-term">Multiple Regression With Independent Predictors &amp; Interaction Term</a></li>
-  </ul></li>
-  <li><a href="#visualise-the-data" id="toc-visualise-the-data" class="nav-link" data-scroll-target="#visualise-the-data">Visualise The Data</a>
-  <ul class="collapse">
-  <li><a href="#graphical-visualisation" id="toc-graphical-visualisation" class="nav-link" data-scroll-target="#graphical-visualisation">Graphical Visualisation</a></li>
-  </ul></li>
-  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">Model</a></li>
-  <li><a href="#transform" id="toc-transform" class="nav-link" data-scroll-target="#transform">Transform</a></li>
-  <li><a href="#model-1" id="toc-model-1" class="nav-link" data-scroll-target="#model-1">Model</a></li>
-  <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">Communicate</a>
-  <ul class="collapse">
-  <li><a href="#comparing-models" id="toc-comparing-models" class="nav-link" data-scroll-target="#comparing-models">Comparing models</a></li>
-  </ul></li>
-  <li><a href="#visualise-1" id="toc-visualise-1" class="nav-link" data-scroll-target="#visualise-1">Visualise</a></li>
-  <li><a href="#transform-1" id="toc-transform-1" class="nav-link" data-scroll-target="#transform-1">Transform</a></li>
-  <li><a href="#model-2" id="toc-model-2" class="nav-link" data-scroll-target="#model-2">Model</a></li>
-  <li><a href="#adding-mom_iq" id="toc-adding-mom_iq" class="nav-link" data-scroll-target="#adding-mom_iq">Adding <code>mom_iq</code></a></li>
-  <li><a href="#transform-using-a-population-mean-rather-than-the-variable-mean" id="toc-transform-using-a-population-mean-rather-than-the-variable-mean" class="nav-link" data-scroll-target="#transform-using-a-population-mean-rather-than-the-variable-mean">Transform using a population mean rather than the variable mean</a></li>
-  <li><a href="#model-3" id="toc-model-3" class="nav-link" data-scroll-target="#model-3">Model</a></li>
-  <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison">Model comparison</a></li>
-  <li><a href="#adding-an-interaction-term" id="toc-adding-an-interaction-term" class="nav-link" data-scroll-target="#adding-an-interaction-term">Adding an interaction term</a></li>
-  <li><a href="#model-4" id="toc-model-4" class="nav-link" data-scroll-target="#model-4">Model</a></li>
-  <li><a href="#communicate-1" id="toc-communicate-1" class="nav-link" data-scroll-target="#communicate-1">Communicate</a>
-  <ul class="collapse">
-  <li><a href="#model-diagnostics" id="toc-model-diagnostics" class="nav-link" data-scroll-target="#model-diagnostics">Model diagnostics</a></li>
-  <li><a href="#a-possible-reporting-and-interpretation-of-the-model" id="toc-a-possible-reporting-and-interpretation-of-the-model" class="nav-link" data-scroll-target="#a-possible-reporting-and-interpretation-of-the-model">A possible reporting and interpretation of the model</a></li>
-  <li><a href="#plotting-the-raw-values-to-show-the-interaction" id="toc-plotting-the-raw-values-to-show-the-interaction" class="nav-link" data-scroll-target="#plotting-the-raw-values-to-show-the-interaction">Plotting the raw values to show the interaction</a></li>
-  <li><a href="#plotting-the-fitted-model" id="toc-plotting-the-fitted-model" class="nav-link" data-scroll-target="#plotting-the-fitted-model">Plotting the fitted model</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#lab-task" id="toc-lab-task" class="nav-link" data-scroll-target="#lab-task">Lab Task</a></li>
-  <li><a href="#submit-scripts" id="toc-submit-scripts" class="nav-link" data-scroll-target="#submit-scripts">Submit Scripts</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week3.html">3. Multiple regression models that include interactions (moderated variables)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week3.html">3. Multiple Regression Models that Include Interactions (Moderated Variables)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">3. Multiple regression models that include interactions (moderated variables)</h1>
+<h1 class="title">3. Multiple Regression Models that Include Interactions (Moderated Variables)</h1>
 <p class="subtitle lead">Emma Mills</p>
 </div>
 
@@ -427,280 +406,100 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-caution callout-titled">
+<section id="lecture" class="level1">
+<h1>Lecture</h1>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7718c2a4-2676-4b85-ac17-b26d014265c0">Lecture Link</a></p>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p><a href="data/Wk3/PSYC234_Week_13_Slides_Student.zip">Slides Link</a></p>
+</section>
+<section id="materials" class="level2">
+<h2 class="anchored" data-anchor-id="materials">Materials</h2>
+<p>There are two zipped folders to download for week 13:</p>
+<ul>
+<li>The first folder is a zipped folder called <code>Lecture_3_Materials.zip</code>. It can be downloaded <a href="data/Wk3/Lecture_3_Materials.zip">here</a>. This has the model lecture script and the <code>KidIQ.txt</code> file that was demonstrated in the lecture</li>
+<li>The second folder is called <code>Lab_3_Materials.zip</code>. In this folder is the <code>WorldHappinessReportData.csv</code> and a half prepared .Rmd file for the lab in week 13. I did this because it is a really interesting dataset but the tidying and visualisation would take forever….please download it <a href="data/Wk3/Lab_3_Materials.zip">here</a>.</li>
+</ul>
+</section>
+<section id="lab-task" class="level2">
+<h2 class="anchored" data-anchor-id="lab-task">Lab Task</h2>
+<p>We are working with the <code>WorldHappinessReportData.csv</code> from the folder listed above. Upload it to the R server, (preferably before you come to the lab) and complete the <code>Multiple_Regression_Interactions_Student.Rmd</code> file using that data.</p>
+<p>The model output you are aiming to match is below</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Wk3/Model Output.png" class="img-fluid figure-img"></p>
+<figcaption>Model output</figcaption>
+</figure>
+</div>
+</section>
+<section id="pre-lab-activity" class="level2">
+<h2 class="anchored" data-anchor-id="pre-lab-activity">Pre-Lab Activity</h2>
+<ol type="1">
+<li>Watch the lecture before you attempt anything!</li>
+<li>Download the zip files and upload to your R account</li>
+<li>Look at the model outout above, begin by interpreting the model summary, as far as you can (as we did in Lab in week 11 &amp; 12).</li>
+<li>Next get the analysis work flow diagram and begin to think about what piece of code do you need for each stage</li>
+<li>Start a script and import the dataset. Use the lecture and the model script as a guide</li>
+<li>Write a plan of how you might approach an analysis to get to this model</li>
+</ol>
+<ul>
+<li>you could write bullet points against the stages of the analysis workflow diagram</li>
+</ul>
+<ol start="7" type="1">
+<li>You might want to stop at this point - wanting some confirmation from your peers or staff; you could:</li>
+</ol>
+<ul>
+<li><p>post to the discussion forum at this point and we could discuss it</p></li>
+<li><p>talk amongst your peers and work together on it in independent study time - forming a small study group for this process</p></li>
+<li><p>wait until the lab and bring ideas then…</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+My predictor labels and suffixes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page is under construction for 24/25 and may be subject to change before the teaching week.</p>
+<p>The model output has several predictors with suffixes, demarcated by and underscore ‘_’ and a letter e.g.&nbsp;‘_h’; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.</p>
 </div>
 </div>
-<section id="lecture" class="level1">
-<h1>Lecture</h1>
-<p>Access the lecture <a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=2045473">here</a></p>
-<p>The lecture materials, including and and R files are downloaded from <a href="data/Wk3/Lecture 3 Materials.zip">here</a> as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.</p>
+</section>
+<section id="test-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="test-yourself">Test Yourself</h2>
+<p>The link to this week’s multiple choice quiz, WBA 3, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506930">here</a></p>
+</section>
 <section id="interactions" class="level2">
 <h2 class="anchored" data-anchor-id="interactions">Interactions</h2>
+<p>So far we have considered models with multiple variables - of both categorical and continuous types. One property of all these predictors in these models has been that they are functionally independent of each other.<br>
+What does functionally independent of each other mean? This means that, irrespective of any correlated relationship that we may have visualised as we got to know the data, when it came to coding the model, we did not let the variables talk to each other. We only let them talk to the outcome variable.<br>
+You have met interactions in PSYC214. The focus of this week’s lecture and lab is to introduce interactions in the context of a multiple regression model.</p>
+<p>I am also going to introduce a concept called nested modelling. This is where a researcher builds a series of models and with each step, the model takes the previous model and builds directly onto it. In this way, the previous model is contained, or nested, in the latest model.</p>
+<p>This strategy of building a model has immediate benefits because you can test for a significant difference between the two models. For instance, when you are unsure about what predictors may make the best fitting model. Or if you were in an exploratory research framework. It can also have benefits for when you have collected confounding or third variables. Finally, if you are unsure that using an interaction term in your model has resulted in a better fit for the data, having two models, with the first model also existing within the larger second model, gives you the opportunity to test for the utility of that interaction term</p>
+<p>In summary, this week we are learning about and applying:</p>
 <ul>
-<li>When one variable moderates the effect of another variable on the outcome variable, Or
-<ul>
-<li>When a coefficient for one predictor changes its size when it moves between the levels or values of another predictor, Or</li>
-<li>The change that one predictor predicts for the outcome variable depends on a specific level of another predictor</li>
-</ul></li>
-<li>Moderation – a process for exploring the differing conditions under which two or more variables may work together.</li>
+<li>interaction terms within a multiple regression model</li>
+<li>nested modelling</li>
+<li>a principled method for saying that one model is a better fit for the data than another</li>
 </ul>
-<p>In a simple regression, such as below, we test the effect of a single predictor on our dependent variable. In this case, the IQ of a mother on a child’s test score.</p>
+<p>While also thinking about the workflow of a good analysis.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Wk3/Regression.png" class="img-fluid figure-img"></p>
-<figcaption>Simply regression</figcaption>
+<p><img src="Images/Wk3/Wrangle.png" class="img-fluid figure-img"></p>
+<figcaption>Workflow</figcaption>
 </figure>
 </div>
-<p>If we were to add in another variable that groups the data somehow, perhaps mother’s high school completion (Yes or No), then we may see that there are two lines that represent the two groups in a plot:</p>
-<p><img src="Images/Wk3/RegressionGroup.png" class="img-fluid" alt="Regression with no interaction"> In the example above, there is no interaction, regardless of group, child test scores increase as a constant rate from an effect of Mother’s IQ. One may be slightly higher, indicating one group typically shows a greater IQ, but this increases at a constant rate.</p>
-<p>In the example below, the lines cross, which means that we have an interaction. Something in the two predictors, IQ and high school completion means that they interact with each other, and have an influence on each other as well as the dependent variable.</p>
-<p><img src="Images/Wk3/RegressionInteract.png" class="img-fluid" alt="Regression with amn interaction"> ### What are interaction terms?</p>
-<p>Model for multiple regression with two independent predictors: <span class="math inline">\(Y=𝑏_0+ 𝑏_1𝑋_1 + 𝑏_2𝑋_2 + 𝑒\)</span></p>
-<ul>
-<li>We interpret each predictor as representing a value of the variable’s influence on the outcome variable while holding all other predictors constant</li>
-</ul>
-<p>In the diagram of the multiple regression model below, note that <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> do not talk to each other – only Y</p>
-<p>Sometimes, we need to consider one variable’s influence on the outcome variable at different levels of another predictor: we need interactions. These are expressed like this in the equation: <span class="math inline">\(Y=𝑏_0 + 𝑏_1X_1 + 𝑏_2X_2 + b_3\times(X_1𝑋_2)+ 𝑒\)</span></p>
-<p>See how in the diagram below, <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> <em>do</em> talk to each other – and they both talk to Y as well</p>
-<p>Interactions are the product term of two (or more) predictors + We multiply two (or more) variables together + You can do this outside the model and create a new variable in your dataset + Or you can write it into your model formula</p>
-<p>Introducing an interaction term means that the predictors within the term are no longer acting independently of each other + Interaction terms tend to strengthen or weaken the coefficients’ independent effects</p>
-<p>Now, a predictor’s effect is conditional upon the level of another predictor (example coming)</p>
-</section>
-<section id="when-are-interaction-terms-used" class="level2">
-<h2 class="anchored" data-anchor-id="when-are-interaction-terms-used">When are interaction terms used?</h2>
-<p>Theory may predict them, and so research questions/hypotheses may predict them.</p>
-<p>Study design may implicitly suggest them (groups?)</p>
-<p>Results may suggest them + Regression coefficients that seem large when modelled independently may suggest the need for an interaction term + Make sure you are aware of where you are in the analysis workflow + Don’t just add them + Save any unplanned additions of interaction terms for an exploratory analysis phase…</p>
-</section>
-<section id="statistical-power-of-interactions" class="level2">
-<h2 class="anchored" data-anchor-id="statistical-power-of-interactions">Statistical Power of Interactions</h2>
-<p>Many effect sizes in psychology hover around Cohen’s <em>d</em> = 0.4</p>
-<p>Based upon an effect size like this: + The power of an interaction can be a small as 1/16th of the independent effects within a model (Gelman et al.&nbsp;2020) + This is for ANOVA and regression methods + This is when all the assumptions of the model are met + Most models violate model assumptions in some way + Although relatively tolerant of violations: + Power of the effects are thus reduced further…</p>
-</section>
-<section id="preparation-of-data-for-using-interactions" class="level2">
-<h2 class="anchored" data-anchor-id="preparation-of-data-for-using-interactions">Preparation of data for using interactions</h2>
-<p>Centre or standardise your continuous variables as standardising puts both predictors on the same scale. So interpreting the effect of one predictor on the other will be using the same scale of units</p>
-<p>Consider how to use your categorical variables + Dummy coding..? + Sum coding..? + Making new binary variables…? + Coercing a binary variable to numeric class and mean centring + (so many choices! So little time!)</p>
-</section>
-<section id="building-a-model-with-interactions" class="level2">
-<h2 class="anchored" data-anchor-id="building-a-model-with-interactions">Building a model with interactions</h2>
-<p>Plan to build the model suggested by your research questions/hypotheses/theory. If that includes the interaction term, build it as the first model. If not, + Build an independent predictor model first + Build a further model that includes independent and interaction terms</p>
-<p>Question: does a study design that uses different groups of people, implicitly motivate an interaction term?</p>
-<p>This implies more than one model; multiple regression equals multiple models</p>
-<p>A cautious and conservative approach to multiple regression is to create several models, each one building upon the next + These are called “nested” models + Every model uses exactly the same data + The latest model has all of the previous models within it + The latest model can differ by +1 predictor or more</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk3/Nested.png" class="img-fluid figure-img"></p>
-<figcaption>Nested models</figcaption>
-</figure>
-</div>
-</section>
-<section id="what-model-to-report" class="level2">
-<h2 class="anchored" data-anchor-id="what-model-to-report">What model to report?</h2>
-<p>You can inspect the <span class="math inline">\(R^2\)</span> or adj. <span class="math inline">\(R^2\)</span> values to see if the more complex model explains more variance in the outcome variable. But more principled is to use an inferential test: + Use <code>anova()</code> to formally test the null hypothesis that two models explain the same amount of variance in the outcome variable = model comparison + If so, p-value is &gt; .05, + we fail to reject the null hypothesis + AND we choose the simpler model + If the p-value of the anova &lt; .05 + we reject the null hypothesis + we choose the more complex model</p>
-<p><img src="Images/Wk3/aov.png" class="img-fluid" alt="Comparison of models"> ### Hazard Warning!</p>
-<p>This is where <em>p</em>-hacking, cherry picking and HARKing can occur really easily. Strategies to defend against such questionable research practices: (remember from PSYC123 last year) + State clearly whether you are in confirmatory or exploratory analysis mode + Explain your process to yourself and your future reader before you start (at best in a pre-registration; at the very least before you begin) + Report all models – use a script such as .Rmd file or an interactive notebook so that the process is recorded and can be reproduced + Be honest and comprehensive in your reporting.</p>
-</section>
-<section id="import-packages-and-data" class="level2">
-<h2 class="anchored" data-anchor-id="import-packages-and-data">Import Packages and Data</h2>
+<p>Thinking and acting systematically will a) help your writing of any results section and b) help with your interpretation of models and ideas to write for your discussion section.</p>
+<section id="import" class="level3">
+<h3 class="anchored" data-anchor-id="import">Import</h3>
+<p>Before beginning, I will introduce the dataset to you:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">include =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Wk3/Lecture_3_Materials/KidIQ.txt"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">mom_work =</span> <span class="fu">col_skip</span>()))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.5.1     ✔ purrr   1.0.2
-✔ tibble  3.2.1     ✔ dplyr   1.1.2
-✔ tidyr   1.3.0     ✔ stringr 1.5.0
-✔ readr   2.1.3     ✔ forcats 0.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: carData
-lattice theme set by effectsTheme()
-See ?effectsTheme for details.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'gridExtra'
-
-The following object is masked from 'package:dplyr':
-
-    combine</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PerformanceAnalytics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: xts
-Loading required package: zoo
-
-Attaching package: 'zoo'
-
-The following objects are masked from 'package:base':
-
-    as.Date, as.Date.numeric
-
-
-######################### Warning from 'xts' package ##########################
-#                                                                             #
-# The dplyr lag() function breaks how base R's lag() function is supposed to  #
-# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
-# source() into this session won't work correctly.                            #
-#                                                                             #
-# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
-# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
-# dplyr from breaking base R's lag() function.                                #
-#                                                                             #
-# Code in packages is not affected. It's protected by R's namespace mechanism #
-# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
-#                                                                             #
-###############################################################################
-
-Attaching package: 'xts'
-
-The following objects are masked from 'package:dplyr':
-
-    first, last
-
-
-Attaching package: 'PerformanceAnalytics'
-
-The following object is masked from 'package:graphics':
-
-    legend</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"KidIQ.txt"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">mom_work =</span> <span class="fu">col_skip</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Notice how I have turned the <code>knitr::opts_chunk$set(include = TRUE)</code> line of code above to TRUE, this is what prints the code and output when you knit the document. Switching TRUE to FALSE will stop the code from printing out when you knit - try it. You can’t break anything!</p>
-<p>Last week, we worked with multiple regression models that contained both continuous and categorical predictors. This week we continue to work with a mix of predictor variables and introduce the next step - interaction terms.</p>
-<p>When an interaction term is entered into a model and is found to be significant (<em>p</em> &lt; .05), this means that the rate of change in the outcome variable changes as the levels in the predictor variables change. We have to consider the independent effects of the predictors that are in the interaction term and infer whether the interaction effect is a weakening or a strengthening of the outcome variable. Here is a plot to illustrate what I mean:</p>
-</section>
-<section id="visualise" class="level2">
-<h2 class="anchored" data-anchor-id="visualise">Visualise</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(mom_iq, kid_score)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">intercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>),</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">slope =</span> <span class="fu">c</span>(<span class="dv">1</span>),</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"black"</span>)) <span class="sc">+</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>)) <span class="sc">+</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Mother IQ Score"</span>, <span class="at">y =</span> <span class="st">"Child Test Score"</span>) <span class="sc">+</span> </span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code to show parallel lines as illustration of no interaction.</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(d, aes(mom_iq, kid_score)) +</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point(aes(color = factor(mom_hs)), show.legend = FALSE) +</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_abline(</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   intercept = c(-20.59, 11), # different starting places.</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   slope = c(1, 1),  # both slopes rise at the same rate - no differences </span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   color = c("black", "grey")) +</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   scale_color_manual(values = c("black", "grey")) +</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   labs(x = "Mother IQ Score", y = "Child Test Score") + </span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme_bw()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This plot shows a distribution of 3 year old child test scores (y- axis - outcome variable) and how they correlate with their mother’s IQ Score (x-axis, predictor variable). They grey and the black colours of the dots further denote a grouping variable - whether the mother of the child finished high school or not (yes or no).</p>
-<p>For the purposes of illustrating the interaction, it is not important to know which colour represents which group. Suffice it to say that the plot shows an interaction between high school graduation status and mother’s IQ score. We know this because the black and grey regression lines are not parallel across the plot. The rate of change for Mother’s IQ on child test scores is not the same for both levels of mother’s high school graduation status.</p>
-<p>Above, I talked about an interaction effect either weakening or strengthening a relationship with the outcome variable. Both are present here and it depends which group you want to focus on to decided whether the relationship is weaker or stronger.</p>
-<p>Look at the black line on the plot - at the left hand side, it begins at a lower starting score than the grey line. As you move across the values of mother’s IQ, however (move to the right in the plot, tracing the black line), and as mother’s IQ gets higher, the black line crosses the grey line, and those children whose mother is in the black group for high school completion status and whose mother has higher IQ, end up scoring higher test scores than the child who mother is in the grey group for high school completion status and also has the same level of IQ. This is a strengthening relationship.</p>
-<p>Let’s draw the plot again to reduce the need to scroll up and down the page:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Now focus on the grey line. This is the other group for mother’s high school completion status. At lower IQ levels, the children in this group begin with higher test scores than the other children whose mothers are in the black group, however, by the time we get to the higher levels of mother’s IQ at the right hand side of the plot, the children of this group have lower test scores. The rate of change in test scores for children in the grey group is slower across the values of Mother’s IQ. It is a weakened relationship of the influence of Mother’s IQ on the child’s test scores within this group.</p>
-<p>You can also see the relationship in the slant of the slopes:</p>
-<p>Irrespective of whether the coefficient shows a positive or a negative relationship:</p>
-<p>A slower rate of change, or a weakening relationship will have a flatter or a more shallow slope.</p>
-<p>A faster rate of change, or a strengthening relationship will have a steeper slope.</p>
-<p>In this demonstration, we will model an interaction term, and interpret it. First we will build models that contain only the independent predictors. Then we will add onto the model the interaction term. We will use a model comparison routine to look support decision making as to which model is a better fit for the data.</p>
-</section>
-<section id="the-multilple-regression-equation" class="level2">
-<h2 class="anchored" data-anchor-id="the-multilple-regression-equation">The Multilple Regression Equation</h2>
-<section id="multiple-regression-with-only-independent-predictors" class="level3">
-<h3 class="anchored" data-anchor-id="multiple-regression-with-only-independent-predictors">Multiple Regression With Only Independent Predictors</h3>
-<p>Keep the model for multiple regression in mind:</p>
-<p>You have seen the two predictor regression model equation before:</p>
-<p><span class="math display">\[
-Y_i = b_0 + b_1 * X_1 + b_2*X_2 + e_i
-\]</span></p>
-</section>
-<section id="multiple-regression-with-independent-predictors-interaction-term" class="level3">
-<h3 class="anchored" data-anchor-id="multiple-regression-with-independent-predictors-interaction-term">Multiple Regression With Independent Predictors &amp; Interaction Term</h3>
-<p>A small extension includes the product of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> multiplied by a further beta coefficient</p>
-<p><span class="math display">\[
-Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*(X_1*X_2) +e_i
-\]</span> - <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> can be categorical predictors, continuous predictors or a mix of each.</p>
-</section>
-</section>
-<section id="visualise-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="visualise-the-data">Visualise The Data</h2>
-<p>The data set is retrieved from https://github.com/avehtari/ROS-Examples/tree/master/KidIQ/</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  kid_score mom_hs mom_iq mom_age
-      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1        65      1  121.       27
-2        98      1   89.4      25
-3        85      1  115.       27
-4        83      1   99.4      25
-5       115      1   92.7      27
-6        98      0  108.       18</code></pre>
-</div>
-</div>
-<ul>
-<li>kid_score = test score @ 3 yrs of age = outcome variable</li>
-<li>mom_hs = a categorical variable. At the moment, R is seeing it as numerical so we can use it as an indicator variable. 1 = kid’s mom completed high school, 0 = kid’s mom did not complete high school.</li>
-<li>mom_iq = the IQ score of the kid’s mom</li>
-<li>mom_age = mother’s age at the time of birth</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d) <span class="co"># look at means and ranges within each variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># d &lt;- read_csv("KidIQ.txt", col_types = cols(mom_work = col_skip()))</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   kid_score         mom_hs           mom_iq          mom_age     
  Min.   : 20.0   Min.   :0.0000   Min.   : 71.04   Min.   :17.00  
@@ -711,43 +510,160 @@ Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*(X_1*X_2) +e_i
  Max.   :144.0   Max.   :1.0000   Max.   :138.89   Max.   :29.00  </code></pre>
 </div>
 </div>
-<p>Right now, the R environment sees all the variables as numeric, (blue button also). Lets visualise the variables now and have a look at the relationships between them:</p>
-<p>When using this code, the c(2:4) part is calling the numeric columns of the dataset. Notice that I don’t include kid_score in this group. That’s because I am going to use this as the outcome variable.</p>
-<section id="graphical-visualisation" class="level3">
-<h3 class="anchored" data-anchor-id="graphical-visualisation">Graphical Visualisation</h3>
+<p>There are 434 observations over four variables. A simple dataset for our demonstration. We have:</p>
+<ul>
+<li><code>kid_score</code>: a continuous variable of test scores for children at 3 years-of-age; this is the outcome variable for this dataset</li>
+<li><code>mom_hs</code>: a categorical variable describing whether the mother of the 3-year-old complete their high school education or not. Two levels: 0 = no; 1 = yes</li>
+<li><code>mom_iq</code>: a continuous variable of IQ scores of the mothers in this sample. The mean in this sample is 100 - which reflects the wider population average</li>
+<li><code>mom_age</code>: a continuous variable of age in years, captured at the time of testing of the child.</li>
+</ul>
+</section>
+<section id="tidy" class="level3">
+<h3 class="anchored" data-anchor-id="tidy">Tidy</h3>
+<p>From the summary above, it appears to be a tidy dataset in as much as there are no missing observations. Woohoo!</p>
+<p>However, <code>mom_hs</code> is currently viewed by R as a numerical variable, when it is a categorical variable. For clarity, lets transform this now before visualising the dataset</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.Correlation</span>(d[, <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)], <span class="at">histogram=</span><span class="cn">TRUE</span>, <span class="at">pch=</span><span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>mom_hs <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(d<span class="sc">$</span>mom_hs)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   kid_score     mom_hs      mom_iq          mom_age     
+ Min.   : 20.0   0: 93   Min.   : 71.04   Min.   :17.00  
+ 1st Qu.: 74.0   1:341   1st Qu.: 88.66   1st Qu.:21.00  
+ Median : 90.0           Median : 97.92   Median :23.00  
+ Mean   : 86.8           Mean   :100.00   Mean   :22.79  
+ 3rd Qu.:102.0           3rd Qu.:110.27   3rd Qu.:25.00  
+ Max.   :144.0           Max.   :138.89   Max.   :29.00  </code></pre>
+</div>
+</div>
+<p>With that small change, we can see the <code>mom_hs</code> much more clearly. But still, a picture speaks a thousand words…</p>
+</section>
+<section id="visualise" class="level3">
+<h3 class="anchored" data-anchor-id="visualise">Visualise</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bar charts for categorical variables</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>p_hs <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> mom_hs, <span class="at">fill =</span> mom_hs)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (so called) continuous variables</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>p_score <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> kid_score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()<span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>p_iq <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()<span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>p_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(mom_age)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()<span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p_score, p_hs, p_iq, p_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week3_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Even though R sees all the variables as numeric, you can clearly see the binary structure of the <code>mom_hs</code> variable with two levels at 0 and 1, and that the values are not evenly split within the variable.</p>
+<p>I have visualised the outcome variable here aswell, to help us get to know a little more about it. Notice also how I have used histograms rather than a smooth density plot for the continuous variables, because they are measured in whole points; there are no fractions of points in these measures. So we can still see the distributoin of the values, but using a histogram may remind you that the granularity of the measurement is in whole units, with no decimal values (not like something like milliseconds, for instance).</p>
+<p>Hopefully, after last week’s lecture you will see that the continuous variables all show a pretty tolerable normal curve. You might say that there is a slight negative skew on the kid score and a slight positive skew on the mom_iq, but nothing too drastic.</p>
+<p>But look at the <code>mom_hs</code> variable. It is unbalanced - thankfully. Within the group, I hope we all appreciate the value of a basic education. So, within the sample, the mother’s who completed their high school education are represented more than mothers who did not complete thrie high shcool education, at an approximate ratio of 3:1. Quick check - what kind of transformation is indicated here (based on last week’s learning)?</p>
+</section>
+<section id="correlations-between-continuous-variables" class="level3">
+<h3 class="anchored" data-anchor-id="correlations-between-continuous-variables">Correlations between continuous variables</h3>
+<p>Because we have multiple predictors of a continuous variables, we may choose to look at (and put a less garish version of) a correlation matrix to understand correlations between pairs of variables before modelling.</p>
+<p>Here, I have left in the outcome variable <code>kid_score</code>. You can leave it in or out. It is just for getting to know the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>mom_hs) <span class="co"># how many values are in each level of mom_hs?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.Correlation</span>(d[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)], <span class="at">histogram=</span><span class="cn">TRUE</span>, <span class="at">pch=</span><span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reading the correlation matrix
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Starting from the top left: From <code>kid_score</code>, move one square to the right and you get <em>r</em> = .45; then move one square down and you hit <code>mom_iq</code>. <em>r</em> = .45 is the correlation between those two variables</p>
+<p>From <code>kid_score</code>, move two squares to the right and you get <em>r</em> = .092; then move two squares down and you hit <code>mom_age</code>. <em>r</em> = .092 is the correlation between those two variables</p>
+<p>However many squares you count across, count the same amount of squares down to find the paired variable.</p>
+</div>
+</div>
+<p>I am going to leave the majority of the interpretation of this matrix to you for practice, but note one thing. The predictor <code>mom_age</code> is only weakly correlated with both <code>mom_iq</code> and the outcome variable, <code>kid_score</code>. Any thoughts on the whether it will be a significant predictor in a multiple regression model?</p>
+</section>
+<section id="transform" class="level3">
+<h3 class="anchored" data-anchor-id="transform">Transform</h3>
+<p>I have an unbalanced variable, <code>mom_hs</code>, so I want to transform this variable. I choose to <code>centre</code> the variable. And by doing so, I should do it for <code>mom_iq</code> and <code>mom_age</code>, to aid with interpretation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>mom_hs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   0   1 
  93 341 </code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="model" class="level2">
-<h2 class="anchored" data-anchor-id="model">Model</h2>
-<p>Progress in school is often talked about as better for children whose parents value school. We could use the variable <code>mom_hs</code> as a proxy measure for this. We can see from the <code>table()</code> function above that there are almost 4 times as many parents who completed high school than didn’t in the dataset - an unbalanced variable. But before we do that, lets begin to build some models. Lets construct an intercept only or an empty model and see what the average 3 year old test score for this sample is:</p>
-<p>An intercept only model is basically a model for the average test score: you can test this by calculating the mean before you model:</p>
+<p>Completing high school = 1 here.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>kid_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make mom_hs a numeric variable</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>mom_hs_c <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(d<span class="sc">$</span>mom_hs <span class="sc">==</span> <span class="st">"1"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d<span class="sc">$</span>mom_hs_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  1.0000  1.0000  0.7857  1.0000  1.0000 </code></pre>
+</div>
+</div>
+<p>The mean is quite high because of the greater quantity of 1 values in the variable; so when we mean centre, we will subtract 0.7857 from every observation. Consequently, the group of mothers who did not complete high school will be negative values (0-0.7857), while the mothers who did complete high school will be positive numbers (1-0.7857).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now complete the rescaling by taking the mean away from every observation</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>mom_hs_c <span class="ot">&lt;-</span> d<span class="sc">$</span>mom_hs_c <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>mom_hs_c)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d<span class="sc">$</span>mom_hs_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-0.7857  0.2143  0.2143  0.0000  0.2143  0.2143 </code></pre>
+</div>
+</div>
+<p>Repeat the centring with the two continuous variables. You don’t need to do the <code>ifelse</code> command in this case, as they are already numeric variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>mom_iq_c <span class="ot">&lt;-</span> d<span class="sc">$</span>mom_iq <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>mom_iq)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>mom_age_c <span class="ot">&lt;-</span> d<span class="sc">$</span>mom_age <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>mom_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What do the predictor variables mean now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember under raw data, any regression coefficient is the change in the outcome variable for a one unit / level increase in the predictor variable <em>when all other predictors are at zero</em></p>
+<p>Now we have mean centred, the interpretation changes: any regression coefficient now represents a change in the outcome variable for a one unit / level increase in the predictor variable <em>when all other predictors are at their sample average</em></p>
+</div>
+</div>
+<p>Scroll back up to the visualisations for the raw data to look for the average IQ score and Age, from the middle of the plots’ x-axes. It is good to have a real number in your head to make sense of the models.</p>
+<p>We are ready to build our first model.</p>
+</section>
+<section id="model" class="level3">
+<h3 class="anchored" data-anchor-id="model">Model</h3>
+<p>I said I was going to introduce you to the practice of nested modelling in this lecture. We start this by building the first model: The intercept only model, or an empty model. It is also sometimes called the null model, however the definition of a null model is not fixed. A null model can also be a baseline model from which you measure change, and does not necessarily have to be an empty model. While an empty model will always be an empty model because it has no predictors. An intercept model will always be an intercept only model because it only models the intercept.</p>
+<section id="the-empty-intercept-only-model" class="level4">
+<h4 class="anchored" data-anchor-id="the-empty-intercept-only-model">The Empty / Intercept Only Model</h4>
+<p>We can express an empty or intercept only model like this:</p>
+<p><span class="math display">\[
+Y = b_0 + e
+\]</span></p>
+<p>The empty or intercept only model for any dataset expresses its mean value of the outcome variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>kid_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 86.79724</code></pre>
 </div>
 </div>
+<p>And here is the model as a regression model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span>, d)) <span class="co"># putting just 1 = estimate the intercept.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span>, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -766,501 +682,679 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Residual standard error: 20.41 on 433 degrees of freedom</code></pre>
 </div>
 </div>
-<p>With no other predictors, the average test score is 86. We can reject the null hypothesis that the kids score is zero (one sample t(433) = 88.59, <em>p</em> &lt; .001)</p>
-<p>Lets build another model: Above we discussed how a parent’s value or belief in education is theorised to predict their offspring’s progress. We have operationalised this theory by having the <code>mom_hs</code> variable predict the <code>kid_score</code> outcome variable: completing high school represents behaviour that shows a belief in education.</p>
-<p>Before we do - think about how R sees this binary variable - two levels - 0 and 1, with the lowest numerical value being estimated in the intercept.</p>
+<p>The regression coefficient matches the raw mean value I called above. So at this point, we can say that in the sample, the average score for a 3 year old child is approximately 87 points.</p>
+</section>
+<section id="a-simple-regression---one-predictor" class="level4">
+<h4 class="anchored" data-anchor-id="a-simple-regression---one-predictor">A Simple Regression - one predictor</h4>
+<p>Let’s add <code>mom_iq</code>. To demonstrate how model <code>m0</code> is nested inside this larger model, I will write the formula out in words</p>
+<p><span class="math display">\[
+Model zero: Kid\_score = Intercept + error
+\]</span></p>
+<p><span class="math display">\[
+model one: Kid\_score = Intercept + Mom's IQ + error
+\]</span></p>
+<p>Hopefully, you can see how the first model is in the second model. The change in the second model is the addition of one variable. I call my model <code>m1_c</code> because it has one predictor and it is a centred model.</p>
+<p>Here is the equation for the model - for those of you that like the numbers part:</p>
+<p><span class="math display">\[
+Y = b_0 + b_1 * X_{mom\_iq} + e
+\]</span></p>
+<p>Here is the code for this one predictor model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs, d)) <span class="co"># by default, lm() will model the "1" so it does not needed to be hard coded when other predictors are present</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1_c <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = kid_score ~ mom_hs, data = d)
+lm(formula = kid_score ~ 1 + mom_iq_c, data = d)
 
 Residuals:
-   Min     1Q Median     3Q    Max 
--57.55 -13.32   2.68  14.68  58.45 
+    Min      1Q  Median      3Q     Max 
+-56.753 -12.074   2.217  11.710  47.691 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   77.548      2.059  37.670  &lt; 2e-16 ***
-mom_hs        11.771      2.322   5.069 5.96e-07 ***
+(Intercept) 86.79724    0.87680   98.99   &lt;2e-16 ***
+mom_iq_c     0.60997    0.05852   10.42   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 19.85 on 432 degrees of freedom
-Multiple R-squared:  0.05613,   Adjusted R-squared:  0.05394 
-F-statistic: 25.69 on 1 and 432 DF,  p-value: 5.957e-07</code></pre>
+Residual standard error: 18.27 on 432 degrees of freedom
+Multiple R-squared:  0.201, Adjusted R-squared:  0.1991 
+F-statistic: 108.6 on 1 and 432 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>Remember that the mother’s who did not complete high school are represented in the intercept term, so the coefficient for <code>mom_hs</code> represents the difference in test scores between 3 year olds whose mothers did not and who did complete high school - a difference of approximately 12 points.</p>
+<p>Where are your eyes looking as you first scan the model output? The bottom line first:</p>
+<p>The model is significant (<em>F</em>(1, 432) = 108.6, <em>p</em> &lt;.001) and explains approximately 20% of the variance in children’s test scores.</p>
+<p>Next the regression coefficient:</p>
+<p>For every one point increase in Mother’s IQ, a child’s test score increases by 0.61 of a point (<em>t</em> = 10.42, <em>p</em> &lt; .001).</p>
 </section>
-<section id="transform" class="level2">
-<h2 class="anchored" data-anchor-id="transform">Transform</h2>
-<p>But the variable was unbalanced, remember. Ninety-three moms had not completed high school compared to 341 who had, and it was recommended by Gelman and colleagues (2020) to code those variables as 0 and 1 and then take away the mean - effectively centring your binary categorical variable:</p>
+<section id="how-do-we-judge-that-any-model-is-a-better-fit-than-any-other-model" class="level4">
+<h4 class="anchored" data-anchor-id="how-do-we-judge-that-any-model-is-a-better-fit-than-any-other-model">How do we judge that any model is a better fit than any other model?</h4>
+<p>For models that are based <strong>on the same data</strong>, we can perform a test to see if the change in amount of variance explained from the smaller model to the larger model is significantly different.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>c_mom_hs <span class="ot">&lt;-</span> d<span class="sc">$</span>mom_hs <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>mom_hs) <span class="co"># mean centring mom_hs</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d<span class="sc">$</span>c_mom_hs) <span class="co"># positive values = mom completed high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  0.2142857  0.2142857  0.2142857  0.2142857  0.2142857 -0.7857143</code></pre>
-</div>
-</div>
-</section>
-<section id="model-1" class="level2">
-<h2 class="anchored" data-anchor-id="model-1">Model</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1_c <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> c_mom_hs, d)) <span class="co"># by default, lm() will model the "1" so it does not needed to be hard coded when other predictors are present</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = kid_score ~ c_mom_hs, data = d)
-
-Residuals:
-   Min     1Q Median     3Q    Max 
--57.55 -13.32   2.68  14.68  58.45 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   86.797      0.953  91.082  &lt; 2e-16 ***
-c_mom_hs      11.771      2.322   5.069 5.96e-07 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 19.85 on 432 degrees of freedom
-Multiple R-squared:  0.05613,   Adjusted R-squared:  0.05394 
-F-statistic: 25.69 on 1 and 432 DF,  p-value: 5.957e-07</code></pre>
-</div>
-</div>
-<p>Now the intercept is for test scores with mom’s high school completion at their mid value: the average value of <code>kid_score</code> has returned, because the intercept reflects the average when the predictors are at 0 - the grand mean.</p>
-<p>Lets do the math: predicted kid score = intercept + (<span class="math inline">\(b_1\)</span> * mom_hs status):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fl">86.797</span> <span class="sc">+</span> (<span class="fl">11.771</span> <span class="sc">*</span> <span class="fl">0.2142857</span>) <span class="co"># predicted score for child who mom completed hs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 89.31936</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fl">86.797</span> <span class="sc">+</span> (<span class="fl">11.771</span> <span class="sc">*</span> <span class="sc">-</span><span class="fl">0.7857143</span>) <span class="co"># predicted score for child whose mom did not complete hs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 77.54836</code></pre>
-</div>
-</div>
-<p>The predicted score for children whose mom didn’t complete high school in model 1_c is the same as the predicted score in model 1 where the intercept reflects that group.</p>
-</section>
-<section id="communicate" class="level2">
-<h2 class="anchored" data-anchor-id="communicate">Communicate</h2>
-<p>If this was the only model we constructed, we could interpret the model like this:</p>
-<p>Our model of mother’s high school predicting test scores is significant (F(1, 432) = 25.69, <em>p</em> &lt; .001). The proportion of variance on test scores explained by the model is approximately 6%. Mother’s educational status significantly predicts kids’ test scores (t = 5.07, <em>p</em> &lt; .001). We can reject the null hypothesis that the status of mom’s high school education has no effect on kids_score. The difference between a child’s test score when mom did not complete high school and a child’s test score when mom did complete high school is 11.77 points.</p>
-<p>When you get a model output, try interpreting it and writing it out. You can use the above as a template / model upon which to base your early attempts. If you are unsure about what happens, compute the maths.</p>
-<section id="comparing-models" class="level3">
-<h3 class="anchored" data-anchor-id="comparing-models">Comparing models</h3>
-<p>But when we make a series of models, we don’t interpret every model fully each time. Before we interpret a model, we need to make a decision about which is the better model.</p>
-<p>Two ways of thinking about making a series of regression models:</p>
-<p>1: A principled method is to construct the model that is indicated by the research questions and report that model. This may be in the context of a confirmatory analysis or be regarded as a theory guided approach.</p>
-<p>2: When a line of research is very new, data may be collected in an exploratory research framework. The data may be analysed to reveal patterns that then lead to research questions and confirmatory research designs. Model comparison is a method that can guide model choice. Essentially, it will help you decide if a more complex model (a model with more predictors or independent &amp; interaction terms) is warranted.</p>
-<p><code>m0</code> above is an intercept model. <code>m1</code> and <code>m1_c</code> are equivalent models - it’s just that the predictor has been transformed in <code>m1_c</code>. These are models with the intercept term plus one predictor. <code>m1</code> is the more complex model of the two.</p>
-<p>It is much better to choose a simpler model when two models differ only on the number of predictors but pretty much explain the same amount of variance in the outcome variable.</p>
-<p>The difference between <code>m0</code> and the others seems to be about 5% of the explained variance (m1 <span class="math inline">\(R^2\)</span> = 5%), so they seem to be doing a better job of predicting test scores. But we can check this using an inferential test.</p>
-<p>We can check how models compare to each other using the <code>anova()</code> function: I will demonstrate first rather than explain so that we have something concrete to refer to:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m0, m1) <span class="co"># test for a difference between the models</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m0, m1_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
 Model 1: kid_score ~ 1
-Model 2: kid_score ~ mom_hs
-  Res.Df    RSS Df Sum of Sq     F    Pr(&gt;F)    
-1    433 180386                                 
-2    432 170261  1     10125 25.69 5.957e-07 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-<p>The output shows an analysis of variance table - you have seen these before. Our two models are model 0 and model 1 in the raw variables, look at the formula lines of <code>Model 1</code> and <code>Model 2</code>, and the <code>anova</code> function has used each of the models as if they are factors, like in an ANOVA study.</p>
-<p>The degrees of freedom are from the models, as are the residual sums of squares (RSS):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>metrics_m0 <span class="ot">&lt;-</span> <span class="fu">augment</span>(m0)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>metrics_m0<span class="sc">$</span>RSS <span class="ot">&lt;-</span> metrics_m0<span class="sc">$</span>.resid<span class="sc">*</span>metrics_m0<span class="sc">$</span>.resid</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(metrics_m0<span class="sc">$</span>RSS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 180386.2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>metrics_m1 <span class="ot">&lt;-</span> <span class="fu">augment</span>(m1)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>metrics_m1<span class="sc">$</span>RSS <span class="ot">&lt;-</span> metrics_m1<span class="sc">$</span>.resid<span class="sc">*</span>metrics_m1<span class="sc">$</span>.resid</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(metrics_m1<span class="sc">$</span>RSS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 170261.2</code></pre>
-</div>
-</div>
-<p>And the <em>F</em> ratio tests calculates the difference between these two values, to see if the difference in the variance explained is significantly different from zero.</p>
-<p>I said to you that the models <code>m1</code> and <code>m1_c</code> were equivalent. Lets check the ANOVA table for the model <code>m1_c</code> in comparison with <code>m1</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1, m1_c) <span class="co"># test for a difference between the models</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Model 1: kid_score ~ mom_hs
-Model 2: kid_score ~ c_mom_hs
-  Res.Df    RSS Df  Sum of Sq F Pr(&gt;F)
-1    432 170261                       
-2    432 170261  0 2.9104e-11         </code></pre>
-</div>
-</div>
-<p>There is no difference.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m0, m1_c) <span class="co"># test for a difference between the models</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Model 1: kid_score ~ 1
-Model 2: kid_score ~ c_mom_hs
-  Res.Df    RSS Df Sum of Sq     F    Pr(&gt;F)    
-1    433 180386                                 
-2    432 170261  1     10125 25.69 5.957e-07 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-<p>And the comparison between <code>m0</code> and <code>m1_c</code> gives exactly the same output as the ANOVA for <code>m0</code> and <code>m1</code>.</p>
-<p>To interpret these kinds of model comparison tests:</p>
-<p>Model 1 is the first model in the list that we give to the ANOVA function, Model 2 is the second, and so on. We need to check that one of the models differs from the other model in complexity by checking the <code>Df</code> column. Here, it reads as 1 so model two is more complex by one predictor. And then we see that the <em>p</em> value is &lt; .001. The variance explained by adding the additional predictor is significantly different from the variance explained by the smaller model. The significant difference, justifies the added complexity, so the more complex model is preferred.</p>
-<p>And then we choose whether we build another model. Can you see how the visualise - transform - model cycle iterates again and again in the analysis workflow?</p>
-<p>Next we’ll add <code>mom_age</code> at birth of the child. I am choosing to do this, reasoning that the it may be more likely for younger mothers to have not completed high school. What is the range of the age of mom’s at the time they had their children?</p>
-</section>
-</section>
-<section id="visualise-1" class="level2">
-<h2 class="anchored" data-anchor-id="visualise-1">Visualise</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(d<span class="sc">$</span>mom_age) <span class="co"># show the minimum and maximum values in mom_age</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 17 29</code></pre>
-</div>
-</div>
-<p>This is a feasible relationship. American high school finishes at 18 years of age.</p>
-<p>Because we have centred the first variable, it makes sense to centre this variable also. And, the intercept term would otherwise represent age at 0 years, which also doesn’t make sense, right?</p>
-</section>
-<section id="transform-1" class="level2">
-<h2 class="anchored" data-anchor-id="transform-1">Transform</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>c_mom_age <span class="ot">&lt;-</span> d<span class="sc">$</span>mom_age <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>mom_age) <span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>And then build a new model by adding it to the previous model formula:</p>
-</section>
-<section id="model-2" class="level2">
-<h2 class="anchored" data-anchor-id="model-2">Model</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2_c <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> c_mom_hs <span class="sc">+</span> c_mom_age, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = kid_score ~ c_mom_hs + c_mom_age, data = d)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--57.980 -12.545   2.057  14.709  59.325 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  86.7972     0.9532  91.063  &lt; 2e-16 ***
-c_mom_hs     11.3112     2.3783   4.756  2.7e-06 ***
-c_mom_age     0.3261     0.3617   0.902    0.368    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 19.86 on 431 degrees of freedom
-Multiple R-squared:  0.05791,   Adjusted R-squared:  0.05353 
-F-statistic: 13.25 on 2 and 431 DF,  p-value: 2.614e-06</code></pre>
-</div>
-</div>
-<p>So for every year that a child’s mother is older than the average aged mother, the child’s test score is increased by 0.32 of a point. The effect is non-significant (<em>p</em> = .368).</p>
-<p>I’m betting that <code>m2</code> is not a better model than <code>m1_c</code> given the weak prediction that <code>c_mom_age</code> seems to have on kid’s score.</p>
-<p>We check again with a model comparison:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1_c, m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Model 1: kid_score ~ c_mom_hs
-Model 2: kid_score ~ c_mom_hs + c_mom_age
-  Res.Df    RSS Df Sum of Sq     F Pr(&gt;F)
-1    432 170261                          
-2    431 169941  1    320.54 0.813 0.3678</code></pre>
-</div>
-</div>
-<p>So, very quickly we have a demonstration of when a model comparison shows that the more complex model does not do a better job of explaining variance in the outcome variable. With a <em>p</em> = .368, we fail to reject a null hypothesis of no difference and the simpler model, <code>m1_c</code>, remains the preferred model.</p>
-<p>You probably already knew that by looking at <code>m2_c</code>’s <span class="math inline">\(R^2\)</span> value ,(m2_c <span class="math inline">\(R^2\)</span> = 5.8%), but the inferential test makes it official.</p>
-<p>And, if you think about it - there could be an explanation. The “value” of school to the “mom” is in the first variable. And the lower values of the age range are 17 and 18 - which suggests that there are observations in the data that represent mums who didn’t finish school - both variables contain a similar <em>type</em> of information.</p>
-<p>The visualisation of the data we did earlier, hints at this; lets repeat this again to have a closer look:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.Correlation</span>(d[, <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)], <span class="at">histogram=</span><span class="cn">TRUE</span>, <span class="at">pch=</span><span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>if we change the code, ever so slightly, we can remove mom’s iq from the image so that the information stands out to you:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.Correlation</span>(d[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)], <span class="at">histogram=</span><span class="cn">TRUE</span>, <span class="at">pch=</span><span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><code>mom_hs</code> and <code>mom_age</code> at birth have a small correlation of <em>r</em> = 0.21. Which tells you that the two variables are measuring a similar construct to a weak extent.</p>
-<p>The astute student is going “yeah but they’re not the variables in the model - we used the centred variables.”</p>
-<p>A quick change from c(2, 4) to c(5, 6) to select the matching columns for those variables:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.Correlation</span>(d[, <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>)], <span class="at">histogram=</span><span class="cn">TRUE</span>, <span class="at">pch=</span><span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Remember - centring and standardising your variables does not change the relationships between your variables. It changes how your model works with the data and makes your model easier to interpret.</p>
-</section>
-<section id="adding-mom_iq" class="level2">
-<h2 class="anchored" data-anchor-id="adding-mom_iq">Adding <code>mom_iq</code></h2>
-<p>Let’s add <code>mom_iq</code>, because a supporting hypothesis could be that mom’s IQ is a hereditary trait? Or even that given a level of IQ, mom’s completion of high school is affected which in turn may predict test scores…</p>
-</section>
-<section id="transform-using-a-population-mean-rather-than-the-variable-mean" class="level2">
-<h2 class="anchored" data-anchor-id="transform-using-a-population-mean-rather-than-the-variable-mean">Transform using a population mean rather than the variable mean</h2>
-<p>..and again, we can centre the variable. IQ has a meaningful mean at the population level (100) - so we could use that value to mean centre <code>mom_iq</code> (and it just so happens that the mean of the sample is identical: sample mean = 100).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>c_mom_iq <span class="ot">&lt;-</span> d<span class="sc">$</span>mom_iq <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>mom_iq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="model-3" class="level2">
-<h2 class="anchored" data-anchor-id="model-3">Model</h2>
-<p>So now the intercept reflects the test score for the child at the average level of high school completion, average age and average IQ for the mothers.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> c_mom_hs <span class="sc">+</span> c_mom_age <span class="sc">+</span> c_mom_iq, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = kid_score ~ c_mom_hs + c_mom_age + c_mom_iq, data = d)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--53.289 -12.421   2.399  11.223  50.169 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 86.79724    0.87108  99.643   &lt;2e-16 ***
-c_mom_hs     5.64715    2.25766   2.501   0.0127 *  
-c_mom_age    0.22475    0.33075   0.680   0.4972    
-c_mom_iq     0.56254    0.06065   9.276   &lt;2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 18.15 on 430 degrees of freedom
-Multiple R-squared:  0.215, Adjusted R-squared:  0.2095 
-F-statistic: 39.25 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<p>With the addition of the <code>c_mom_iq</code>, the model remains significant and a larger amount of variance is explained (21.5%). <code>c_mom_iq</code> is also a significant predictor in the model (t = 9.276, <em>p</em> &lt; .001). It shows a positive relationship with kids score, with every point increase in IQ, a kid’s score improves by 0.6 points. Also, look at what has happened to the other coefficients - reduced in size. <code>c_mom_iq</code>, while having its own independent effect, seems to have an effect upon the other coefficients - suggestive of interactions.</p>
-</section>
-<section id="model-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="model-comparison">Model comparison</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1_c, m3_c) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Model 1: kid_score ~ c_mom_hs
-Model 2: kid_score ~ c_mom_hs + c_mom_age + c_mom_iq
+Model 2: kid_score ~ 1 + mom_iq_c
   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
-1    432 170261                                  
-2    430 141605  2     28656 43.509 &lt; 2.2e-16 ***
+1    433 180386                                  
+2    432 144137  1     36249 108.64 &lt; 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>I have performed model comparison using <code>m1_c</code> rather than <code>m2_c</code>, because the last model comparison showed that <code>m2_c</code> was not a better model fit for the data. We could have removed the <code>c_mom_age</code> variable, but I had a feasible reason for it to be included, and it feels like <em>p</em>-hacking to put it in and then take it out just because it was not significant.</p>
-<p>Anyway, <code>m3_c</code> is a significantly better fit than <code>m1_c</code> (<em>F</em>(2, 430) = 43.51, <em>p</em> &lt; .001), so we will take this one forward as the new preferred model and introduce an interaction term.</p>
+<p>This is how we do it - we call an <code>anova</code> on the two models. Look at the output</p>
+<p>From the top of the output, we have</p>
+<ul>
+<li>the title of the output</li>
+<li>the next two lines repeat the model formulae</li>
+<li>Beginning with the fourth line, we are presented with an ANOVA table
+<ul>
+<li>What is important in these lines is:</li>
+<li>the number 1 line is for Model 1 in the table (not your model 1)</li>
+<li>the number 2 line is for Model 2 in th table</li>
+<li>you want to look at the <em>p</em> value; if the <em>p</em> value is lower than &lt; .05, then the difference in the amount of variance explained on the outcome variable between the two models is larger than zero. And the addition of that new variable (here <code>mom_iq</code>) is warranted.</li>
+</ul></li>
+</ul>
 </section>
-<section id="adding-an-interaction-term" class="level2">
-<h2 class="anchored" data-anchor-id="adding-an-interaction-term">Adding an interaction term</h2>
-<p>It felt like a long time getting here - sorry about that, but think about it - the steps along the way have been like setting up your different levels of ANOVA, and that took a couple of weeks too.</p>
-<p>For instance:</p>
-<p>M1 = one way ANOVA M2 = if you had young and old groups for age, instead of a continuum of age, you would have a two way ANOVA M3 = similarly, if you had low and high IQ, instead of a continuum, you would have three factors and a three way ANOVA</p>
-<p>Hopefully you can see how ANOVA and regression are linked. Not quite equivalent but linked.</p>
-<p>We will introduce the interaction between the centred variables of <code>c_mom_hs</code> and <code>c_mom_iq</code>. We write it like this: <code>c_mom_hs:c_mom_iq</code>. This piece of code is <em>transforming</em> two variables into one interaction term in the model.</p>
-</section>
-<section id="model-4" class="level2">
-<h2 class="anchored" data-anchor-id="model-4">Model</h2>
+<section id="a-multiple-regression-with-two-independent-predictors" class="level4">
+<h4 class="anchored" data-anchor-id="a-multiple-regression-with-two-independent-predictors">A Multiple Regression with Two Independent Predictors</h4>
+<p>Based upon the model comparison that we conducted, <code>m1_c</code> has greater predictive value than <code>m0</code>, so we will carry <code>m1_c</code> forward and introduce another predictor in <code>m2_c</code>. We could now think of <code>m1_c</code> as a null model, because it is the base model with which we will eventually compare <code>m2_c</code>.</p>
+<p>We continue with our nesting principle, incrementally building a model, one predictor at a time so that the smaller mode is always present in the larger model. Importantly, we are running all of these models on the same data so that we can use the model comparison technique.</p>
+<p><span class="math display">\[
+model one: Kid\_score = Intercept + Mom's IQ + error
+\]</span></p>
+<p><span class="math display">\[
+model two: Kid\_score = Intercept + Mom's IQ + Mom's Age + error
+\]</span></p>
+<p>These two predictors are independent of each other. We are hoping they will each predict a singificant amount of <em>unique</em> variance on Children’s test scores. We can express a model with two independent predictors like this</p>
+<p><span class="math display">\[
+Y = b_0 + b_1 * X_{mom\_iq} + b_2*X_{mom\_age} + e
+\]</span></p>
+<p>And we can draw it like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Wk3/Diagram_Ind_Predictors.png" class="img-fluid figure-img"></p>
+<figcaption>Diagram of Independent Predictors</figcaption>
+</figure>
+</div>
+<p>And the code for a model could look like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>(m4_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(m4_c <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> c_mom_hs <span class="sc">+</span> </span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>                                  c_mom_age <span class="sc">+</span> </span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>                                  c_mom_iq <span class="sc">+</span> </span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>                                  c_mom_hs<span class="sc">:</span>c_mom_iq, d))) <span class="co"># save the output for use in inline code for the model reporting</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2_c <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c <span class="sc">+</span> mom_age_c, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = kid_score ~ c_mom_hs + c_mom_age + c_mom_iq + c_mom_hs:c_mom_iq, 
-    data = d)
+lm(formula = kid_score ~ 1 + mom_iq_c + mom_age_c, data = d)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--52.709 -11.394   1.939  11.268  43.839 
+-56.941 -12.493   2.257  11.614  46.711 
 
 Coefficients:
-                  Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)       87.67680    0.90811  96.549  &lt; 2e-16 ***
-c_mom_hs           2.22584    2.49372   0.893  0.37258    
-c_mom_age          0.35236    0.33008   1.068  0.28634    
-c_mom_iq           0.58735    0.06058   9.695  &lt; 2e-16 ***
-c_mom_hs:c_mom_iq -0.50607    0.16347  -3.096  0.00209 ** 
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 86.79724    0.87638   99.04   &lt;2e-16 ***
+mom_iq_c     0.60357    0.05874   10.28   &lt;2e-16 ***
+mom_age_c    0.38813    0.32620    1.19    0.235    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 17.97 on 429 degrees of freedom
-Multiple R-squared:  0.2321,    Adjusted R-squared:  0.225 
-F-statistic: 32.42 on 4 and 429 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 18.26 on 431 degrees of freedom
+Multiple R-squared:  0.2036,    Adjusted R-squared:  0.1999 
+F-statistic: 55.08 on 2 and 431 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>Before we interpret anything, lets see if adding the interaction term is justified by performing the model comparison:</p>
+<p>Because I am building multiple models, before I rush to formally interpret this, I am going to perform my model comparison. This time I am going to compare <code>m1_c</code> with <code>m2_c</code>. We don’t need to worry about comparing the intercept only model because it was shown to be the weaker model in our last model comparison.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m3_c, m4_c) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1_c, m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
-Model 1: kid_score ~ c_mom_hs + c_mom_age + c_mom_iq
-Model 2: kid_score ~ c_mom_hs + c_mom_age + c_mom_iq + c_mom_hs:c_mom_iq
+Model 1: kid_score ~ 1 + mom_iq_c
+Model 2: kid_score ~ 1 + mom_iq_c + mom_age_c
+  Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
+1    432 144137                           
+2    431 143665  1     471.9 1.4157 0.2348</code></pre>
+</div>
+</div>
+<p>As before, from the top of the table:</p>
+<ul>
+<li>the first line is the title</li>
+<li>the second line is the formula for the base model in this comparison</li>
+<li>the third line is the formula for the larger model in this comparison</li>
+<li>then we have the table itself - look for the <em>p</em> value:
+<ul>
+<li>if it is lower than &lt; .05, then the difference in the amount of change in the outcome variable between the two models is significant and the addition of the extra variable is warranted.</li>
+</ul></li>
+</ul>
+<p>This comparison between models <code>m1_c</code> and <code>m2_c</code> shows a <em>p</em> value of 0.235. The difference between the models is non-significant. The addition of <code>mom_age_c</code> to the model does not significantly increase the amount of variance explained and so to include this variable in the next stage of model building is not warranted.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Is you non-significant predictor included in your hypotheses?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your non-significant predictor is included in any of your hypotheses, then, by design, you have to keep them in your model and fully report them as non-significant.</p>
+</div>
+</div>
+<p>So we will leave out <code>mom_age_c</code> in our next model. The next model, therefore, add the final predictor variable in our dataset, <code>mom_hs_c</code>, the variable that describes whether a child’s mom complete their high school education. We will reuse the <code>m2_c</code> label for the model because we still only have two independent predictors here.</p>
+<p><span class="math display">\[
+model one: Kid\_score = Intercept + Mom's IQ + error
+\]</span></p>
+<p><span class="math display">\[
+model two: Kid\_score = Intercept + Mom's IQ + Mom's HS status + error
+\]</span></p>
+<p>These two predictors are still independent of each other. We are hoping they will each predict a significant amount of <em>unique</em> variance on Children’s test scores. We can express this particular model with these two independent predictors like this</p>
+<p><span class="math display">\[
+Y = b_0 + b_1 * X_{mom\_iq} + b_2*X_{mom\_hs} + e
+\]</span></p>
+<p>Here is the code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2_c <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c <span class="sc">+</span> mom_hs_c, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = kid_score ~ 1 + mom_iq_c + mom_hs_c, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-52.873 -12.663   2.404  11.356  49.545 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 86.79724    0.87054  99.705  &lt; 2e-16 ***
+mom_iq_c     0.56391    0.06057   9.309  &lt; 2e-16 ***
+mom_hs_c     5.95012    2.21181   2.690  0.00742 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 18.14 on 431 degrees of freedom
+Multiple R-squared:  0.2141,    Adjusted R-squared:  0.2105 
+F-statistic: 58.72 on 2 and 431 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>And as before, because I am building a series of models, I will perform my model comparison before interpreting the model. This is a time-saving measure, as you may not want to spend time interpreting a larger model if the change in variance explained for the model is not significantly different from the smaller model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1_c, m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: kid_score ~ 1 + mom_iq_c
+Model 2: kid_score ~ 1 + mom_iq_c + mom_hs_c
   Res.Df    RSS Df Sum of Sq      F   Pr(&gt;F)   
-1    430 141605                                
-2    429 138511  1    3094.3 9.5838 0.002092 **
+1    432 144137                                
+2    431 141757  1    2380.2 7.2369 0.007419 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p><code>m4_c</code> has the interaction term as the model with added complexity. The difference between <code>m3_c</code> and <code>m4_c</code> is significant (F (1, 429) = 9.58, <em>p</em> = .002). <code>m4_c</code> is the preferred model.</p>
-</section>
-<section id="communicate-1" class="level2">
-<h2 class="anchored" data-anchor-id="communicate-1">Communicate</h2>
-<p>So what does the model output say? Lets reprint the summary to reduce the need for scrolling.</p>
+<p>I will forego running through the layout of the table this time. Suffice to say that the line that begins with “2” is the line with the <em>p</em> value for the comparison. It is less than .05 so we can conclude that the change in the amount of variance explained between the two models is significant and the inclusion of the variable <code>mom_hs_c</code> is warranted. As we continue to build larger models, we should carry this verion of model <code>m2_c</code> forward.</p>
+<p>So now we can interpret it - for practice. Let’s call the summary of model <code>m2_c</code> again to reduce the need for scrolling.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>m4_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = kid_score ~ c_mom_hs + c_mom_age + c_mom_iq + c_mom_hs:c_mom_iq, 
+lm(formula = kid_score ~ 1 + mom_iq_c + mom_hs_c, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-52.873 -12.663   2.404  11.356  49.545 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 86.79724    0.87054  99.705  &lt; 2e-16 ***
+mom_iq_c     0.56391    0.06057   9.309  &lt; 2e-16 ***
+mom_hs_c     5.95012    2.21181   2.690  0.00742 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 18.14 on 431 degrees of freedom
+Multiple R-squared:  0.2141,    Adjusted R-squared:  0.2105 
+F-statistic: 58.72 on 2 and 431 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The model is significant (<em>F</em>(2, 431) = 58.72, <em>p</em> &lt; .001) and the amount of variance explained for Children’s test scores is approximately 21%.</p>
+<p>Mother’s IQ and children’s test scores are positively associated. A one unit increase in IQ is significantly associated with an increase in test scores of 0.56 test points (<em>t</em> = 9.31, <em>p</em> &lt; .001). Whether the child’s mother completed high school or not is also positively related to test scores. The difference in test scores for a child whose mother did not complete high school and a child whose mother did complete high school is 5.95 points (<em>t</em> = 2.69, <em>p</em> = .007).</p>
+<p>If we run the mulitple regression model above, we may expect a plot of the regression to look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Wk3/Ind_Mul_Regression.png" class="img-fluid figure-img"></p>
+<figcaption>Regression with no interaction</figcaption>
+</figure>
+</div>
+<p>I have put the raw data values on the X-axis for the best way to communicate the scale. I have also used the raw mom_hs factor here, again for simplicity. Remember that the transformations we performed do not change the information within the data. So this is okay.</p>
+<p>As soon as we see a plot, lets take a moment to interpret it. What do we see:</p>
+<ul>
+<li>a scatterplot with two groups - signified by the two colours of black and grey dots
+<ul>
+<li>the legend shows black as 0 - the reference level here = mothers who did not complete high school</li>
+<li>and grey as 1 = mothers who completed high school</li>
+</ul></li>
+<li>Mother’s IQ score on the X-axis is predicting Child Test Score on the Y-axis</li>
+<li>The black line is lower than the grey line: the black line is for test scores of children whose mothers did not finish high school</li>
+<li>The grey line is higher than the black line: the grey line is for test scores of children whose mothers did finish high school</li>
+</ul>
+<p>We know two pieces of information, from looking at this plot:</p>
+<ol type="1">
+<li><p>For all children, irrespective of whether their mom finished high school or not, as the mom’s IQ score increases, so does the child’s test score.</p></li>
+<li><p>For children whose mothers finished high school, they get higher test scores than children whose mothers did not finish high school.</p></li>
+</ol>
+<p>Earlier, I said that these two predictors were independent of each other. We can see this in the plot because the effect for the difference in scores is constant across the range of IQ scores. The black and grey lines are parallel. And remain parallel across the span of the plot.</p>
+</section>
+<section id="a-multiple-regression-with-independent-predictors-and-an-interaction-term" class="level4">
+<h4 class="anchored" data-anchor-id="a-multiple-regression-with-independent-predictors-and-an-interaction-term">A Multiple Regression with Independent Predictors and an Interaction Term</h4>
+<p>What if we built a model that asked <code>mom_iq_c</code> and <code>mom_hs_c</code> to jointly predict some variance in the outcome variable. To do this, we need the variables to share their information with each other.</p>
+<p>We are still only adding one predictor, and the smaller model will be nested inside the larger model. We are still using the same data.</p>
+<p><span class="math display">\[
+model two: Kid\_score = Intercept + Mom's IQ + Mom's HS status + error
+\]</span></p>
+<p><span class="math display">\[
+model three: Kid\_score = Intercept + Mom's IQ + Mom's HS status + IQ * HS + error
+\]</span></p>
+<p>These two predictors are still in the model as independent predictors, but we also include a term where the two predictors look like they are multiplied together. This is what an interaction term is - the product of two or more variables added as an additional predictor in a model. Now we are hoping to see some <em>unique</em> variance from the independent predictors and also some joint prediction of variance from our interaction term. We can express the interaction model like this</p>
+<p><span class="math display">\[
+Y = b_0 + b_1 * X_{mom\_iq} + b_2*X_{mom\_hs} + b_3 * (X_{mom\_iq} * X_{mom\_hs}) + e
+\]</span></p>
+<p>Here is the code: I am calling it <code>m3_c_int</code> because it has 3 predictors, and contains an interaction term</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c <span class="sc">+</span> mom_hs_c <span class="sc">+</span> mom_iq_c<span class="sc">:</span>mom_hs_c, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = kid_score ~ 1 + mom_iq_c + mom_hs_c + mom_iq_c:mom_hs_c, 
     data = d)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--52.709 -11.394   1.939  11.268  43.839 
+-52.092 -11.332   2.066  11.663  43.880 
 
 Coefficients:
                   Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)       87.67680    0.90811  96.549  &lt; 2e-16 ***
-c_mom_hs           2.22584    2.49372   0.893  0.37258    
-c_mom_age          0.35236    0.33008   1.068  0.28634    
-c_mom_iq           0.58735    0.06058   9.695  &lt; 2e-16 ***
-c_mom_hs:c_mom_iq -0.50607    0.16347  -3.096  0.00209 ** 
+(Intercept)       87.63892    0.90756  96.565  &lt; 2e-16 ***
+mom_iq_c           0.58839    0.06058   9.712  &lt; 2e-16 ***
+mom_hs_c           2.84076    2.42667   1.171  0.24239    
+mom_iq_c:mom_hs_c -0.48427    0.16222  -2.985  0.00299 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 17.97 on 429 degrees of freedom
-Multiple R-squared:  0.2321,    Adjusted R-squared:  0.225 
-F-statistic: 32.42 on 4 and 429 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 17.97 on 430 degrees of freedom
+Multiple R-squared:  0.2301,    Adjusted R-squared:  0.2247 
+F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>Look once more at the coefficients. <code>c_mom_hs</code> is no longer significant; <code>c_mom_age</code> remains non-significant, as does <code>c_mom_iq</code>, and the new predcitor, the interaction between mother’s high school graduation status and IQ is signfificant, showing a negative relationship.</p>
-<p>From earlier: When an interaction term is entered into a model and is found to be significant (<em>p</em> &lt; .05), this means that the rate of change in the outcome variable changes as the levels in the predictor variables change. We have to consider the independent effects of the predictors that are in the interaction term and infer whether the interaction effect is a weakening or a strengthening of the outcome variable.</p>
-<p>Further, most of the focus for interpretation will now go onto the interaction term rather than the independent level effects of those predictors. We can no longer, usefully interpret the independent effects of high school graduation status and IQ as independent predictors because their rates of change are NOT uniform across all levels of predictor.</p>
-<p>When you have performed a model comparison:</p>
+<p>Before going any further, lets compare:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m2_c, m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: kid_score ~ 1 + mom_iq_c + mom_hs_c
+Model 2: kid_score ~ 1 + mom_iq_c + mom_hs_c + mom_iq_c:mom_hs_c
+  Res.Df    RSS Df Sum of Sq      F   Pr(&gt;F)   
+1    431 141757                                
+2    430 138879  1    2878.4 8.9123 0.002994 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>My eyes have gone straight to the <em>p</em> value now: <em>p</em> = .003. It is smaller than .05 so we can conclude that the difference in the amount of variance explained in the outcome variable is significantly different in the larger model. The inclusion of the interaction term is warranted. If we were to build a larger model, then this larger model is the model that should be carried forward to the next step.</p>
+<p>But we are not building any more models, as this dataset was a compact dataset and we have used up our variables.</p>
+<p>When you come to the end of the line with model building in this incremental, step-wise fashion, you will interpret and present:</p>
+<ul>
+<li>the model that you hypothesised you would build</li>
+<li>if there were several possible models from your hypotheses, you would present the one that was significantly the best predictor of variance.</li>
+<li>Note - this may not be the model with the most variables!</li>
+</ul>
+<p>The model plot, with the addition of the interaction between mother’s IQ and high school education, looks like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Wk3/Int_Mul_Regression.png" class="img-fluid figure-img"></p>
+<figcaption>Regression with an interaction</figcaption>
+</figure>
+</div>
+</section>
+<section id="interpreting-a-model-with-an-interaction-term" class="level4">
+<h4 class="anchored" data-anchor-id="interpreting-a-model-with-an-interaction-term">Interpreting a Model with an Interaction Term</h4>
+<p>Up until now, we have been working with models of multiple independent predictors. Now we have a model with independent predictors and interaction terms. These take a little more interpretation. We will look at how to do that here.</p>
+<p>When interpreting any interaction term, you will need:</p>
+<ul>
+<li>The regression coefficients for the independent predictors upon which the interaction term is based</li>
+<li>The regression coefficient(s) for the interaction term.</li>
+</ul>
+<p>First of all, do a model summary inspection as you would with any other model: Is the model significant? How much variance in the outcome variable does the model explain? What does the intercept represent?</p>
+<p>Then move on to the predictors. Interpret your independent predictors first. Our demonstration model is a very simple model. When you have models with more predictors, some of which may only be in the model as independent predictor, I suggest you look at those first before looking at the predictors that are involved in any interaction term.</p>
+<p>When you are ready to interpret the interaction term, I suggest the following approach:</p>
 <ol type="1">
-<li>Tell your readers which model was preferred first.<br>
-</li>
-<li>Then describe the significance of the whole model…</li>
-<li>…and then describe a range of predictors.<br>
-</li>
-<li>Once you have described an individual predictor, interpret it in real terms i.e.&nbsp;what the variables mean:</li>
+<li>look at your first predictor and interpret it</li>
+<li>look at the second predictor and intpret it</li>
+<li>then look at the interaction term. Look at the sign of the regression coefficient first.
+<ul>
+<li>a positive coefficient suggests that at some point, the effect gets stronger than for the independent predictor</li>
+<li>a negative coefficient suggests that at some point, the effect gets weaker than the independent predictor.</li>
+</ul></li>
 </ol>
-<p>If you present the full model summary in a table, you don’t have to interpret all the coefficients in a paragraph. So here we will just talk about the significant predictors, and imagine that we would be putting the full model summary in a table.</p>
-<p>Example:</p>
+<p>Lets do this for the <code>m3_c_int</code>. Lets call the summary here again to reduce the need for scrolling:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = kid_score ~ 1 + mom_iq_c + mom_hs_c + mom_iq_c:mom_hs_c, 
+    data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-52.092 -11.332   2.066  11.663  43.880 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       87.63892    0.90756  96.565  &lt; 2e-16 ***
+mom_iq_c           0.58839    0.06058   9.712  &lt; 2e-16 ***
+mom_hs_c           2.84076    2.42667   1.171  0.24239    
+mom_iq_c:mom_hs_c -0.48427    0.16222  -2.985  0.00299 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 17.97 on 430 degrees of freedom
+Multiple R-squared:  0.2301,    Adjusted R-squared:  0.2247 
+F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p><code>mom_iq_c</code> is significant; for a one point increase in IQ points, a child’s test scores increase by 0.58 points (<em>t</em> = 9.71, <em>p</em> &lt;.001). <code>mom_hs_c</code> is not significant. Notice that this is a change from the independent predictor model of <code>m2_c</code>. But we still need to understand what the coefficient suggests because we are going to interpret the interaction term. And this variable is also in the interaction term. This model predicts that for a mother who has completed high school, a child’s score increases by 2.84 points. The interaction term <code>mom_iq_c:mom_hs_c</code> is significant. It is negative. For one of the levels of high school completion, as IQ increases, that predicted 2.84 point increase for the independent predictor <code>mom_hs_c</code> is diminished or decreases by 0.48 points.</p>
+<p>So lets now express this in plain(er) English:</p>
+<p>As mom IQ increases, then a child’s test score increases and if mom completed high school, initially, those child test scores are stronger than test scores for children whos mom didn’t increase high school. But, and here is the impact of what the interaction coefficient is describing….that 2.84 initial advantage gets smaller and smaller (by about 0.48 point each time) with every increase in IQ.</p>
+<p>To aid interpretation, look at the plot once more:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Wk3/Int_Mul_Regression.png" class="img-fluid figure-img"></p>
+<figcaption>Regression with an interaction</figcaption>
+</figure>
+</div>
+<p>Interpret once more:</p>
+<ul>
+<li>Still a scatterplot using raw data with two groups - signified by the two colours of black and grey dots
+<ul>
+<li>the legend shows black as 0 - the reference level here and grey as 1</li>
+<li>0 refers to mothers who did not finish high school in America</li>
+<li>1 refers to mothers who did finish high school</li>
+</ul></li>
+<li>Still with Mother’s IQ score on the X-axis is predicting Child Test Score on the Y-axis</li>
+<li>The two lines are still showing that advantage for the group whose mothers completed high school because the grey line is higher than the black line to begin with</li>
+<li>but now, as we move from left to right across the plot, moving up the IQ scale, the grey line is not parallel to the black line.The grey line appears to be a shallower line - or have a slower rate of change - for every point increase in IQ, than the black line. This is the effect of losing 0.48 of a point as we increase in IQ.
+<ul>
+<li>The black line appears to be a steeper line - or have a faster rate of change - for every point increase in IQ than the grey line. This is because with every increase in IQ they are not feeling that loss of 0.48 of a point. It only applies to the group of children whose mothers completed high school.</li>
+</ul></li>
+</ul>
+<p>The two pieces of information from the earlier plot, that we thought we knew have changed from looking at this plot:</p>
 <ol type="1">
-<li>We built a series of models, with the model containing the interaction term being preferred by model comparison (F(1, 429) = 9.58, <em>p</em> = .002).<br>
-</li>
-<li>A multiple linear regression with a combination of the mother’s high school completion status, age at child’s birth, mother’s intelligence score and an interaction between mother’s high school completion and mother’s intelligence score was a significant model (F (4, 429) = 32.42, <em>p</em> &lt; .001) and explained 23.2% of the variance in kids’ test scores.</li>
-<li>Neither high school completion status nor mother’s age at the child’s birth was significant (<em>p</em> = 0.373 and <em>p</em> = 0.286). Mother’s intelligence was significant (t = 9.7, <em>p</em> &lt; .001) and so was the interaction term between high school completion status and mother’s intelligence (t = -3.1, <em>p</em> = .002).</li>
-<li>The relationship between test scores and mother’s high school graduation status and test scores and mothers IQ is positive, suggesting that high school graduation status means that test scores are higher on average he positive relationship that we see between test scores and mother’s intelligence predicts that for each point increase in IQ, the test score for a child who’s mother did not complete school increases by 0.59 of a test point. And while having a mother that completed high school increases test scores by 2.23 points, the negative direction of the interaction between high school successfully completed and a point increase in IQ actually weakens the strength of this effect by 0.51.</li>
+<li>The statement “For all children, irrespecitve of whether their mom finished high school or not, as the mom’s IQ score increases, so does the child’s test score” is still true but is not the entire interpretation. We now need to consider that the slopes are no longer parallel - they have different gradients…</li>
 </ol>
+<p>2a) The statement “For children whose mothers finished high school (grey line and dots), they get higher test scores than children whose mothers did not finish high school (black line and dots)” is only true for some of those children. And looking at the plot, I would say this is true for IQ levels that are lower than 100 (visual inspection of the plot). 2b) The inverse is true: “For children whose mothers finished high school (grey line and dots), they get lower test scores than children whose mothers did not finish high school (black line and dots)” is only true for some of those children. And looking at the plot, I would say this is true for IQ levels that are higher than 100 (visual inspection of the plot).</p>
+<p>3a) We could add this: For children whose mothers did not finish high school (black line and dots), they get lower test scores than children whose mothers finished high school (grey line and dots) when the mom’s IQ level is lower than 100. 3b) For children whose mothers did not finish high school (black line and dots), they get higher test scores than children whose mothers finished high school (grey line and dots) when the mom’s IQ level higher than 100.</p>
+<p>So the a child’s test score does not depend only on the mom’s IQ score or whether they finished their own education. Mom’s IQ score and high school education status interact with each other such that any child whose mom has an IQ scores higher than 100 is predicted to get a higher score than a child with a mom’s who has a lower than 100 IQ score, but for children in the group with mom’s who dropped out, the higher IQ scores seems to predict even higher scores than for those children whose mom finished their education.</p>
+<p>This is the nature of an interaction. The effect of one predictor variable, or the rate of change or the size of the coefficient for one prediction variable may be different across the levels of a second predictor variable.</p>
+<p>The two variables work together, rather than independently, on the outcome variable.</p>
+<p>Lets look at the model summary that gave us this plot:</p>
+<p>Lets do the math to show this numerically:</p>
+<p>First look again at the high school variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d<span class="sc">$</span>mom_hs_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-0.7857  0.2143  0.2143  0.0000  0.2143  0.2143 </code></pre>
+</div>
+</div>
+<p>Because this variable has been centred, the negative <code>Min</code> value represents the level of the variable for not finishing high school (-0.7857), the positive <code>Max</code> value represents the level of the variable for finishing high school (0.2143). You will put these values into some of the sums below.</p>
+<p>The model says that at lower IQ scores, the children whose mum did finish high school have higher scores than children whose mum did not finish high school</p>
+<p>Lets do the maths for 20 points below the average: We can model 80 IQ points as a prediction for lower IQ (modelled as -20 here as the sample average is 100 and 100 - 20 = 80)</p>
+<p>Test score for a child with a mum who did not finish high school and an IQ of 80 (black line on the plot) Intercept + not_finishing high school + IQ 80 + Interaction term</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*-</span><span class="dv">20</span>) <span class="co"># -0.7857 = represents mothers who did not finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.02932</code></pre>
+</div>
+</div>
+<p>Test score for a child with a mum who did finish high school and an IQ of 80 (grey line on the plot) Intercept + not_finishing high school + IQ 80 + Interaction term</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span>  (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*-</span><span class="dv">20</span>) <span class="co"># 0.2143 = represents mothers who did finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 78.55548</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">78.55548</span> <span class="sc">-</span> <span class="fl">66.02932</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.52616</code></pre>
+</div>
+</div>
+<p>As the model predicts, the advantage is for the children whos mothers did finish high school. The size of the advantage, when mums IQ is at 80, is approximately 12.5 points.</p>
+<p>Lets look at what the scores are like for an IQ of 81…we should see a difference of 12.52616-0.48…the size of the advantage has gotten smaller by about 0.48 points</p>
+<p>IQ is now -19 (because 100-19 = 81)</p>
+<p>Test score for a child with a mum who did not finish high school and an IQ of 81 (black line on the plot) Intercept + not_finishing high school + IQ 81 + Interaction term</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">19</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*-</span><span class="dv">19</span>) <span class="co"># -0.7857 = represents mothers who did not finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.9982</code></pre>
+</div>
+</div>
+<p>Test score for a child with a mum who did finish high school and an IQ of 81 (grey line on the plot) Intercept + not_finishing high school + IQ 81 + Interaction term</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">19</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*-</span><span class="dv">19</span>) <span class="co"># 0.2143 = represents mothers who did finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 79.04009</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># point difference between groups</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">79.04009</span> <span class="sc">-</span>  <span class="fl">66.9982</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.04189</code></pre>
+</div>
+</div>
+<p>the point score difference at 80 IQ points, is 12.53, the point score difference at 81 IQ points is 12.04</p>
+<p>If we take 12.52616 from 12.04189, we get:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">12.04189-12.52616</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.48427</code></pre>
+</div>
+</div>
+<p>Which is the negative regression coefficient for the interaction term. As we increase the IQ points from 80 to 81, the difference in scores decreases between the groups by about half a point.</p>
+<p>Lets look at the size of hte gap at the sample IQ points of 101: if you look back at the plot, the lines are almost meeting at this point, any advantage that any group has will be much smaller.</p>
+<p>IQ is now expressed in this sum as 1, because the IQ variable in the model is centred at the sample average for IQ which is 100. So and IQ of 101 = +1</p>
+<p>Finding the Test score for a child with a mum who did not finish high school and an IQ of 101 (black line on the plot) Intercept + not_finishing high school + IQ 101 + Interaction term</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">1</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 86.37582</code></pre>
+</div>
+</div>
+<p>Test score for a child with a mum who did finish high school and an IQ of 101 (grey line on the plot) Intercept + not_finishing high school + IQ 101 + Interaction term</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">1</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 88.73231</code></pre>
+</div>
+</div>
+<p>The difference at IQ 101 is much smaller than at IQ 81, but there does still seem to be a slight advantage for the group whose mum finished high school.</p>
+<p>And once more Lets move the IQ a bit higher: to 120</p>
+<p>Test score for a child with a mum who did not finish high school and an IQ of 120 (black line on the plot) Intercept + not_finishing high school + IQ 120 + Interaction term</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 104.7846</code></pre>
+</div>
+</div>
+<p>Test score for a child with a mum who did finish high school and an IQ of 120 (grey line on the plot) Intercept + not_finishing high school + IQ 120 + Interaction term</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 97.93991</code></pre>
+</div>
+</div>
+<p>At IQ of 101, the children with mothers who had finished high school were slightly higher than children whose mothers had not finished high school, but the effect of that advantage has decreased as IQ increased. At IQ 120, the group whose mum did not finish high school (black line) are now showing a score advantage over the group whose mum did finish high school with the difference being approximately 7 points between the two groups).</p>
+</section>
+</section>
 <section id="model-diagnostics" class="level3">
 <h3 class="anchored" data-anchor-id="model-diagnostics">Model diagnostics</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># display plots in a 2 x 2 panel</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m4_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># display plots in a 2 x 2 panel</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Week3_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>phew! looks a little healthier than the last dataset analysis!</p>
+<p>This model looks pretty healthy on the residuals!</p>
 </section>
-<section id="a-possible-reporting-and-interpretation-of-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="a-possible-reporting-and-interpretation-of-the-model">A possible reporting and interpretation of the model</h3>
-<p>Our multiple regression modelled 3-year-old test scores as a function of whether their mothers completed high school, the mother’s age at the child’s birth and their IQ score. We also included an interaction term for the relationship between high school completion and IQ score. We tentatively framed feasible research questions and built a series of models, using model comparison to select models to carry forward. All variables were centred before being entered into the model.</p>
-<p>The full model with all independent predictors plus the interaction term was significant (<span class="math inline">\(F{_(}{_4}{_,}{_4}{_2}{_9}{_)}\)</span> = 32.42, <em>p</em> &lt; 0.001). and the best model of the four completed (<em>p</em> = .002). This set of predictors explains 23.21% of the variance in child test scores. While the status of the mother’s high school completion status was not significant (mom_hs: <em>t</em> = 0.89, <em>p</em> = 0.373), the mother’s IQ score was (mom_iq: <em>t</em> = 9.7, <em>p</em> &lt; .001). This showed a positive relationship with the child test scores, indicating that as the mother’s IQ increased, so to did the test scores. The interaction however, showed a negative relationship which indicated that this increase was shallower for those children whose mother had completed high school (hs x iq interaction: <em>t</em> = -3.1, <em>p</em> = 0.002).</p>
-<p>We inspected diagnostic plots which show reasonable dispersion of residuals. There are a number of points that could be influential or show high leverage however they don’t appear to be aberrant.</p>
+<section id="communicate" class="level3">
+<h3 class="anchored" data-anchor-id="communicate">Communicate</h3>
+<p>A sample text for communicating this model:</p>
+<p>We ran a multiple regression model to predict children’s test scores at age 3-years, from mother’s IQ score, whether they had completed high school or not and the interaction between the two. We centred the predictors before putting them into the model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = kid_score ~ 1 + mom_iq_c + mom_hs_c + mom_iq_c:mom_hs_c, 
+    data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-52.092 -11.332   2.066  11.663  43.880 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       87.63892    0.90756  96.565  &lt; 2e-16 ***
+mom_iq_c           0.58839    0.06058   9.712  &lt; 2e-16 ***
+mom_hs_c           2.84076    2.42667   1.171  0.24239    
+mom_iq_c:mom_hs_c -0.48427    0.16222  -2.985  0.00299 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 17.97 on 430 degrees of freedom
+Multiple R-squared:  0.2301,    Adjusted R-squared:  0.2247 
+F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The model was significant (<em>F</em>(3, 430) = 42.84, <em>p</em> &lt; .001) and explained 23% of the variance in the children’s test scores. Mother’s IQ is positively related to children’s test scores, with each increase in IQ, test scores increased by 0.58 of a point (<em>t</em> = 9.71, <em>p</em> &lt; .001). The predictor for whether or not a mother had completed their high school education was not significant (<em>b</em> = 2.84, <em>t</em> = 1.17, <em>p</em> = 0.242) however the interaction term for mother’s IQ and education status was significant (<em>b</em> = -0.48, <em>t</em> = -2.99, <em>p</em> = .003). This indicates that while the test scores for children whose mothers completed high school show an initial advantage of 2.84 points, this advantage decreases with each increase of an IQ point by 0.48 of a test point. Indeed, Figure 1 shows that at the higher levels of IQ in this sample, the group of children whose mothers did not finish high school, have higher test scores than those children whose mothers did finish high school.</p>
 </section>
-<section id="plotting-the-raw-values-to-show-the-interaction" class="level3">
-<h3 class="anchored" data-anchor-id="plotting-the-raw-values-to-show-the-interaction">Plotting the raw values to show the interaction</h3>
-<p>This is the same code and plot as we started with at the top of the script. Repeated here.</p>
+<section id="what-are-interaction-terms" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-interaction-terms">What are interaction terms?</h3>
+<ul>
+<li>We interpret each predictor as representing a value of the variable’s influence on the outcome variable while holding all other predictors constant</li>
+<li>The coefficient for each predictor tells us how the outcome variable increases or decreases over incremental increases of a predictor - a constant rate of change…adding one unit each time, increases or decreases the outcome variable by the values of the coefficient</li>
+</ul>
+<p>Interactions are the product term of two (or more) predictors. There are several ways to create them:</p>
+<ul>
+<li>We can do a maths sum: multiply two (or more) variables together and save them to your dataset then call that predictor in your model</li>
+<li>You can use R code to write the interaction term into your model (so it is not a physical varaible in your dataset)
+<ul>
+<li>we did this in model <code>m3_c_int</code>.</li>
+</ul></li>
+</ul>
+<p>Putting it into your model formula can be expressed in two ways. There is the use of a colon (:) as here:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>m4_raw <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs <span class="sc">+</span> mom_age <span class="sc">+</span> mom_iq <span class="sc">+</span> mom_hs<span class="sc">:</span>mom_iq, d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>m3_c_int_colon <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c <span class="sc">+</span> mom_hs_c <span class="sc">+</span> mom_iq_c<span class="sc">:</span>mom_hs_c, d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Or, an equivalent model to <code>m3_c_int</code> is expressed using a shorter form of code, using an asterisk (*)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>m3_c_int_Asterisk <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c<span class="sc">*</span>mom_hs_c, d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>both of these types of model code give the exact same model output:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int_colon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = kid_score ~ 1 + mom_iq_c + mom_hs_c + mom_iq_c:mom_hs_c, 
+    data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-52.092 -11.332   2.066  11.663  43.880 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       87.63892    0.90756  96.565  &lt; 2e-16 ***
+mom_iq_c           0.58839    0.06058   9.712  &lt; 2e-16 ***
+mom_hs_c           2.84076    2.42667   1.171  0.24239    
+mom_iq_c:mom_hs_c -0.48427    0.16222  -2.985  0.00299 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 17.97 on 430 degrees of freedom
+Multiple R-squared:  0.2301,    Adjusted R-squared:  0.2247 
+F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(mom_iq, kid_score)) <span class="sc">+</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">factor</span>(mom_hs)), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">intercept =</span> <span class="fu">c</span>(<span class="fu">coef</span>(m4_raw)[<span class="dv">1</span>], <span class="fu">sum</span>(<span class="fu">coef</span>(m4_raw)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])),</span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">slope =</span> <span class="fu">c</span>(<span class="fu">coef</span>(m4_raw)[<span class="dv">4</span>], <span class="fu">sum</span>(<span class="fu">coef</span>(m4_raw)[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>])),</span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"grey"</span>)) <span class="sc">+</span></span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"grey"</span>)) <span class="sc">+</span></span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Mother IQ Score"</span>, <span class="at">y =</span> <span class="st">"Child Test Score"</span>) <span class="sc">+</span> </span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int_Asterisk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = kid_score ~ 1 + mom_iq_c * mom_hs_c, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-52.092 -11.332   2.066  11.663  43.880 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       87.63892    0.90756  96.565  &lt; 2e-16 ***
+mom_iq_c           0.58839    0.06058   9.712  &lt; 2e-16 ***
+mom_hs_c           2.84076    2.42667   1.171  0.24239    
+mom_iq_c:mom_hs_c -0.48427    0.16222  -2.985  0.00299 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 17.97 on 430 degrees of freedom
+Multiple R-squared:  0.2301,    Adjusted R-squared:  0.2247 
+F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="plotting-the-fitted-model" class="level3">
-<h3 class="anchored" data-anchor-id="plotting-the-fitted-model">Plotting the fitted model</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(c_mom_iq, kid_score)) <span class="sc">+</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">factor</span>(c_mom_hs)), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(</span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">intercept =</span> <span class="fu">c</span>(<span class="fu">coef</span>(m4_c)[<span class="dv">1</span>], <span class="fu">sum</span>(<span class="fu">coef</span>(m4_c)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])),</span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">slope =</span> <span class="fu">c</span>(<span class="fu">coef</span>(m4_c)[<span class="dv">4</span>], <span class="fu">sum</span>(<span class="fu">coef</span>(m4_c)[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>])),</span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"grey"</span>)) <span class="sc">+</span></span>
-<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"grey"</span>)) <span class="sc">+</span></span>
-<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Mother IQ score"</span>, <span class="at">y =</span> <span class="st">"Child test score"</span>) <span class="sc">+</span> </span>
-<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>I’ve taken this code from the website from which the data was retrieved - it is a much cleaner plot and great code! I have adapted the code to fit the model fitted and the raw data above and plotted two versions to demonstrate that the transformations do not change the information about the comparisons / effects within the model - only the scale of measurement as observed on the plot axes.</p>
-<p>The grey circles represent the group of children whose mothers completed high school (HS) while the black circles represent the group of children whose mothers did not complete high school (no HS). The interaction indicates that while the mother’s IQ score is below a score of approximately 105, the no HS child test scores are lower than the HS child test scores, however rising above approximately 105 IQ points, the no HS child test scores are higher than the HS child test scores. One interpretation could be that having an above average IQ score, in the context of not completing high school is a protective factor for an offspring’s attainment at the age of 3!</p>
+<section id="when-are-interaction-terms-used" class="level3">
+<h3 class="anchored" data-anchor-id="when-are-interaction-terms-used">When are interaction terms used?</h3>
+<ul>
+<li>Theory may predict them, and so research questions/hypotheses may predict them.</li>
+<li>Study design may implicitly suggest them (groups?)</li>
+<li>Results may suggest them
+<ul>
+<li>Regression coefficients that seem large when modelled independently may suggest the need for an interaction term</li>
+</ul></li>
+</ul>
+</section>
+<section id="statistical-power-of-interactions" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-power-of-interactions">Statistical Power of Interactions</h3>
+<p>Many effect sizes in psychology hover around Cohen’s <em>d</em> = 0.4</p>
+<p>Based upon an effect size like this:</p>
+<ul>
+<li>The power of an interaction can be a small as 1/16th of the independent effects within a model (Gelman et al.&nbsp;2020)</li>
+<li>This is for ANOVA and regression methods</li>
+<li>This is when all the assumptions of the model are met
+<ul>
+<li>Most models violate model assumptions in some way</li>
+<li>Although relatively tolerant of violations: Power of the effects are thus reduced further…</li>
+</ul></li>
+</ul>
+</section>
+<section id="preparation-of-data-for-using-interactions" class="level3">
+<h3 class="anchored" data-anchor-id="preparation-of-data-for-using-interactions">Preparation of data for using interactions</h3>
+<p>Centre or standardise your continuous variables as standardising puts both predictors on the same scale. So interpreting the effect of one predictor on the other will be using the same scale of units</p>
+<p>Consider how to use your categorical variables: - Dummy coding..? - Sum coding..? - Making new binary variables…? - Coercing a binary variable to numeric class and mean centring</p>
+</section>
+<section id="building-a-model-with-interactions" class="level3">
+<h3 class="anchored" data-anchor-id="building-a-model-with-interactions">Building a model with interactions</h3>
+<p>Plan to build the model suggested by your research questions/hypotheses/theory. If that includes the interaction term, build it as the first model. If not, build an independent predictor model first and then build a further model that includes independent and interaction terms. Perform a model comparison as above to see if your interaction term has given you more explained variance at a significant level.</p>
 <p>How are we doing in our list of things to think about - We need to look at:</p>
 <ul>
 <li>a model with some significant predictors! - done</li>
@@ -1272,29 +1366,14 @@ F-statistic: 32.42 on 4 and 429 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>interpreting models with categorical predictors - done &amp; ongoing</li>
 </ul></li>
 <li>models with interaction terms - done</li>
-<li>the properties of multicollinearity</li>
-<li>choosing between different models - done</li>
+<li>the properties of multicollinearity - week 15</li>
+<li>choosing between different models - done &amp; ongoing</li>
 <li>reporting models - ongoing</li>
 </ul>
-</section>
-</section>
-</section>
-<section id="lab-task" class="level1">
-<h1>Lab Task</h1>
-<p>Upload <a href="data/Wk3/Lab_3_Materials.zip">this zip file</a> to the R server, and complete the <code>Multiple_Regression_Interactions_Student.Rmd</code> file using the data included in the zip file.</p>
-<p>The model output you are aiming to match is below</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk3/Model Output.png" class="img-fluid figure-img"></p>
-<figcaption>Model output</figcaption>
-</figure>
-</div>
-</section>
-<section id="submit-scripts" class="level1">
-<h1>Submit Scripts</h1>
-<p>Remember to submit your group scripts if you want to receive and see feedback on your own and other groups’ scripts.</p>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1333,7 +1412,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1365,29 +1455,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1395,7 +1463,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1720,8 +1788,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../PSYC234/Week2.html" class="pagination-link" aria-label="2. Multiple regression including categorical predictors">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Multiple regression including categorical predictors</span>
+      <a href="../PSYC234/Week2.html" class="pagination-link" aria-label="2. Multiple Regression Including Categorical Predictors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Multiple Regression Including Categorical Predictors</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
