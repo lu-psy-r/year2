@@ -301,4 +301,4 @@ Take home message: Success refers to the outcome you are interested in. Sometime
 
 ## Asking questions
 
-If you have any questions about the binomial test, please post them on the discussion board on moodle. If you prefer to remain anonymous, there is a qualtrics link on moodle called "The Binomial Test: Post questions anonymously" where you can ask your questions. I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.
+If you have any questions about the binomial test, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously here: ["The Binomial Test: Post questions anonymously"](https://modules.lancaster.ac.uk/mod/url/view.php?id=2507035). I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.
