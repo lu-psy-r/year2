@@ -15,10 +15,12 @@ knitr::opts_chunk$set(message = TRUE)
 
 # Introduction
 
-This week is a crossover week between Amy and Emma. Factor Analysis
-content is needed for learning and **WBA5.** Questions will not be asked
-in the class test in week 20 on the Factor Analysis method. The Binomial
-Test content is needed for learning, **WBA5** and the **class test**.
+This week is a crossover week between Amy and Emma. 
+
+Factor Analysis content is needed for learning. Questions will not be asked
+in the class test in week 20 on the Factor Analysis method. 
+
+The Binomial Test content is needed for learning, and the **class test**.
 
 The rest of this page is split into two parts, Factor Analysis and
 Binomial Test. They each have their own associated lecture and notes.
@@ -230,180 +232,80 @@ Or, download all the materials
 
 # Binomial Test
 
+## Lecture material
+
 Watch the Lecture on the Binomial test
-[here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2049284)
+[here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6). 
 
-## Preamble
+## Running the code in the lecture
 
-Let's think back to the one-sample t-test
+Please note that binomial test will not be covered in the Week 5 lab - as described in the lecture, this is a very straightforward test to run in R that can be performed with just a single line of code. 
 
-RQ: You are a researcher interested in whether babies born in Germany
-weigh more than babies born in the UK.
-
-Let's assume the following are true: 
-
-+ The NHS keeps good records of
-birth weights in the UK, and that the average birth weight in the UK in
-2020 was 3350g. 
-
-+ The health authorities in Germany do not keep good
-records of birth weights.
-
-You could collect birth weights from a sample of babies born in Germany
-and compare this to the known average in the UK (3350g).
-
-
-
-
-| Participant | Weight (g) |
-|-------------|------------|
-| 1           | 3004       |
-| 2           | 3052       |
-| 3           | 3067       |
-| 4           | 4063       |
-| 5           | 2134       |
-| 6           | 2356       |
-| 7           | 4356       |
-| 8           | 3567       |
-| 9           | 3432       |
-| 10          | 3245       |
-| 11          | 1467       |
-| 12          | 2345       |
-| 13          | 4532       |
-| 14          | 4352       |
-| 15          | 2453       |
-| 16          | 2343       |
-| 17          | 3453       |
-| 18          | 3428       |
-| 19          | 2344       |
-| 20          | 4353       |
-| **Mean**    | 3167.30    |
-
-: Birthweights of babies born in Germany
-
-Is the mean of the sample significantly different from a known value? to
-test this, we can use a one-sample t-test!
-
-## Another example
-
-What if we asked the question: Is the moon made of cheese?
-
-Two answers: Yes, and No.
-
-Does the proportion of participants answering the question correctly differ from the chance guessing rate?
-
-| Participant | Answer |
-|-------------|--------|
-| 1           | No     |
-| 2           | No     |
-| 3           | **Yes**|
-| 4           | No     |
-| 5           | No     |
-| 6           | No     |
-| 7           | No     |
-| 8           | No     |
-| 9           | No     |
-| 10          | No     |
-| 11          | No     |
-| 12          | No     |
-| 13          | No     |
-| 14          | No     |
-
-: Responses to the question "Is the moon made of cheese"?
-
-How many participants answered the question correctly?
-+ Correct (“No”) = 13/14 = 0.93
-
-What is chance guessing rate?
-+ 2 possible answers (yes/no), so chance = 50%, expressed as a proportion, this is 0.5 
-
-::: {.callout-note}
-To convert a percentage to a proportion, divide by 100 = 50/100 = 0.5
-:::
-
-### Why can't we use the one-sample t-test?
-
-One sample t-test: Is the mean of the sample significantly different from a known value?
-
-Issue: we can’t calculate a mean value for the sample – we have a proportion who answered correctly
-
-So, we can’t use a one-sample t-test... What can we use?!
-
-### The binomial test!
-
-The binomial test compares a sample proportion to a known value
-
-Does a sample proportion differ significantly from a known value?
-
-Known value may be theoretical (e.g. based on chance) or known data about the world (e.g. 26% people die from this disease)
-
-Other examples:
-
-You notice that a lot of the insects in your garden are ants. You work out that 564 out of 712 insects are ants. You hear on a TV show that on average, 64% of insects in UK gardens are ants. Is the proportion of insects that are ants in your garden larger than UK average?
-
-- Proportion of sample that are ants are: 564/712 = 0.79
-- Known value (expressed as a proportion)= 0.64
-
-You develop a new vaccine for an illness and give this to 1,000 people - 32/1000 given the vaccine get the illness within a year. You know that approximately 10% of unvaccinated people (or 0.1 expressed as a proportion) get the illness every year. Is the proportion of vaccinated people getting the illness lower than the known value for unvaccinated people?
-
-- Proportion of sample that get the illness: 32/1000 = 0.03
-- Known value (expressed as a proportion)= 0.10
-
-Does a sample proportion differ significantly from a known value?
-
-### Binomial Test assumptions
-
-1. The outcome is dichotomous: There are only two possible outcomes
-
-2. The outcome can be specified as success or failure
-
-3. Each trial is independent
-
-4. The probability of ‘success’ remains the same on every trial
-
-### Carrying out the binomial test
-
-Below is the code needed for running a binomial test. Pretty simple!
-`binom.test` is a function that is in the base R package, meaning that
-we don't need to load in any additional libraries to use it.
-
-The first number is the number of successes (thirteen said no), the second number is the total number of trials (we asked fourteen people), and the last number is the known value, here expressed as a proportion (here chance guessing rate)
-
+To run the binomial test based on the example described in the lecture, you would simply run the following code in R:
 
 ```{r}
-# Code to run the binomial test
-
 binom.test(13, 14, 0.5)
 ```
+## Independent learning activities
 
-And here is an annotated version of the output
+Below are some independent learning activities you can have a go at. These are optional, but recommended to help you consolidate the content covered in the lecture. The answers are found below.
 
-![Annotated binom.test output](Images/Wk5/AnnotatedBinom.png)
+### Activity 1
 
-#### How do I interpret the p-value?
+**One sample-test or binomial test?**
 
-p ≤ .05 = The observed proportion differs significantly from the known value
+Disclaimer: All of these statistics are made up.
 
-p > .05 = The observed proportion does not differ significantly from the known value
+The answers are in the next section.
 
-#### I have a significant effect... In what direction is the effect?
+For the following examples, write down whether you think the test conducted should be a one-sample t-test or a binomial test. 
 
-Is the probability of success higher or lower than the known value?
+1. You are the coach of a football team. You are interested in whether the running distance of your players significantly differs from the England national football team. You know, on average, England football players run 10km per game. 
 
-The proportion of children answering the question correctly (.93) is significantly higher than the chance guessing rate (.50)
+2. You are the coach of a football team. You are interested in whether the proportion of games your team scores a goal is significantly different from that of the England national team. You know that on average, the England national team scores a goal in 60% of games. 
 
-#### What does the 95% confidence interval tell us?
+3. You are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies born in your hospital are quite small. You are interested in whether the proportion of babies who are classed as “small for gestational age” differs between your hospital and the UK average (10%). 
 
-If we repeat the sampling method many many times and compute a 95% confidence interval, 95% of the intervals would contain the true value in the population.
+4. You are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies that are born in your hospital are quite small. You are interested in whether the average weight of babies born at your hospital is significantly less than the UK average (3350g). 
 
-Range that is likely to contain the true value
 
-![Confidence intervals](Images/Wk5/binom_CI.png)
+### Activity 2
 
-#### Reporting in APA format
+**Identifying “success”**
 
-A binomial test was conducted to determine whether the proportion of participants answering the question correctly differed significantly from chance guessing rate. This revealed that that the proportion of participants answering the question correctly (93%; 95% confidence interval = 66-100%) was significantly higher than the chance guessing rate (50%; p = 0.002). 
+1. You are the headteacher of a grammar school which has an entrance exam. You are interested in whether the proportion of children failing the test differs significantly from last year. The failure rate last year was 24% (or 0.24 expressed as a proportion). 
 
-## Post-lecture activities - Complete ideally before WBA
+2. You are a teacher. You are interested in whether the proportion of students in your class with special educational needs and disabilities (SEND) significantly differs from the year group average (27%, or 0.27 expressed as a proportion). 
 
-These can be downloaded [here](data/Wk5/binomial test - worksheet.zip) and contain a word document worksheet and the answers.
+3. You have developed a new flu vaccine. You are interested in whether the proportion of people who develop side effects after your vaccine differs from the flu vaccine currently used by the NHS (37%, or 0.37 expressed as a proportion).  
+
+### Answers
+
+#### Activity 1:
+
+1. One-sample t-test. The value for each individual is continuous.You are interested in whether the mean number of km runs differs from a known value. 
+
+2. Binomial test. Two possible outcomes: team scores or team does not score). You are interested in whether the proportion that a given outcome occurs (i.e. your team scores a goal) differs from a known value. 
+
+3. Binomial test. Two possible outcomes: Each baby’s outcome is either “small for gestational age” or “not small for gestational age”. You are interested in whether the proportion that a given outcome occurs (i.e. small for gestational age) differs from a known value.
+
+4. One-sample t-test. The value for each individual is continuous. You are interested in whether the mean weight of babies at your hospital differs from a known value.
+
+Take-home message: A one sample t-test is used when you are interested in comparing the mean of a sample to a known value. The binomial test is used when you are interested in comparing a sample’s proportion of “successes” to a known value.
+
+#### Activity 2
+
+1. Success: failing the test.
+   Failure: passing the test.
+   
+2. Success: Has special educational needs.
+   Failure: Does not have special educational needs.
+   
+3. Success: Has side effects.
+   Failure: Does not have side effects.
+   
+Take home message: Success refers to the outcome you are interested in. Sometimes this might be counterintuitive to how we typically think about ‘success’. 
+
+## Asking questions
+
+If you have any questions about the binomial test, please post them on the discussion board on moodle. If you prefer to remain anonymous, there is a qualtrics link on moodle called "The Binomial Test: Post questions anonymously" where you can ask your questions. I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.
