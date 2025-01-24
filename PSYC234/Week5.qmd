@@ -235,7 +235,7 @@ Or, download all the materials
 ## Lecture material
 
 Watch part two of the Week 5 lecture (on the binomial test) 
-[here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6). 
+[here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6). The lecture slides (both .ppt and .pdf) versions can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507030).
 
 ## Running the code in the lecture
 
