@@ -234,7 +234,7 @@ Or, download all the materials
 
 ## Lecture material
 
-Watch the Lecture on the Binomial test
+Watch part two of the Week 5 lecture (on the binomial test) 
 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6). 
 
 ## Running the code in the lecture
@@ -248,7 +248,7 @@ binom.test(13, 14, 0.5)
 ```
 ## Independent learning activities
 
-Below are some independent learning activities you can have a go at. These are optional, but recommended to help you consolidate the content covered in the lecture. The answers are found below.
+Below are some independent learning activities you can have a go at to help consolidate the lecture content on the binomial test. These are optional, but recommended. The answers are found below.
 
 ### Activity 1
 
