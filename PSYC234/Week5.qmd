@@ -23,7 +23,7 @@ in the class test in week 20 on the Factor Analysis method.
 The Binomial Test content is needed for learning, and the **class test**.
 
 The rest of this page is split into two parts, Factor Analysis and
-Binomial Test. They each have their own associated lecture and notes.
+Binomial Test. They each have their own associated lecture and notes. 
 
 # Factor Analysis
 
@@ -248,15 +248,13 @@ binom.test(13, 14, 0.5)
 ```
 ## Independent learning activities 
 
-Below are some independent learning activities you can have a go at to help consolidate the lecture content on the binomial test. These are optional, but recommended. The answers are found below.
+Below are some independent learning activities you can have a go at to help consolidate the lecture content on the binomial test. These are optional, but recommended. The answers are found below. 
 
 ### Activity 1
 
 **One sample-test or binomial test?**
 
 Disclaimer: All of these statistics are made up.
-
-The answers are in the next section.
 
 For the following examples, write down whether you think the test conducted should be a one-sample t-test or a binomial test. 
 
@@ -275,9 +273,7 @@ For the following examples, write down whether you think the test conducted shou
 
 1. You are the headteacher of a grammar school which has an entrance exam. You are interested in whether the proportion of children failing the test differs significantly from last year. The failure rate last year was 24% (or 0.24 expressed as a proportion). 
 
-2. You are a teacher. You are interested in whether the proportion of students in your class with special educational needs and disabilities (SEND) significantly differs from the year group average (27%, or 0.27 expressed as a proportion). 
-
-3. You have developed a new flu vaccine. You are interested in whether the proportion of people who develop side effects after your vaccine differs from the flu vaccine currently used by the NHS (37%, or 0.37 expressed as a proportion).  
+2. You have developed a new flu vaccine. You are interested in whether the proportion of people who develop side effects after your vaccine differs from the flu vaccine currently used by the NHS (37%, or 0.37 expressed as a proportion).  
 
 ### Answers
 
@@ -298,13 +294,10 @@ Take-home message: A one sample t-test is used when you are interested in compar
 1. Success: failing the test.
    Failure: passing the test.
    
-2. Success: Has special educational needs.
-   Failure: Does not have special educational needs.
-   
-3. Success: Has side effects.
+2. Success: Has side effects.
    Failure: Does not have side effects.
    
-Take home message: Success refers to the outcome you are interested in. Sometimes this might be counterintuitive to how we typically think about ‘success’. 
+Take home message: Success refers to the outcome you are interested in. Sometimes this might be counterintuitive to how we typically think about ‘success’ (e.g. in the. 
 
 ## Asking questions
 
