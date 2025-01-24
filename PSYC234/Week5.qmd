@@ -246,7 +246,7 @@ To run the binomial test based on the example described in the lecture, you woul
 ```{r}
 binom.test(13, 14, 0.5)
 ```
-## Independent learning activities
+## Independent learning activities 
 
 Below are some independent learning activities you can have a go at to help consolidate the lecture content on the binomial test. These are optional, but recommended. The answers are found below.
 

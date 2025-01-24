@@ -1671,5 +1671,53 @@
       "PSYC234",
       "3. Multiple Regression Models that Include Interactions (Moderated Variables)"
     ]
+  },
+  {
+    "objectID": "PSYC234/Week5.html#lecture-material",
+    "href": "PSYC234/Week5.html#lecture-material",
+    "title": "5. Factor analysis & the binomial test",
+    "section": "Lecture material",
+    "text": "Lecture material\nWatch part two of the Week 5 lecture (on the binomial test) here.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "5. Factor analysis & the binomial test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week5.html#running-the-code-in-the-lecture",
+    "href": "PSYC234/Week5.html#running-the-code-in-the-lecture",
+    "title": "5. Factor analysis & the binomial test",
+    "section": "Running the code in the lecture",
+    "text": "Running the code in the lecture\nPlease note that binomial test will not be covered in the Week 5 lab - as described in the lecture, this is a very straightforward test to run in R that can be performed with just a single line of code.\nTo run the binomial test based on the example described in the lecture, you would simply run the following code in R:\n\nbinom.test(13, 14, 0.5)\n\n\n    Exact binomial test\n\ndata:  13 and 14\nnumber of successes = 13, number of trials = 14, p-value = 0.001831\nalternative hypothesis: true probability of success is not equal to 0.5\n95 percent confidence interval:\n 0.6613155 0.9981932\nsample estimates:\nprobability of success \n             0.9285714",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "5. Factor analysis & the binomial test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week5.html#independent-learning-activities",
+    "href": "PSYC234/Week5.html#independent-learning-activities",
+    "title": "5. Factor analysis & the binomial test",
+    "section": "Independent learning activities",
+    "text": "Independent learning activities\nBelow are some independent learning activities you can have a go at to help consolidate the lecture content on the binomial test. These are optional, but recommended. The answers are found below.\n\nActivity 1\nOne sample-test or binomial test?\nDisclaimer: All of these statistics are made up.\nThe answers are in the next section.\nFor the following examples, write down whether you think the test conducted should be a one-sample t-test or a binomial test.\n\nYou are the coach of a football team. You are interested in whether the running distance of your players significantly differs from the England national football team. You know, on average, England football players run 10km per game.\nYou are the coach of a football team. You are interested in whether the proportion of games your team scores a goal is significantly different from that of the England national team. You know that on average, the England national team scores a goal in 60% of games.\nYou are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies born in your hospital are quite small. You are interested in whether the proportion of babies who are classed as “small for gestational age” differs between your hospital and the UK average (10%).\nYou are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies that are born in your hospital are quite small. You are interested in whether the average weight of babies born at your hospital is significantly less than the UK average (3350g).\n\n\n\nActivity 2\nIdentifying “success”\n\nYou are the headteacher of a grammar school which has an entrance exam. You are interested in whether the proportion of children failing the test differs significantly from last year. The failure rate last year was 24% (or 0.24 expressed as a proportion).\nYou are a teacher. You are interested in whether the proportion of students in your class with special educational needs and disabilities (SEND) significantly differs from the year group average (27%, or 0.27 expressed as a proportion).\nYou have developed a new flu vaccine. You are interested in whether the proportion of people who develop side effects after your vaccine differs from the flu vaccine currently used by the NHS (37%, or 0.37 expressed as a proportion).\n\n\n\nAnswers\n\nActivity 1:\n\nOne-sample t-test. The value for each individual is continuous.You are interested in whether the mean number of km runs differs from a known value.\nBinomial test. Two possible outcomes: team scores or team does not score). You are interested in whether the proportion that a given outcome occurs (i.e. your team scores a goal) differs from a known value.\nBinomial test. Two possible outcomes: Each baby’s outcome is either “small for gestational age” or “not small for gestational age”. You are interested in whether the proportion that a given outcome occurs (i.e. small for gestational age) differs from a known value.\nOne-sample t-test. The value for each individual is continuous. You are interested in whether the mean weight of babies at your hospital differs from a known value.\n\nTake-home message: A one sample t-test is used when you are interested in comparing the mean of a sample to a known value. The binomial test is used when you are interested in comparing a sample’s proportion of “successes” to a known value.\n\n\nActivity 2\n\nSuccess: failing the test. Failure: passing the test.\nSuccess: Has special educational needs. Failure: Does not have special educational needs.\nSuccess: Has side effects. Failure: Does not have side effects.\n\nTake home message: Success refers to the outcome you are interested in. Sometimes this might be counterintuitive to how we typically think about ‘success’.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "5. Factor analysis & the binomial test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week5.html#asking-questions",
+    "href": "PSYC234/Week5.html#asking-questions",
+    "title": "5. Factor analysis & the binomial test",
+    "section": "Asking questions",
+    "text": "Asking questions\nIf you have any questions about the binomial test, please post them on the discussion board on moodle. If you prefer to remain anonymous, there is a qualtrics link on moodle called “The Binomial Test: Post questions anonymously” where you can ask your questions. I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "5. Factor analysis & the binomial test"
+    ]
   }
 ]
