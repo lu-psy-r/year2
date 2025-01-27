@@ -397,7 +397,7 @@ plot<- plotmat (M, pos=c(1,2),
 
 ### Read in the data
 
-First download the data file and the script from [here](data/Wk4/mediation exercise 2 data.sav) and upload to the R server.  You may need to change the upload codes below to suit your directory structure.
+First, if you haven't already, download the data file from [here](data/Wk4/Wk14_Lecture_Lab_R_Upload_Materials.zip) and upload to the R server.  You may need to change the upload codes below to suit your directory structure.
 
 
 ```{r}
@@ -569,7 +569,7 @@ Unlike weeks 12 and 13,  week 14's lab task requires you to run a mediation anal
 
 The mediation analysis for the lab task involves exploring how a property of `Alertness` mediates the effect of `Coffee intake` on `Problem Solving`.
 
-You can download the .zip folder that's needed for this lab from [here](data/Wk4/Lab 4 Materials.zip), which contains a starter .Rmd file and the data needed.
+You can download the data and a starter .Rmd file in a zipped folder that's needed for this lab from [here](data/Wk4/Wk14_Lecture_Lab_R_Upload_Materials.zip). This is the same folder as the one at the top of the webpage.  The Task and Question Sheet is in the other zipped folder, located [here](data/Wk4/Wk14_Slides_LabTask_Q_Sheet.zip). This is the same Slides folder that is also at the top of the webpage. You will need to store this elsewhere on your computer
 
 ### Describe the variables:
 
