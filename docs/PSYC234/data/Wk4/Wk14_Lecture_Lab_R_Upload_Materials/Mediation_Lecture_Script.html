@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists - 4. Mediation</title>
+<title>Statistics for Psychologists - Multiple_Regression_Mediation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,25 +57,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../PSYC234/Week5.html" rel="next">
-<link href="../PSYC234/Week3.html" rel="prev">
-<link href="../Images/favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../Images/favicon.png" rel="icon" type="image/png">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,11 +100,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="../site_libs/viz-1.8.2/viz.js"></script>
-<link href="../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="../site_libs/grViz-binding-1.0.11/grViz.js"></script>
 <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search Year 2";};</script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -196,7 +189,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week4.html">4. Mediation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Multiple_Regression_Mediation</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -218,7 +211,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../PSYC214/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC214</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -227,55 +220,55 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. One-Factor Within-Participants ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Revision of One-Factor ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6. Introduction to Factorial Designs and Interactions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7. Two-Factor Between-Participants ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week8.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8. Two-Factor Mixed and Within-Participants ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week9.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">9. Three-Factor ANOVA</span></a>
   </div>
 </li>
@@ -283,64 +276,64 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../PSYC234/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC234</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Review of correlation, simple regression and demonstration of multiple regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Multiple Regression Including Categorical Predictors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Multiple Regression Models that Include Interactions (Moderated Variables)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week4.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../../PSYC234/Week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Mediation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8. Binary logistic regression models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">9. Expanding on binary logistic regression</span></a>
   </div>
 </li>
@@ -356,62 +349,20 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a>
-  <ul class="collapse">
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a></li>
-  <li><a href="#lab-task" id="toc-lab-task" class="nav-link" data-scroll-target="#lab-task">Lab Task</a></li>
-  <li><a href="#pre-lab-activity" id="toc-pre-lab-activity" class="nav-link" data-scroll-target="#pre-lab-activity">Pre-Lab Activity</a></li>
-  <li><a href="#test-yourself" id="toc-test-yourself" class="nav-link" data-scroll-target="#test-yourself">Test Yourself</a></li>
-  <li><a href="#what-statistical-analysis-methods-do-we-know-so-far" id="toc-what-statistical-analysis-methods-do-we-know-so-far" class="nav-link" data-scroll-target="#what-statistical-analysis-methods-do-we-know-so-far">What Statistical Analysis Methods Do We Know So Far?</a>
-  <ul class="collapse">
-  <li><a href="#multiple-variables-multiple-potential-models" id="toc-multiple-variables-multiple-potential-models" class="nav-link" data-scroll-target="#multiple-variables-multiple-potential-models">Multiple Variables = Multiple Potential Models</a></li>
-  </ul></li>
-  <li><a href="#mediation-a-causal-model" id="toc-mediation-a-causal-model" class="nav-link" data-scroll-target="#mediation-a-causal-model">Mediation: A Causal Model</a>
-  <ul class="collapse">
-  <li><a href="#parts-of-the-mediation-model" id="toc-parts-of-the-mediation-model" class="nav-link" data-scroll-target="#parts-of-the-mediation-model">Parts of the Mediation Model</a></li>
-  <li><a href="#full-or-partial-mediation" id="toc-full-or-partial-mediation" class="nav-link" data-scroll-target="#full-or-partial-mediation">Full or Partial Mediation</a></li>
-  <li><a href="#additional-assumptions-to-the-linear-model-assumptions" id="toc-additional-assumptions-to-the-linear-model-assumptions" class="nav-link" data-scroll-target="#additional-assumptions-to-the-linear-model-assumptions">Additional Assumptions to the Linear Model Assumptions</a></li>
-  <li><a href="#necessary-conditions-for-a-mediation-model" id="toc-necessary-conditions-for-a-mediation-model" class="nav-link" data-scroll-target="#necessary-conditions-for-a-mediation-model">Necessary Conditions for a Mediation Model</a></li>
-  <li><a href="#further-desirable-properties-for-a-mediation-model" id="toc-further-desirable-properties-for-a-mediation-model" class="nav-link" data-scroll-target="#further-desirable-properties-for-a-mediation-model">Further Desirable Properties for a Mediation Model</a></li>
-  </ul></li>
-  <li><a href="#mediation-analysis-method-4-step-approach-baron-kenny-1986" id="toc-mediation-analysis-method-4-step-approach-baron-kenny-1986" class="nav-link" data-scroll-target="#mediation-analysis-method-4-step-approach-baron-kenny-1986">Mediation Analysis Method: 4 step approach (Baron &amp; Kenny, 1986)</a>
-  <ul class="collapse">
-  <li><a href="#step-1-model-1" id="toc-step-1-model-1" class="nav-link" data-scroll-target="#step-1-model-1">Step 1: Model 1</a></li>
-  <li><a href="#step-2-model-2" id="toc-step-2-model-2" class="nav-link" data-scroll-target="#step-2-model-2">Step 2: Model 2</a></li>
-  <li><a href="#step-3-model-3" id="toc-step-3-model-3" class="nav-link" data-scroll-target="#step-3-model-3">Step 3: Model 3</a></li>
-  <li><a href="#step-4-within-model-3" id="toc-step-4-within-model-3" class="nav-link" data-scroll-target="#step-4-within-model-3">Step 4: Within Model 3</a></li>
-  </ul></li>
-  <li><a href="#mediation-analysis-method-using-r-bootstrap-test-preacher-hayes-2004-2008" id="toc-mediation-analysis-method-using-r-bootstrap-test-preacher-hayes-2004-2008" class="nav-link" data-scroll-target="#mediation-analysis-method-using-r-bootstrap-test-preacher-hayes-2004-2008">Mediation Analysis Method Using R: Bootstrap Test (Preacher &amp; Hayes, 2004, 2008)</a></li>
-  <li><a href="#reporting-results-for-a-mediation-analysis-model" id="toc-reporting-results-for-a-mediation-analysis-model" class="nav-link" data-scroll-target="#reporting-results-for-a-mediation-analysis-model">Reporting Results for a Mediation Analysis Model</a></li>
-  <li><a href="#interpreting-results-for-a-mediation-analysis-model" id="toc-interpreting-results-for-a-mediation-analysis-model" class="nav-link" data-scroll-target="#interpreting-results-for-a-mediation-analysis-model">Interpreting Results for a Mediation Analysis Model</a></li>
-  <li><a href="#demonstration" id="toc-demonstration" class="nav-link" data-scroll-target="#demonstration">Demonstration</a>
-  <ul class="collapse">
-  <li><a href="#mediation-analysis" id="toc-mediation-analysis" class="nav-link" data-scroll-target="#mediation-analysis">Mediation analysis</a></li>
+  <li><a href="#mediation-analysis" id="toc-mediation-analysis" class="nav-link active" data-scroll-target="#mediation-analysis">Mediation analysis</a></li>
   <li><a href="#read-in-the-data" id="toc-read-in-the-data" class="nav-link" data-scroll-target="#read-in-the-data">Read in the data</a></li>
-  <li><a href="#the-four-step-approach-of-baron-kenny-1986" id="toc-the-four-step-approach-of-baron-kenny-1986" class="nav-link" data-scroll-target="#the-four-step-approach-of-baron-kenny-1986">The Four Step Approach of Baron &amp; Kenny (1986)</a></li>
+  <li><a href="#longhand---steps-of-baron-kenny-1986" id="toc-longhand---steps-of-baron-kenny-1986" class="nav-link" data-scroll-target="#longhand---steps-of-baron-kenny-1986">Longhand - Steps of Baron &amp; Kenny (1986)</a></li>
   <li><a href="#using-the-power-of-r-and-the-mediation-package" id="toc-using-the-power-of-r-and-the-mediation-package" class="nav-link" data-scroll-target="#using-the-power-of-r-and-the-mediation-package">Using the power of R and the <code>mediation</code> package</a></li>
   <li><a href="#reporting-the-mediation-analysis" id="toc-reporting-the-mediation-analysis" class="nav-link" data-scroll-target="#reporting-the-mediation-analysis">Reporting the mediation analysis</a></li>
-  </ul></li>
-  <li><a href="#week-14-lab-task" id="toc-week-14-lab-task" class="nav-link" data-scroll-target="#week-14-lab-task">Week 14 Lab Task</a>
-  <ul class="collapse">
-  <li><a href="#describe-the-variables" id="toc-describe-the-variables" class="nav-link" data-scroll-target="#describe-the-variables">Describe the variables:</a></li>
-  </ul></li>
-  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics:</a></li>
-  <li><a href="#mediation-analysis-4-step-approach" id="toc-mediation-analysis-4-step-approach" class="nav-link" data-scroll-target="#mediation-analysis-4-step-approach">Mediation Analysis – 4 step approach</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  <li><a href="#bootstrap-method" id="toc-bootstrap-method" class="nav-link" data-scroll-target="#bootstrap-method">Bootstrap Method</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week4.html">4. Mediation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">4. Mediation</h1>
-<p class="subtitle lead">Emma Mills</p>
+<h1 class="title">Multiple_Regression_Mediation</h1>
 </div>
 
 
@@ -428,240 +379,16 @@ window.Quarto = {
 </header>
 
 
-<section id="lecture" class="level1">
-<h1>Lecture</h1>
-<p>Watch the lecture on mediation theory <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=41f4d33b-0a78-4566-b89f-b27100b1527d">here</a></p>
-<p>Watch the mediation demonstration <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d2d2bc03-a2a7-404a-960d-b27100baa8e8">here</a></p>
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<p>Please download the <a href="data/Wk4/Wk14_Slides_LabTask_Q_Sheet.zip">Slides</a>. In this zipped folder is the slides that accompany the lecture and the week 14 lab task question sheet.</p>
-</section>
-<section id="materials" class="level2">
-<h2 class="anchored" data-anchor-id="materials">Materials</h2>
-<p>The folder is a zipped folder called <code>Wk14_Lecture_Lab_R_Upload_Materials.zip</code>. It can be downloaded <a href="data/Wk4/Wk14_Lecture_Lab_R_Upload_Materials.zip">here</a> This has the model lecture script and the <code>.sav</code> file that was demonstrated in the lecture. It also has the basic layout of a .Rmd file and the data for the Week 14 lab task.</p>
-</section>
-<section id="lab-task" class="level2">
-<h2 class="anchored" data-anchor-id="lab-task">Lab Task</h2>
-<p>We are working with the <code>Coffee_Mediation_1.csv</code> from the folder listed above. Upload it to the R server, (preferably before you come to the lab) and complete the <code>Mediation_Lab_Script.Rmd</code> file using that data. There is no model output as a guide this week. The lecture demonstration video and the model script is your guide.</p>
-</section>
-<section id="pre-lab-activity" class="level2">
-<h2 class="anchored" data-anchor-id="pre-lab-activity">Pre-Lab Activity</h2>
-<ol type="1">
-<li>Watch the lecture before you attempt anything!</li>
-<li>Download the zip files and upload to your R account</li>
-<li>Play with the lecture model script to familiarise yourself with the process</li>
-<li>Come to your scheduled lab to write your own mediation analysis script</li>
-</ol>
-</section>
-<section id="test-yourself" class="level2">
-<h2 class="anchored" data-anchor-id="test-yourself">Test Yourself</h2>
-<p>The link to this week’s multiple choice quiz, WBA 4, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506931">here</a></p>
-</section>
-<section id="what-statistical-analysis-methods-do-we-know-so-far" class="level2">
-<h2 class="anchored" data-anchor-id="what-statistical-analysis-methods-do-we-know-so-far">What Statistical Analysis Methods Do We Know So Far?</h2>
-<p>A <em>t</em> test tests for significant difference between two - and only two - mean values. ANOVA extends the <em>t</em> test functionality by exploring differences between several means either within one factor that has two or more levels or across multiple factors that can have more than two levels. ANOVA’s (and the regression method’s) ability to manage more than two variables within an analysis, give us the capacity to explore whether predictor variables effect each other <em>and</em> the outcome variable at the same time: we can test for interactions.<br>
-Measures of association follow a similar pattern: Correlation in its simplest form measures the direction and a degree of strength in a relationship between two variables.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk4/Wk14_Correlation.png" class="img-fluid figure-img"></p>
-<figcaption>Path Diagram for a Simple, Bivariate Correlation</figcaption>
-</figure>
-</div>
-<p>Simple regression nominates one of those two variables as a predictor of the other. Indeed, if you use standardised values for predictor and outcome variables, the simple regression will return the Pearson’s <em>r</em> correlation coefficient as the simple regression coefficient estimate.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk4/Wk14_SimpleRegression.png" class="img-fluid figure-img"></p>
-<figcaption>Path Diagram for a Simple Regression Model</figcaption>
-</figure>
-</div>
-<p>Multiple regression methods extend the correlation test functionality to many more predictor variables, each with the capcacity for multiple levels within a predictor.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk4/Wk14_MutlipleRegression.png" class="img-fluid figure-img"></p>
-<figcaption>Path Diagram for a Mutliple Regression Model (add more X for extended models)</figcaption>
-</figure>
-</div>
-<section id="multiple-variables-multiple-potential-models" class="level3">
-<h3 class="anchored" data-anchor-id="multiple-variables-multiple-potential-models">Multiple Variables = Multiple Potential Models</h3>
-<p>Once we have multiple variables, we can take stock of the relationships not just between <code>X</code> and <code>Y</code> but also between the predictor variables. In week 13, we explored interactions in the context of effects on <code>Y</code> for a value for one predictor variable changing as the levels of a second predictor variable changed - an interaction. As the levels of one predictor changes, it moderates the effect of another predictor on <code>Y</code>.<br>
-Predictor variable relationships are not always those of interactions / moderations, however. There are other types of relationships that occur between predictor variables. The focus of this week’s lecture is that of the mediated relationship.</p>
-</section>
-</section>
-<section id="mediation-a-causal-model" class="level2">
-<h2 class="anchored" data-anchor-id="mediation-a-causal-model">Mediation: A Causal Model</h2>
-<p>Mediation helps answer the question: how does a predictor variable effect an outcome variable, in the presence of a mediating variable? Look at the path diagram below.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk4/Wk14_MediationModelPath.png" class="img-fluid figure-img"></p>
-<figcaption>Path Diagram for a Mediation Model</figcaption>
-</figure>
-</div>
-<p>There are still two predictors of <code>Y</code>, denoted by the two arrow heads that point to <code>Y</code>. If this were an interaction effect relationship then <code>M</code> would have an arrow connecting onto the line between <code>X</code> and <code>Y</code>. Instead, for a mediated relationship, the line between <code>X</code> and <code>Y</code> is both direct from <code>X</code> to <code>Y</code> on the bottom part of the diagram, but also goes through the predictor <code>M</code>, on the top of the diagram. One expression of <code>X</code>’s relationship with <code>Y</code> is direct, unmediated. An alternative expression of <code>X</code>’s relationship with <code>Y</code> is indirect, is mediated, by the predictor variable <code>M</code>. Some of <code>X</code>’s influence of effect passes through or is accounted for by <code>M</code>.</p>
-<section id="parts-of-the-mediation-model" class="level3">
-<h3 class="anchored" data-anchor-id="parts-of-the-mediation-model">Parts of the Mediation Model</h3>
-<p>A mediation model is defined by four paths. These paths are labelled on the connecting arrows of the diagram, the lie between the variables in the rectangular boxes.</p>
-<ol type="1">
-<li>Path <code>c</code>: The path of <em>total effect</em> - perhaps you will recognise that this pathway is the arrow between what is otherwise a simple regression model diagram (see above and directly below).</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk4/Wk14_TotalEffect.png" class="img-fluid figure-img"></p>
-<figcaption>The Path of Total Effect in a Mediation Model</figcaption>
-</figure>
-</div>
-<ol start="2" type="1">
-<li>Path <code>c'</code>: (read Path c-Prime) The path of <em>direct effect</em></li>
-<li>Path <code>a</code>: The path of <code>X</code> predicting <code>M</code></li>
-<li>Path <code>b</code>: The path of <code>M</code> predicting <code>Y</code></li>
-</ol>
-<p>Together, path <code>a</code> and <code>b</code> are referred to as the path of <em>indirect effect</em>. See the diagram below.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk4/Wk14_MediatedPaths.png" class="img-fluid figure-img"></p>
-<figcaption>The Paths of Direct and Indirect Effects in a Mediation Model</figcaption>
-</figure>
-</div>
-<p>Pause for a moment and look at the mediated model path diagram above. If we start at <code>X</code> and trace along to <code>Y</code>, then the single-arrow line denotes a simple regression model. Go back to <code>X</code> and now trace the single arrow line to <code>M</code>. This also denotes a simple regression model. Now start at <code>M</code> and follow the single-arrow line to <code>Y</code>. We have yet another diagram for a simple regression model.</p>
-<p>However, <code>X</code> predicts both <code>M</code> and <code>Y</code> in the model below, so if we want to be sure that we are isolating <code>M</code>’s effect on <code>Y</code>, we have to partial out <code>X</code>’s influence on <code>Y</code> at the same time. We do this by putting <code>X</code> as a predictor of <code>Y</code> in the same time and in the same model for when we use <code>M</code> as a predictor of <code>Y</code>. Hence, the single-arrow line from <code>M</code> to <code>Y</code>, is a multiple regression because we have two predictors - our primary predictor of <code>M</code> and (in the context of this model) our secondary predictor of <code>X</code>, whose effect on <code>Y</code> we are seeking to control.</p>
-<p>Now think about this:</p>
-<p>To find the effect for the indirect paths <code>a</code> and <code>b</code>, we multiply them together. If we then add them to the effect of the direct path, <code>c'</code>, then we should have the same magnitude or value of the effect as that of the total effect path, <code>c</code>.</p>
-<p><span class="math display">\[
-indirect\ effect + direct\ effect = total\ effect
-\]</span></p>
-<p>or</p>
-<p><span class="math display">\[
-ab + c' = c
-\]</span></p>
-</section>
-<section id="full-or-partial-mediation" class="level3">
-<h3 class="anchored" data-anchor-id="full-or-partial-mediation">Full or Partial Mediation</h3>
-<p>There are many types of mediation models. Here we will concentrate on only two: fully or partially mediated models.</p>
-<p>When all of the effect passes through the indirect path, or through the mediating variable <code>M</code>, then we say we have Full Mediation. We can recognise this because the direct path, or <code>c'</code> is reduced to such a small value that it is no longer significantly different from zero, i.e.&nbsp;the regression coefficient in the multiple regression model of <code>Y</code> = <code>M</code> + <code>X</code> is non-significant</p>
-<p><span class="math display">\[
-Full\ Mediation: ab + (c' = 0) = c
-\]</span></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk4/Wk14_FullMediation.png" class="img-fluid figure-img"></p>
-<figcaption>A Full Mediation Model</figcaption>
-</figure>
-</div>
-<p>When some of the effect passes through the indirect path, or through the mediating variable <code>M</code>, and a significant amount still passes through the direct path, then we say we have Partial Mediation.</p>
-<p><span class="math display">\[
-Partial\ Mediation = (ab &gt; 0) + (c' &gt; 0) = c
-\]</span></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk4/Wk14_PartialMediation.png" class="img-fluid figure-img"></p>
-<figcaption>A Partial Mediation Model</figcaption>
-</figure>
-</div>
-</section>
-<section id="additional-assumptions-to-the-linear-model-assumptions" class="level3">
-<h3 class="anchored" data-anchor-id="additional-assumptions-to-the-linear-model-assumptions">Additional Assumptions to the Linear Model Assumptions</h3>
-<p>All of the usual assumptions for linear regression models apply to mediation models - because they are, after all only a series of regression models. However, <em>we are beginning to claim a causal relationship</em> and so there are some extra considerations. As an explanatory process, <code>X</code> can be said to be ‘causally’ related to <code>Y</code> when: + <code>X</code> is associated with <code>Y</code> + <code>X</code> precedes changes in <code>Y</code> + No other unmeasured variables are related to <code>X</code> and also affect <code>Y</code></p>
-<p>There are also some conditions that are specific for claiming an effect is a mediated relationship:</p>
-</section>
-<section id="necessary-conditions-for-a-mediation-model" class="level3">
-<h3 class="anchored" data-anchor-id="necessary-conditions-for-a-mediation-model">Necessary Conditions for a Mediation Model</h3>
-<ol type="1">
-<li><code>X</code> need not be a significant predictor of <code>Y</code></li>
-<li><code>M</code> must not be a primary predictor variable for <code>Y</code></li>
-<li><code>M</code> must not be any of the study conditions</li>
-<li><code>M</code> must be singificantly predicted by <code>X</code></li>
-<li><code>M</code> must reduce or eradicate the impact of <code>X</code> on <code>Y</code></li>
-</ol>
-</section>
-<section id="further-desirable-properties-for-a-mediation-model" class="level3">
-<h3 class="anchored" data-anchor-id="further-desirable-properties-for-a-mediation-model">Further Desirable Properties for a Mediation Model</h3>
-<ol type="1">
-<li><code>X</code> should / could precede <code>M</code> in time</li>
-<li><code>M</code> should significantly predict <code>Y</code> but <code>Y</code> could also significantly predict <code>M</code></li>
-</ol>
-<ul>
-<li><code>M</code> and <code>Y</code> could be correlated if they are both causally related to <code>X</code>.</li>
-<li>Swapping the order of variables can check this</li>
-</ul>
-<ol start="3" type="1">
-<li>High power</li>
-</ol>
-<ul>
-<li>Study design can help this: from weakest to strongest for assumptions
-<ul>
-<li>Cross-sectional design (v. popular in student projects – beware…)</li>
-<li>Panel designs that allow for staggered measurement in waves</li>
-<li>Experimental designs with random assignment and manipulated variables</li>
-</ul></li>
-<li>Bootstrap method offers strongest solution here. See the demonstration video <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d2d2bc03-a2a7-404a-960d-b27100baa8e8">here</a></li>
-</ul>
-</section>
-</section>
-<section id="mediation-analysis-method-4-step-approach-baron-kenny-1986" class="level2">
-<h2 class="anchored" data-anchor-id="mediation-analysis-method-4-step-approach-baron-kenny-1986">Mediation Analysis Method: 4 step approach (Baron &amp; Kenny, 1986)</h2>
-<p>While this is known as a four step approach, it involves making three regression models:</p>
-<ul>
-<li>Step 1: Model 1 = path of total effect; a simple regression model involving predictor <code>X</code> and outcome <code>Y</code></li>
-<li>Step 2: Model 2 = path of indirect effect <code>a</code>; a simple regression model involving predictor <code>X</code> and outcome <code>M</code></li>
-<li>Step 3 &amp; 4: Model 3 = path of indirect effect <code>a</code> and direct effect <code>c'</code>; a multiple regression model involving predictor <code>X</code> and <code>M</code> on outcome <code>Y</code></li>
-</ul>
-<p>Here are the steps are linear regression equations:</p>
-<section id="step-1-model-1" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-model-1">Step 1: Model 1</h3>
-<p><span class="math display">\[
-Total\ effect: = Y = b_0 + b_1 * X + e
-\]</span></p>
-</section>
-<section id="step-2-model-2" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-model-2">Step 2: Model 2</h3>
-<p><span class="math display">\[
-indirect\ effect\ a = M = b_0 + b_1 * X + e
-\]</span></p>
-</section>
-<section id="step-3-model-3" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-model-3">Step 3: Model 3</h3>
-<p><span class="math display">\[
-indirect\ effect\ b = Y = b_0 + b_1 * X + b_2 * M + e
-\]</span></p>
-</section>
-<section id="step-4-within-model-3" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-within-model-3">Step 4: Within Model 3</h3>
-<p>This occurs within model 3. For this step, look at the regression coefficient for the <code>X</code> predictor. This is the direct effect coefficient, or the coefficient for <code>c'</code> (c-prime):</p>
-<ul>
-<li>If the <code>X</code> coefficient in the third model is significant, and <code>M</code> is significant, then you have a partial mediation effect;</li>
-<li>If the <code>X</code> coefficient in the third model is non-significant, and <code>M</code> is significant, then you have a full mediation effect</li>
-</ul>
-</section>
-</section>
-<section id="mediation-analysis-method-using-r-bootstrap-test-preacher-hayes-2004-2008" class="level2">
-<h2 class="anchored" data-anchor-id="mediation-analysis-method-using-r-bootstrap-test-preacher-hayes-2004-2008">Mediation Analysis Method Using R: Bootstrap Test (Preacher &amp; Hayes, 2004, 2008)</h2>
-<p>Due to concerns for low power in mediation analysis methods, the dynamic duo above constructed a bootstrapped method to harness the power of machine learning and automate a resampling technique, just so we could have greater confidence in our results. The <code>mediation</code> package (Tingley et al., 2013) has prepared the process for R users. In order to use the automated process, the researcher has to write the three models as above and then write a further line of code, telling the bootstrapping algorithm what models to use. The only process that is new in this method is the line of code for the bootstrapping part. The three models are simple and multiple regression models.</p>
-<p>If at this point, you have not watched the week 14 lecture demonstration video, please watch it now <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d2d2bc03-a2a7-404a-960d-b27100baa8e8">here</a>.</p>
-</section>
-<section id="reporting-results-for-a-mediation-analysis-model" class="level2">
-<h2 class="anchored" data-anchor-id="reporting-results-for-a-mediation-analysis-model">Reporting Results for a Mediation Analysis Model</h2>
-<p>Read this carefully because it sounds repetitive and as if I may have made an error, but it is the correct method:</p>
-<p>First, as with all results, report the method that you used and your predictors, outcome variables and any transformations that you made to inform your modelling process.<br>
-Then, report the <code>indirect effect</code> with its confidence intervals. This is generally the effect that has the most power. Then report the <code>direct effect</code> with its confidence intervals. At this point you may want to claim either a full or partially mediated effect, however be careful. In a context of low statistical power, Type II errors can occur for the direct path coefficient. Finally report the total effect coefficient with its confidence intervals and discuss how the additional assumptions of mediation analysis are met.</p>
-</section>
-<section id="interpreting-results-for-a-mediation-analysis-model" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-results-for-a-mediation-analysis-model">Interpreting Results for a Mediation Analysis Model</h2>
-<p>As with all results, interpretation is largely driven by theory. A partial mediation may be illuminating an otherwise concealed relationship and so inform some theory development. The size of an indirect effect may indicate the strenght of a mediating relationship which could prompt more attention and greater dedication of research resource in future studies. It is your job as the researcher to make these statements, in the context of both theory and prior research.</p>
-</section>
-<section id="demonstration" class="level2">
-<h2 class="anchored" data-anchor-id="demonstration">Demonstration</h2>
-<p>The following is the script from the lecture video</p>
 <section id="mediation-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="mediation-analysis">Mediation analysis</h3>
-<p>In this demonstration, we will model a mediation analysis.</p>
-<p>Is the quality of Supervision related to Dissertation Performance? What, if any, mediating effect may the self-esteem of a student have on this relationship?</p>
-<p>We are going to test for the mediator variable of <code>self esteem</code>.</p>
+<p>In this demonstration, we will model a mediation analysis. The total effect of an unmediated relationship is below in pathway c.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="st">"a"</span>, <span class="dv">0</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>          <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"b"</span>, <span class="st">"c-prime"</span>, <span class="dv">0</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">data=</span>data)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="dv">0</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>M<span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">data=</span>data)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plot<span class="ot">&lt;-</span> <span class="fu">plotmat</span> (M, <span class="at">pos=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">name=</span> <span class="fu">c</span>( <span class="st">"Self-esteem"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">name=</span> <span class="fu">c</span>( <span class="st">"M"</span>,</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Supervision"</span>, </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Dissertation </span><span class="sc">\n</span><span class="st">Performance"</span>), </span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">box.type =</span> <span class="st">"rect"</span>, </span>
@@ -671,7 +398,29 @@ Then, report the <code>indirect effect</code> with its confidence intervals. Thi
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week4_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Mediation_Lecture_Script_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We are going to test for the mediator variable of <code>self esteem</code>. This needs the prime mark added to the direct pathway “c” text!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="st">"a"</span>, <span class="dv">0</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>          <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="dv">0</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>M<span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">data=</span>data)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plot<span class="ot">&lt;-</span> <span class="fu">plotmat</span> (M, <span class="at">pos=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">name=</span> <span class="fu">c</span>( <span class="st">"Self-esteem"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Supervision"</span>, </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Dissertation </span><span class="sc">\n</span><span class="st">Performance"</span>), </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">box.type =</span> <span class="st">"rect"</span>, </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">box.size =</span> <span class="fl">0.12</span>, </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">box.prop=</span><span class="fl">0.5</span>,  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">curve=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Mediation_Lecture_Script_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -679,14 +428,8 @@ Then, report the <code>indirect effect</code> with its confidence intervals. Thi
 </section>
 <section id="read-in-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="read-in-the-data">Read in the data</h3>
-<p>First download the data file and the script from <a href="data/Wk4/mediation exercise 2 data.sav">here</a> and upload to the R server.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d_full <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"mediation exercise 2 data.sav"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d_full <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"data/Wk4/Wk14_Lecture_Lab_R_Upload_Materials/mediation exercise 2 data.sav"</span>)</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d_full <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"mediation exercise 2 data.sav"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -730,8 +473,8 @@ Then, report the <code>indirect effect</code> with its confidence intervals. Thi
  Max.   :5.000   Max.   :5.714   Max.   :5.815           </code></pre>
 </div>
 </div>
-<p>I am going to copy and rename the variables to save on typing. You don’t have to do this of course, and it may help you if you don’t.</p>
-<p><code>X</code> = supervision <code>Y</code> = dissertation_performance <code>M</code> = self_esteem</p>
+<p>I am going to copy and rename the variables to save on typing</p>
+<p>X = supervision Y = dissertation_performance M = self_esteem</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">X =</span> supervision,</span>
@@ -739,33 +482,18 @@ Then, report the <code>indirect effect</code> with its confidence intervals. Thi
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">M =</span> self_esteem)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-four-step-approach-of-baron-kenny-1986" class="level3">
-<h3 class="anchored" data-anchor-id="the-four-step-approach-of-baron-kenny-1986">The Four Step Approach of Baron &amp; Kenny (1986)</h3>
-<p>Four steps but three independent linear regression models (as listed above):</p>
+<section id="longhand---steps-of-baron-kenny-1986" class="level3">
+<h3 class="anchored" data-anchor-id="longhand---steps-of-baron-kenny-1986">Longhand - Steps of Baron &amp; Kenny (1986)</h3>
+<p>Four independent linear regression models</p>
 <ol type="1">
-<li>Simple regression for the effect of <code>X</code> on <code>Y</code> (total effect = pathway <code>c</code>)</li>
-<li>Simple regression for the effect of <code>X</code> on <code>M</code> (indirect effect pathway <code>a</code>)</li>
-<li>Multiple regression with <code>Y</code> as the outcome variable and</li>
+<li>The effect of X on Y (total effect = pathway c)</li>
+<li>The effect of X on M (indirect effect pathway a)</li>
+<li>The effect of M on Y (indirect effect pathway b) while controlling for X</li>
+<li>The effect of X and M on Y (for direct effect estimation = pathway c’)</li>
 </ol>
-<ul>
-<li>the effect of <code>M</code> (indirect effect pathway <code>b</code>)</li>
-<li>while controlling for <code>X</code> (for direct effect estimation = pathway <code>c'</code>)</li>
-</ul>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pay Attention
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>When running your models, you need to assign them to objects in the environment to then be able to use them in a call to the <code>mediation</code> package when you run your bootstrapping process. Take note of how I call my models below to help you do this.</p>
-</div>
-</div>
-<section id="step-1-test-the-c-pathway-of-the-total-effect" class="level4">
-<h4 class="anchored" data-anchor-id="step-1-test-the-c-pathway-of-the-total-effect">Step 1: Test the <code>c</code> pathway of the total effect</h4>
+<p>When running your models, you need to assign them to objects in the environment to then be able to use them in a call to the <code>mediation</code> package.</p>
+<section id="step-1-test-the-total-effect---pathway-c" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-test-the-total-effect---pathway-c">Step 1: Test the total effect - pathway c</h4>
 <p><span class="math display">\[
 Y = b_0 + b_1 * X + e
 \]</span></p>
@@ -794,15 +522,13 @@ F-statistic: 13.11 on 1 and 75 DF,  p-value: 0.0005321</code></pre>
 </div>
 </div>
 <p>The total effect of our predictor on our outcome is significant. In other words, supervision on dissertation performance is significant (<em>p</em> &lt; .001). A change in one unit of supervision is associated with an increase in dissertation performance of 0.44.</p>
-<p>Check the assumptions at this point.</p>
 <p>There is an effect that can be tested for mediation.</p>
 </section>
 <section id="step-2-test-the-a-pathway-of-the-indirect-effect" class="level4">
-<h4 class="anchored" data-anchor-id="step-2-test-the-a-pathway-of-the-indirect-effect">Step 2: Test the <code>a</code> pathway of the indirect effect</h4>
+<h4 class="anchored" data-anchor-id="step-2-test-the-a-pathway-of-the-indirect-effect">Step 2: Test the a pathway of the indirect effect</h4>
 <p><span class="math display">\[
 M = b_0 + b_1 * X + e
-\]</span></p>
-<p>a second simple regression model, using <code>X</code> as a predictor but this time, <code>M</code> (self esteem here) is our outcome variable:</p>
+\]</span> a second simple regression model, using X as a predictor but this time, M (self esteem here) is our outcome variable:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(fit_indirecta <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(M <span class="sc">~</span> X, d)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -826,15 +552,14 @@ Multiple R-squared:  0.08679,   Adjusted R-squared:  0.07461
 F-statistic: 7.128 on 1 and 75 DF,  p-value: 0.0093</code></pre>
 </div>
 </div>
-<p>The indirect effect pathway <code>a</code> (<code>X</code> on <code>M</code>) is also significant (<em>p</em> = .009). A change in one unit of supervision is associated with an increase in self-esteem of 0.30.</p>
-<p>So now we know that <code>X</code> and <code>M</code> share some variance - they are correlated. We have met one of the assumptions that we need to be able to perform a mediation analysis.</p>
+<p>The indirect effect pathway a (X on M) is also significant (<em>p</em> = .009). A change in one unit of supervision is associated with an increase in self-esteem of 0.30.</p>
+<p>So now we know that X and M share some variance - they are correlated. We have met one of the assumptions that we need to be able to perform a mediation analysis.</p>
 </section>
-<section id="step-3-4-test-the-b-pathway-of-the-indirect-effect-the-c-pathway-of-the-direct-effect" class="level4">
-<h4 class="anchored" data-anchor-id="step-3-4-test-the-b-pathway-of-the-indirect-effect-the-c-pathway-of-the-direct-effect">Step 3 &amp; 4: Test the <code>b</code> pathway of the indirect effect &amp; the <code>c'</code> pathway of the direct effect</h4>
+<section id="step-3-4-test-the-b-pathway-of-the-indirect-effect-the-direct-effect-pathway-c" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-4-test-the-b-pathway-of-the-indirect-effect-the-direct-effect-pathway-c">Step 3 &amp; 4: Test the b pathway of the indirect effect &amp; the direct effect (pathway c’)</h4>
 <p><span class="math display">\[
 Y = b_0 + b_1 * X + b_2 * M + e
-\]</span></p>
-<p>A multiple regression model, with <code>Y</code> (dissertation performance) as our outcome variable, and <code>X</code> (supervision) and <code>M</code> (self-esteem) as predictors. Remember that this model is controlling for the effect of <code>X</code> on <code>Y</code>, because interpreting one predictor in a multiple regression model always assumes that the effect of the other predictors are already taken care of, or controlled for.</p>
+\]</span> A multiple regression model, with Y (dissertation performance) as our outcome variable, and X (supervision) and M (self-esteem) as predictors. Remember that this model is controlling for the effect of X on Y, because interpreting one predictor in a multiple regression model always assumes that the effect of the other predictors are already taken care of, or controlled for.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(fit_indirectb <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(Y <span class="sc">~</span> X <span class="sc">+</span> M, d)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -859,16 +584,16 @@ Multiple R-squared:  0.4963,    Adjusted R-squared:  0.4827
 F-statistic: 36.46 on 2 and 74 DF,  p-value: 9.564e-12</code></pre>
 </div>
 </div>
-<p>The indirect effect pathway <code>b</code> (<code>M</code> on <code>Y</code>), while controlling for <code>X</code> is also significant (<em>p</em> &lt; .001). A change in one unit of self-esteem is associated with an increase in dissertation-performance of 0.68 of a unit. The predictor (<code>X</code>) relationship with the outcome (<code>Y</code> and pathway <code>c'</code> - the direct effect) remains significant also (<em>p</em> &lt; .02 , but reduced relative to the step 1 model coefficient (step 1 <span class="math inline">\(b\)</span> = 0.44, step 4 <span class="math inline">\(b\)</span> = 0.23).</p>
-<p>Since the direct pathway <code>c'</code> is significant, we can say that we have a partially mediated effect of self-esteem on the relationship between supervision and dissertation performance. Supervision predicts self esteem and dissertation performance, while self esteem also predicts dissertation performance.</p>
-<p>If instead the <code>X</code> coefficient in the model above had been &gt; .05 i.e.&nbsp;no significant, we could have claimed a full or complete mediation of self esteem on the relationship between supervision and dissertation performance</p>
+<p>The indirect effect pathway b (M on Y), while controlling for X is also significant (<em>p</em> &lt; .001). A change in one unit of self-esteem is associated with an increase in dissertation-performance of 0.68 of a unit. The predictor (X) relationship with the outcome (Y and pathway c’ - the direct effect) remains significant also (<em>p</em> &lt; .02 , but reduced relative to the step 1 model coefficient (step 1 <span class="math inline">\(b\)</span> = 0.44, step 4 <span class="math inline">\(b\)</span> = 0.23).</p>
+<p>Since the direct pathway c’ is significant, we can say that we have a partially mediated effect of self-esteem on the relationship between supervision and dissertation performance. Supervision predicts self esteem and dissertation performance, while self esteem also predicts dissertation performance.</p>
+<p>If instead the X coefficient in the model above had been &gt; .05 i.e.&nbsp;no significant, we could have claimed a full or complete mediation of self esteem on the relationship between supervision and dissertation performance</p>
 </section>
 </section>
 <section id="using-the-power-of-r-and-the-mediation-package" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-power-of-r-and-the-mediation-package">Using the power of R and the <code>mediation</code> package</h3>
 <p>The <code>mediation</code> package is called by the library() function loaded at the top of the document.</p>
 <ul>
-<li>It takes the models for pathways <code>a</code> and <code>b</code> (<code>fit_indirecta</code> and <code>fitindirectb</code> here),</li>
+<li>It takes the models for pathways a and b (<code>fit_indirecta</code> and <code>fitindirectb</code> here),</li>
 <li>It needs us to tell it the name of the predictor or treatment variable and the name of the mediator variable as labelled in the models</li>
 <li>and we set the <code>boot</code> argument to T for TRUE, to be able to generate confidence intervals on our co-efficients.</li>
 </ul>
@@ -892,10 +617,10 @@ Causal Mediation Analysis
 Nonparametric Bootstrap Confidence Intervals with the Percentile Method
 
                Estimate 95% CI Lower 95% CI Upper p-value    
-ACME             0.2062       0.0519         0.38   0.010 ** 
-ADE              0.2313       0.0420         0.40   0.014 *  
-Total Effect     0.4375       0.2041         0.65  &lt;2e-16 ***
-Prop. Mediated   0.4712       0.1651         0.87   0.010 ** 
+ACME             0.2062       0.0640         0.40   0.002 ** 
+ADE              0.2313       0.0486         0.39   0.012 *  
+Total Effect     0.4375       0.2223         0.63  &lt;2e-16 ***
+Prop. Mediated   0.4712       0.1828         0.84   0.002 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -906,17 +631,17 @@ Simulations: 1000 </code></pre>
 </div>
 </div>
 <ul>
-<li><strong>ACME</strong> stands for <em>average causal mediation effects</em> and is the product of pathway <code>a</code> and pathway <code>b</code> from <code>fit indirecta</code> (X = 0.30) and <code>fit_indirectb</code> (M = 0.68).</li>
-<li><strong>ADE</strong> stands for average direct effects or pathway <code>c'</code>. This is the <code>X</code> coefficient in our <code>fit_indirectb</code></li>
-<li><strong>Total Effect</strong> does what it says on the tin. It is the sum of the direct and indirect effect, ACME + ADE, and also calculated as <code>X</code> in model <code>fit_total</code>.</li>
-<li><strong>Prop. Mediated</strong> is the proportion of the effect of <code>X</code> on <code>Y</code> that goes through <code>M</code>. We divide ACME (or <code>ab</code>) by the total effect (<code>c</code>).</li>
+<li><strong>ACME</strong> stands for <em>average causal mediation effects</em> and is the product of pathway a and pathway b from <code>fit indirecta</code> (X = 0.3037992) and <code>fit_indirectb</code> (M = 0.6786069).</li>
+<li><strong>ADE</strong> stands for average direct effects or pathway c’. This is the X coefficient in our <code>fit_indirectb</code></li>
+<li><strong>Total Effect</strong> does what it says on the tin. It is the sum of the direct and indirect effect, ACME + ADE, and also calculated as X in model <code>fit_total</code>.</li>
+<li><strong>Prop. Mediated</strong> is the proportion of the effect of X on Y that goes through M. We divide ACME (or ab) by the total effect (c).</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week4_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Mediation_Lecture_Script_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -925,7 +650,7 @@ Simulations: 1000 </code></pre>
 <section id="reporting-the-mediation-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="reporting-the-mediation-analysis">Reporting the mediation analysis</h3>
 <p>and to use our diagram from the top of the document:</p>
-<p>We are going to test for the mediator variable of <code>self esteem</code>.</p>
+<p>We are going to test for the mediator variable of <code>self esteem</code>. (This needs the prime mark added to the direct pathway “c” text!)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.30</span>, <span class="dv">0</span>,</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>          <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, </span>
@@ -942,70 +667,15 @@ Simulations: 1000 </code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week4_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Mediation_Lecture_Script_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>(Remember that these data are not standardised so we cannot compare between them for strength of relationships!)</p>
 <p>The effect of supervision on dissertation performance was partially mediated via self-esteem. The effect of supervision on dissertation performance and the effect of self-esteem on dissertation performance were independently significant predictors. The indirect effect equals (.3)*(0.68) = .0.21. We tested the significance of this indirect effect using bootstrapping procedures. We computed the average indirect effect over 1,000 bootstrapped samples with 95% confidence intervals (bootstrapped indirect effect = 0.21 95% CI [0.06, 0.38]). Since the confidence intervals do not cross zero, we infer statistical significance.</p>
-</section>
-</section>
-<section id="week-14-lab-task" class="level2">
-<h2 class="anchored" data-anchor-id="week-14-lab-task">Week 14 Lab Task</h2>
-<p>Unlike weeks 12 and 13, week 14’s lab task requires you to run a mediation analysis and answer some questions. The staff will have the answers in the lab, so you can check them either as you go along or once you have finished. The lecture demonstration and model script is there to guide you.</p>
-<p>The mediation analysis for the lab task involves exploring how a property of <code>Alertness</code> mediates the effect of <code>Coffee intake</code> on <code>Problem Solving</code>.</p>
-<p>You can download the .zip folder that’s needed for this lab from <a href="data/Wk4/Lab 4 Materials.zip">here</a>, which contains a starter .Rmd file and the data needed.</p>
-<section id="describe-the-variables" class="level3">
-<h3 class="anchored" data-anchor-id="describe-the-variables">Describe the variables:</h3>
-<p>In your working with the data, get to know the variables and think how you would describe them in your measures sub-section of your methods section of a report.</p>
-<ul>
-<li>Are they continuous / categorical?<br>
-</li>
-<li>If categorical, how many levels do they have? Which one have you coded as the reference level?</li>
-<li>Tell your reader which is your outcome variable (<code>Y</code>)</li>
-<li>Report the predictor variables (Xs)</li>
-</ul>
-</section>
-</section>
-<section id="descriptive-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics:</h2>
-<ul>
-<li>Calculate and report the number of observations on your categorical variables, and means and standard deviations for your continuous variables</li>
-<li>Describe your sample and their demographics.</li>
-</ul>
-</section>
-<section id="mediation-analysis-4-step-approach" class="level2">
-<h2 class="anchored" data-anchor-id="mediation-analysis-4-step-approach">Mediation Analysis – 4 step approach</h2>
-<p>Step 1: Total effect: Run the code and write a short paragraph of results</p>
-<p>Step 2: Indirect effect path <code>a</code>: Run the code and write a short paragraph of results.</p>
-<p>Step 3 &amp; 4: Indirect effect path <code>b</code> and direct effect path: Run the code and write a short paragraph of results.</p>
-</section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<ol type="1">
-<li>Is there a total effect?</li>
-<li>Is there an indirect path effect for <code>X</code> predicting the mediator <code>M</code>?</li>
-<li>Is there an effect for indirect path of mediator <code>M</code> on outcome <code>Y</code>?</li>
-<li>Is there an effect of direct path of <code>X</code> on <code>Y</code>?</li>
-<li>Is there a mediated effect of coffee on problem solving?</li>
-<li>If so, what type of mediation is it? 7.Why have you decided that type of mediation?</li>
-</ol>
-</section>
-<section id="bootstrap-method" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrap-method">Bootstrap Method</h2>
-<p>Run the bootstrap method Report the following values to 2 dp.</p>
-<ol start="8" type="1">
-<li>What is the average causal mediation effect value?</li>
-<li>What is the average direct effect value?</li>
-<li>What is the total effect value?</li>
-<li>What proportion of variance goes through the indirect pathway?</li>
-</ol>
-<p>Draw the mediation analysis diagram with the correct values on the pathways.</p>
-<p>Report the bootstrap analysis and the results.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1418,18 +1088,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../PSYC234/Week3.html" class="pagination-link" aria-label="3. Multiple Regression Models that Include Interactions (Moderated Variables)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">3. Multiple Regression Models that Include Interactions (Moderated Variables)</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../PSYC234/Week5.html" class="pagination-link" aria-label="5. Factor analysis &amp; the binomial test">
-        <span class="nav-page-text">5. Factor analysis &amp; the binomial test</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1442,7 +1100,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../previous-content/index.html">
+    <a class="nav-link" href="../../../../previous-content/index.html">
 <p>Previous Content</p>
 </a>
   </li>  
