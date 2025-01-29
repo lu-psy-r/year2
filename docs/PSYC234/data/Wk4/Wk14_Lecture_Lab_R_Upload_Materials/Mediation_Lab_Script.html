@@ -403,11 +403,11 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>We are going to test for the mediator variable of Alertness (M) on Coffee’s (X) performance on Problem Solving (Y). (This needs the prime mark added to the direct pathway “c” text!)</p>
+<p>We are going to test for the mediator variable of Alertness (M) on Coffee’s (X) performance on Problem Solving (Y). Note that <code>c'</code> is now on the bottom pathway (read c-prime). (BTW - this is not a maths prime symbol, so the mathematicians amongst you may be cringing right now, however I tried everything - Unicode / mathstext etc to include a true maths notation for the prime symbol and couldn’t get the code to run! - so this is a hack!)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="st">"a"</span>, <span class="dv">0</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>          <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"b"</span>, <span class="st">"`c (direct effect)`"</span>, <span class="dv">0</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"b"</span>, <span class="st">"`c'`"</span>, <span class="dv">0</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>M<span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">data=</span>data)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plot<span class="ot">&lt;-</span> <span class="fu">plotmat</span> (M, <span class="at">pos=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">name=</span> <span class="fu">c</span>( <span class="st">"Alertness (M)"</span>,</span>
@@ -614,10 +614,10 @@ Causal Mediation Analysis
 Nonparametric Bootstrap Confidence Intervals with the Percentile Method
 
                Estimate 95% CI Lower 95% CI Upper p-value    
-ACME             1.5971       0.1541         3.88   0.014 *  
-ADE              4.4258       1.4267         7.77   0.010 ** 
-Total Effect     6.0229       3.1421         9.35  &lt;2e-16 ***
-Prop. Mediated   0.2652       0.0338         0.62   0.014 *  
+ACME             1.5971       0.1637         3.93   0.016 *  
+ADE              4.4258       1.5654         7.91   0.004 ** 
+Total Effect     6.0229       3.0093         9.28  &lt;2e-16 ***
+Prop. Mediated   0.2652       0.0293         0.63   0.016 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 

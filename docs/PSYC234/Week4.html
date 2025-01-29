@@ -658,7 +658,7 @@ Then, report the <code>indirect effect</code> with its confidence intervals. Thi
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="st">"a"</span>, <span class="dv">0</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>          <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"b"</span>, <span class="st">"c-prime"</span>, <span class="dv">0</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"b"</span>, <span class="st">"`c'`"</span>, <span class="dv">0</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">data=</span>data)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plot<span class="ot">&lt;-</span> <span class="fu">plotmat</span> (M, <span class="at">pos=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), </span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">name=</span> <span class="fu">c</span>( <span class="st">"Self-esteem"</span>,</span>
@@ -854,7 +854,7 @@ Multiple R-squared:  0.4963,    Adjusted R-squared:  0.4827
 F-statistic: 36.46 on 2 and 74 DF,  p-value: 9.564e-12</code></pre>
 </div>
 </div>
-<p>The indirect effect pathway <code>b</code> (<code>M</code> on <code>Y</code>), while controlling for <code>X</code> is also significant (<em>p</em> &lt; .001). A change in one unit of self-esteem is associated with an increase in dissertation-performance of 0.68 of a unit. The predictor (<code>X</code>) relationship with the outcome (<code>Y</code> and pathway <code>c'</code> - the direct effect) remains significant also (<em>p</em> &lt; .02 , but reduced relative to the step 1 model coefficient (step 1 <span class="math inline">\(b\)</span> = 0.44, step 4 <span class="math inline">\(b\)</span> = 0.23).</p>
+<p>The indirect effect pathway <code>b</code> (<code>M</code> on <code>Y</code>), while controlling for <code>X</code> is also significant (<em>p</em> &lt; .001). A change in one unit of self-esteem is associated with an increase in dissertation-performance of 0.68 of a unit. The predictor (<code>X</code>) relationship with the outcome (<code>Y</code> and pathway <code>c'</code> - the direct effect) remains significant also (<em>p</em> &lt; .021) , but reduced relative to the step 1 model coefficient (step 1 <span class="math inline">\(b\)</span> = 0.44, step 4 <span class="math inline">\(b\)</span> = 0.23).</p>
 <p>Since the direct pathway <code>c'</code> is significant, we can say that we have a partially mediated effect of self-esteem on the relationship between supervision and dissertation performance. Supervision predicts self esteem and dissertation performance, while self esteem also predicts dissertation performance.</p>
 <p>If instead the <code>X</code> coefficient in the model above had been &gt; .05 i.e.&nbsp;no significant, we could have claimed a full or complete mediation of self esteem on the relationship between supervision and dissertation performance</p>
 </section>
@@ -887,10 +887,10 @@ Causal Mediation Analysis
 Nonparametric Bootstrap Confidence Intervals with the Percentile Method
 
                Estimate 95% CI Lower 95% CI Upper p-value    
-ACME             0.2062       0.0627         0.39   0.002 ** 
-ADE              0.2313       0.0438         0.41   0.014 *  
-Total Effect     0.4375       0.2106         0.65  &lt;2e-16 ***
-Prop. Mediated   0.4712       0.1796         0.84   0.002 ** 
+ACME             0.2062       0.0625         0.37   0.006 ** 
+ADE              0.2313       0.0423         0.41   0.018 *  
+Total Effect     0.4375       0.2071         0.65  &lt;2e-16 ***
+Prop. Mediated   0.4712       0.1785         0.88   0.006 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 

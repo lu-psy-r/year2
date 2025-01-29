@@ -403,11 +403,11 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>We are going to test for the mediator variable of <code>self esteem</code>. This needs the prime mark added to the direct pathway “c” text!</p>
+<p>We are going to test for the mediator variable of <code>self esteem</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="st">"a"</span>, <span class="dv">0</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>          <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="dv">0</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">"b"</span>, <span class="st">"`c'`"</span>, <span class="dv">0</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>M<span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">data=</span>data)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plot<span class="ot">&lt;-</span> <span class="fu">plotmat</span> (M, <span class="at">pos=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">name=</span> <span class="fu">c</span>( <span class="st">"Self-esteem"</span>,</span>
@@ -617,10 +617,10 @@ Causal Mediation Analysis
 Nonparametric Bootstrap Confidence Intervals with the Percentile Method
 
                Estimate 95% CI Lower 95% CI Upper p-value    
-ACME             0.2062       0.0640         0.40   0.002 ** 
-ADE              0.2313       0.0486         0.39   0.012 *  
-Total Effect     0.4375       0.2223         0.63  &lt;2e-16 ***
-Prop. Mediated   0.4712       0.1828         0.84   0.002 ** 
+ACME             0.2062       0.0566         0.38   0.008 ** 
+ADE              0.2313       0.0331         0.42   0.018 *  
+Total Effect     0.4375       0.2165         0.65  &lt;2e-16 ***
+Prop. Mediated   0.4712       0.1779         0.88   0.008 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -650,7 +650,7 @@ Simulations: 1000 </code></pre>
 <section id="reporting-the-mediation-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="reporting-the-mediation-analysis">Reporting the mediation analysis</h3>
 <p>and to use our diagram from the top of the document:</p>
-<p>We are going to test for the mediator variable of <code>self esteem</code>. (This needs the prime mark added to the direct pathway “c” text!)</p>
+<p>We are going to test for the mediator variable of <code>self esteem</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.30</span>, <span class="dv">0</span>,</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>          <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, </span>

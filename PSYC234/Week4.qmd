@@ -382,7 +382,7 @@ We are going to test for the mediator variable of `self esteem`.
 ```{r}
 data <- c(0, "a", 0,
           0, 0, 0, 
-          "b", "c-prime", 0)
+          "b", "`c'`", 0)
 M <- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)
 plot<- plotmat (M, pos=c(1,2), 
                 name= c( "Self-esteem",
@@ -499,7 +499,7 @@ A multiple regression model, with `Y` (dissertation performance) as our outcome 
 (fit_indirectb <- summary(lm(Y ~ X + M, d)))
 ```
 
-The indirect effect pathway `b` (`M` on `Y`), while controlling for `X` is also significant (*p* < .001). A change in one unit of self-esteem is associated with an increase in dissertation-performance of 0.68 of a unit. The predictor (`X`) relationship with the outcome (`Y` and pathway `c'` - the direct effect) remains significant also (*p* < .02 , but reduced relative to the step 1 model coefficient (step 1 $b$ = 0.44, step 4 $b$ = 0.23).  
+The indirect effect pathway `b` (`M` on `Y`), while controlling for `X` is also significant (*p* < .001). A change in one unit of self-esteem is associated with an increase in dissertation-performance of 0.68 of a unit. The predictor (`X`) relationship with the outcome (`Y` and pathway `c'` - the direct effect) remains significant also (*p* < .021) , but reduced relative to the step 1 model coefficient (step 1 $b$ = 0.44, step 4 $b$ = 0.23).  
 
 Since the direct pathway `c'` is significant, we can say that we have a partially mediated effect of self-esteem on the relationship between supervision and dissertation performance.  Supervision predicts self esteem and dissertation performance, while self esteem also predicts dissertation performance.
 
