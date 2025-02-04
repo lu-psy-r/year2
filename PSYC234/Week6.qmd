@@ -420,7 +420,7 @@ Negative ranks: 10
 
 <span style="color:purple">**QUESTION 3: How was the p-value calculated?**</span>
 
-<span style="color:purple">The normal approximation with the continuity correction</span>
+<span style="color:purple">The normal approximation with the continuity correction.</span>
 
 #### 2. A repeated measures design
 
@@ -437,9 +437,9 @@ Negative ranks: 10
 <span style="color:purple">In practice, you should also calculate the effect size and report that.</span>
 :::
 
-<span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span?
+<span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span>
 
-<span style="color:purple">The normal approximation with the continuity correction</span>
+<span style="color:purple">The normal approximation with the continuity correction.</span>
 
 # Asking questions
 
