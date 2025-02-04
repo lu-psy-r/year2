@@ -163,11 +163,11 @@ Weak correlations between predictor variables are not too problematic.  If predi
 
 ### Mitigation
 
-One way to mitigate multicollinearity is to simple leave some variables out of your dataset - and there are estimation practices and methods that allow you to choose which to leave out in a principled, reproducible way.  
+One way to mitigate multicollinearity is to simply leave some variables out of your dataset. There are estimation practices and methods that allow you to choose which to leave out in a principled, reproducible way.  
    
-   Another way to mitigate multicollinearity is not to leave out variables but to combine variables that are highly correlated together into one new variable. This is what a factor analysis method does.  It calculates what information is unique in the predictor for a hypothesised new variable and takes only sufficient information from each observed variables that uniquely contributes to the new variable. In this way, the colinearity is reduced in the dataset but the relevant information from the observed datasets is retained.  
+   Another way to mitigate multicollinearity is not to discard observed variables but to combine observed variables that are highly correlated together into one new latent variable. This is what a factor analysis method does.  It calculates, across a set of otherwise correlated observed variables, what information is unique in a predictor for a hypothesised new variable and takes only sufficient information from each observed variables that uniquely contributes to the new variable. In this way, the multicollinearity amongst the observed variables is reduced with the relevant information from the observed variables retained and described by the new latent variables.  
    
-   Theory should suggest which variables are likely to "load" together onto a latent variable.  However, you can also take a data driven approach (by letting the model suggest loadings) if theory is agnostic, or variables are quite new.
+   Theory should suggest which variables are likely to "load" together onto a latent variable. When this happens, you may engage in a "confirmatory factor analysis" or CFA.  However, you can also take a data driven approach (by letting the model suggest loadings) if theory is agnostic, or variables are quite new. This is sometimes called an "exploratory factor analysis" or EFA.
 
 ## Factor Analysis
 
@@ -182,7 +182,7 @@ Factor analysis is quite jargon heavy, it has its own little language system - a
 There are some conditions associated with making the new latent variables that must be met: 
 
  - Latent variables should have three or more observed variables loading onto them.
- - Correlations between those three or more observed variables should be high.
+ - Correlations between those three or more observed variables should be high (advice is given in the lab scripts).
  - Any one of the observed variables should load onto one latent variable only.
  - Before beginning your factor analysis, you should standardise your variables.
  - Ensure that reverse scored items are transformed to move in the same direction as the majority of the other variables
