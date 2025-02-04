@@ -4,86 +4,443 @@ subtitle: Amy Atkinson
 order: 7
 ---
 
+```{r, include=FALSE}
+library(knitr)
+library(kableExtra)
+library(ggpubr)
+library(tidyverse) 
+library(rstatix)
+```
 ::: {.callout-caution}
 This page is under construction for 24/25 and may be subject to change before the teaching week.
 :::
 
 # Lecture
 
+This lecture comprises four parts: 
 
-Watch lecture [Part 1](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051207)
-Watch lecture [Part 2](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051208)
-Watch lecture [Part 3](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051209)
-Watch lecture [Part 4](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051210)
+[Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=684b5810-663a-4a8b-8bd9-b27a00fb11de): This part covers an introduction to non-parametric tests and when they might be useful to consider.
 
-Download ALL the lecture slides [here](data/Wk6/Week 16 Lecture Slides.zip) in both pptx and pdf format.
+[Part 2](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b51ad7bd-122d-4304-b801-b27a00fb1166): This part covers how to test the assumption of normality with two independent groups.
 
-# Post-lecture activity
+[Part 3](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=176c6b52-8c36-485c-8ab9-b27a00fb1187): This part introduces you to the Wilcoxon rank-sum test. This includes when to use this test, the theory behind it, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.
 
-Find the post-lecture worksheet [here](data/Wk6/Worksheet/PSYC234_L6_worksheet.docx) and the answers [here](data/Wk6/Worksheet/PSYC234_L6_worksheet_ANSWERS.pdf)
+[Part 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115): This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.
+
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507037) in both .pptx and .pdf format.
 
 # Lab preparation
 
-Watch the preparation video [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051205)
+Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=25cf1ac6-7afc-4129-9ec4-b27a00fb10d0). This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.
 
-Download the files discussed in the video [here](data/Wk6/Lab preparation files.zip)
+If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507042).
 
-# Lab
-
-Download the lab materials [here](data/Wk6/Lab 6 - Materials.zip)
+# Lab 
 
 ## Overview
 
-I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures.
+I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures. You can work in groups or individually.
 
-You can work in groups.
+You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.
 
-Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you
+The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2602258&forceview=1).
 
-Begin the script in the lab and complete in your own time
+## Datasets
 
-You can write your script as a .R or Rmd file
+The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507044). 
 
-Submit for feedback. For this week’s lab, scripts should be submitted on the moodle link by:
-Friday of Week 16 at 3pm
-
-I’ll provide feedback on a subset of scripts
-- You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year
-
-I’ll also release a model script I’ve written - this will go live on Moodle on Friday of Week 16 at 3pm
-
-## Research question 1
+## Research question 1: Independent groups
 
 You are a researcher interested in whether the old saying "an apple a day keeps the doctor away is true". 
 
-You recruit 16 people and assign each participant to either a "0 apples" or "1 apple" condition. Participants in the "0 apple" condition eat 0 apples every day for a year. Participants in the "1 apple" condition eat 1 apple a day for a year.  You ask participants to report how many times they visited the GP in the year.
+You recruit 16 people and assign each participant to either a "0 apples" or "1 apple" group Participants in the "0 apple" group eat 0 apples every day for a year. Participants in the "1 apple" group eat 1 apple a day for a year.  You ask participants to report how many times they visited the GP in the year.
 
-## Research question 2
+## Research question 2: Repeated measures
 
 You are interested in whether eating bananas keeps the doctor away. 
 
 This time you recruit only one group of participants. In the first year, you ask them to eat 0 banana every day. In the second year, you ask them to eat 1 bananas a day. You ask them to report how many times they visit the GP in Year 1 and Year 2. 
 
-## A template for running the Wilcoxon rank-sum test and the Wilcoxon signed-rank test
+## Hints and tips
 
-Your script should aim to answer and interpret both of these research questions
+Your script should aim to answer and interpret both of these research questions. 
+Start a new session on the server, then load in the required libraries (tidyverse, cowplot, ggpubr, rstatix) and the datasets.
 
-Start a new session on the server. 
+For each research questions, you will need to:
 
-I have uploaded a .R and .Rmd file to this week’s lab folder. You could use this to get started or just create your own blank .R/.Rmd file
+1. Perform normality checks
 
-1. Load packages and data
+2. Explore your data (e.g. descriptive statistics, a plot)
 
-2. Normality checks
+3. Conduct the statistical test
 
-3. Explore your data (e.g. descriptive statistics, a plot)
+4. Calculate an effect size
 
-4. Conduct the statistical test
+5. Interpret your data
 
-5. Calculate an effect size
+## Upload your script to be considered for feedback
 
-6. Interpret your data
+You/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so  [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cOAOzAz9kdeNFn8) by **5pm on Friday of Week 16**. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year. 
 
-# Upload your script
+## Model script 
 
-You can upload your finished script for feedback on your code [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978220) and feedback will be posted onto Moodle.
+A model script showing one way of answering the research questions above using R will be shared early in Week 17.
+
+# Independent learning activities 
+
+Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content (the answers to these can be found below).
+
+## Activity 1: The WBA
+
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506933) from 10th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+
+## Activity 2: Calculating test statistics manually
+
+This activity is aimed at supporting your understanding of what the test statistics mean.
+
+#### Wilcoxon rank-sum test
+
+You are a researcher interested in whether the number of cups of coffee drank affects how many admin tasks participants can get done in an hour. You assign to one of two groups (drink 4 cups of coffee a day or drink 0 cups of coffee a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete. 
+
+Here is the data:
+
+```{r echo = FALSE} 
+coffee_group <- c("4 cups", "4 cups", "4 cups", "0 cups", "0 cups", "0 cups", "0 cups")
+admin_tasks <- c(5, 18, 14, 6, 4, 17, 14)
+tab1 <- data.frame(coffee_group, admin_tasks)
+knitr::kable(tab1, booktabs = TRUE, align=rep('c', 2)) %>%
+  kable_styling(position = "center")
+```
+
+<span style="color:purple">**QUESTION 1: What is the test statistic?**</span>
+
+::: {.callout-tip collapse="true"}
+## Expand for hints!
+
+To calculate this, you will need to work through the following steps:
+
+- Rank the data
+
+- Sum the ranks for each group
+
+- Calculate the mean rank for each group
+
+- Calculate the sum of ranks minus mean rank for each group
+
+- Use this information to identify the test statistic
+
+If you are still unsure, have another look at the lecture.
+
+:::
+
+<span style="color:purple">**QUESTION 2: What might R report as the test statistic and why?**</span>
+
+#### Wilcoxon signed-rank test
+
+You are a researcher interested in whether a reading intervention helps children. You assess children’s reading skills and then give them all an intensive reading intervention. You then measure their reading abilities again. 
+
+Here is the data:
+
+```{r echo = FALSE} 
+Before_intervention <- c(23, 34, 67, 65, 21)
+After_intervention <- c(27, 34, 91, 67, 44)
+tab2 <- data.frame(Before_intervention, After_intervention)
+knitr::kable(tab2, booktabs = TRUE, align=rep('c', 2)) %>%
+  kable_styling(position = "center")
+```
+
+<span style="color:purple">**QUESTION 3: What is the test statistic?**</span>
+
+::: {.callout-tip collapse="true"}
+## Expand for hints!
+
+To calculate this, you will need to work through the following steps:
+
+- Calculate the difference between “Before intervention” and “After intervention”
+
+- Note whether the difference is positive or negative
+
+- Rank the difference
+
+- Add up positive ranks and negative ranks
+
+- Use this information to identify the test statistic (V).
+
+If you are still unsure, have another look at the lecture
+:::
+
+<span style="color:purple">**QUESTION 4: If this analysis was conducted in R, what could V equal to? Why might V equal to two values?**</span>
+
+## Activity 3: Interpreting R output
+
+This activity is aimed at supporting your interpretation of R output. Part 1 uses an independent groups design. Part 2 uses a repeated measures design. Please note, this data are different to that used in Activity 2 (so the test statistics will be different).
+
+#### 1. An independent groups design
+
+You are a researcher interested in whether the number of cups of tea drank affects how many admin tasks participants can get done in an hour. You assign participants to one of two groups (drink 4 cups of tea a day or drink 0 cups of tea a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete. 
+
+The R output is below:
+
+##### Testing the assumption of normality 
+
+###### Q-Q plots:
+
+```{r echo = FALSE} 
+tea_dataset <- read.csv("data/Wk6/l6_worksheet1.csv")
+
+ggqqplot(tea_dataset, "admin_tasks", facet.by = "tea_group", conf.int = FALSE)
+```
+
+###### Shapiro-Wilk test:
+
+```{r echo = FALSE} 
+tea_dataset %>%
+  group_by(tea_group) %>%
+  shapiro_test(admin_tasks)
+```
+
+<span style="color:purple">**QUESTION 1: Is the assumption violated?**</span>
+
+##### Descriptive statistics and model output:
+
+Descriptive statistics:
+
+```{r}
+tea_dataset %>%
+  group_by(tea_group) %>%
+  summarise(med = median(admin_tasks),
+            min = min(admin_tasks),
+            max = max(admin_tasks),
+            n())
+```
+
+
+Model output:
+
+```{r echo = FALSE} 
+model1 <- wilcox.test(admin_tasks ~ tea_group, data = tea_dataset, paired = FALSE)
+model1
+
+
+```
+<span style="color:purple">**QUESTION 2: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">**QUESTION 3: How was the p-value calculated?**</span>
+
+#### 2. A repeated measures design
+
+You are a researcher interested in whether the amount of chocolate (in grams) eaten is different on a Saturday to a Monday. The R output is below:
+
+##### Testing the assumption of normality 
+
+Q-Q plot: 
+
+```{r echo = FALSE} 
+chocolate_dataset <- read.csv("data/Wk6/l6_worksheet2.csv")
+
+chocolate_dataset$Difference <- chocolate_dataset$Saturday - chocolate_dataset$Monday
+
+ggqqplot(chocolate_dataset, "Difference", conf.int = FALSE)
+
+```
+
+Shapiro-Wilk test:
+
+```{r echo = FALSE}
+shapiro_test(chocolate_dataset$Difference)
+
+```
+
+<span style="color:purple">**QUESTION 4: Is the assumption violated?**</span>
+
+##### Descriptive statistics and model output:
+
+Descriptive statistics:
+
+```{r echo = FALSE}
+chocolate_dataset %>%
+  summarise(median_sat = median(Saturday), median_mon = median(Monday),
+            min_sat = min(Saturday), min_mon = min(Monday),
+            max_sat = max(Saturday), max_mon = max(Monday),
+            n())
+```
+Model output:
+
+```{r echo = FALSE} 
+model2 <- wilcox.test(chocolate_dataset$Saturday, chocolate_dataset$Monday, paired = TRUE)
+model2
+
+
+```
+<span style="color:purple">**QUESTION 5: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span>
+
+## Answers (Activities 2 and 3)
+
+### Activity 2 answers
+
+#### Wilcoxon rank-sum test
+
+<span style="color:purple">**QUESTION 1 ANSWER:**</span>
+
+<span style="color:purple">Test statistic = 4.5</span>
+
+<span style="color:purple">**QUESTION 2 ANSWER: What might R report as the test statistic and why?**</span>
+
+<span style="color:purple">R reports the test statistic (*W*) as the sum of ranks minus the mean rank for the first factor level. R may therefore report the test statistic as 4.5 or 7.5.</span>
+
+::: {.callout-tip collapse="true"}
+## How were these answers calculated?
+
+Here is the how these answers were computed:
+
+**STEPS**:
+
+**Rank the data:**
+
+```{r echo = FALSE} 
+Group <- c("4 cups", "4 cups", "4 cups", "0 cups", "0 cups", "0 cups", "0 cups")
+Tasks_completed <- c(5, 18, 14, 6, 4, 17, 14)
+Rank <- c(2, 7, 4.5, 3, 1, 6, 4.5)
+tab3 <- data.frame(Group, Tasks_completed, Rank)
+kable(tab3, booktabs = TRUE, align=rep('c', 3)) %>%
+  kable_styling(position = "center")
+```
+
+**Sum the ranks per group:**
+
+4 cups = 13.5
+
+0 cups = 14.5
+
+**Calculate the mean rank per group:**
+
+4 cups = 3\*4 = 12. 12/2 = 6
+
+0 cups = 4\*5 = 20. 20/2 = 10
+
+**Calculate the sum of ranks minus mean rank per group:**
+
+4 cups = 13.5-6 = 7.5
+
+0 cups = 14.5-10 = 4.5
+
+**Identify the test statistic:**
+
+Test statistic = The lowest sum of ranks. Test statistic = 4.5
+
+:::
+
+#### Wilcoxon signed-rank test
+
+<span style="color:purple">**QUESTION 3: What is the test statistic?"**</span>
+
+<span style="color:purple">*V* = 0</span>
+
+<span style="color:purple">**QUESTION 4: If this analysis was conducted in R, what could V equal to? Why might V equal to two values?**</span>
+
+<span style="color:purple">*V* = 0 or 10. *V* is equal to the sum of positive ranks. But whether ranks are positive or negative depends on whether you enter “before” or “after” first into the wilcox.test function (as this determines whether you calculate the difference by doing before-after or after-before).</span>
+
+::: {.callout-tip collapse="true"}
+## How were these answers calculated?
+
+Here is how these answers were computed:
+
+**STEPS**:
+
+**Calculate the difference between “Before intervention” and “After intervention”:**
+
+```{r echo = FALSE} 
+Before_intervention <- c(23, 34, 67, 65, 21)
+After_intervention <- c(27, 34, 91, 67, 44)
+Difference <- c(-4, "Exclude", -24, -2, -23)
+tab4<- data.frame(Before_intervention, After_intervention, Difference)
+kable(tab4, booktabs = TRUE, align=rep('c', 3)) %>%
+  kable_styling(position = "center") 
+```
+
+**Note whether the difference is positive or negative:**
+
+```{r echo = FALSE} 
+Before_intervention <- c(23, 34, 67, 65, 21)
+After_intervention <- c(27, 34, 91, 67, 44)
+Difference <- c(-4, "Exclude", -24, -2, -23)
+Sign <- c("Negative", "", "Negative", "Negative", "Negative")
+tab5<- data.frame(Before_intervention, After_intervention, Difference, Sign)
+kable(tab5, booktabs = TRUE, align=rep('c', 4)) %>%
+  kable_styling(position = "center") 
+
+```
+
+**Rank the difference:**
+
+```{r echo = FALSE} 
+Before_intervention <- c(23, 34, 67, 65, 21)
+After_intervention <- c(27, 34, 91, 67, 44)
+Difference <- c(-4, "Exclude", -24, -2, -23)
+Sign <- c("Negative", "", "Negative", "Negative", "Negative")
+Rank <- c("2", "", "4", "1", "3")
+tab6<- data.frame(Before_intervention, After_intervention, Difference, Sign, Rank)
+kable(tab6, booktabs = TRUE, align=rep('c', 5)) %>%
+  kable_styling(position = "center") 
+```
+
+**Add up positive ranks and negative ranks:**
+
+Positive ranks: 0
+
+Negative ranks: 10
+
+**Identify the test statistic (*V*):**
+
+*V* = 0
+
+:::
+
+
+### Activity 3 answers
+
+#### 1. An independent groups design:
+
+<span style="color:purple">**QUESTION 1: Is the assumption violated?**</span>
+
+<span style="color:purple">0 cups: The assumption of normality is not violated. The dots generally follow the line well in the Q-Q plot and the Shapiro-Wilk test is non-significant.</span>
+
+<span style="color:purple">4 cups: The assumption of normality is violated. Quite a few points deviate from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span>
+
+<span style="color:purple">**QUESTION 2: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">The Wilcoxon rank-sum test revealed no significant difference between the number of admin tasks completed in the 4 cup group (Median = 17, Range = 1-35) and the 0 cup group (Median = 5.5, Range = 2-9; *W* = 19, *p* = 0.936).</span>
+
+::: {.callout-note collapse="true"}
+## Note
+<span style="color:purple">In practice, you should also calculate the effect size and report that.</span>
+:::
+
+<span style="color:purple">**QUESTION 3: How was the p-value calculated?**</span>
+
+<span style="color:purple">The normal approximation with the continuity correction</span>
+
+#### 2. A repeated measures design
+
+<span style="color:purple">**QUESTION 4: Is the assumption violated?**</span>
+
+<span style="color:purple">The assumption of normality appears to be violated. Some points deviate quite a bit from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span>
+
+<span style="color:purple">**QUESTION 5: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">The Wilcoxon signed-rank test revealed that participants ate significantly more grams of chocolate on Saturdays (Median = 232, Range = 230-235) than on Mondays (Median = 18; Range = 4-33), *V* = 36, *p* = 0.014.</span>
+
+::: {.callout-note collapse="true"}
+## Note
+<span style="color:purple">In practice, you should also calculate the effect size and report that.</span>
+:::
+
+<span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span?
+
+<span style="color:purple">The normal approximation with the continuity correction</span>
+
+# Asking questions
+
+If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cCNtcyOuNhw62ai). I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -38,10 +72,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0489ba3c113ffee3d2dfeee5dfb32f4a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +102,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search Year 2";};</script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -231,13 +267,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+ <span class="menu-text">2. Multiple Regression Including Categorical Predictors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+ <span class="menu-text">3. Multiple Regression Models that Include Interactions (Moderated Variables)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -289,16 +325,29 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
-  <li><a href="#post-lecture-activity" id="toc-post-lecture-activity" class="nav-link" data-scroll-target="#post-lecture-activity">Post-lecture activity</a></li>
   <li><a href="#lab-preparation" id="toc-lab-preparation" class="nav-link" data-scroll-target="#lab-preparation">Lab preparation</a></li>
   <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#research-question-1" id="toc-research-question-1" class="nav-link" data-scroll-target="#research-question-1">Research question 1</a></li>
-  <li><a href="#research-question-2" id="toc-research-question-2" class="nav-link" data-scroll-target="#research-question-2">Research question 2</a></li>
-  <li><a href="#a-template-for-running-the-wilcoxon-rank-sum-test-and-the-wilcoxon-signed-rank-test" id="toc-a-template-for-running-the-wilcoxon-rank-sum-test-and-the-wilcoxon-signed-rank-test" class="nav-link" data-scroll-target="#a-template-for-running-the-wilcoxon-rank-sum-test-and-the-wilcoxon-signed-rank-test">A template for running the Wilcoxon rank-sum test and the Wilcoxon signed-rank test</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#research-question-1-independent-groups" id="toc-research-question-1-independent-groups" class="nav-link" data-scroll-target="#research-question-1-independent-groups">Research question 1: Independent groups</a></li>
+  <li><a href="#research-question-2-repeated-measures" id="toc-research-question-2-repeated-measures" class="nav-link" data-scroll-target="#research-question-2-repeated-measures">Research question 2: Repeated measures</a></li>
+  <li><a href="#hints-and-tips" id="toc-hints-and-tips" class="nav-link" data-scroll-target="#hints-and-tips">Hints and tips</a></li>
+  <li><a href="#upload-your-script-to-be-considered-for-feedback" id="toc-upload-your-script-to-be-considered-for-feedback" class="nav-link" data-scroll-target="#upload-your-script-to-be-considered-for-feedback">Upload your script to be considered for feedback</a></li>
+  <li><a href="#model-script" id="toc-model-script" class="nav-link" data-scroll-target="#model-script">Model script</a></li>
   </ul></li>
-  <li><a href="#upload-your-script" id="toc-upload-your-script" class="nav-link" data-scroll-target="#upload-your-script">Upload your script</a></li>
+  <li><a href="#independent-learning-activities" id="toc-independent-learning-activities" class="nav-link" data-scroll-target="#independent-learning-activities">Independent learning activities</a>
+  <ul class="collapse">
+  <li><a href="#activity-1-the-wba" id="toc-activity-1-the-wba" class="nav-link" data-scroll-target="#activity-1-the-wba">Activity 1: The WBA</a></li>
+  <li><a href="#activity-2-calculating-test-statistics-manually" id="toc-activity-2-calculating-test-statistics-manually" class="nav-link" data-scroll-target="#activity-2-calculating-test-statistics-manually">Activity 2: Calculating test statistics manually</a></li>
+  <li><a href="#activity-3-interpreting-r-output" id="toc-activity-3-interpreting-r-output" class="nav-link" data-scroll-target="#activity-3-interpreting-r-output">Activity 3: Interpreting R output</a></li>
+  <li><a href="#answers-activities-2-and-3" id="toc-answers-activities-2-and-3" class="nav-link" data-scroll-target="#answers-activities-2-and-3">Answers (Activities 2 and 3)</a>
+  <ul class="collapse">
+  <li><a href="#activity-2-answers" id="toc-activity-2-answers" class="nav-link" data-scroll-target="#activity-2-answers">Activity 2 answers</a></li>
+  <li><a href="#activity-3-answers" id="toc-activity-3-answers" class="nav-link" data-scroll-target="#activity-3-answers">Activity 3 answers</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#asking-questions" id="toc-asking-questions" class="nav-link" data-scroll-target="#asking-questions">Asking questions</a></li>
   </ul>
 </nav>
     </div>
@@ -340,60 +389,669 @@ Caution
 </div>
 <section id="lecture" class="level1">
 <h1>Lecture</h1>
-<p>Watch lecture <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051207">Part 1</a> Watch lecture <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051208">Part 2</a> Watch lecture <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051209">Part 3</a> Watch lecture <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051210">Part 4</a></p>
-<p>Download ALL the lecture slides <a href="data/Wk6/Week 16 Lecture Slides.zip">here</a> in both pptx and pdf format.</p>
-</section>
-<section id="post-lecture-activity" class="level1">
-<h1>Post-lecture activity</h1>
-<p>Find the post-lecture worksheet <a href="data/Wk6/Worksheet/PSYC234_L6_worksheet.docx">here</a> and the answers <a href="data/Wk6/Worksheet/PSYC234_L6_worksheet_ANSWERS.pdf">here</a></p>
+<p>This lecture comprises four parts:</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=684b5810-663a-4a8b-8bd9-b27a00fb11de">Part 1</a>: This part covers an introduction to non-parametric tests and when they might be useful to consider.</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b51ad7bd-122d-4304-b801-b27a00fb1166">Part 2</a>: This part covers how to test the assumption of normality with two independent groups.</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=176c6b52-8c36-485c-8ab9-b27a00fb1187">Part 3</a>: This part introduces you to the Wilcoxon rank-sum test. This includes when to use this test, the theory behind it, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115">Part 4</a>: This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.</p>
+<p>Download all the lecture slides <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507037">here</a> in both .pptx and .pdf format.</p>
 </section>
 <section id="lab-preparation" class="level1">
 <h1>Lab preparation</h1>
-<p>Watch the preparation video <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2051205">here</a></p>
-<p>Download the files discussed in the video <a href="data/Wk6/Lab preparation files.zip">here</a></p>
+<p>Before the lab, please watch the following short <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=25cf1ac6-7afc-4129-9ec4-b27a00fb10d0">video</a>. This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.</p>
+<p>If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507042">here</a>.</p>
 </section>
 <section id="lab" class="level1">
 <h1>Lab</h1>
-<p>Download the lab materials <a href="data/Wk6/Lab 6 - Materials.zip">here</a></p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures.</p>
-<p>You can work in groups.</p>
-<p>Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you</p>
-<p>Begin the script in the lab and complete in your own time</p>
-<p>You can write your script as a .R or Rmd file</p>
-<p>Submit for feedback. For this week’s lab, scripts should be submitted on the moodle link by: Friday of Week 16 at 3pm</p>
-<p>I’ll provide feedback on a subset of scripts - You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year</p>
-<p>I’ll also release a model script I’ve written - this will go live on Moodle on Friday of Week 16 at 3pm</p>
+<p>I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures. You can work in groups or individually.</p>
+<p>You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.</p>
+<p>The presentation given at the start of the lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2602258&amp;forceview=1">here</a>.</p>
 </section>
-<section id="research-question-1" class="level2">
-<h2 class="anchored" data-anchor-id="research-question-1">Research question 1</h2>
+<section id="datasets" class="level2">
+<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
+<p>The datasets for this lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507044">here</a>.</p>
+</section>
+<section id="research-question-1-independent-groups" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-1-independent-groups">Research question 1: Independent groups</h2>
 <p>You are a researcher interested in whether the old saying “an apple a day keeps the doctor away is true”.</p>
-<p>You recruit 16 people and assign each participant to either a “0 apples” or “1 apple” condition. Participants in the “0 apple” condition eat 0 apples every day for a year. Participants in the “1 apple” condition eat 1 apple a day for a year. You ask participants to report how many times they visited the GP in the year.</p>
+<p>You recruit 16 people and assign each participant to either a “0 apples” or “1 apple” group Participants in the “0 apple” group eat 0 apples every day for a year. Participants in the “1 apple” group eat 1 apple a day for a year. You ask participants to report how many times they visited the GP in the year.</p>
 </section>
-<section id="research-question-2" class="level2">
-<h2 class="anchored" data-anchor-id="research-question-2">Research question 2</h2>
+<section id="research-question-2-repeated-measures" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-2-repeated-measures">Research question 2: Repeated measures</h2>
 <p>You are interested in whether eating bananas keeps the doctor away.</p>
 <p>This time you recruit only one group of participants. In the first year, you ask them to eat 0 banana every day. In the second year, you ask them to eat 1 bananas a day. You ask them to report how many times they visit the GP in Year 1 and Year 2.</p>
 </section>
-<section id="a-template-for-running-the-wilcoxon-rank-sum-test-and-the-wilcoxon-signed-rank-test" class="level2">
-<h2 class="anchored" data-anchor-id="a-template-for-running-the-wilcoxon-rank-sum-test-and-the-wilcoxon-signed-rank-test">A template for running the Wilcoxon rank-sum test and the Wilcoxon signed-rank test</h2>
-<p>Your script should aim to answer and interpret both of these research questions</p>
-<p>Start a new session on the server.</p>
-<p>I have uploaded a .R and .Rmd file to this week’s lab folder. You could use this to get started or just create your own blank .R/.Rmd file</p>
+<section id="hints-and-tips" class="level2">
+<h2 class="anchored" data-anchor-id="hints-and-tips">Hints and tips</h2>
+<p>Your script should aim to answer and interpret both of these research questions. Start a new session on the server, then load in the required libraries (tidyverse, cowplot, ggpubr, rstatix) and the datasets.</p>
+<p>For each research questions, you will need to:</p>
 <ol type="1">
-<li><p>Load packages and data</p></li>
-<li><p>Normality checks</p></li>
+<li><p>Perform normality checks</p></li>
 <li><p>Explore your data (e.g.&nbsp;descriptive statistics, a plot)</p></li>
 <li><p>Conduct the statistical test</p></li>
 <li><p>Calculate an effect size</p></li>
 <li><p>Interpret your data</p></li>
 </ol>
 </section>
+<section id="upload-your-script-to-be-considered-for-feedback" class="level2">
+<h2 class="anchored" data-anchor-id="upload-your-script-to-be-considered-for-feedback">Upload your script to be considered for feedback</h2>
+<p>You/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cOAOzAz9kdeNFn8">here</a> by <strong>5pm on Friday of Week 16</strong>. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year.</p>
 </section>
-<section id="upload-your-script" class="level1">
-<h1>Upload your script</h1>
-<p>You can upload your finished script for feedback on your code <a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=1978220">here</a> and feedback will be posted onto Moodle.</p>
+<section id="model-script" class="level2">
+<h2 class="anchored" data-anchor-id="model-script">Model script</h2>
+<p>A model script showing one way of answering the research questions above using R will be shared early in Week 17.</p>
+</section>
+</section>
+<section id="independent-learning-activities" class="level1">
+<h1>Independent learning activities</h1>
+<p>Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content (the answers to these can be found below).</p>
+<section id="activity-1-the-wba" class="level2">
+<h2 class="anchored" data-anchor-id="activity-1-the-wba">Activity 1: The WBA</h2>
+<p>The WBA can be accessed <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506933">here</a> from 10th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.</p>
+</section>
+<section id="activity-2-calculating-test-statistics-manually" class="level2">
+<h2 class="anchored" data-anchor-id="activity-2-calculating-test-statistics-manually">Activity 2: Calculating test statistics manually</h2>
+<p>This activity is aimed at supporting your understanding of what the test statistics mean.</p>
+<section id="wilcoxon-rank-sum-test" class="level4">
+<h4 class="anchored" data-anchor-id="wilcoxon-rank-sum-test">Wilcoxon rank-sum test</h4>
+<p>You are a researcher interested in whether the number of cups of coffee drank affects how many admin tasks participants can get done in an hour. You assign to one of two groups (drink 4 cups of coffee a day or drink 0 cups of coffee a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete.</p>
+<p>Here is the data:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">coffee_group</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">admin_tasks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">14</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 1: What is the test statistic?</strong></span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for hints!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To calculate this, you will need to work through the following steps:</p>
+<ul>
+<li><p>Rank the data</p></li>
+<li><p>Sum the ranks for each group</p></li>
+<li><p>Calculate the mean rank for each group</p></li>
+<li><p>Calculate the sum of ranks minus mean rank for each group</p></li>
+<li><p>Use this information to identify the test statistic</p></li>
+</ul>
+<p>If you are still unsure, have another look at the lecture.</p>
+</div>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 2: What might R report as the test statistic and why?</strong></span></p>
+</section>
+<section id="wilcoxon-signed-rank-test" class="level4">
+<h4 class="anchored" data-anchor-id="wilcoxon-signed-rank-test">Wilcoxon signed-rank test</h4>
+<p>You are a researcher interested in whether a reading intervention helps children. You assess children’s reading skills and then give them all an intensive reading intervention. You then measure their reading abilities again.</p>
+<p>Here is the data:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">After_intervention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">27</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">91</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">44</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 3: What is the test statistic?</strong></span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand for hints!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To calculate this, you will need to work through the following steps:</p>
+<ul>
+<li><p>Calculate the difference between “Before intervention” and “After intervention”</p></li>
+<li><p>Note whether the difference is positive or negative</p></li>
+<li><p>Rank the difference</p></li>
+<li><p>Add up positive ranks and negative ranks</p></li>
+<li><p>Use this information to identify the test statistic (V).</p></li>
+</ul>
+<p>If you are still unsure, have another look at the lecture</p>
+</div>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 4: If this analysis was conducted in R, what could V equal to? Why might V equal to two values?</strong></span></p>
+</section>
+</section>
+<section id="activity-3-interpreting-r-output" class="level2">
+<h2 class="anchored" data-anchor-id="activity-3-interpreting-r-output">Activity 3: Interpreting R output</h2>
+<p>This activity is aimed at supporting your interpretation of R output. Part 1 uses an independent groups design. Part 2 uses a repeated measures design. Please note, this data are different to that used in Activity 2 (so the test statistics will be different).</p>
+<section id="an-independent-groups-design" class="level4">
+<h4 class="anchored" data-anchor-id="an-independent-groups-design">1. An independent groups design</h4>
+<p>You are a researcher interested in whether the number of cups of tea drank affects how many admin tasks participants can get done in an hour. You assign participants to one of two groups (drink 4 cups of tea a day or drink 0 cups of tea a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete.</p>
+<p>The R output is below:</p>
+<section id="testing-the-assumption-of-normality" class="level5">
+<h5 class="anchored" data-anchor-id="testing-the-assumption-of-normality">Testing the assumption of normality</h5>
+<section id="q-q-plots" class="level6">
+<h6 class="anchored" data-anchor-id="q-q-plots">Q-Q plots:</h6>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week6_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="shapiro-wilk-test" class="level6">
+<h6 class="anchored" data-anchor-id="shapiro-wilk-test">Shapiro-Wilk test:</h6>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  tea_group variable    statistic      p
+  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
+1 0 cups    admin_tasks     0.958 0.801 
+2 4 cups    admin_tasks     0.728 0.0120</code></pre>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 1: Is the assumption violated?</strong></span></p>
+</section>
+</section>
+<section id="descriptive-statistics-and-model-output" class="level5">
+<h5 class="anchored" data-anchor-id="descriptive-statistics-and-model-output">Descriptive statistics and model output:</h5>
+<p>Descriptive statistics:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tea_dataset <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tea_group) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">med =</span> <span class="fu">median</span>(admin_tasks),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">min =</span> <span class="fu">min</span>(admin_tasks),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(admin_tasks),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  tea_group   med   min   max `n()`
+  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+1 0 cups      5.5     2     9     6
+2 4 cups     17       1    35     6</code></pre>
+</div>
+</div>
+<p>Model output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
+compute exact p-value with ties</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  admin_tasks by tea_group
+W = 17, p-value = 0.9357
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 2: What can we conclude? Report in APA format.</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 3: How was the p-value calculated?</strong></span></p>
+</section>
+</section>
+<section id="a-repeated-measures-design" class="level4">
+<h4 class="anchored" data-anchor-id="a-repeated-measures-design">2. A repeated measures design</h4>
+<p>You are a researcher interested in whether the amount of chocolate (in grams) eaten is different on a Saturday to a Monday. The R output is below:</p>
+<section id="testing-the-assumption-of-normality-1" class="level5">
+<h5 class="anchored" data-anchor-id="testing-the-assumption-of-normality-1">Testing the assumption of normality</h5>
+<p>Q-Q plot:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week6_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Shapiro-Wilk test:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  variable                     statistic p.value
+  &lt;chr&gt;                            &lt;dbl&gt;   &lt;dbl&gt;
+1 chocolate_dataset$Difference     0.769  0.0132</code></pre>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 4: Is the assumption violated?</strong></span></p>
+</section>
+<section id="descriptive-statistics-and-model-output-1" class="level5">
+<h5 class="anchored" data-anchor-id="descriptive-statistics-and-model-output-1">Descriptive statistics and model output:</h5>
+<p>Descriptive statistics:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  median_sat median_mon min_sat min_mon max_sat max_mon n()
+1        232         18     230       4     235      33   8</code></pre>
+</div>
+</div>
+<p>Model output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(chocolate_dataset$Saturday,
+chocolate_dataset$Monday, : cannot compute exact p-value with ties</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank test with continuity correction
+
+data:  chocolate_dataset$Saturday and chocolate_dataset$Monday
+V = 36, p-value = 0.01368
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 5: What can we conclude? Report in APA format.</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 6: How was the p-value calculated?</strong></span></p>
+</section>
+</section>
+</section>
+<section id="answers-activities-2-and-3" class="level2">
+<h2 class="anchored" data-anchor-id="answers-activities-2-and-3">Answers (Activities 2 and 3)</h2>
+<section id="activity-2-answers" class="level3">
+<h3 class="anchored" data-anchor-id="activity-2-answers">Activity 2 answers</h3>
+<section id="wilcoxon-rank-sum-test-1" class="level4">
+<h4 class="anchored" data-anchor-id="wilcoxon-rank-sum-test-1">Wilcoxon rank-sum test</h4>
+<p><span style="color:purple"><strong>QUESTION 1 ANSWER:</strong></span></p>
+<p><span style="color:purple">Test statistic = 4.5</span></p>
+<p><span style="color:purple"><strong>QUESTION 2 ANSWER: What might R report as the test statistic and why?</strong></span></p>
+<p><span style="color:purple">R reports the test statistic (<em>W</em>) as the sum of ranks minus the mean rank for the first factor level. R may therefore report the test statistic as 4.5 or 7.5.</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How were these answers calculated?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Here is the how these answers were computed:</p>
+<p><strong>STEPS</strong>:</p>
+<p><strong>Rank the data:</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Tasks_completed</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">7.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">4.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">6.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">4.5</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><strong>Sum the ranks per group:</strong></p>
+<p>4 cups = 13.5</p>
+<p>0 cups = 14.5</p>
+<p><strong>Calculate the mean rank per group:</strong></p>
+<p>4 cups = 3*4 = 12. 12/2 = 6</p>
+<p>0 cups = 4*5 = 20. 20/2 = 10</p>
+<p><strong>Calculate the sum of ranks minus mean rank per group:</strong></p>
+<p>4 cups = 13.5-6 = 7.5</p>
+<p>0 cups = 14.5-10 = 4.5</p>
+<p><strong>Identify the test statistic:</strong></p>
+<p>Test statistic = The lowest sum of ranks. Test statistic = 4.5</p>
+</div>
+</div>
+</div>
+</section>
+<section id="wilcoxon-signed-rank-test-1" class="level4">
+<h4 class="anchored" data-anchor-id="wilcoxon-signed-rank-test-1">Wilcoxon signed-rank test</h4>
+<p><span style="color:purple"><strong>QUESTION 3: What is the test statistic?“</strong></span></p>
+<p><span style="color:purple"><em>V</em> = 0</span></p>
+<p><span style="color:purple"><strong>QUESTION 4: If this analysis was conducted in R, what could V equal to? Why might V equal to two values?</strong></span></p>
+<p><span style="color:purple"><em>V</em> = 0 or 10. <em>V</em> is equal to the sum of positive ranks. But whether ranks are positive or negative depends on whether you enter “before” or “after” first into the wilcox.test function (as this determines whether you calculate the difference by doing before-after or after-before).</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How were these answers calculated?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Here is how these answers were computed:</p>
+<p><strong>STEPS</strong>:</p>
+<p><strong>Calculate the difference between “Before intervention” and “After intervention”:</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">After_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">-4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">Exclude</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">91</td>
+<td style="text-align: center;">-24</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">-2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">-23</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><strong>Note whether the difference is positive or negative:</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">After_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Difference</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Sign</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">Negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">Exclude</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">91</td>
+<td style="text-align: center;">-24</td>
+<td style="text-align: center;">Negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">Negative</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">-23</td>
+<td style="text-align: center;">Negative</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><strong>Rank the difference:</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">After_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Difference</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Sign</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">Exclude</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">91</td>
+<td style="text-align: center;">-24</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">-23</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><strong>Add up positive ranks and negative ranks:</strong></p>
+<p>Positive ranks: 0</p>
+<p>Negative ranks: 10</p>
+<p><strong>Identify the test statistic (<em>V</em>):</strong></p>
+<p><em>V</em> = 0</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="activity-3-answers" class="level3">
+<h3 class="anchored" data-anchor-id="activity-3-answers">Activity 3 answers</h3>
+<section id="an-independent-groups-design-1" class="level4">
+<h4 class="anchored" data-anchor-id="an-independent-groups-design-1">1. An independent groups design:</h4>
+<p><span style="color:purple"><strong>QUESTION 1: Is the assumption violated?</strong></span></p>
+<p><span style="color:purple">0 cups: The assumption of normality is not violated. The dots generally follow the line well in the Q-Q plot and the Shapiro-Wilk test is non-significant.</span></p>
+<p><span style="color:purple">4 cups: The assumption of normality is violated. Quite a few points deviate from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span></p>
+<p><span style="color:purple"><strong>QUESTION 2: What can we conclude? Report in APA format.</strong></span></p>
+<p><span style="color:purple">The Wilcoxon rank-sum test revealed no significant difference between the number of admin tasks completed in the 4 cup group (Median = 17, Range = 1-35) and the 0 cup group (Median = 5.5, Range = 2-9; <em>W</em> = 19, <em>p</em> = 0.936).</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span style="color:purple">In practice, you should also calculate the effect size and report that.</span></p>
+</div>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 3: How was the p-value calculated?</strong></span></p>
+<p><span style="color:purple">The normal approximation with the continuity correction</span></p>
+</section>
+<section id="a-repeated-measures-design-1" class="level4">
+<h4 class="anchored" data-anchor-id="a-repeated-measures-design-1">2. A repeated measures design</h4>
+<p><span style="color:purple"><strong>QUESTION 4: Is the assumption violated?</strong></span></p>
+<p><span style="color:purple">The assumption of normality appears to be violated. Some points deviate quite a bit from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span></p>
+<p><span style="color:purple"><strong>QUESTION 5: What can we conclude? Report in APA format.</strong></span></p>
+<p><span style="color:purple">The Wilcoxon signed-rank test revealed that participants ate significantly more grams of chocolate on Saturdays (Median = 232, Range = 230-235) than on Mondays (Median = 18; Range = 4-33), <em>V</em> = 36, <em>p</em> = 0.014.</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span style="color:purple">In practice, you should also calculate the effect size and report that.</span></p>
+</div>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 6: How was the p-value calculated?</strong>&lt;/span?</span></p>
+<p><span style="color:purple">The normal approximation with the continuity correction</span></p>
+</section>
+</section>
+</section>
+</section>
+<section id="asking-questions" class="level1">
+<h1>Asking questions</h1>
+<p>If you have any questions about this week’s content, please post them on the discussion board <a href="https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905">here</a>. If you prefer to remain anonymous, you can post questions anonymously <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cCNtcyOuNhw62ai">here</a>. I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&amp;A session.</p>
 
 
 </section>
@@ -481,8 +1139,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -593,7 +1249,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

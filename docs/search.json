@@ -282,7 +282,7 @@
     "href": "PSYC234/Week6.html#overview",
     "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
     "section": "Overview",
-    "text": "Overview\nI’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures.\nYou can work in groups.\nUse the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you\nBegin the script in the lab and complete in your own time\nYou can write your script as a .R or Rmd file\nSubmit for feedback. For this week’s lab, scripts should be submitted on the moodle link by: Friday of Week 16 at 3pm\nI’ll provide feedback on a subset of scripts - You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year\nI’ll also release a model script I’ve written - this will go live on Moodle on Friday of Week 16 at 3pm",
+    "text": "Overview\nI’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures. You can work in groups or individually.\nYou can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.\nThe presentation given at the start of the lab can be downloaded here.",
     "crumbs": [
       "Home",
       "PSYC234",
@@ -1913,5 +1913,161 @@
     "title": "Multiple_Regression_Mediation",
     "section": "",
     "text": "Mediation analysis\nIn this demonstration, we will model a mediation analysis. The total effect of an unmediated relationship is below in pathway c.\n\ndata &lt;- c(0, \"a\", 0,\n          0, 0, 0, \n          \"b\", \"c\", 0)\nM&lt;- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)\nplot&lt;- plotmat (M, pos=c(1,2), \n                name= c( \"M\",\n                         \"Supervision\", \n                         \"Dissertation \\nPerformance\"), \n                box.type = \"rect\", \n                box.size = 0.12, \n                box.prop=0.5,  \n                curve=0)\n\n\n\n\n\n\n\n\nWe are going to test for the mediator variable of self esteem.\n\ndata &lt;- c(0, \"a\", 0,\n          0, 0, 0, \n          \"b\", \"`c'`\", 0)\nM&lt;- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)\nplot&lt;- plotmat (M, pos=c(1,2), \n                name= c( \"Self-esteem\",\n                         \"Supervision\", \n                         \"Dissertation \\nPerformance\"), \n                box.type = \"rect\", \n                box.size = 0.12, \n                box.prop=0.5,  \n                curve=0)\n\n\n\n\n\n\n\n\n\n\nRead in the data\n\nd_full &lt;- read_sav(\"mediation exercise 2 data.sav\")\n\nhead(d_full)\n\n# A tibble: 6 × 3\n  supervision self_esteem dissertation_performance\n        &lt;dbl&gt;       &lt;dbl&gt;                    &lt;dbl&gt;\n1        2.67        3.14                     3   \n2        2.67        3.57                     3.56\n3        3.33        3                        3.41\n4        3.33        2.57                     1   \n5        2.67        4.71                     2.26\n6        2.67        3.29                     2.41\n\n\nEarly in the construction of the script, I noticed that there were different levels of missingness across the models - this means that coefficients are estimated on different datasets, so we are introducing a potential source of systematic error if we do not correct for this.\nChecking for missingness:\n\nsummary(d_full)\n\n  supervision     self_esteem    dissertation_performance\n Min.   :1.667   Min.   :1.571   Min.   :1.000           \n 1st Qu.:3.333   1st Qu.:3.286   1st Qu.:2.380           \n Median :4.000   Median :3.857   Median :3.037           \n Mean   :3.786   Mean   :3.864   Mean   :3.028           \n 3rd Qu.:4.333   3rd Qu.:4.500   3rd Qu.:3.593           \n Max.   :5.000   Max.   :5.714   Max.   :5.815           \n                 NA's   :2       NA's   :3               \n\n\nFor the purposes of this analysis, I will remove the observations (rows) with NA values. This is not the best way of working with missingness, but for the purposes of the demonstration it is ok.\n\nd &lt;- na.omit(d_full) # 4 observations removed\nsummary(d) # no NA values listed\n\n  supervision     self_esteem    dissertation_performance\n Min.   :1.667   Min.   :1.571   Min.   :1.000           \n 1st Qu.:3.333   1st Qu.:3.286   1st Qu.:2.370           \n Median :4.000   Median :3.857   Median :3.074           \n Mean   :3.791   Mean   :3.853   Mean   :3.030           \n 3rd Qu.:4.333   3rd Qu.:4.429   3rd Qu.:3.593           \n Max.   :5.000   Max.   :5.714   Max.   :5.815           \n\n\nI am going to copy and rename the variables to save on typing\nX = supervision Y = dissertation_performance M = self_esteem\n\nd &lt;- d %&gt;% \n  mutate(X = supervision,\n         Y = dissertation_performance,\n         M = self_esteem)\n\n\n\nLonghand - Steps of Baron & Kenny (1986)\nFour independent linear regression models\n\nThe effect of X on Y (total effect = pathway c)\nThe effect of X on M (indirect effect pathway a)\nThe effect of M on Y (indirect effect pathway b) while controlling for X\nThe effect of X and M on Y (for direct effect estimation = pathway c’)\n\nWhen running your models, you need to assign them to objects in the environment to then be able to use them in a call to the mediation package.\n\nStep 1: Test the total effect - pathway c\n\\[\nY = b_0 + b_1 * X + e\n\\]\nvia a simple regression model:\n\n(fit_total &lt;-  summary(lm(Y ~ X, d)))\n\n\nCall:\nlm(formula = Y ~ X, data = d)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.83011 -0.56623 -0.04308  0.51478  2.25553 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   1.3718     0.4679   2.931 0.004470 ** \nX             0.4375     0.1209   3.620 0.000532 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.8361 on 75 degrees of freedom\nMultiple R-squared:  0.1488,    Adjusted R-squared:  0.1374 \nF-statistic: 13.11 on 1 and 75 DF,  p-value: 0.0005321\n\n\nThe total effect of our predictor on our outcome is significant. In other words, supervision on dissertation performance is significant (p &lt; .001). A change in one unit of supervision is associated with an increase in dissertation performance of 0.44.\nThere is an effect that can be tested for mediation.\n\n\nStep 2: Test the a pathway of the indirect effect\n\\[\nM = b_0 + b_1 * X + e\n\\] a second simple regression model, using X as a predictor but this time, M (self esteem here) is our outcome variable:\n\n(fit_indirecta &lt;- summary(lm(M ~ X, d)))\n\n\nCall:\nlm(formula = M ~ X, data = d)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.34553 -0.48838  0.02337  0.61288  1.49353 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   2.7018     0.4406   6.132 3.74e-08 ***\nX             0.3038     0.1138   2.670   0.0093 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.7872 on 75 degrees of freedom\nMultiple R-squared:  0.08679,   Adjusted R-squared:  0.07461 \nF-statistic: 7.128 on 1 and 75 DF,  p-value: 0.0093\n\n\nThe indirect effect pathway a (X on M) is also significant (p = .009). A change in one unit of supervision is associated with an increase in self-esteem of 0.30.\nSo now we know that X and M share some variance - they are correlated. We have met one of the assumptions that we need to be able to perform a mediation analysis.\n\n\nStep 3 & 4: Test the b pathway of the indirect effect & the direct effect (pathway c’)\n\\[\nY = b_0 + b_1 * X + b_2 * M + e\n\\] A multiple regression model, with Y (dissertation performance) as our outcome variable, and X (supervision) and M (self-esteem) as predictors. Remember that this model is controlling for the effect of X on Y, because interpreting one predictor in a multiple regression model always assumes that the effect of the other predictors are already taken care of, or controlled for.\n\n(fit_indirectb &lt;- summary(lm(Y ~ X + M, d)))\n\n\nCall:\nlm(formula = Y ~ X + M, data = d)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.39749 -0.48798  0.02245  0.44603  1.29565 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.46168    0.44402  -1.040   0.3018    \nX            0.23135    0.09794   2.362   0.0208 *  \nM            0.67861    0.09497   7.145 5.26e-10 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6475 on 74 degrees of freedom\nMultiple R-squared:  0.4963,    Adjusted R-squared:  0.4827 \nF-statistic: 36.46 on 2 and 74 DF,  p-value: 9.564e-12\n\n\nThe indirect effect pathway b (M on Y), while controlling for X is also significant (p &lt; .001). A change in one unit of self-esteem is associated with an increase in dissertation-performance of 0.68 of a unit. The predictor (X) relationship with the outcome (Y and pathway c’ - the direct effect) remains significant also (p &lt; .02 , but reduced relative to the step 1 model coefficient (step 1 \\(b\\) = 0.44, step 4 \\(b\\) = 0.23).\nSince the direct pathway c’ is significant, we can say that we have a partially mediated effect of self-esteem on the relationship between supervision and dissertation performance. Supervision predicts self esteem and dissertation performance, while self esteem also predicts dissertation performance.\nIf instead the X coefficient in the model above had been &gt; .05 i.e. no significant, we could have claimed a full or complete mediation of self esteem on the relationship between supervision and dissertation performance\n\n\n\nUsing the power of R and the mediation package\nThe mediation package is called by the library() function loaded at the top of the document.\n\nIt takes the models for pathways a and b (fit_indirecta and fitindirectb here),\nIt needs us to tell it the name of the predictor or treatment variable and the name of the mediator variable as labelled in the models\nand we set the boot argument to T for TRUE, to be able to generate confidence intervals on our co-efficients.\n\n\nresults &lt;- mediate(fit_indirecta, \n                   fit_indirectb, \n                   treat = 'X', \n                   mediator = 'M', \n                   boot = T, \n                   dropobs = TRUE)\n\nRunning nonparametric bootstrap\n\n\n\nsummary(results)\n\n\nCausal Mediation Analysis \n\nNonparametric Bootstrap Confidence Intervals with the Percentile Method\n\n               Estimate 95% CI Lower 95% CI Upper p-value    \nACME             0.2062       0.0566         0.38   0.008 ** \nADE              0.2313       0.0331         0.42   0.018 *  \nTotal Effect     0.4375       0.2165         0.65  &lt;2e-16 ***\nProp. Mediated   0.4712       0.1779         0.88   0.008 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nSample Size Used: 77 \n\n\nSimulations: 1000 \n\n\n\nACME stands for average causal mediation effects and is the product of pathway a and pathway b from fit indirecta (X = 0.3037992) and fit_indirectb (M = 0.6786069).\nADE stands for average direct effects or pathway c’. This is the X coefficient in our fit_indirectb\nTotal Effect does what it says on the tin. It is the sum of the direct and indirect effect, ACME + ADE, and also calculated as X in model fit_total.\nProp. Mediated is the proportion of the effect of X on Y that goes through M. We divide ACME (or ab) by the total effect (c).\n\n\nplot(results)\n\n\n\n\n\n\n\n\n\n\nReporting the mediation analysis\nand to use our diagram from the top of the document:\nWe are going to test for the mediator variable of self esteem.\n\ndata &lt;- c(0, 0.30, 0,\n          0, 0, 0, \n          0.68, 0.23, 0)\nM&lt;- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)\nplot&lt;- plotmat (M, pos=c(1,2), \n                name= c( \"Self-esteem\",\n                         \"Supervision\", \n                         \"Dissertation \\nPerformance\"), \n                box.type = \"rect\", \n                box.size = 0.12, \n                box.prop=0.5,  \n                curve=0)\n\n\n\n\n\n\n\n\n(Remember that these data are not standardised so we cannot compare between them for strength of relationships!)\nThe effect of supervision on dissertation performance was partially mediated via self-esteem. The effect of supervision on dissertation performance and the effect of self-esteem on dissertation performance were independently significant predictors. The indirect effect equals (.3)*(0.68) = .0.21. We tested the significance of this indirect effect using bootstrapping procedures. We computed the average indirect effect over 1,000 bootstrapped samples with 95% confidence intervals (bootstrapped indirect effect = 0.21 95% CI [0.06, 0.38]). Since the confidence intervals do not cross zero, we infer statistical significance.\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "PSYC234/Week6.html#getting-started",
+    "href": "PSYC234/Week6.html#getting-started",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Getting started",
+    "text": "Getting started\nYour script should aim to answer and interpret both of these research questions. Start a new session on the server. Here is a [.R] and a [.Rmd] file you can use to get started. Here are some tips on key sections/actions you will need to perform:\n\nLoad packages and data\nNormality checks\nExplore your data (e.g. descriptive statistics, a plot)\nConduct the statistical test\nCalculate an effect size\nInterpret your data",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#datasets-and-templates",
+    "href": "PSYC234/Week6.html#datasets-and-templates",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Datasets and templates:",
+    "text": "Datasets and templates:\nThe datasets for this lab and the templates to get started can be downloaded here.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#hints-and-tips",
+    "href": "PSYC234/Week6.html#hints-and-tips",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Hints and tips",
+    "text": "Hints and tips\nYour script should aim to answer and interpret both of these research questions. Start a new session on the server, then load in the required libraries (tidyverse, cowplot, ggpubr, rstatix) and the datasets.\nFor each research questions, you will need to:\n\nPerform normality checks\nExplore your data (e.g. descriptive statistics, a plot)\nConduct the statistical test\nCalculate an effect size\nInterpret your data",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#upload-your-script-to-be-considered-for-feedback",
+    "href": "PSYC234/Week6.html#upload-your-script-to-be-considered-for-feedback",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Upload your script to be considered for feedback",
+    "text": "Upload your script to be considered for feedback\nYou/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so here by 5pm on Friday of Week 16. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#asking-questions",
+    "href": "PSYC234/Week6.html#asking-questions",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Asking questions",
+    "text": "Asking questions\nIf you have any questions about this week’s content, please post them on the discussion board here. If you prefer to remain anonymous, you can post questions anonymously [here[: (https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cCNtcyOuNhw62ai). I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#datasets",
+    "href": "PSYC234/Week6.html#datasets",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Datasets",
+    "text": "Datasets\nThe datasets for this lab can be downloaded here.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#activity-1-the-wba",
+    "href": "PSYC234/Week6.html#activity-1-the-wba",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Activity 1: The WBA",
+    "text": "Activity 1: The WBA\nThe WBA can be accessed here from 10th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#model-script",
+    "href": "PSYC234/Week6.html#model-script",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Model script",
+    "text": "Model script\nA model script showing one way of answering the research questions above using R will be shared early in Week 17.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#activity-2-calculating-test-statistics-manually",
+    "href": "PSYC234/Week6.html#activity-2-calculating-test-statistics-manually",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Activity 2: Calculating test statistics manually",
+    "text": "Activity 2: Calculating test statistics manually\nThis activity is aimed at supporting your understanding of what the test statistics mean.\n\nWilcoxon rank-sum test\nYou are a researcher interested in whether the number of cups of coffee drank affects how many admin tasks participants can get done in an hour. You assign to one of two groups (drink 4 cups of coffee a day or drink 0 cups of coffee a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete.\nHere is the data:\n\n\n\n\n\ncoffee_group\nadmin_tasks\n\n\n\n\n4 cups\n5\n\n\n4 cups\n18\n\n\n4 cups\n14\n\n\n0 cups\n6\n\n\n0 cups\n4\n\n\n0 cups\n17\n\n\n0 cups\n14\n\n\n\n\n\n\n\nQUESTION 1: What is the test statistic?\n\n\n\n\n\n\nExpand for hints!\n\n\n\n\n\nTo calculate this, you will need to work through the following steps:\n\nRank the data\nSum the ranks for each group\nCalculate the mean rank for each group\nCalculate the sum of ranks minus mean rank for each group\nUse this information to identify the test statistic\n\nIf you are still unsure, have another look at the lecture.\n\n\n\nQUESTION 2: What might R report as the test statistic and why?\n\n\nWilcoxon signed-rank test\nYou are a researcher interested in whether a reading intervention helps children. You assess children’s reading skills and then give them all an intensive reading intervention. You then measure their reading abilities again.\nHere is the data:\n\n\n\n\n\nBefore_intervention\nAfter_intervention\n\n\n\n\n23\n27\n\n\n34\n34\n\n\n67\n91\n\n\n65\n67\n\n\n21\n44\n\n\n\n\n\n\n\nQUESTION 3: What is the test statistic?\n\n\n\n\n\n\nExpand for hints!\n\n\n\n\n\nTo calculate this, you will need to work through the following steps:\n\nCalculate the difference between “Before intervention” and “After intervention”\nNote whether the difference is positive or negative\nRank the difference\nAdd up positive ranks and negative ranks\nUse this information to identify the test statistic (V).\n\nIf you are still unsure, have another look at the lecture\n\n\n\nQUESTION 4: If this analysis was conducted in R, what could V equal to? Why might V equal to two values?",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#activity-3-interpreting-r-output",
+    "href": "PSYC234/Week6.html#activity-3-interpreting-r-output",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Activity 3: Interpreting R output",
+    "text": "Activity 3: Interpreting R output\nThis activity is aimed at supporting your interpretation of R output. Part 1 uses an independent groups design. Part 2 uses a repeated measures design. Please note, this data are different to that used in Activity 2 (so the test statistics will be different).\n\n1. An independent groups design\nYou are a researcher interested in whether the number of cups of tea drank affects how many admin tasks participants can get done in an hour. You assign participants to one of two groups (drink 4 cups of tea a day or drink 0 cups of tea a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete.\nThe R output is below:\n\nTesting the assumption of normality\n\nQ-Q plots:\n\n\n\n\n\n\n\n\n\n\n\nShapiro-Wilk test:\n\n\n# A tibble: 2 × 4\n  tea_group variable    statistic      p\n  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;\n1 0 cups    admin_tasks     0.958 0.801 \n2 4 cups    admin_tasks     0.728 0.0120\n\n\nQUESTION 1: Is the assumption violated?\n\n\n\nDescriptive statistics and model output:\nDescriptive statistics:\n\ntea_dataset %&gt;%\n  group_by(tea_group) %&gt;%\n  summarise(med = median(admin_tasks),\n            min = min(admin_tasks),\n            max = max(admin_tasks),\n            n())\n\n# A tibble: 2 × 5\n  tea_group   med   min   max `n()`\n  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n1 0 cups      5.5     2     9     6\n2 4 cups     17       1    35     6\n\n\nModel output:\n\n\nWarning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot\ncompute exact p-value with ties\n\n\n\n    Wilcoxon rank sum test with continuity correction\n\ndata:  admin_tasks by tea_group\nW = 17, p-value = 0.9357\nalternative hypothesis: true location shift is not equal to 0\n\n\nQUESTION 2: What can we conclude? Report in APA format.\nQUESTION 3: How was the p-value calculated?\n\n\n\n2. A repeated measures design\nYou are a researcher interested in whether the amount of chocolate (in grams) eaten is different on a Saturday to a Monday. The R output is below:\n\nTesting the assumption of normality\nQ-Q plot:\n\n\n\n\n\n\n\n\n\nShapiro-Wilk test:\n\n\n# A tibble: 1 × 3\n  variable                     statistic p.value\n  &lt;chr&gt;                            &lt;dbl&gt;   &lt;dbl&gt;\n1 chocolate_dataset$Difference     0.769  0.0132\n\n\nQUESTION 4: Is the assumption violated?\n\n\nDescriptive statistics and model output:\nDescriptive statistics:\n\n\n  median_sat median_mon min_sat min_mon max_sat max_mon n()\n1        232         18     230       4     235      33   8\n\n\nModel output:\n\n\nWarning in wilcox.test.default(chocolate_dataset$Saturday,\nchocolate_dataset$Monday, : cannot compute exact p-value with ties\n\n\n\n    Wilcoxon signed rank test with continuity correction\n\ndata:  chocolate_dataset$Saturday and chocolate_dataset$Monday\nV = 36, p-value = 0.01368\nalternative hypothesis: true location shift is not equal to 0\n\n\nQUESTION 5: What can we conclude? Report in APA format.\nQUESTION 6: How was the p-value calculated?",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#answers-activities-2-and-3",
+    "href": "PSYC234/Week6.html#answers-activities-2-and-3",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Answers (Activities 2 and 3)",
+    "text": "Answers (Activities 2 and 3)\n\nActivity 2 answers\n\nWilcoxon rank-sum test\nQUESTION 1 ANSWER:\nTest statistic = 4.5\nQUESTION 2 ANSWER: What might R report as the test statistic and why?\nR reports the test statistic (W) as the sum of ranks minus the mean rank for the first factor level. R may therefore report the test statistic as 4.5 or 7.5.\n\n\n\n\n\n\nHow were these answers calculated?\n\n\n\n\n\nHere is the how these answers were computed:\nSTEPS:\nRank the data:\n\n\n\n\n\nGroup\nTasks_completed\nRank\n\n\n\n\n4 cups\n5\n2.0\n\n\n4 cups\n18\n7.0\n\n\n4 cups\n14\n4.5\n\n\n0 cups\n6\n3.0\n\n\n0 cups\n4\n1.0\n\n\n0 cups\n17\n6.0\n\n\n0 cups\n14\n4.5\n\n\n\n\n\n\n\nSum the ranks per group:\n4 cups = 13.5\n0 cups = 14.5\nCalculate the mean rank per group:\n4 cups = 3*4 = 12. 12/2 = 6\n0 cups = 4*5 = 20. 20/2 = 10\nCalculate the sum of ranks minus mean rank per group:\n4 cups = 13.5-6 = 7.5\n0 cups = 14.5-10 = 4.5\nIdentify the test statistic:\nTest statistic = The lowest sum of ranks. Test statistic = 4.5\n\n\n\n\n\nWilcoxon signed-rank test\nQUESTION 3: What is the test statistic?“\nV = 0\nQUESTION 4: If this analysis was conducted in R, what could V equal to? Why might V equal to two values?\nV = 0 or 10. V is equal to the sum of positive ranks. But whether ranks are positive or negative depends on whether you enter “before” or “after” first into the wilcox.test function (as this determines whether you calculate the difference by doing before-after or after-before).\n\n\n\n\n\n\nHow were these answers calculated?\n\n\n\n\n\nHere is how these answers were computed:\nSTEPS:\nCalculate the difference between “Before intervention” and “After intervention”:\n\n\n\n\n\nBefore_intervention\nAfter_intervention\nDifference\n\n\n\n\n23\n27\n-4\n\n\n34\n34\nExclude\n\n\n67\n91\n-24\n\n\n65\n67\n-2\n\n\n21\n44\n-23\n\n\n\n\n\n\n\nNote whether the difference is positive or negative:\n\n\n\n\n\nBefore_intervention\nAfter_intervention\nDifference\nSign\n\n\n\n\n23\n27\n-4\nNegative\n\n\n34\n34\nExclude\n\n\n\n67\n91\n-24\nNegative\n\n\n65\n67\n-2\nNegative\n\n\n21\n44\n-23\nNegative\n\n\n\n\n\n\n\nRank the difference:\n\n\n\n\n\nBefore_intervention\nAfter_intervention\nDifference\nSign\nRank\n\n\n\n\n23\n27\n-4\nNegative\n2\n\n\n34\n34\nExclude\n\n\n\n\n67\n91\n-24\nNegative\n4\n\n\n65\n67\n-2\nNegative\n1\n\n\n21\n44\n-23\nNegative\n3\n\n\n\n\n\n\n\nAdd up positive ranks and negative ranks:\nPositive ranks: 0\nNegative ranks: 10\nIdentify the test statistic (V):\nV = 0\n\n\n\n\n\n\nActivity 3 answers\n\n1. An independent groups design:\nQUESTION 1: Is the assumption violated?\n0 cups: The assumption of normality is not violated. The dots generally follow the line well in the Q-Q plot and the Shapiro-Wilk test is non-significant.\n4 cups: The assumption of normality is violated. Quite a few points deviate from the line in the Q-Q plot and the Shapiro-Wilk test is significant.\nQUESTION 2: What can we conclude? Report in APA format.\nThe Wilcoxon rank-sum test revealed no significant difference between the number of admin tasks completed in the 4 cup group (Median = 17, Range = 1-35) and the 0 cup group (Median = 5.5, Range = 2-9; W = 19, p = 0.936).\n\n\n\n\n\n\nNote\n\n\n\n\n\nIn practice, you should also calculate the effect size and report that.\n\n\n\nQUESTION 3: How was the p-value calculated?\nThe normal approximation with the continuity correction\n\n\n2. A repeated measures design\nQUESTION 4: Is the assumption violated?\nThe assumption of normality appears to be violated. Some points deviate quite a bit from the line in the Q-Q plot and the Shapiro-Wilk test is significant.\nQUESTION 5: What can we conclude? Report in APA format.\nThe Wilcoxon signed-rank test revealed that participants ate significantly more grams of chocolate on Saturdays (Median = 232, Range = 230-235) than on Mondays (Median = 18; Range = 4-33), V = 36, p = 0.014.\n\n\n\n\n\n\nNote\n\n\n\n\n\nIn practice, you should also calculate the effect size and report that.\n\n\n\nQUESTION 6: How was the p-value calculated?&lt;/span?\nThe normal approximation with the continuity correction",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#research-question-1-independent-groups",
+    "href": "PSYC234/Week6.html#research-question-1-independent-groups",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Research question 1: Independent groups",
+    "text": "Research question 1: Independent groups\nYou are a researcher interested in whether the old saying “an apple a day keeps the doctor away is true”.\nYou recruit 16 people and assign each participant to either a “0 apples” or “1 apple” group Participants in the “0 apple” group eat 0 apples every day for a year. Participants in the “1 apple” group eat 1 apple a day for a year. You ask participants to report how many times they visited the GP in the year.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week6.html#research-question-2-repeated-measures",
+    "href": "PSYC234/Week6.html#research-question-2-repeated-measures",
+    "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
+    "section": "Research question 2: Repeated measures",
+    "text": "Research question 2: Repeated measures\nYou are interested in whether eating bananas keeps the doctor away.\nThis time you recruit only one group of participants. In the first year, you ask them to eat 0 banana every day. In the second year, you ask them to eat 1 bananas a day. You ask them to report how many times they visit the GP in Year 1 and Year 2.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
   }
 ]
