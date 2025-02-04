@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5. Factor analysis &amp; the binomial test – Statistics for Psychologists</title>
+<title>Statistics for Psychologists - 5. Factor Analysis and the Binomial Test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0489ba3c113ffee3d2dfeee5dfb32f4a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,11 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="../site_libs/viz-1.8.2/viz.js"></script>
-<link href="../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="../site_libs/grViz-binding-1.0.11/grViz.js"></script>
 <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search Year 2";};</script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -127,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -158,19 +153,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week5.html">5. Factor analysis &amp; the binomial test</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week5.html">5. Factor Analysis and the Binomial Test</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -191,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC214</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -256,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC234</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -288,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
+ <span class="menu-text">5. Factor Analysis and the Binomial Test</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -327,19 +322,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#lecture" id="toc-lecture" class="nav-link" data-scroll-target="#lecture">Lecture</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#week-15-lab-activity" id="toc-week-15-lab-activity" class="nav-link" data-scroll-target="#week-15-lab-activity">Week 15 Lab Activity</a>
+  <ul class="collapse">
+  <li><a href="#pre-lab-activity" id="toc-pre-lab-activity" class="nav-link" data-scroll-target="#pre-lab-activity">Pre-Lab Activity</a></li>
+  </ul></li>
+  <li><a href="#test-yourself" id="toc-test-yourself" class="nav-link" data-scroll-target="#test-yourself">Test Yourself</a></li>
   <li><a href="#factor-analysis" id="toc-factor-analysis" class="nav-link" data-scroll-target="#factor-analysis">Factor Analysis</a>
   <ul class="collapse">
-  <li><a href="#multicollinearity" id="toc-multicollinearity" class="nav-link" data-scroll-target="#multicollinearity">Multicollinearity</a>
-  <ul class="collapse">
+  <li><a href="#factor-analysis-needs-predictor-variables-that-are-co-linear" id="toc-factor-analysis-needs-predictor-variables-that-are-co-linear" class="nav-link" data-scroll-target="#factor-analysis-needs-predictor-variables-that-are-co-linear">Factor Analysis Needs Predictor Variables That Are Co-linear</a></li>
+  <li><a href="#multicollinearity" id="toc-multicollinearity" class="nav-link" data-scroll-target="#multicollinearity">Multicollinearity</a></li>
   <li><a href="#mitigation" id="toc-mitigation" class="nav-link" data-scroll-target="#mitigation">Mitigation</a></li>
   </ul></li>
   <li><a href="#factor-analysis-1" id="toc-factor-analysis-1" class="nav-link" data-scroll-target="#factor-analysis-1">Factor Analysis</a>
   <ul class="collapse">
+  <li><a href="#necessary-conditions" id="toc-necessary-conditions" class="nav-link" data-scroll-target="#necessary-conditions">Necessary Conditions</a></li>
   <li><a href="#performance" id="toc-performance" class="nav-link" data-scroll-target="#performance">Performance</a></li>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#tidy-your-dataset" id="toc-tidy-your-dataset" class="nav-link" data-scroll-target="#tidy-your-dataset">Tidy your Dataset</a></li>
+  <li><a href="#model-perform-your-factor-analysis" id="toc-model-perform-your-factor-analysis" class="nav-link" data-scroll-target="#model-perform-your-factor-analysis">Model / Perform your Factor Analysis</a></li>
   </ul></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
   </ul></li>
   <li><a href="#binomial-test" id="toc-binomial-test" class="nav-link" data-scroll-target="#binomial-test">Binomial Test</a>
   <ul class="collapse">
@@ -359,9 +363,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week5.html">5. Factor analysis &amp; the binomial test</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week5.html">5. Factor Analysis and the Binomial Test</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">5. Factor analysis &amp; the binomial test</h1>
+<h1 class="title">5. Factor Analysis and the Binomial Test</h1>
 <p class="subtitle lead">Emma Mills and Amy Atkinson</p>
 </div>
 
@@ -379,179 +383,199 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is under construction for 24/25 and may be subject to change before the teaching week.</p>
-</div>
-</div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>This week is a crossover week between Amy and Emma.</p>
+<p>This week is a crossover week between Emma and Amy.</p>
 <p>Factor Analysis content is needed for learning. Questions will not be asked in the class test in week 20 on the Factor Analysis method.</p>
-<p>The Binomial Test content is needed for learning, and the <strong>class test</strong>.</p>
+<p>The Binomial Test content is needed for learning, <strong>and the class test</strong>.</p>
 <p>The rest of this page is split into two parts, Factor Analysis and Binomial Test. They each have their own associated lecture and notes.</p>
+<section id="lecture" class="level2">
+<h2 class="anchored" data-anchor-id="lecture">Lecture</h2>
+<p>Watch the Lecture on Factor Analysis <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bcd8a8f3-1d71-49f7-8d8d-b27600a51e6d&amp;start=0">here</a></p>
 </section>
-<section id="factor-analysis" class="level1">
-<h1>Factor Analysis</h1>
-<p>Watch the Lecture on Factor Analysis <a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=1978201">here</a></p>
-<p>Factor analysis is an analysis method that aims to take a large number of observed variables, and reduce these to a smaller set of distinct underlying latent variables. In the example below, we have the observed variables on the left. These are the things we can measure, or observe. On the right, we see the latent variables (PA1, PA2, PA3, and PA4), these are not directly measured by us (hence the term latent) and represent a reduction of variables. This is done through measuring how the observed variables “load” onto the latent variables (the loadings are the numbers on the arrows, higher loadings indicate stronger links to that latent variable) – they correlate more with each other than the other variables, which can indicate that they measure a similar underlying variable.</p>
-<p>You may have taken a personality test, or other questionnaire style test where a lot of the questions seemed to ask about similar things. In the big five mini-IPIP scale, the two questions for extraversion are “Am the life of the party” and “Talk to a lot of different people at parties”. The expectation is that if there is indeed an underlying variable behind these two questions, then people’s responses should be similar to both questions (score 5 - strongly agree to one statement and you’d probably score the other the same).</p>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p>Please download the <a href="data/Wk5/Slides_&amp;_Codebooks.zip">Slides</a>. In this zipped folder are the slides that accompany the lecture and the codebook for the week 15 lab activity that uses the Birthweight dataset (which is associated with WBA5).</p>
+</section>
+<section id="week-15-lab-activity" class="level2">
+<h2 class="anchored" data-anchor-id="week-15-lab-activity">Week 15 Lab Activity</h2>
+<p>There are three scripts with associated data with which you can practise performing the steps of a factor analysis. These are in the folder called <code>Three_Factor_Analyses.zip</code>. It can be downloaded <a href="data/Wk5/Three_Factor_Analyses.zip">here</a>. If you are completing the WBA Quizzes, then you will need to review the factor analysis for the Birthweight data to be able to complete WBA5.</p>
+<section id="pre-lab-activity" class="level3">
+<h3 class="anchored" data-anchor-id="pre-lab-activity">Pre-Lab Activity</h3>
+<ol type="1">
+<li>Watch the lecture before you attempt anything!</li>
+<li>Download the <code>Three_Factor_Analyses.zip</code> files and upload to your R account</li>
+<li>Play with one of the scripts before the lab to familiarise yourself with the process - test yourself on WBA5</li>
+<li>Come to your scheduled lab to have a further practice and ask the staff questions about the process.</li>
+</ol>
+</section>
+</section>
+<section id="test-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="test-yourself">Test Yourself</h2>
+<p>The link to this week’s multiple choice quiz, WBA 5, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506932">here</a></p>
+</section>
+<section id="factor-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="factor-analysis">Factor Analysis</h2>
+<p>Factor analysis is an analysis method that aims to take a large number of observed variables, find subsets of the variables that are highly correlated with each other and construct a smaller set of unobserved variables, that we call <em>latent</em> variables.</p>
+<p>Factor analysis assumes that when variables are very highly correlated with each other then on one level they could be measuring the same underlying construct. In which case, you can capture only the bits that contribute differentially to the underlying construct and make a new variable from those different parts.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/Wk5/FA.png" class="img-fluid figure-img"></p>
-<figcaption>Factor Analysis</figcaption>
+<figcaption>A Diagram of a Factor Analysis Where 12 Observed Variables are Reduced to Four Latent Variables</figcaption>
 </figure>
 </div>
-<p>Measures of association help answer the question ‘What is the relationship between two variables?’</p>
+<p>In this diagram, we have a set of observed variables on the left (rectangles). These are the constructs that we measure or observe. They are the columns that we can see in our dataset.</p>
+<p>Moving across the page, most of the observed variables are connected by arrows to one of four latent variables (PA1, PA2, PA3, and PA4), on the right. Latent variables are always drawn in ovals or circles on these diagrams. These are the unobserved variables that are made during the factor analysis process.<br>
+</p>
+<p>What goes into the new, latent variables is decided by how well the observed variables correlate with each other. You have already been looking at how well predictor variables correlate with each other during the visualisation part of the analysis workflow (those complicated looking correlation matrices!). When subsets of observed variables correlate well with each other then this could be an indicator that a factor analysis is a feasible method for reducing a large set of variables down to a smaller set.<br>
+</p>
+<p>The values that you see on each of the connecting arrows are how much of the observed variable is contributing to the unobserved variables. We say this is an observed variable’s “loading” onto the latent variable. Higher loading values indicate stronger links to that latent variable.<br>
+</p>
+<p>In 224, you are engaging in questionnaire design, where sets of items are specifically designed to measure one construct. If you have three or more of those items, then you may have the conditions that suggest a factor analysis. In other studies, you may have taken a personality test, or other questionnaire style test where a lot of the questions seemed to ask about similar things. In the big five mini-IPIP scale, the two questions for extraversion are “Am the life of the party” and “Talk to a lot of different people at parties”. The expectation is that if there is indeed an underlying variable behind these two questions, then people’s responses should be similar to both questions.</p>
+<section id="factor-analysis-needs-predictor-variables-that-are-co-linear" class="level3">
+<h3 class="anchored" data-anchor-id="factor-analysis-needs-predictor-variables-that-are-co-linear">Factor Analysis Needs Predictor Variables That Are Co-linear</h3>
 <p>Correlation looks at pairs of <strong>numerical</strong> variables</p>
 <ul>
-<li>X &amp; Y below predict Z</li>
-<li>X &amp; Y are completely separate</li>
-<li>X &amp; Y are completely independent of each other</li>
+<li>X and Y below predict Z</li>
+<li>X and Y are completely separate</li>
+<li>X and Y are completely independent of each other</li>
+<li>X and Y are not correlated; they are not co-linear</li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-0ca95f78c33b5d78c92c" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-0ca95f78c33b5d78c92c">{"x":{"diagram":"digraph flowchart {\n  node [fontname = arial, shape = oval]\n  tab1 [label = \"X\"]\n  tab2 [label = \"Y\"]\n  tab3 [label = \"Z\"]\n\n  tab1 -> tab3;\n  tab2 -> tab3;\n\n  {rank=same; tab1, tab2}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Wk5/IndPred.png" class="img-fluid figure-img"></p>
+<figcaption>Independent Predictors</figcaption>
+</figure>
 </div>
-</div>
-<ul>
-<li>X &amp; Y below predict Z</li>
-<li>X &amp; Y are completely separate</li>
-<li>X &amp; Y are completely independent of each other</li>
-</ul>
-<p>X is showing a larger correlation with Z than Y here</p>
-<p>You can draw the diagram like this to show how much information X shares with Z and how much Y shares with Z</p>
+<p>Here is an alternative way to show an independence between the two predictors:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/Wk5/Correlation1.png" class="img-fluid figure-img"></p>
-<figcaption>Correlation of variables</figcaption>
+<figcaption>Correlation of X and Y with Z, with X and Y Showing Complete Independence of Each Other</figcaption>
 </figure>
 </div>
-<p>Sometimes the relationship between X &amp; Y is not so independent: + X &amp; Y here still predict Z + X &amp; Y but now they are not completely separate + X &amp; Y they share some information + They are correlated with each other + As well as being correlated with Z</p>
+<ul>
+<li>Again, X and Y both predict Z</li>
+<li>X may be showing a stronger predictive relationship with Z, here (look at the overlap with Z compared to that between Y and Z)</li>
+<li>And again, X and Y are completely separate</li>
+<li>X and Y are completely independent of each other</li>
+<li>They are not co-linear.</li>
+</ul>
+<p>Sometimes the relationship between two predictors is not so independent:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/Wk5/Correlation2.png" class="img-fluid figure-img"></p>
-<figcaption>Correlation of variables</figcaption>
+<figcaption>Correlation of X and Y with Z, with X and Y Showing a Weak Correlation with Each Other</figcaption>
 </figure>
 </div>
-<p>We can draw this this way too…</p>
-<p>The overlap between X &amp; Y is still independent of their overlap with Z</p>
+<p>Here X and Y still predict Z, however now they are also correlated with each other, as described by the overlapping areas between X and Y. They share some information. They can be said to be co-linear (very weakly here), as well as being correlated or predicting Z.</p>
+<p>We can draw the above diagram this way too…</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/Wk5/Correlation3.png" class="img-fluid figure-img"></p>
-<figcaption>Correlation of variables</figcaption>
+<figcaption>An Alternative Way of Describing A Weakly Correlated Relationship Between Two Predictors</figcaption>
 </figure>
 </div>
-<p>In this example, the overlap between X &amp; Y is now related to the overlap with Z to a much greater degree…</p>
+<p>In this next diagram, the overlap between X and Y is now related to the overlap with Z to a much greater degree…however the correlation between the two predictors of X and Y remains weak.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/Wk5/Correlation4.png" class="img-fluid figure-img"></p>
-<figcaption>Correlation of variables</figcaption>
+<figcaption>Stronger Predictive Relationships for X and Y on Z, with a Remaining Weak Correlation Between X and Y</figcaption>
 </figure>
 </div>
-<section id="multicollinearity" class="level2">
-<h2 class="anchored" data-anchor-id="multicollinearity">Multicollinearity</h2>
-<p>When we have too much overlap between our predictor variables it can be a problem. This is called <strong>multicollinearity</strong>.</p>
-<p>When you have many predictor variables you need to check that they are not too highly correlated with each other. You do this by calling a correlation plot, where correlations &gt; .80 may be problematic. If you have lots of observations, you may be okay, but your model may have problems</p>
+</section>
+<section id="multicollinearity" class="level3">
+<h3 class="anchored" data-anchor-id="multicollinearity">Multicollinearity</h3>
+<p>Weak correlations between predictor variables are not too problematic. If predictor variables share strong correlational relationships (normally <em>r</em> &gt; .8), however, the algorithm that is doing the regression calculations for us (behind the scenes) will get a bit mixed up as it will not be able to to tell which predictor is predicting which bit of variance in the outcome variable. Predictors that share strong correlational relationships are fighting for the same part of the variance on Z.</p>
+<p>Such strong correlational relationships between predictor variables are known as the predictor set having a high level of <strong>multicollinearity</strong>. Multicollinearity is likely to occur more in multiple regression simply because there are multiple predictor variables. This is one reason why it is a good idea to do a visualisation of the predictor variables in a correlation matrix, to see, at an early stage in an analysis, if multicollinearity is present. If it is, there are steps to mitigate its effect.</p>
+</section>
 <section id="mitigation" class="level3">
 <h3 class="anchored" data-anchor-id="mitigation">Mitigation</h3>
-<p>Choose a smaller set of variables</p>
-<ul>
-<li>By theory Group together alike variables</li>
-<li>Principal component analysis Estimate underlying structures</li>
-<li>Factor analysis</li>
-<li>Underlying structures are also known as “latent variables”</li>
-</ul>
+<p>One way to mitigate multicollinearity is to simple leave some variables out of your dataset - and there are estimation practices and methods that allow you to choose which to leave out in a principled, reproducible way.</p>
+<p>Another way to mitigate multicollinearity is not to leave out variables but to combine variables that are highly correlated together into one new variable. This is what a factor analysis method does. It calculates what information is unique in the predictor for a hypothesised new variable and takes only sufficient information from each observed variables that uniquely contributes to the new variable. In this way, the colinearity is reduced in the dataset but the relevant information from the observed datasets is retained.</p>
+<p>Theory should suggest which variables are likely to “load” together onto a latent variable. However, you can also take a data driven approach (by letting the model suggest loadings) if theory is agnostic, or variables are quite new.</p>
 </section>
 </section>
 <section id="factor-analysis-1" class="level2">
 <h2 class="anchored" data-anchor-id="factor-analysis-1">Factor Analysis</h2>
-<p>Finding underlying structure or latent variables + Latent variables should have three or more observed variables loading onto them + Correlations between those observed variables&nbsp;should be high + The observed variables should load only onto one variable</p>
-<p>Before beginning:</p>
+<p>Factor analysis is quite jargon heavy, it has its own little language system - annoying maybe, but you are familiar with the constructs that exist in regression already. They just have different labels in factor analysis.</p>
 <ul>
-<li>Standardise your variables</li>
+<li>Where there is overlap, where variables ‘<em>load</em>’ onto factors:
+<ul>
+<li>The shared variance is called ‘<em>communality</em>’.</li>
+<li>And the unshared variance is called <em>uniqueness</em>.</li>
+</ul></li>
 </ul>
-<p>Factor analysis is quite jargon heavy:</p>
-<p><em>Exploratory factor analysis</em> (EFA) and <em>Confirmatory factor analysis</em> (CFA)</p>
-<p>Where there is overlap, where variables ‘<em>load</em>’ onto factors:</p>
-<p>The shared variance is called ‘<em>communality</em>’</p>
-<p>And the unshared variance is called <em>uniqueness</em></p>
+<section id="necessary-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="necessary-conditions">Necessary Conditions</h3>
+<p>There are some conditions associated with making the new latent variables that must be met:</p>
+<ul>
+<li>Latent variables should have three or more observed variables loading onto them.</li>
+<li>Correlations between those three or more observed variables should be high.</li>
+<li>Any one of the observed variables should load onto one latent variable only.</li>
+<li>Before beginning your factor analysis, you should standardise your variables.</li>
+<li>Ensure that reverse scored items are transformed to move in the same direction as the majority of the other variables</li>
+</ul>
+</section>
 <section id="performance" class="level3">
 <h3 class="anchored" data-anchor-id="performance">Performance</h3>
-<ol type="1">
-<li>A factor should have at least three variables that are loaded to a sufficient level</li>
-<li>Any one variable should have most of its loading on one factor 3.A factor should have good internal consistency (a common (and maybe overused) method is Cronbach’s alpha) 4.Factors should make theoretical sense</li>
-</ol>
-<p>Snapshot of an example output below: &nbsp;</p>
-<ul>
-<li>The first column is the labels of the observed variables</li>
-<li>Columns 2 – 5 are the latent variable loadings for each of those observed variables.</li>
-<li>The first three factors each have 3+ &nbsp;of the observed variables</li>
-<li>Length is problematic here</li>
-</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/Wk5/Loading_example.png" class="img-fluid figure-img"></p>
-<figcaption>Example of variable loadings</figcaption>
+<figcaption>Example of 10 Predictor Loadings onto Four Latent Variables</figcaption>
 </figure>
 </div>
+<p>Look at the table above. The first column is the labels of the observed variables. Columns 2 to 5 are the latent variable loadings for each of those observed variables.<br>
+- Look at the columns for <code>PA1</code>, <code>PA2</code> and <code>PA3</code>. Each of those have more than three observed variables loading onto them.<br>
+- Look at the first row for the <code>Length</code> observed variable - see how it loads onto two of the latent variables, <code>PA1</code> and <code>PA2</code>; this is problematic for this variable.</p>
+<p>A good factor analysis should have:</p>
+<ol type="1">
+<li>A factor should have at least three variables that are loaded to a sufficient level (see lab script for notes).</li>
+<li>Any one variable should have most of its loading on one factor</li>
+<li>A factor should have good internal consistency (a common (and maybe overused) method is Cronbach’s alpha).</li>
+<li>Factors should make theoretical sense.</li>
+</ol>
 </section>
-<section id="preparation" class="level3">
-<h3 class="anchored" data-anchor-id="preparation">Preparation</h3>
+<section id="tidy-your-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="tidy-your-dataset">Tidy your Dataset</h3>
 <ol type="1">
-<li><p>Remove outcome variables, categorical variables, ordinal variables</p></li>
-<li><p>Visualise the prepared dataset</p></li>
-<li><p>Inspect correlations (guidelines exist!)</p></li>
-<li><p>Perform some EFA specific tests to determine if a factor analysis is feasible + KMO + Bartlett’s test of sphericity + Parallel analysis + Scree test (visualization) + Packages in R support these</p></li>
+<li><p>Remove outcome variables, categorical variables and ordinal variables</p></li>
+<li><p>Visualise the prepared dataset.</p></li>
+<li><p>Inspect correlations between the remaining predictors (guidelines exist!)</p></li>
+<li><p>Perform some specific tests to determine if a factor analysis is feasible (all in the lab script)</p>
+<ul>
+<li>KMO</li>
+<li>Bartlett’s test of sphericity</li>
+<li>Parallel analysis</li>
+<li>Scree test (visualization)</li>
+</ul></li>
+<li><p>If the indications are good and you have a sufficient number of variables– then perform a factor analysis</p></li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk5/ExamplePrep.png" class="img-fluid figure-img"></p>
-<figcaption>Example of variable loadings</figcaption>
-</figure>
-</div>
-<ol start="5" type="1">
-<li>If the indications are good – then perform a factor analysis</li>
-</ol>
-<p>Guidelines exist for all of the following:</p>
+</section>
+<section id="model-perform-your-factor-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="model-perform-your-factor-analysis">Model / Perform your Factor Analysis</h3>
+<p>Running the factor analysis takes but a moment. It is the checking and interpretation that takes the time for this process. In the lab script, there are guidelines for the following steps of deciding whether a factor analysis is a good fit for the data:</p>
 <ol type="1">
-<li><p>Look for patterns inside the factors</p></li>
-<li><p>Look for patterns between the factors</p></li>
+<li><p>Look for patterns inside the new, suggested latent factors</p></li>
+<li><p>Look for patterns between the new, suggested latent factors</p></li>
 <li><p>Look for communalities</p></li>
 <li><p>Look for factor correlations</p></li>
 <li><p>Test for internal consistency of the factors</p></li>
-<li><p>Draw! Report!</p></li>
+<li><p>Draw!</p></li>
+<li><p>Report!</p></li>
 </ol>
 </section>
-</section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<p>You will need to review the Birthweight example to be able to complete WBA5.</p>
-<p>You can choose any of the three examples to explore the process of Factor Analysis.</p>
-<p>Birthweight script and data <a href="data/Wk5/Factor Analysis Materials/Birthweight Factor Analysis.zip">here</a>, and codebook <a href="data/Wk5/Factor Analysis Materials/Birthweight_data_kg_description.pdf">here</a></p>
-<p>Questionnaire script and data <a href="data/Wk5/Factor Analysis Materials/Questionnaire Factor Analysis.zip">here</a></p>
-<p>Single Word Reading script and data <a href="data/Wk5/Factor Analysis Materials/Single Word Reading Factor Analysis.zip">here</a></p>
-<p>Or, download all the materials <a href="data/Wk5/Factor Analysis Materials.zip">here</a> - treat yourself!</p>
 </section>
 </section>
 <section id="binomial-test" class="level1">
 <h1>Binomial Test</h1>
 <section id="lecture-material" class="level2">
 <h2 class="anchored" data-anchor-id="lecture-material">Lecture material</h2>
-<p>Watch part two of the Week 5 lecture (on the binomial test) <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6">here</a>. The lecture slides (both .ppt and .pdf) versions can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507030">here</a>.</p>
+<p>Watch part two of the Week 15 lecture (on the binomial test) <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6">here</a>. The lecture slides (both .ppt and .pdf) versions can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507030">here</a>.</p>
 </section>
 <section id="running-the-code-in-the-lecture" class="level2">
 <h2 class="anchored" data-anchor-id="running-the-code-in-the-lecture">Running the code in the lecture</h2>
-<p>Please note that binomial test will not be covered in the Week 5 lab - as described in the lecture, this is a very straightforward test to run in R that can be performed with just a single line of code.</p>
+<p>Please note that binomial test will not be covered in the Week 15 lab - as described in the lecture, this is a very straightforward test to run in R that can be performed with just a single line of code.</p>
 <p>To run the binomial test based on the example described in the lecture, you would simply run the following code in R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">13</span>, <span class="dv">14</span>, <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -659,7 +683,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -691,27 +726,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -719,7 +734,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -816,6 +831,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -184,49 +184,49 @@
   {
     "objectID": "PSYC234/Week5.html",
     "href": "PSYC234/Week5.html",
-    "title": "5. Factor analysis & the binomial test",
+    "title": "5. Factor Analysis and the Binomial Test",
     "section": "",
-    "text": "Caution\n\n\n\nThis page is under construction for 24/25 and may be subject to change before the teaching week.",
+    "text": "This week is a crossover week between Emma and Amy.\nFactor Analysis content is needed for learning. Questions will not be asked in the class test in week 20 on the Factor Analysis method.\nThe Binomial Test content is needed for learning, and the class test.\nThe rest of this page is split into two parts, Factor Analysis and Binomial Test. They each have their own associated lecture and notes.\n\n\nWatch the Lecture on Factor Analysis here\n\n\n\nPlease download the Slides. In this zipped folder are the slides that accompany the lecture and the codebook for the week 15 lab activity that uses the Birthweight dataset (which is associated with WBA5).\n\n\n\nThere are three scripts with associated data with which you can practise performing the steps of a factor analysis. These are in the folder called Three_Factor_Analyses.zip. It can be downloaded here. If you are completing the WBA Quizzes, then you will need to review the factor analysis for the Birthweight data to be able to complete WBA5.\n\n\n\nWatch the lecture before you attempt anything!\nDownload the Three_Factor_Analyses.zip files and upload to your R account\nPlay with one of the scripts before the lab to familiarise yourself with the process - test yourself on WBA5\nCome to your scheduled lab to have a further practice and ask the staff questions about the process.\n\n\n\n\n\nThe link to this week’s multiple choice quiz, WBA 5, is here\n\n\n\nFactor analysis is an analysis method that aims to take a large number of observed variables, find subsets of the variables that are highly correlated with each other and construct a smaller set of unobserved variables, that we call latent variables.\nFactor analysis assumes that when variables are very highly correlated with each other then on one level they could be measuring the same underlying construct. In which case, you can capture only the bits that contribute differentially to the underlying construct and make a new variable from those different parts.\n\n\n\nA Diagram of a Factor Analysis Where 12 Observed Variables are Reduced to Four Latent Variables\n\n\nIn this diagram, we have a set of observed variables on the left (rectangles). These are the constructs that we measure or observe. They are the columns that we can see in our dataset.\nMoving across the page, most of the observed variables are connected by arrows to one of four latent variables (PA1, PA2, PA3, and PA4), on the right. Latent variables are always drawn in ovals or circles on these diagrams. These are the unobserved variables that are made during the factor analysis process.\n\nWhat goes into the new, latent variables is decided by how well the observed variables correlate with each other. You have already been looking at how well predictor variables correlate with each other during the visualisation part of the analysis workflow (those complicated looking correlation matrices!). When subsets of observed variables correlate well with each other then this could be an indicator that a factor analysis is a feasible method for reducing a large set of variables down to a smaller set.\n\nThe values that you see on each of the connecting arrows are how much of the observed variable is contributing to the unobserved variables. We say this is an observed variable’s “loading” onto the latent variable. Higher loading values indicate stronger links to that latent variable.\n\nIn 224, you are engaging in questionnaire design, where sets of items are specifically designed to measure one construct. If you have three or more of those items, then you may have the conditions that suggest a factor analysis. In other studies, you may have taken a personality test, or other questionnaire style test where a lot of the questions seemed to ask about similar things. In the big five mini-IPIP scale, the two questions for extraversion are “Am the life of the party” and “Talk to a lot of different people at parties”. The expectation is that if there is indeed an underlying variable behind these two questions, then people’s responses should be similar to both questions.\n\n\nCorrelation looks at pairs of numerical variables\n\nX and Y below predict Z\nX and Y are completely separate\nX and Y are completely independent of each other\nX and Y are not correlated; they are not co-linear\n\n\n\n\nIndependent Predictors\n\n\nHere is an alternative way to show an independence between the two predictors:\n\n\n\nCorrelation of X and Y with Z, with X and Y Showing Complete Independence of Each Other\n\n\n\nAgain, X and Y both predict Z\nX may be showing a stronger predictive relationship with Z, here (look at the overlap with Z compared to that between Y and Z)\nAnd again, X and Y are completely separate\nX and Y are completely independent of each other\nThey are not co-linear.\n\nSometimes the relationship between two predictors is not so independent:\n\n\n\nCorrelation of X and Y with Z, with X and Y Showing a Weak Correlation with Each Other\n\n\nHere X and Y still predict Z, however now they are also correlated with each other, as described by the overlapping areas between X and Y. They share some information. They can be said to be co-linear (very weakly here), as well as being correlated or predicting Z.\nWe can draw the above diagram this way too…\n\n\n\nAn Alternative Way of Describing A Weakly Correlated Relationship Between Two Predictors\n\n\nIn this next diagram, the overlap between X and Y is now related to the overlap with Z to a much greater degree…however the correlation between the two predictors of X and Y remains weak.\n\n\n\nStronger Predictive Relationships for X and Y on Z, with a Remaining Weak Correlation Between X and Y\n\n\n\n\n\nWeak correlations between predictor variables are not too problematic. If predictor variables share strong correlational relationships (normally r &gt; .8), however, the algorithm that is doing the regression calculations for us (behind the scenes) will get a bit mixed up as it will not be able to to tell which predictor is predicting which bit of variance in the outcome variable. Predictors that share strong correlational relationships are fighting for the same part of the variance on Z.\nSuch strong correlational relationships between predictor variables are known as the predictor set having a high level of multicollinearity. Multicollinearity is likely to occur more in multiple regression simply because there are multiple predictor variables. This is one reason why it is a good idea to do a visualisation of the predictor variables in a correlation matrix, to see, at an early stage in an analysis, if multicollinearity is present. If it is, there are steps to mitigate its effect.\n\n\n\nOne way to mitigate multicollinearity is to simple leave some variables out of your dataset - and there are estimation practices and methods that allow you to choose which to leave out in a principled, reproducible way.\nAnother way to mitigate multicollinearity is not to leave out variables but to combine variables that are highly correlated together into one new variable. This is what a factor analysis method does. It calculates what information is unique in the predictor for a hypothesised new variable and takes only sufficient information from each observed variables that uniquely contributes to the new variable. In this way, the colinearity is reduced in the dataset but the relevant information from the observed datasets is retained.\nTheory should suggest which variables are likely to “load” together onto a latent variable. However, you can also take a data driven approach (by letting the model suggest loadings) if theory is agnostic, or variables are quite new.\n\n\n\n\nFactor analysis is quite jargon heavy, it has its own little language system - annoying maybe, but you are familiar with the constructs that exist in regression already. They just have different labels in factor analysis.\n\nWhere there is overlap, where variables ‘load’ onto factors:\n\nThe shared variance is called ‘communality’.\nAnd the unshared variance is called uniqueness.\n\n\n\n\nThere are some conditions associated with making the new latent variables that must be met:\n\nLatent variables should have three or more observed variables loading onto them.\nCorrelations between those three or more observed variables should be high.\nAny one of the observed variables should load onto one latent variable only.\nBefore beginning your factor analysis, you should standardise your variables.\nEnsure that reverse scored items are transformed to move in the same direction as the majority of the other variables\n\n\n\n\n\n\n\nExample of 10 Predictor Loadings onto Four Latent Variables\n\n\nLook at the table above. The first column is the labels of the observed variables. Columns 2 to 5 are the latent variable loadings for each of those observed variables.\n- Look at the columns for PA1, PA2 and PA3. Each of those have more than three observed variables loading onto them.\n- Look at the first row for the Length observed variable - see how it loads onto two of the latent variables, PA1 and PA2; this is problematic for this variable.\nA good factor analysis should have:\n\nA factor should have at least three variables that are loaded to a sufficient level (see lab script for notes).\nAny one variable should have most of its loading on one factor\nA factor should have good internal consistency (a common (and maybe overused) method is Cronbach’s alpha).\nFactors should make theoretical sense.\n\n\n\n\n\nRemove outcome variables, categorical variables and ordinal variables\nVisualise the prepared dataset.\nInspect correlations between the remaining predictors (guidelines exist!)\nPerform some specific tests to determine if a factor analysis is feasible (all in the lab script)\n\nKMO\nBartlett’s test of sphericity\nParallel analysis\nScree test (visualization)\n\nIf the indications are good and you have a sufficient number of variables– then perform a factor analysis\n\n\n\n\nRunning the factor analysis takes but a moment. It is the checking and interpretation that takes the time for this process. In the lab script, there are guidelines for the following steps of deciding whether a factor analysis is a good fit for the data:\n\nLook for patterns inside the new, suggested latent factors\nLook for patterns between the new, suggested latent factors\nLook for communalities\nLook for factor correlations\nTest for internal consistency of the factors\nDraw!\nReport!",
     "crumbs": [
       "Home",
       "PSYC234",
-      "5. Factor analysis & the binomial test"
+      "5. Factor Analysis and the Binomial Test"
     ]
   },
   {
     "objectID": "PSYC234/Week5.html#multicollinearity",
     "href": "PSYC234/Week5.html#multicollinearity",
-    "title": "5. Factor analysis & the binomial test",
-    "section": "Multicollinearity",
-    "text": "Multicollinearity\nWhen we have too much overlap between our predictor variables it can be a problem. This is called multicollinearity.\nWhen you have many predictor variables you need to check that they are not too highly correlated with each other. You do this by calling a correlation plot, where correlations &gt; .80 may be problematic. If you have lots of observations, you may be okay, but your model may have problems\n\nMitigation\nChoose a smaller set of variables\n\nBy theory Group together alike variables\nPrincipal component analysis Estimate underlying structures\nFactor analysis\nUnderlying structures are also known as “latent variables”",
+    "title": "5. Factor Analysis and the Binomial Test",
+    "section": "",
+    "text": "When we have too much overlap between our predictor variables it can be a problem. This is called multicollinearity.\nWhen you have many predictor variables you need to check that they are not too highly correlated with each other. You do this by calling a correlation plot, where correlations &gt; .80 may be problematic. If you have lots of observations, you may be okay, but your model may have problems\n\n\nChoose a smaller set of variables\n\nBy theory Group together alike variables\nPrincipal component analysis Estimate underlying structures\nFactor analysis\nUnderlying structures are also known as “latent variables”",
     "crumbs": [
       "Home",
       "PSYC234",
-      "5. Factor analysis & the binomial test"
+      "5. Factor Analysis and the Binomial Test"
     ]
   },
   {
     "objectID": "PSYC234/Week5.html#factor-analysis-1",
     "href": "PSYC234/Week5.html#factor-analysis-1",
-    "title": "5. Factor analysis & the binomial test",
-    "section": "Factor Analysis",
-    "text": "Factor Analysis\nFinding underlying structure or latent variables + Latent variables should have three or more observed variables loading onto them + Correlations between those observed variables should be high + The observed variables should load only onto one variable\nBefore beginning:\n\nStandardise your variables\n\nFactor analysis is quite jargon heavy:\nExploratory factor analysis (EFA) and Confirmatory factor analysis (CFA)\nWhere there is overlap, where variables ‘load’ onto factors:\nThe shared variance is called ‘communality’\nAnd the unshared variance is called uniqueness\n\nPerformance\n\nA factor should have at least three variables that are loaded to a sufficient level\nAny one variable should have most of its loading on one factor 3.A factor should have good internal consistency (a common (and maybe overused) method is Cronbach’s alpha) 4.Factors should make theoretical sense\n\nSnapshot of an example output below:  \n\nThe first column is the labels of the observed variables\nColumns 2 – 5 are the latent variable loadings for each of those observed variables.\nThe first three factors each have 3+  of the observed variables\nLength is problematic here\n\n\n\n\nExample of variable loadings\n\n\n\n\nPreparation\n\nRemove outcome variables, categorical variables, ordinal variables\nVisualise the prepared dataset\nInspect correlations (guidelines exist!)\nPerform some EFA specific tests to determine if a factor analysis is feasible + KMO + Bartlett’s test of sphericity + Parallel analysis + Scree test (visualization) + Packages in R support these\n\n\n\n\nExample of variable loadings\n\n\n\nIf the indications are good – then perform a factor analysis\n\nGuidelines exist for all of the following:\n\nLook for patterns inside the factors\nLook for patterns between the factors\nLook for communalities\nLook for factor correlations\nTest for internal consistency of the factors\nDraw! Report!",
+    "title": "5. Factor Analysis and the Binomial Test",
+    "section": "",
+    "text": "Factor analysis is quite jargon heavy, it has its own little language system - annoying maybe, but you are familiar with the constructs that exist in regression already. They just have different labels in factor analysis.\n\nWhere there is overlap, where variables ‘load’ onto factors:\n\nThe shared variance is called ‘communality’.\nAnd the unshared variance is called uniqueness.\n\n\n\n\nThere are some conditions associated with making the new latent variables that must be met:\n\nLatent variables should have three or more observed variables loading onto them.\nCorrelations between those three or more observed variables should be high.\nAny one of the observed variables should load onto one latent variable only.\nBefore beginning your factor analysis, you should standardise your variables.\nEnsure that reverse scored items are transformed to move in the same direction as the majority of the other variables\n\n\n\n\n\n\n\nExample of 10 Predictor Loadings onto Four Latent Variables\n\n\nLook at the table above. The first column is the labels of the observed variables. Columns 2 to 5 are the latent variable loadings for each of those observed variables.\n- Look at the columns for PA1, PA2 and PA3. Each of those have more than three observed variables loading onto them.\n- Look at the first row for the Length observed variable - see how it loads onto two of the latent variables, PA1 and PA2; this is problematic for this variable.\nA good factor analysis should have:\n\nA factor should have at least three variables that are loaded to a sufficient level (see lab script for notes).\nAny one variable should have most of its loading on one factor\nA factor should have good internal consistency (a common (and maybe overused) method is Cronbach’s alpha).\nFactors should make theoretical sense.\n\n\n\n\n\nRemove outcome variables, categorical variables and ordinal variables\nVisualise the prepared dataset.\nInspect correlations between the remaining predictors (guidelines exist!)\nPerform some specific tests to determine if a factor analysis is feasible (all in the lab script)\n\nKMO\nBartlett’s test of sphericity\nParallel analysis\nScree test (visualization)\n\nIf the indications are good and you have a sufficient number of variables– then perform a factor analysis\n\n\n\n\nRunning the factor analysis takes but a moment. It is the checking and interpretation that takes the time for this process. In the lab script, there are guidelines for the following steps of deciding whether a factor analysis is a good fit for the data:\n\nLook for patterns inside the new, suggested latent factors\nLook for patterns between the new, suggested latent factors\nLook for communalities\nLook for factor correlations\nTest for internal consistency of the factors\nDraw!\nReport!",
     "crumbs": [
       "Home",
       "PSYC234",
-      "5. Factor analysis & the binomial test"
+      "5. Factor Analysis and the Binomial Test"
     ]
   },
   {
     "objectID": "PSYC234/Week5.html#practice",
     "href": "PSYC234/Week5.html#practice",
-    "title": "5. Factor analysis & the binomial test",
-    "section": "Practice",
-    "text": "Practice\nYou will need to review the Birthweight example to be able to complete WBA5.\nYou can choose any of the three examples to explore the process of Factor Analysis.\nBirthweight script and data here, and codebook here\nQuestionnaire script and data here\nSingle Word Reading script and data here\nOr, download all the materials here - treat yourself!",
+    "title": "5. Factor Analysis and the Binomial Test",
+    "section": "",
+    "text": "You will need to review the Birthweight example to be able to complete WBA5.\nYou can choose any of the three examples to explore the process of Factor Analysis.\nBirthweight script and data here, and codebook here\nQuestionnaire script and data here\nSingle Word Reading script and data here\nOr, download all the materials here - treat yourself!",
     "crumbs": [
       "Home",
       "PSYC234",
-      "5. Factor analysis & the binomial test"
+      "5. Factor Analysis and the Binomial Test"
     ]
   },
   {
@@ -1675,49 +1675,49 @@
   {
     "objectID": "PSYC234/Week5.html#lecture-material",
     "href": "PSYC234/Week5.html#lecture-material",
-    "title": "5. Factor analysis & the binomial test",
+    "title": "5. Factor Analysis and the Binomial Test",
     "section": "Lecture material",
-    "text": "Lecture material\nWatch part two of the Week 5 lecture (on the binomial test) here. The lecture slides (both .ppt and .pdf) versions can be downloaded here.",
+    "text": "Lecture material\nWatch part two of the Week 15 lecture (on the binomial test) here. The lecture slides (both .ppt and .pdf) versions can be downloaded here.",
     "crumbs": [
       "Home",
       "PSYC234",
-      "5. Factor analysis & the binomial test"
+      "5. Factor Analysis and the Binomial Test"
     ]
   },
   {
     "objectID": "PSYC234/Week5.html#running-the-code-in-the-lecture",
     "href": "PSYC234/Week5.html#running-the-code-in-the-lecture",
-    "title": "5. Factor analysis & the binomial test",
+    "title": "5. Factor Analysis and the Binomial Test",
     "section": "Running the code in the lecture",
-    "text": "Running the code in the lecture\nPlease note that binomial test will not be covered in the Week 5 lab - as described in the lecture, this is a very straightforward test to run in R that can be performed with just a single line of code.\nTo run the binomial test based on the example described in the lecture, you would simply run the following code in R:\n\nbinom.test(13, 14, 0.5)\n\n\n    Exact binomial test\n\ndata:  13 and 14\nnumber of successes = 13, number of trials = 14, p-value = 0.001831\nalternative hypothesis: true probability of success is not equal to 0.5\n95 percent confidence interval:\n 0.6613155 0.9981932\nsample estimates:\nprobability of success \n             0.9285714",
+    "text": "Running the code in the lecture\nPlease note that binomial test will not be covered in the Week 15 lab - as described in the lecture, this is a very straightforward test to run in R that can be performed with just a single line of code.\nTo run the binomial test based on the example described in the lecture, you would simply run the following code in R:\n\nbinom.test(13, 14, 0.5)\n\n\n    Exact binomial test\n\ndata:  13 and 14\nnumber of successes = 13, number of trials = 14, p-value = 0.001831\nalternative hypothesis: true probability of success is not equal to 0.5\n95 percent confidence interval:\n 0.6613155 0.9981932\nsample estimates:\nprobability of success \n             0.9285714",
     "crumbs": [
       "Home",
       "PSYC234",
-      "5. Factor analysis & the binomial test"
+      "5. Factor Analysis and the Binomial Test"
     ]
   },
   {
     "objectID": "PSYC234/Week5.html#independent-learning-activities",
     "href": "PSYC234/Week5.html#independent-learning-activities",
-    "title": "5. Factor analysis & the binomial test",
+    "title": "5. Factor Analysis and the Binomial Test",
     "section": "Independent learning activities",
     "text": "Independent learning activities\nBelow are some independent learning activities you can have a go at to help consolidate the lecture content on the binomial test. These are optional, but recommended. The answers are found below.\n\nActivity 1\nOne sample-test or binomial test?\nDisclaimer: All of these statistics are made up.\nFor the following examples, write down whether you think the test conducted should be a one-sample t-test or a binomial test.\n\nYou are the coach of a football team. You are interested in whether the running distance of your players significantly differs from the England national football team. You know, on average, England football players run 10km per game.\nYou are the coach of a football team. You are interested in whether the proportion of games your team scores a goal is significantly different from that of the England national team. You know that on average, the England national team scores a goal in 60% of games.\nYou are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies born in your hospital are quite small. You are interested in whether the proportion of babies who are classed as “small for gestational age” differs between your hospital and the UK average (10%).\nYou are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies that are born in your hospital are quite small. You are interested in whether the average weight of babies born at your hospital is significantly less than the UK average (3350g).\n\n\n\nActivity 2\nIdentifying “success”\n\nYou are the headteacher of a grammar school which has an entrance exam. You are interested in whether the proportion of children failing the test differs significantly from last year. The failure rate last year was 24% (or 0.24 expressed as a proportion).\nYou have developed a new flu vaccine. You are interested in whether the proportion of people who develop side effects after your vaccine differs from the flu vaccine currently used by the NHS (37%, or 0.37 expressed as a proportion).\n\n\n\nAnswers\n\nActivity 1:\n\nOne-sample t-test. The value for each individual is continuous.You are interested in whether the mean number of km runs differs from a known value.\nBinomial test. Two possible outcomes: team scores or team does not score). You are interested in whether the proportion that a given outcome occurs (i.e. your team scores a goal) differs from a known value.\nBinomial test. Two possible outcomes: Each baby’s outcome is either “small for gestational age” or “not small for gestational age”. You are interested in whether the proportion that a given outcome occurs (i.e. small for gestational age) differs from a known value.\nOne-sample t-test. The value for each individual is continuous. You are interested in whether the mean weight of babies at your hospital differs from a known value.\n\nTake-home message: A one sample t-test is used when you are interested in comparing the mean of a sample to a known value. The binomial test is used when you are interested in comparing a sample’s proportion of “successes” to a known value.\n\n\nActivity 2\n\nSuccess: failing the test. Failure: passing the test.\nSuccess: Has side effects. Failure: Does not have side effects.\n\nTake home message: Success refers to the outcome you are interested in. Sometimes this might be counterintuitive to how we typically think about ‘success’ (e.g. in the.",
     "crumbs": [
       "Home",
       "PSYC234",
-      "5. Factor analysis & the binomial test"
+      "5. Factor Analysis and the Binomial Test"
     ]
   },
   {
     "objectID": "PSYC234/Week5.html#asking-questions",
     "href": "PSYC234/Week5.html#asking-questions",
-    "title": "5. Factor analysis & the binomial test",
+    "title": "5. Factor Analysis and the Binomial Test",
     "section": "Asking questions",
     "text": "Asking questions\nIf you have any questions about the binomial test, please post them on the discussion board here. If you prefer to remain anonymous, you can post questions anonymously here: “The Binomial Test: Post questions anonymously”. I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.",
     "crumbs": [
       "Home",
       "PSYC234",
-      "5. Factor analysis & the binomial test"
+      "5. Factor Analysis and the Binomial Test"
     ]
   },
   {
@@ -2068,6 +2068,66 @@
       "Home",
       "PSYC234",
       "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week5.html#factor-analysis",
+    "href": "PSYC234/Week5.html#factor-analysis",
+    "title": "5. Factor Analysis and the Binomial Test",
+    "section": "",
+    "text": "Factor analysis is an analysis method that aims to take a large number of observed variables, find subsets of the variables that are highly correlated with each other and construct a smaller set of unobserved variables, that we call latent variables.\nFactor analysis assumes that when variables are very highly correlated with each other then on one level they could be measuring the same underlying construct. In which case, you can capture only the bits that contribute differentially to the underlying construct and make a new variable from those different parts.\n\n\n\nA Diagram of a Factor Analysis Where 12 Observed Variables are Reduced to Four Latent Variables\n\n\nIn this diagram, we have a set of observed variables on the left (rectangles). These are the constructs that we measure or observe. They are the columns that we can see in our dataset.\nMoving across the page, most of the observed variables are connected by arrows to one of four latent variables (PA1, PA2, PA3, and PA4), on the right. Latent variables are always drawn in ovals or circles on these diagrams. These are the unobserved variables that are made during the factor analysis process.\n\nWhat goes into the new, latent variables is decided by how well the observed variables correlate with each other. You have already been looking at how well predictor variables correlate with each other during the visualisation part of the analysis workflow (those complicated looking correlation matrices!). When subsets of observed variables correlate well with each other then this could be an indicator that a factor analysis is a feasible method for reducing a large set of variables down to a smaller set.\n\nThe values that you see on each of the connecting arrows are how much of the observed variable is contributing to the unobserved variables. We say this is an observed variable’s “loading” onto the latent variable. Higher loading values indicate stronger links to that latent variable.\n\nIn 224, you are engaging in questionnaire design, where sets of items are specifically designed to measure one construct. If you have three or more of those items, then you may have the conditions that suggest a factor analysis. In other studies, you may have taken a personality test, or other questionnaire style test where a lot of the questions seemed to ask about similar things. In the big five mini-IPIP scale, the two questions for extraversion are “Am the life of the party” and “Talk to a lot of different people at parties”. The expectation is that if there is indeed an underlying variable behind these two questions, then people’s responses should be similar to both questions.\n\n\nCorrelation looks at pairs of numerical variables\n\nX and Y below predict Z\nX and Y are completely separate\nX and Y are completely independent of each other\nX and Y are not correlated; they are not co-linear\n\n\n\n\nIndependent Predictors\n\n\nHere is an alternative way to show an independence between the two predictors:\n\n\n\nCorrelation of X and Y with Z, with X and Y Showing Complete Independence of Each Other\n\n\n\nAgain, X and Y both predict Z\nX may be showing a stronger predictive relationship with Z, here (look at the overlap with Z compared to that between Y and Z)\nAnd again, X and Y are completely separate\nX and Y are completely independent of each other\nThey are not co-linear.\n\nSometimes the relationship between two predictors is not so independent:\n\n\n\nCorrelation of X and Y with Z, with X and Y Showing a Weak Correlation with Each Other\n\n\nHere X and Y still predict Z, however now they are also correlated with each other, as described by the overlapping areas between X and Y. They share some information. They can be said to be co-linear (very weakly here), as well as being correlated or predicting Z.\nWe can draw the above diagram this way too…\n\n\n\nAn Alternative Way of Describing A Weakly Correlated Relationship Between Two Predictors\n\n\nIn this next diagram, the overlap between X and Y is now related to the overlap with Z to a much greater degree…however the correlation between the two predictors of X and Y remains weak.\n\n\n\nStronger Predictive Relationships for X and Y on Z, with a Remaining Weak Correlation Between X and Y\n\n\n\n\n\nWeak correlations between predictor variables are not too problematic. If predictor variables share strong correlational relationships (normally r &gt; .8), however, the algorithm that is doing the regression calculations for us (behind the scenes) will get a bit mixed up as it will not be able to to tell which predictor is predicting which bit of variance in the outcome variable. Predictors that share strong correlational relationships are fighting for the same part of the variance on Z.\nSuch strong correlational relationships between predictor variables are known as the predictor set having a high level of multicollinearity. Multicollinearity is likely to occur more in multiple regression simply because there are multiple predictor variables. This is one reason why it is a good idea to do a visualisation of the predictor variables in a correlation matrix, to see, at an early stage in an analysis, if multicollinearity is present. If it is, there are steps to mitigate its effect.\n\n\n\nOne way to mitigate multicollinearity is to simple leave some variables out of your dataset - and there are estimation practices and methods that allow you to choose which to leave out in a principled, reproducible way.\nAnother way to mitigate multicollinearity is not to leave out variables but to combine variables that are highly correlated together into one new variable. This is what a factor analysis method does. It calculates what information is unique in the predictor for a hypothesised new variable and takes only sufficient information from each observed variables that uniquely contributes to the new variable. In this way, the colinearity is reduced in the dataset but the relevant information from the observed datasets is retained.\nTheory should suggest which variables are likely to “load” together onto a latent variable. However, you can also take a data driven approach (by letting the model suggest loadings) if theory is agnostic, or variables are quite new.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "5. Factor Analysis and the Binomial Test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week5.html#lecture",
+    "href": "PSYC234/Week5.html#lecture",
+    "title": "5. Factor Analysis and the Binomial Test",
+    "section": "",
+    "text": "Watch the Lecture on Factor Analysis here",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "5. Factor Analysis and the Binomial Test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week5.html#slides",
+    "href": "PSYC234/Week5.html#slides",
+    "title": "5. Factor Analysis and the Binomial Test",
+    "section": "",
+    "text": "Please download the Slides. In this zipped folder are the slides that accompany the lecture and the codebook for the week 15 lab activity that uses the Birthweight dataset (which is associated with WBA5).",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "5. Factor Analysis and the Binomial Test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week5.html#week-15-lab-activity",
+    "href": "PSYC234/Week5.html#week-15-lab-activity",
+    "title": "5. Factor Analysis and the Binomial Test",
+    "section": "",
+    "text": "There are three scripts with associated data with which you can practise performing the steps of a factor analysis. These are in the folder called Three_Factor_Analyses.zip. It can be downloaded here. If you are completing the WBA Quizzes, then you will need to review the factor analysis for the Birthweight data to be able to complete WBA5.\n\n\n\nWatch the lecture before you attempt anything!\nDownload the Three_Factor_Analyses.zip files and upload to your R account\nPlay with one of the scripts before the lab to familiarise yourself with the process - test yourself on WBA5\nCome to your scheduled lab to have a further practice and ask the staff questions about the process.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "5. Factor Analysis and the Binomial Test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week5.html#test-yourself",
+    "href": "PSYC234/Week5.html#test-yourself",
+    "title": "5. Factor Analysis and the Binomial Test",
+    "section": "",
+    "text": "The link to this week’s multiple choice quiz, WBA 5, is here",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "5. Factor Analysis and the Binomial Test"
     ]
   }
 ]
