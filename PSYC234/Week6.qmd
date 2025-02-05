@@ -11,9 +11,6 @@ library(ggpubr)
 library(tidyverse) 
 library(rstatix)
 ```
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
 
 # Lecture
 
@@ -53,7 +50,7 @@ The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.
 
 You are a researcher interested in whether the old saying "an apple a day keeps the doctor away is true". 
 
-You recruit 16 people and assign each participant to either a "0 apples" or "1 apple" group Participants in the "0 apple" group eat 0 apples every day for a year. Participants in the "1 apple" group eat 1 apple a day for a year.  You ask participants to report how many times they visited the GP in the year.
+You recruit 16 people and assign each participant to either a "0 apples" or "1 apple" group. Participants in the "0 apple" group eat 0 apples every day for a year. Participants in the "1 apple" group eat 1 apple a day for a year.  You ask participants to report how many times they visited the GP in the year.
 
 ## Research question 2: Repeated measures
 
@@ -76,7 +73,7 @@ For each research questions, you will need to:
 
 4. Calculate an effect size
 
-5. Interpret your data
+5. Interpret the output
 
 ## Upload your script to be considered for feedback
 
@@ -84,11 +81,11 @@ You/your group have the opportunity to submit your script to be considered for f
 
 ## Model script 
 
-A model script showing one way of answering the research questions above using R will be shared early in Week 17.
+A model script showing one way of answering the research questions above using R will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507046) from 9am on Monday of Week 17.
 
 # Independent learning activities 
 
-Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content (the answers to these can be found below).
+Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
 
 ## Activity 1: The WBA
 
@@ -96,7 +93,7 @@ The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php
 
 ## Activity 2: Calculating test statistics manually
 
-This activity is aimed at supporting your understanding of what the test statistics mean.
+This activity is aimed at supporting your understanding of what the test statistics mean. The answers are below.
 
 #### Wilcoxon rank-sum test
 
@@ -164,16 +161,136 @@ To calculate this, you will need to work through the following steps:
 
 - Add up positive ranks and negative ranks
 
-- Use this information to identify the test statistic (V).
+- Use this information to identify the test statistic
 
-If you are still unsure, have another look at the lecture
+If you are still unsure, have another look at the lecture.
 :::
 
-<span style="color:purple">**QUESTION 4: If this analysis was conducted in R, what could V equal to? Why might V equal to two values?**</span>
+<span style="color:purple">**QUESTION 4: What might R report as the test statistic and why?**</span>
+
+### Activity 2 answers
+
+#### Wilcoxon rank-sum test
+
+<span style="color:purple">**QUESTION 1 ANSWER:**</span>
+
+<span style="color:purple">Test statistic = 4.5</span>
+
+<span style="color:purple">**QUESTION 2 ANSWER: What might R report as the test statistic and why?**</span>
+
+<span style="color:purple">R reports the test statistic (*W*) as the sum of ranks minus the mean rank for the first factor level. R may therefore report the test statistic as 4.5 or 7.5.</span>
+
+::: {.callout-tip collapse="true"}
+## How were these answers calculated?
+
+Here is the how these answers were computed:
+
+**STEPS**:
+
+**Rank the data:**
+
+```{r echo = FALSE} 
+Group <- c("4 cups", "4 cups", "4 cups", "0 cups", "0 cups", "0 cups", "0 cups")
+Tasks_completed <- c(5, 18, 14, 6, 4, 17, 14)
+Rank <- c(2, 7, 4.5, 3, 1, 6, 4.5)
+tab3 <- data.frame(Group, Tasks_completed, Rank)
+kable(tab3, booktabs = TRUE, align=rep('c', 3)) %>%
+  kable_styling(position = "center")
+```
+
+**Sum the ranks per group:**
+
+4 cups = 13.5
+
+0 cups = 14.5
+
+**Calculate the mean rank per group:**
+
+4 cups = 3\*4 = 12. 12/2 = 6
+
+0 cups = 4\*5 = 20. 20/2 = 10
+
+**Calculate the sum of ranks minus mean rank per group:**
+
+4 cups = 13.5-6 = 7.5
+
+0 cups = 14.5-10 = 4.5
+
+**Identify the test statistic:**
+
+Test statistic = The lowest sum of ranks. Test statistic = 4.5
+
+:::
+
+#### Wilcoxon signed-rank test
+
+<span style="color:purple">**QUESTION 3: What is the test statistic?"**</span>
+
+<span style="color:purple">*V* = 0</span>
+
+<span style="color:purple">**QUESTION 4: What might R report as the test statistic and why?**</span>
+
+<span style="color:purple">*V* = 0 or 10. *V* is equal to the sum of positive ranks. But whether ranks are positive or negative depends on whether you enter “before” or “after” first into the wilcox.test function (as this determines whether you calculate the difference by doing before-after or after-before).</span>
+
+::: {.callout-tip collapse="true"}
+## How were these answers calculated?
+
+Here is how these answers were computed:
+
+**STEPS**:
+
+**Calculate the difference between “Before intervention” and “After intervention”:**
+
+```{r echo = FALSE} 
+Before_intervention <- c(23, 34, 67, 65, 21)
+After_intervention <- c(27, 34, 91, 67, 44)
+Difference <- c(-4, "Exclude", -24, -2, -23)
+tab4<- data.frame(Before_intervention, After_intervention, Difference)
+kable(tab4, booktabs = TRUE, align=rep('c', 3)) %>%
+  kable_styling(position = "center") 
+```
+
+**Note whether the difference is positive or negative:**
+
+```{r echo = FALSE} 
+Before_intervention <- c(23, 34, 67, 65, 21)
+After_intervention <- c(27, 34, 91, 67, 44)
+Difference <- c(-4, "Exclude", -24, -2, -23)
+Sign <- c("Negative", "", "Negative", "Negative", "Negative")
+tab5<- data.frame(Before_intervention, After_intervention, Difference, Sign)
+kable(tab5, booktabs = TRUE, align=rep('c', 4)) %>%
+  kable_styling(position = "center") 
+
+```
+
+**Rank the difference:**
+
+```{r echo = FALSE} 
+Before_intervention <- c(23, 34, 67, 65, 21)
+After_intervention <- c(27, 34, 91, 67, 44)
+Difference <- c(-4, "Exclude", -24, -2, -23)
+Sign <- c("Negative", "", "Negative", "Negative", "Negative")
+Rank <- c("2", "", "4", "1", "3")
+tab6<- data.frame(Before_intervention, After_intervention, Difference, Sign, Rank)
+kable(tab6, booktabs = TRUE, align=rep('c', 5)) %>%
+  kable_styling(position = "center") 
+```
+
+**Add up positive ranks and negative ranks:**
+
+Positive ranks: 0
+
+Negative ranks: 10
+
+**Identify the test statistic:**
+
+*V* = 0
+
+:::
 
 ## Activity 3: Interpreting R output
 
-This activity is aimed at supporting your interpretation of R output. Part 1 uses an independent groups design. Part 2 uses a repeated measures design. Please note, this data are different to that used in Activity 2 (so the test statistics will be different).
+This activity is aimed at supporting your interpretation of R output. Part 1 uses an independent groups design. Part 2 uses a repeated measures design. Please note, this data are different to that used in Activity 2 (so the test statistics will be different). The answers are below.
 
 #### 1. An independent groups design
 
@@ -205,7 +322,7 @@ tea_dataset %>%
 
 Descriptive statistics:
 
-```{r}
+```{r echo = FALSE}
 tea_dataset %>%
   group_by(tea_group) %>%
   summarise(med = median(admin_tasks),
@@ -276,129 +393,6 @@ model2
 
 <span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span>
 
-## Answers (Activities 2 and 3)
-
-### Activity 2 answers
-
-#### Wilcoxon rank-sum test
-
-<span style="color:purple">**QUESTION 1 ANSWER:**</span>
-
-<span style="color:purple">Test statistic = 4.5</span>
-
-<span style="color:purple">**QUESTION 2 ANSWER: What might R report as the test statistic and why?**</span>
-
-<span style="color:purple">R reports the test statistic (*W*) as the sum of ranks minus the mean rank for the first factor level. R may therefore report the test statistic as 4.5 or 7.5.</span>
-
-::: {.callout-tip collapse="true"}
-## How were these answers calculated?
-
-Here is the how these answers were computed:
-
-**STEPS**:
-
-**Rank the data:**
-
-```{r echo = FALSE} 
-Group <- c("4 cups", "4 cups", "4 cups", "0 cups", "0 cups", "0 cups", "0 cups")
-Tasks_completed <- c(5, 18, 14, 6, 4, 17, 14)
-Rank <- c(2, 7, 4.5, 3, 1, 6, 4.5)
-tab3 <- data.frame(Group, Tasks_completed, Rank)
-kable(tab3, booktabs = TRUE, align=rep('c', 3)) %>%
-  kable_styling(position = "center")
-```
-
-**Sum the ranks per group:**
-
-4 cups = 13.5
-
-0 cups = 14.5
-
-**Calculate the mean rank per group:**
-
-4 cups = 3\*4 = 12. 12/2 = 6
-
-0 cups = 4\*5 = 20. 20/2 = 10
-
-**Calculate the sum of ranks minus mean rank per group:**
-
-4 cups = 13.5-6 = 7.5
-
-0 cups = 14.5-10 = 4.5
-
-**Identify the test statistic:**
-
-Test statistic = The lowest sum of ranks. Test statistic = 4.5
-
-:::
-
-#### Wilcoxon signed-rank test
-
-<span style="color:purple">**QUESTION 3: What is the test statistic?"**</span>
-
-<span style="color:purple">*V* = 0</span>
-
-<span style="color:purple">**QUESTION 4: If this analysis was conducted in R, what could V equal to? Why might V equal to two values?**</span>
-
-<span style="color:purple">*V* = 0 or 10. *V* is equal to the sum of positive ranks. But whether ranks are positive or negative depends on whether you enter “before” or “after” first into the wilcox.test function (as this determines whether you calculate the difference by doing before-after or after-before).</span>
-
-::: {.callout-tip collapse="true"}
-## How were these answers calculated?
-
-Here is how these answers were computed:
-
-**STEPS**:
-
-**Calculate the difference between “Before intervention” and “After intervention”:**
-
-```{r echo = FALSE} 
-Before_intervention <- c(23, 34, 67, 65, 21)
-After_intervention <- c(27, 34, 91, 67, 44)
-Difference <- c(-4, "Exclude", -24, -2, -23)
-tab4<- data.frame(Before_intervention, After_intervention, Difference)
-kable(tab4, booktabs = TRUE, align=rep('c', 3)) %>%
-  kable_styling(position = "center") 
-```
-
-**Note whether the difference is positive or negative:**
-
-```{r echo = FALSE} 
-Before_intervention <- c(23, 34, 67, 65, 21)
-After_intervention <- c(27, 34, 91, 67, 44)
-Difference <- c(-4, "Exclude", -24, -2, -23)
-Sign <- c("Negative", "", "Negative", "Negative", "Negative")
-tab5<- data.frame(Before_intervention, After_intervention, Difference, Sign)
-kable(tab5, booktabs = TRUE, align=rep('c', 4)) %>%
-  kable_styling(position = "center") 
-
-```
-
-**Rank the difference:**
-
-```{r echo = FALSE} 
-Before_intervention <- c(23, 34, 67, 65, 21)
-After_intervention <- c(27, 34, 91, 67, 44)
-Difference <- c(-4, "Exclude", -24, -2, -23)
-Sign <- c("Negative", "", "Negative", "Negative", "Negative")
-Rank <- c("2", "", "4", "1", "3")
-tab6<- data.frame(Before_intervention, After_intervention, Difference, Sign, Rank)
-kable(tab6, booktabs = TRUE, align=rep('c', 5)) %>%
-  kable_styling(position = "center") 
-```
-
-**Add up positive ranks and negative ranks:**
-
-Positive ranks: 0
-
-Negative ranks: 10
-
-**Identify the test statistic (*V*):**
-
-*V* = 0
-
-:::
-
-
 ### Activity 3 answers
 
 #### 1. An independent groups design:
@@ -411,7 +405,7 @@ Negative ranks: 10
 
 <span style="color:purple">**QUESTION 2: What can we conclude? Report in APA format.**</span>
 
-<span style="color:purple">The Wilcoxon rank-sum test revealed no significant difference between the number of admin tasks completed in the 4 cup group (Median = 17, Range = 1-35) and the 0 cup group (Median = 5.5, Range = 2-9; *W* = 19, *p* = 0.936).</span>
+<span style="color:purple">The Wilcoxon rank-sum test revealed no significant difference between the number of admin tasks completed in the 4 cup group (Median = 17, Range = 1-35) and the 0 cup group (Median = 5.5, Range = 2-9; *W* = 17, *p* = .936).</span>
 
 ::: {.callout-note collapse="true"}
 ## Note
@@ -420,17 +414,17 @@ Negative ranks: 10
 
 <span style="color:purple">**QUESTION 3: How was the p-value calculated?**</span>
 
-<span style="color:purple">The normal approximation with the continuity correction.</span>
+<span style="color:purple">The normal approximation with continuity correction.</span>
 
 #### 2. A repeated measures design
 
 <span style="color:purple">**QUESTION 4: Is the assumption violated?**</span>
 
-<span style="color:purple">The assumption of normality appears to be violated. Some points deviate quite a bit from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span>
+<span style="color:purple">The assumption of normality appears to be violated. Some points deviate a bit from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span>
 
 <span style="color:purple">**QUESTION 5: What can we conclude? Report in APA format.**</span>
 
-<span style="color:purple">The Wilcoxon signed-rank test revealed that participants ate significantly more grams of chocolate on Saturdays (Median = 232, Range = 230-235) than on Mondays (Median = 18; Range = 4-33), *V* = 36, *p* = 0.014.</span>
+<span style="color:purple">The Wilcoxon signed-rank test revealed that participants ate significantly more grams of chocolate on Saturdays (Median = 232, Range = 230-235) than on Mondays (Median = 18; Range = 4-33), *V* = 36, *p* = .014.</span>
 
 ::: {.callout-note collapse="true"}
 ## Note
@@ -439,7 +433,7 @@ Negative ranks: 10
 
 <span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span>
 
-<span style="color:purple">The normal approximation with the continuity correction.</span>
+<span style="color:purple">The normal approximation with continuity correction.</span>
 
 # Asking questions
 
