@@ -89,7 +89,7 @@ Below are some independent learning activities you can have a go at to help cons
 
 ## Activity 1: The WBA
 
-The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506933) from 10th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506933) from 13th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
 
 ## Activity 2: Calculating test statistics manually
 

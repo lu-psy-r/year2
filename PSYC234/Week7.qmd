@@ -4,32 +4,39 @@ subtitle: Amy Atkinson
 order: 8
 ---
 
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse) # required for read_csv, group_by, summarise, ggplot
+library(cowplot) # makes our plots look nicer 
+library(ggpubr) # required for ggqqplot
+library(rstatix) # required for running Shapiro-Wilk test, calculating effect sizes and the post-hoc tests
+```
 
 # Lecture
 
-Watch part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2055692)
+This lecture comprises two parts: 
 
-Watch part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2055693)
+[Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=970ab6c2-db3e-407d-8084-b27e00da58cc): This part covers how to assess the assumption of normality when you have three or more independent groups, the theory behind the Kruskal-Wallis test, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.
 
-Download the lecture slides [here](data/Wk7/Week 17 Lecture Slides.zip)
+[Part 2](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5f0459a1-a02b-498b-91d9-b27e00da587b): This part covers how to assess the assumption of normality when you have three or more repeated measures,the theory behind the Friedman's ANOVA, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.
 
-
-# Post-lecture activity
-
-Find the post-lecture worksheet [here](data/Wk7/Worksheet/PSYC234_L7_worksheet.docx) and the answers [here](data/Wk7/Worksheet/PSYC234_L7_worksheet_ANSWERS.pdf)
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507051) in both .pptx and .pdf format.
 
 # Lab preparation
 
-Watch the preparation video [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2059380)
+Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5a2f352a-2679-4a39-95d1-b27e00da5824). This walks you through how to perform a Kruskal-Wallis test and Friedman's ANOVA in R.
 
-Download the files discussed in the video [here](data/Wk7/Week 17 - Lab preparation resources.zip)
+If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507056).
 
 # Lab
 
-Download the lab materials [here](data/Wk7/Lab 7 - Materials.zip)
+## Overview
+
+I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures. You can work in groups or individually.
+
+You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.
+
+The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2602738).
 
 ## Research Question 1
 
@@ -45,16 +52,279 @@ You recruit a sample of adolescents and test them on a working memory task when 
 
 You then examine whether there is a significant effect of age on working memory score.
 
-## A template for running the Kruskal-Wallis test and Friedman’s ANOVA
+## Hints and tips
 
-1. Load packages and data
-2. Normality checks
-3. Explore your data (e.g. descriptive statistics, a plot)
-4. Conduct the statistical test
-5. Conduct post-hoc tests
-6. Interpret your data
+Your script should aim to answer and interpret both of these research questions. 
+Start a new session on the server, then load in the required libraries (tidyverse, cowplot, ggpubr, rstatix) and the datasets.
 
+For each research questions, you will need to:
 
-# Upload your script
+1. Perform normality checks
 
-You can upload your finished script for feedback on your code [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978234) and feedback will be posted onto Moodle.
+2. Explore your data (e.g. descriptive statistics, a plot)
+
+3. Conduct the statistical test
+
+4. Calculate an effect size
+
+5. Conduct post-hoc tests (where appropriate)
+
+5. Interpret the output
+
+## Upload your script to be considered for feedback
+
+You/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so  [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_eFMY1ilpIQCgqhg) by **5pm on Friday of Week 17**. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year. 
+
+## Model script 
+
+A model script showing one way of answering the research questions above using R will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507060) from 9am on Monday of Week 18.
+
+# Independent learning activities 
+
+Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
+
+## Activity 1: The WBA
+
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506934) from 20th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+
+## Activity 2: Understanding how the non-parametric tests differ and when to use them
+
+It is really important that you understand which statistical test you should run in different situations. This activity will test your knowledge of the statistical tests you learned during this lecture as well as recapping what you learned in [Week 16](https://lu-psy-r.github.io/year2/PSYC234/Week6.html). The answers are below.
+
+In each of the following scenario, you are interested in whether the type of chocolate eaten affects feelings of contentment (response = 0-100). For each scenario, think about the following questions:
+
+<span style="color:purple">**Scenario 1: You recruit 20 participants. On day 1, they eat milk chocolate. On day 2, they eat dark chocolate. On day 3, they eat white chocolate.**</span>
+
+<span style="color:purple">a) How would you check whether the assumption of normality is violated for this design?</span>
+
+<span style="color:purple">b) If the assumption of normality is violated, which non-parametric test would you run?</span>
+
+<span style="color:purple">**Scenario 2: You recruit 12 participants and randomly assign them to either a “white chocolate”, “milk chocolate”, or “dark chocolate” group.**</span>
+
+<span style="color:purple">a) How would you check whether the assumption of normality is violated for this design?</span>
+
+<span style="color:purple">b) If the assumption of normality is violated, which non-parametric test would you run?</span>
+
+<span style="color:purple">**Scenario 3: You recruit 7 participants. On day 1, they eat milk chocolate and on day 2, they eat dark chocolate.**</span>
+
+<span style="color:purple">a) How would you check whether the assumption of normality is violated for this design?</span>
+
+<span style="color:purple">b) If the assumption of normality is violated, which non-parametric test would you run?</span>
+
+<span style="color:purple">**Scenario 4: You recruit 10 participants and randomly assign them to either a “white chocolate” or “milk chocolate” group.**</span>
+
+<span style="color:purple">a) How would you check whether the assumption of normality is violated for this design?</span>
+
+<span style="color:purple">b) If the assumption of normality is violated, which non-parametric test would you run?</span>
+
+### Activity 2 answers:
+
+<span style="color:purple">**Scenario 1: You recruit 20 participants. On day 1, they eat milk chocolate. On day 2, they eat dark chocolate. On day 3, they eat white chocolate.**</span>
+
+<span style="color:purple">a) How would you check whether the assumption of normality is violated for this design? </span>
+
+<span style="color:purple">Assess whether the assumption of normality is violated per condition. This can be done using Q-Q plots and the Shapiro-Wilk test.</span>
+
+<span style="color:purple">b) If the assumption of normality is violated, which non-parametric test would you run?</span>
+
+<span style="color:purple">Friedman's ANOVA</span>
+
+<span style="color:purple">**Scenario 2: You recruit 12 participants and randomly assign them to either a “white chocolate”, “milk chocolate”, or “dark chocolate” group.**</span>
+
+<span style="color:purple">a) How would you check whether the assumption of normality is violated for this design? </span>
+
+<span style="color:purple">Assess whether the assumption of normality is violated per group. This can be done using Q-Q plots and the Shapiro-Wilk test.</span>
+
+<span style="color:purple">b) If the assumption of normality is violated, which non-parametric test would you run?</span>
+
+<span style="color:purple">Kruskal-Wallis test</span>
+
+<span style="color:purple">**Scenario 3: You recruit 7 participants. On day 1, they eat milk chocolate and on day 2, they eat dark chocolate.**</span>
+
+<span style="color:purple">a) How would you check whether the assumption of normality is violated for this design? </span>
+
+<span style="color:purple">Calculate a difference score for each participant (Condition 1 – Condition 2). Assess whether the assumption of normality is violated for the “difference". This can be done using Q-Q plots and the Shapiro-Wilk test.</span>
+
+<span style="color:purple">b) If the assumption of normality is violated, which non-parametric test would you run?</span>
+
+<span style="color:purple">Wilcoxon signed-rank test</span>
+
+<span style="color:purple">**Scenario 4: You recruit 10 participants and randomly assign them to either a “white chocolate” or “milk chocolate” group.**</span>
+
+<span style="color:purple">a) How would you check whether the assumption of normality is violated for this design? </span>
+
+<span style="color:purple">Assess whether the assumption of normality is violated per group. This can be done using Q-Q plots and the Shapiro-Wilk test.</span>
+
+<span style="color:purple">b) If the assumption of normality is violated, which non-parametric test would you run?</span>
+
+<span style="color:purple">Wilcoxon rank-sum test</span>
+
+## Activity 3: Interpreting R output
+
+#### Part 1: An independent groups design
+
+You are a developmental psychologist interested in whether the books children are exposed to affects their language production (how many words they can say). You recruit 21 2-year-old children and assign them to one of three groups – “Pinocchio”, “Cinderella”, and “Gruffalo”. The children’s parents then read this story every day for three months (i.e. children in the “Gruffalo” group read the Gruffalo every day). You then ask their parents to complete a language production assessment on their child (score = 0-100). 
+
+##### Testing the assumption of normality:
+
+Q-Q plots:
+
+```{r echo = FALSE}
+language_data <- read.csv("data/Wk7/l7_worksheet1.csv")
+
+ggqqplot(language_data, "Words", facet.by = "Book", conf.int = FALSE)
+
+```
+
+Shapiro-Wilk test:
+
+```{r echo = FALSE}
+language_data %>%
+  group_by(Book) %>%
+  shapiro_test(Words)
+```
+
+<span style="color:purple">**QUESTION 1: Is the assumption violated?**</span>
+
+#### Descriptive statistics and model output
+
+Descriptive statistics:
+
+```{r echo = FALSE}
+language_data %>%
+  group_by(Book) %>%
+  summarise(med_words = median(Words),
+            min_words = min(Words),
+            max_words = max(Words))
+```
+
+Model output:
+
+```{r echo = FALSE}
+model1 <- kruskal.test(Words ~ Book, data = language_data)
+model1
+```
+Effect size:
+
+```{r echo = FALSE}
+language_data %>% kruskal_effsize(Words ~ Book)
+
+```
+
+Post-hoc tests:
+
+```{r echo = FALSE}
+language_data %>%
+  wilcox_test(Words ~ Book, paired = FALSE, p.adjust.method = "holm")
+```
+
+<span style="color:purple">**QUESTION 2: What can we conclude? Report in APA format.**</span>
+
+#### Part 2: A repeated measures design
+
+You are a researcher interested in whether the number of hours sleep individuals get affects
+their performance on an attention task (score = 0-100). You recruit nine participants, with
+all participants taking part in three conditions. In the first condition, participants get 6 hours
+sleep the night before (6 hours). In the second condition, they get 8 hours sleep the night
+before (8 hours), and in the third condition, they get 10 hours sleep the night before (10
+hours).
+
+##### Testing the assumption of normality:
+
+```{r echo = FALSE}
+
+sleep_data <- read.csv("data/Wk7/l7_worksheet2.csv")
+
+sleep_data_long <- sleep_data %>%
+  pivot_longer(cols = ends_with("_hours"),  # Select columns to pivot
+               names_to = "Hours",            # New column name for year
+               values_to = "Score") 
+
+sleep_data_long$Hours <- factor(sleep_data_long$Hours, c("six_hours", "eight_hours", "ten_hours"))
+
+ggqqplot(sleep_data_long, "Score", facet.by = "Hours", conf.int = FALSE)
+
+```
+```{r echo = FALSE}
+sleep_data_long %>%
+  group_by(Hours) %>%
+  shapiro_test(Score)
+```
+
+<span style="color:purple">**QUESTION 3: Is the assumption violated?**</span>
+
+#### Descriptive statistics and model output
+
+Descriptive statistics:
+
+```{r echo = FALSE}
+sleep_data_long %>%
+  group_by(Hours) %>%
+  summarise(med = median(Score),
+            min = min(Score),
+            max = max(Score),
+            n = n())
+```
+
+Model output:
+
+```{r echo = FALSE}
+model2 <- friedman.test(Score ~ Hours | Participant, data = sleep_data_long)
+model2
+
+```
+Effect size:
+
+```{r echo = FALSE}
+sleep_data_long %>% friedman_effsize(Score ~ Hours | Participant)
+
+```
+Post-hoc tests:
+
+```{r echo = FALSE}
+
+sleep_data_long %>%
+  wilcox_test(Score ~ Hours, paired = TRUE, p.adjust.method = "holm")
+```
+
+<span style="color:purple">**QUESTION 4: What can we conclude? Report in APA format.**</span>
+
+### Activity 3 answers:
+
+Part 1:
+
+<span style="color:purple">**QUESTION 1: Is the assumption violated?**</span>
+
+<span style="color:purple">The Q-Q plot and the Shapiro-Wilk test suggests that the assumption of normality is violated
+for the Pinocchio group. Data in the Cinderella and Gruffalo group does not appear to violate
+the assumption.</span>
+
+<span style="color:purple">**QUESTION 2: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">The Kruskal-Wallis test revealed a significant effect of book on the language production
+score, *H*(2) = 17.85, *p* < .001, *η2* = .88. Post-hoc comparisons were conducted pairwise
+Wilcoxon rank-sum tests, with p-values corrected using Bonferroni-Holm. Participants in the
+Gruffalo group (median = 67; range = 61-69) scored significantly higher on the assessment
+than participants in the Cinderella (median = 16; range = 12-18, *p* = .006) and Pinocchio
+(median = 25; range = 21-58; *p* = .006) groups. Furthermore, participants in the Pinocchio
+group scored significantly higher than participants in the Cinderella group (*p* = .006).</span>
+
+Part 2:
+
+<span style="color:purple">**QUESTION 3: Is the assumption violated?**</span>
+
+<span style="color:purple">Data in the 6 hour condition appears to violate the assumption of normality.</span>
+
+<span style="color:purple">**QUESTION 4: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">A Friedman’s ANOVA revealed a significantly effect of sleep hours on the attention score,
+$X^2_{\,F}(2)$ = 13.56, *p* = .001, *W* = .75. Post-hoc comparisons were then conducting using pairwise
+Wilcoxon signed-rank tests, with p-values corrected using Bonferroni-Holm. Participants
+performed significantly better in the 10-hour condition (median = 95; range = 91-99) relative
+to the 6-hour (median = 54; range = 46-89, p = .027) and 8-hour (median = 73; range = 66-
+81, *p* = .027) conditions. No significant difference emerged between the 6-hour and 8-hour
+conditions (*p* = .155).</span>
+
+# Asking questions
+
+If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_8wSXoYOaJTO7oMK). I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.
