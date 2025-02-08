@@ -916,7 +916,7 @@
     "href": "PSYC234/Week7.html",
     "title": "7. Kruskal-Wallis test and Friedman’s ANOVA",
     "section": "",
-    "text": "Caution\n\n\n\nThis page is under construction for 24/25 and may be subject to change before the teaching week.",
+    "text": "This lecture comprises two parts:\nPart 1: This part covers how to assess the assumption of normality when you have three or more independent groups, the theory behind the Kruskal-Wallis test, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.\nPart 2: This part covers how to assess the assumption of normality when you have three or more repeated measures,the theory behind the Friedman’s ANOVA, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.\nDownload all the lecture slides here in both .pptx and .pdf format.",
     "crumbs": [
       "Home",
       "PSYC234",
@@ -1991,7 +1991,7 @@
     "href": "PSYC234/Week6.html#activity-1-the-wba",
     "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
     "section": "Activity 1: The WBA",
-    "text": "Activity 1: The WBA\nThe WBA can be accessed here from 10th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.",
+    "text": "Activity 1: The WBA\nThe WBA can be accessed here from 13th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.",
     "crumbs": [
       "Home",
       "PSYC234",
@@ -2128,6 +2128,90 @@
       "Home",
       "PSYC234",
       "5. Factor Analysis and the Binomial Test"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week7.html#overview",
+    "href": "PSYC234/Week7.html#overview",
+    "title": "7. Kruskal-Wallis test and Friedman’s ANOVA",
+    "section": "Overview",
+    "text": "Overview\nI’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures. You can work in groups or individually.\nYou can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.\nThe presentation given at the start of the lab can be downloaded here.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "7. Kruskal-Wallis test and Friedman's ANOVA"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week7.html#hints-and-tips",
+    "href": "PSYC234/Week7.html#hints-and-tips",
+    "title": "7. Kruskal-Wallis test and Friedman’s ANOVA",
+    "section": "Hints and tips",
+    "text": "Hints and tips\nYour script should aim to answer and interpret both of these research questions. Start a new session on the server, then load in the required libraries (tidyverse, cowplot, ggpubr, rstatix) and the datasets.\nFor each research questions, you will need to:\n\nPerform normality checks\nExplore your data (e.g. descriptive statistics, a plot)\nConduct the statistical test\nCalculate an effect size\nConduct post-hoc tests (where appropriate)\nInterpret the output",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "7. Kruskal-Wallis test and Friedman's ANOVA"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week7.html#upload-your-script-to-be-considered-for-feedback",
+    "href": "PSYC234/Week7.html#upload-your-script-to-be-considered-for-feedback",
+    "title": "7. Kruskal-Wallis test and Friedman’s ANOVA",
+    "section": "Upload your script to be considered for feedback",
+    "text": "Upload your script to be considered for feedback\nYou/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so here by 5pm on Friday of Week 17. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "7. Kruskal-Wallis test and Friedman's ANOVA"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week7.html#model-script",
+    "href": "PSYC234/Week7.html#model-script",
+    "title": "7. Kruskal-Wallis test and Friedman’s ANOVA",
+    "section": "Model script",
+    "text": "Model script\nA model script showing one way of answering the research questions above using R will be available here from 9am on Monday of Week 18.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "7. Kruskal-Wallis test and Friedman's ANOVA"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week7.html#activity-1-the-wba",
+    "href": "PSYC234/Week7.html#activity-1-the-wba",
+    "title": "7. Kruskal-Wallis test and Friedman’s ANOVA",
+    "section": "Activity 1: The WBA",
+    "text": "Activity 1: The WBA\nThe WBA can be accessed here from 20th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "7. Kruskal-Wallis test and Friedman's ANOVA"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week7.html#activity-2-understanding-how-the-non-parametric-tests-differ-and-when-to-use-them",
+    "href": "PSYC234/Week7.html#activity-2-understanding-how-the-non-parametric-tests-differ-and-when-to-use-them",
+    "title": "7. Kruskal-Wallis test and Friedman’s ANOVA",
+    "section": "Activity 2: Understanding how the non-parametric tests differ and when to use them",
+    "text": "Activity 2: Understanding how the non-parametric tests differ and when to use them\nIt is really important that you understand which statistical test you should run in different situations. This activity will test your knowledge of the statistical tests you learned during this lecture as well as recapping what you learned in Week 16. The answers are below.\nIn each of the following scenario, you are interested in whether the type of chocolate eaten affects feelings of contentment (response = 0-100). For each scenario, think about the following questions:\nScenario 1: You recruit 20 participants. On day 1, they eat milk chocolate. On day 2, they eat dark chocolate. On day 3, they eat white chocolate.\na) How would you check whether the assumption of normality is violated for this design?\nb) If the assumption of normality is violated, which non-parametric test would you run?\nScenario 2: You recruit 12 participants and randomly assign them to either a “white chocolate”, “milk chocolate”, or “dark chocolate” group.\na) How would you check whether the assumption of normality is violated for this design?\nb) If the assumption of normality is violated, which non-parametric test would you run?\nScenario 3: You recruit 7 participants. On day 1, they eat milk chocolate and on day 2, they eat dark chocolate.\na) How would you check whether the assumption of normality is violated for this design?\nb) If the assumption of normality is violated, which non-parametric test would you run?\nScenario 4: You recruit 10 participants and randomly assign them to either a “white chocolate” or “milk chocolate” group.\na) How would you check whether the assumption of normality is violated for this design?\nb) If the assumption of normality is violated, which non-parametric test would you run?\n\nActivity 2 answers:\nScenario 1: You recruit 20 participants. On day 1, they eat milk chocolate. On day 2, they eat dark chocolate. On day 3, they eat white chocolate.\na) How would you check whether the assumption of normality is violated for this design? \nAssess whether the assumption of normality is violated per condition. This can be done using Q-Q plots and the Shapiro-Wilk test.\nb) If the assumption of normality is violated, which non-parametric test would you run?\nFriedman’s ANOVA\nScenario 2: You recruit 12 participants and randomly assign them to either a “white chocolate”, “milk chocolate”, or “dark chocolate” group.\na) How would you check whether the assumption of normality is violated for this design? \nAssess whether the assumption of normality is violated per group. This can be done using Q-Q plots and the Shapiro-Wilk test.\nb) If the assumption of normality is violated, which non-parametric test would you run?\nKruskal-Wallis test\nScenario 3: You recruit 7 participants. On day 1, they eat milk chocolate and on day 2, they eat dark chocolate.\na) How would you check whether the assumption of normality is violated for this design? \nCalculate a difference score for each participant (Condition 1 – Condition 2). Assess whether the assumption of normality is violated for the “difference”. This can be done using Q-Q plots and the Shapiro-Wilk test.\nb) If the assumption of normality is violated, which non-parametric test would you run?\nWilcoxon signed-rank test\nScenario 4: You recruit 10 participants and randomly assign them to either a “white chocolate” or “milk chocolate” group.\na) How would you check whether the assumption of normality is violated for this design? \nAssess whether the assumption of normality is violated per group. This can be done using Q-Q plots and the Shapiro-Wilk test.\nb) If the assumption of normality is violated, which non-parametric test would you run?\nWilcoxon rank-sum test",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "7. Kruskal-Wallis test and Friedman's ANOVA"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week7.html#activity-3-interpreting-r-output",
+    "href": "PSYC234/Week7.html#activity-3-interpreting-r-output",
+    "title": "7. Kruskal-Wallis test and Friedman’s ANOVA",
+    "section": "Activity 3: Interpreting R output",
+    "text": "Activity 3: Interpreting R output\n\nPart 1: An independent groups design\nYou are a developmental psychologist interested in whether the books children are exposed to affects their language production (how many words they can say). You recruit 21 2-year-old children and assign them to one of three groups – “Pinocchio”, “Cinderella”, and “Gruffalo”. The children’s parents then read this story every day for three months (i.e. children in the “Gruffalo” group read the Gruffalo every day). You then ask their parents to complete a language production assessment on their child (score = 0-100).\n\nTesting the assumption of normality:\nQ-Q plots:\n\n\n\n\n\n\n\n\n\nShapiro-Wilk test:\n\n\n# A tibble: 3 × 4\n  Book       variable statistic      p\n  &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Cinderella Words        0.967 0.876 \n2 Gruffalo   Words        0.891 0.281 \n3 Pinocchio  Words        0.752 0.0133\n\n\nQUESTION 1: Is the assumption violated?\n\n\n\nDescriptive statistics and model output\nDescriptive statistics:\n\n\n# A tibble: 3 × 4\n  Book       med_words min_words max_words\n  &lt;chr&gt;          &lt;int&gt;     &lt;int&gt;     &lt;int&gt;\n1 Cinderella        16        12        18\n2 Gruffalo          67        61        69\n3 Pinocchio         25        21        58\n\n\nModel output:\n\n\n\n    Kruskal-Wallis rank sum test\n\ndata:  Words by Book\nKruskal-Wallis chi-squared = 17.853, df = 2, p-value = 0.0001328\n\n\nEffect size:\n\n\n# A tibble: 1 × 5\n  .y.       n effsize method  magnitude\n* &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;ord&gt;    \n1 Words    21   0.881 eta2[H] large    \n\n\nPost-hoc tests:\n\n\n# A tibble: 3 × 9\n  .y.   group1     group2       n1    n2 statistic     p p.adj p.adj.signif\n* &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       \n1 Words Cinderella Gruffalo      7     7         0 0.002 0.006 **          \n2 Words Cinderella Pinocchio     7     7         0 0.002 0.006 **          \n3 Words Gruffalo   Pinocchio     7     7        49 0.002 0.006 **          \n\n\nQUESTION 2: What can we conclude? Report in APA format.\n\n\nPart 2: A repeated measures design\nYou are a researcher interested in whether the number of hours sleep individuals get affects their performance on an attention task (score = 0-100). You recruit nine participants, with all participants taking part in three conditions. In the first condition, participants get 6 hours sleep the night before (6 hours). In the second condition, they get 8 hours sleep the night before (8 hours), and in the third condition, they get 10 hours sleep the night before (10 hours).\n\nTesting the assumption of normality:\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 3 × 4\n  Hours       variable statistic      p\n  &lt;fct&gt;       &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 six_hours   Score        0.779 0.0116\n2 eight_hours Score        0.902 0.267 \n3 ten_hours   Score        0.970 0.892 \n\n\nQUESTION 3: Is the assumption violated?\n\n\n\nDescriptive statistics and model output\nDescriptive statistics:\n\n\n# A tibble: 3 × 5\n  Hours         med   min   max     n\n  &lt;fct&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n1 six_hours      54    46    89     9\n2 eight_hours    73    66    81     9\n3 ten_hours      95    91    99     9\n\n\nModel output:\n\n\n\n    Friedman rank sum test\n\ndata:  Score and Hours and Participant\nFriedman chi-squared = 13.556, df = 2, p-value = 0.001139\n\n\nEffect size:\n\n\n# A tibble: 1 × 5\n  .y.       n effsize method    magnitude\n* &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;ord&gt;    \n1 Score     9   0.753 Kendall W large    \n\n\nPost-hoc tests:\n\n\n# A tibble: 3 × 9\n  .y.   group1      group2         n1    n2 statistic     p p.adj p.adj.signif\n* &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       \n1 Score six_hours   eight_hours     9     9        10 0.155 0.155 ns          \n2 Score six_hours   ten_hours       9     9         0 0.009 0.027 *           \n3 Score eight_hours ten_hours       9     9         0 0.009 0.027 *           \n\n\nQUESTION 4: What can we conclude? Report in APA format.\n\n\nActivity 3 answers:\nPart 1:\nQUESTION 1: Is the assumption violated?\nThe Q-Q plot and the Shapiro-Wilk test suggests that the assumption of normality is violated for the Pinocchio group. Data in the Cinderella and Gruffalo group does not appear to violate the assumption.\nQUESTION 2: What can we conclude? Report in APA format.\nThe Kruskal-Wallis test revealed a significant effect of book on the language production score, H(2) = 17.85, p &lt; .001, η2 = .88. Post-hoc comparisons were conducted pairwise Wilcoxon rank-sum tests, with p-values corrected using Bonferroni-Holm. Participants in the Gruffalo group (median = 67; range = 61-69) scored significantly higher on the assessment than participants in the Cinderella (median = 16; range = 12-18, p = .006) and Pinocchio (median = 25; range = 21-58; p = .006) groups. Furthermore, participants in the Pinocchio group scored significantly higher than participants in the Cinderella group (p = .006).\nPart 2:\nQUESTION 3: Is the assumption violated?\nData in the 6 hour condition appears to violate the assumption of normality.\nQUESTION 4: What can we conclude? Report in APA format.\nA Friedman’s ANOVA revealed a significantly effect of sleep hours on the attention score, \\(X^2_{\\,F}(2)\\) = 13.56, p = .001, W = .75. Post-hoc comparisons were then conducting using pairwise Wilcoxon signed-rank tests, with p-values corrected using Bonferroni-Holm. Participants performed significantly better in the 10-hour condition (median = 95; range = 91-99) relative to the 6-hour (median = 54; range = 46-89, p = .027) and 8-hour (median = 73; range = 66- 81, p = .027) conditions. No significant difference emerged between the 6-hour and 8-hour conditions (p = .155).",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "7. Kruskal-Wallis test and Friedman's ANOVA"
     ]
   }
 ]
