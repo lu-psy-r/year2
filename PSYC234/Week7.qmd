@@ -38,6 +38,10 @@ You can write your script as a .R or Rmd file. Use the lab preparation video and
 
 The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2602738).
 
+## Datasets
+
+The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507058).
+
 ## Research Question 1
 
 You are a psychology lecturer. You hear that the library is offering three statistics courses. You are interested in whether students who attend the courses perform significantly differently from each other.
