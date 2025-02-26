@@ -738,7 +738,7 @@
     "href": "PSYC234/Week8.html",
     "title": "8. Binary logistic regression models",
     "section": "",
-    "text": "Caution\n\n\n\nThis page is under construction for 24/25 and may be subject to change before the teaching week.",
+    "text": "Part 1: This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.\nPart 2: This part introduces the concept of odds and odds ratios, and provides an example of how to calculate odds ratios manually (to aid in understanding about what odds and odds ratios represents).\nPart 3: This part covers the assumptions of binary logistic regression when you have one categorical predictor\nPart 4: This part covers how to run a binary logistic regression model with one categorical predictor in R, and how to interpret the output\nDownload all the lecture slides here in both .pptx and .pdf format.",
     "crumbs": [
       "Home",
       "PSYC234",
@@ -2224,6 +2224,126 @@
       "Home",
       "PSYC234",
       "7. Kruskal-Wallis test and Friedman's ANOVA"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#overview",
+    "href": "PSYC234/Week8.html#overview",
+    "title": "8. Binary logistic regression models",
+    "section": "Overview",
+    "text": "Overview\nToday I’ll provide you with one main research questions which will require you to complete the statistical test covered in the lecture. You can work in groups or individually.\nYou can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.\nThe presentation given at the start of the lab can be downloaded here.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#datasets",
+    "href": "PSYC234/Week8.html#datasets",
+    "title": "8. Binary logistic regression models",
+    "section": "Datasets",
+    "text": "Datasets\nThe datasets for this lab can be downloaded here.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#main-research-question",
+    "href": "PSYC234/Week8.html#main-research-question",
+    "title": "8. Binary logistic regression models",
+    "section": "Main research Question",
+    "text": "Main research Question\nYou are interested in whether the country an individual lives (UK/Australia) predicts reptile ownership (Yes/No). The dataset to use is “reptile_data.csv”\nIn the dataset, the outcome variable (reptile) is coded as “Y” and “N”:\n\nY = Yes\nN = No\n\nTo make sure we should all end up with the same output, set UK as your reference category.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#optional-extra-dataset",
+    "href": "PSYC234/Week8.html#optional-extra-dataset",
+    "title": "8. Binary logistic regression models",
+    "section": "Optional extra dataset",
+    "text": "Optional extra dataset\nI’ve also uploaded a second dataset (pen_colour.csv). If you finish the above analysis, you could have a go at performing a binary logistic regression model on tbis dataset as well. Alternatively, you could attempt this after the lab. The dataset (pen_colour.csv) can be downloaded using the link under the “Datasets” heading above.\nHere, you are interested in whether pen colour (Black/Blue) predicts whether an individual passes their exam (Yes/No).\nSet black as the reference category.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#hints-and-tips",
+    "href": "PSYC234/Week8.html#hints-and-tips",
+    "title": "8. Binary logistic regression models",
+    "section": "Hints and tips",
+    "text": "Hints and tips\nYour script should aim to answer and interpret the research question above.\nStart a new session on the server, then load in the required libraries (tidyverse, DescTools) and the dataset.\n\nPrepare our data for analysis\nExplore our data\nRun the binary logistic regression model\nEvaluate the model\nEvaluate the individual predictors\nPredicted probabilities\nInterpret the output",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#upload-your-script-to-be-considered-for-feedback",
+    "href": "PSYC234/Week8.html#upload-your-script-to-be-considered-for-feedback",
+    "title": "8. Binary logistic regression models",
+    "section": "Upload your script to be considered for feedback",
+    "text": "Upload your script to be considered for feedback\nYou/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so here by 5pm on Friday of Week 18. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#model-script",
+    "href": "PSYC234/Week8.html#model-script",
+    "title": "8. Binary logistic regression models",
+    "section": "Model script",
+    "text": "Model script\nA model script showing one way of answering the reptile research question above using R will be available here from 9am on Monday of Week 19.\nA model script showing one way of answering the (optional) pen research question will be available here from 9am on Monday of Week 19.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#activity-1-the-wba",
+    "href": "PSYC234/Week8.html#activity-1-the-wba",
+    "title": "8. Binary logistic regression models",
+    "section": "Activity 1: The WBA",
+    "text": "Activity 1: The WBA\nThe WBA can be accessed here from 27th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#activity-2-calculating-odds-ratios-manually",
+    "href": "PSYC234/Week8.html#activity-2-calculating-odds-ratios-manually",
+    "title": "8. Binary logistic regression models",
+    "section": "Activity 2: Calculating odds ratios manually",
+    "text": "Activity 2: Calculating odds ratios manually\nThis activity will involve work with the following data. You are a researcher interested in whether being excited (yes/no) predicts whether an individual passes their driving test (yes/no). Here is a table of frequencies.\n\n\n\n\n\n\n\n\n\nQUESTION 1: What are the odds of passing the driving test in the “Excited – Yes” group?\nQUESTION 2: What are the odds of passing the driving test in the “Excited – No” group?\nQUESTION 3: What is the odds ratio (where “Excited – No” is the original odds)?\nQUESTION 4: What does this odds ratio mean?\nQUESTION 5: Is there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.\n\nActivity 2 answers:\nWhat are the odds of passing the driving test in the “Excited – Yes” group?\n1.1666666668\n\n\n\n\n\n\nHow was this calculated?\n\n\n\n\n\nHere is how this answers were computed:\nThe probability of individuals who are excited (Excited – Yes) passing the driving test:\n14/26 = 0.5384615385\n14 is the number of participants who were excited and passed the driving test.\n26 is the total number of individuals who responded “Excited – Yes” (14+12)\nThe probability of individuals who are excited (Excited – Yes) not passing the driving test:\n12/26 = 0.4615384615\n12 is the number of participants who were excited and did not pass the driving test.\n26 is the total number of individuals who responded “Excited – Yes” (14+12)\nThe odds of individuals who are excited passing the driving test:\n0.5384615385 / 0.4615384615 = 1.1666666668\nAnswer = 1.1666666668\n\n\n\nWhat are the odds of passing the driving test in the “Excited – No” group?\n0.275862069\n\n\n\n\n\n\nHow was this calculated?\n\n\n\n\n\nThe probability of individuals who are not excited (Excited – No) passing the driving test:\n8/37 = 0.216216216\n8 is the number of participants who were not excited and passed the driving test.\n37 is the total number of individuals who responded “Excited – No” (8+29)\nThe probability of individuals who are excited (Excited - No) not passing the driving test:\n29/37 = 0.783783783\n29 is the number of participants who were not excited and did not pass the driving test.\n37 is the total number of individuals who responded “Excited – No” (8+29)\nThe odds of individuals who are not excited passing the driving test:\n0.216216216 / 0.783783783 = 0.275862069\n\n\n\nWhat is the odds ratio (where “Excited – No” is the original odds)?\n4.23\n\n\n\n\n\n\nHow was this calculated?\n\n\n\n\n\n1.1666666668 / 0.275862069 = 4.23\nThe odds ratio = 4.23\n\n\n\nWhat does this odds ratio mean?\nIndividuals who were excited had a 4.23x higher odds of passing the driving test relative to individuals who were not excited.\nIs there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.\nNo – all cells have quite a few observations. There is no evidence of quasi-complete separation or complete separation.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#activity-3",
+    "href": "PSYC234/Week8.html#activity-3",
+    "title": "8. Binary logistic regression models",
+    "section": "Activity 3:",
+    "text": "Activity 3:\nActivity 2 examines the following research question. You are a researcher interested in whether social media use (&lt; 2 hours per day / &gt; 2 hours per day) predicts whether an individual reports difficulty falling asleep (yes/no). Here is a table of frequencies:\n\n\n\n\n\n\n\n\n\nYou analyse this data in R and the output of your model is below. For the outcome, you set “0” as “Reports difficulty falling asleep - No” and “1” as “Reports difficulty falling asleep - Yes”.\n\nModel output\nHere is the model output:\n\n\n\nCall:\nglm(formula = sleep_numeric ~ Social_media_use, family = binomial(), \n    data = sleep_data)\n\nCoefficients:\n                                       Estimate            Std. Error z value\n(Intercept)               -0.000000000000002847  0.632455532033675660    0.00\nSocial_media_use&gt; 2 hours  2.427748235947893019  0.873352682387679824    2.78\n                          Pr(&gt;|z|)   \n(Intercept)                1.00000   \nSocial_media_use&gt; 2 hours  0.00544 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 42.885  on 46  degrees of freedom\nResidual deviance: 34.687  on 45  degrees of freedom\nAIC: 38.687\n\nNumber of Fisher Scoring iterations: 5\n\n\n\n\nEvaluating the model output\nYou run some code to produce the model’s chi-square statistic, the degrees of freedom and the p-value. These are displayed below. Use this to answer the following question:\nChi square = 8.20 Degrees of freedom = 1 P-value = 0.004\nQUESTION 1: What do these values indicate?\n\n\nEvaluating Pseudo R2\nHere are the Pseudo R2 values. Use this output to answer the following two questions:\n\n\n       McFadden     McFaddenAdj        CoxSnell      Nagelkerke   AldrichNelson \n      0.1911699       0.0978972       0.1600663       0.2674640       0.1485248 \nVeallZimmermann           Efron McKelveyZavoina            Tjur             AIC \n      0.3113013       0.2081168       0.2308156       0.2081168      38.6866797 \n            BIC          logLik         logLik0              G2 \n     42.3869749     -17.3433399     -21.4425007       8.1983218 \n\n\nQUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?\nQUESTION 3: What are the value of these Pseudo R2s?\n\n\nEvaluating the individual predictors\nLook back at the summary output. Use this output to answer the following four questions:\nQUESTION 4: What is the reference category for the predictor “Social media use”?\nQUESTION 5: What does the Intercept Estimate represent?\nQUESTION 6: What does the Social_media_use&gt; 2 hours Estimate represent?\nQUESTION 7: From the p-value in the summary table for the Social_media_use &gt;2 hours row, what can you conclude?\n\nExponentiating the estimates:\nHere are the exponentiated values. Use this output to answer the following three questions:\n\n\n              (Intercept) Social_media_use&gt; 2 hours \n                  1.00000                  11.33333 \n\n\nQUESTION 8: What does the Intercept represent?\nQUESTION 9: What does the Social_media_use&gt; 2 hours value represent?\nQUESTION 10: Can you interprert the Social_media_use&gt; 2 hours value?\n\n\nConfidence intervals:\nHere are the confidence intervals. Use this output to answer the following question:\n\n\nWaiting for profiling to be done...\n\n\n                              2.5 %    97.5 %\n(Intercept)               0.2781147  3.595639\nSocial_media_use&gt; 2 hours 2.1576520 71.893706\n\n\nQUESTION 11: What does the Social_media_use &gt;2 hours 95% confidence intervals represent?\n\n\n\nActivity 3 answers:\nQUESTION 1: What do these values indicate?\n\\(x^{2}\\)(1) = 8.20, p = .004.\nThis indicates that adding the “Social media” variable to our model significantly improved the fit, compared to the null model containing intercept only\nQUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?\nMcFadden, CoxSnell and Nagelkerke\nQUESTION 3: What are the value of these Pseudo R2s?\n McFadden = 0.19, CoxSnell = 0.16, Nagelkerke = 0.27\nQUESTION 4: What is the reference category for the predictor “Social media”?\n&lt; 2 hours is our reference category for the social media variable\n*QUESTION 5: What does the Intercept Estimate represent?\nThe log odds of someone with a social media value of &lt; 2 hours reporting difficulties falling asleep.\nQUESTION 6: What does the Social_media_use&gt; 2 hours Estimate represent?\nThe change in the log odds of having a difficulty falling asleep value of “Yes” when going from the reference category (social_media&lt; 2 hours) to social_media&gt; 2 hours\nQUESTION 7: From the p-value in the summary table for the Social_media_use &gt;2 hours row, what can you conclude?\nDaily social media use (&lt; 2 hours vs &gt; 2 hours) significantly predicts whether an individual has difficulties falling asleep (yes/no; p = .005)\nQUESTION 8: What does the Intercept represent?\nThe odds of reporting difficulties falling asleep for individuals who have social media use of &lt; 2 hours a day.\nQUESTION 9: What does the Social_media_use&gt; 2 hours value represent?\nThe change in odds (i.e. the odds ratio) of reporting difficulties falling asleep (i.e. difficulties falling asleep = yes) when going from Social_media_use&lt; 2 hours to Social_media_use&gt; 2 hours\nQUESTION 10: Can you interprert the Social_media_use&gt; 2 hours value?\nThe odds of reporting difficulties falling asleep are 11.33x higher if your social media use is &gt;2 hours a day than if your social media use is &lt;2 hours a day.\nQUESTION 11: What does the Social_media_use &gt;2 hours 95% confidence intervals represent?\nThe 95% confidence around the odds ratio (for the comparison between Social_media_use &lt; 2 hours to Social_media_use &gt; 2 hours).",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
     ]
   }
 ]

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -38,10 +38,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0489ba3c113ffee3d2dfeee5dfb32f4a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
 </head>
@@ -231,13 +260,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+ <span class="menu-text">2. Multiple Regression Including Categorical Predictors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+ <span class="menu-text">3. Multiple Regression Models that Include Interactions (Moderated Variables)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -249,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
+ <span class="menu-text">5. Factor Analysis and the Binomial Test</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -289,14 +318,30 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
-  <li><a href="#post-lecture" id="toc-post-lecture" class="nav-link" data-scroll-target="#post-lecture">Post Lecture</a></li>
-  <li><a href="#lab-preparation" id="toc-lab-preparation" class="nav-link" data-scroll-target="#lab-preparation">Lab Preparation</a></li>
-  <li><a href="#lab-work" id="toc-lab-work" class="nav-link" data-scroll-target="#lab-work">Lab Work</a>
+  <li><a href="#lab-preparation" id="toc-lab-preparation" class="nav-link" data-scroll-target="#lab-preparation">Lab preparation</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
   <ul class="collapse">
-  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">Research Question</a></li>
-  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#main-research-question" id="toc-main-research-question" class="nav-link" data-scroll-target="#main-research-question">Main research Question</a></li>
+  <li><a href="#optional-extra-dataset" id="toc-optional-extra-dataset" class="nav-link" data-scroll-target="#optional-extra-dataset">Optional extra dataset</a></li>
+  <li><a href="#hints-and-tips" id="toc-hints-and-tips" class="nav-link" data-scroll-target="#hints-and-tips">Hints and tips</a></li>
+  <li><a href="#upload-your-script-to-be-considered-for-feedback" id="toc-upload-your-script-to-be-considered-for-feedback" class="nav-link" data-scroll-target="#upload-your-script-to-be-considered-for-feedback">Upload your script to be considered for feedback</a></li>
+  <li><a href="#model-script" id="toc-model-script" class="nav-link" data-scroll-target="#model-script">Model script</a></li>
   </ul></li>
-  <li><a href="#upload-your-script" id="toc-upload-your-script" class="nav-link" data-scroll-target="#upload-your-script">Upload your script</a></li>
+  <li><a href="#independent-learning-activities" id="toc-independent-learning-activities" class="nav-link" data-scroll-target="#independent-learning-activities">Independent learning activities</a>
+  <ul class="collapse">
+  <li><a href="#activity-1-the-wba" id="toc-activity-1-the-wba" class="nav-link" data-scroll-target="#activity-1-the-wba">Activity 1: The WBA</a></li>
+  <li><a href="#activity-2-calculating-odds-ratios-manually" id="toc-activity-2-calculating-odds-ratios-manually" class="nav-link" data-scroll-target="#activity-2-calculating-odds-ratios-manually">Activity 2: Calculating odds ratios manually</a>
+  <ul class="collapse">
+  <li><a href="#activity-2-answers" id="toc-activity-2-answers" class="nav-link" data-scroll-target="#activity-2-answers">Activity 2 answers:</a></li>
+  </ul></li>
+  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3:</a>
+  <ul class="collapse">
+  <li><a href="#activity-3-answers" id="toc-activity-3-answers" class="nav-link" data-scroll-target="#activity-3-answers">Activity 3 answers:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#asking-questions" id="toc-asking-questions" class="nav-link" data-scroll-target="#asking-questions">Asking questions</a></li>
   </ul>
 </nav>
     </div>
@@ -323,68 +368,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is under construction for 24/25 and may be subject to change before the teaching week.</p>
-</div>
-</div>
 <section id="lecture" class="level1">
 <h1>Lecture</h1>
-<p>Watch part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056398">here</a></p>
-<p>Watch part 2 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056399">here</a></p>
-<p>Watch part 3 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056400">here</a></p>
-<p>Watch part 4 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056401">here</a></p>
-<p>Download the lecture slides <a href="data/Wk8/Lecture 8 - Materials.zip">here</a></p>
-</section>
-<section id="post-lecture" class="level1">
-<h1>Post Lecture</h1>
-<p>Find the post-lecture worksheet <a href="data/Wk8/PSYC234_L8_worksheet.docx">here</a> and the answers <a href="data/Wk8/PSYC234_L8_worksheet_ANSWERS.pdf">here</a></p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e11776-9467-4cae-98c3-b288009fb455">Part 1</a>: This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=36c10842-4e40-49f7-ba1c-b288009fb3ed">Part 2</a>: This part introduces the concept of odds and odds ratios, and provides an example of how to calculate odds ratios manually (to aid in understanding about what odds and odds ratios represents).</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94bdac5b-4bf9-44c2-84a3-b288009fb40f">Part 3</a>: This part covers the assumptions of binary logistic regression when you have one categorical predictor</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d813199b-569c-4d79-83bc-b288009fb3ac">Part 4</a>: This part covers how to run a binary logistic regression model with one categorical predictor in R, and how to interpret the output</p>
+<p>Download all the lecture slides <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507066">here</a> in both .pptx and .pdf format.</p>
 </section>
 <section id="lab-preparation" class="level1">
-<h1>Lab Preparation</h1>
-<p>Watch the preparation video <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2063320">here</a></p>
-<p>Download the files discussed in the video <a href="data/Wk8/Week 18 - Lab preparation resources.zip">here</a></p>
+<h1>Lab preparation</h1>
+<p>Before the lab, please watch the following short <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e64d817e-2db7-4a34-aec1-b288009fb38c">video</a>. This walks you through how to perform a binary logistic regression model in R.</p>
+<p>If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507071">here</a>.</p>
 </section>
-<section id="lab-work" class="level1">
-<h1>Lab Work</h1>
-<p>Binary logistic regression with one categorical predictor</p>
-<section id="research-question" class="level2">
-<h2 class="anchored" data-anchor-id="research-question">Research Question</h2>
-<p>You are interested in whether the country an individual lives (UK/Australia) predicts reptile ownership (Yes/No).</p>
+<section id="lab" class="level1">
+<h1>Lab</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Today I’ll provide you with one main research questions which will require you to complete the statistical test covered in the lecture. You can work in groups or individually.</p>
+<p>You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.</p>
+<p>The presentation given at the start of the lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2604321">here</a>.</p>
+</section>
+<section id="datasets" class="level2">
+<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
+<p>The datasets for this lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507073">here</a>.</p>
+</section>
+<section id="main-research-question" class="level2">
+<h2 class="anchored" data-anchor-id="main-research-question">Main research Question</h2>
+<p>You are interested in whether the country an individual lives (UK/Australia) predicts reptile ownership (Yes/No). The dataset to use is “reptile_data.csv”</p>
 <p>In the dataset, the outcome variable (reptile) is coded as “Y” and “N”:</p>
 <ul>
 <li>Y = Yes</li>
 <li>N = No</li>
 </ul>
-<p>To make sure we should all end up with the same output, set UK as your reference category</p>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Not sure how to set the reference category? Have a look at the <code>recode()</code> function from dplyr (tidyverse). Either search in the Help tab on the right, or type <code>?recode</code> in the console below. Have a read of the second and third paragraph in the description and check out the examples at the bottom of the help pane.</p>
-<p>Other options exist too, you can look at <code>relevel()</code> or using the levels argument inside the function <code>as.factor()</code> or <code>factor()</code>. Check these out in the same way as described above.</p>
-</div>
-</div>
-</div>
+<p>To make sure we should all end up with the same output, set UK as your reference category.</p>
 </section>
-<section id="steps" class="level2">
-<h2 class="anchored" data-anchor-id="steps">Steps</h2>
+<section id="optional-extra-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="optional-extra-dataset">Optional extra dataset</h2>
+<p>I’ve also uploaded a second dataset (pen_colour.csv). If you finish the above analysis, you could have a go at performing a binary logistic regression model on tbis dataset as well. Alternatively, you could attempt this after the lab. The dataset (pen_colour.csv) can be downloaded using the link under the “Datasets” heading above.</p>
+<p>Here, you are interested in whether pen colour (Black/Blue) predicts whether an individual passes their exam (Yes/No).</p>
+<p>Set black as the reference category.</p>
+</section>
+<section id="hints-and-tips" class="level2">
+<h2 class="anchored" data-anchor-id="hints-and-tips">Hints and tips</h2>
+<p>Your script should aim to answer and interpret the research question above.</p>
+<p>Start a new session on the server, then load in the required libraries (tidyverse, DescTools) and the dataset.</p>
 <ol type="1">
 <li>Prepare our data for analysis</li>
 <li>Explore our data</li>
@@ -395,10 +423,255 @@ Hint
 <li>Interpret the output</li>
 </ol>
 </section>
+<section id="upload-your-script-to-be-considered-for-feedback" class="level2">
+<h2 class="anchored" data-anchor-id="upload-your-script-to-be-considered-for-feedback">Upload your script to be considered for feedback</h2>
+<p>You/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_6YCYIzHnDcdzDTg">here</a> by <strong>5pm on Friday of Week 18</strong>. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year.</p>
 </section>
-<section id="upload-your-script" class="level1">
-<h1>Upload your script</h1>
-<p>You can upload your finished script for feedback on your code <a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=1978248">here</a> and feedback will be posted onto Moodle.</p>
+<section id="model-script" class="level2">
+<h2 class="anchored" data-anchor-id="model-script">Model script</h2>
+<p>A model script showing one way of answering the reptile research question above using R will be available <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507075">here</a> from 9am on Monday of Week 19.</p>
+<p>A model script showing one way of answering the (optional) pen research question will be available <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507076">here</a> from 9am on Monday of Week 19.</p>
+</section>
+</section>
+<section id="independent-learning-activities" class="level1">
+<h1>Independent learning activities</h1>
+<p>Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.</p>
+<section id="activity-1-the-wba" class="level2">
+<h2 class="anchored" data-anchor-id="activity-1-the-wba">Activity 1: The WBA</h2>
+<p>The WBA can be accessed <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506936">here</a> from 27th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.</p>
+</section>
+<section id="activity-2-calculating-odds-ratios-manually" class="level2">
+<h2 class="anchored" data-anchor-id="activity-2-calculating-odds-ratios-manually">Activity 2: Calculating odds ratios manually</h2>
+<p>This activity will involve work with the following data. You are a researcher interested in whether being excited (yes/no) predicts whether an individual passes their driving test (yes/no). Here is a table of frequencies.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data/Wk8/Week8_worksheet1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 1: What are the odds of passing the driving test in the “Excited – Yes” group?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 2: What are the odds of passing the driving test in the “Excited – No” group?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 3: What is the odds ratio (where “Excited – No” is the original odds)?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 4: What does this odds ratio mean?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 5: Is there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.</strong></span></p>
+<section id="activity-2-answers" class="level3">
+<h3 class="anchored" data-anchor-id="activity-2-answers">Activity 2 answers:</h3>
+<p><strong>What are the odds of passing the driving test in the “Excited – Yes” group?</strong></p>
+<p><span style="color:purple">1.1666666668</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How was this calculated?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Here is how this answers were computed:</p>
+<p>The probability of individuals who are excited (Excited – Yes) passing the driving test:</p>
+<p>14/26 = 0.5384615385</p>
+<p>14 is the number of participants who were excited and passed the driving test.</p>
+<p>26 is the total number of individuals who responded “Excited – Yes” (14+12)</p>
+<p>The probability of individuals who are excited (Excited – Yes) not passing the driving test:</p>
+<p>12/26 = 0.4615384615</p>
+<p>12 is the number of participants who were excited and did not pass the driving test.</p>
+<p>26 is the total number of individuals who responded “Excited – Yes” (14+12)</p>
+<p>The odds of individuals who are excited passing the driving test:</p>
+<p>0.5384615385 / 0.4615384615 = 1.1666666668</p>
+<p>Answer = 1.1666666668</p>
+</div>
+</div>
+</div>
+<p><strong>What are the odds of passing the driving test in the “Excited – No” group?</strong></p>
+<p><span style="color:purple">0.275862069</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How was this calculated?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The probability of individuals who are not excited (Excited – No) passing the driving test:</p>
+<p>8/37 = 0.216216216</p>
+<p>8 is the number of participants who were not excited and passed the driving test.</p>
+<p>37 is the total number of individuals who responded “Excited – No” (8+29)</p>
+<p>The probability of individuals who are excited (Excited - No) not passing the driving test:</p>
+<p>29/37 = 0.783783783</p>
+<p>29 is the number of participants who were not excited and did not pass the driving test.</p>
+<p>37 is the total number of individuals who responded “Excited – No” (8+29)</p>
+<p>The odds of individuals who are not excited passing the driving test:</p>
+<p>0.216216216 / 0.783783783 = 0.275862069</p>
+</div>
+</div>
+</div>
+<p><strong>What is the odds ratio (where “Excited – No” is the original odds)?</strong></p>
+<p><span style="color:purple">4.23</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How was this calculated?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>1.1666666668 / 0.275862069 = 4.23</p>
+<p>The odds ratio = 4.23</p>
+</div>
+</div>
+</div>
+<p><strong>What does this odds ratio mean?</strong></p>
+<p><span style="color:purple">Individuals who were excited had a 4.23x higher odds of passing the driving test relative to individuals who were not excited.</span></p>
+<p><strong>Is there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.</strong></p>
+<p><span style="color:purple">No – all cells have quite a few observations. There is no evidence of quasi-complete separation or complete separation.</span></p>
+</section>
+</section>
+<section id="activity-3" class="level2">
+<h2 class="anchored" data-anchor-id="activity-3">Activity 3:</h2>
+<p>Activity 2 examines the following research question. You are a researcher interested in whether social media use (&lt; 2 hours per day / &gt; 2 hours per day) predicts whether an individual reports difficulty falling asleep (yes/no). Here is a table of frequencies:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data/Wk8/Week8_worksheet2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You analyse this data in R and the output of your model is below. For the outcome, you set “0” as “Reports difficulty falling asleep - No” and “1” as “Reports difficulty falling asleep - Yes”.</p>
+<section id="model-output" class="level4">
+<h4 class="anchored" data-anchor-id="model-output">Model output</h4>
+<p>Here is the model output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = sleep_numeric ~ Social_media_use, family = binomial(), 
+    data = sleep_data)
+
+Coefficients:
+                                       Estimate            Std. Error z value
+(Intercept)               -0.000000000000002847  0.632455532033675660    0.00
+Social_media_use&gt; 2 hours  2.427748235947893019  0.873352682387679824    2.78
+                          Pr(&gt;|z|)   
+(Intercept)                1.00000   
+Social_media_use&gt; 2 hours  0.00544 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 42.885  on 46  degrees of freedom
+Residual deviance: 34.687  on 45  degrees of freedom
+AIC: 38.687
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+</section>
+<section id="evaluating-the-model-output" class="level4">
+<h4 class="anchored" data-anchor-id="evaluating-the-model-output">Evaluating the model output</h4>
+<p>You run some code to produce the model’s chi-square statistic, the degrees of freedom and the p-value. These are displayed below. Use this to answer the following question:</p>
+<p>Chi square = 8.20 Degrees of freedom = 1 P-value = 0.004</p>
+<p><span style="color:purple"><strong>QUESTION 1: What do these values indicate?</strong></span></p>
+</section>
+<section id="evaluating-pseudo-r2" class="level4">
+<h4 class="anchored" data-anchor-id="evaluating-pseudo-r2">Evaluating Pseudo R2</h4>
+<p>Here are the Pseudo R2 values. Use this output to answer the following two questions:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>       McFadden     McFaddenAdj        CoxSnell      Nagelkerke   AldrichNelson 
+      0.1911699       0.0978972       0.1600663       0.2674640       0.1485248 
+VeallZimmermann           Efron McKelveyZavoina            Tjur             AIC 
+      0.3113013       0.2081168       0.2308156       0.2081168      38.6866797 
+            BIC          logLik         logLik0              G2 
+     42.3869749     -17.3433399     -21.4425007       8.1983218 </code></pre>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 3: What are the value of these Pseudo R2s?</strong></span></p>
+</section>
+<section id="evaluating-the-individual-predictors" class="level4">
+<h4 class="anchored" data-anchor-id="evaluating-the-individual-predictors">Evaluating the individual predictors</h4>
+<p>Look back at the summary output. Use this output to answer the following four questions:</p>
+<p><span style="color:purple"><strong>QUESTION 4: What is the reference category for the predictor “Social media use”?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 5: What does the Intercept Estimate represent?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 6: What does the Social_media_use&gt; 2 hours Estimate represent?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 7: From the p-value in the summary table for the Social_media_use &gt;2 hours row, what can you conclude?</strong></span></p>
+<section id="exponentiating-the-estimates" class="level5">
+<h5 class="anchored" data-anchor-id="exponentiating-the-estimates">Exponentiating the estimates:</h5>
+<p>Here are the exponentiated values. Use this output to answer the following three questions:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              (Intercept) Social_media_use&gt; 2 hours 
+                  1.00000                  11.33333 </code></pre>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 8: What does the Intercept represent?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 9: What does the Social_media_use&gt; 2 hours value represent?</strong></span></p>
+<p><span style="color:purple"><strong>QUESTION 10: Can you interprert the Social_media_use&gt; 2 hours value?</strong></span></p>
+</section>
+<section id="confidence-intervals" class="level5">
+<h5 class="anchored" data-anchor-id="confidence-intervals">Confidence intervals:</h5>
+<p>Here are the confidence intervals. Use this output to answer the following question:</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Waiting for profiling to be done...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                              2.5 %    97.5 %
+(Intercept)               0.2781147  3.595639
+Social_media_use&gt; 2 hours 2.1576520 71.893706</code></pre>
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION 11: What does the Social_media_use &gt;2 hours 95% confidence intervals represent?</strong></span></p>
+</section>
+</section>
+<section id="activity-3-answers" class="level3">
+<h3 class="anchored" data-anchor-id="activity-3-answers">Activity 3 answers:</h3>
+<p><span style="color:purple"><strong>QUESTION 1: What do these values indicate?</strong></span></p>
+<p><span style="color:purple"><span class="math inline">\(x^{2}\)</span>(1) = 8.20, <em>p</em> = .004.</span></p>
+<p><span style="color:purple">This indicates that adding the “Social media” variable to our model significantly improved the fit, compared to the null model containing intercept only</span></p>
+<p><span style="color:purple"><strong>QUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?</strong></span></p>
+<p><span style="color:purple">McFadden, CoxSnell and Nagelkerke</span></p>
+<p><span style="color:purple"><strong>QUESTION 3: What are the value of these Pseudo R2s?</strong></span></p>
+<p><span style="color:purple"> McFadden = 0.19, CoxSnell = 0.16, Nagelkerke = 0.27</span></p>
+<p><span style="color:purple"><strong>QUESTION 4: What is the reference category for the predictor “Social media”?</strong></span></p>
+<p><span style="color:purple">&lt; 2 hours is our reference category for the social media variable</span></p>
+<p><span style="color:purple">*<strong>QUESTION 5: What does the Intercept Estimate represent?</strong></span></p>
+<p><span style="color:purple">The log odds of someone with a social media value of &lt; 2 hours reporting difficulties falling asleep</span>.</p>
+<p><span style="color:purple"><strong>QUESTION 6: What does the Social_media_use&gt; 2 hours Estimate represent?</strong></span></p>
+<p><span style="color:purple">The change in the log odds of having a difficulty falling asleep value of “Yes” when going from the reference category (social_media&lt; 2 hours) to social_media&gt; 2 hours</span></p>
+<p><span style="color:purple"><strong>QUESTION 7: From the p-value in the summary table for the Social_media_use &gt;2 hours row, what can you conclude?</strong></span></p>
+<p><span style="color:purple">Daily social media use (&lt; 2 hours vs &gt; 2 hours) significantly predicts whether an individual has difficulties falling asleep (yes/no; <em>p</em> = .005)</span></p>
+<p><span style="color:purple"><strong>QUESTION 8: What does the Intercept represent?</strong></span></p>
+<p><span style="color:purple">The odds of reporting difficulties falling asleep for individuals who have social media use of &lt; 2 hours a day.</span></p>
+<p><span style="color:purple"><strong>QUESTION 9: What does the Social_media_use&gt; 2 hours value represent?</strong></span></p>
+<p><span style="color:purple">The change in odds (i.e.&nbsp;the odds ratio) of reporting difficulties falling asleep (i.e.&nbsp;difficulties falling asleep = yes) when going from Social_media_use&lt; 2 hours to Social_media_use&gt; 2 hours</span></p>
+<p><span style="color:purple"><strong>QUESTION 10: Can you interprert the Social_media_use&gt; 2 hours value?</strong></span></p>
+<p><span style="color:purple">The odds of reporting difficulties falling asleep are 11.33x higher if your social media use is &gt;2 hours a day than if your social media use is &lt;2 hours a day</span>.</p>
+<p><span style="color:purple"><strong>QUESTION 11: What does the Social_media_use &gt;2 hours 95% confidence intervals represent?</strong></span></p>
+<p><span style="color:purple">The 95% confidence around the odds ratio (for the comparison between Social_media_use &lt; 2 hours to Social_media_use &gt; 2 hours).</span></p>
+</section>
+</section>
+</section>
+<section id="asking-questions" class="level1">
+<h1>Asking questions</h1>
+<p>If you have any questions about this week’s content, please post them on the discussion board <a href="https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905">here</a>. If you prefer to remain anonymous, you can post questions anonymously <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_b1v7RbIFYA6phvo">here</a>. I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&amp;A session.</p>
 
 
 </section>
@@ -486,8 +759,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -598,7 +869,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
