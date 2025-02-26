@@ -4,58 +4,69 @@ subtitle: Amy Atkinson
 order: 9
 ---
 
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
+```{r setup, include=FALSE}
+library(tidyverse)
+library(DescTools)
+
+options(scipen = 999)
+```
 
 # Lecture
 
-Watch part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056398)
+[Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e11776-9467-4cae-98c3-b288009fb455): This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.
 
-Watch part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056399)
+[Part 2](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=36c10842-4e40-49f7-ba1c-b288009fb3ed): This part introduces the concept of odds and odds ratios, and provides an example of how to calculate odds ratios manually (to aid in understanding about what odds and odds ratios represents).
 
-Watch part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056400)
+[Part 3](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94bdac5b-4bf9-44c2-84a3-b288009fb40f): This part covers the assumptions of binary logistic regression when you have one categorical predictor
 
-Watch part 4 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2056401)
+[Part 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d813199b-569c-4d79-83bc-b288009fb3ac): This part covers how to run a binary logistic regression model with one categorical predictor in R, and how to interpret the output
 
-Download the lecture slides [here](data/Wk8/Lecture 8 - Materials.zip)
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507066) in both .pptx and .pdf format.
 
-# Post Lecture
+# Lab preparation
 
-Find the post-lecture worksheet [here](data/Wk8/PSYC234_L8_worksheet.docx) and the answers [here](data/Wk8/PSYC234_L8_worksheet_ANSWERS.pdf)
+Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e64d817e-2db7-4a34-aec1-b288009fb38c). This walks you through how to perform a binary logistic regression model in R.
 
-# Lab Preparation
+If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507071).
 
+# Lab
 
-Watch the preparation video [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2063320)
+## Overview
 
-Download the files discussed in the video [here](data/Wk8/Week 18 - Lab preparation resources.zip)
+Today I’ll provide you with one main research questions which will require you to complete the statistical test covered in the lecture. You can work in groups or individually.
 
-# Lab Work
+You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.
 
-Binary logistic regression with one categorical predictor
+The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2604321).
 
-## Research Question
+## Datasets
 
-You are interested in whether the country an individual lives (UK/Australia) predicts reptile ownership (Yes/No). 
+The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507073).
+
+## Main research Question
+
+You are interested in whether the country an individual lives (UK/Australia) predicts reptile ownership (Yes/No). The dataset to use is "reptile_data.csv"
 
 In the dataset, the outcome variable (reptile) is coded as "Y" and "N":
 
 - Y = Yes
 - N = No
 
-To make sure we should all end up with the same output, set UK as your reference category
+To make sure we should all end up with the same output, set UK as your reference category.
 
-::: {.callout-warning icon="false" collapse="true"}
-## Hint
+## Optional extra dataset
 
-Not sure how to set the reference category? Have a look at the `recode()` function from dplyr (tidyverse). Either search in the Help tab on the right, or type `?recode` in the console below. Have a read of the second and third paragraph in the description and check out the examples at the bottom of the help pane.
+I've also uploaded a second dataset (pen_colour.csv). If you finish the above analysis, you could have a go at performing a binary logistic regression model on tbis dataset as well. Alternatively, you could attempt this after the lab. The dataset (pen_colour.csv) can be downloaded using the link under the "Datasets" heading above.
 
-Other options exist too, you can look at `relevel()` or using the levels argument inside the function `as.factor()` or `factor()`. Check these out in the same way as described above.
+Here, you are interested in whether pen colour (Black/Blue) predicts whether an individual passes their exam (Yes/No). 
 
-:::
+Set black as the reference category.
 
-## Steps
+## Hints and tips
+
+Your script should aim to answer and interpret the research question above. 
+
+Start a new session on the server, then load in the required libraries (tidyverse, DescTools) and the dataset.
 
 1. Prepare our data for analysis
 2. Explore our data
@@ -65,7 +76,266 @@ Other options exist too, you can look at `relevel()` or using the levels argumen
 6. Predicted probabilities
 7. Interpret the output
 
-# Upload your script
+## Upload your script to be considered for feedback
 
-You can upload your finished script for feedback on your code [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978248) and feedback will be posted onto Moodle.
+You/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so  [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_6YCYIzHnDcdzDTg) by **5pm on Friday of Week 18**. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year.
 
+## Model script 
+
+A model script showing one way of answering the reptile research question above using R will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507075) from 9am on Monday of Week 19. 
+
+A model script showing one way of answering the (optional) pen research question will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507076) from 9am on Monday of Week 19.
+
+# Independent learning activities 
+
+Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
+
+## Activity 1: The WBA
+
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506936) from 27th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+
+## Activity 2: Calculating odds ratios manually
+
+This activity will involve work with the following data. You are a researcher interested in whether being excited (yes/no) predicts whether an individual passes their driving test (yes/no). Here is a table of frequencies.
+
+```{r echo = FALSE} 
+
+knitr::include_graphics("data/Wk8/Week8_worksheet1.png")
+```
+
+<span style="color:purple">**QUESTION 1: What are the odds of passing the driving test in the “Excited – Yes” group?**</span>
+
+<span style="color:purple">**QUESTION 2: What are the odds of passing the driving test in the “Excited – No” group?**</span>
+
+<span style="color:purple">**QUESTION 3: What is the odds ratio (where “Excited – No” is the original odds)?**</span>
+ 
+<span style="color:purple">**QUESTION 4: What does this odds ratio mean?**</span>
+
+<span style="color:purple">**QUESTION 5: Is there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.**</span>
+
+### Activity 2 answers:
+
+**What are the odds of passing the driving test in the “Excited – Yes” group?**
+
+<span style="color:purple">1.1666666668</span>
+
+::: {.callout-tip collapse="true"}
+## How was this calculated?
+
+Here is how this answers were computed:
+
+The probability of individuals who are excited (Excited – Yes) passing the driving test:
+
+14/26 = 0.5384615385
+
+14 is the number of participants who were excited and passed the driving test. 
+
+26 is the total number of individuals who responded “Excited – Yes” (14+12)
+
+The probability of individuals who are excited (Excited – Yes) not passing the driving test: 
+
+12/26 = 0.4615384615
+
+12 is the number of participants who were excited and did not pass the driving test.
+
+26 is the total number of individuals who responded “Excited – Yes” (14+12)
+
+The odds of individuals who are excited passing the driving test:
+
+0.5384615385 / 0.4615384615 = 1.1666666668
+
+Answer = 1.1666666668
+
+:::
+
+**What are the odds of passing the driving test in the “Excited – No” group?**
+
+<span style="color:purple">0.275862069</span>
+
+::: {.callout-tip collapse="true"}
+## How was this calculated?
+
+The probability of individuals who are not excited (Excited – No) passing the driving test:
+
+8/37 = 0.216216216
+
+8 is the number of participants who were not excited and passed the driving test. 
+
+37 is the total number of individuals who responded “Excited – No” (8+29)
+
+The probability of individuals who are excited (Excited - No) not passing the driving test:
+
+29/37 = 0.783783783
+
+29 is the number of participants who were not excited and did not pass the driving test. 
+
+37 is the total number of individuals who responded “Excited – No” (8+29)
+
+The odds of individuals who are not excited passing the driving test:
+
+0.216216216 / 0.783783783 = 0.275862069
+
+:::
+
+**What is the odds ratio (where “Excited – No” is the original odds)?**
+
+<span style="color:purple">4.23</span>
+
+::: {.callout-tip collapse="true"}
+
+## How was this calculated?
+
+1.1666666668  / 0.275862069 = 4.23
+
+The odds ratio = 4.23
+
+:::
+ 
+**What does this odds ratio mean?**
+
+<span style="color:purple">Individuals who were excited had a 4.23x higher odds of passing the driving test relative to individuals who were not excited.</span>
+
+**Is there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.**
+
+<span style="color:purple">No – all cells have quite a few observations. There is no evidence of quasi-complete separation or complete separation.</span>
+
+## Activity 3:
+
+Activity 2 examines the following research question. You are a researcher interested in
+whether social media use (< 2 hours per day / > 2 hours per day) predicts whether an individual reports difficulty falling asleep (yes/no). Here is a table of
+frequencies:
+
+```{r echo = FALSE} 
+
+knitr::include_graphics("data/Wk8/Week8_worksheet2.png")
+```
+You analyse this data in R and the output of your model is below. For the outcome, you set
+“0” as “Reports difficulty falling asleep - No” and “1” as “Reports difficulty falling asleep - Yes”.
+
+#### Model output
+
+Here is the model output:
+
+```{r echo = FALSE} 
+sleep_data <- read_csv("data/Wk8/l8_worksheet2.csv", show_col_types = FALSE)
+
+sleep_data$sleep_numeric <- recode(sleep_data$Difficulty_falling_asleep, "No" = 0, "Yes"= 1) 
+
+sleep_data$Social_media_use <- as.factor(sleep_data$Social_media_use)
+
+sleep_model <- glm(sleep_numeric ~ Social_media_use, data = sleep_data, family = binomial())
+
+summary(sleep_model)
+```
+#### Evaluating the model output
+
+You run some code to produce the model’s chi-square statistic, the degrees of freedom and the p-value. These are displayed below. Use this to answer the following question:
+
+Chi square = 8.20
+Degrees of freedom = 1
+P-value = 0.004
+
+<span style="color:purple">**QUESTION 1: What do these values indicate?**</span>
+
+#### Evaluating Pseudo R2
+
+Here are the Pseudo R2 values. Use this output to answer the following two questions:
+```{r echo = FALSE} 
+PseudoR2(sleep_model, which = "all")
+```
+
+<span style="color:purple">**QUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?**</span>
+
+<span style="color:purple">**QUESTION 3: What are the value of these Pseudo R2s?**</span>
+
+#### Evaluating the individual predictors
+
+Look back at the summary output. Use this output to answer the following four questions:
+
+<span style="color:purple">**QUESTION 4: What is the reference category for the predictor “Social media use”?**</span>
+
+<span style="color:purple">**QUESTION 5: What does the Intercept Estimate represent?**</span>
+
+<span style="color:purple">**QUESTION 6: What does the Social_media_use> 2 hours Estimate represent?**</span>
+
+<span style="color:purple">**QUESTION 7: From the p-value in the summary table for the Social_media_use >2 hours row, what can you conclude?**</span>
+
+
+##### Exponentiating the estimates:
+
+Here are the exponentiated values. Use this output to answer the following three questions: 
+
+```{r echo = FALSE} 
+(sleep_model_exponentiated <- exp(sleep_model$coefficients))
+```
+
+<span style="color:purple">**QUESTION 8: What does the Intercept represent?**</span>
+
+<span style="color:purple">**QUESTION 9: What does the Social_media_use> 2 hours value represent?**</span>
+
+<span style="color:purple">**QUESTION 10: Can you interprert the Social_media_use> 2 hours value?**</span>
+
+##### Confidence intervals:
+
+Here are the confidence intervals. Use this output to answer the following question: 
+
+```{r echo= FALSE, warning = FALSE}
+sleep_model_odds_confidence_intervals <- exp(confint(sleep_model))
+sleep_model_odds_confidence_intervals
+```
+
+<span style="color:purple">**QUESTION 11: What does the Social_media_use >2 hours 95% confidence intervals represent?**</span>
+
+
+### Activity 3 answers:
+
+<span style="color:purple">**QUESTION 1: What do these values indicate?**</span>
+
+<span style="color:purple">$x^{2}$(1) = 8.20, *p* = .004.
+
+<span style="color:purple">This indicates that adding the “Social media” variable to our model significantly improved the fit, compared to the null model containing intercept only</span>
+
+<span style="color:purple">**QUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?**</span>
+
+<span style="color:purple">McFadden, CoxSnell and Nagelkerke</span>
+
+<span style="color:purple">**QUESTION 3: What are the value of these Pseudo R2s?**</span>
+
+<span style="color:purple">
+McFadden = 0.19, CoxSnell = 0.16, Nagelkerke = 0.27</span>
+
+<span style="color:purple">**QUESTION 4: What is the reference category for the predictor “Social media”?**</span>
+
+<span style="color:purple">< 2 hours is our reference category for the social media variable</span>
+
+<span style="color:purple">***QUESTION 5: What does the Intercept Estimate represent?**</span>
+
+<span style="color:purple">The log odds of someone with a social media value of < 2 hours reporting difficulties falling asleep</span>.
+
+<span style="color:purple">**QUESTION 6: What does the Social_media_use> 2 hours Estimate represent?**</span>
+
+<span style="color:purple">The change in the log odds of having a difficulty falling asleep value of “Yes” when going from the reference category (social_media< 2 hours) to social_media> 2 hours</span>
+
+<span style="color:purple">**QUESTION 7: From the p-value in the summary table for the Social_media_use >2 hours row, what can you conclude?**</span>
+
+<span style="color:purple">Daily social media use (< 2 hours vs > 2 hours) significantly predicts whether an individual has difficulties falling asleep (yes/no; *p* = .005)</span>
+
+<span style="color:purple">**QUESTION 8: What does the Intercept represent?**</span>
+
+<span style="color:purple">The odds of reporting difficulties falling asleep for individuals who have social media use of < 2 hours a day.</span>
+
+<span style="color:purple">**QUESTION 9: What does the Social_media_use> 2 hours value represent?**</span>
+
+<span style="color:purple">The change in odds (i.e. the odds ratio) of reporting difficulties falling asleep (i.e. difficulties falling asleep = yes) when going from Social_media_use< 2 hours to Social_media_use> 2 hours</span>
+
+<span style="color:purple">**QUESTION 10: Can you interprert the Social_media_use> 2 hours value?**</span>
+
+<span style="color:purple">The odds of reporting difficulties falling asleep are 11.33x higher if your social media use is >2 hours a day than if your social media use is <2 hours a day</span>.
+
+<span style="color:purple">**QUESTION 11: What does the Social_media_use >2 hours 95% confidence intervals represent?**</span>
+
+<span style="color:purple">The 95% confidence around the odds ratio (for the comparison between Social_media_use < 2 hours to Social_media_use > 2 hours).</span>
+
+# Asking questions
+
+If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_b1v7RbIFYA6phvo). I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&A session.
