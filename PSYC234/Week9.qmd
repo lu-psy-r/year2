@@ -4,32 +4,43 @@ subtitle: Amy Atkinson
 order: 10
 ---
 
-::: {.callout-caution}
-This page is under construction for 24/25 and may be subject to change before the teaching week.
-:::
+```{r setup, include=FALSE}
+library(DescTools) 
+library(tidyverse)
+library(MASS)
+library(brant)
+library(kableExtra)
 
+options(scipen = 999)
+```
 
-# Lecture
+# Lecture 
 
-Watch part 1 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066739)
+[Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3feb359c-0404-4f29-a7b9-b29500e45d76): This part covers how to conduct binary logistic regression with different types of predictors.
 
-Watch part 2 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066741)
+[Part 2](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8d2fd9de-be3e-4ec2-a2ba-b29500e45d56): This part covers binary logistic regression with multiple predictors.
 
-Watch part 3 [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066742)
+[Part 3](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2959d266-3e10-4c8a-a6f8-b29500e45d12): This part covers ordinal logistic regression.
 
-Download the lecture slides [here](data/Wk9/Lecture 9 - Materials.zip)
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507081) in both .pptx and .pdf format.
 
-# Post Lecture
+# Lab preparation
 
-Find the post-lecture worksheet [here](data/Wk9/PSYC234_L9_worksheet.docx) and the answers [here](data/Wk9/PSYC234_L9_worksheet_ANSWERS.pdf)
+Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8be3cbc1-901e-469d-86fd-b29500e45ce2). This covers how to run an ordinal logistic regression model in R. 
 
-# Lab Preparation
+If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507086). The script also contains an example of how to run a multiple binary logistic regression model in R. 
 
-Watch the preparation video [here](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066750)
+# Lab 
 
-Download the files discussed in the video [here](data/Wk9/Lab preparation resources.zip)
+Today I’ll provide you with two research questions which will require you to complete the statistical tests covered in the lecture. You can work in groups or individually.
 
-# Lab Work
+You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.
+
+The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2613193).
+
+## Datasets
+
+The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507088).
 
 ## Research Question 1
 
@@ -43,12 +54,11 @@ The predictors you are interested in are:
 
 For the categorical predictors:
 
--Set the reference category for Likes school as "No"
--Set the reference category for Favourite subject as "Maths"
+-Set the reference category for Likes school as "No" and the reference category for Favourite subject as "Maths"
 
 ::: {.callout-tip}
 
-See last week's content for how to set the reference category. Or better yet, revisit your own script to see how you did it last time.
+See last week's content for how to set the reference category. Or better yet, revisit your own script to see how you did it last time!
 
 :::
 
@@ -59,7 +69,7 @@ You work in a nursery. In the nursery, there has been an outbreak of measles. Yo
 The predictors you are interested in are:
 
 - Number of hours spent at nursery weekly (continuous)
-- Has siblings(Yes/no)
+- Has siblings (Yes/no)
 - Vaccinated against measles (Yes/no)
 
 For the categorical predictors:
@@ -71,11 +81,19 @@ For the outcome (measles – yes/no):
 
 - Set No as 0, and Yes as 1
 
-## Steps
+::: {.callout-tip}
 
-- Start a new session
-- Some packages loaded in have the same function – these needed to be inputted in a certain order
-- Use the blank R/R Markdown script I’ve uploaded as a starting point
+See last week's content for how to set the reference category. Or better yet, revisit your own script to see how you did it last time!
+
+:::
+
+## Hints and tips
+
+Your script should aim to answer and interpret the research question above. 
+
+Start a new session on the server, load in the required libraries in the *following order* (car, DescTools, tidyverse, MASS, brant), and then the dataset.
+
+Here are the steps you'll need to follow:
 
 1. Prepare our data for analysis
 2. Explore our data
@@ -83,8 +101,112 @@ For the outcome (measles – yes/no):
 4. Evaluate the model
 5. Evaluate the individual predictors
 6. Predicted probabilities
+7. Assumption checks
 7. Interpret the output
 
-# Upload your script
+## Model script 
 
-You can upload your finished script for feedback on your code [here](https://modules.lancaster.ac.uk/mod/url/view.php?id=1978262) and feedback will be posted onto Moodle.
+A model script showing one way of answering the research questions above using R will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507090) from 9am on Friday of Week 19.
+
+## Upload your script to be considered for feedback
+
+You/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so  [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_esoERn3GabIKnf8) by **12pm on Thursday of Week 19**. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year.
+
+# Independent learning activities 
+
+Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
+
+## Activity 1: The WBA
+
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506937) from 6th March 2025. You will need the following [dataset](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2506938) to complete the WBA. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+
+## Activity 2: Interpreting odds ratios from multiple binary logistic regression
+
+Imagine you are interested in examining factors that predict whether an individual has a dog (yes/no). The variables you are interested in are: has children (yes/no), working pattern (full-time, part-time, unemployed), and number of pets previously (continuous). You code dog into a numeric variable where 0 = No and 1 = Yes. You set “No” as the reference category for “has children” and “unemployed” as the reference category for working pattern. Below are the odds ratios and 95% confidence intervals around the odds ratio that you obtain.
+
+```{r echo=FALSE}
+variable_name <- c("Has_childrenYes", "Working_patternFull-time", "Working_patternPart-time", "Num_previous_pets")
+odds_ratio <- c(3.67, 6.85, 3.12, 0.45)
+lower_ci <- c(2.14, 1.34, 0.67, 0.23)
+upper_ci <- c(5.64, 14.67, 1.35, 0.67)
+l9_w1_tab <- data.frame(variable_name, odds_ratio, lower_ci, upper_ci)
+kable(l9_w1_tab, booktabs = TRUE, align=rep('c', 4), col.names = c("",
+                 "Odds ratio",
+                 "Lower confidence interval bound",
+                 "Upper confidence interval bound")) %>%
+  kable_styling(position = "center")
+  
+```
+
+<span style="color:purple">**QUESTION: Can you interpret each of the odds ratios?**</span>
+
+### Activity 2: Answers
+
+<span style="color:purple">You could interpret the odds ratios in two ways:</span>
+
+<span style="color:purple">**Way one:**</span>
+
+<span style="color:purple">Individuals who had children had higher odds of having a dog relative to individuals who did not have children (odds ratio = 3.67, 95% confidence interval = 2.14-5.64) when holding other variables constant</span>
+
+<span style="color:purple">Individuals who worked full time had higher odds of having a dog relative to individuals who were unemployed (odds ratio = 6.85, 95% confidence interval = 1.34-14.67) when holding other variables constant</span>
+
+<span style="color:purple">Individuals who worked part-time had higher odds of having a dog relative to individuals who were unemployed (odds ratio = 3.12, 95% confidence interval = 0.67-1.35) when holding other variables constant</span>
+
+<span style="color:purple">A one unit increase in the number of previous pets was associated with lower odds of currently having a dog (odds ratio = 0.45, 95% confidence interval = 0.23-0.67) when holding other variables constant</span>
+
+<span style="color:purple">**Way two:**</span>
+
+<span style="color:purple">Individuals who had children had 3.67x higher odds of having a dog relative to individuals who did not have children (95% confidence interval = 2.14-5.64), when holding other variables constant</span>
+
+<span style="color:purple">Individuals who worked full time had 6.85x higher odds of having a dog relative to individuals who were unemployed (95% confidence interval = 1.34-14.67), when holding other variables constant</span>
+
+<span style="color:purple">Individuals who worked part-time had 3.12x higher odds of having a dog relative to individuals who were unemployed (95% confidence interval = 0.67-1.35)</span>
+
+<span style="color:purple">A one unit increase in the number of previous pets was associated with a 0.45x higher odds (i.e. lower odds) of having a dog (odds ratio = 0.45, 95% confidence interval = 0.23-0.67), when holding other variables constant</span>
+
+<span style="color:purple">Both ways of reporting are fine.</span>
+
+## Activity 3: Interpreting odds ratios from a proportional odds model
+
+Imagine you are interested in examining factors that predict severity of a disease (mild, moderate, or severe). The variables you are interested in are: pre-existing health condition (yes/no), smokes (yes/no), and number of units of alcohol consumed weekly (continuous). You code disease severity into an ordered factor (mild < moderate < severe). You set “No” as the reference category for “pre-existing health condition” and “smoking”. Below are the odds ratios and confidence intervals you obtain.
+
+```{r echo=FALSE}
+variable_name <- c("Pre-existing_healthYes", "SmokesYes", "Num_alcohol_units")
+odds_ratio <- c(2.31, 1.45, 1.12)
+lower_ci <- c(1.45, 0.89, 1.02)
+upper_ci <- c(4.56, 4.56, 1.45)
+l9_w1_tab <- data.frame(variable_name, odds_ratio, lower_ci, upper_ci)
+kable(l9_w1_tab, booktabs = TRUE, align=rep('c', 4), col.names = c("",
+                 "Odds ratio",
+                 "Lower confidence interval bound",
+                 "Upper confidence interval bound")) %>%
+  kable_styling(position = "center")
+  
+```
+<span style="color:purple">***QUESTION: Can you interpret each of the odds ratios?**</span>
+
+### Activity 3: Answers
+
+<span style="color:purple">You can interpret the odds ratios in two ways:</span>
+
+<span style="color:purple">**Way one:**</span>
+
+<span style="color:purple">Individuals who had a pre-existing health condition had higher odds of having more severe disease (e.g. “severe” disease vs “mild” or “moderate” disease) relative to individuals who did not have a pre-existing health condition (odds ratio = 2.31, 95% confidence interval = 1.45-4.56), when holding other variables constant</span>
+
+<span style="color:purple">Individuals who smoked had higher odds of having more severe disease (e.g. “severe” disease vs “mild” or “moderate” disease) relative to individuals who did not smoke (odds ratio = 1.45, 95% confidence interval = 0.89-4.56) when holding other variables constant</span>
+
+<span style="color:purple">A one unit increase in the number of alcohol units consumed weekly increased the odds of having more severe disease (e.g. “severe” disease vs “mild” or “moderate” disease), when holding the other variables constant (odds ratio = 1.12, 95% confidence interval = 1.02-1.45)</span>
+
+<span style="color:purple">**Way two:**</span>
+
+<span style="color:purple">Individuals who had a pre-existing health condition had 2.31x higher odds of having more severe disease (e.g. “severe” disease vs “mild” or “moderate” disease) relative to individuals who did not have a pre-existing health condition (95% confidence interval = 1.45-4.56), when holding other variables constant</span>
+
+<span style="color:purple">Individuals who smoked had 1.45x higher odds of having more severe disease (e.g. “severe” disease vs “mild” or “moderate” disease) relative to individuals who did not smoke (95% confidence interval = 0.89-4.56) when holding other variables constant</span>
+
+<span style="color:purple">A one unit increase in the number of alcohol units consumed weekly increased the odds of having more severe disease (e.g. “severe” disease vs “mild” or “moderate” disease) by 1.12, when holding the other variables constant (95% confidence interval = 1.02-1.45)</span>
+
+<span style="color:purple">Both ways of reporting are fine.</span>
+
+# Asking questions
+
+If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_1H75paXNTlfsFO6). I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&A session.

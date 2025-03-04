@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0489ba3c113ffee3d2dfeee5dfb32f4a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,6 +67,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search Year 2";};</script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -230,13 +232,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2. Multiple regression including categorical predictors</span></a>
+ <span class="menu-text">2. Multiple Regression Including Categorical Predictors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3. Multiple regression models that include interactions (moderated variables)</span></a>
+ <span class="menu-text">3. Multiple Regression Models that Include Interactions (Moderated Variables)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -248,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5. Factor analysis &amp; the binomial test</span></a>
+ <span class="menu-text">5. Factor Analysis and the Binomial Test</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -288,15 +290,29 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
-  <li><a href="#post-lecture" id="toc-post-lecture" class="nav-link" data-scroll-target="#post-lecture">Post Lecture</a></li>
-  <li><a href="#lab-preparation" id="toc-lab-preparation" class="nav-link" data-scroll-target="#lab-preparation">Lab Preparation</a></li>
-  <li><a href="#lab-work" id="toc-lab-work" class="nav-link" data-scroll-target="#lab-work">Lab Work</a>
+  <li><a href="#lab-preparation" id="toc-lab-preparation" class="nav-link" data-scroll-target="#lab-preparation">Lab preparation</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
   <ul class="collapse">
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
   <li><a href="#research-question-1" id="toc-research-question-1" class="nav-link" data-scroll-target="#research-question-1">Research Question 1</a></li>
   <li><a href="#research-question-2" id="toc-research-question-2" class="nav-link" data-scroll-target="#research-question-2">Research Question 2</a></li>
-  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+  <li><a href="#hints-and-tips" id="toc-hints-and-tips" class="nav-link" data-scroll-target="#hints-and-tips">Hints and tips</a></li>
+  <li><a href="#model-script" id="toc-model-script" class="nav-link" data-scroll-target="#model-script">Model script</a></li>
+  <li><a href="#upload-your-script-to-be-considered-for-feedback" id="toc-upload-your-script-to-be-considered-for-feedback" class="nav-link" data-scroll-target="#upload-your-script-to-be-considered-for-feedback">Upload your script to be considered for feedback</a></li>
   </ul></li>
-  <li><a href="#upload-your-script" id="toc-upload-your-script" class="nav-link" data-scroll-target="#upload-your-script">Upload your script</a></li>
+  <li><a href="#independent-learning-activities" id="toc-independent-learning-activities" class="nav-link" data-scroll-target="#independent-learning-activities">Independent learning activities</a>
+  <ul class="collapse">
+  <li><a href="#activity-1-the-wba" id="toc-activity-1-the-wba" class="nav-link" data-scroll-target="#activity-1-the-wba">Activity 1: The WBA</a></li>
+  <li><a href="#activity-2-interpreting-odds-ratios-from-multiple-binary-logistic-regression" id="toc-activity-2-interpreting-odds-ratios-from-multiple-binary-logistic-regression" class="nav-link" data-scroll-target="#activity-2-interpreting-odds-ratios-from-multiple-binary-logistic-regression">Activity 2: Interpreting odds ratios from multiple binary logistic regression</a>
+  <ul class="collapse">
+  <li><a href="#activity-2-answers" id="toc-activity-2-answers" class="nav-link" data-scroll-target="#activity-2-answers">Activity 2: Answers</a></li>
+  </ul></li>
+  <li><a href="#activity-3-interpreting-odds-ratios-from-a-proportional-odds-model" id="toc-activity-3-interpreting-odds-ratios-from-a-proportional-odds-model" class="nav-link" data-scroll-target="#activity-3-interpreting-odds-ratios-from-a-proportional-odds-model">Activity 3: Interpreting odds ratios from a proportional odds model</a>
+  <ul class="collapse">
+  <li><a href="#activity-3-answers" id="toc-activity-3-answers" class="nav-link" data-scroll-target="#activity-3-answers">Activity 3: Answers</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#asking-questions" id="toc-asking-questions" class="nav-link" data-scroll-target="#asking-questions">Asking questions</a></li>
   </ul>
 </nav>
     </div>
@@ -323,37 +339,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is under construction for 24/25 and may be subject to change before the teaching week.</p>
-</div>
-</div>
 <section id="lecture" class="level1">
 <h1>Lecture</h1>
-<p>Watch part 1 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066739">here</a></p>
-<p>Watch part 2 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066741">here</a></p>
-<p>Watch part 3 <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066742">here</a></p>
-<p>Download the lecture slides <a href="data/Wk9/Lecture 9 - Materials.zip">here</a></p>
-</section>
-<section id="post-lecture" class="level1">
-<h1>Post Lecture</h1>
-<p>Find the post-lecture worksheet <a href="data/Wk9/PSYC234_L9_worksheet.docx">here</a> and the answers <a href="data/Wk9/PSYC234_L9_worksheet_ANSWERS.pdf">here</a></p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3feb359c-0404-4f29-a7b9-b29500e45d76">Part 1</a>: This part covers how to conduct binary logistic regression with different types of predictors.</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8d2fd9de-be3e-4ec2-a2ba-b29500e45d56">Part 2</a>: This part covers binary logistic regression with multiple predictors.</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2959d266-3e10-4c8a-a6f8-b29500e45d12">Part 3</a>: This part covers ordinal logistic regression.</p>
+<p>Download all the lecture slides <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507081">here</a> in both .pptx and .pdf format.</p>
 </section>
 <section id="lab-preparation" class="level1">
-<h1>Lab Preparation</h1>
-<p>Watch the preparation video <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2066750">here</a></p>
-<p>Download the files discussed in the video <a href="data/Wk9/Lab preparation resources.zip">here</a></p>
+<h1>Lab preparation</h1>
+<p>Before the lab, please watch the following short <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8be3cbc1-901e-469d-86fd-b29500e45ce2">video</a>. This covers how to run an ordinal logistic regression model in R.</p>
+<p>If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507086">here</a>. The script also contains an example of how to run a multiple binary logistic regression model in R.</p>
 </section>
-<section id="lab-work" class="level1">
-<h1>Lab Work</h1>
+<section id="lab" class="level1">
+<h1>Lab</h1>
+<p>Today I’ll provide you with two research questions which will require you to complete the statistical tests covered in the lecture. You can work in groups or individually.</p>
+<p>You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.</p>
+<p>The presentation given at the start of the lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2613193">here</a>.</p>
+<section id="datasets" class="level2">
+<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
+<p>The datasets for this lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507088">here</a>.</p>
+</section>
 <section id="research-question-1" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-1">Research Question 1</h2>
 <p>You are interested in factors that predict academic achievement in mathematics. Children’s academic achievement can be rated as below expected, at expected or above expected.</p>
@@ -364,7 +370,7 @@ Caution
 <li>Favourite subject (Maths, English or Science)</li>
 </ul>
 <p>For the categorical predictors:</p>
-<p>-Set the reference category for Likes school as “No” -Set the reference category for Favourite subject as “Maths”</p>
+<p>-Set the reference category for Likes school as “No” and the reference category for Favourite subject as “Maths”</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -375,7 +381,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>See last week’s content for how to set the reference category. Or better yet, revisit your own script to see how you did it last time.</p>
+<p>See last week’s content for how to set the reference category. Or better yet, revisit your own script to see how you did it last time!</p>
 </div>
 </div>
 </section>
@@ -385,7 +391,7 @@ Tip
 <p>The predictors you are interested in are:</p>
 <ul>
 <li>Number of hours spent at nursery weekly (continuous)</li>
-<li>Has siblings(Yes/no)</li>
+<li>Has siblings (Yes/no)</li>
 <li>Vaccinated against measles (Yes/no)</li>
 </ul>
 <p>For the categorical predictors:</p>
@@ -397,14 +403,25 @@ Tip
 <ul>
 <li>Set No as 0, and Yes as 1</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See last week’s content for how to set the reference category. Or better yet, revisit your own script to see how you did it last time!</p>
+</div>
+</div>
 </section>
-<section id="steps" class="level2">
-<h2 class="anchored" data-anchor-id="steps">Steps</h2>
-<ul>
-<li>Start a new session</li>
-<li>Some packages loaded in have the same function – these needed to be inputted in a certain order</li>
-<li>Use the blank R/R Markdown script I’ve uploaded as a starting point</li>
-</ul>
+<section id="hints-and-tips" class="level2">
+<h2 class="anchored" data-anchor-id="hints-and-tips">Hints and tips</h2>
+<p>Your script should aim to answer and interpret the research question above.</p>
+<p>Start a new session on the server, load in the required libraries in the <em>following order</em> (car, DescTools, tidyverse, MASS, brant), and then the dataset.</p>
+<p>Here are the steps you’ll need to follow:</p>
 <ol type="1">
 <li>Prepare our data for analysis</li>
 <li>Explore our data</li>
@@ -412,13 +429,146 @@ Tip
 <li>Evaluate the model</li>
 <li>Evaluate the individual predictors</li>
 <li>Predicted probabilities</li>
+<li>Assumption checks</li>
 <li>Interpret the output</li>
 </ol>
 </section>
+<section id="model-script" class="level2">
+<h2 class="anchored" data-anchor-id="model-script">Model script</h2>
+<p>A model script showing one way of answering the research questions above using R will be available <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507090">here</a> from 9am on Friday of Week 19.</p>
 </section>
-<section id="upload-your-script" class="level1">
-<h1>Upload your script</h1>
-<p>You can upload your finished script for feedback on your code <a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=1978262">here</a> and feedback will be posted onto Moodle.</p>
+<section id="upload-your-script-to-be-considered-for-feedback" class="level2">
+<h2 class="anchored" data-anchor-id="upload-your-script-to-be-considered-for-feedback">Upload your script to be considered for feedback</h2>
+<p>You/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_esoERn3GabIKnf8">here</a> by <strong>12pm on Thursday of Week 19</strong>. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year.</p>
+</section>
+</section>
+<section id="independent-learning-activities" class="level1">
+<h1>Independent learning activities</h1>
+<p>Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.</p>
+<section id="activity-1-the-wba" class="level2">
+<h2 class="anchored" data-anchor-id="activity-1-the-wba">Activity 1: The WBA</h2>
+<p>The WBA can be accessed <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506937">here</a> from 6th March 2025. You will need the following <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2506938">dataset</a> to complete the WBA. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.</p>
+</section>
+<section id="activity-2-interpreting-odds-ratios-from-multiple-binary-logistic-regression" class="level2">
+<h2 class="anchored" data-anchor-id="activity-2-interpreting-odds-ratios-from-multiple-binary-logistic-regression">Activity 2: Interpreting odds ratios from multiple binary logistic regression</h2>
+<p>Imagine you are interested in examining factors that predict whether an individual has a dog (yes/no). The variables you are interested in are: has children (yes/no), working pattern (full-time, part-time, unemployed), and number of pets previously (continuous). You code dog into a numeric variable where 0 = No and 1 = Yes. You set “No” as the reference category for “has children” and “unemployed” as the reference category for working pattern. Below are the odds ratios and 95% confidence intervals around the odds ratio that you obtain.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Odds ratio</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Lower confidence interval bound</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Upper confidence interval bound</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Has_childrenYes</td>
+<td style="text-align: center;">3.67</td>
+<td style="text-align: center;">2.14</td>
+<td style="text-align: center;">5.64</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Working_patternFull-time</td>
+<td style="text-align: center;">6.85</td>
+<td style="text-align: center;">1.34</td>
+<td style="text-align: center;">14.67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Working_patternPart-time</td>
+<td style="text-align: center;">3.12</td>
+<td style="text-align: center;">0.67</td>
+<td style="text-align: center;">1.35</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Num_previous_pets</td>
+<td style="text-align: center;">0.45</td>
+<td style="text-align: center;">0.23</td>
+<td style="text-align: center;">0.67</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><span style="color:purple"><strong>QUESTION: Can you interpret each of the odds ratios?</strong></span></p>
+<section id="activity-2-answers" class="level3">
+<h3 class="anchored" data-anchor-id="activity-2-answers">Activity 2: Answers</h3>
+<p><span style="color:purple">You could interpret the odds ratios in two ways:</span></p>
+<p><span style="color:purple"><strong>Way one:</strong></span></p>
+<p><span style="color:purple">Individuals who had children had higher odds of having a dog relative to individuals who did not have children (odds ratio = 3.67, 95% confidence interval = 2.14-5.64) when holding other variables constant</span></p>
+<p><span style="color:purple">Individuals who worked full time had higher odds of having a dog relative to individuals who were unemployed (odds ratio = 6.85, 95% confidence interval = 1.34-14.67) when holding other variables constant</span></p>
+<p><span style="color:purple">Individuals who worked part-time had higher odds of having a dog relative to individuals who were unemployed (odds ratio = 3.12, 95% confidence interval = 0.67-1.35) when holding other variables constant</span></p>
+<p><span style="color:purple">A one unit increase in the number of previous pets was associated with lower odds of currently having a dog (odds ratio = 0.45, 95% confidence interval = 0.23-0.67) when holding other variables constant</span></p>
+<p><span style="color:purple"><strong>Way two:</strong></span></p>
+<p><span style="color:purple">Individuals who had children had 3.67x higher odds of having a dog relative to individuals who did not have children (95% confidence interval = 2.14-5.64), when holding other variables constant</span></p>
+<p><span style="color:purple">Individuals who worked full time had 6.85x higher odds of having a dog relative to individuals who were unemployed (95% confidence interval = 1.34-14.67), when holding other variables constant</span></p>
+<p><span style="color:purple">Individuals who worked part-time had 3.12x higher odds of having a dog relative to individuals who were unemployed (95% confidence interval = 0.67-1.35)</span></p>
+<p><span style="color:purple">A one unit increase in the number of previous pets was associated with a 0.45x higher odds (i.e.&nbsp;lower odds) of having a dog (odds ratio = 0.45, 95% confidence interval = 0.23-0.67), when holding other variables constant</span></p>
+<p><span style="color:purple">Both ways of reporting are fine.</span></p>
+</section>
+</section>
+<section id="activity-3-interpreting-odds-ratios-from-a-proportional-odds-model" class="level2">
+<h2 class="anchored" data-anchor-id="activity-3-interpreting-odds-ratios-from-a-proportional-odds-model">Activity 3: Interpreting odds ratios from a proportional odds model</h2>
+<p>Imagine you are interested in examining factors that predict severity of a disease (mild, moderate, or severe). The variables you are interested in are: pre-existing health condition (yes/no), smokes (yes/no), and number of units of alcohol consumed weekly (continuous). You code disease severity into an ordered factor (mild &lt; moderate &lt; severe). You set “No” as the reference category for “pre-existing health condition” and “smoking”. Below are the odds ratios and confidence intervals you obtain.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Odds ratio</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Lower confidence interval bound</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Upper confidence interval bound</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Pre-existing_healthYes</td>
+<td style="text-align: center;">2.31</td>
+<td style="text-align: center;">1.45</td>
+<td style="text-align: center;">4.56</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SmokesYes</td>
+<td style="text-align: center;">1.45</td>
+<td style="text-align: center;">0.89</td>
+<td style="text-align: center;">4.56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Num_alcohol_units</td>
+<td style="text-align: center;">1.12</td>
+<td style="text-align: center;">1.02</td>
+<td style="text-align: center;">1.45</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><span style="color:purple">*<strong>QUESTION: Can you interpret each of the odds ratios?</strong></span></p>
+<section id="activity-3-answers" class="level3">
+<h3 class="anchored" data-anchor-id="activity-3-answers">Activity 3: Answers</h3>
+<p><span style="color:purple">You can interpret the odds ratios in two ways:</span></p>
+<p><span style="color:purple"><strong>Way one:</strong></span></p>
+<p><span style="color:purple">Individuals who had a pre-existing health condition had higher odds of having more severe disease (e.g.&nbsp;“severe” disease vs “mild” or “moderate” disease) relative to individuals who did not have a pre-existing health condition (odds ratio = 2.31, 95% confidence interval = 1.45-4.56), when holding other variables constant</span></p>
+<p><span style="color:purple">Individuals who smoked had higher odds of having more severe disease (e.g.&nbsp;“severe” disease vs “mild” or “moderate” disease) relative to individuals who did not smoke (odds ratio = 1.45, 95% confidence interval = 0.89-4.56) when holding other variables constant</span></p>
+<p><span style="color:purple">A one unit increase in the number of alcohol units consumed weekly increased the odds of having more severe disease (e.g.&nbsp;“severe” disease vs “mild” or “moderate” disease), when holding the other variables constant (odds ratio = 1.12, 95% confidence interval = 1.02-1.45)</span></p>
+<p><span style="color:purple"><strong>Way two:</strong></span></p>
+<p><span style="color:purple">Individuals who had a pre-existing health condition had 2.31x higher odds of having more severe disease (e.g.&nbsp;“severe” disease vs “mild” or “moderate” disease) relative to individuals who did not have a pre-existing health condition (95% confidence interval = 1.45-4.56), when holding other variables constant</span></p>
+<p><span style="color:purple">Individuals who smoked had 1.45x higher odds of having more severe disease (e.g.&nbsp;“severe” disease vs “mild” or “moderate” disease) relative to individuals who did not smoke (95% confidence interval = 0.89-4.56) when holding other variables constant</span></p>
+<p><span style="color:purple">A one unit increase in the number of alcohol units consumed weekly increased the odds of having more severe disease (e.g.&nbsp;“severe” disease vs “mild” or “moderate” disease) by 1.12, when holding the other variables constant (95% confidence interval = 1.02-1.45)</span></p>
+<p><span style="color:purple">Both ways of reporting are fine.</span></p>
+</section>
+</section>
+</section>
+<section id="asking-questions" class="level1">
+<h1>Asking questions</h1>
+<p>If you have any questions about this week’s content, please post them on the discussion board <a href="https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905">here</a>. If you prefer to remain anonymous, you can post questions anonymously <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_1H75paXNTlfsFO6">here</a>. I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&amp;A session.</p>
 
 
 </section>
@@ -506,8 +656,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -618,7 +766,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
