@@ -82,6 +82,7 @@ A model script showing one way of answering the research questions above using R
 ## Feedback on student scripts
 
 [Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507047) is some feedback on a few scripts submitted by students.
+
 # Independent learning activities 
 
 Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
