@@ -750,7 +750,7 @@
     "href": "PSYC234/Week8.html#research-question",
     "title": "8. Binary logistic regression models",
     "section": "Research Question",
-    "text": "Research Question\nYou are interested in whether the country an individual lives (UK/Australia) predicts reptile ownership (Yes/No).\nIn the dataset, the outcome variable (reptile) is coded as “Y” and “N”:\n\nY = Yes\nN = No\n\nTo make sure we should all end up with the same output, set UK as your reference category\n\n\n\n\n\n\nHint\n\n\n\n\n\nNot sure how to set the reference category? Have a look at the recode() function from dplyr (tidyverse). Either search in the Help tab on the right, or type ?recode in the console below. Have a read of the second and third paragraph in the description and check out the examples at the bottom of the help pane.\nOther options exist too, you can look at relevel() or using the levels argument inside the function as.factor() or factor(). Check these out in the same way as described above.",
+    "text": "Research Question\nYou are interested in whether the country an individual lives (UK/Australia) predicts reptile ownership (Yes/No). The dataset to use is “reptile_data.csv”\nIn the dataset, the outcome variable (reptile) is coded as “Y” and “N”:\n\nY = Yes\nN = No\n\nTo make sure we should all end up with the same output, set UK as your reference category.",
     "crumbs": [
       "Home",
       "PSYC234",
@@ -2452,6 +2452,30 @@
       "Home",
       "PSYC234",
       "7. Kruskal-Wallis test and Friedman's ANOVA"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week8.html#feedback-on-student-scripts",
+    "href": "PSYC234/Week8.html#feedback-on-student-scripts",
+    "title": "8. Binary logistic regression models",
+    "section": "Feedback on student scripts",
+    "text": "Feedback on student scripts\nHere is feedback on the one valid student submission this week.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "8. Binary logistic regression models"
+    ]
+  },
+  {
+    "objectID": "PSYC234/Week9.html#feedback-on-student-scripts",
+    "href": "PSYC234/Week9.html#feedback-on-student-scripts",
+    "title": "9. Expanding on binary logistic regression",
+    "section": "Feedback on student scripts",
+    "text": "Feedback on student scripts\nThere were no student submissions this week.",
+    "crumbs": [
+      "Home",
+      "PSYC234",
+      "9. Expanding on binary logistic regression"
     ]
   }
 ]

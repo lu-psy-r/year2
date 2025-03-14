@@ -108,9 +108,9 @@ Here are the steps you'll need to follow:
 
 A model script showing one way of answering the research questions above using R will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507090) from 9am on Friday of Week 19.
 
-## Upload your script to be considered for feedback
+## Feedback on student scripts
 
-You/your group have the opportunity to submit your script to be considered for feedback. If you would like to submit your script, you can do so  [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_esoERn3GabIKnf8) by **12pm on Thursday of Week 19**. I’ll provide feedback on a subset of scripts. You will not be judged or marked on your scripts – I’m providing feedback to help you to improve your coding skills and prepare you for your dissertation next year.
+There were no student submissions this week.
 
 # Independent learning activities 
 
