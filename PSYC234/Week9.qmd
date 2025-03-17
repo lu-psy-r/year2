@@ -14,6 +14,7 @@ library(kableExtra)
 options(scipen = 999)
 ```
 
+<!--
 # Lecture 
 
 [Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3feb359c-0404-4f29-a7b9-b29500e45d76): This part covers how to conduct binary logistic regression with different types of predictors.
@@ -29,6 +30,8 @@ Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folde
 Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8be3cbc1-901e-469d-86fd-b29500e45ce2). This covers how to run an ordinal logistic regression model in R. 
 
 If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507086). The script also contains an example of how to run a multiple binary logistic regression model in R. 
+
+-->
 
 # Lab 
 
@@ -108,9 +111,12 @@ Here are the steps you'll need to follow:
 
 A model script showing one way of answering the research questions above using R will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507090) from 9am on Friday of Week 19.
 
+
 ## Feedback on student scripts
 
 There were no student submissions this week.
+
+<!--
 
 # Independent learning activities 
 
@@ -210,3 +216,5 @@ kable(l9_w1_tab, booktabs = TRUE, align=rep('c', 4), col.names = c("",
 # Asking questions
 
 If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_1H75paXNTlfsFO6). I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&A session.
+
+--> 

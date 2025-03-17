@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists - 5. Factor Analysis and the Binomial Test</title>
+<title>5. Factor Analysis and the Binomial Test – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0489ba3c113ffee3d2dfeee5dfb32f4a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -153,19 +153,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week5.html">5. Factor Analysis and the Binomial Test</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -186,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC214</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -251,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC234</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -347,15 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#binomial-test" id="toc-binomial-test" class="nav-link" data-scroll-target="#binomial-test">Binomial Test</a>
   <ul class="collapse">
-  <li><a href="#lecture-material" id="toc-lecture-material" class="nav-link" data-scroll-target="#lecture-material">Lecture material</a></li>
   <li><a href="#running-the-code-in-the-lecture" id="toc-running-the-code-in-the-lecture" class="nav-link" data-scroll-target="#running-the-code-in-the-lecture">Running the code in the lecture</a></li>
-  <li><a href="#independent-learning-activities" id="toc-independent-learning-activities" class="nav-link" data-scroll-target="#independent-learning-activities">Independent learning activities</a>
-  <ul class="collapse">
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
-  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
-  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">Answers</a></li>
-  </ul></li>
-  <li><a href="#asking-questions" id="toc-asking-questions" class="nav-link" data-scroll-target="#asking-questions">Asking questions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -569,10 +561,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="binomial-test" class="level1">
 <h1>Binomial Test</h1>
-<section id="lecture-material" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-material">Lecture material</h2>
-<p>Watch part two of the Week 15 lecture (on the binomial test) <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6">here</a>. The lecture slides (both .ppt and .pdf) versions can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507030">here</a>.</p>
-</section>
+<!---
+## Lecture material
+
+Watch part two of the Week 15 lecture (on the binomial test)
+[here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6).
+
+The lecture slides (both .ppt and .pdf) versions can be downloaded
+[here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507030).
+
+--->
 <section id="running-the-code-in-the-lecture" class="level2">
 <h2 class="anchored" data-anchor-id="running-the-code-in-the-lecture">Running the code in the lecture</h2>
 <p>Please note that binomial test will not be covered in the Week 15 lab - as described in the lecture, this is a very straightforward test to run in R that can be performed with just a single line of code.</p>
@@ -593,55 +591,107 @@ probability of success
              0.9285714 </code></pre>
 </div>
 </div>
-</section>
-<section id="independent-learning-activities" class="level2">
-<h2 class="anchored" data-anchor-id="independent-learning-activities">Independent learning activities</h2>
-<p>Below are some independent learning activities you can have a go at to help consolidate the lecture content on the binomial test. These are optional, but recommended. The answers are found below.</p>
-<section id="activity-1" class="level3">
-<h3 class="anchored" data-anchor-id="activity-1">Activity 1</h3>
-<p><strong>One sample-test or binomial test?</strong></p>
-<p>Disclaimer: All of these statistics are made up.</p>
-<p>For the following examples, write down whether you think the test conducted should be a one-sample t-test or a binomial test.</p>
-<ol type="1">
-<li><p>You are the coach of a football team. You are interested in whether the running distance of your players significantly differs from the England national football team. You know, on average, England football players run 10km per game.</p></li>
-<li><p>You are the coach of a football team. You are interested in whether the proportion of games your team scores a goal is significantly different from that of the England national team. You know that on average, the England national team scores a goal in 60% of games.</p></li>
-<li><p>You are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies born in your hospital are quite small. You are interested in whether the proportion of babies who are classed as “small for gestational age” differs between your hospital and the UK average (10%).</p></li>
-<li><p>You are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies that are born in your hospital are quite small. You are interested in whether the average weight of babies born at your hospital is significantly less than the UK average (3350g).</p></li>
-</ol>
-</section>
-<section id="activity-2" class="level3">
-<h3 class="anchored" data-anchor-id="activity-2">Activity 2</h3>
-<p><strong>Identifying “success”</strong></p>
-<ol type="1">
-<li><p>You are the headteacher of a grammar school which has an entrance exam. You are interested in whether the proportion of children failing the test differs significantly from last year. The failure rate last year was 24% (or 0.24 expressed as a proportion).</p></li>
-<li><p>You have developed a new flu vaccine. You are interested in whether the proportion of people who develop side effects after your vaccine differs from the flu vaccine currently used by the NHS (37%, or 0.37 expressed as a proportion).</p></li>
-</ol>
-</section>
-<section id="answers" class="level3">
-<h3 class="anchored" data-anchor-id="answers">Answers</h3>
-<section id="activity-1-1" class="level4">
-<h4 class="anchored" data-anchor-id="activity-1-1">Activity 1:</h4>
-<ol type="1">
-<li><p>One-sample t-test. The value for each individual is continuous.You are interested in whether the mean number of km runs differs from a known value.</p></li>
-<li><p>Binomial test. Two possible outcomes: team scores or team does not score). You are interested in whether the proportion that a given outcome occurs (i.e.&nbsp;your team scores a goal) differs from a known value.</p></li>
-<li><p>Binomial test. Two possible outcomes: Each baby’s outcome is either “small for gestational age” or “not small for gestational age”. You are interested in whether the proportion that a given outcome occurs (i.e.&nbsp;small for gestational age) differs from a known value.</p></li>
-<li><p>One-sample t-test. The value for each individual is continuous. You are interested in whether the mean weight of babies at your hospital differs from a known value.</p></li>
-</ol>
-<p>Take-home message: A one sample t-test is used when you are interested in comparing the mean of a sample to a known value. The binomial test is used when you are interested in comparing a sample’s proportion of “successes” to a known value.</p>
-</section>
-<section id="activity-2-1" class="level4">
-<h4 class="anchored" data-anchor-id="activity-2-1">Activity 2</h4>
-<ol type="1">
-<li><p>Success: failing the test. Failure: passing the test.</p></li>
-<li><p>Success: Has side effects. Failure: Does not have side effects.</p></li>
-</ol>
-<p>Take home message: Success refers to the outcome you are interested in. Sometimes this might be counterintuitive to how we typically think about ‘success’ (e.g.&nbsp;in the.</p>
-</section>
-</section>
-</section>
-<section id="asking-questions" class="level2">
-<h2 class="anchored" data-anchor-id="asking-questions">Asking questions</h2>
-<p>If you have any questions about the binomial test, please post them on the discussion board <a href="https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905">here</a>. If you prefer to remain anonymous, you can post questions anonymously here: <a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=2507035">“The Binomial Test: Post questions anonymously”</a>. I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&amp;A session.</p>
+<!---
+## Independent learning activities
+
+Below are some independent learning activities you can have a go at to
+help consolidate the lecture content on the binomial test. These are
+optional, but recommended. The answers are found below.
+
+### Activity 1
+
+**One sample-test or binomial test?**
+
+Disclaimer: All of these statistics are made up.
+
+For the following examples, write down whether you think the test
+conducted should be a one-sample t-test or a binomial test.
+
+1.  You are the coach of a football team. You are interested in whether
+    the running distance of your players significantly differs from the
+    England national football team. You know, on average, England
+    football players run 10km per game.
+
+2.  You are the coach of a football team. You are interested in whether
+    the proportion of games your team scores a goal is significantly
+    different from that of the England national team. You know that on
+    average, the England national team scores a goal in 60% of games.
+
+3.  You are a neonatal doctor (a doctor who specialising in caring for
+    newborn babies). You think that babies born in your hospital are
+    quite small. You are interested in whether the proportion of babies
+    who are classed as “small for gestational age” differs between your
+    hospital and the UK average (10%).
+
+4.  You are a neonatal doctor (a doctor who specialising in caring for
+    newborn babies). You think that babies that are born in your
+    hospital are quite small. You are interested in whether the average
+    weight of babies born at your hospital is significantly less than
+    the UK average (3350g).
+
+### Activity 2
+
+**Identifying “success”**
+
+1.  You are the headteacher of a grammar school which has an entrance
+    exam. You are interested in whether the proportion of children
+    failing the test differs significantly from last year. The failure
+    rate last year was 24% (or 0.24 expressed as a proportion).
+
+2.  You have developed a new flu vaccine. You are interested in whether
+    the proportion of people who develop side effects after your vaccine
+    differs from the flu vaccine currently used by the NHS (37%, or 0.37
+    expressed as a proportion).
+
+### Answers
+
+#### Activity 1:
+
+1.  One-sample t-test. The value for each individual is continuous.You
+    are interested in whether the mean number of km runs differs from a
+    known value.
+
+2.  Binomial test. Two possible outcomes: team scores or team does not
+    score). You are interested in whether the proportion that a given
+    outcome occurs (i.e. your team scores a goal) differs from a known
+    value.
+
+3.  Binomial test. Two possible outcomes: Each baby’s outcome is either
+    “small for gestational age” or “not small for gestational age”. You
+    are interested in whether the proportion that a given outcome occurs
+    (i.e. small for gestational age) differs from a known value.
+
+4.  One-sample t-test. The value for each individual is continuous. You
+    are interested in whether the mean weight of babies at your hospital
+    differs from a known value.
+
+Take-home message: A one sample t-test is used when you are interested
+in comparing the mean of a sample to a known value. The binomial test is
+used when you are interested in comparing a sample’s proportion of
+“successes” to a known value.
+
+#### Activity 2
+
+1.  Success: failing the test. Failure: passing the test.
+
+2.  Success: Has side effects. Failure: Does not have side effects.
+
+Take home message: Success refers to the outcome you are interested in.
+Sometimes this might be counterintuitive to how we typically think about
+‘success’ (e.g. in the.
+
+## Asking questions
+
+If you have any questions about the binomial test, please post them on
+the discussion board
+[here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905).
+If you prefer to remain anonymous, you can post questions anonymously
+here: ["The Binomial Test: Post questions
+anonymously"](https://modules.lancaster.ac.uk/mod/url/view.php?id=2507035).
+I will then copy your question to the discussion forum and answer it
+there and/or cover it in next Q&A session.
+
+--->
 
 
 </section>
@@ -683,18 +733,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -726,7 +765,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -734,7 +793,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -831,7 +890,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

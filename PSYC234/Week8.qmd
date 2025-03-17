@@ -10,7 +10,7 @@ library(DescTools)
 
 options(scipen = 999)
 ```
-
+<!--
 # Lecture
 
 [Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e11776-9467-4cae-98c3-b288009fb455): This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.
@@ -29,6 +29,7 @@ Before the lab, please watch the following short [video](https://lancaster.cloud
 
 If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507071).
 
+-->
 # Lab
 
 ## Overview
@@ -83,10 +84,12 @@ A model script showing one way of answering the reptile research question above 
 
 A model script showing one way of answering the (optional) pen research question will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507076) from 9am on Monday of Week 19.
 
+
 ## Feedback on student scripts
 
 [Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507079) is feedback on the one valid student submission this week. 
 
+<!--
 # Independent learning activities 
 
 Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
@@ -340,3 +343,5 @@ McFadden = 0.19, CoxSnell = 0.16, Nagelkerke = 0.27</span>
 # Asking questions
 
 If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_b1v7RbIFYA6phvo). I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&A session.
+
+--> 

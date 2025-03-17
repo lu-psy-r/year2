@@ -72,35 +72,6 @@ ul.task-list li input[type="checkbox"] {
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
 </head>
@@ -317,9 +288,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
-  <li><a href="#lab-preparation" id="toc-lab-preparation" class="nav-link" data-scroll-target="#lab-preparation">Lab preparation</a></li>
-  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
+  <li><a href="#lab" id="toc-lab" class="nav-link active" data-scroll-target="#lab">Lab</a>
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
@@ -327,21 +296,7 @@ window.Quarto = {
   <li><a href="#optional-extra-dataset" id="toc-optional-extra-dataset" class="nav-link" data-scroll-target="#optional-extra-dataset">Optional extra dataset</a></li>
   <li><a href="#hints-and-tips" id="toc-hints-and-tips" class="nav-link" data-scroll-target="#hints-and-tips">Hints and tips</a></li>
   <li><a href="#model-script" id="toc-model-script" class="nav-link" data-scroll-target="#model-script">Model script</a></li>
-  <li><a href="#feedback-on-student-scripts" id="toc-feedback-on-student-scripts" class="nav-link" data-scroll-target="#feedback-on-student-scripts">Feedback on student scripts</a></li>
   </ul></li>
-  <li><a href="#independent-learning-activities" id="toc-independent-learning-activities" class="nav-link" data-scroll-target="#independent-learning-activities">Independent learning activities</a>
-  <ul class="collapse">
-  <li><a href="#activity-1-the-wba" id="toc-activity-1-the-wba" class="nav-link" data-scroll-target="#activity-1-the-wba">Activity 1: The WBA</a></li>
-  <li><a href="#activity-2-calculating-odds-ratios-manually" id="toc-activity-2-calculating-odds-ratios-manually" class="nav-link" data-scroll-target="#activity-2-calculating-odds-ratios-manually">Activity 2: Calculating odds ratios manually</a>
-  <ul class="collapse">
-  <li><a href="#activity-2-answers" id="toc-activity-2-answers" class="nav-link" data-scroll-target="#activity-2-answers">Activity 2 answers:</a></li>
-  </ul></li>
-  <li><a href="#activity-3" id="toc-activity-3" class="nav-link" data-scroll-target="#activity-3">Activity 3:</a>
-  <ul class="collapse">
-  <li><a href="#activity-3-answers" id="toc-activity-3-answers" class="nav-link" data-scroll-target="#activity-3-answers">Activity 3 answers:</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#asking-questions" id="toc-asking-questions" class="nav-link" data-scroll-target="#asking-questions">Asking questions</a></li>
   </ul>
 </nav>
     </div>
@@ -368,19 +323,26 @@ window.Quarto = {
 </header>
 
 
-<section id="lecture" class="level1">
-<h1>Lecture</h1>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e11776-9467-4cae-98c3-b288009fb455">Part 1</a>: This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=36c10842-4e40-49f7-ba1c-b288009fb3ed">Part 2</a>: This part introduces the concept of odds and odds ratios, and provides an example of how to calculate odds ratios manually (to aid in understanding about what odds and odds ratios represents).</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94bdac5b-4bf9-44c2-84a3-b288009fb40f">Part 3</a>: This part covers the assumptions of binary logistic regression when you have one categorical predictor</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d813199b-569c-4d79-83bc-b288009fb3ac">Part 4</a>: This part covers how to run a binary logistic regression model with one categorical predictor in R, and how to interpret the output</p>
-<p>Download all the lecture slides <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507066">here</a> in both .pptx and .pdf format.</p>
-</section>
-<section id="lab-preparation" class="level1">
-<h1>Lab preparation</h1>
-<p>Before the lab, please watch the following short <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e64d817e-2db7-4a34-aec1-b288009fb38c">video</a>. This walks you through how to perform a binary logistic regression model in R.</p>
-<p>If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507071">here</a>.</p>
-</section>
+<!--
+# Lecture
+
+[Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e11776-9467-4cae-98c3-b288009fb455): This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.
+
+[Part 2](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=36c10842-4e40-49f7-ba1c-b288009fb3ed): This part introduces the concept of odds and odds ratios, and provides an example of how to calculate odds ratios manually (to aid in understanding about what odds and odds ratios represents).
+
+[Part 3](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94bdac5b-4bf9-44c2-84a3-b288009fb40f): This part covers the assumptions of binary logistic regression when you have one categorical predictor
+
+[Part 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d813199b-569c-4d79-83bc-b288009fb3ac): This part covers how to run a binary logistic regression model with one categorical predictor in R, and how to interpret the output
+
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507066) in both .pptx and .pdf format.
+
+# Lab preparation
+
+Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e64d817e-2db7-4a34-aec1-b288009fb38c). This walks you through how to perform a binary logistic regression model in R.
+
+If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507071).
+
+-->
 <section id="lab" class="level1">
 <h1>Lab</h1>
 <section id="overview" class="level2">
@@ -427,138 +389,158 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="model-script">Model script</h2>
 <p>A model script showing one way of answering the reptile research question above using R will be available <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507075">here</a> from 9am on Monday of Week 19.</p>
 <p>A model script showing one way of answering the (optional) pen research question will be available <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507076">here</a> from 9am on Monday of Week 19.</p>
-</section>
-<section id="feedback-on-student-scripts" class="level2">
-<h2 class="anchored" data-anchor-id="feedback-on-student-scripts">Feedback on student scripts</h2>
-<p><a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507079">Here</a> is feedback on the one valid student submission this week.</p>
-</section>
-</section>
-<section id="independent-learning-activities" class="level1">
-<h1>Independent learning activities</h1>
-<p>Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.</p>
-<section id="activity-1-the-wba" class="level2">
-<h2 class="anchored" data-anchor-id="activity-1-the-wba">Activity 1: The WBA</h2>
-<p>The WBA can be accessed <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506936">here</a> from 27th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.</p>
-</section>
-<section id="activity-2-calculating-odds-ratios-manually" class="level2">
-<h2 class="anchored" data-anchor-id="activity-2-calculating-odds-ratios-manually">Activity 2: Calculating odds ratios manually</h2>
-<p>This activity will involve work with the following data. You are a researcher interested in whether being excited (yes/no) predicts whether an individual passes their driving test (yes/no). Here is a table of frequencies.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="data/Wk8/Week8_worksheet1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 1: What are the odds of passing the driving test in the “Excited – Yes” group?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 2: What are the odds of passing the driving test in the “Excited – No” group?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 3: What is the odds ratio (where “Excited – No” is the original odds)?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 4: What does this odds ratio mean?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 5: Is there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.</strong></span></p>
-<section id="activity-2-answers" class="level3">
-<h3 class="anchored" data-anchor-id="activity-2-answers">Activity 2 answers:</h3>
-<p><strong>What are the odds of passing the driving test in the “Excited – Yes” group?</strong></p>
-<p><span style="color:purple">1.1666666668</span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-How was this calculated?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Here is how this answers were computed:</p>
-<p>The probability of individuals who are excited (Excited – Yes) passing the driving test:</p>
-<p>14/26 = 0.5384615385</p>
-<p>14 is the number of participants who were excited and passed the driving test.</p>
-<p>26 is the total number of individuals who responded “Excited – Yes” (14+12)</p>
-<p>The probability of individuals who are excited (Excited – Yes) not passing the driving test:</p>
-<p>12/26 = 0.4615384615</p>
-<p>12 is the number of participants who were excited and did not pass the driving test.</p>
-<p>26 is the total number of individuals who responded “Excited – Yes” (14+12)</p>
-<p>The odds of individuals who are excited passing the driving test:</p>
-<p>0.5384615385 / 0.4615384615 = 1.1666666668</p>
-<p>Answer = 1.1666666668</p>
-</div>
-</div>
-</div>
-<p><strong>What are the odds of passing the driving test in the “Excited – No” group?</strong></p>
-<p><span style="color:purple">0.275862069</span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-How was this calculated?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The probability of individuals who are not excited (Excited – No) passing the driving test:</p>
-<p>8/37 = 0.216216216</p>
-<p>8 is the number of participants who were not excited and passed the driving test.</p>
-<p>37 is the total number of individuals who responded “Excited – No” (8+29)</p>
-<p>The probability of individuals who are excited (Excited - No) not passing the driving test:</p>
-<p>29/37 = 0.783783783</p>
-<p>29 is the number of participants who were not excited and did not pass the driving test.</p>
-<p>37 is the total number of individuals who responded “Excited – No” (8+29)</p>
-<p>The odds of individuals who are not excited passing the driving test:</p>
-<p>0.216216216 / 0.783783783 = 0.275862069</p>
-</div>
-</div>
-</div>
-<p><strong>What is the odds ratio (where “Excited – No” is the original odds)?</strong></p>
-<p><span style="color:purple">4.23</span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-How was this calculated?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>1.1666666668 / 0.275862069 = 4.23</p>
-<p>The odds ratio = 4.23</p>
-</div>
-</div>
-</div>
-<p><strong>What does this odds ratio mean?</strong></p>
-<p><span style="color:purple">Individuals who were excited had a 4.23x higher odds of passing the driving test relative to individuals who were not excited.</span></p>
-<p><strong>Is there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.</strong></p>
-<p><span style="color:purple">No – all cells have quite a few observations. There is no evidence of quasi-complete separation or complete separation.</span></p>
-</section>
-</section>
-<section id="activity-3" class="level2">
-<h2 class="anchored" data-anchor-id="activity-3">Activity 3:</h2>
-<p>Activity 2 examines the following research question. You are a researcher interested in whether social media use (&lt; 2 hours per day / &gt; 2 hours per day) predicts whether an individual reports difficulty falling asleep (yes/no). Here is a table of frequencies:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="data/Wk8/Week8_worksheet2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>You analyse this data in R and the output of your model is below. For the outcome, you set “0” as “Reports difficulty falling asleep - No” and “1” as “Reports difficulty falling asleep - Yes”.</p>
-<section id="model-output" class="level4">
-<h4 class="anchored" data-anchor-id="model-output">Model output</h4>
-<p>Here is the model output:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
+<!--
+## Feedback on student scripts
+
+[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507079) is feedback on the one valid student submission this week. 
+
+# Independent learning activities 
+
+Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
+
+## Activity 1: The WBA
+
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506936) from 27th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+
+## Activity 2: Calculating odds ratios manually
+
+This activity will involve work with the following data. You are a researcher interested in whether being excited (yes/no) predicts whether an individual passes their driving test (yes/no). Here is a table of frequencies.
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](data/Wk8/Week8_worksheet1.png)
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 1: What are the odds of passing the driving test in the “Excited – Yes” group?**</span>
+
+<span style="color:purple">**QUESTION 2: What are the odds of passing the driving test in the “Excited – No” group?**</span>
+
+<span style="color:purple">**QUESTION 3: What is the odds ratio (where “Excited – No” is the original odds)?**</span>
+ 
+<span style="color:purple">**QUESTION 4: What does this odds ratio mean?**</span>
+
+<span style="color:purple">**QUESTION 5: Is there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.**</span>
+
+### Activity 2 answers:
+
+**What are the odds of passing the driving test in the “Excited – Yes” group?**
+
+<span style="color:purple">1.1666666668</span>
+
+::: {.callout-tip collapse="true"}
+## How was this calculated?
+
+Here is how this answers were computed:
+
+The probability of individuals who are excited (Excited – Yes) passing the driving test:
+
+14/26 = 0.5384615385
+
+14 is the number of participants who were excited and passed the driving test. 
+
+26 is the total number of individuals who responded “Excited – Yes” (14+12)
+
+The probability of individuals who are excited (Excited – Yes) not passing the driving test: 
+
+12/26 = 0.4615384615
+
+12 is the number of participants who were excited and did not pass the driving test.
+
+26 is the total number of individuals who responded “Excited – Yes” (14+12)
+
+The odds of individuals who are excited passing the driving test:
+
+0.5384615385 / 0.4615384615 = 1.1666666668
+
+Answer = 1.1666666668
+
+:::
+
+**What are the odds of passing the driving test in the “Excited – No” group?**
+
+<span style="color:purple">0.275862069</span>
+
+::: {.callout-tip collapse="true"}
+## How was this calculated?
+
+The probability of individuals who are not excited (Excited – No) passing the driving test:
+
+8/37 = 0.216216216
+
+8 is the number of participants who were not excited and passed the driving test. 
+
+37 is the total number of individuals who responded “Excited – No” (8+29)
+
+The probability of individuals who are excited (Excited - No) not passing the driving test:
+
+29/37 = 0.783783783
+
+29 is the number of participants who were not excited and did not pass the driving test. 
+
+37 is the total number of individuals who responded “Excited – No” (8+29)
+
+The odds of individuals who are not excited passing the driving test:
+
+0.216216216 / 0.783783783 = 0.275862069
+
+:::
+
+**What is the odds ratio (where “Excited – No” is the original odds)?**
+
+<span style="color:purple">4.23</span>
+
+::: {.callout-tip collapse="true"}
+
+## How was this calculated?
+
+1.1666666668  / 0.275862069 = 4.23
+
+The odds ratio = 4.23
+
+:::
+ 
+**What does this odds ratio mean?**
+
+<span style="color:purple">Individuals who were excited had a 4.23x higher odds of passing the driving test relative to individuals who were not excited.</span>
+
+**Is there evidence of quasi-complete separation or complete separation here? Give a reason for your answer.**
+
+<span style="color:purple">No – all cells have quite a few observations. There is no evidence of quasi-complete separation or complete separation.</span>
+
+## Activity 3:
+
+Activity 2 examines the following research question. You are a researcher interested in
+whether social media use (< 2 hours per day / > 2 hours per day) predicts whether an individual reports difficulty falling asleep (yes/no). Here is a table of
+frequencies:
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](data/Wk8/Week8_worksheet2.png)
+:::
+:::
+
+
+You analyse this data in R and the output of your model is below. For the outcome, you set
+“0” as “Reports difficulty falling asleep - No” and “1” as “Reports difficulty falling asleep - Yes”.
+
+#### Model output
+
+Here is the model output:
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+
 Call:
 glm(formula = sleep_numeric ~ Social_media_use, family = binomial(), 
     data = sleep_data)
@@ -566,10 +548,10 @@ glm(formula = sleep_numeric ~ Social_media_use, family = binomial(),
 Coefficients:
                                        Estimate            Std. Error z value
 (Intercept)               -0.000000000000002847  0.632455532033675660    0.00
-Social_media_use&gt; 2 hours  2.427748235947893019  0.873352682387679824    2.78
-                          Pr(&gt;|z|)   
+Social_media_use> 2 hours  2.427748235947893019  0.873352682387679824    2.78
+                          Pr(>|z|)   
 (Intercept)                1.00000   
-Social_media_use&gt; 2 hours  0.00544 **
+Social_media_use> 2 hours  0.00544 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -579,101 +561,180 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Residual deviance: 34.687  on 45  degrees of freedom
 AIC: 38.687
 
-Number of Fisher Scoring iterations: 5</code></pre>
-</div>
-</div>
-</section>
-<section id="evaluating-the-model-output" class="level4">
-<h4 class="anchored" data-anchor-id="evaluating-the-model-output">Evaluating the model output</h4>
-<p>You run some code to produce the model’s chi-square statistic, the degrees of freedom and the p-value. These are displayed below. Use this to answer the following question:</p>
-<p>Chi square = 8.20 Degrees of freedom = 1 P-value = 0.004</p>
-<p><span style="color:purple"><strong>QUESTION 1: What do these values indicate?</strong></span></p>
-</section>
-<section id="evaluating-pseudo-r2" class="level4">
-<h4 class="anchored" data-anchor-id="evaluating-pseudo-r2">Evaluating Pseudo R2</h4>
-<p>Here are the Pseudo R2 values. Use this output to answer the following two questions:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>       McFadden     McFaddenAdj        CoxSnell      Nagelkerke   AldrichNelson 
+Number of Fisher Scoring iterations: 5
+```
+
+
+:::
+:::
+
+
+#### Evaluating the model output
+
+You run some code to produce the model’s chi-square statistic, the degrees of freedom and the p-value. These are displayed below. Use this to answer the following question:
+
+Chi square = 8.20
+Degrees of freedom = 1
+P-value = 0.004
+
+<span style="color:purple">**QUESTION 1: What do these values indicate?**</span>
+
+#### Evaluating Pseudo R2
+
+Here are the Pseudo R2 values. Use this output to answer the following two questions:
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+       McFadden     McFaddenAdj        CoxSnell      Nagelkerke   AldrichNelson 
       0.1911699       0.0978972       0.1600663       0.2674640       0.1485248 
 VeallZimmermann           Efron McKelveyZavoina            Tjur             AIC 
       0.3113013       0.2081168       0.2308156       0.2081168      38.6866797 
             BIC          logLik         logLik0              G2 
-     42.3869749     -17.3433399     -21.4425007       8.1983218 </code></pre>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 3: What are the value of these Pseudo R2s?</strong></span></p>
-</section>
-<section id="evaluating-the-individual-predictors" class="level4">
-<h4 class="anchored" data-anchor-id="evaluating-the-individual-predictors">Evaluating the individual predictors</h4>
-<p>Look back at the summary output. Use this output to answer the following four questions:</p>
-<p><span style="color:purple"><strong>QUESTION 4: What is the reference category for the predictor “Social media use”?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 5: What does the Intercept Estimate represent?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 6: What does the Social_media_use&gt; 2 hours Estimate represent?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 7: From the p-value in the summary table for the Social_media_use &gt;2 hours row, what can you conclude?</strong></span></p>
-<section id="exponentiating-the-estimates" class="level5">
-<h5 class="anchored" data-anchor-id="exponentiating-the-estimates">Exponentiating the estimates:</h5>
-<p>Here are the exponentiated values. Use this output to answer the following three questions:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>              (Intercept) Social_media_use&gt; 2 hours 
-                  1.00000                  11.33333 </code></pre>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 8: What does the Intercept represent?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 9: What does the Social_media_use&gt; 2 hours value represent?</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 10: Can you interprert the Social_media_use&gt; 2 hours value?</strong></span></p>
-</section>
-<section id="confidence-intervals" class="level5">
-<h5 class="anchored" data-anchor-id="confidence-intervals">Confidence intervals:</h5>
-<p>Here are the confidence intervals. Use this output to answer the following question:</p>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Waiting for profiling to be done...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                              2.5 %    97.5 %
+     42.3869749     -17.3433399     -21.4425007       8.1983218 
+```
+
+
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?**</span>
+
+<span style="color:purple">**QUESTION 3: What are the value of these Pseudo R2s?**</span>
+
+#### Evaluating the individual predictors
+
+Look back at the summary output. Use this output to answer the following four questions:
+
+<span style="color:purple">**QUESTION 4: What is the reference category for the predictor “Social media use”?**</span>
+
+<span style="color:purple">**QUESTION 5: What does the Intercept Estimate represent?**</span>
+
+<span style="color:purple">**QUESTION 6: What does the Social_media_use> 2 hours Estimate represent?**</span>
+
+<span style="color:purple">**QUESTION 7: From the p-value in the summary table for the Social_media_use >2 hours row, what can you conclude?**</span>
+
+
+##### Exponentiating the estimates:
+
+Here are the exponentiated values. Use this output to answer the following three questions: 
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+              (Intercept) Social_media_use> 2 hours 
+                  1.00000                  11.33333 
+```
+
+
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 8: What does the Intercept represent?**</span>
+
+<span style="color:purple">**QUESTION 9: What does the Social_media_use> 2 hours value represent?**</span>
+
+<span style="color:purple">**QUESTION 10: Can you interprert the Social_media_use> 2 hours value?**</span>
+
+##### Confidence intervals:
+
+Here are the confidence intervals. Use this output to answer the following question: 
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stderr}
+
+```
+Waiting for profiling to be done...
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+                              2.5 %    97.5 %
 (Intercept)               0.2781147  3.595639
-Social_media_use&gt; 2 hours 2.1576520 71.893706</code></pre>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 11: What does the Social_media_use &gt;2 hours 95% confidence intervals represent?</strong></span></p>
-</section>
-</section>
-<section id="activity-3-answers" class="level3">
-<h3 class="anchored" data-anchor-id="activity-3-answers">Activity 3 answers:</h3>
-<p><span style="color:purple"><strong>QUESTION 1: What do these values indicate?</strong></span></p>
-<p><span style="color:purple"><span class="math inline">\(x^{2}\)</span>(1) = 8.20, <em>p</em> = .004.</span></p>
-<p><span style="color:purple">This indicates that adding the “Social media” variable to our model significantly improved the fit, compared to the null model containing intercept only</span></p>
-<p><span style="color:purple"><strong>QUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?</strong></span></p>
-<p><span style="color:purple">McFadden, CoxSnell and Nagelkerke</span></p>
-<p><span style="color:purple"><strong>QUESTION 3: What are the value of these Pseudo R2s?</strong></span></p>
-<p><span style="color:purple"> McFadden = 0.19, CoxSnell = 0.16, Nagelkerke = 0.27</span></p>
-<p><span style="color:purple"><strong>QUESTION 4: What is the reference category for the predictor “Social media”?</strong></span></p>
-<p><span style="color:purple">&lt; 2 hours is our reference category for the social media variable</span></p>
-<p><span style="color:purple">*<strong>QUESTION 5: What does the Intercept Estimate represent?</strong></span></p>
-<p><span style="color:purple">The log odds of someone with a social media value of &lt; 2 hours reporting difficulties falling asleep</span>.</p>
-<p><span style="color:purple"><strong>QUESTION 6: What does the Social_media_use&gt; 2 hours Estimate represent?</strong></span></p>
-<p><span style="color:purple">The change in the log odds of having a difficulty falling asleep value of “Yes” when going from the reference category (social_media&lt; 2 hours) to social_media&gt; 2 hours</span></p>
-<p><span style="color:purple"><strong>QUESTION 7: From the p-value in the summary table for the Social_media_use &gt;2 hours row, what can you conclude?</strong></span></p>
-<p><span style="color:purple">Daily social media use (&lt; 2 hours vs &gt; 2 hours) significantly predicts whether an individual has difficulties falling asleep (yes/no; <em>p</em> = .005)</span></p>
-<p><span style="color:purple"><strong>QUESTION 8: What does the Intercept represent?</strong></span></p>
-<p><span style="color:purple">The odds of reporting difficulties falling asleep for individuals who have social media use of &lt; 2 hours a day.</span></p>
-<p><span style="color:purple"><strong>QUESTION 9: What does the Social_media_use&gt; 2 hours value represent?</strong></span></p>
-<p><span style="color:purple">The change in odds (i.e.&nbsp;the odds ratio) of reporting difficulties falling asleep (i.e.&nbsp;difficulties falling asleep = yes) when going from Social_media_use&lt; 2 hours to Social_media_use&gt; 2 hours</span></p>
-<p><span style="color:purple"><strong>QUESTION 10: Can you interprert the Social_media_use&gt; 2 hours value?</strong></span></p>
-<p><span style="color:purple">The odds of reporting difficulties falling asleep are 11.33x higher if your social media use is &gt;2 hours a day than if your social media use is &lt;2 hours a day</span>.</p>
-<p><span style="color:purple"><strong>QUESTION 11: What does the Social_media_use &gt;2 hours 95% confidence intervals represent?</strong></span></p>
-<p><span style="color:purple">The 95% confidence around the odds ratio (for the comparison between Social_media_use &lt; 2 hours to Social_media_use &gt; 2 hours).</span></p>
-</section>
-</section>
-</section>
-<section id="asking-questions" class="level1">
-<h1>Asking questions</h1>
-<p>If you have any questions about this week’s content, please post them on the discussion board <a href="https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905">here</a>. If you prefer to remain anonymous, you can post questions anonymously <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_b1v7RbIFYA6phvo">here</a>. I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&amp;A session.</p>
+Social_media_use> 2 hours 2.1576520 71.893706
+```
 
 
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 11: What does the Social_media_use >2 hours 95% confidence intervals represent?**</span>
+
+
+### Activity 3 answers:
+
+<span style="color:purple">**QUESTION 1: What do these values indicate?**</span>
+
+<span style="color:purple">$x^{2}$(1) = 8.20, *p* = .004.
+
+<span style="color:purple">This indicates that adding the “Social media” variable to our model significantly improved the fit, compared to the null model containing intercept only</span>
+
+<span style="color:purple">**QUESTION 2: Which Pseudo R2 values might you report (based on the lecture)?**</span>
+
+<span style="color:purple">McFadden, CoxSnell and Nagelkerke</span>
+
+<span style="color:purple">**QUESTION 3: What are the value of these Pseudo R2s?**</span>
+
+<span style="color:purple">
+McFadden = 0.19, CoxSnell = 0.16, Nagelkerke = 0.27</span>
+
+<span style="color:purple">**QUESTION 4: What is the reference category for the predictor “Social media”?**</span>
+
+<span style="color:purple">< 2 hours is our reference category for the social media variable</span>
+
+<span style="color:purple">***QUESTION 5: What does the Intercept Estimate represent?**</span>
+
+<span style="color:purple">The log odds of someone with a social media value of < 2 hours reporting difficulties falling asleep</span>.
+
+<span style="color:purple">**QUESTION 6: What does the Social_media_use> 2 hours Estimate represent?**</span>
+
+<span style="color:purple">The change in the log odds of having a difficulty falling asleep value of “Yes” when going from the reference category (social_media< 2 hours) to social_media> 2 hours</span>
+
+<span style="color:purple">**QUESTION 7: From the p-value in the summary table for the Social_media_use >2 hours row, what can you conclude?**</span>
+
+<span style="color:purple">Daily social media use (< 2 hours vs > 2 hours) significantly predicts whether an individual has difficulties falling asleep (yes/no; *p* = .005)</span>
+
+<span style="color:purple">**QUESTION 8: What does the Intercept represent?**</span>
+
+<span style="color:purple">The odds of reporting difficulties falling asleep for individuals who have social media use of < 2 hours a day.</span>
+
+<span style="color:purple">**QUESTION 9: What does the Social_media_use> 2 hours value represent?**</span>
+
+<span style="color:purple">The change in odds (i.e. the odds ratio) of reporting difficulties falling asleep (i.e. difficulties falling asleep = yes) when going from Social_media_use< 2 hours to Social_media_use> 2 hours</span>
+
+<span style="color:purple">**QUESTION 10: Can you interprert the Social_media_use> 2 hours value?**</span>
+
+<span style="color:purple">The odds of reporting difficulties falling asleep are 11.33x higher if your social media use is >2 hours a day than if your social media use is <2 hours a day</span>.
+
+<span style="color:purple">**QUESTION 11: What does the Social_media_use >2 hours 95% confidence intervals represent?**</span>
+
+<span style="color:purple">The 95% confidence around the odds ratio (for the comparison between Social_media_use < 2 hours to Social_media_use > 2 hours).</span>
+
+# Asking questions
+
+If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_b1v7RbIFYA6phvo). I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&A session.
+
+-->
+
+
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
