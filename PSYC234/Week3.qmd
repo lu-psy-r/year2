@@ -21,6 +21,7 @@ library(PerformanceAnalytics)
 
 ```
 
+<!---
 
 # Lecture
 
@@ -85,6 +86,8 @@ kind of processes you may choose to use to transform any variables.
 ## Test Yourself
 
 The link to this week's multiple choice quiz, WBA 3, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506930)
+
+--->
 
 ## Interactions
 

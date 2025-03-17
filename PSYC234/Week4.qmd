@@ -9,6 +9,8 @@ knitr::opts_chunk$set(warning = TRUE)
 knitr::opts_chunk$set(message = TRUE)
 ```
 
+<!---
+
 # Lecture
 
 Watch the lecture on mediation theory [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=41f4d33b-0a78-4566-b89f-b27100b1527d)
@@ -38,6 +40,8 @@ We are working with the `Coffee_Mediation_1.csv` from the folder listed above.  
 ## Test Yourself
 
 The link to this week's multiple choice quiz, WBA 4, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506931)
+
+--->
 
 
 ## What Statistical Analysis Methods Do We Know So Far?
