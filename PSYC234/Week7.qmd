@@ -12,7 +12,7 @@ library(ggpubr) # required for ggqqplot
 library(rstatix) # required for running Shapiro-Wilk test, calculating effect sizes and the post-hoc tests
 ```
 
-<!--
+
 # Lecture
 
 This lecture comprises two parts: 
@@ -29,7 +29,6 @@ Before the lab, please watch the following short [video](https://lancaster.cloud
 
 If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507056).
 
--->
 
 # Lab
 
@@ -87,7 +86,7 @@ A model script showing one way of answering the research questions above using R
 
 [Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507061) is some feedback on a few scripts submitted by students.
 
-<!--
+
 
 # Independent learning activities 
 
@@ -339,4 +338,3 @@ conditions (*p* = .155).</span>
 
 If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_8wSXoYOaJTO7oMK). I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.
 
--->
