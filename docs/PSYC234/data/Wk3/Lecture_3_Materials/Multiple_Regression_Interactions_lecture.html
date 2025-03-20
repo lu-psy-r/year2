@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists - 3. Multiple Regression Models that Include Interactions (Moderated Variables)</title>
+<title>Statistics for Psychologists - Multiple_Regression_With_Interactions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,25 +57,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../PSYC234/Week4.html" rel="next">
-<link href="../PSYC234/Week2.html" rel="prev">
-<link href="../Images/favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../Images/favicon.png" rel="icon" type="image/png">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,11 +100,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="../site_libs/viz-1.8.2/viz.js"></script>
-<link href="../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="../site_libs/grViz-binding-1.0.11/grViz.js"></script>
 <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search Year 2";};</script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -196,7 +189,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week3.html">3. Multiple Regression Models that Include Interactions (Moderated Variables)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Multiple_Regression_With_Interactions</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -218,7 +211,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../PSYC214/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC214</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -227,55 +220,55 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. One-Factor Within-Participants ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Revision of One-Factor ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6. Introduction to Factorial Designs and Interactions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7. Two-Factor Between-Participants ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week8.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8. Two-Factor Mixed and Within-Participants ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC214/Week9.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC214/Week9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">9. Three-Factor ANOVA</span></a>
   </div>
 </li>
@@ -283,64 +276,64 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../../PSYC234/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC234</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Review of correlation, simple regression and demonstration of multiple regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Multiple Regression Including Categorical Predictors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week3.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../../PSYC234/Week3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Multiple Regression Models that Include Interactions (Moderated Variables)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Mediation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Factor Analysis and the Binomial Test</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8. Binary logistic regression models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../PSYC234/Week9.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">9. Expanding on binary logistic regression</span></a>
   </div>
 </li>
@@ -356,14 +349,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a>
-  <ul class="collapse">
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a></li>
-  <li><a href="#lab-task" id="toc-lab-task" class="nav-link" data-scroll-target="#lab-task">Lab Task</a></li>
-  <li><a href="#pre-lab-activity" id="toc-pre-lab-activity" class="nav-link" data-scroll-target="#pre-lab-activity">Pre-Lab Activity</a></li>
-  <li><a href="#test-yourself" id="toc-test-yourself" class="nav-link" data-scroll-target="#test-yourself">Test Yourself</a></li>
-  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions">Interactions</a>
+  <li><a href="#interactions" id="toc-interactions" class="nav-link active" data-scroll-target="#interactions">Interactions</a>
   <ul class="collapse">
   <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
   <li><a href="#tidy" id="toc-tidy" class="nav-link" data-scroll-target="#tidy">Tidy</a></li>
@@ -374,11 +360,6 @@ window.Quarto = {
   <li><a href="#model-diagnostics" id="toc-model-diagnostics" class="nav-link" data-scroll-target="#model-diagnostics">Model diagnostics</a></li>
   <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">Communicate</a></li>
   <li><a href="#what-are-interaction-terms" id="toc-what-are-interaction-terms" class="nav-link" data-scroll-target="#what-are-interaction-terms">What are interaction terms?</a></li>
-  <li><a href="#when-are-interaction-terms-used" id="toc-when-are-interaction-terms-used" class="nav-link" data-scroll-target="#when-are-interaction-terms-used">When are interaction terms used?</a></li>
-  <li><a href="#statistical-power-of-interactions" id="toc-statistical-power-of-interactions" class="nav-link" data-scroll-target="#statistical-power-of-interactions">Statistical Power of Interactions</a></li>
-  <li><a href="#preparation-of-data-for-using-interactions" id="toc-preparation-of-data-for-using-interactions" class="nav-link" data-scroll-target="#preparation-of-data-for-using-interactions">Preparation of data for using interactions</a></li>
-  <li><a href="#building-a-model-with-interactions" id="toc-building-a-model-with-interactions" class="nav-link" data-scroll-target="#building-a-model-with-interactions">Building a model with interactions</a></li>
-  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -386,10 +367,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week3.html">3. Multiple Regression Models that Include Interactions (Moderated Variables)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">3. Multiple Regression Models that Include Interactions (Moderated Variables)</h1>
-<p class="subtitle lead">Emma Mills</p>
+<h1 class="title">Multiple_Regression_With_Interactions</h1>
 </div>
 
 
@@ -406,53 +386,6 @@ window.Quarto = {
 </header>
 
 
-<section id="lecture" class="level1">
-<h1>Lecture</h1>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7718c2a4-2676-4b85-ac17-b26d014265c0">Lecture Link</a></p>
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<p><a href="data/Wk3/PSYC234_Week_13_Slides_Student.zip">Slides Link</a></p>
-</section>
-<section id="materials" class="level2">
-<h2 class="anchored" data-anchor-id="materials">Materials</h2>
-<p>There are two zipped folders to download for week 13:</p>
-<ul>
-<li>The first folder is a zipped folder called <code>Lecture_3_Materials.zip</code>. It can be downloaded <a href="data/Wk3/Lecture_3_Materials.zip">here</a>. This has the model lecture script and the <code>KidIQ.txt</code> file that was demonstrated in the lecture</li>
-<li>The second folder is called <code>Lab_3_Materials.zip</code>. In this folder is the <code>WorldHappinessReportData.csv</code> and a half prepared .Rmd file for the lab in week 13. I did this because it is a really interesting dataset but the tidying and visualisation would take forever….please download it <a href="data/Wk3/Lab_3_Materials.zip">here</a>.</li>
-</ul>
-</section>
-<section id="lab-task" class="level2">
-<h2 class="anchored" data-anchor-id="lab-task">Lab Task</h2>
-<p>We are working with the <code>WorldHappinessReportData.csv</code> from the folder listed above. Upload it to the R server, (preferably before you come to the lab) and complete the <code>Multiple_Regression_Interactions_Student.Rmd</code> file using that data.</p>
-<p>The model output you are aiming to match is below</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk3/Model Output.png" class="img-fluid figure-img"></p>
-<figcaption>Model output</figcaption>
-</figure>
-</div>
-</section>
-<section id="pre-lab-activity" class="level2">
-<h2 class="anchored" data-anchor-id="pre-lab-activity">Pre-Lab Activity</h2>
-<ol type="1">
-<li>Watch the lecture before you attempt anything!</li>
-<li>Download the zip files and upload to your R account</li>
-<li>Look at the model outout above, begin by interpreting the model summary, as far as you can (as we did in Lab in week 11 &amp; 12).</li>
-<li>Next get the analysis work flow diagram and begin to think about what piece of code do you need for each stage</li>
-<li>Start a script and import the dataset. Use the lecture and the model script as a guide</li>
-<li>Write a plan of how you might approach an analysis to get to this model</li>
-</ol>
-<ul>
-<li>you could write bullet points against the stages of the analysis workflow diagram</li>
-</ul>
-<ol start="7" type="1">
-<li>You might want to stop at this point - wanting some confirmation from your peers or staff; you could:</li>
-</ol>
-<ul>
-<li><p>post to the discussion forum at this point and we could discuss it</p></li>
-<li><p>talk amongst your peers and work together on it in independent study time - forming a small study group for this process</p></li>
-<li><p>wait until the lab and bring ideas then…</p></li>
-</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -466,11 +399,6 @@ My predictor labels and suffixes
 <p>The model output has several predictors with suffixes, demarcated by and underscore ‘_’ and a letter e.g.&nbsp;‘_h’; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.</p>
 </div>
 </div>
-</section>
-<section id="test-yourself" class="level2">
-<h2 class="anchored" data-anchor-id="test-yourself">Test Yourself</h2>
-<p>The link to this week’s multiple choice quiz, WBA 3, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506930">here</a></p>
-</section>
 <section id="interactions" class="level2">
 <h2 class="anchored" data-anchor-id="interactions">Interactions</h2>
 <p>So far we have considered models with multiple variables - of both categorical and continuous types. One property of all these predictors in these models has been that they are functionally independent of each other.<br>
@@ -485,20 +413,13 @@ You have met interactions in PSYC214. The focus of this week’s lecture and lab
 <li>a principled method for saying that one model is a better fit for the data than another</li>
 </ul>
 <p>While also thinking about the workflow of a good analysis.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk3/Wrangle.png" class="img-fluid figure-img"></p>
-<figcaption>Workflow</figcaption>
-</figure>
-</div>
-<p>Thinking and acting systematically will a) help your writing of any results section and b) help with your interpretation of models and ideas to write for your discussion section.</p>
 <section id="import" class="level3">
 <h3 class="anchored" data-anchor-id="import">Import</h3>
 <p>Before beginning, I will introduce the dataset to you:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Wk3/Lecture_3_Materials/KidIQ.txt"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">mom_work =</span> <span class="fu">col_skip</span>()))</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d &lt;- read_csv("data/Wk3/_Lecture 3 Materials/KidIQ.txt", col_types = cols(mom_work = col_skip()))</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#d &lt;- read_csv("KidIQ.txt", col_types = cols(mom_work = col_skip()))</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"KidIQ.txt"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">mom_work =</span> <span class="fu">col_skip</span>()))</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -552,7 +473,7 @@ You have met interactions in PSYC214. The focus of this week’s lecture and lab
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Multiple_Regression_Interactions_lecture_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -570,7 +491,7 @@ You have met interactions in PSYC214. The focus of this week’s lecture and lab
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Multiple_Regression_Interactions_lecture_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -726,7 +647,7 @@ F-statistic: 108.6 on 1 and 432 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Where are your eyes looking as you first scan the model output? The bottom line first:</p>
 <p>The model is significant (<em>F</em>(1, 432) = 108.6, <em>p</em> &lt;.001) and explains approximately 20% of the variance in children’s test scores.</p>
 <p>Next the regression coefficient:</p>
-<p>For every one point increase in Mother’s IQ, a child’s test score increases by 0.61 of a point (<em>t</em> = 10.42, <em>p</em> &lt; .001).</p>
+<p>For every one point increase in Mother’s IQ, a child’s test score increases by 0.61 of a point (<em>t</em> = 10.42, <em>p</em> &lt; .001). PP</p>
 </section>
 <section id="how-do-we-judge-that-any-model-is-a-better-fit-than-any-other-model" class="level4">
 <h4 class="anchored" data-anchor-id="how-do-we-judge-that-any-model-is-a-better-fit-than-any-other-model">How do we judge that any model is a better fit than any other model?</h4>
@@ -773,13 +694,6 @@ model two: Kid\_score = Intercept + Mom's IQ + Mom's Age + error
 <p><span class="math display">\[
 Y = b_0 + b_1 * X_{mom\_iq} + b_2*X_{mom\_age} + e
 \]</span></p>
-<p>And we can draw it like this:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk3/Diagram_Ind_Predictors.png" class="img-fluid figure-img"></p>
-<figcaption>Diagram of Independent Predictors</figcaption>
-</figure>
-</div>
 <p>And the code for a model could look like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2_c <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c <span class="sc">+</span> mom_age_c, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -921,13 +835,6 @@ F-statistic: 58.72 on 2 and 431 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>The model is significant (<em>F</em>(2, 431) = 58.72, <em>p</em> &lt; .001) and the amount of variance explained for Children’s test scores is approximately 21%.</p>
 <p>Mother’s IQ and children’s test scores are positively associated. A one unit increase in IQ is significantly associated with an increase in test scores of 0.56 test points (<em>t</em> = 9.31, <em>p</em> &lt; .001). Whether the child’s mother completed high school or not is also positively related to test scores. The difference in test scores for a child whose mother did not complete high school and a child whose mother did complete high school is 5.95 points (<em>t</em> = 2.69, <em>p</em> = .007).</p>
-<p>If we run the mulitple regression model above, we may expect a plot of the regression to look something like this:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk3/Ind_Mul_Regression.png" class="img-fluid figure-img"></p>
-<figcaption>Regression with no interaction</figcaption>
-</figure>
-</div>
 <p>I have put the raw data values on the X-axis for the best way to communicate the scale. I have also used the raw mom_hs factor here, again for simplicity. Remember that the transformations we performed do not change the information within the data. So this is okay.</p>
 <p>As soon as we see a plot, lets take a moment to interpret it. What do we see:</p>
 <ul>
@@ -1011,12 +918,27 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li>if there were several possible models from your hypotheses, you would present the one that was significantly the best predictor of variance.</li>
 <li>Note - this may not be the model with the most variables!</li>
 </ul>
-<p>The model plot, with the addition of the interaction between mother’s IQ and high school education, looks like this:</p>
-<div class="quarto-figure quarto-figure-center">
+<p>The model plot, with the addition of the interaction between mother’s IQ and high school education, looks like this: I have recycled old code here, based in a model with the age variable left in. Don’t worry about the model here. Just concentrate on the plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>m3_c_int_age <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs <span class="sc">+</span> mom_age <span class="sc">+</span> mom_iq <span class="sc">+</span> mom_hs<span class="sc">:</span>mom_iq, d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>(p_int <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(mom_iq, kid_score)) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">factor</span>(mom_hs)), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">intercept =</span> <span class="fu">c</span>(<span class="fu">coef</span>(m3_c_int_age)[<span class="dv">1</span>], <span class="fu">sum</span>(<span class="fu">coef</span>(m3_c_int_age)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])),</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">slope =</span> <span class="fu">c</span>(<span class="fu">coef</span>(m3_c_int_age)[<span class="dv">4</span>], <span class="fu">sum</span>(<span class="fu">coef</span>(m3_c_int_age)[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>])),</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"grey"</span>)) <span class="sc">+</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"grey"</span>)) <span class="sc">+</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Mother IQ Score"</span>, <span class="at">y =</span> <span class="st">"Child Test Score"</span>) <span class="sc">+</span> </span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="Images/Wk3/Int_Mul_Regression.png" class="img-fluid figure-img"></p>
-<figcaption>Regression with an interaction</figcaption>
+<p><img src="Multiple_Regression_Interactions_lecture_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
+</div>
+</div>
 </div>
 </section>
 <section id="interpreting-a-model-with-an-interaction-term" class="level4">
@@ -1041,7 +963,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </ol>
 <p>Lets do this for the <code>m3_c_int</code>. Lets call the summary here again to reduce the need for scrolling:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1070,11 +992,15 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>So lets now express this in plain(er) English:</p>
 <p>As mom IQ increases, then a child’s test score increases and if mom completed high school, initially, those child test scores are stronger than test scores for children whos mom didn’t increase high school. But, and here is the impact of what the interaction coefficient is describing….that 2.84 initial advantage gets smaller and smaller (by about 0.48 point each time) with every increase in IQ.</p>
 <p>To aid interpretation, look at the plot once more:</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>p_int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="Images/Wk3/Int_Mul_Regression.png" class="img-fluid figure-img"></p>
-<figcaption>Regression with an interaction</figcaption>
+<p><img src="Multiple_Regression_Interactions_lecture_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
+</div>
+</div>
 </div>
 <p>Interpret once more:</p>
 <ul>
@@ -1104,7 +1030,7 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Lets do the math to show this numerically:</p>
 <p>First look again at the high school variable</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d<span class="sc">$</span>mom_hs_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d<span class="sc">$</span>mom_hs_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 -0.7857  0.2143  0.2143  0.0000  0.2143  0.2143 </code></pre>
@@ -1115,20 +1041,20 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Lets do the maths for 20 points below the average: We can model 80 IQ points as a prediction for lower IQ (modelled as -20 here as the sample average is 100 and 100 - 20 = 80)</p>
 <p>Test score for a child with a mum who did not finish high school and an IQ of 80 (black line on the plot) Intercept + not_finishing high school + IQ 80 + Interaction term</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*-</span><span class="dv">20</span>) <span class="co"># -0.7857 = represents mothers who did not finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*-</span><span class="dv">20</span>) <span class="co"># -0.7857 = represents mothers who did not finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 66.02932</code></pre>
 </div>
 </div>
 <p>Test score for a child with a mum who did finish high school and an IQ of 80 (grey line on the plot) Intercept + not_finishing high school + IQ 80 + Interaction term</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span>  (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*-</span><span class="dv">20</span>) <span class="co"># 0.2143 = represents mothers who did finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span>  (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*-</span><span class="dv">20</span>) <span class="co"># 0.2143 = represents mothers who did finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 78.55548</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">78.55548</span> <span class="sc">-</span> <span class="fl">66.02932</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">78.55548</span> <span class="sc">-</span> <span class="fl">66.02932</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 12.52616</code></pre>
 </div>
@@ -1138,21 +1064,21 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>IQ is now -19 (because 100-19 = 81)</p>
 <p>Test score for a child with a mum who did not finish high school and an IQ of 81 (black line on the plot) Intercept + not_finishing high school + IQ 81 + Interaction term</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">19</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*-</span><span class="dv">19</span>) <span class="co"># -0.7857 = represents mothers who did not finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">19</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*-</span><span class="dv">19</span>) <span class="co"># -0.7857 = represents mothers who did not finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 66.9982</code></pre>
 </div>
 </div>
 <p>Test score for a child with a mum who did finish high school and an IQ of 81 (grey line on the plot) Intercept + not_finishing high school + IQ 81 + Interaction term</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">19</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*-</span><span class="dv">19</span>) <span class="co"># 0.2143 = represents mothers who did finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*-</span><span class="dv">19</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*-</span><span class="dv">19</span>) <span class="co"># 0.2143 = represents mothers who did finish high school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 79.04009</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># point difference between groups</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">79.04009</span> <span class="sc">-</span>  <span class="fl">66.9982</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># point difference between groups</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">79.04009</span> <span class="sc">-</span>  <span class="fl">66.9982</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 12.04189</code></pre>
 </div>
@@ -1160,7 +1086,7 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>the point score difference at 80 IQ points, is 12.53, the point score difference at 81 IQ points is 12.04</p>
 <p>If we take 12.52616 from 12.04189, we get:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">12.04189-12.52616</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">12.04189-12.52616</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.48427</code></pre>
 </div>
@@ -1170,14 +1096,14 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>IQ is now expressed in this sum as 1, because the IQ variable in the model is centred at the sample average for IQ which is 100. So and IQ of 101 = +1</p>
 <p>Finding the Test score for a child with a mum who did not finish high school and an IQ of 101 (black line on the plot) Intercept + not_finishing high school + IQ 101 + Interaction term</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">1</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">1</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 86.37582</code></pre>
 </div>
 </div>
 <p>Test score for a child with a mum who did finish high school and an IQ of 101 (grey line on the plot) Intercept + not_finishing high school + IQ 101 + Interaction term</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">1</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">1</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 88.73231</code></pre>
 </div>
@@ -1186,14 +1112,14 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>And once more Lets move the IQ a bit higher: to 120</p>
 <p>Test score for a child with a mum who did not finish high school and an IQ of 120 (black line on the plot) Intercept + not_finishing high school + IQ 120 + Interaction term</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*-</span><span class="fl">0.7857</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="sc">-</span><span class="fl">0.7857</span><span class="sc">*</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 104.7846</code></pre>
 </div>
 </div>
 <p>Test score for a child with a mum who did finish high school and an IQ of 120 (grey line on the plot) Intercept + not_finishing high school + IQ 120 + Interaction term</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fl">87.63892</span> <span class="sc">+</span> (<span class="fl">0.58839</span><span class="sc">*</span><span class="dv">20</span>) <span class="sc">+</span> (<span class="fl">2.84076</span><span class="sc">*</span><span class="fl">0.2143</span>) <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.48427</span><span class="sc">*</span>(<span class="fl">0.2143</span><span class="sc">*</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 97.93991</code></pre>
 </div>
@@ -1204,12 +1130,12 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="model-diagnostics" class="level3">
 <h3 class="anchored" data-anchor-id="model-diagnostics">Model diagnostics</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># display plots in a 2 x 2 panel</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># display plots in a 2 x 2 panel</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week3_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Multiple_Regression_Interactions_lecture_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1221,7 +1147,7 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>A sample text for communicating this model:</p>
 <p>We ran a multiple regression model to predict children’s test scores at age 3-years, from mother’s IQ score, whether they had completed high school or not and the interaction between the two. We centred the predictors before putting them into the model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1246,7 +1172,7 @@ Multiple R-squared:  0.2301,    Adjusted R-squared:  0.2247
 F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>The model was significant (<em>F</em>(3, 430) = 42.84, <em>p</em> &lt; .001) and explained 23% of the variance in the children’s test scores. Mother’s IQ is positively related to children’s test scores, with each increase in IQ, test scores increased by 0.58 of a point (<em>t</em> = 9.71, <em>p</em> &lt; .001). The predictor for whether or not a mother had completed their high school education was not significant (<em>b</em> = 2.84, <em>t</em> = 1.17, <em>p</em> = 0.242) however the interaction term for mother’s IQ and education status was significant (<em>b</em> = -0.48, <em>t</em> = -2.99, <em>p</em> = .003). This indicates that while the test scores for children whose mothers completed high school show an initial advantage of 2.84 points, this advantage decreases with each increase of an IQ point by 0.48 of a test point. Indeed, Figure 1 shows that at the higher levels of IQ in this sample, the group of children whose mothers did not finish high school, have higher test scores than those children whose mothers did finish high school.</p>
+<p>The model was significant (<em>F</em>(3, 430) = 42.84, <em>p</em> &lt; .001) and explained 23% of the variance in the children’s test scores. Mother’s IQ is positively related to children’s test scores, with each increase in IQ, test scores increased by 0.58 of a point (<em>t</em> = 9.71, <em>p</em> &lt; .001). The predictor for whether or not a mother had completed their high school education was not significant (<em>b</em> = 2.84, <em>t</em> = 1.17, <em>p</em> = 0.242) however the interaction term for mother’s IQ and education status was significant (<em>b</em> = -0.48, <em>t</em> = -2.99, <em>p</em> = .003). This indicates that while the test scores for children whose mothers completed high school show an initial advantage of 2.84 points, this advantage decreases with each increase of an IQ point by 0.48 of a test point. Indeed, Figure 1 shows that at the higher levels of IQ in this sample, the group of children whose mothers did not finish high school, have higher test scores than those children whose mothers did finish high schoool.</p>
 </section>
 <section id="what-are-interaction-terms" class="level3">
 <h3 class="anchored" data-anchor-id="what-are-interaction-terms">What are interaction terms?</h3>
@@ -1264,15 +1190,15 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 <p>Putting it into your model formula can be expressed in two ways. There is the use of a colon (:) as here:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>m3_c_int_colon <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c <span class="sc">+</span> mom_hs_c <span class="sc">+</span> mom_iq_c<span class="sc">:</span>mom_hs_c, d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>m3_c_int_colon <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c <span class="sc">+</span> mom_hs_c <span class="sc">+</span> mom_iq_c<span class="sc">:</span>mom_hs_c, d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or, an equivalent model to <code>m3_c_int</code> is expressed using a shorter form of code, using an asterisk (*)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>m3_c_int_Asterisk <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c<span class="sc">*</span>mom_hs_c, d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>m3_c_int_Asterisk <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> mom_iq_c<span class="sc">*</span>mom_hs_c, d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>both of these types of model code give the exact same model output:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int_colon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int_colon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1298,7 +1224,7 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int_Asterisk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3_c_int_Asterisk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1322,40 +1248,6 @@ Multiple R-squared:  0.2301,    Adjusted R-squared:  0.2247
 F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-</section>
-<section id="when-are-interaction-terms-used" class="level3">
-<h3 class="anchored" data-anchor-id="when-are-interaction-terms-used">When are interaction terms used?</h3>
-<ul>
-<li>Theory may predict them, and so research questions/hypotheses may predict them.</li>
-<li>Study design may implicitly suggest them (groups?)</li>
-<li>Results may suggest them
-<ul>
-<li>Regression coefficients that seem large when modelled independently may suggest the need for an interaction term</li>
-</ul></li>
-</ul>
-</section>
-<section id="statistical-power-of-interactions" class="level3">
-<h3 class="anchored" data-anchor-id="statistical-power-of-interactions">Statistical Power of Interactions</h3>
-<p>Many effect sizes in psychology hover around Cohen’s <em>d</em> = 0.4</p>
-<p>Based upon an effect size like this:</p>
-<ul>
-<li>The power of an interaction can be a small as 1/16th of the independent effects within a model (Gelman et al.&nbsp;2020)</li>
-<li>This is for ANOVA and regression methods</li>
-<li>This is when all the assumptions of the model are met
-<ul>
-<li>Most models violate model assumptions in some way</li>
-<li>Although relatively tolerant of violations: Power of the effects are thus reduced further…</li>
-</ul></li>
-</ul>
-</section>
-<section id="preparation-of-data-for-using-interactions" class="level3">
-<h3 class="anchored" data-anchor-id="preparation-of-data-for-using-interactions">Preparation of data for using interactions</h3>
-<p>Centre or standardise your continuous variables as standardising puts both predictors on the same scale. So interpreting the effect of one predictor on the other will be using the same scale of units</p>
-<p>Consider how to use your categorical variables: - Dummy coding..? - Sum coding..? - Making new binary variables…? - Coercing a binary variable to numeric class and mean centring</p>
-</section>
-<section id="building-a-model-with-interactions" class="level3">
-<h3 class="anchored" data-anchor-id="building-a-model-with-interactions">Building a model with interactions</h3>
-<p>Plan to build the model suggested by your research questions/hypotheses/theory. If that includes the interaction term, build it as the first model. If not, build an independent predictor model first and then build a further model that includes independent and interaction terms. Perform a model comparison as above to see if your interaction term has given you more explained variance at a significant level.</p>
 <p>How are we doing in our list of things to think about - We need to look at:</p>
 <ul>
 <li>a model with some significant predictors! - done</li>
@@ -1373,7 +1265,6 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 
 
-</section>
 </section>
 </section>
 
@@ -1787,18 +1678,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../PSYC234/Week2.html" class="pagination-link" aria-label="2. Multiple Regression Including Categorical Predictors">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Multiple Regression Including Categorical Predictors</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../PSYC234/Week4.html" class="pagination-link" aria-label="4. Mediation">
-        <span class="nav-page-text">4. Mediation</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1811,7 +1690,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../previous-content/index.html">
+    <a class="nav-link" href="../../../../previous-content/index.html">
 <p>Previous Content</p>
 </a>
   </li>  

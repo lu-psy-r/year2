@@ -1,17 +1,16 @@
 ---
-title: 3. Multiple Regression Models that Include Interactions (Moderated Variables)
-subtitle: Emma Mills
-order: 4
-editor: 
-  markdown: 
-    wrap: 72
+title: "Multiple_Regression_With_Interactions"
+output:
+  html_document: default
+  word_document: default
+  
 ---
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(warning = TRUE)
 knitr::opts_chunk$set(message = TRUE)
 
-rm(list=ls())
+# rm(list=ls())
 knitr::opts_chunk$set(include = TRUE)
 library(tidyverse)
 library(effects)
@@ -23,57 +22,6 @@ library(PerformanceAnalytics)
 
 
 
-# Lecture
-
-[Lecture
-Link](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7718c2a4-2676-4b85-ac17-b26d014265c0)
-
-## Slides
-
-[Slides Link](data/Wk3/PSYC234_Week_13_Slides_Student.zip)
-
-## Materials
-
-There are two zipped folders to download for week 13:
-
--   The first folder is a zipped folder called `Lecture_3_Materials.zip`.
-    It can be downloaded [here](data/Wk3/Lecture_3_Materials.zip). This has the
-    model lecture script and the `KidIQ.txt` file that was demonstrated in the lecture
--   The second folder is called `Lab_3_Materials.zip`. In this folder is the 
-    `WorldHappinessReportData.csv` and a half prepared .Rmd file for the lab in week 13.  I did this because it is a really interesting dataset but the tidying and visualisation would take forever....please download it [here](data/Wk3/Lab_3_Materials.zip).
-    
-## Lab Task
-
-We are working with the `WorldHappinessReportData.csv` from the folder listed above.  Upload it to the R server, (preferably before you come to the lab) and complete the `Multiple_Regression_Interactions_Student.Rmd` file using that data.
-
-The model output you are aiming to match is below
-
-![Model output](Images/Wk3/Model%20Output.png)
-
-## Pre-Lab Activity
-
-1.  Watch the lecture before you attempt anything!
-2.  Download the zip files and upload to your R account
-3.  Look at the model outout above, begin by interpreting the model summary, 
-    as far as you can (as we did in Lab in week 11 & 12).
-4.  Next get the analysis work flow diagram and begin to think about
-    what piece of code do you need for each stage
-5.  Start a script and import the dataset. Use the lecture and the model
-    script as a guide
-6.  Write a plan of how you might approach an analysis to get to this
-    model
--   you could write bullet points against the stages of the analysis
-    workflow diagram
-7.  You might want to stop at this point - wanting some confirmation
-    from your peers or staff; you could:
-
--   post to the discussion forum at this point and we could discuss it
-
--   talk amongst your peers and work together on it in independent study
-    time - forming a small study group for this process
-
--   wait until the lab and bring ideas then...
-
 ::: callout-tip
 ## My predictor labels and suffixes
 
@@ -82,11 +30,6 @@ underscore '\_' and a letter e.g. '\_h'; I explain these in the R Studio
 demonstrations in the lecture and you can use these as a guide to which
 kind of processes you may choose to use to transform any variables.
 :::
-
-## Test Yourself
-
-The link to this week's multiple choice quiz, WBA 3, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506930)
-
 
 ## Interactions
 
@@ -124,18 +67,14 @@ In summary, this week we are learning about and applying:
  
 While also thinking about the workflow of a good analysis.  
 
-![Workflow](Images/Wk3/Wrangle.png)
-
-Thinking and acting systematically will a) help your writing of any results section and b) help with your interpretation of models and ideas to write for your discussion section.
- 
 ### Import
 
 Before beginning, I will introduce the dataset to you:
 
 ```{r}
-d <- read_csv("data/Wk3/Lecture_3_Materials/KidIQ.txt", col_types = cols(mom_work = col_skip()))
+# d <- read_csv("data/Wk3/_Lecture 3 Materials/KidIQ.txt", col_types = cols(mom_work = col_skip()))
 
-#d <- read_csv("KidIQ.txt", col_types = cols(mom_work = col_skip()))
+d <- read_csv("KidIQ.txt", col_types = cols(mom_work = col_skip()))
 
 summary(d)
 ```
@@ -299,8 +238,6 @@ $$
 Y = b_0 + b_1 * X_{mom\_iq} + e
 $$
 
-
-
 Here is the code for this one predictor model:
 ```{r}
 summary(m1_c <- lm(kid_score ~ 1 + mom_iq_c, d))
@@ -311,7 +248,7 @@ The model is significant (*F*(1, 432) = 108.6, *p* <.001) and explains approxima
 
 Next the regression coefficient:
 
-For every one point increase in Mother's IQ, a child's test score increases by 0.61 of a point (*t* = 10.42, *p* < .001).
+For every one point increase in Mother's IQ, a child's test score increases by 0.61 of a point (*t* = 10.42, *p* < .001). PP
 
 #### How do we judge that any model is a better fit than any other model?
 
@@ -351,11 +288,6 @@ These two predictors are independent of each other. We are hoping they will each
 $$
 Y = b_0 + b_1 * X_{mom\_iq} + b_2*X_{mom\_age} + e
 $$
-
-And we can draw it like this:
-
-![Diagram of Independent
-Predictors](Images/Wk3/Diagram_Ind_Predictors.png)
 
 And the code for a model could look like this:
 
@@ -421,10 +353,7 @@ The model is significant (*F*(2, 431) = 58.72, *p* < .001) and the amount of var
 
 Mother's IQ and children's test scores are positively associated.  A one unit increase in IQ is significantly associated with an increase in test scores of 0.56 test points (*t* = 9.31, *p* < .001). Whether the child's mother completed high school or not is also positively related to test scores.  The difference in test scores for a child whose mother did not complete high school and a child whose mother did complete high school is 5.95 points (*t* = 2.69, *p* = .007).
 
-If we run the mulitple regression model above, we may expect a plot of
-the regression to look something like this:
 
-![Regression with no interaction](Images/Wk3/Ind_Mul_Regression.png)
 
 I have put the raw data values on the X-axis for the best way to communicate the scale.
 I have also used the raw mom_hs factor here, again for simplicity.  Remember that the transformations we performed do not change the information within the data. So this is okay. 
@@ -492,9 +421,23 @@ When you come to the end of the line with model building in this incremental, st
  - if there were several possible models from your hypotheses, you would present the one that was significantly the best predictor of variance.
   - Note - this may not be the model with the most variables!
 
-The model plot, with the addition of the interaction between mother's IQ and high school education, looks like this:
+The model plot, with the addition of the interaction between mother's IQ and high school education, looks like this: I have recycled old code here, based in a model with the age variable left in.  Don't worry about the model here. Just concentrate on the plot
 
-![Regression with an interaction](Images/Wk3/Int_Mul_Regression.png)
+```{r}
+m3_c_int_age <- lm(kid_score ~ mom_hs + mom_age + mom_iq + mom_hs:mom_iq, d)
+```
+
+```{r}
+(p_int <- ggplot(d, aes(mom_iq, kid_score)) +
+  geom_point(aes(color = factor(mom_hs)), show.legend = FALSE) +
+  geom_abline(
+    intercept = c(coef(m3_c_int_age)[1], sum(coef(m3_c_int_age)[1:2])),
+    slope = c(coef(m3_c_int_age)[4], sum(coef(m3_c_int_age)[4:5])),
+    color = c("black", "grey")) +
+  scale_color_manual(values = c("black", "grey")) +
+  labs(x = "Mother IQ Score", y = "Child Test Score") + 
+  theme_bw())
+```
 
 #### Interpreting a Model with an Interaction Term
 
@@ -534,7 +477,9 @@ As mom IQ increases, then a child's test score increases and if mom completed hi
 
 To aid interpretation, look at the plot once more:
 
-![Regression with an interaction](Images/Wk3/Int_Mul_Regression.png)
+```{r}
+p_int
+```
 
 Interpret once more:
 
@@ -681,7 +626,7 @@ summary(m3_c_int)
 ```
 
 The model was significant (*F*(3, 430) = 42.84, *p* < .001) and explained 23% of the variance in the children's test scores.
-Mother's IQ is positively related to children's test scores, with each increase in IQ, test scores increased by 0.58 of a point (*t* = 9.71, *p* < .001). The predictor for whether or not a mother had completed their high school education was not significant (*b* = 2.84, *t* = 1.17, *p* = 0.242) however the interaction term for mother's IQ and education status was significant (*b* = -0.48, *t* = -2.99, *p* = .003). This indicates that while the test scores for children whose mothers completed high school show an initial advantage of 2.84 points, this advantage decreases with each increase of an IQ point by 0.48 of a test point.  Indeed, Figure 1 shows that at the higher levels of IQ in this sample, the group of children whose mothers did not finish high school, have higher test scores than those children whose mothers did finish high school.
+Mother's IQ is positively related to children's test scores, with each increase in IQ, test scores increased by 0.58 of a point (*t* = 9.71, *p* < .001). The predictor for whether or not a mother had completed their high school education was not significant (*b* = 2.84, *t* = 1.17, *p* = 0.242) however the interaction term for mother's IQ and education status was significant (*b* = -0.48, *t* = -2.99, *p* = .003). This indicates that while the test scores for children whose mothers completed high school show an initial advantage of 2.84 points, this advantage decreases with each increase of an IQ point by 0.48 of a test point.  Indeed, Figure 1 shows that at the higher levels of IQ in this sample, the group of children whose mothers did not finish high school, have higher test scores than those children whose mothers did finish high schoool.
 
 ### What are interaction terms?
 
@@ -692,53 +637,6 @@ Mother's IQ is positively related to children's test scores, with each increase 
     increases or decreases over incremental increases of a predictor - a
     constant rate of change...adding one unit each time, increases or
     decreases the outcome variable by the values of the coefficient
-
-```{r include = FALSE}
-library(DiagrammeR)
-
-grViz(diagram = "digraph flowchart {
-  rankdir=LR;
-  node [fontname = arial, shape = rectangle]
-  tab1 [label = '@@1']
-  tab2 [label = '@@2']
-  tab3 [label = '@@3']
-
-  tab1 -> tab3;
-  tab2 -> tab3;
-
-  {rank=same; tab1, tab2}
-
-}
-  
-  [1]: 'X1'
-  [2]: 'X2'
-  [3]: 'Y'
-  ") 
-```
-
-```{r include = FALSE}
-grViz(diagram = "digraph flowchart {
-  rankdir=LR;
-  node [fontname = arial, shape = rectangle]
-  tab1 [label = '@@1']
-  tab2 [label = '@@2']
-  tab3 [label = '@@3']
-
-  tab1 -> tab3;
-  tab2 -> tab1;
-  tab1 -> tab2;
-  tab2 -> tab3;
-
-  {rank=same; tab1, tab2}
-
-}
-  
-  [1]: 'X1'
-  [2]: 'X2'
-  [3]: 'Y'
-  ") 
-
-```
 
 Interactions are the product term of two (or more) predictors. There are several ways to create them:
 
@@ -769,50 +667,6 @@ summary(m3_c_int_colon)
 ```{r}
 summary(m3_c_int_Asterisk)
 ```
-
-
-### When are interaction terms used?
-
- - Theory may predict them, and so research questions/hypotheses may
-predict them.
- - Study design may implicitly suggest them (groups?)
- - Results may suggest them
-   - Regression coefficients that seem large when
-modelled independently may suggest the need for an interaction term
-
-### Statistical Power of Interactions
-
-Many effect sizes in psychology hover around Cohen’s *d* = 0.4
-
-Based upon an effect size like this: 
-
- - The power of an interaction can be a small as 1/16th of the independent effects within a model (Gelman
-et al. 2020)
- - This is for ANOVA and regression methods
- - This is when all the assumptions of the model are met
-   + Most models violate model assumptions in some way 
-   - Although relatively tolerant of violations: Power of the effects are thus reduced further...
-
-### Preparation of data for using interactions
-
-Centre or standardise your continuous variables as standardising puts
-both predictors on the same scale. So interpreting the effect of one
-predictor on the other will be using the same scale of units
-
-Consider how to use your categorical variables:
-  - Dummy coding..?
-  - Sum coding..?
-  - Making new binary variables…?
-  - Coercing a binary variable to numeric class and mean centring
-
-### Building a model with interactions
-
-Plan to build the model suggested by your research
-questions/hypotheses/theory. If that includes the interaction term,
-build it as the first model. If not, build an independent predictor
-model first and then build a further model that includes independent and
-interaction terms.  Perform a model comparison as above to see if your interaction term has
-given you more explained variance at a significant level.
 
 How are we doing in our list of things to think about - We need to look
 at:
