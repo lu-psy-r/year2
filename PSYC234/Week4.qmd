@@ -9,7 +9,7 @@ knitr::opts_chunk$set(warning = TRUE)
 knitr::opts_chunk$set(message = TRUE)
 ```
 
-
+<!--
 
 # Lecture
 
@@ -41,7 +41,7 @@ We are working with the `Coffee_Mediation_1.csv` from the folder listed above.  
 
 The link to this week's multiple choice quiz, WBA 4, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506931)
 
-
+-->
 
 ## What Statistical Analysis Methods Do We Know So Far?
 
