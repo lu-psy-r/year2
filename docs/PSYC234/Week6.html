@@ -290,8 +290,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
-  <li><a href="#lab-preparation" id="toc-lab-preparation" class="nav-link" data-scroll-target="#lab-preparation">Lab preparation</a></li>
+  <li><a href="#lab-preparation" id="toc-lab-preparation" class="nav-link active" data-scroll-target="#lab-preparation">Lab preparation</a></li>
   <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
@@ -302,19 +301,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#model-script" id="toc-model-script" class="nav-link" data-scroll-target="#model-script">Model script</a></li>
   <li><a href="#feedback-on-student-scripts" id="toc-feedback-on-student-scripts" class="nav-link" data-scroll-target="#feedback-on-student-scripts">Feedback on student scripts</a></li>
   </ul></li>
-  <li><a href="#independent-learning-activities" id="toc-independent-learning-activities" class="nav-link" data-scroll-target="#independent-learning-activities">Independent learning activities</a>
-  <ul class="collapse">
-  <li><a href="#activity-1-the-wba" id="toc-activity-1-the-wba" class="nav-link" data-scroll-target="#activity-1-the-wba">Activity 1: The WBA</a></li>
-  <li><a href="#activity-2-calculating-test-statistics-manually" id="toc-activity-2-calculating-test-statistics-manually" class="nav-link" data-scroll-target="#activity-2-calculating-test-statistics-manually">Activity 2: Calculating test statistics manually</a>
-  <ul class="collapse">
-  <li><a href="#activity-2-answers" id="toc-activity-2-answers" class="nav-link" data-scroll-target="#activity-2-answers">Activity 2 answers</a></li>
-  </ul></li>
-  <li><a href="#activity-3-interpreting-r-output" id="toc-activity-3-interpreting-r-output" class="nav-link" data-scroll-target="#activity-3-interpreting-r-output">Activity 3: Interpreting R output</a>
-  <ul class="collapse">
-  <li><a href="#activity-3-answers" id="toc-activity-3-answers" class="nav-link" data-scroll-target="#activity-3-answers">Activity 3 answers</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#asking-questions" id="toc-asking-questions" class="nav-link" data-scroll-target="#asking-questions">Asking questions</a></li>
   </ul>
 </nav>
     </div>
@@ -341,15 +327,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="lecture" class="level1">
-<h1>Lecture</h1>
-<p>This lecture comprises four parts:</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=684b5810-663a-4a8b-8bd9-b27a00fb11de">Part 1</a>: This part covers an introduction to non-parametric tests and when they might be useful to consider.</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b51ad7bd-122d-4304-b801-b27a00fb1166">Part 2</a>: This part covers how to test the assumption of normality with two independent groups.</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=176c6b52-8c36-485c-8ab9-b27a00fb1187">Part 3</a>: This part introduces you to the Wilcoxon rank-sum test. This includes when to use this test, the theory behind it, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115">Part 4</a>: This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.</p>
-<p>Download all the lecture slides <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507037">here</a> in both .pptx and .pdf format.</p>
-</section>
+<!--
+
+# Lecture
+
+This lecture comprises four parts: 
+
+[Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=684b5810-663a-4a8b-8bd9-b27a00fb11de): This part covers an introduction to non-parametric tests and when they might be useful to consider.
+
+[Part 2](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b51ad7bd-122d-4304-b801-b27a00fb1166): This part covers how to test the assumption of normality with two independent groups.
+
+[Part 3](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=176c6b52-8c36-485c-8ab9-b27a00fb1187): This part introduces you to the Wilcoxon rank-sum test. This includes when to use this test, the theory behind it, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.
+
+[Part 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115): This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.
+
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507037) in both .pptx and .pdf format.
+
+-->
 <section id="lab-preparation" class="level1">
 <h1>Lab preparation</h1>
 <p>Before the lab, please watch the following short <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=25cf1ac6-7afc-4129-9ec4-b27a00fb10d0">video</a>. This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.</p>
@@ -396,25 +390,33 @@ ul.task-list li input[type="checkbox"] {
 <section id="feedback-on-student-scripts" class="level2">
 <h2 class="anchored" data-anchor-id="feedback-on-student-scripts">Feedback on student scripts</h2>
 <p><a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507047">Here</a> is some feedback on a few scripts submitted by students.</p>
-</section>
-</section>
-<section id="independent-learning-activities" class="level1">
-<h1>Independent learning activities</h1>
-<p>Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.</p>
-<section id="activity-1-the-wba" class="level2">
-<h2 class="anchored" data-anchor-id="activity-1-the-wba">Activity 1: The WBA</h2>
-<p>The WBA can be accessed <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506933">here</a> from 13th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.</p>
-</section>
-<section id="activity-2-calculating-test-statistics-manually" class="level2">
-<h2 class="anchored" data-anchor-id="activity-2-calculating-test-statistics-manually">Activity 2: Calculating test statistics manually</h2>
-<p>This activity is aimed at supporting your understanding of what the test statistics mean. The answers are below.</p>
-<section id="wilcoxon-rank-sum-test" class="level4">
-<h4 class="anchored" data-anchor-id="wilcoxon-rank-sum-test">Wilcoxon rank-sum test</h4>
-<p>You are a researcher interested in whether the number of cups of coffee drank affects how many admin tasks participants can get done in an hour. You assign to one of two groups (drink 4 cups of coffee a day or drink 0 cups of coffee a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete.</p>
-<p>Here is the data:</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<!--
+# Independent learning activities 
+
+Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
+
+## Activity 1: The WBA
+
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506933) from 13th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+
+## Activity 2: Calculating test statistics manually
+
+This activity is aimed at supporting your understanding of what the test statistics mean. The answers are below.
+
+#### Wilcoxon rank-sum test
+
+You are a researcher interested in whether the number of cups of coffee drank affects how many admin tasks participants can get done in an hour. You assign to one of two groups (drink 4 cups of coffee a day or drink 0 cups of coffee a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete. 
+
+Here is the data:
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">coffee_group</th>
@@ -454,42 +456,50 @@ ul.task-list li input[type="checkbox"] {
 </table>
 
 
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 1: What is the test statistic?</strong></span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expand for hints!
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To calculate this, you will need to work through the following steps:</p>
-<ul>
-<li><p>Rank the data</p></li>
-<li><p>Sum the ranks for each group</p></li>
-<li><p>Calculate the mean rank for each group</p></li>
-<li><p>Calculate the sum of ranks minus mean rank for each group</p></li>
-<li><p>Use this information to identify the test statistic</p></li>
-</ul>
-<p>If you are still unsure, have another look at the lecture.</p>
-</div>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 2: What might R report as the test statistic and why?</strong></span></p>
-</section>
-<section id="wilcoxon-signed-rank-test" class="level4">
-<h4 class="anchored" data-anchor-id="wilcoxon-signed-rank-test">Wilcoxon signed-rank test</h4>
-<p>You are a researcher interested in whether a reading intervention helps children. You assess children’s reading skills and then give them all an intensive reading intervention. You then measure their reading abilities again.</p>
-<p>Here is the data:</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+`````
+
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 1: What is the test statistic?**</span>
+
+::: {.callout-tip collapse="true"}
+## Expand for hints!
+
+To calculate this, you will need to work through the following steps:
+
+- Rank the data
+
+- Sum the ranks for each group
+
+- Calculate the mean rank for each group
+
+- Calculate the sum of ranks minus mean rank for each group
+
+- Use this information to identify the test statistic
+
+If you are still unsure, have another look at the lecture.
+
+:::
+
+<span style="color:purple">**QUESTION 2: What might R report as the test statistic and why?**</span>
+
+#### Wilcoxon signed-rank test
+
+You are a researcher interested in whether a reading intervention helps children. You assess children’s reading skills and then give them all an intensive reading intervention. You then measure their reading abilities again. 
+
+Here is the data:
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
@@ -521,61 +531,64 @@ Expand for hints!
 </table>
 
 
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 3: What is the test statistic?</strong></span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expand for hints!
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To calculate this, you will need to work through the following steps:</p>
-<ul>
-<li><p>Calculate the difference between “Before intervention” and “After intervention”</p></li>
-<li><p>Note whether the difference is positive or negative</p></li>
-<li><p>Rank the difference</p></li>
-<li><p>Add up positive ranks and negative ranks</p></li>
-<li><p>Use this information to identify the test statistic</p></li>
-</ul>
-<p>If you are still unsure, have another look at the lecture.</p>
-</div>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 4: What might R report as the test statistic and why?</strong></span></p>
-</section>
-<section id="activity-2-answers" class="level3">
-<h3 class="anchored" data-anchor-id="activity-2-answers">Activity 2 answers</h3>
-<section id="wilcoxon-rank-sum-test-1" class="level4">
-<h4 class="anchored" data-anchor-id="wilcoxon-rank-sum-test-1">Wilcoxon rank-sum test</h4>
-<p><span style="color:purple"><strong>QUESTION 1 ANSWER:</strong></span></p>
-<p><span style="color:purple">Test statistic = 4.5</span></p>
-<p><span style="color:purple"><strong>QUESTION 2 ANSWER: What might R report as the test statistic and why?</strong></span></p>
-<p><span style="color:purple">R reports the test statistic (<em>W</em>) as the sum of ranks minus the mean rank for the first factor level. R may therefore report the test statistic as 4.5 or 7.5.</span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-How were these answers calculated?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Here is the how these answers were computed:</p>
-<p><strong>STEPS</strong>:</p>
-<p><strong>Rank the data:</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+`````
+
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 3: What is the test statistic?**</span>
+
+::: {.callout-tip collapse="true"}
+## Expand for hints!
+
+To calculate this, you will need to work through the following steps:
+
+- Calculate the difference between “Before intervention” and “After intervention”
+
+- Note whether the difference is positive or negative
+
+- Rank the difference
+
+- Add up positive ranks and negative ranks
+
+- Use this information to identify the test statistic
+
+If you are still unsure, have another look at the lecture.
+:::
+
+<span style="color:purple">**QUESTION 4: What might R report as the test statistic and why?**</span>
+
+### Activity 2 answers
+
+#### Wilcoxon rank-sum test
+
+<span style="color:purple">**QUESTION 1 ANSWER:**</span>
+
+<span style="color:purple">Test statistic = 4.5</span>
+
+<span style="color:purple">**QUESTION 2 ANSWER: What might R report as the test statistic and why?**</span>
+
+<span style="color:purple">R reports the test statistic (*W*) as the sum of ranks minus the mean rank for the first factor level. R may therefore report the test statistic as 4.5 or 7.5.</span>
+
+::: {.callout-tip collapse="true"}
+## How were these answers calculated?
+
+Here is the how these answers were computed:
+
+**STEPS**:
+
+**Rank the data:**
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Group</th>
@@ -623,47 +636,64 @@ How were these answers calculated?
 </table>
 
 
-</div>
-</div>
-<p><strong>Sum the ranks per group:</strong></p>
-<p>4 cups = 13.5</p>
-<p>0 cups = 14.5</p>
-<p><strong>Calculate the mean rank per group:</strong></p>
-<p>4 cups = 3*4 = 12. 12/2 = 6</p>
-<p>0 cups = 4*5 = 20. 20/2 = 10</p>
-<p><strong>Calculate the sum of ranks minus mean rank per group:</strong></p>
-<p>4 cups = 13.5-6 = 7.5</p>
-<p>0 cups = 14.5-10 = 4.5</p>
-<p><strong>Identify the test statistic:</strong></p>
-<p>Test statistic = The lowest sum of ranks. Test statistic = 4.5</p>
-</div>
-</div>
-</div>
-</section>
-<section id="wilcoxon-signed-rank-test-1" class="level4">
-<h4 class="anchored" data-anchor-id="wilcoxon-signed-rank-test-1">Wilcoxon signed-rank test</h4>
-<p><span style="color:purple"><strong>QUESTION 3: What is the test statistic?“</strong></span></p>
-<p><span style="color:purple"><em>V</em> = 0</span></p>
-<p><span style="color:purple"><strong>QUESTION 4: What might R report as the test statistic and why?</strong></span></p>
-<p><span style="color:purple"><em>V</em> = 0 or 10. <em>V</em> is equal to the sum of positive ranks. But whether ranks are positive or negative depends on whether you enter “before” or “after” first into the wilcox.test function (as this determines whether you calculate the difference by doing before-after or after-before).</span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-How were these answers calculated?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Here is how these answers were computed:</p>
-<p><strong>STEPS</strong>:</p>
-<p><strong>Calculate the difference between “Before intervention” and “After intervention”:</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+`````
+
+:::
+:::
+
+
+
+**Sum the ranks per group:**
+
+4 cups = 13.5
+
+0 cups = 14.5
+
+**Calculate the mean rank per group:**
+
+4 cups = 3\*4 = 12. 12/2 = 6
+
+0 cups = 4\*5 = 20. 20/2 = 10
+
+**Calculate the sum of ranks minus mean rank per group:**
+
+4 cups = 13.5-6 = 7.5
+
+0 cups = 14.5-10 = 4.5
+
+**Identify the test statistic:**
+
+Test statistic = The lowest sum of ranks. Test statistic = 4.5
+
+:::
+
+#### Wilcoxon signed-rank test
+
+<span style="color:purple">**QUESTION 3: What is the test statistic?"**</span>
+
+<span style="color:purple">*V* = 0</span>
+
+<span style="color:purple">**QUESTION 4: What might R report as the test statistic and why?**</span>
+
+<span style="color:purple">*V* = 0 or 10. *V* is equal to the sum of positive ranks. But whether ranks are positive or negative depends on whether you enter “before” or “after” first into the wilcox.test function (as this determines whether you calculate the difference by doing before-after or after-before).</span>
+
+::: {.callout-tip collapse="true"}
+## How were these answers calculated?
+
+Here is how these answers were computed:
+
+**STEPS**:
+
+**Calculate the difference between “Before intervention” and “After intervention”:**
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
@@ -701,12 +731,23 @@ How were these answers calculated?
 </table>
 
 
-</div>
-</div>
-<p><strong>Note whether the difference is positive or negative:</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+`````
+
+:::
+:::
+
+
+
+**Note whether the difference is positive or negative:**
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
@@ -750,12 +791,23 @@ How were these answers calculated?
 </table>
 
 
-</div>
-</div>
-<p><strong>Rank the difference:</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+`````
+
+:::
+:::
+
+
+
+**Rank the difference:**
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
@@ -805,200 +857,275 @@ How were these answers calculated?
 </table>
 
 
-</div>
-</div>
-<p><strong>Add up positive ranks and negative ranks:</strong></p>
-<p>Positive ranks: 0</p>
-<p>Negative ranks: 10</p>
-<p><strong>Identify the test statistic:</strong></p>
-<p><em>V</em> = 0</p>
-</div>
-</div>
-</div>
-</section>
-</section>
-</section>
-<section id="activity-3-interpreting-r-output" class="level2">
-<h2 class="anchored" data-anchor-id="activity-3-interpreting-r-output">Activity 3: Interpreting R output</h2>
-<p>This activity is aimed at supporting your interpretation of R output. Part 1 uses an independent groups design. Part 2 uses a repeated measures design. Please note, this data are different to that used in Activity 2 (so the test statistics will be different). The answers are below.</p>
-<section id="an-independent-groups-design" class="level4">
-<h4 class="anchored" data-anchor-id="an-independent-groups-design">1. An independent groups design</h4>
-<p>You are a researcher interested in whether the number of cups of tea drank affects how many admin tasks participants can get done in an hour. You assign participants to one of two groups (drink 4 cups of tea a day or drink 0 cups of tea a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete.</p>
-<p>The R output is below:</p>
-<section id="testing-the-assumption-of-normality" class="level5">
-<h5 class="anchored" data-anchor-id="testing-the-assumption-of-normality">Testing the assumption of normality</h5>
-<section id="q-q-plots" class="level6">
-<h6 class="anchored" data-anchor-id="q-q-plots">Q-Q plots:</h6>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week6_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="shapiro-wilk-test" class="level6">
-<h6 class="anchored" data-anchor-id="shapiro-wilk-test">Shapiro-Wilk test:</h6>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
+`````
+
+:::
+:::
+
+
+
+**Add up positive ranks and negative ranks:**
+
+Positive ranks: 0
+
+Negative ranks: 10
+
+**Identify the test statistic:**
+
+*V* = 0
+
+:::
+
+## Activity 3: Interpreting R output
+
+This activity is aimed at supporting your interpretation of R output. Part 1 uses an independent groups design. Part 2 uses a repeated measures design. Please note, this data are different to that used in Activity 2 (so the test statistics will be different). The answers are below.
+
+#### 1. An independent groups design
+
+You are a researcher interested in whether the number of cups of tea drank affects how many admin tasks participants can get done in an hour. You assign participants to one of two groups (drink 4 cups of tea a day or drink 0 cups of tea a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete. 
+
+The R output is below:
+
+##### Testing the assumption of normality 
+
+###### Q-Q plots:
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](Week6_files/figure-html/unnamed-chunk-8-1.png){width=672}
+:::
+:::
+
+
+
+###### Shapiro-Wilk test:
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 2 × 4
   tea_group variable    statistic      p
-  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
+  <chr>     <chr>           <dbl>  <dbl>
 1 0 cups    admin_tasks     0.958 0.801 
-2 4 cups    admin_tasks     0.728 0.0120</code></pre>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 1: Is the assumption violated?</strong></span></p>
-</section>
-</section>
-<section id="descriptive-statistics-and-model-output" class="level5">
-<h5 class="anchored" data-anchor-id="descriptive-statistics-and-model-output">Descriptive statistics and model output:</h5>
-<p>Descriptive statistics:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 5
+2 4 cups    admin_tasks     0.728 0.0120
+```
+
+
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 1: Is the assumption violated?**</span>
+
+##### Descriptive statistics and model output:
+
+Descriptive statistics:
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 2 × 5
   tea_group   med   min   max `n()`
-  &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+  <chr>     <dbl> <int> <int> <int>
 1 0 cups      5.5     2     9     6
-2 4 cups     17       1    35     6</code></pre>
-</div>
-</div>
-<p>Model output:</p>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
-compute exact p-value with ties</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
+2 4 cups     17       1    35     6
+```
+
+
+:::
+:::
+
+
+
+
+Model output:
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
+compute exact p-value with ties
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+
     Wilcoxon rank sum test with continuity correction
 
 data:  admin_tasks by tea_group
 W = 17, p-value = 0.9357
-alternative hypothesis: true location shift is not equal to 0</code></pre>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 2: What can we conclude? Report in APA format.</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 3: How was the p-value calculated?</strong></span></p>
-</section>
-</section>
-<section id="a-repeated-measures-design" class="level4">
-<h4 class="anchored" data-anchor-id="a-repeated-measures-design">2. A repeated measures design</h4>
-<p>You are a researcher interested in whether the amount of chocolate (in grams) eaten is different on a Saturday to a Monday. The R output is below:</p>
-<section id="testing-the-assumption-of-normality-1" class="level5">
-<h5 class="anchored" data-anchor-id="testing-the-assumption-of-normality-1">Testing the assumption of normality</h5>
-<p>Q-Q plot:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week6_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Shapiro-Wilk test:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 3
+alternative hypothesis: true location shift is not equal to 0
+```
+
+
+:::
+:::
+
+
+<span style="color:purple">**QUESTION 2: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">**QUESTION 3: How was the p-value calculated?**</span>
+
+#### 2. A repeated measures design
+
+You are a researcher interested in whether the amount of chocolate (in grams) eaten is different on a Saturday to a Monday. The R output is below:
+
+##### Testing the assumption of normality 
+
+Q-Q plot: 
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](Week6_files/figure-html/unnamed-chunk-12-1.png){width=672}
+:::
+:::
+
+
+
+Shapiro-Wilk test:
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 1 × 3
   variable                     statistic p.value
-  &lt;chr&gt;                            &lt;dbl&gt;   &lt;dbl&gt;
-1 chocolate_dataset$Difference     0.769  0.0132</code></pre>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 4: Is the assumption violated?</strong></span></p>
-</section>
-<section id="descriptive-statistics-and-model-output-1" class="level5">
-<h5 class="anchored" data-anchor-id="descriptive-statistics-and-model-output-1">Descriptive statistics and model output:</h5>
-<p>Descriptive statistics:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  median_sat median_mon min_sat min_mon max_sat max_mon n()
-1        232         18     230       4     235      33   8</code></pre>
-</div>
-</div>
-<p>Model output:</p>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in wilcox.test.default(chocolate_dataset$Saturday,
-chocolate_dataset$Monday, : cannot compute exact p-value with ties</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
+  <chr>                            <dbl>   <dbl>
+1 chocolate_dataset$Difference     0.769  0.0132
+```
+
+
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 4: Is the assumption violated?**</span>
+
+##### Descriptive statistics and model output:
+
+Descriptive statistics:
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+  median_sat median_mon min_sat min_mon max_sat max_mon n()
+1        232         18     230       4     235      33   8
+```
+
+
+:::
+:::
+
+
+Model output:
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in wilcox.test.default(chocolate_dataset$Saturday,
+chocolate_dataset$Monday, : cannot compute exact p-value with ties
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+
     Wilcoxon signed rank test with continuity correction
 
 data:  chocolate_dataset$Saturday and chocolate_dataset$Monday
 V = 36, p-value = 0.01368
-alternative hypothesis: true location shift is not equal to 0</code></pre>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 5: What can we conclude? Report in APA format.</strong></span></p>
-<p><span style="color:purple"><strong>QUESTION 6: How was the p-value calculated?</strong></span></p>
-</section>
-</section>
-<section id="activity-3-answers" class="level3">
-<h3 class="anchored" data-anchor-id="activity-3-answers">Activity 3 answers</h3>
-<section id="an-independent-groups-design-1" class="level4">
-<h4 class="anchored" data-anchor-id="an-independent-groups-design-1">1. An independent groups design:</h4>
-<p><span style="color:purple"><strong>QUESTION 1: Is the assumption violated?</strong></span></p>
-<p><span style="color:purple">0 cups: The assumption of normality is not violated. The dots generally follow the line well in the Q-Q plot and the Shapiro-Wilk test is non-significant.</span></p>
-<p><span style="color:purple">4 cups: The assumption of normality is violated. Quite a few points deviate from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span></p>
-<p><span style="color:purple"><strong>QUESTION 2: What can we conclude? Report in APA format.</strong></span></p>
-<p><span style="color:purple">The Wilcoxon rank-sum test revealed no significant difference between the number of admin tasks completed in the 4 cup group (Median = 17, Range = 1-35) and the 0 cup group (Median = 5.5, Range = 2-9; <em>W</em> = 17, <em>p</em> = .936).</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><span style="color:purple">In practice, you should also calculate the effect size and report that.</span></p>
-</div>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 3: How was the p-value calculated?</strong></span></p>
-<p><span style="color:purple">The normal approximation with continuity correction.</span></p>
-</section>
-<section id="a-repeated-measures-design-1" class="level4">
-<h4 class="anchored" data-anchor-id="a-repeated-measures-design-1">2. A repeated measures design</h4>
-<p><span style="color:purple"><strong>QUESTION 4: Is the assumption violated?</strong></span></p>
-<p><span style="color:purple">The assumption of normality appears to be violated. Some points deviate a bit from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span></p>
-<p><span style="color:purple"><strong>QUESTION 5: What can we conclude? Report in APA format.</strong></span></p>
-<p><span style="color:purple">The Wilcoxon signed-rank test revealed that participants ate significantly more grams of chocolate on Saturdays (Median = 232, Range = 230-235) than on Mondays (Median = 18; Range = 4-33), <em>V</em> = 36, <em>p</em> = .014.</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><span style="color:purple">In practice, you should also calculate the effect size and report that.</span></p>
-</div>
-</div>
-</div>
-<p><span style="color:purple"><strong>QUESTION 6: How was the p-value calculated?</strong></span></p>
-<p><span style="color:purple">The normal approximation with continuity correction.</span></p>
-</section>
-</section>
-</section>
-</section>
-<section id="asking-questions" class="level1">
-<h1>Asking questions</h1>
-<p>If you have any questions about this week’s content, please post them on the discussion board <a href="https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905">here</a>. If you prefer to remain anonymous, you can post questions anonymously <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cCNtcyOuNhw62ai">here</a>. I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&amp;A session.</p>
+alternative hypothesis: true location shift is not equal to 0
+```
 
 
+:::
+:::
+
+
+<span style="color:purple">**QUESTION 5: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span>
+
+### Activity 3 answers
+
+#### 1. An independent groups design:
+
+<span style="color:purple">**QUESTION 1: Is the assumption violated?**</span>
+
+<span style="color:purple">0 cups: The assumption of normality is not violated. The dots generally follow the line well in the Q-Q plot and the Shapiro-Wilk test is non-significant.</span>
+
+<span style="color:purple">4 cups: The assumption of normality is violated. Quite a few points deviate from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span>
+
+<span style="color:purple">**QUESTION 2: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">The Wilcoxon rank-sum test revealed no significant difference between the number of admin tasks completed in the 4 cup group (Median = 17, Range = 1-35) and the 0 cup group (Median = 5.5, Range = 2-9; *W* = 17, *p* = .936).</span>
+
+::: {.callout-note collapse="true"}
+## Note
+<span style="color:purple">In practice, you should also calculate the effect size and report that.</span>
+:::
+
+<span style="color:purple">**QUESTION 3: How was the p-value calculated?**</span>
+
+<span style="color:purple">The normal approximation with continuity correction.</span>
+
+#### 2. A repeated measures design
+
+<span style="color:purple">**QUESTION 4: Is the assumption violated?**</span>
+
+<span style="color:purple">The assumption of normality appears to be violated. Some points deviate a bit from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span>
+
+<span style="color:purple">**QUESTION 5: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">The Wilcoxon signed-rank test revealed that participants ate significantly more grams of chocolate on Saturdays (Median = 232, Range = 230-235) than on Mondays (Median = 18; Range = 4-33), *V* = 36, *p* = .014.</span>
+
+::: {.callout-note collapse="true"}
+## Note
+<span style="color:purple">In practice, you should also calculate the effect size and report that.</span>
+:::
+
+<span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span>
+
+<span style="color:purple">The normal approximation with continuity correction.</span>
+
+# Asking questions
+
+If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cCNtcyOuNhw62ai). I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.
+
+-->
+
+
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

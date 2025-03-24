@@ -244,6 +244,8 @@ Running the factor analysis takes but a moment.  It is the checking and interpre
 
 # Binomial Test
 
+<!--
+
 ## Lecture material
 
 Watch part two of the Week 15 lecture (on the binomial test)
@@ -252,7 +254,7 @@ Watch part two of the Week 15 lecture (on the binomial test)
 The lecture slides (both .ppt and .pdf) versions can be downloaded
 [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507030).
 
-
+--> 
 ## Running the code in the lecture
 
 Please note that binomial test will not be covered in the Week 15 lab -
@@ -266,6 +268,7 @@ you would simply run the following code in R:
 binom.test(13, 14, 0.5)
 ```
 
+<!--
 ## Independent learning activities
 
 Below are some independent learning activities you can have a go at to
@@ -365,3 +368,4 @@ anonymously"](https://modules.lancaster.ac.uk/mod/url/view.php?id=2507035).
 I will then copy your question to the discussion forum and answer it
 there and/or cover it in next Q&A session.
 
+-->

@@ -347,15 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#binomial-test" id="toc-binomial-test" class="nav-link" data-scroll-target="#binomial-test">Binomial Test</a>
   <ul class="collapse">
-  <li><a href="#lecture-material" id="toc-lecture-material" class="nav-link" data-scroll-target="#lecture-material">Lecture material</a></li>
   <li><a href="#running-the-code-in-the-lecture" id="toc-running-the-code-in-the-lecture" class="nav-link" data-scroll-target="#running-the-code-in-the-lecture">Running the code in the lecture</a></li>
-  <li><a href="#independent-learning-activities" id="toc-independent-learning-activities" class="nav-link" data-scroll-target="#independent-learning-activities">Independent learning activities</a>
-  <ul class="collapse">
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
-  <li><a href="#activity-2" id="toc-activity-2" class="nav-link" data-scroll-target="#activity-2">Activity 2</a></li>
-  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">Answers</a></li>
-  </ul></li>
-  <li><a href="#asking-questions" id="toc-asking-questions" class="nav-link" data-scroll-target="#asking-questions">Asking questions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -569,11 +561,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="binomial-test" class="level1">
 <h1>Binomial Test</h1>
-<section id="lecture-material" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-material">Lecture material</h2>
-<p>Watch part two of the Week 15 lecture (on the binomial test) <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6">here</a>.</p>
-<p>The lecture slides (both .ppt and .pdf) versions can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507030">here</a>.</p>
-</section>
+<!--
+
+## Lecture material
+
+Watch part two of the Week 15 lecture (on the binomial test)
+[here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6).
+
+The lecture slides (both .ppt and .pdf) versions can be downloaded
+[here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507030).
+
+-->
 <section id="running-the-code-in-the-lecture" class="level2">
 <h2 class="anchored" data-anchor-id="running-the-code-in-the-lecture">Running the code in the lecture</h2>
 <p>Please note that binomial test will not be covered in the Week 15 lab - as described in the lecture, this is a very straightforward test to run in R that can be performed with just a single line of code.</p>
@@ -594,55 +592,107 @@ probability of success
              0.9285714 </code></pre>
 </div>
 </div>
-</section>
-<section id="independent-learning-activities" class="level2">
-<h2 class="anchored" data-anchor-id="independent-learning-activities">Independent learning activities</h2>
-<p>Below are some independent learning activities you can have a go at to help consolidate the lecture content on the binomial test. These are optional, but recommended. The answers are found below.</p>
-<section id="activity-1" class="level3">
-<h3 class="anchored" data-anchor-id="activity-1">Activity 1</h3>
-<p><strong>One sample-test or binomial test?</strong></p>
-<p>Disclaimer: All of these statistics are made up.</p>
-<p>For the following examples, write down whether you think the test conducted should be a one-sample t-test or a binomial test.</p>
-<ol type="1">
-<li><p>You are the coach of a football team. You are interested in whether the running distance of your players significantly differs from the England national football team. You know, on average, England football players run 10km per game.</p></li>
-<li><p>You are the coach of a football team. You are interested in whether the proportion of games your team scores a goal is significantly different from that of the England national team. You know that on average, the England national team scores a goal in 60% of games.</p></li>
-<li><p>You are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies born in your hospital are quite small. You are interested in whether the proportion of babies who are classed as “small for gestational age” differs between your hospital and the UK average (10%).</p></li>
-<li><p>You are a neonatal doctor (a doctor who specialising in caring for newborn babies). You think that babies that are born in your hospital are quite small. You are interested in whether the average weight of babies born at your hospital is significantly less than the UK average (3350g).</p></li>
-</ol>
-</section>
-<section id="activity-2" class="level3">
-<h3 class="anchored" data-anchor-id="activity-2">Activity 2</h3>
-<p><strong>Identifying “success”</strong></p>
-<ol type="1">
-<li><p>You are the headteacher of a grammar school which has an entrance exam. You are interested in whether the proportion of children failing the test differs significantly from last year. The failure rate last year was 24% (or 0.24 expressed as a proportion).</p></li>
-<li><p>You have developed a new flu vaccine. You are interested in whether the proportion of people who develop side effects after your vaccine differs from the flu vaccine currently used by the NHS (37%, or 0.37 expressed as a proportion).</p></li>
-</ol>
-</section>
-<section id="answers" class="level3">
-<h3 class="anchored" data-anchor-id="answers">Answers</h3>
-<section id="activity-1-1" class="level4">
-<h4 class="anchored" data-anchor-id="activity-1-1">Activity 1:</h4>
-<ol type="1">
-<li><p>One-sample t-test. The value for each individual is continuous.You are interested in whether the mean number of km runs differs from a known value.</p></li>
-<li><p>Binomial test. Two possible outcomes: team scores or team does not score). You are interested in whether the proportion that a given outcome occurs (i.e.&nbsp;your team scores a goal) differs from a known value.</p></li>
-<li><p>Binomial test. Two possible outcomes: Each baby’s outcome is either “small for gestational age” or “not small for gestational age”. You are interested in whether the proportion that a given outcome occurs (i.e.&nbsp;small for gestational age) differs from a known value.</p></li>
-<li><p>One-sample t-test. The value for each individual is continuous. You are interested in whether the mean weight of babies at your hospital differs from a known value.</p></li>
-</ol>
-<p>Take-home message: A one sample t-test is used when you are interested in comparing the mean of a sample to a known value. The binomial test is used when you are interested in comparing a sample’s proportion of “successes” to a known value.</p>
-</section>
-<section id="activity-2-1" class="level4">
-<h4 class="anchored" data-anchor-id="activity-2-1">Activity 2</h4>
-<ol type="1">
-<li><p>Success: failing the test. Failure: passing the test.</p></li>
-<li><p>Success: Has side effects. Failure: Does not have side effects.</p></li>
-</ol>
-<p>Take home message: Success refers to the outcome you are interested in. Sometimes this might be counterintuitive to how we typically think about ‘success’ (e.g.&nbsp;in the.</p>
-</section>
-</section>
-</section>
-<section id="asking-questions" class="level2">
-<h2 class="anchored" data-anchor-id="asking-questions">Asking questions</h2>
-<p>If you have any questions about the binomial test, please post them on the discussion board <a href="https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905">here</a>. If you prefer to remain anonymous, you can post questions anonymously here: <a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=2507035">“The Binomial Test: Post questions anonymously”</a>. I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&amp;A session.</p>
+<!--
+## Independent learning activities
+
+Below are some independent learning activities you can have a go at to
+help consolidate the lecture content on the binomial test. These are
+optional, but recommended. The answers are found below.
+
+### Activity 1
+
+**One sample-test or binomial test?**
+
+Disclaimer: All of these statistics are made up.
+
+For the following examples, write down whether you think the test
+conducted should be a one-sample t-test or a binomial test.
+
+1.  You are the coach of a football team. You are interested in whether
+    the running distance of your players significantly differs from the
+    England national football team. You know, on average, England
+    football players run 10km per game.
+
+2.  You are the coach of a football team. You are interested in whether
+    the proportion of games your team scores a goal is significantly
+    different from that of the England national team. You know that on
+    average, the England national team scores a goal in 60% of games.
+
+3.  You are a neonatal doctor (a doctor who specialising in caring for
+    newborn babies). You think that babies born in your hospital are
+    quite small. You are interested in whether the proportion of babies
+    who are classed as “small for gestational age” differs between your
+    hospital and the UK average (10%).
+
+4.  You are a neonatal doctor (a doctor who specialising in caring for
+    newborn babies). You think that babies that are born in your
+    hospital are quite small. You are interested in whether the average
+    weight of babies born at your hospital is significantly less than
+    the UK average (3350g).
+
+### Activity 2
+
+**Identifying “success”**
+
+1.  You are the headteacher of a grammar school which has an entrance
+    exam. You are interested in whether the proportion of children
+    failing the test differs significantly from last year. The failure
+    rate last year was 24% (or 0.24 expressed as a proportion).
+
+2.  You have developed a new flu vaccine. You are interested in whether
+    the proportion of people who develop side effects after your vaccine
+    differs from the flu vaccine currently used by the NHS (37%, or 0.37
+    expressed as a proportion).
+
+### Answers
+
+#### Activity 1:
+
+1.  One-sample t-test. The value for each individual is continuous.You
+    are interested in whether the mean number of km runs differs from a
+    known value.
+
+2.  Binomial test. Two possible outcomes: team scores or team does not
+    score). You are interested in whether the proportion that a given
+    outcome occurs (i.e. your team scores a goal) differs from a known
+    value.
+
+3.  Binomial test. Two possible outcomes: Each baby’s outcome is either
+    “small for gestational age” or “not small for gestational age”. You
+    are interested in whether the proportion that a given outcome occurs
+    (i.e. small for gestational age) differs from a known value.
+
+4.  One-sample t-test. The value for each individual is continuous. You
+    are interested in whether the mean weight of babies at your hospital
+    differs from a known value.
+
+Take-home message: A one sample t-test is used when you are interested
+in comparing the mean of a sample to a known value. The binomial test is
+used when you are interested in comparing a sample’s proportion of
+“successes” to a known value.
+
+#### Activity 2
+
+1.  Success: failing the test. Failure: passing the test.
+
+2.  Success: Has side effects. Failure: Does not have side effects.
+
+Take home message: Success refers to the outcome you are interested in.
+Sometimes this might be counterintuitive to how we typically think about
+‘success’ (e.g. in the.
+
+## Asking questions
+
+If you have any questions about the binomial test, please post them on
+the discussion board
+[here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905).
+If you prefer to remain anonymous, you can post questions anonymously
+here: ["The Binomial Test: Post questions
+anonymously"](https://modules.lancaster.ac.uk/mod/url/view.php?id=2507035).
+I will then copy your question to the discussion forum and answer it
+there and/or cover it in next Q&A session.
+
+-->
 
 
 </section>

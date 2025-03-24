@@ -11,6 +11,7 @@ library(DescTools)
 options(scipen = 999)
 ```
 
+<!--
 # Lecture
 
 [Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e11776-9467-4cae-98c3-b288009fb455): This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.
@@ -22,6 +23,8 @@ options(scipen = 999)
 [Part 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d813199b-569c-4d79-83bc-b288009fb3ac): This part covers how to run a binary logistic regression model with one categorical predictor in R, and how to interpret the output
 
 Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507066) in both .pptx and .pdf format.
+
+-->
 
 # Lab preparation
 
@@ -89,6 +92,7 @@ A model script showing one way of answering the (optional) pen research question
 
 [Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507079) is feedback on the one valid student submission this week. 
 
+<!--
 
 # Independent learning activities 
 
@@ -344,3 +348,4 @@ McFadden = 0.19, CoxSnell = 0.16, Nagelkerke = 0.27</span>
 
 If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_b1v7RbIFYA6phvo). I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&A session.
 
+-->
