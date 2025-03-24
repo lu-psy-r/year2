@@ -4,7 +4,7 @@ subtitle: Emma Mills
 order: 2
 ---
 
-<!---
+
 # Lecture
 
 The lecture for week 11 is [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=72b44e8c-e901-4f4c-baa7-b25f01282d16). Please note, it is best to view the video using the screen viewer. That way you see the moving cursor and when I move to the RStudio demonstration at around 37 minutes, you will see everything. If you have the slide viewer selected, then around 37 minutes, you will need to move to the screen view so that you can see the RStudio demonstration.
@@ -37,7 +37,6 @@ Chapters 9, 10 and 11 from Howell, D. C. (2017). Fundamental statistics for the 
 
 The link to this week's multiple choice quiz is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506928)
 
---->
 
 # Overview of Learning Model in 234
 
