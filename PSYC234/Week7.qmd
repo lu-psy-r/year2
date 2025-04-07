@@ -12,7 +12,6 @@ library(ggpubr) # required for ggqqplot
 library(rstatix) # required for running Shapiro-Wilk test, calculating effect sizes and the post-hoc tests
 ```
 
-<!--
 # Lecture
 
 This lecture comprises two parts: 
@@ -22,8 +21,6 @@ This lecture comprises two parts:
 [Part 2](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5f0459a1-a02b-498b-91d9-b27e00da587b): This part covers how to assess the assumption of normality when you have three or more repeated measures,the theory behind the Friedman's ANOVA, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.
 
 Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507051) in both .pptx and .pdf format.
-
--->
 
 # Lab preparation
 
@@ -88,8 +85,6 @@ A model script showing one way of answering the research questions above using R
 ## Feedback on student scripts
 
 [Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507061) is some feedback on a few scripts submitted by students.
-
-<!--
 
 # Independent learning activities 
 
@@ -340,5 +335,3 @@ conditions (*p* = .155).</span>
 # Asking questions
 
 If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_8wSXoYOaJTO7oMK). I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.
-
--->

@@ -12,8 +12,6 @@ library(tidyverse)
 library(rstatix)
 ```
 
-<!--
-
 # Lecture
 
 This lecture comprises four parts: 
@@ -27,8 +25,6 @@ This lecture comprises four parts:
 [Part 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115): This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.
 
 Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507037) in both .pptx and .pdf format.
-
--->
 
 # Lab preparation
 
@@ -88,7 +84,6 @@ A model script showing one way of answering the research questions above using R
 
 [Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507047) is some feedback on a few scripts submitted by students.
 
-<!--
 # Independent learning activities 
 
 Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
@@ -444,5 +439,3 @@ model2
 # Asking questions
 
 If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cCNtcyOuNhw62ai). I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.
-
--->

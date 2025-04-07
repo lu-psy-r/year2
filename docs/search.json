@@ -270,7 +270,7 @@
     "href": "PSYC234/Week6.html",
     "title": "6. Wilcoxon rank-sum test and Wilcoxon signed-rank test",
     "section": "",
-    "text": "Before the lab, please watch the following short video. This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.\nIf you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded here.",
+    "text": "This lecture comprises four parts:\nPart 1: This part covers an introduction to non-parametric tests and when they might be useful to consider.\nPart 2: This part covers how to test the assumption of normality with two independent groups.\nPart 3: This part introduces you to the Wilcoxon rank-sum test. This includes when to use this test, the theory behind it, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.\nPart 4: This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.\nDownload all the lecture slides here in both .pptx and .pdf format.",
     "crumbs": [
       "Home",
       "PSYC234",
@@ -690,7 +690,7 @@
     "href": "PSYC234/Week9.html",
     "title": "9. Expanding on binary logistic regression",
     "section": "",
-    "text": "Before the lab, please watch the following short video. This covers how to run an ordinal logistic regression model in R.\nIf you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded here. The script also contains an example of how to run a multiple binary logistic regression model in R.",
+    "text": "Part 1: This part covers how to conduct binary logistic regression with different types of predictors.\nPart 2: This part covers binary logistic regression with multiple predictors.\nPart 3: This part covers ordinal logistic regression.\nDownload all the lecture slides here in both .pptx and .pdf format.",
     "crumbs": [
       "Home",
       "PSYC234",
@@ -738,7 +738,7 @@
     "href": "PSYC234/Week8.html",
     "title": "8. Binary logistic regression models",
     "section": "",
-    "text": "Before the lab, please watch the following short video. This walks you through how to perform a binary logistic regression model in R.\nIf you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded here.",
+    "text": "Part 1: This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.\nPart 2: This part introduces the concept of odds and odds ratios, and provides an example of how to calculate odds ratios manually (to aid in understanding about what odds and odds ratios represents).\nPart 3: This part covers the assumptions of binary logistic regression when you have one categorical predictor\nPart 4: This part covers how to run a binary logistic regression model with one categorical predictor in R, and how to interpret the output\nDownload all the lecture slides here in both .pptx and .pdf format.",
     "crumbs": [
       "Home",
       "PSYC234",
@@ -916,7 +916,7 @@
     "href": "PSYC234/Week7.html",
     "title": "7. Kruskal-Wallis test and Friedman’s ANOVA",
     "section": "",
-    "text": "Before the lab, please watch the following short video. This walks you through how to perform a Kruskal-Wallis test and Friedman’s ANOVA in R.\nIf you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded here.",
+    "text": "This lecture comprises two parts:\nPart 1: This part covers how to assess the assumption of normality when you have three or more independent groups, the theory behind the Kruskal-Wallis test, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.\nPart 2: This part covers how to assess the assumption of normality when you have three or more repeated measures,the theory behind the Friedman’s ANOVA, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.\nDownload all the lecture slides here in both .pptx and .pdf format.",
     "crumbs": [
       "Home",
       "PSYC234",
