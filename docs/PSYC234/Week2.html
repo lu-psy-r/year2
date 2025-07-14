@@ -351,7 +351,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-12-multiple-regression-with-categorical-predictors" id="toc-week-12-multiple-regression-with-categorical-predictors" class="nav-link active" data-scroll-target="#week-12-multiple-regression-with-categorical-predictors">Week 12: Multiple Regression with Categorical Predictors</a>
+  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a>
+  <ul class="collapse">
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a></li>
+  <li><a href="#pre-lab-activity" id="toc-pre-lab-activity" class="nav-link" data-scroll-target="#pre-lab-activity">Pre-Lab Activity</a></li>
+  <li><a href="#test-yourself" id="toc-test-yourself" class="nav-link" data-scroll-target="#test-yourself">Test Yourself</a></li>
+  <li><a href="#week-12-multiple-regression-with-categorical-predictors" id="toc-week-12-multiple-regression-with-categorical-predictors" class="nav-link" data-scroll-target="#week-12-multiple-regression-with-categorical-predictors">Week 12: Multiple Regression with Categorical Predictors</a>
   <ul class="collapse">
   <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data">Import the Data</a></li>
   <li><a href="#tidy" id="toc-tidy" class="nav-link" data-scroll-target="#tidy">Tidy</a></li>
@@ -382,6 +387,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#submit-scripts" id="toc-submit-scripts" class="nav-link" data-scroll-target="#submit-scripts">Submit Scripts</a></li>
   </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -408,46 +414,58 @@ window.Quarto = {
 </header>
 
 
-<!--
-
-# Lecture
-
-[Lecture Link](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9326aee0-b700-4373-b019-b26401385879&start=0)
-
-## Materials
-
-There are two folders to download for week 12:  I separated the materials into files tha R will upload, or should upload with no error; and .docx or .pdf files that R would not like.  Please store the second folder somewhere for your use.
-
- - The first folder is a zipped folder called Week 12 234 Materials.zip. It can be downloaded [here](data/Wk2/Week_12_234_Materials.zip). You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
- - The second folder is called "Week_12_234_Slides_Codebook". The slides are for the lecture; the Codebook is paired with the "student-por.csv" dataset, for the pre-lab and lab activity is available in a folder for download [here](data/Wk2/Week_12_234_Slides_Codebook.zip).
- 
-## Pre-Lab Activity
-
-  1. Watch the lecture before you attempt anything!
-  2. Download the zip files and upload to your R account
-  3. In the `Week 12 Lab Materials` folder is an `Outputs` folder - go and find the `Model Summary Output.png` file and have a look at the regression model output
-  4. Begin by interpreting the model summary, as far as you can (as we did in Lab 11).
-  5. Next get the analysis work flow diagram and begin to think about what piece of code do you need for each stage
-  6. Start a script and import the dataset.  Use the lecture and the model script `Multiple_Regression_Categorical_Predictors_2025.Rmd` in the `Week 12 lecture materials` folder to think about what processes may you need to perform to get to a model that looks like the output.
-  7. Write a plan of how you might approach an analysis to get to this model
-   - you could write bullet points against the stages of the analysis workflow diagram
-  8. You might want to stop at this point - wanting some confirmation from your peers or staff; you could:
-   - post to the discussion forum at this point and we could discuss it
-   - talk amongst your peers and work together on it in independent study time - forming a small study group for this process
-   - wait until the lab and bring ideas then...
-   
-     The first two suggestions will help you grow in confidence faster. I promise, talking to each other - those horizontal conversations - will both let you share understanding, and also identify where some of my messaging is unclear and needs clarification or that the group of you just don't get it and staff input would be helpful.  And at this point, the benefit is that you don't feel so alone in your uncertainty because you can see that other people are a bit stuck too.
-  
-::: {.callout-tip}
-## My predictor labels and suffixes
-The model output has several predictors with suffixes, demarcated by and underscore '_' and a letter e.g. '_h'; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.
-:::
- 
-## Test Yourself
-
-The link to this week's multiple choice quiz, WBA 2, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506929)
-
--->
+<section id="lecture" class="level1">
+<h1>Lecture</h1>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9326aee0-b700-4373-b019-b26401385879&amp;start=0">Lecture Link</a></p>
+<section id="materials" class="level2">
+<h2 class="anchored" data-anchor-id="materials">Materials</h2>
+<p>There are two folders to download for week 12: I separated the materials into files tha R will upload, or should upload with no error; and .docx or .pdf files that R would not like. Please store the second folder somewhere for your use.</p>
+<ul>
+<li>The first folder is a zipped folder called Week 12 234 Materials.zip. It can be downloaded <a href="data/Wk2/Week_12_234_Materials.zip">here</a>. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.</li>
+<li>The second folder is called “Week_12_234_Slides_Codebook”. The slides are for the lecture; the Codebook is paired with the “student-por.csv” dataset, for the pre-lab and lab activity is available in a folder for download <a href="data/Wk2/Week_12_234_Slides_Codebook.zip">here</a>.</li>
+</ul>
+</section>
+<section id="pre-lab-activity" class="level2">
+<h2 class="anchored" data-anchor-id="pre-lab-activity">Pre-Lab Activity</h2>
+<ol type="1">
+<li>Watch the lecture before you attempt anything!</li>
+<li>Download the zip files and upload to your R account</li>
+<li>In the <code>Week 12 Lab Materials</code> folder is an <code>Outputs</code> folder - go and find the <code>Model Summary Output.png</code> file and have a look at the regression model output</li>
+<li>Begin by interpreting the model summary, as far as you can (as we did in Lab 11).</li>
+<li>Next get the analysis work flow diagram and begin to think about what piece of code do you need for each stage</li>
+<li>Start a script and import the dataset. Use the lecture and the model script <code>Multiple_Regression_Categorical_Predictors_2025.Rmd</code> in the <code>Week 12 lecture materials</code> folder to think about what processes may you need to perform to get to a model that looks like the output.</li>
+<li>Write a plan of how you might approach an analysis to get to this model</li>
+</ol>
+<ul>
+<li>you could write bullet points against the stages of the analysis workflow diagram</li>
+</ul>
+<ol start="8" type="1">
+<li>You might want to stop at this point - wanting some confirmation from your peers or staff; you could:</li>
+</ol>
+<ul>
+<li><p>post to the discussion forum at this point and we could discuss it</p></li>
+<li><p>talk amongst your peers and work together on it in independent study time - forming a small study group for this process</p></li>
+<li><p>wait until the lab and bring ideas then…</p>
+<p>The first two suggestions will help you grow in confidence faster. I promise, talking to each other - those horizontal conversations - will both let you share understanding, and also identify where some of my messaging is unclear and needs clarification or that the group of you just don’t get it and staff input would be helpful. And at this point, the benefit is that you don’t feel so alone in your uncertainty because you can see that other people are a bit stuck too.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+My predictor labels and suffixes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The model output has several predictors with suffixes, demarcated by and underscore ’_’ and a letter e.g.&nbsp;’_h’; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.</p>
+</div>
+</div>
+</section>
+<section id="test-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="test-yourself">Test Yourself</h2>
+<p>The link to this week’s multiple choice quiz, WBA 2, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506929">here</a></p>
+</section>
 <section id="week-12-multiple-regression-with-categorical-predictors" class="level2">
 <h2 class="anchored" data-anchor-id="week-12-multiple-regression-with-categorical-predictors">Week 12: Multiple Regression with Categorical Predictors</h2>
 <p>In the demonstration sections, you can follow along using the <code>Multiple_Regression_Categorical_Predictors_2025.Rmd</code> file.</p>
@@ -1818,6 +1836,7 @@ children 0.04 0.01</code></pre>
 <p>Remember to submit your group scripts if you want the chance to receive feedback on your own and other groups’ scripts.</p>
 
 
+</section>
 </section>
 </section>
 

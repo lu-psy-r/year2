@@ -356,7 +356,14 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#interactions" id="toc-interactions" class="nav-link active" data-scroll-target="#interactions">Interactions</a>
+  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a>
+  <ul class="collapse">
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a></li>
+  <li><a href="#lab-task" id="toc-lab-task" class="nav-link" data-scroll-target="#lab-task">Lab Task</a></li>
+  <li><a href="#pre-lab-activity" id="toc-pre-lab-activity" class="nav-link" data-scroll-target="#pre-lab-activity">Pre-Lab Activity</a></li>
+  <li><a href="#test-yourself" id="toc-test-yourself" class="nav-link" data-scroll-target="#test-yourself">Test Yourself</a></li>
+  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions">Interactions</a>
   <ul class="collapse">
   <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
   <li><a href="#tidy" id="toc-tidy" class="nav-link" data-scroll-target="#tidy">Tidy</a></li>
@@ -371,6 +378,7 @@ window.Quarto = {
   <li><a href="#statistical-power-of-interactions" id="toc-statistical-power-of-interactions" class="nav-link" data-scroll-target="#statistical-power-of-interactions">Statistical Power of Interactions</a></li>
   <li><a href="#preparation-of-data-for-using-interactions" id="toc-preparation-of-data-for-using-interactions" class="nav-link" data-scroll-target="#preparation-of-data-for-using-interactions">Preparation of data for using interactions</a></li>
   <li><a href="#building-a-model-with-interactions" id="toc-building-a-model-with-interactions" class="nav-link" data-scroll-target="#building-a-model-with-interactions">Building a model with interactions</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -398,73 +406,71 @@ window.Quarto = {
 </header>
 
 
-<!--
-
-# Lecture
-
-[Lecture
-Link](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7718c2a4-2676-4b85-ac17-b26d014265c0)
-
-## Slides
-
-[Slides Link](data/Wk3/PSYC234_Week_13_Slides_Student.zip)
-
-## Materials
-
-There are two zipped folders to download for week 13:
-
--   The first folder is a zipped folder called `Lecture_3_Materials.zip`.
-    It can be downloaded [here](data/Wk3/Lecture_3_Materials.zip). This has the
-    model lecture script and the `KidIQ.txt` file that was demonstrated in the lecture
--   The second folder is called `Lab_3_Materials.zip`. In this folder is the 
-    `WorldHappinessReportData.csv` and a half prepared .Rmd file for the lab in week 13.  I did this because it is a really interesting dataset but the tidying and visualisation would take forever....please download it [here](data/Wk3/Lab_3_Materials.zip).
-    
-## Lab Task
-
-We are working with the `WorldHappinessReportData.csv` from the folder listed above.  Upload it to the R server, (preferably before you come to the lab) and complete the `Multiple_Regression_Interactions_Student.Rmd` file using that data.
-
-The model output you are aiming to match is below
-
-![Model output](Images/Wk3/Model%20Output.png)
-
-## Pre-Lab Activity
-
-1.  Watch the lecture before you attempt anything!
-2.  Download the zip files and upload to your R account
-3.  Look at the model outout above, begin by interpreting the model summary, 
-    as far as you can (as we did in Lab in week 11 & 12).
-4.  Next get the analysis work flow diagram and begin to think about
-    what piece of code do you need for each stage
-5.  Start a script and import the dataset. Use the lecture and the model
-    script as a guide
-6.  Write a plan of how you might approach an analysis to get to this
-    model
--   you could write bullet points against the stages of the analysis
-    workflow diagram
-7.  You might want to stop at this point - wanting some confirmation
-    from your peers or staff; you could:
-
--   post to the discussion forum at this point and we could discuss it
-
--   talk amongst your peers and work together on it in independent study
-    time - forming a small study group for this process
-
--   wait until the lab and bring ideas then...
-
-::: callout-tip
-## My predictor labels and suffixes
-
-The model output has several predictors with suffixes, demarcated by and
-underscore '\_' and a letter e.g. '\_h'; I explain these in the R Studio
-demonstrations in the lecture and you can use these as a guide to which
-kind of processes you may choose to use to transform any variables.
-:::
-
-## Test Yourself
-
-The link to this week's multiple choice quiz, WBA 3, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506930)
-
--->
+<section id="lecture" class="level1">
+<h1>Lecture</h1>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7718c2a4-2676-4b85-ac17-b26d014265c0">Lecture Link</a></p>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p><a href="data/Wk3/PSYC234_Week_13_Slides_Student.zip">Slides Link</a></p>
+</section>
+<section id="materials" class="level2">
+<h2 class="anchored" data-anchor-id="materials">Materials</h2>
+<p>There are two zipped folders to download for week 13:</p>
+<ul>
+<li>The first folder is a zipped folder called <code>Lecture_3_Materials.zip</code>. It can be downloaded <a href="data/Wk3/Lecture_3_Materials.zip">here</a>. This has the model lecture script and the <code>KidIQ.txt</code> file that was demonstrated in the lecture</li>
+<li>The second folder is called <code>Lab_3_Materials.zip</code>. In this folder is the <code>WorldHappinessReportData.csv</code> and a half prepared .Rmd file for the lab in week 13. I did this because it is a really interesting dataset but the tidying and visualisation would take forever….please download it <a href="data/Wk3/Lab_3_Materials.zip">here</a>.</li>
+</ul>
+</section>
+<section id="lab-task" class="level2">
+<h2 class="anchored" data-anchor-id="lab-task">Lab Task</h2>
+<p>We are working with the <code>WorldHappinessReportData.csv</code> from the folder listed above. Upload it to the R server, (preferably before you come to the lab) and complete the <code>Multiple_Regression_Interactions_Student.Rmd</code> file using that data.</p>
+<p>The model output you are aiming to match is below</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Wk3/Model Output.png" class="img-fluid figure-img"></p>
+<figcaption>Model output</figcaption>
+</figure>
+</div>
+</section>
+<section id="pre-lab-activity" class="level2">
+<h2 class="anchored" data-anchor-id="pre-lab-activity">Pre-Lab Activity</h2>
+<ol type="1">
+<li>Watch the lecture before you attempt anything!</li>
+<li>Download the zip files and upload to your R account</li>
+<li>Look at the model outout above, begin by interpreting the model summary, as far as you can (as we did in Lab in week 11 &amp; 12).</li>
+<li>Next get the analysis work flow diagram and begin to think about what piece of code do you need for each stage</li>
+<li>Start a script and import the dataset. Use the lecture and the model script as a guide</li>
+<li>Write a plan of how you might approach an analysis to get to this model</li>
+</ol>
+<ul>
+<li>you could write bullet points against the stages of the analysis workflow diagram</li>
+</ul>
+<ol start="7" type="1">
+<li>You might want to stop at this point - wanting some confirmation from your peers or staff; you could:</li>
+</ol>
+<ul>
+<li><p>post to the discussion forum at this point and we could discuss it</p></li>
+<li><p>talk amongst your peers and work together on it in independent study time - forming a small study group for this process</p></li>
+<li><p>wait until the lab and bring ideas then…</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+My predictor labels and suffixes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The model output has several predictors with suffixes, demarcated by and underscore ‘_’ and a letter e.g.&nbsp;‘_h’; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.</p>
+</div>
+</div>
+</section>
+<section id="test-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="test-yourself">Test Yourself</h2>
+<p>The link to this week’s multiple choice quiz, WBA 3, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506930">here</a></p>
+</section>
 <section id="interactions" class="level2">
 <h2 class="anchored" data-anchor-id="interactions">Interactions</h2>
 <p>So far we have considered models with multiple variables - of both categorical and continuous types. One property of all these predictors in these models has been that they are functionally independent of each other.<br>
@@ -1367,6 +1373,7 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 
 
+</section>
 </section>
 </section>
 

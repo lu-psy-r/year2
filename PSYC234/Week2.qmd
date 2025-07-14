@@ -10,7 +10,6 @@ knitr::opts_chunk$set(warning = FALSE)
 
 ```
 
-<!--
 
 # Lecture
 
@@ -49,7 +48,6 @@ The model output has several predictors with suffixes, demarcated by and undersc
 
 The link to this week's multiple choice quiz, WBA 2, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506929)
 
--->
 
 ## Week 12: Multiple Regression with Categorical Predictors
 
