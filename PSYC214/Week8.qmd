@@ -5,14 +5,14 @@ order: 9
 ---
 
 # Lecture
-
+<!--
 Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9e17c9b2-c9d3-4394-b464-af580082a11d)
 
 Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=dfa633a4-19fe-4ee7-b465-af580082b47e)
 
 Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d6775197-6715-4487-a524-af5800854a60)
 
-Download the lecture slides [here](data/Wk8/Two-Factor Mixed and Within-Participants ANOVA HANDOUT.pdf), and [here](data/Wk8/Two-Factor Mixed and Within-Participants ANOVA.pdf) for a larger version.
+Download the lecture slides [here](data/Wk8/Two-Factor Mixed and Within-Participants ANOVA HANDOUT.pdf), and [here](data/Wk8/Two-Factor Mixed and Within-Participants ANOVA.pdf) for a larger version. -->
 
 # Lab
 

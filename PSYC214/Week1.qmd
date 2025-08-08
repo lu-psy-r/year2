@@ -5,7 +5,7 @@ order: 2
 ---
 
 # Lecture
-
+<!--
 Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4497bcd1-8a1b-45c5-9e3b-b20200bb11c3)
 
 Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f439543e-859a-484f-9b44-b20200fa951b)
@@ -16,7 +16,7 @@ Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx
 
 Watch Part 5 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=47206df8-cbe0-45d3-be67-b20201135faa#)
 
-Download the lecture slides [here](data/Wk1/Lecture 1 - Student Slides.pdf), and [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf) for a larger version.
+Download the lecture slides [here](data/Wk1/Lecture 1 - Student Slides.pdf), and [here](data/Wk1/Psyc214 - Lecture 1 Week 1 - Student Slides [large].pdf) for a larger version. -->
 
 # Lab
 
