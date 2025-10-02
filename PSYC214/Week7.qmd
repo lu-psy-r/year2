@@ -5,7 +5,7 @@ order: 8
 ---
 
 # Lecture
-<!--
+
 Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=303bc7f8-9752-4453-925a-af510084b648)
 
 Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=01f3f574-690a-40dd-9725-af51008cf954)
@@ -16,7 +16,7 @@ Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx
 
 Watch Part 5 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1a6ddc87-22ac-4990-8208-af5200cb54de)
 
-Download the lecture slides [here](data/Wk7/Two-Factor Between-Participants Designs HANDOUT.pdf), and [here](data/Wk7/Two-Factor Between-Participants Designs.pdf) for a larger version. -->
+Download the lecture slides [here](data/Wk7/Two-Factor Between-Participants Designs HANDOUT.pdf), and [here](data/Wk7/Two-Factor Between-Participants Designs.pdf) for a larger version.
 
 # Lab
 

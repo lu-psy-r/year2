@@ -5,7 +5,7 @@ order: 7
 ---
 
 # Lecture
-<!--
+
 Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c497616b-03ac-4184-bb14-af4b00c1e48d)
 
 Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=465c5bc8-6b4c-42c9-b3d3-af4b00cdddab)
@@ -14,7 +14,7 @@ Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx
 
 Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1e24b443-f8dc-4885-a6f6-af4b00db48c1)
 
-Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions LARGE.pdf) for a larger version. -->
+Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions LARGE.pdf) for a larger version. 
 
 # Lab
 
