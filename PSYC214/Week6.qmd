@@ -4,6 +4,8 @@ subtitle: "Mark Hurlstone, Sam Russell"
 order: 7
 ---
 
+<!--
+
 # Lecture
 
 Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c497616b-03ac-4184-bb14-af4b00c1e48d)
@@ -14,7 +16,7 @@ Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx
 
 Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1e24b443-f8dc-4885-a6f6-af4b00db48c1)
 
-Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions LARGE.pdf) for a larger version. 
+Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions LARGE.pdf) for a larger version. -->
 
 # Lab
 
@@ -22,8 +24,8 @@ Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs an
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br>
-<br>
+<!-- <br>
+<br> -->
 Here's one of my favorite quotes for those times when you feel like you have been confronted with an impossible obstacle. It's about turning obstacles to your advantage to get where you need to go.
 
 

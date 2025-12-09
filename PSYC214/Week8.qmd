@@ -4,6 +4,8 @@ subtitle: "Mark Hurlstone, Sam Russell"
 order: 9
 ---
 
+<!--
+
 # Lecture
 
 Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9e17c9b2-c9d3-4394-b464-af580082a11d)
@@ -12,7 +14,7 @@ Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx
 
 Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d6775197-6715-4487-a524-af5800854a60)
 
-Download the lecture slides [here](data/Wk8/Two-Factor Mixed and Within-Participants ANOVA HANDOUT Updated.pdf), and [here](data/Wk8/Two-Factor Mixed and Within-Participants ANOVA Updated.pdf) for a larger version.
+Download the lecture slides [here](data/Wk8/Two-Factor Mixed and Within-Participants ANOVA HANDOUT Updated.pdf), and [here](data/Wk8/Two-Factor Mixed and Within-Participants ANOVA Updated.pdf) for a larger version. -->
 
 # Lab
 
@@ -21,8 +23,8 @@ Download the lecture slides [here](data/Wk8/Two-Factor Mixed and Within-Particip
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br>
-<br>
+<!-- <br>
+<br> -->
 
 > *If, at some point in your life, you should come across anything better than justice, truth, self-control, courage---it must be an extraordinary thing indeed.* ---Marcus Aurelius, *The Meditations*
 

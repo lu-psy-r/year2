@@ -4,6 +4,8 @@ subtitle: "Mark Hurlstone, Sam Russell"
 order: 6
 ---
 
+<!--
+
 # Lecture
 
 Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fc683b5a-4c92-4422-8b9d-b21700dbf20b)
@@ -14,7 +16,7 @@ Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx
 
 Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1fd35b5d-813b-46a6-a6f3-b21800d40baa)
 
-Download the lecture slides [here](data/Wk5/Lecture 5 - Student Slides [small].pdf), and [here](data/Wk5/Lecture 5 - Student Slides [large].pdf) for a larger version.
+Download the lecture slides [here](data/Wk5/Lecture 5 - Student Slides [small].pdf), and [here](data/Wk5/Lecture 5 - Student Slides [large].pdf) for a larger version. -->
 
 # Lab
 
@@ -23,8 +25,8 @@ Download the lecture slides [here](data/Wk5/Lecture 5 - Student Slides [small].p
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br>
-<br>
+<!-- <br>
+<br> -->
 I have noticed these sessions often commence with some words of philosophical wisdom to motivate and inspire you and will continue the trend. Here's one of my favorite quotes from Frederick Nietzsche. It embodies the Stoic philosophical principle of *Amor Fati*, which is a mindset that entails a commitment to making the best out of anything that happens, whether good or bad. It's about treating every moment, no matter how challenging and difficult, as something to be embraced rather than avoided.
 
 > *Not merely bear what is necessary, still less conceal it … but love it.* --Frederick Nietzsche

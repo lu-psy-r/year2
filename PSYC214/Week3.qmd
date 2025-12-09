@@ -4,6 +4,8 @@ subtitle: "Sam Russell, Mark Hurlstone"
 order: 4
 ---
 
+<!--
+
 # Lecture
 
 Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4fb23cdf-555c-42e2-95c7-b20a00e0042c)
@@ -14,7 +16,7 @@ Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx
 
 Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=214d093a-f77f-4b76-8736-b20b00a4fdac)
 
-Download the lecture slides [here](data/Wk3/Psyc214 - Lecture 3 Slides [small].pdf), and [here](data/Wk3/Psyc214 - Lecture 3 Slides [large].pdf) for a larger version.
+Download the lecture slides [here](data/Wk3/Psyc214 - Lecture 3 Slides [small].pdf), and [here](data/Wk3/Psyc214 - Lecture 3 Slides [large].pdf) for a larger version. -->
 
 # Lab
 
