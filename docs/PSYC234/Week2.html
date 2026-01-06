@@ -459,7 +459,7 @@ My predictor labels and suffixes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The model output has several predictors with suffixes, demarcated by and underscore ’_’ and a letter e.g.&nbsp;’_h’; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.</p>
+<p>The model output has several predictors with suffixes, demarcated by and underscore ‘_’ and a letter e.g.&nbsp;‘_h’; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.</p>
 </div>
 </div>
 </section>
@@ -590,6 +590,17 @@ Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*X_3 + b_4*X_4 + b_5*X_5 + b_6*X_6 + e_i
 </div>
 </div>
 <p>We can also look at the relationships between each of the continuous variables: <code>age</code>, <code>bmi</code> and <code>children</code>.</p>
+<p>The code below basically says to draw a correlation matrix between the variables that are in the first, third and fourth columns of the dataset. It asks for historgrams to be drawn on the diagonal - you can turn this off by writing <code>histogram=FALSE</code> instead - and you can change the <code>pch</code> to different numbers to change what kind of symbol is used for the datapoints. Try changing parts for yourself - remember you cannot ultimately break code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.Correlation</span>(d[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)], <span class="at">histogram=</span><span class="cn">TRUE</span>, <span class="at">pch=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -601,16 +612,6 @@ Which package does a function come from?
 </div>
 <div class="callout-body-container callout-body">
 <p>If I type the name of a function, preceded by a question mark, into the console, like this: <code>?chart.Correlation()</code>, the Help tab in the Files pane will show me information about the function and which library package it is using. If you try this for yourself, you will see this function is in the <code>PerformanceAnalytics</code> package.</p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.Correlation</span>(d[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)], <span class="at">histogram=</span><span class="cn">TRUE</span>, <span class="at">pch=</span><span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Week2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
 </div>
 </div>
 </section>
@@ -647,12 +648,14 @@ SW  0  0  1</code></pre>
 <p>The <code>sex</code> variable has two levels: <code>female</code> and <code>male</code>. The <code>female</code> level, being the first in the alphabet, is the reference level.</p>
 <p>The <code>smoker</code> variable has two levels: <code>no</code> and <code>yes</code>. The <code>no</code> level, being the first in the alphabet, is the reference level.</p>
 <p>The <code>region</code> variable has four levels: <code>NE</code>, <code>NW</code>, <code>SE</code> and <code>SW</code>. The <code>NE</code> level, being the first in the alphabet, is the reference level. The <code>NW</code>, <code>SE</code> and <code>SW</code> levels are only compared to the <code>NE</code> level. We do not get comparisons between say, <code>NW</code> and <code>SE</code> levels automatically using a dummy contrast scheme.</p>
-<p>During the estimation of the regression model, the reference levels are estimated within the intercept term. This means that you won’t see the labels of the reference levels in any model summary; they are contained, and kind of hidden, within the intercept. To begin with, we will create a model using the raw data, building a model with all six predictor variables. This is the model that you worked with in labs in week 11.</p>
+<p>During the estimation of the regression model, the reference levels are estimated within the intercept term. This means that you won’t see the labels of the reference levels in any model summary; they are contained, and kind of hidden, within the intercept. In multiple-regression, you need to take some time to understand then, what the intercept represents as a combination of reference levels across multiple independent predictor variables.</p>
+<p>Lets construct our first model from this data. To begin with, we will create a model using the raw data, building a model with all six predictor variables. This is the model that you worked with in labs in week 11.</p>
 <p>Here is the written regression model:</p>
 <p><span class="math display">\[
 Charges = b_0 + b_1 * X_{age} + b_2*X_{bmi} + b_3*X_{children} + b_4*X_{sex}+ b_5*X_{smoker} + b_6*X_{region} + e
 \]</span></p>
 <p>And here is the statistical model for the regression of insurance charges on the 6 predictors, for the raw data:</p>
+<p>This code uses the <code>lm()</code> function to call a linear regression. I have called it <code>m6</code> because it is a model with 6 predictors. I have also wrapped it in the <code>summary()</code> function to immediately call an output of the model summary.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m6 <span class="ot">&lt;-</span> <span class="fu">lm</span>(charges <span class="sc">~</span> age <span class="sc">+</span> bmi <span class="sc">+</span> children <span class="sc">+</span> sex <span class="sc">+</span> smoker <span class="sc">+</span> region, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -686,14 +689,17 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>Remembering that the intercept describes: a female, non-smoker of no age or weight, and no children, who lives in NE USA.</p>
 <p>Lets have a quick look at the output and the coefficient labels column. All of the categorical variables are toward the bottom of the list because we entered them toward the end of the list in the model.</p>
-<p>Notice how: - the label for <code>sex</code> is <code>sexmale</code>, which tells us that the reference level for the sex variable is female is in the intercept - makes sense since the default is for the first group in the alphabet to be taken as the reference level group. - <code>smoker</code> becomes <code>smokeryes</code> to reflect that being a non-smoker is the reference level group. - the NE region does not have a coefficient in the model summary; since it is the reference level for the region variable, it is contained within the intercept.</p>
+<p>Notice how:<br>
+- the label for <code>sex</code> is <code>sexmale</code>, which tells us that the reference level for the sex variable is female is in the intercept - makes sense since the default is for the first group in the alphabet to be taken as the reference level group.<br>
+- <code>smoker</code> becomes <code>smokeryes</code> to reflect that being a non-smoker is the reference level group.<br>
+- the NE region does not have a coefficient in the model summary; since it is the reference level for the <code>region</code> variable, it is contained within the intercept. The other three levels are clearly labelled</p>
 </section>
 <section id="transform-types-of-categorical-contrasts" class="level3">
 <h3 class="anchored" data-anchor-id="transform-types-of-categorical-contrasts">Transform: Types of Categorical Contrasts</h3>
 </section>
 <section id="dummy-or-treatment-coding-scheme" class="level3">
 <h3 class="anchored" data-anchor-id="dummy-or-treatment-coding-scheme">Dummy or Treatment Coding Scheme</h3>
-<p>It may make more sense to change the reference level of a variable. Your hypothesis may suggest a particular reference level. You can control the reference level in the dummy coding command: Using the <code>relevel</code>()` function.</p>
+<p>It may make more sense to change the reference level of a variable. Your hypothesis may suggest a particular reference level. You can control the reference level in the dummy coding command: Using the <code>relevel()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>smoker <span class="ot">&lt;-</span> <span class="fu">relevel</span>(d<span class="sc">$</span>smoker, <span class="at">ref =</span> <span class="st">"yes"</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">relevel</span>(d<span class="sc">$</span>sex, <span class="at">ref =</span> <span class="st">"male"</span>)</span>
@@ -720,7 +726,7 @@ NW  0  1  0
 SW  0  0  1</code></pre>
 </div>
 </div>
-<p>Look at the top row for each variable where the zeroes are. Notice how for sex and smoker, the reference levels are now the last word in the alphabet. We have changed the reference levels in our raw variables.</p>
+<p>Look at the top row for each variable where the zeroes are. We have changed the reference levels in our raw variables. And so has the meaning of the intercept. An intercept for a multiple regression model on these variables’ data now represents the insurance charges for a male smoker who lives in the SE of the US, rather than a female non-smoker who lives in the NE of the US, when all other continuous variables are at zero. So to be absolutely explicit: The intercept now represents a male, smoker of no age, weight or children that lives in SE USA. Does that make sense to you? It shouldn’t but more of that later…</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -734,7 +740,6 @@ Changing reference levels changes the interpretation of the intercept
 <p>When we change reference levels, we change what the intercept means. So it is important to understand what it means for the interpretation of the other model coefficients.</p>
 </div>
 </div>
-<p>The intercept now represents a male, smoker of no age, weight or children that lives in SE USA.</p>
 <p>Lets recall the model: No changes to the code here, but the reference levels have changed within the variables of <code>sex</code>, <code>smoker</code> and <code>region</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m6 <span class="ot">&lt;-</span> <span class="fu">lm</span>(charges <span class="sc">~</span> age <span class="sc">+</span> bmi <span class="sc">+</span> children <span class="sc">+</span> sex <span class="sc">+</span> smoker <span class="sc">+</span> region, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1106,7 +1111,11 @@ SW   -1   -1   -1</code></pre>
  274 1064 </code></pre>
 </div>
 </div>
-<p>To create a new numeric variable: I give the new variable a suffix of _n, this tells me it is a numeric version of the original variable and keeps the raw form of the original variable intact.</p>
+<p>To create a new numeric variable:</p>
+<ul>
+<li>I give the new variable a suffix of _n, this tells me it is a numeric version of the original variable and keeps the raw form of the original variable intact.</li>
+<li>I write a piece of code that says, if the observation in dataset <code>d</code>, variable <code>smoker</code> = <code>yes</code>, put an observation of <code>1</code> in the <code>smoker_n</code> variable, and a <code>0</code> if the observation is anything else. Because there are only two observations in the raw <code>smoker</code> variable of <code>yes</code> and <code>no</code>, this means that all <code>no</code> observations will be coded as <code>0</code> in the new <code>smoker_n</code> variable.</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>smoker_n <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(d<span class="sc">$</span>smoker <span class="sc">==</span> <span class="st">"yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1126,7 +1135,7 @@ SW   -1   -1   -1</code></pre>
 <li>So all the non-smokers who are 0, will have 0.2048 subtracted from them, and will show as -0.2048.</li>
 <li>And all the smokers who are 1, will have 0.2048 subtracted from them and so will show as approximately 0.7952</li>
 </ul>
-<p>I have created a further variable with ’_c’, to show it is mean-centred</p>
+<p>I have created a further variable with ‘_c’, to show it is mean-centred</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>smoker_c <span class="ot">&lt;-</span> <span class="fu">round</span>(d<span class="sc">$</span>smoker_n <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>smoker_n), <span class="dv">3</span>) <span class="co"># round to 3 figures for readability</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1179,7 +1188,7 @@ Multiple R-squared:  0.7509,    Adjusted R-squared:  0.7494
 F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>The smoker_c now describes the full value of predictions that the model makes for insurance charges, rather than half of the value under the sum contrast coding scheme. And the intercept has changed again! It is even more negative than before - this is probably because, with the centred smoker variable, the model intercept is now representing non-smokers, and we know that they pay a lot les than smokers for their insurance. There is no change in our model output; remember the change we made was to help us for when we want to use interactions.</p>
+<p>The <code>smoker_c</code> now describes the full value of predictions that the model makes for insurance charges, rather than half of the value under the sum contrast coding scheme. And the intercept has changed again! It is even more negative than before - this is probably because, with the centred smoker variable, the model intercept is now representing non-smokers, and we know that they pay a lot less than smokers for their insurance. There is no change in our model output; remember the change we made was to help us for when we want to use interactions.</p>
 </section>
 </section>
 <section id="mean-centering-continuous-variables" class="level3">
@@ -1341,12 +1350,12 @@ Multiple R-squared:  0.7509,    Adjusted R-squared:  0.7494
 F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>The intercept is the same, because no reference levels have changed; <code>sex</code> and <code>smoker</code> are now smaller; the direction of effects remains similar: males are associated with less insurance charges, and smokers are associated with more than non-smokers. The region coefficients are the same because we didn’t change them; The magnitude of the coefficients for age, bmi and children are now bigger. But look at their t values - they have not changed. Nor is the variance explained.</p>
-<p>The gift of standardisation is that is calms down the model - gone is the huge $23,848 prediction for smokers. And now we can see the relative strengths of predictors. Smoking is the strongest predictor, followed by age and weight, with each associated with a positive relationship on insurance charges - as they increase so does insurance.</p>
+<p>The intercept is the same, because no reference levels have changed; <code>sex</code> and <code>smoker</code> are now smaller; the direction of effects remains similar: males are associated with less insurance charges, and smokers are associated with more than non-smokers. The <code>region</code> coefficients are the same because we didn’t change them; The magnitude of the coefficients for <code>age</code>, <code>bmi</code> and <code>children</code> are now bigger, because we are predicting a change for one standard deviation, rather than one raw unit. But look at their <em>t</em> values - they have not changed. Nor has the amount of variance explained.</p>
+<p>The gift of standardisation is that is calms down the model - gone is the huge $23,848 prediction for smokers. And now we <em>can</em> see the relative strengths of predictors, because all the predictors are measuring changes on the same scale of an increase in one standard deviation unit. We can see that <code>smoker</code> is the strongest predictor, followed by <code>age</code> and <code>bmi</code>, with each associated with a positive relationship on insurance charges - as they increase, so does insurance charges.</p>
 </section>
 <section id="transform-standardising-by-two-standard-deviations---extra" class="level4">
 <h4 class="anchored" data-anchor-id="transform-standardising-by-two-standard-deviations---extra">Transform: Standardising by Two Standard Deviations - extra</h4>
-<p>This is useful to know if you want to have your continuous variables act as if they are a dichotomous variable - so age = young or old / high or low. This is not on the class test.</p>
+<p>This is useful to know if you want to have your continuous variables act as if they are a categorical variable of two levels, for instance, transforming a continuous variable of age into two groups of young or old / high or low. This is not on the class test.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new variables to store the standardised values</span></span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="co"># these are standardised by dividing by 1 x sd:</span></span>
@@ -1458,16 +1467,16 @@ F-statistic: 334.7 on 12 and 1325 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>The <code>children_h</code> predictor has an separate coefficient for each level of the categorical variable. Previously, we had entered the <code>children</code> predictor as continuous, and we were getting an even rate of change in charges for each increase in one child to a family, which registered as a significant impact on insurance charges.</p>
-<p>First of all, check the residuals and the significance of the model; the maximum residual value is slightly bigger on this model. And the F ratio is smaller. This indicates to me that there is now more information in the residuals - which tells me that this is not as good a fit for the data as the last model. The variance explained has not changed, so we have estimated more coefficients, and generated more error for no real increase in explanatory power.</p>
+<p>First of all, check the residuals and the significance of the model; the maximum residual value is slightly bigger on this model. And the <em>F</em> ratio is smaller. This indicates to me that there is now more information in the residuals - which tells me that this is not as good a fit for the data as the last model. The variance explained has not changed, so we have estimated more coefficients, and generated more error for no real increase in explanatory power.</p>
 <p>However, we want to understand a little bit about helmert contrasts so we will carry on.</p>
-<p>Now that we have transformed the variable, our interpretation of the model needs to change somewhat. The rate of change in insurance charges across the increase in children is not even (480.10 is not the same as 72.19). This is not a linear relationship (are we violating some of the model assumptions here?).</p>
+<p>Now that we have transformed the variable, our interpretation of the model needs to change somewhat. The rate of change in insurance charges across the increase in children is not even (480.10 is not the same as 72.19). This is not a linear relationship.</p>
 <p>Look at <code>children_h1</code>, the difference in insurance charges between families with no children and families with one child is approximately $195.00.</p>
 <p>Look at <code>children_h2</code>: the difference in insurance charges for families with two children and both families with one child <em>and</em> families with no children is approximately $480.00…and so on…</p>
 <p>The only significantly different change in insurance charges is the change from 0 or 1 child to two child families. Can you think of a reason why a familiy of two children is predicted to pay significantly higher insurance charges than a family of one child?</p>
-<p>For the purposes of model checking and reporting, we do not use this model; we revert back to the standardised model.</p>
 </section>
 <section id="checking-model-assumptions-and-diagnostics" class="level3">
 <h3 class="anchored" data-anchor-id="checking-model-assumptions-and-diagnostics">Checking Model Assumptions and Diagnostics</h3>
+<p>For the purposes of model checking and reporting, we do not use this model; we revert back to the standardised model.</p>
 <p>Every regression model is built upon the following assumptions:</p>
 <ol type="1">
 <li>The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is assumed to be linear (additive)</li>
@@ -1851,7 +1860,7 @@ children 0.04 0.01</code></pre>
 </section>
 <section id="week-11---12-pre-lab-activity-and-week-12-lab-task" class="level2">
 <h2 class="anchored" data-anchor-id="week-11---12-pre-lab-activity-and-week-12-lab-task">Week 11 - 12 Pre-Lab Activity and Week 12 Lab Task</h2>
-<p>In this lab, you will be working with the R script, data and Codebook stored <a href="data/Wk2/Week_12_234_Materials.zip">here</a>, and the accompanying codebook is accessed in the slides and codebook folder,<a href="data/Wk2/Week_12_234_Slides_Codebook.zip">here</a>, called “Data_Codebook.pdf”.</p>
+<p>In this lab, you will be working with the R script, data and Codebook stored <a href="data/Wk2/Week_12_234_Materials.zip">here</a>, and the accompanying codebook is accessed in the slides and codebook folder, <a href="data/Wk2/Week_12_234_Slides_Codebook.zip">here</a>, called “Data_Codebook.pdf”.</p>
 <p>Work through the Week12_R_Script.Rmd file and enter in your own code to arrive at the following model summary and figures. All these images are stored in the Outputs folder that comes down in the Week 12 .zip file:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
