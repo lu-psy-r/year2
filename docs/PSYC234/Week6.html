@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6. Wilcoxon rank-sum test and Wilcoxon signed-rank test – Statistics for Psychologists</title>
+<title>Statistics for Psychologists - 6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,10 +38,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0489ba3c113ffee3d2dfeee5dfb32f4a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -121,19 +121,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC234/index.html">PSYC234</a></li><li class="breadcrumb-item"><a href="../PSYC234/Week6.html">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -154,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../PSYC214/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC214</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -219,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../PSYC234/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSYC234</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -348,12 +348,12 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b51ad7bd-122d-4304-b801-b27a00fb1166">Part 2</a>: This part covers how to test the assumption of normality with two independent groups.</p>
 <p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=176c6b52-8c36-485c-8ab9-b27a00fb1187">Part 3</a>: This part introduces you to the Wilcoxon rank-sum test. This includes when to use this test, the theory behind it, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.</p>
 <p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115">Part 4</a>: This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.</p>
-<p>Download all the lecture slides <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507037">here</a> in both .pptx and .pdf format.</p>
+<p>Download all the lecture slides <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738558">here</a> in both .pptx and .pdf format.</p>
 </section>
 <section id="lab-preparation" class="level1">
 <h1>Lab preparation</h1>
 <p>Before the lab, please watch the following short <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=25cf1ac6-7afc-4129-9ec4-b27a00fb10d0">video</a>. This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.</p>
-<p>If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507042">here</a>.</p>
+<p>If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738560">here</a>.</p>
 </section>
 <section id="lab" class="level1">
 <h1>Lab</h1>
@@ -361,11 +361,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures. You can work in groups or individually.</p>
 <p>You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.</p>
-<p>The presentation given at the start of the lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2602258&amp;forceview=1">here</a>.</p>
+<p>The presentation given at the start of the lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2738562">here</a>.</p>
 </section>
 <section id="datasets" class="level2">
 <h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
-<p>The datasets for this lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507044">here</a>.</p>
+<p>The datasets for this lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738563">here</a>.</p>
 </section>
 <section id="research-question-1-independent-groups" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-1-independent-groups">Research question 1: Independent groups</h2>
@@ -391,11 +391,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="model-script" class="level2">
 <h2 class="anchored" data-anchor-id="model-script">Model script</h2>
-<p>A model script showing one way of answering the research questions above using R will be available <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507046">here</a> from 9am on Monday of Week 17.</p>
+<p>A model script showing one way of answering the research questions above using R will be available next week.</p>
 </section>
 <section id="feedback-on-student-scripts" class="level2">
 <h2 class="anchored" data-anchor-id="feedback-on-student-scripts">Feedback on student scripts</h2>
-<p><a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507047">Here</a> is some feedback on a few scripts submitted by students.</p>
+<p><a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738566">Here</a> is some feedback on a few scripts submitted by students.</p>
 </section>
 </section>
 <section id="independent-learning-activities" class="level1">
@@ -403,7 +403,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.</p>
 <section id="activity-1-the-wba" class="level2">
 <h2 class="anchored" data-anchor-id="activity-1-the-wba">Activity 1: The WBA</h2>
-<p>The WBA can be accessed <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506933">here</a> from 13th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.</p>
+<p>The WBA can be accessed <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738525">here</a>. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.</p>
 </section>
 <section id="activity-2-calculating-test-statistics-manually" class="level2">
 <h2 class="anchored" data-anchor-id="activity-2-calculating-test-statistics-manually">Activity 2: Calculating test statistics manually</h2>
@@ -414,7 +414,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Here is the data:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">coffee_group</th>
@@ -456,6 +457,7 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 </div>
+</div>
 <p><span style="color:purple"><strong>QUESTION 1: What is the test statistic?</strong></span></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -489,7 +491,8 @@ Expand for hints!
 <p>Here is the data:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
@@ -521,6 +524,7 @@ Expand for hints!
 </table>
 
 
+</div>
 </div>
 </div>
 <p><span style="color:purple"><strong>QUESTION 3: What is the test statistic?</strong></span></p>
@@ -575,7 +579,8 @@ How were these answers calculated?
 <p><strong>Rank the data:</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Group</th>
@@ -625,6 +630,7 @@ How were these answers calculated?
 
 </div>
 </div>
+</div>
 <p><strong>Sum the ranks per group:</strong></p>
 <p>4 cups = 13.5</p>
 <p>0 cups = 14.5</p>
@@ -663,7 +669,8 @@ How were these answers calculated?
 <p><strong>Calculate the difference between “Before intervention” and “After intervention”:</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
@@ -703,10 +710,12 @@ How were these answers calculated?
 
 </div>
 </div>
+</div>
 <p><strong>Note whether the difference is positive or negative:</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
@@ -752,10 +761,12 @@ How were these answers calculated?
 
 </div>
 </div>
+</div>
 <p><strong>Rank the difference:</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
@@ -805,6 +816,7 @@ How were these answers calculated?
 </table>
 
 
+</div>
 </div>
 </div>
 <p><strong>Add up positive ranks and negative ranks:</strong></p>
@@ -867,17 +879,11 @@ How were these answers calculated?
 </div>
 <p>Model output:</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
-compute exact p-value with ties</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-    Wilcoxon rank sum test with continuity correction
-
-data:  admin_tasks by tea_group
-W = 17, p-value = 0.9357
-alternative hypothesis: true location shift is not equal to 0</code></pre>
+<pre><code># A tibble: 1 × 7
+  .y.         group1 group2    n1    n2 statistic     p
+* &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1 admin_tasks 0 cups 4 cups     6     6        17 0.936</code></pre>
 </div>
 </div>
 <p><span style="color:purple"><strong>QUESTION 2: What can we conclude? Report in APA format.</strong></span></p>
@@ -996,7 +1002,7 @@ Note
 </section>
 <section id="asking-questions" class="level1">
 <h1>Asking questions</h1>
-<p>If you have any questions about this week’s content, please post them on the discussion board <a href="https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905">here</a>. If you prefer to remain anonymous, you can post questions anonymously <a href="https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cCNtcyOuNhw62ai">here</a>. I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&amp;A session.</p>
+<p>If you have any questions about this week’s content, please post them on the module moodle discussion board.</p>
 
 
 </section>
@@ -1037,7 +1043,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1069,27 +1086,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1097,7 +1094,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1194,6 +1191,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

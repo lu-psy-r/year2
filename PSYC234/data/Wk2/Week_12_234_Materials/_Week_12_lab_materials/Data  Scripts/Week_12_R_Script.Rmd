@@ -1,5 +1,5 @@
 ---
-title: "PSYC234_Lab_2_Student"
+title: "PSYC234_Lab_Week 12_Student"
 author: "Emma Mills"
 date: "`r Sys.Date()`"
 output: html_document

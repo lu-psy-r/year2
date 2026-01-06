@@ -22,13 +22,13 @@ options(scipen = 999)
 
 [Part 3](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2959d266-3e10-4c8a-a6f8-b29500e45d12): This part covers ordinal logistic regression.
 
-Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507081) in both .pptx and .pdf format.
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738597) in both .pptx and .pdf format.
 
 # Lab preparation
 
 Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8be3cbc1-901e-469d-86fd-b29500e45ce2). This covers how to run an ordinal logistic regression model in R. 
 
-If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507086). The script also contains an example of how to run a multiple binary logistic regression model in R. 
+If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738600). The script also contains an example of how to run a multiple binary logistic regression model in R. 
 
 
 # Lab 
@@ -37,11 +37,11 @@ Today I’ll provide you with two research questions which will require you to c
 
 You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.
 
-The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2613193).
+The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2738602).
 
 ## Datasets
 
-The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507088).
+The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738603).
 
 ## Research Question 1
 
@@ -107,12 +107,7 @@ Here are the steps you'll need to follow:
 
 ## Model script 
 
-A model script showing one way of answering the research questions above using R will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507090) from 9am on Friday of Week 19.
-
-
-## Feedback on student scripts
-
-There were no student submissions this week.
+A model script showing one way of answering the research questions above using R will be available next week.
 
 # Independent learning activities 
 
@@ -120,7 +115,7 @@ Below are some independent learning activities you can have a go at to help cons
 
 ## Activity 1: The WBA
 
-The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506937) from 6th March 2025. You will need the following [dataset](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2506938) to complete the WBA. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738529). You will need the following [dataset](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2738530) to complete the WBA. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
 
 ## Activity 2: Interpreting odds ratios from multiple binary logistic regression
 
@@ -211,4 +206,4 @@ kable(l9_w1_tab, booktabs = TRUE, align=rep('c', 4), col.names = c("",
 
 # Asking questions
 
-If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_1H75paXNTlfsFO6). I will then copy your question to the discussion forum and answer it there and/or cover it in the next Q&A session.
+If you have any questions about this week's content, please post them on the moodle discussion board.

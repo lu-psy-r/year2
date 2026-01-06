@@ -1,0 +1,210 @@
+---
+title: "Multiple_Regression_Mediation"
+output:
+  html_document: default
+  word_document: default
+  
+---
+
+```{r setup, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(include = TRUE)
+library(tidyverse)
+library(effects)
+library(broom)
+library(gridExtra)
+library(PerformanceAnalytics)
+library(diagram)
+library(mediation)
+library(haven) # reading in .sav file
+```
+
+### Mediation analysis
+
+In this demonstration, we will model a mediation analysis. The total effect of an unmediated relationship is below in pathway c.
+
+```{r}
+data <- c(0, "a", 0,
+          0, 0, 0, 
+          "b", "c", 0)
+M<- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)
+plot<- plotmat (M, pos=c(1,2), 
+                name= c( "M",
+                         "Supervision", 
+                         "Dissertation \nPerformance"), 
+                box.type = "rect", 
+                box.size = 0.12, 
+                box.prop=0.5,  
+                curve=0)
+
+```
+
+We are going to test for the mediator variable of `self esteem`.  This needs the prime mark added to the direct pathway "c" text!
+
+```{r}
+data <- c(0, "a", 0,
+          0, 0, 0, 
+          "b", "c", 0)
+M<- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)
+plot<- plotmat (M, pos=c(1,2), 
+                name= c( "Self-esteem",
+                         "Supervision", 
+                         "Dissertation \nPerformance"), 
+                box.type = "rect", 
+                box.size = 0.12, 
+                box.prop=0.5,  
+                curve=0)
+
+```
+
+### Read in the data
+
+```{r}
+d_full <- read_sav("mediation exercise 2 data.sav")
+
+head(d_full)
+```
+Early in the construction of the script, I noticed that there were different levels of missingness across the models - this means that coefficients are estimated on different datasets, so we are introducing a potential source of systematic error if we do not correct for this.
+
+Checking for missingness:
+```{r}
+summary(d_full)
+```
+For the purposes of this analysis, I will remove the observations (rows) with NA values. This is not the best way of working with missingness, but for the purposes of the demonstration it is ok.
+
+```{r}
+d <- na.omit(d_full) # 4 observations removed
+summary(d) # no NA values listed
+```
+
+I am going to copy and rename the variables to save on typing
+
+ X = supervision
+ Y = dissertation_performance
+ M = self_esteem
+ 
+```{r}
+d <- d %>% 
+  mutate(X = supervision,
+         Y = dissertation_performance,
+         M = self_esteem)
+```
+ 
+
+### Longhand - Steps of Baron & Kenny (1986)
+
+Four independent linear regression models
+
+  1. The effect of X on Y (total effect = pathway c)
+  2. The effect of X on M (indirect effect pathway a)
+  3. The effect of M on Y (indirect effect pathway b) while controlling for X
+  4. The effect of X and M on Y (for direct effect estimation = pathway c')
+  
+When running your models, you need to assign them to objects in the environment to then be able to use them in a call to the `mediation` package.
+
+#### Step 1: Test the total effect - pathway c
+
+
+
+$$
+Y = b_0 + b_1 * X + e
+$$
+
+via a simple regression model:
+
+```{r total effect}
+(fit_total <-  summary(lm(Y ~ X, d)))
+```
+
+The total effect of our predictor on our outcome is significant.  In other words, supervision on dissertation performance is significant (*p* < .001). A change in one unit of supervision is associated with an increase in dissertation performance of 0.44.
+
+There is an effect that can be tested for mediation.
+
+#### Step 2: Test the a pathway of the indirect effect
+
+$$
+M = b_0 + b_1 * X + e
+$$
+a second simple regression model, using X as a predictor but this time, M (self esteem here) is our outcome variable:
+
+```{r indirect effect a}
+(fit_indirecta <- summary(lm(M ~ X, d)))
+```
+
+The indirect effect pathway a (X on M) is also significant (*p* = .009). A change in one unit of supervision is associated with an increase in self-esteem of 0.30.
+
+So now we know that X and M share some variance - they are correlated.  We have met one of the assumptions that we need to be able to perform a mediation analysis.
+
+#### Step 3 & 4: Test the b pathway of the indirect effect & the direct effect (pathway c')
+
+$$
+Y = b_0 + b_1 * X + b_2 * M + e
+$$
+A multiple regression model, with Y (dissertation performance) as our outcome variable, and X (supervision) and M (self-esteem) as predictors.  Remember that this model is controlling for the effect of X on Y, because interpreting one predictor in a multiple regression model always assumes that the effect of the other predictors are already taken care of, or controlled for.
+
+```{r indirect effect b}
+(fit_indirectb <- summary(lm(Y ~ X + M, d)))
+```
+
+The indirect effect pathway b (M on Y), while controlling for X is also significant (*p* < .001). A change in one unit of self-esteem is associated with an increase in dissertation-performance of 0.68 of a unit. The predictor (X) relationship with the outcome (Y and pathway c' - the direct effect) remains significant also (*p* < .02 , but reduced relative to the step 1 model coefficient (step 1 $b$ = 0.44, step 4 $b$ = 0.23).  
+
+Since the direct pathway c' is significant, we can say that we have a partially mediated effect of self-esteem on the relationship between supervision and dissertation performance.  Supervision predicts self esteem and dissertation performance, while self esteem also predicts dissertation performance.
+
+If instead the X coefficient in the model above had been > .05 i.e. no significant, we could have claimed a full or complete mediation of self esteem on the relationship between supervision and dissertation performance
+
+### Using the power of R and the `mediation` package
+
+The `mediation` package is called by the library() function loaded at the top of the document.  
+
+ - It takes the models for pathways a and b (`fit_indirecta` and `fitindirectb` here), 
+ - It needs us to tell it the name of the predictor or treatment variable and the name of the mediator variable as labelled in the models 
+ - and we set the `boot` argument to T for TRUE, to be able to generate confidence intervals on our co-efficients.
+
+```{r}
+results <- mediate(fit_indirecta, 
+                   fit_indirectb, 
+                   treat = 'X', 
+                   mediator = 'M', 
+                   boot = T, 
+                   dropobs = TRUE)
+```
+
+```{r}
+summary(results)
+```
+
+ - **ACME** stands for *average causal mediation effects* and is the product of pathway a and pathway b from `fit indirecta` (X = 0.3037992) and `fit_indirectb` (M = 0.6786069).
+ - **ADE** stands for average direct effects or pathway c'.  This is the X coefficient in our `fit_indirectb`
+ - **Total Effect** does what it says on the tin.  It is the sum of the direct and indirect effect, ACME + ADE, and also calculated  as X in model `fit_total`.
+ - **Prop. Mediated** is the proportion of the effect of X on Y that goes through M.  We divide ACME (or ab) by the total effect (c).
+ 
+```{r}
+plot(results)
+```
+
+### Reporting the mediation analysis
+
+and to use our diagram from the top of the document:
+
+We are going to test for the mediator variable of `self esteem`.  (This needs the prime mark added to the direct pathway "c" text!)
+
+
+
+```{r}
+data <- c(0, 0.30, 0,
+          0, 0, 0, 
+          0.68, 0.23, 0)
+M<- matrix (nrow=3, ncol=3, byrow = TRUE, data=data)
+plot<- plotmat (M, pos=c(1,2), 
+                name= c( "Self-esteem",
+                         "Supervision", 
+                         "Dissertation \nPerformance"), 
+                box.type = "rect", 
+                box.size = 0.12, 
+                box.prop=0.5,  
+                curve=0)
+
+```
+(Remember that these data are not standardised so we cannot compare between them for strength of relationships!)
+
+The effect of supervision on dissertation performance was partially mediated via self-esteem.  The effect of supervision on dissertation performance and the effect of self-esteem on dissertation performance were independently significant predictors.  The indirect effect equals (.3)*(0.68) = .0.21.  We tested the significance of this indirect effect using bootstrapping procedures. We computed the average indirect effect over 1,000 bootstrapped samples with 95% confidence intervals (bootstrapped indirect effect = 0.21 95% CI [0.06, 0.38]). Since the confidence intervals do not cross zero, we infer statistical significance.

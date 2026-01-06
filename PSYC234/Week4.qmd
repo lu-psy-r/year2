@@ -17,29 +17,28 @@ Watch the lecture on mediation theory [here](https://lancaster.cloud.panopto.eu/
 
 Watch the mediation demonstration [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d2d2bc03-a2a7-404a-960d-b27100baa8e8)
 
-## Slides
+## Slides & Lab Task Question Sheet
 
 Please download the [Slides](data/Wk4/Wk14_Slides_LabTask_Q_Sheet.zip). In this zipped folder is the slides that accompany the lecture and the week 14 lab task question sheet.
 
 ## Materials
 
-The folder is a zipped folder called `Wk14_Lecture_Lab_R_Upload_Materials.zip`. It can be downloaded [here](data/Wk4/Wk14_Lecture_Lab_R_Upload_Materials.zip) This has the model lecture script and the `.sav` file that was demonstrated in the lecture. It also has the basic layout of a .Rmd file and the data for the Week 14 lab task.
+The folder is a zipped folder called `Wk14_Lecture_Lab_R_Upload_Materials.zip`. It can be downloaded [here](data/Wk4/Wk14_Lecture_Lab_R_Upload_Materials.zip). This has the model lecture script and the `.sav` file that was demonstrated in the lecture. It also has the basic layout of a .Rmd file and the data for the Week 14 lab task.
 
+## Pre-Lab Activity
+
+1.  Watch the lecture and play with the demonstration script before you attempt anything!
+2.  Download the zip files and upload to your R account
+3.  Play with the lecture model script to familiarise yourself with the process
+4.  Come to your scheduled lab to write your own mediation analysis script
     
 ## Lab Task
 
 We are working with the `Coffee_Mediation_1.csv` from the folder listed above.  Upload it to the R server, (preferably before you come to the lab) and complete the `Mediation_Lab_Script.Rmd` file using that data.  There is no model output as a guide this week. The lecture demonstration video and the model script is your guide.
 
-## Pre-Lab Activity
-
-1.  Watch the lecture before you attempt anything!
-2.  Download the zip files and upload to your R account
-3.  Play with the lecture model script to familiarise yourself with the process
-4.  Come to your scheduled lab to write your own mediation analysis script
-
 ## Test Yourself
 
-The link to this week's multiple choice quiz, WBA 4, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506931)
+The link to this week's multiple choice quiz, WBA 4, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738523)
 
 
 ## What Statistical Analysis Methods Do We Know So Far?
@@ -198,7 +197,7 @@ $$
 
 There are many types of mediation models.  Here we will concentrate on only two:  fully or partially mediated models.
 
-When all of the effect passes through the indirect path, or through the mediating variable `M`, then we say we have Full Mediation.  We can recognise this because the direct path, or `c'` is reduced to such a small value that it is no longer significantly different from zero, i.e. the regression coefficient in the multiple regression model of `Y` = `M` + `X` is non-significant
+When all of the effect passes through the indirect path, or through the mediating variable `M`, then we say we have Full Mediation.  We can recognise this because the direct path, or `c'` (we pronounce this "c-prime") is reduced to such a small value that it is no longer significantly different from zero, i.e. the regression coefficient in the multiple regression model of `Y` = `M` + `X` is non-significant
 
 $$
 Full\ Mediation: ab + (c' = 0) = c
@@ -214,7 +213,7 @@ $$
 
 ![A Partial Mediation Model](Images/Wk4/Wk14_PartialMediation.png)
 
-```{r include = FALSE}
+```{r include=FALSE}
 grViz(diagram = "digraph {
   rankdir=LR;
   node [fontname = arial, shape = rectangle]
@@ -356,7 +355,7 @@ Then, report the `indirect effect` with its confidence intervals.  This is gener
 As with all results, interpretation is largely driven by theory.  A partial mediation may be illuminating an otherwise concealed relationship and so inform some theory development.  The size of an indirect effect may indicate the strenght of a mediating relationship which could prompt more attention and greater dedication of research resource in future studies.  It is your job as the researcher to make these statements, in the context of both theory and prior research.
 
 
-## Demonstration 
+## Lecture Demonstration 
 
 The following is the script from the lecture video
 
@@ -375,7 +374,7 @@ library(haven) # reading in .sav file
 
 ### Mediation analysis
 
-In this demonstration, we will model a mediation analysis.
+In this demonstration, we will model a mediation analysis to explore the following question:
 
 Is the quality of Supervision related to Dissertation Performance? What, if any, mediating effect may the self-esteem of a student have on this relationship?
 
@@ -567,7 +566,7 @@ The effect of supervision on dissertation performance was partially mediated via
 
 ## Week 14 Lab Task
 
-Unlike weeks 12 and 13,  week 14's lab task requires you to run a mediation analysis and answer some questions. The staff will have the answers in the lab, so you can check them either as you go along or once you have finished. The lecture demonstration and model script is there to guide you.
+Week 14's lab task requires you to run a mediation analysis and answer some questions. The staff will have the answers in the lab, so you can check them either as you go along or once you have finished. The lecture demonstration and model script is there to guide you.
 
 The mediation analysis for the lab task involves exploring how a property of `Alertness` mediates the effect of `Coffee intake` on `Problem Solving`.
 
@@ -617,3 +616,7 @@ Report the following values to 2 dp.
 Draw the mediation analysis diagram with the correct values on the pathways.
 
 Report the bootstrap analysis and the results.  
+
+## Model script 
+
+A model script showing one way of answering the research questions above using R will be available next week.

@@ -387,6 +387,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#submit-scripts" id="toc-submit-scripts" class="nav-link" data-scroll-target="#submit-scripts">Submit Scripts</a></li>
   </ul></li>
+  <li><a href="#model-script" id="toc-model-script" class="nav-link" data-scroll-target="#model-script">Model script</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -421,7 +422,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="materials">Materials</h2>
 <p>There are two folders to download for week 12: I separated the materials into files tha R will upload, or should upload with no error; and .docx or .pdf files that R would not like. Please store the second folder somewhere for your use.</p>
 <ul>
-<li>The first folder is a zipped folder called Week 12 234 Materials.zip. It can be downloaded <a href="data/Wk2/Week_12_234_Materials.zip">here</a>. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.</li>
+<li>The first folder is a zipped folder called Week 12 234 Materials.zip. It can be downloaded <a href="data/Wk2/Week_12_234_Materials.zip">here</a>. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically. It has materials for both the lecture demonstration and the lab activity.</li>
 <li>The second folder is called “Week_12_234_Slides_Codebook”. The slides are for the lecture; the Codebook is paired with the “student-por.csv” dataset, for the pre-lab and lab activity is available in a folder for download <a href="data/Wk2/Week_12_234_Slides_Codebook.zip">here</a>.</li>
 </ul>
 </section>
@@ -433,7 +434,7 @@ window.Quarto = {
 <li>In the <code>Week 12 Lab Materials</code> folder is an <code>Outputs</code> folder - go and find the <code>Model Summary Output.png</code> file and have a look at the regression model output</li>
 <li>Begin by interpreting the model summary, as far as you can (as we did in Lab 11).</li>
 <li>Next get the analysis work flow diagram and begin to think about what piece of code do you need for each stage</li>
-<li>Start a script and import the dataset. Use the lecture and the model script <code>Multiple_Regression_Categorical_Predictors_2025.Rmd</code> in the <code>Week 12 lecture materials</code> folder to think about what processes may you need to perform to get to a model that looks like the output.</li>
+<li>Start a script and import the dataset. Use the lecture and the model script <code>Multiple_Regression_Categorical_Predictors.Rmd</code> in the <code>Week 12 lecture materials</code> folder to think about what processes may you need to perform to get to a model that looks like the output.</li>
 <li>Write a plan of how you might approach an analysis to get to this model</li>
 </ol>
 <ul>
@@ -464,11 +465,11 @@ My predictor labels and suffixes
 </section>
 <section id="test-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="test-yourself">Test Yourself</h2>
-<p>The link to this week’s multiple choice quiz, WBA 2, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506929">here</a></p>
+<p>The link to this week’s multiple choice quiz, WBA 2, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738521">here</a></p>
 </section>
 <section id="week-12-multiple-regression-with-categorical-predictors" class="level2">
 <h2 class="anchored" data-anchor-id="week-12-multiple-regression-with-categorical-predictors">Week 12: Multiple Regression with Categorical Predictors</h2>
-<p>In the demonstration sections, you can follow along using the <code>Multiple_Regression_Categorical_Predictors_2025.Rmd</code> file.</p>
+<p>In the demonstration sections, you can follow along using the <code>Multiple_Regression_Categorical_Predictors.Rmd</code> file.</p>
 <p>We will consider:</p>
 <ul>
 <li>dummy / treatment contrast coding</li>
@@ -588,7 +589,20 @@ Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*X_3 + b_4*X_4 + b_5*X_5 + b_6*X_6 + e_i
 </div>
 </div>
 </div>
-<p>We can also look at the relationships between each of the continuous variables: <code>age</code>, <code>bmi</code> and <code>children</code></p>
+<p>We can also look at the relationships between each of the continuous variables: <code>age</code>, <code>bmi</code> and <code>children</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Which package does a function come from?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If I type the name of a function, preceded by a question mark, into the console, like this: <code>?chart.Correlation()</code>, the Help tab in the Files pane will show me information about the function and which library package it is using. If you try this for yourself, you will see this function is in the <code>PerformanceAnalytics</code> package.</p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.Correlation</span>(d[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)], <span class="at">histogram=</span><span class="cn">TRUE</span>, <span class="at">pch=</span><span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -605,7 +619,8 @@ Y_i = b_0 + b_1 * X_1 + b_2*X_2 + b_3*X_3 + b_4*X_4 + b_5*X_5 + b_6*X_6 + e_i
 <h2 class="anchored" data-anchor-id="understand">Understand:</h2>
 <section id="model" class="level3">
 <h3 class="anchored" data-anchor-id="model">Model</h3>
-<p>Our main focus for this week is working with the categorical variables. In regression, group differences are called contrasts and there are several ways to construct contrasts. On import, R will code categorical variables using its default dummy contrast coding scheme.</p>
+<p>Our main focus for this week is working with the categorical variables. Categorical variables in R have ‘levels’ with each level being a separate sub-category within the variable. These levels are contrasted against each other, to see if they have the same or different impacts on the outcome variable.</p>
+<p>In regression, group differences are called contrasts and there are several ways to construct contrasts. On import, R will code categorical variables using its default dummy contrast coding scheme. Dummy coding uses a series of 0 and 1s to set up paired contrasts - between the reference level and one other level in the variable.</p>
 <p>Take a look and see how R sees the categorical variables; the levels associated with 0 are the reference levels at the moment:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(d<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -629,7 +644,10 @@ SE  0  1  0
 SW  0  0  1</code></pre>
 </div>
 </div>
-<p>During the estimation of the regression model, the reference levels are estimated within the intercept term. This means that you won’t see the labels of the reference levels in any model summary; they are contained within the intercept. To begin with, we will create a model using the raw data, building a model with all six predictor variables. This is the model that you worked with in labs in week 11.</p>
+<p>The <code>sex</code> variable has two levels: <code>female</code> and <code>male</code>. The <code>female</code> level, being the first in the alphabet, is the reference level.</p>
+<p>The <code>smoker</code> variable has two levels: <code>no</code> and <code>yes</code>. The <code>no</code> level, being the first in the alphabet, is the reference level.</p>
+<p>The <code>region</code> variable has four levels: <code>NE</code>, <code>NW</code>, <code>SE</code> and <code>SW</code>. The <code>NE</code> level, being the first in the alphabet, is the reference level. The <code>NW</code>, <code>SE</code> and <code>SW</code> levels are only compared to the <code>NE</code> level. We do not get comparisons between say, <code>NW</code> and <code>SE</code> levels automatically using a dummy contrast scheme.</p>
+<p>During the estimation of the regression model, the reference levels are estimated within the intercept term. This means that you won’t see the labels of the reference levels in any model summary; they are contained, and kind of hidden, within the intercept. To begin with, we will create a model using the raw data, building a model with all six predictor variables. This is the model that you worked with in labs in week 11.</p>
 <p>Here is the written regression model:</p>
 <p><span class="math display">\[
 Charges = b_0 + b_1 * X_{age} + b_2*X_{bmi} + b_3*X_{children} + b_4*X_{sex}+ b_5*X_{smoker} + b_6*X_{region} + e
@@ -702,9 +720,22 @@ NW  0  1  0
 SW  0  0  1</code></pre>
 </div>
 </div>
-<p>Look at the top row for each variable where the zeroes are. Notice how for sex and smoker, the reference levels are now the last word in the alphabet. We have changed the reference levels.</p>
-<p>Any model that we now call has a different interpretation on the intercept. The intercept now represents a male, smoker of no age, weight or children that lives in SE USA.</p>
-<p>Lets recall the model: No changes to the code here:</p>
+<p>Look at the top row for each variable where the zeroes are. Notice how for sex and smoker, the reference levels are now the last word in the alphabet. We have changed the reference levels in our raw variables.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Changing reference levels changes the interpretation of the intercept
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When we change reference levels, we change what the intercept means. So it is important to understand what it means for the interpretation of the other model coefficients.</p>
+</div>
+</div>
+<p>The intercept now represents a male, smoker of no age, weight or children that lives in SE USA.</p>
+<p>Lets recall the model: No changes to the code here, but the reference levels have changed within the variables of <code>sex</code>, <code>smoker</code> and <code>region</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m6 <span class="ot">&lt;-</span> <span class="fu">lm</span>(charges <span class="sc">~</span> age <span class="sc">+</span> bmi <span class="sc">+</span> children <span class="sc">+</span> sex <span class="sc">+</span> smoker <span class="sc">+</span> region, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -736,7 +767,7 @@ Multiple R-squared:  0.7509,    Adjusted R-squared:  0.7494
 F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>The formula is the same, the residuals are the same, the significance and variance explained is the same. The change is in how the model estimates the coefficients given the reference levels of the variables.</p>
+<p>Look at the summary above. The formula is the same, the residuals are the same, the significance and variance explained is the same as our earlier model. However the intercepts and some of the coefficient values are different. The change is in how the model estimates the coefficients given the reference levels of the variables.</p>
 <p>There is no change here for coefficients for our continuous variables. The coefficients for our categorical variables have changed however:</p>
 <ul>
 <li><code>sexfemale</code> now describes the difference in charges when you move from being male to female. The magnitude of the coefficient remains the same however the direction of the effect is reversed. Before changing the reference level, the coefficient was negative, now it is positive. Changing from male to female is associated with an increase in insurance charges of approximately $131.00.</li>
@@ -855,7 +886,7 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>The intercept has changed once more. It is now negative once more. We still see no material changes in the significance of the model or the effects, however. Telling us that while we are changing the way we are modelling our variables, we are not changing the relationships within the data.</p>
 <ul>
-<li>see how the binary categorical variables of <code>sex</code> and <code>smoker</code> coefficients are half what they were when dummy coded. You can see that the estimates are halved from the <code>m6</code> model that uses dummy / treatment contrast coding.</li>
+<li>notice that the binary categorical variables of <code>sex</code> and <code>smoker</code> coefficients are now half what they were when dummy coded. You can see that the estimates are halved from the <code>m6</code> model that uses dummy / treatment contrast coding.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># raw coefficient for sex divided by 2</span></span>
@@ -870,18 +901,21 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre><code>[1] 11924.25</code></pre>
 </div>
 </div>
+<ul>
+<li>also, see how the binary categorical variables of <code>sex</code> and <code>smoker</code> are now called <code>sexsum1</code> and <code>smokersum1</code> rather than <code>sexfemale</code> or <code>smokerno</code>. This is also a bit strange because there are -1s in the sum contrast scheme (see above), but none are showing in the output.</li>
+</ul>
 <p>In order to find the insurance charges for the -1 levels, we have to use the equation. Lets do some math to demonstrate this:</p>
 <p>Sex: The <code>sex</code> variable is our fourth predictor, so our maths equation looks like this:</p>
 <p><span class="math display">\[
 Y_i = b_0 + b_4 * X_{sex}
 \]</span></p>
-<p>We need:</p>
+<p>To find the -1 impact on insurance charges, with regards to the <code>sex</code> varaible, we need:</p>
 <ul>
 <li>the <code>intercept</code> term = <span class="math inline">\(b_0\)</span> = (-666.94)</li>
 <li>the coefficient value for <code>sexsum1</code> (-65.66) from the model output; this is the fourth predictor, so if we had written out our equation for all the predictors, it would be <span class="math inline">\(b_4\)</span> (as above)</li>
 <li>we also need the labels for the two levels of the sex predictor: male (1) and female (-1) because we are going to put those in our <span class="math inline">\(X_4\)</span> part of the equation.</li>
 </ul>
-<p>Here we go:</p>
+<p>Insurance charges for a male. The 1 here, in the brackets, denote the male level for the sex variable:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># charges for being male</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>(InsuranceCharge_Male <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">666.94</span> <span class="sc">+</span> (<span class="sc">-</span><span class="fl">65.66</span> <span class="sc">*</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -889,6 +923,7 @@ Y_i = b_0 + b_4 * X_{sex}
 <pre><code>[1] -732.6</code></pre>
 </div>
 </div>
+<p>Insurance charges for a female. The -1 here, in the brackets, denote the female level for the sex variable:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># charges for being female</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>(InsuranceCharge_Female <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">666.94</span> <span class="sc">+</span> (<span class="sc">-</span><span class="fl">65.66</span> <span class="sc">*</span> <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -896,6 +931,7 @@ Y_i = b_0 + b_4 * X_{sex}
 <pre><code>[1] -601.28</code></pre>
 </div>
 </div>
+<p>Being a female predicts a higher insurance premium in this data sample (because -601.28 is a higher, or larger number than -732.6).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the difference between being male or female</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">732.6</span> <span class="sc">-</span> <span class="sc">-</span><span class="fl">601.28</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -915,13 +951,14 @@ Y_i = b_0 + b_5 * X_{smoker}
 <li>the coefficient value for <code>smokersum1</code> (11924.27) from the model output; this is the fifth predictor, so if we had written out our equation for all the predictors, it would be <span class="math inline">\(b_5\)</span> (as above)</li>
 <li>we also need the labels for the two levels of the smoker variable: yes (1) and no (-1) because we are going to put those in our <span class="math inline">\(X_5\)</span> part of the equation.</li>
 </ul>
-<p>Here we go:</p>
+<p>Here we go: insurance charges for being a smoker, with the 1 denoting the yes level:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>(InsuranceCharge_smoker <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">666.94</span> <span class="sc">+</span> (<span class="fl">11924.27</span> <span class="sc">*</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11257.33</code></pre>
 </div>
 </div>
+<p>insurance charges for being a non-smoker, with the -1 denoting the no level:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>(InsuranceCharge_nonsmoker <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">666.94</span> <span class="sc">+</span> (<span class="fl">11924.27</span> <span class="sc">*</span> <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1036,7 +1073,7 @@ SW   -1   -1   -1</code></pre>
 </section>
 <section id="unbalanced-binary-variables" class="level3">
 <h3 class="anchored" data-anchor-id="unbalanced-binary-variables">Unbalanced Binary Variables</h3>
-<p>When binary variables are unbalanced, you can transform them into numerical variables nd mean-centre them.</p>
+<p>Sometimes, categorical variables of two levels will have an uneven amount of observations between teh two levels. We then call this an ‘unbalanced’ variable. The <code>smoker</code> variable is an example of an unbalanced variable in this dataset. When binary variables are unbalanced, you can transform them into numerical variables and mean-centre them to help with model estimations and predictions.</p>
 <p>Look back at the visualisations of the dataset:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bar charts for categorical variables</span></span>
@@ -1058,7 +1095,7 @@ SW   -1   -1   -1</code></pre>
 </div>
 </div>
 </div>
-<p>Female and male participants in the <code>sex</code> variable are quite evenly spread. <code>smoker</code> status, however, is very unbalanced.</p>
+<p>Female and male participants in the <code>sex</code> variable are quite evenly spread. <code>smoker</code> status, however, is very unbalanced. There are many more observations of non-smokers compared to smokers.</p>
 <p>For categorical variables of two levels (binary variables), Gelman (2007) recommends creating a new numeric variable and then mean centring the new numeric version of the variable. If you use this method, do this across each binary categorical variable for consistency.</p>
 <p>Here are the actual numbers for the <code>smoker</code> variable:</p>
 <div class="cell">
@@ -1093,7 +1130,7 @@ SW   -1   -1   -1</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>smoker_c <span class="ot">&lt;-</span> <span class="fu">round</span>(d<span class="sc">$</span>smoker_n <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>smoker_n), <span class="dv">3</span>) <span class="co"># round to 3 figures for readability</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Taking a look at the summary of the variable should show you the minimum (non-smokers) and maximum (smokers) values in the variable</p>
+<p>Taking a look at the summary of the centred smoker variable. It no longer shows levels, instead it should show you the minimum (non-smokers) and maximum (smokers) values in the variable. The <code>smoker_c</code> variable is constructed now as a continuous variable in this dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(d<span class="sc">$</span>smoker_c) <span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1109,7 +1146,7 @@ SW   -1   -1   -1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># non-smoker was zero so is the negative numbers here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>So here we have observations for yes, no, no, no, no.</p>
+<p>It only has two values across the dataset - 0.795 = the old ‘yes’ category, and -0.205 = the old ‘no’ category in the categorical version of the raw <code>smoker</code> variable. So here we have observations for yes, no, no, no, no.</p>
 <p>Let’s refit the model with the new centred <code>smoker_c</code> variable. I have changed the model name to <code>m6_cen</code> to show that I am now using centred variables as well:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m6_cen <span class="ot">&lt;-</span> <span class="fu">lm</span>(charges <span class="sc">~</span> age <span class="sc">+</span> bmi <span class="sc">+</span> children <span class="sc">+</span> sexsum <span class="sc">+</span> smoker_c <span class="sc">+</span> regionsum, d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1606,7 +1643,7 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="descriptive-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
 <p>Depending on your hypothesis, you may report descriptive statistics differently from here. For instance if a hypothesis was present for an interaction of any of the predictors with sex, then the descriptive statistics section would be presented with means and sd and categories for the other variables split by gender.</p>
-<p>In this model, there is a flat structure, - i.e.&nbsp;no interactions, so we will go for basic mean and sd values or number of observations per category. The code below pulls out all the relevant information; I leave it to you to manage the formatting for reporting in a results section.</p>
+<p>In this model, there is a flat structure, - i.e.&nbsp;no interactions, so we will go for basic mean and sd values or number of observations per category. The code below pulls out all the relevant information; I leave it to you to manage the formatting for reporting in a results section. Click between the two boxes in the output to see the two kinds of information for a) the continuous variables and b) the categorical variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>(Desc_stat <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
 <span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># group_by(sex) %&gt;% </span></span>
@@ -1668,6 +1705,7 @@ children 0.04 0.01</code></pre>
 </section>
 <section id="inferential-statistics---model-coefficients-ses-t-values-and-p-values" class="level3">
 <h3 class="anchored" data-anchor-id="inferential-statistics---model-coefficients-ses-t-values-and-p-values">Inferential Statistics - Model Coefficients, SEs, <em>t</em>-values and <em>p</em> values</h3>
+<p>There are some nice packages that will pull out coefficients for you, but it is also a good idea to know how to build a model summary in longhand. The code below is one example of a longhand approach. You can compare the output here with the output given for the model above.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get model predictions / coefficients</span></span>
 <span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>Estimate <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">coef</span>(m6_z), <span class="dv">2</span>)</span>
@@ -1678,16 +1716,19 @@ children 0.04 0.01</code></pre>
 <span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the p-values of the predictors from the model</span></span>
 <span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">summary</span>(m6_z)<span class="sc">$</span>coefficients[, <span class="st">"Pr(&gt;|t|)"</span>], <span class="dv">3</span>)</span>
 <span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a>Predictor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Intercept"</span>, <span class="st">"Age"</span>, <span class="st">"BMI"</span>, <span class="st">"No. of Children"</span>,</span>
-<span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Sex: Male"</span>, <span class="st">"Smoker: Yes"</span>,<span class="st">"Region: SE"</span>,</span>
-<span id="cb130-12"><a href="#cb130-12" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Region: NE"</span>, <span class="st">"Region: NW"</span>)</span>
-<span id="cb130-13"><a href="#cb130-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-14"><a href="#cb130-14" aria-hidden="true" tabindex="-1"></a>Model_values <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(Predictor,Estimate, SE, t, p,)</span>
-<span id="cb130-15"><a href="#cb130-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-16"><a href="#cb130-16" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy up p-values</span></span>
-<span id="cb130-17"><a href="#cb130-17" aria-hidden="true" tabindex="-1"></a>Model_values<span class="sc">$</span>p <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">==</span> <span class="fl">0.000</span>, <span class="st">"&lt; .001"</span>, p)</span>
-<span id="cb130-18"><a href="#cb130-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-19"><a href="#cb130-19" aria-hidden="true" tabindex="-1"></a>Model_values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a list of labels for your predictors - be sure you get them in the accurate order</span></span>
+<span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a>Predictor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Intercept"</span>, <span class="st">"Age"</span>, <span class="st">"BMI"</span>, <span class="st">"No. of Children"</span>,</span>
+<span id="cb130-12"><a href="#cb130-12" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Sex: Male"</span>, <span class="st">"Smoker: Yes"</span>,<span class="st">"Region: SE"</span>,</span>
+<span id="cb130-13"><a href="#cb130-13" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Region: NE"</span>, <span class="st">"Region: NW"</span>)</span>
+<span id="cb130-14"><a href="#cb130-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-15"><a href="#cb130-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrange in a data frame, in the order of columns you want in your table</span></span>
+<span id="cb130-16"><a href="#cb130-16" aria-hidden="true" tabindex="-1"></a>Model_values <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(Predictor,Estimate, SE, t, p,)</span>
+<span id="cb130-17"><a href="#cb130-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-18"><a href="#cb130-18" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy up p-values according to APA7 formatting</span></span>
+<span id="cb130-19"><a href="#cb130-19" aria-hidden="true" tabindex="-1"></a>Model_values<span class="sc">$</span>p <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">==</span> <span class="fl">0.000</span>, <span class="st">"&lt; .001"</span>, p)</span>
+<span id="cb130-20"><a href="#cb130-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-21"><a href="#cb130-21" aria-hidden="true" tabindex="-1"></a><span class="co"># print model output</span></span>
+<span id="cb130-22"><a href="#cb130-22" aria-hidden="true" tabindex="-1"></a>Model_values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 5
   Predictor       Estimate    SE     t p     
@@ -1703,7 +1744,7 @@ children 0.04 0.01</code></pre>
 9 Region: NW         234.   293.  0.8  0.424 </code></pre>
 </div>
 </div>
-<p>I have given you some code above that shows you how to manually extract the values that we have used in the model outputs to form a table to be able to report the values. The broom package does this also. However, on small models (for numbers of predictors), I like the level of control to be able to do it like this. You may find another way as you learn and that is good too.</p>
+<p>The <code>broom</code> package does this also. However, on small models (for numbers of predictors), I like the level of control to be able to do it like this. You may find another way as you learn and that is good too.</p>
 <p>I leave it to you to format the <code>Model_values</code> dataframe into a table for presentation. Remember to also report your F ratio for the model and its significance value along with the variance explained.</p>
 </section>
 <section id="reporting-text" class="level3">
@@ -1810,7 +1851,7 @@ children 0.04 0.01</code></pre>
 </section>
 <section id="week-11---12-pre-lab-activity-and-week-12-lab-task" class="level2">
 <h2 class="anchored" data-anchor-id="week-11---12-pre-lab-activity-and-week-12-lab-task">Week 11 - 12 Pre-Lab Activity and Week 12 Lab Task</h2>
-<p>In this lab, you will be working with the R script, data and Codebook stored <a href="Week_12_234_Materials.zip_materials.zip">here</a>, and the accompanying codebook is accessed <a href="data/Wk2/Data_Codebook.pdf">here</a>.</p>
+<p>In this lab, you will be working with the R script, data and Codebook stored <a href="data/Wk2/Week_12_234_Materials.zip">here</a>, and the accompanying codebook is accessed in the slides and codebook folder,<a href="data/Wk2/Week_12_234_Slides_Codebook.zip">here</a>, called “Data_Codebook.pdf”.</p>
 <p>Work through the Week12_R_Script.Rmd file and enter in your own code to arrive at the following model summary and figures. All these images are stored in the Outputs folder that comes down in the Week 12 .zip file:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1833,10 +1874,14 @@ children 0.04 0.01</code></pre>
 <p><img src="Images/Wk2/Predictor_plot_absences_z1.png" class="img-fluid" alt="Predictor Absence"> <img src="Images/Wk2/Predictor_Plot_health_z1.png" class="img-fluid" alt="Predictor Health"> <img src="Images/Wk2/Predictor_Plot_school_c.png" class="img-fluid" alt="Predictor School"> <img src="Images/Wk2/Predictor_plot_walc_h.png" class="img-fluid" alt="Predictor Walc"> <img src="Images/Wk2/PredictorPlot_sex_c.png" class="img-fluid" alt="Predictor Sex"></p>
 <section id="submit-scripts" class="level3">
 <h3 class="anchored" data-anchor-id="submit-scripts">Submit Scripts</h3>
-<p>Remember to submit your group scripts if you want the chance to receive feedback on your own and other groups’ scripts.</p>
-
-
+<p>if you want the chance to receive feedback on your scripts.</p>
 </section>
+</section>
+<section id="model-script" class="level2">
+<h2 class="anchored" data-anchor-id="model-script">Model script</h2>
+<p>A model script showing one way of answering the research questions above using R will be available on the module moodle next week.</p>
+
+
 </section>
 </section>
 

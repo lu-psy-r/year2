@@ -24,13 +24,13 @@ This lecture comprises four parts:
 
 [Part 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115): This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.
 
-Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507037) in both .pptx and .pdf format.
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738558) in both .pptx and .pdf format.
 
 # Lab preparation
 
 Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=25cf1ac6-7afc-4129-9ec4-b27a00fb10d0). This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.
 
-If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507042).
+If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738560).
 
 
 # Lab 
@@ -41,11 +41,11 @@ I’ll provide you with one or two research questions each week which will requi
 
 You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.
 
-The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2602258&forceview=1).
+The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2738562).
 
 ## Datasets
 
-The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507044). 
+The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738563). 
 
 ## Research question 1: Independent groups
 
@@ -78,11 +78,11 @@ For each research questions, you will need to:
 
 ## Model script 
 
-A model script showing one way of answering the research questions above using R will be available [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2507046) from 9am on Monday of Week 17.
+A model script showing one way of answering the research questions above using R will be available next week.
 
 ## Feedback on student scripts
 
-[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507047) is some feedback on a few scripts submitted by students.
+[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738566) is some feedback on a few scripts submitted by students.
 
 # Independent learning activities 
 
@@ -90,7 +90,7 @@ Below are some independent learning activities you can have a go at to help cons
 
 ## Activity 1: The WBA
 
-The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506933) from 13th February 2025. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738525). Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
 
 ## Activity 2: Calculating test statistics manually
 
@@ -336,7 +336,7 @@ tea_dataset %>%
 Model output:
 
 ```{r echo = FALSE} 
-model1 <- wilcox.test(admin_tasks ~ tea_group, data = tea_dataset, paired = FALSE)
+model1 <- wilcox_test(admin_tasks ~ tea_group, data = tea_dataset, paired = FALSE)
 model1
 
 
@@ -438,4 +438,4 @@ model2
 
 # Asking questions
 
-If you have any questions about this week's content, please post them on the discussion board [here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905). If you prefer to remain anonymous, you can post questions anonymously [here](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_cCNtcyOuNhw62ai). I will then copy your question to the discussion forum and answer it there and/or cover it in next Q&A session.
+If you have any questions about this week's content, please post them on the module moodle discussion board.

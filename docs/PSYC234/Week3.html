@@ -360,10 +360,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a></li>
-  <li><a href="#lab-task" id="toc-lab-task" class="nav-link" data-scroll-target="#lab-task">Lab Task</a></li>
   <li><a href="#pre-lab-activity" id="toc-pre-lab-activity" class="nav-link" data-scroll-target="#pre-lab-activity">Pre-Lab Activity</a></li>
+  <li><a href="#lab-task" id="toc-lab-task" class="nav-link" data-scroll-target="#lab-task">Lab Task</a></li>
   <li><a href="#test-yourself" id="toc-test-yourself" class="nav-link" data-scroll-target="#test-yourself">Test Yourself</a></li>
-  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions">Interactions</a>
+  <li><a href="#lecture-demonstration-script-for-interactions" id="toc-lecture-demonstration-script-for-interactions" class="nav-link" data-scroll-target="#lecture-demonstration-script-for-interactions">Lecture &amp; Demonstration Script for Interactions</a>
   <ul class="collapse">
   <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
   <li><a href="#tidy" id="toc-tidy" class="nav-link" data-scroll-target="#tidy">Tidy</a></li>
@@ -379,6 +379,7 @@ window.Quarto = {
   <li><a href="#preparation-of-data-for-using-interactions" id="toc-preparation-of-data-for-using-interactions" class="nav-link" data-scroll-target="#preparation-of-data-for-using-interactions">Preparation of data for using interactions</a></li>
   <li><a href="#building-a-model-with-interactions" id="toc-building-a-model-with-interactions" class="nav-link" data-scroll-target="#building-a-model-with-interactions">Building a model with interactions</a></li>
   </ul></li>
+  <li><a href="#model-script" id="toc-model-script" class="nav-link" data-scroll-target="#model-script">Model script</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -417,25 +418,14 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="materials">Materials</h2>
 <p>There are two zipped folders to download for week 13:</p>
 <ul>
-<li>The first folder is a zipped folder called <code>Lecture_3_Materials.zip</code>. It can be downloaded <a href="data/Wk3/Lecture_3_Materials.zip">here</a>. This has the model lecture script and the <code>KidIQ.txt</code> file that was demonstrated in the lecture</li>
-<li>The second folder is called <code>Lab_3_Materials.zip</code>. In this folder is the <code>WorldHappinessReportData.csv</code> and a half prepared .Rmd file for the lab in week 13. I did this because it is a really interesting dataset but the tidying and visualisation would take forever….please download it <a href="data/Wk3/Lab_3_Materials.zip">here</a>.</li>
+<li>The first folder is a zipped folder called <code>Lecture_Week_13_Materials.zip</code>. It can be downloaded <a href="data/Wk3/Lecture_Week_13_Materials.zip">here</a>. This has the script and the <code>KidIQ.txt</code> file for the model that was demonstrated in the lecture</li>
+<li>The second folder is called <code>Lab_Week_13_Materials.zip</code>. In this folder is the <code>WorldHappinessReportData.csv</code> and a half prepared .Rmd file for the lab in week 13. I did this because it is a really interesting dataset but the tidying and visualisation would take forever….please download it <a href="data/Wk3/Lab_Week_13_Materials.zip">here</a>.</li>
 </ul>
-</section>
-<section id="lab-task" class="level2">
-<h2 class="anchored" data-anchor-id="lab-task">Lab Task</h2>
-<p>We are working with the <code>WorldHappinessReportData.csv</code> from the folder listed above. Upload it to the R server, (preferably before you come to the lab) and complete the <code>Multiple_Regression_Interactions_Student.Rmd</code> file using that data.</p>
-<p>The model output you are aiming to match is below</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Wk3/Model Output.png" class="img-fluid figure-img"></p>
-<figcaption>Model output</figcaption>
-</figure>
-</div>
 </section>
 <section id="pre-lab-activity" class="level2">
 <h2 class="anchored" data-anchor-id="pre-lab-activity">Pre-Lab Activity</h2>
 <ol type="1">
-<li>Watch the lecture before you attempt anything!</li>
+<li>Watch the lecture and play with the lecture script before you attempt anything!</li>
 <li>Download the zip files and upload to your R account</li>
 <li>Look at the model outout above, begin by interpreting the model summary, as far as you can (as we did in Lab in week 11 &amp; 12).</li>
 <li>Next get the analysis work flow diagram and begin to think about what piece of code do you need for each stage</li>
@@ -453,6 +443,17 @@ window.Quarto = {
 <li><p>talk amongst your peers and work together on it in independent study time - forming a small study group for this process</p></li>
 <li><p>wait until the lab and bring ideas then…</p></li>
 </ul>
+</section>
+<section id="lab-task" class="level2">
+<h2 class="anchored" data-anchor-id="lab-task">Lab Task</h2>
+<p>We are working with the <code>WorldHappinessReportData.csv</code> from the folder listed above. Upload it to the R server, (preferably before you come to the lab) and complete the <code>Multiple_Regression_Interactions_Student.Rmd</code> file using that data.</p>
+<p>The model output you are aiming to match is below</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Wk3/Model Output.png" class="img-fluid figure-img"></p>
+<figcaption>Model output</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -463,16 +464,16 @@ My predictor labels and suffixes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The model output has several predictors with suffixes, demarcated by and underscore ‘_’ and a letter e.g.&nbsp;‘_h’; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.</p>
+<p>The model output has several predictors with suffixes, demarcated by an underscore ‘_’ and a letter e.g.&nbsp;‘_h’; I explain these in the R Studio demonstrations in the lecture and you can use these as a guide to which kind of processes you may choose to use to transform any variables.</p>
 </div>
 </div>
 </section>
 <section id="test-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="test-yourself">Test Yourself</h2>
-<p>The link to this week’s multiple choice quiz, WBA 3, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506930">here</a></p>
+<p>The link to this week’s multiple choice quiz, WBA 3, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738522">here</a></p>
 </section>
-<section id="interactions" class="level2">
-<h2 class="anchored" data-anchor-id="interactions">Interactions</h2>
+<section id="lecture-demonstration-script-for-interactions" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-demonstration-script-for-interactions">Lecture &amp; Demonstration Script for Interactions</h2>
 <p>So far we have considered models with multiple variables - of both categorical and continuous types. One property of all these predictors in these models has been that they are functionally independent of each other.<br>
 What does functionally independent of each other mean? This means that, irrespective of any correlated relationship that we may have visualised as we got to know the data, when it came to coding the model, we did not let the variables talk to each other. We only let them talk to the outcome variable.<br>
 You have met interactions in PSYC214. The focus of this week’s lecture and lab is to introduce interactions in the context of a multiple regression model.</p>
@@ -496,7 +497,7 @@ You have met interactions in PSYC214. The focus of this week’s lecture and lab
 <h3 class="anchored" data-anchor-id="import">Import</h3>
 <p>Before beginning, I will introduce the dataset to you:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Wk3/Lecture_3_Materials/KidIQ.txt"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">mom_work =</span> <span class="fu">col_skip</span>()))</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Wk3/Lecture_Week_13_Materials/KidIQ.txt"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">mom_work =</span> <span class="fu">col_skip</span>()))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#d &lt;- read_csv("KidIQ.txt", col_types = cols(mom_work = col_skip()))</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -835,7 +836,7 @@ Model 2: kid_score ~ 1 + mom_iq_c + mom_age_c
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Is you non-significant predictor included in your hypotheses?
+Is your non-significant predictor included in your hypotheses?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1166,7 +1167,7 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Which is the negative regression coefficient for the interaction term. As we increase the IQ points from 80 to 81, the difference in scores decreases between the groups by about half a point.</p>
-<p>Lets look at the size of hte gap at the sample IQ points of 101: if you look back at the plot, the lines are almost meeting at this point, any advantage that any group has will be much smaller.</p>
+<p>Lets look at the size of the gap at the sample IQ points of 101: if you look back at the plot, the lines are almost meeting at this point, any advantage that any group has will be much smaller.</p>
 <p>IQ is now expressed in this sum as 1, because the IQ variable in the model is centred at the sample average for IQ which is 100. So and IQ of 101 = +1</p>
 <p>Finding the Test score for a child with a mum who did not finish high school and an IQ of 101 (black line on the plot) Intercept + not_finishing high school + IQ 101 + Interaction term</p>
 <div class="cell">
@@ -1336,7 +1337,7 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="statistical-power-of-interactions" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-power-of-interactions">Statistical Power of Interactions</h3>
-<p>Many effect sizes in psychology hover around Cohen’s <em>d</em> = 0.4</p>
+<p>Many effect sizes for independent predictors (or main effects in ANOVA language) in psychology hover around Cohen’s <em>d</em> = 0.4</p>
 <p>Based upon an effect size like this:</p>
 <ul>
 <li>The power of an interaction can be a small as 1/16th of the independent effects within a model (Gelman et al.&nbsp;2020)</li>
@@ -1371,9 +1372,13 @@ F-statistic: 42.84 on 3 and 430 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>choosing between different models - done &amp; ongoing</li>
 <li>reporting models - ongoing</li>
 </ul>
-
-
 </section>
+</section>
+<section id="model-script" class="level2">
+<h2 class="anchored" data-anchor-id="model-script">Model script</h2>
+<p>A model script showing one way of answering the research questions above using R will be available next week.</p>
+
+
 </section>
 </section>
 

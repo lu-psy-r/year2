@@ -24,7 +24,7 @@ It is a different way of working from your previous statistics modules.  There m
 
 <b>Weeks 11-14: Multiple Linear Regression (all in the class test in week 20)</b>
 
-Lecturer: Emma Mills
+Lecturer: Dr. Emma Mills
 
 Lecture 1: Review of correlation, simple regression and demonstration of multiple regression
 
@@ -58,6 +58,10 @@ Lecture 8: Binary logistic regression models.
 
 Lecture 9: Multiple binary logistic regression & ordinal logistic regression models.
 
+## Lab Staff
+
+Emma Mills and John Oyewole
+
 ## Recommended Reading
 
 The following chapters support the first few weeks of the course at the very least:
@@ -69,5 +73,4 @@ Chapters 9, 10 and 11 from Howell, D. C. (2017). Fundamental statistics for the 
 |             | Email Address                                                  |
 |-------------|----------------------------------------------------------------|
 | Emma Mills | [e.mills\@lancaster.ac.uk](mailto:e.mills@lancaster.ac.uk) |
-| Amy Atkinson  | [amy.atkinson\@lancaster.ac.uk](mailto:amy.atkinson@lancaster.ac.uk)     |
 |             |                                                                |

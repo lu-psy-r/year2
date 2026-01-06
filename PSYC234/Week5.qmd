@@ -34,10 +34,6 @@ Watch the Lecture on Factor Analysis
 
 Please download the [Slides](data/Wk5/Slides_&_Codebooks.zip). In this zipped folder are the slides that accompany the lecture and the codebook for the week 15 lab activity that uses the Birthweight dataset (which is associated with WBA5).
 
-## Week 15 Lab Activity 
-
-There are three scripts with associated data with which you can practise performing the steps of a factor analysis. These are in the folder called `Three_Factor_Analyses.zip`. It can be downloaded [here](data/Wk5/Three_Factor_Analyses.zip).  If you are completing the WBA Quizzes, then you will need to review the factor analysis for the Birthweight data to be able to complete WBA5.
-
 ### Pre-Lab Activity
 
 1.  Watch the lecture before you attempt anything!
@@ -45,9 +41,13 @@ There are three scripts with associated data with which you can practise perform
 3.  Play with one of the scripts before the lab to familiarise yourself with the process - test yourself on WBA5
 4.  Come to your scheduled lab to have a further practice and ask the staff questions about the process.
 
+## Week 15 Lab Activity 
+
+There are three scripts with associated data with which you can practise performing the steps of a factor analysis. These are in the folder called `Three_Factor_Analyses.zip`. It can be downloaded [here](data/Wk5/Three_Factor_Analyses.zip).  If you are completing the WBA Quizzes, then you will need to review the factor analysis for the Birthweight data to be able to complete WBA5.
+
 ## Test Yourself
 
-The link to this week's multiple choice quiz, WBA 5, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506932)
+The link to this week's multiple choice quiz, WBA 5, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738524)
 
 
 ## Factor Analysis
@@ -240,7 +240,9 @@ Running the factor analysis takes but a moment.  It is the checking and interpre
 
 7.  Report!
 
+## Model script for Factor Analysis
 
+A model script showing one way of answering the research questions above using R will be available next week.
 
 # Binomial Test
 
@@ -250,7 +252,7 @@ Watch part two of the Week 15 lecture (on the binomial test)
 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6).
 
 The lecture slides (both .ppt and .pdf) versions can be downloaded
-[here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2507030).
+[here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738554).
 
 ## Running the code in the lecture
 
@@ -351,15 +353,9 @@ used when you are interested in comparing a sample’s proportion of
 
 Take home message: Success refers to the outcome you are interested in.
 Sometimes this might be counterintuitive to how we typically think about
-‘success’ (e.g. in the.
+‘success’.
 
 ## Asking questions
 
-If you have any questions about the binomial test, please post them on
-the discussion board
-[here](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2506905).
-If you prefer to remain anonymous, you can post questions anonymously
-here: ["The Binomial Test: Post questions
-anonymously"](https://modules.lancaster.ac.uk/mod/url/view.php?id=2507035).
-I will then copy your question to the discussion forum and answer it
-there and/or cover it in next Q&A session.
+If you have any questions about the binomial test, please post them on the moodle discussion board
+the discussion board.

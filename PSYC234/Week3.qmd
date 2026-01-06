@@ -36,23 +36,15 @@ Link](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7718c2a4-2
 
 There are two zipped folders to download for week 13:
 
--   The first folder is a zipped folder called `Lecture_3_Materials.zip`.
-    It can be downloaded [here](data/Wk3/Lecture_3_Materials.zip). This has the
-    model lecture script and the `KidIQ.txt` file that was demonstrated in the lecture
--   The second folder is called `Lab_3_Materials.zip`. In this folder is the 
-    `WorldHappinessReportData.csv` and a half prepared .Rmd file for the lab in week 13.  I did this because it is a really interesting dataset but the tidying and visualisation would take forever....please download it [here](data/Wk3/Lab_3_Materials.zip).
+-   The first folder is a zipped folder called `Lecture_Week_13_Materials.zip`.
+    It can be downloaded [here](data/Wk3/Lecture_Week_13_Materials.zip). This has the
+    script and the `KidIQ.txt` file for the model that was demonstrated in the lecture
+-   The second folder is called `Lab_Week_13_Materials.zip`. In this folder is the 
+    `WorldHappinessReportData.csv` and a half prepared .Rmd file for the lab in week 13.  I did this because it is a really interesting dataset but the tidying and visualisation would take forever....please download it [here](data/Wk3/Lab_Week_13_Materials.zip).
     
-## Lab Task
-
-We are working with the `WorldHappinessReportData.csv` from the folder listed above.  Upload it to the R server, (preferably before you come to the lab) and complete the `Multiple_Regression_Interactions_Student.Rmd` file using that data.
-
-The model output you are aiming to match is below
-
-![Model output](Images/Wk3/Model%20Output.png)
-
 ## Pre-Lab Activity
 
-1.  Watch the lecture before you attempt anything!
+1.  Watch the lecture and play with the lecture script before you attempt anything!
 2.  Download the zip files and upload to your R account
 3.  Look at the model outout above, begin by interpreting the model summary, 
     as far as you can (as we did in Lab in week 11 & 12).
@@ -74,10 +66,20 @@ The model output you are aiming to match is below
 
 -   wait until the lab and bring ideas then...
 
+## Lab Task
+
+We are working with the `WorldHappinessReportData.csv` from the folder listed above.  Upload it to the R server, (preferably before you come to the lab) and complete the `Multiple_Regression_Interactions_Student.Rmd` file using that data.
+
+The model output you are aiming to match is below
+
+![Model output](Images/Wk3/Model%20Output.png)
+
+
+
 ::: callout-tip
 ## My predictor labels and suffixes
 
-The model output has several predictors with suffixes, demarcated by and
+The model output has several predictors with suffixes, demarcated by an
 underscore '\_' and a letter e.g. '\_h'; I explain these in the R Studio
 demonstrations in the lecture and you can use these as a guide to which
 kind of processes you may choose to use to transform any variables.
@@ -85,10 +87,10 @@ kind of processes you may choose to use to transform any variables.
 
 ## Test Yourself
 
-The link to this week's multiple choice quiz, WBA 3, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506930)
+The link to this week's multiple choice quiz, WBA 3, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738522)
 
 
-## Interactions
+## Lecture & Demonstration Script for Interactions
 
 So far we have considered models with multiple variables - of both
 categorical and continuous types. One property of all these predictors
@@ -133,7 +135,7 @@ Thinking and acting systematically will a) help your writing of any results sect
 Before beginning, I will introduce the dataset to you:
 
 ```{r}
-d <- read_csv("data/Wk3/Lecture_3_Materials/KidIQ.txt", col_types = cols(mom_work = col_skip()))
+d <- read_csv("data/Wk3/Lecture_Week_13_Materials/KidIQ.txt", col_types = cols(mom_work = col_skip()))
 
 #d <- read_csv("KidIQ.txt", col_types = cols(mom_work = col_skip()))
 
@@ -379,7 +381,7 @@ As before, from the top of the table:
 This comparison between models `m1_c` and `m2_c` shows a *p* value of 0.235.  The difference between the models is non-significant. The addition of `mom_age_c` to the model does not significantly increase the amount of variance explained and so to include this variable in the next stage of model building is not warranted.
 
 ::: {.callout-warning}
-### Is you non-significant predictor included in your hypotheses?
+### Is your non-significant predictor included in your hypotheses?
 
 If your non-significant predictor is included in any of your hypotheses, then, by design, you have to keep them in your model and fully report them as non-significant.
 :::
@@ -626,7 +628,7 @@ If we take 12.52616 from 12.04189, we get:
 ```
 Which is the negative regression coefficient for the interaction term.  As we increase the IQ points from 80 to 81, the difference in scores decreases between the groups by about half a point.
 
-Lets look at the size of hte gap at the sample IQ points of 101:  if you look back at the plot, the lines are almost meeting at this point, any advantage that any group has will be much smaller.
+Lets look at the size of the gap at the sample IQ points of 101:  if you look back at the plot, the lines are almost meeting at this point, any advantage that any group has will be much smaller.
 
 IQ is now expressed in this sum as 1, because the IQ variable in the model is centred at the sample average for IQ which is 100.  So and IQ of 101 = +1
 
@@ -782,7 +784,8 @@ modelled independently may suggest the need for an interaction term
 
 ### Statistical Power of Interactions
 
-Many effect sizes in psychology hover around Cohen’s *d* = 0.4
+Many effect sizes for independent predictors (or main effects in ANOVA language) 
+in psychology hover around Cohen’s *d* = 0.4
 
 Based upon an effect size like this: 
 
@@ -827,3 +830,7 @@ at:
 -   the properties of multicollinearity - week 15
 -   choosing between different models - done & ongoing
 -   reporting models - ongoing
+
+## Model script 
+
+A model script showing one way of answering the research questions above using R will be available next week.

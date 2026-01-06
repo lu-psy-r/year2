@@ -7,11 +7,14 @@ order: 2
 
 # Lecture
 
-The lecture for week 11 is [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=72b44e8c-e901-4f4c-baa7-b25f01282d16). Please note, it is best to view the video using the screen viewer. That way you see the moving cursor and when I move to the RStudio demonstration at around 37 minutes, you will see everything. If you have the slide viewer selected, then around 37 minutes, you will need to move to the screen view so that you can see the RStudio demonstration.
+The lecture for week 11 is [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=72b44e8c-e901-4f4c-baa7-b25f01282d16).  Please note, it is best to view the video using the screen viewer. That way you see the moving cursor and when I move to the RStudio demonstration at around 37 minutes, you will see everything. If you have the slide viewer selected, then around 37 minutes, you will need to move to the screen view so that you can see the RStudio demonstration.
 
 ## Materials
 
-The lecture materials and slides, including pre-lab markdown files for review, and data and R files for the week 11 lab are downloaded from [here](data/Wk1/PSYC234_Week_11.zip) as a zip file. You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+There are two folders to download for week 11:  I separated the materials into files that R will upload, or should upload with no error; and .docx or .pdf files that R would not like.  Please store the second folder somewhere for your use.
+
+ - The first folder is a zipped folder called Week 11 234 Materials.zip. It can be downloaded [here](data/Wk1/Week_11_234_Materials.zip). You can upload the zip file directly on to the R server and it will populate a new folder with the files and data files automatically.
+ - The second folder is called "Week_11_234_Slides_Codebook.zip". The slides are for the lecture; the Codebook is paired with the "student-por.csv" dataset. We will be looking at a model output for this dataset in the lab. Please download [here](data/Wk1/Week_11_234_Slides_Codebook.zip).
 
 ```{r, include = FALSE, eval=FALSE}
 download.file("https://github.com/lu-psy-r/year2/blob/main/PSYC234/data/Wk1/PSYC234_Week_11.zip")
@@ -27,7 +30,7 @@ download.file("https://github.com/lu-psy-r/year2/blob/main/PSYC234/data/Wk1/PSYC
 -   Simple Regression Review
 -   Multiple Regression Review
 
-3.  Look at the Planning ANY Data Analysis 2025 powerpoint which is related to the lab in Week 11.
+3.  Look at the "Planning ANY Data Analysis" slides which are related to the lab in Week 11.
 
 ## Recommended Reading
 
@@ -35,7 +38,7 @@ Chapters 9, 10 and 11 from Howell, D. C. (2017). Fundamental statistics for the 
 
 ## Test Yourself!
 
-The link to this week's multiple choice quiz is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2506928)
+The link to this week's multiple choice quiz is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738520)
 
 
 # Overview of Learning Model in 234
@@ -59,19 +62,14 @@ Through the staff student committee, feedback from PSYC 214 was for less cut and
 -   You will be given a dataset and model summary
     -   Each week's model summary will include practice of the new parts of learning featured in the week's lecture
 -   In small groups, write the script that produced the model output
-    -   Give your group a unique name
-    -   One member of the group make an R project
-        -   Invite other group members
-    -   Alternatively, one member take responsibility for typing and work in one script with other members contributing. You can connect one computer to the big screen at the table in the Levy lab, and work together by looking at that script while finding code that works on personal laptops.
+    - You can connect one computer to the big screen at the table in the Levy lab, and work together by looking at that script while finding code that works on personal laptops.
     -   Use the analysis workflow diagram and process (see below)
         -   Talk together about the model summary first
+        -   Interpret it so you have a working understanding of what you are going to be preparing
         -   Look at which variables have been used in the model
-        -   Use the codebook to understand what each variable represents
+        -   If there is a codebook, use the codebook to understand what each variable represents
         -   Create some possible hypotheses that the model seeks to explain
-        -   Interpret the model summary
     -   Collaborate in writing the script
-        -   Each person could work on a different step of the workflow while everyone helps debug / advise / review / find excerpts of code
-        -   Or you could work together to decide what is needed
         -   You can scrape code from all your statistics modules and the web
             -   The internet
             -   R books
@@ -80,16 +78,18 @@ Through the staff student committee, feedback from PSYC 214 was for less cut and
 
 3.  Independent study time:
 
--   Continue to work on the script in the shared project space.
+-   Continue to work on the script if you want to foster that independence.
 
 4.  Submit for feedback
 
--   Save your script as UniqueGroupName_LabWeekNumber.R
--   Submit to e.mills\@lancaster.ac.uk
-    -   remember to attach your script
-    -   remember to tell me the name of your group members
--   A random sample of 3 scripts per lab will get feedback via module moodle
-    -   No credit here – learning process as preparation for your own project!
+-   If you want some feedback on what you consider a completed script, please send forward to e.mills\@lancaster.ac.uk or alternatively, you could post snippets of code for which you want feedback on the moodle discussion forum.  These don't have to be perfect! Coding is a process and can always be improved, consequenty it's always imperfect and unfinished. I encourage you to be brave.
+    -   remember to attach your R script if you are emailing!
+    
+5. Model scripts
+
+- At the end of each lab, we will run through together a set of possible ways of approaching an
+analysis that gives us the model summary output
+-  A model script showing one way of answering the research questions will be published in the following week on the respective lecture pages.
 
 ::: {.callout-note icon="false"}
 ## Why are we working like this?
@@ -210,7 +210,7 @@ Whether or not the mother graduated high school has a significant impact upon a 
 ::: callout-important
 ## APA 7 Formatting Demands Different Numbers of Decimal Places
 
-Remember that values for means, SDs, coefficients and SEs, and *p* values all need to be reported to differing numbers of decimal places and rounded up!
+Remember that values for means, SDs, coefficients and SEs, and *p* values all need to be reported to differing numbers of decimal places and rounded up!  Go and find this in your personal source for your APA7 formatting guidance.
 :::
 
 Use this model for reporting predictor effects across the next few weeks.
@@ -228,5 +228,7 @@ In response, you can expect staff to:
 We won’t give you the answers straight away. This is to encourage self-reliance and independence. Plus, there may be more than one correct answer to some of the questions.
 
 Please don't expect us to spend a lot of time with you if you have not watched the lecture beforehand.
+
+Towards the end of each lab we will go through an example script of what could represent a way of working.  There are mulitple example scripts that could all do the same job - so try not to think of the one that is presented as the "right" one or the only way to get to the output.
 
 # 
