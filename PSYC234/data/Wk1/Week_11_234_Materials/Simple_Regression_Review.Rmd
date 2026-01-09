@@ -104,7 +104,7 @@ In the correlation review, we used Lets choose `IQ` and `Performance`.  Lets do 
 
 #### Read in the data
 
-This is a reduced set of values retrieved from Margriet's first lecture in January 2021.  We used these to review correlation.  We will use them again to review simple regression
+This is a reduced set of values retrieved from PSYC122.  We used these to review correlation.  We will use them again to review simple regression
 
 ```{r cars}
 d <- read_csv("Covariance_Data.csv") # calling my dataframe d to save typing!
@@ -228,7 +228,7 @@ We have the values we need - we have:
  - the slope term $\hat{b}$ 
  - each observed value of `IQ` $X_i$. 
  
- We will create a new column in the dataset and call the variable $Y_pred$.
+We will create a new column in the dataset and call the variable $Y_pred$.
  
 Because we are sending the result of this line of code to our dataset, it will
 not print out below.  You have to click on the dataset and view it to inspect
@@ -381,15 +381,27 @@ $$
 (MS_b <- SS_b/dfb)
 (MS_e <- SS_error/dferror)
 ```
-Now we have the mean-square terms we can calculate the Fa and Fb values.  We can calculate an F value for both the intercept and the slope.  
+Now we have the mean-square terms we can calculate the Fa and Fb values.  We can calculate an *F* value for both the intercept and the slope.  
 
 ```{r}
 (Fa <- MS_a/MS_e)
 (Fb <- MS_b/MS_e)
 ```
-We are not generally interested in the significance of the F value for the intercept term (Fa), only the slope term (Fb).
+We are not generally interested in the significance of the *F* value for the intercept term (Fa), only the slope term (Fb).
 
-So, remember the null hypothesis for the regression model is whether the slope term (*b*) is different from zero. We have calculated the observed *Fb* term and now we can compare this to a critical F with 1 degree of freedom in the numerator (MSa) and 11 degrees of freedom in the denominator (MSe).  And, just as in ANOVA, we reject the null hypothesis if $F_{observed}$ > $F_{critical}$.
+So, remember the null hypothesis for the regression model is whether the slope term (*b*) is different from zero. We have calculated the observed *Fb* term and now we can compare this to a critical *F* with 1 degree of freedom in the numerator (dfb) and 11 degrees of freedom in the denominator (dferror).  And, just as in ANOVA, we reject the null hypothesis if $F_{observed}$ > $F_{critical}$.
+
+We can find a critical value for *F* with the following line of code:
+
+qf(p, df1, df2. lower.tail=TRUE)
+
+where `qf()` is the function, `p` = is the significance level at which you are testing (here .05), `df1` is the numerator degrees of freedom (coded above as dfb), df2 is the error degrees of freedom (coded above as dferror).
+
+If we put in the values we get:
+```{r}
+qf(p = 0.05, df1 = 1, df2 = 11, lower.tail=FALSE)
+```
+
 
 $F_{critical}$ for df = (1, 11) at the .05 level = 4.84. $F_{observed}$ = 0.006. It is not larger than $F_{critical}$ so we fail to reject the null hypothesis.  The slope term is not different from zero.
 

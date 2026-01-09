@@ -29,11 +29,11 @@ summary(d)
 
 All variables are showing as numerical at this point  - we know this because the summary prints out min and max values. We can also see this when we expand the dataframe in the environment pane by the shortened "num" with each variable.
 
-If we were going to perform a regression, we would transform the `Participant_ID` varialbe into a factor, since the values are not numerical but represent individual persons. A simple correlation, however, does not take the individual scores into account however, so this is no necessary at this point.
+If we were going to perform a regression, we would transform the `Participant_ID` variable into a factor, since the values are not numerical but represent individual persons. A simple correlation, however, does not take the individual scores into account however, so this is no necessary at this point.
 
 #### Formulae for longhand calculations of Pearson's r correlation coefficient
 
-Margriet walked you through a calculation of variance and covariance to give you the values needed to compute a Pearson's *r* by hand:
+In PSYC122, Margriet walked you through a calculation of variance and covariance to give you the values needed to compute a Pearson's *r* by hand:
 Here are the formulae again:
 
 Variance:
@@ -59,9 +59,9 @@ $$
 $$
 
 
-To compute a Pearson's r (a bivariate correlation of two numerical variables), we need the following formula:
+To compute a Pearson's *r* (a bivariate correlation of two numerical variables), we need the following formula:
 
-Pearson's r:
+Pearson's *r*:
 
 Which uses means and standard deviation components from the formulae listed above
 
