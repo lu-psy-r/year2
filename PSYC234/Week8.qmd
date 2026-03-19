@@ -11,6 +11,8 @@ library(DescTools)
 options(scipen = 999)
 ```
 
+<!--
+
 # Lecture
 
 [Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e11776-9467-4cae-98c3-b288009fb455): This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.
@@ -42,7 +44,7 @@ The presentation given at the start of the lab can be downloaded [here](https://
 
 ## Datasets
 
-The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738590).
+The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738590). -->
 
 ## Main research Question
 
@@ -84,18 +86,20 @@ A model script showing one way of answering the reptile research question above 
 
 A model script showing one way of answering the (optional) pen research question will be available next week.
 
-
+<!--
 ## Feedback on student scripts
 
-[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738595) is feedback on the one valid student submission this week. 
+[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738595) is feedback on the one valid student submission this week. -->
 
 # Independent learning activities 
 
 Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
 
+<!--
+
 ## Activity 1: The WBA
 
-The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738528). Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738528). Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test. -->
 
 ## Activity 2: Calculating odds ratios manually
 

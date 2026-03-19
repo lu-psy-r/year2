@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -324,13 +290,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#lecture" id="toc-lecture" class="nav-link" data-scroll-target="#lecture">Lecture</a></li>
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a>
-  <ul class="collapse">
-  <li><a href="#pre-lab-activity" id="toc-pre-lab-activity" class="nav-link" data-scroll-target="#pre-lab-activity">Pre-Lab Activity</a></li>
-  </ul></li>
-  <li><a href="#week-15-lab-activity" id="toc-week-15-lab-activity" class="nav-link" data-scroll-target="#week-15-lab-activity">Week 15 Lab Activity</a></li>
-  <li><a href="#test-yourself" id="toc-test-yourself" class="nav-link" data-scroll-target="#test-yourself">Test Yourself</a></li>
   <li><a href="#factor-analysis" id="toc-factor-analysis" class="nav-link" data-scroll-target="#factor-analysis">Factor Analysis</a>
   <ul class="collapse">
   <li><a href="#factor-analysis-needs-predictor-variables-that-are-co-linear" id="toc-factor-analysis-needs-predictor-variables-that-are-co-linear" class="nav-link" data-scroll-target="#factor-analysis-needs-predictor-variables-that-are-co-linear">Factor Analysis Needs Predictor Variables That Are Co-linear</a></li>
@@ -348,8 +307,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#binomial-test" id="toc-binomial-test" class="nav-link" data-scroll-target="#binomial-test">Binomial Test</a>
   <ul class="collapse">
-  <li><a href="#lecture-material" id="toc-lecture-material" class="nav-link" data-scroll-target="#lecture-material">Lecture material</a></li>
-  <li><a href="#running-the-code-in-the-lecture" id="toc-running-the-code-in-the-lecture" class="nav-link" data-scroll-target="#running-the-code-in-the-lecture">Running the code in the lecture</a></li>
   <li><a href="#independent-learning-activities" id="toc-independent-learning-activities" class="nav-link" data-scroll-target="#independent-learning-activities">Independent learning activities</a>
   <ul class="collapse">
   <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity 1</a></li>
@@ -390,31 +347,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Factor Analysis content is needed for learning. Questions will not be asked in the class test in week 20 on the Factor Analysis method.</p>
 <p>The Binomial Test content is needed for learning, <strong>and the class test</strong>.</p>
 <p>The rest of this page is split into two parts, Factor Analysis and Binomial Test. They each have their own associated lecture and notes.</p>
-<section id="lecture" class="level2">
-<h2 class="anchored" data-anchor-id="lecture">Lecture</h2>
-<p>Watch the Lecture on Factor Analysis <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bcd8a8f3-1d71-49f7-8d8d-b27600a51e6d&amp;start=0">here</a></p>
-</section>
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<p>Please download the <a href="data/Wk5/Slides_&amp;_Codebooks.zip">Slides</a>. In this zipped folder are the slides that accompany the lecture and the codebook for the week 15 lab activity that uses the Birthweight dataset (which is associated with WBA5).</p>
-<section id="pre-lab-activity" class="level3">
-<h3 class="anchored" data-anchor-id="pre-lab-activity">Pre-Lab Activity</h3>
-<ol type="1">
-<li>Watch the lecture before you attempt anything!</li>
-<li>Download the <code>Three_Factor_Analyses.zip</code> files and upload to your R account</li>
-<li>Play with one of the scripts before the lab to familiarise yourself with the process - test yourself on WBA5</li>
-<li>Come to your scheduled lab to have a further practice and ask the staff questions about the process.</li>
-</ol>
-</section>
-</section>
-<section id="week-15-lab-activity" class="level2">
-<h2 class="anchored" data-anchor-id="week-15-lab-activity">Week 15 Lab Activity</h2>
-<p>There are three scripts with associated data with which you can practise performing the steps of a factor analysis. These are in the folder called <code>Three_Factor_Analyses.zip</code>. It can be downloaded <a href="data/Wk5/Three_Factor_Analyses.zip">here</a>. If you are completing the WBA Quizzes, then you will need to review the factor analysis for the Birthweight data to be able to complete WBA5.</p>
-</section>
-<section id="test-yourself" class="level2">
-<h2 class="anchored" data-anchor-id="test-yourself">Test Yourself</h2>
-<p>The link to this week’s multiple choice quiz, WBA 5, is <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738524">here</a></p>
-</section>
+<!--
+
+## Lecture
+
+Watch the Lecture on Factor Analysis
+[here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bcd8a8f3-1d71-49f7-8d8d-b27600a51e6d&start=0)
+
+## Slides
+
+Please download the [Slides](data/Wk5/Slides_&_Codebooks.zip). In this zipped folder are the slides that accompany the lecture and the codebook for the week 15 lab activity that uses the Birthweight dataset (which is associated with WBA5).
+
+### Pre-Lab Activity
+
+1.  Watch the lecture before you attempt anything!
+2.  Download the `Three_Factor_Analyses.zip` files and upload to your R account
+3.  Play with one of the scripts before the lab to familiarise yourself with the process - test yourself on WBA5
+4.  Come to your scheduled lab to have a further practice and ask the staff questions about the process.
+
+## Week 15 Lab Activity 
+
+There are three scripts with associated data with which you can practise performing the steps of a factor analysis. These are in the folder called `Three_Factor_Analyses.zip`. It can be downloaded [here](data/Wk5/Three_Factor_Analyses.zip).  If you are completing the WBA Quizzes, then you will need to review the factor analysis for the Birthweight data to be able to complete WBA5.
+
+## Test Yourself
+
+The link to this week's multiple choice quiz, WBA 5, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738524) -->
 <section id="factor-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="factor-analysis">Factor Analysis</h2>
 <p>Factor analysis is an analysis method that aims to take a large number of observed variables, find subsets of the variables that are highly correlated with each other and construct a smaller set of unobserved variables, that we call <em>latent</em> variables.</p>
@@ -574,19 +531,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="binomial-test" class="level1">
 <h1>Binomial Test</h1>
-<section id="lecture-material" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-material">Lecture material</h2>
-<p>Watch part two of the Week 15 lecture (on the binomial test) <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6">here</a>.</p>
-<p>The lecture slides (both .ppt and .pdf) versions can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738554">here</a>.</p>
-</section>
-<section id="running-the-code-in-the-lecture" class="level2">
-<h2 class="anchored" data-anchor-id="running-the-code-in-the-lecture">Running the code in the lecture</h2>
-<p>Please note that binomial test will not be covered in the Week 15 lab - as described in the lecture, this is a very straightforward test to run in R that can be performed with just a single line of code.</p>
-<p>To run the binomial test based on the example described in the lecture, you would simply run the following code in R:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">13</span>, <span class="dv">14</span>, <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
+<!--
+
+## Lecture material
+
+Watch part two of the Week 15 lecture (on the binomial test)
+[here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2630de43-3d48-4bf7-b785-b26f00ad5db6).
+
+The lecture slides (both .ppt and .pdf) versions can be downloaded
+[here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738554).
+
+## Running the code in the lecture
+
+Please note that binomial test will not be covered in the Week 15 lab -
+as described in the lecture, this is a very straightforward test to run
+in R that can be performed with just a single line of code.
+
+To run the binomial test based on the example described in the lecture,
+you would simply run the following code in R:
+
+
+::: {.cell}
+
+```{.r .cell-code}
+binom.test(13, 14, 0.5)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+
     Exact binomial test
 
 data:  13 and 14
@@ -596,10 +570,15 @@ alternative hypothesis: true probability of success is not equal to 0.5
  0.6613155 0.9981932
 sample estimates:
 probability of success 
-             0.9285714 </code></pre>
-</div>
-</div>
-</section>
+             0.9285714 
+```
+
+
+:::
+:::
+
+
+-->
 <section id="independent-learning-activities" class="level2">
 <h2 class="anchored" data-anchor-id="independent-learning-activities">Independent learning activities</h2>
 <p>Below are some independent learning activities you can have a go at to help consolidate the lecture content on the binomial test. These are optional, but recommended. The answers are found below.</p>
