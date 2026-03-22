@@ -11,7 +11,7 @@ library(ggpubr)
 library(tidyverse) 
 library(rstatix)
 ```
-<!--
+
 
 # Lecture
 
@@ -46,7 +46,7 @@ The presentation given at the start of the lab can be downloaded [here](https://
 
 ## Datasets
 
-The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738563). -->
+The datasets for this lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738563).
 
 ## Research question 1: Independent groups
 
@@ -81,20 +81,20 @@ For each research questions, you will need to:
 
 A model script showing one way of answering the research questions above using R will be available next week.
 
-<!--
+
 ## Feedback on student scripts
 
-[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738566) is some feedback on a few scripts submitted by students. -->
+[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738566) is some feedback on a few scripts submitted by students.
 
 # Independent learning activities 
 
 Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
 
-<!--
+
 
 ## Activity 1: The WBA
 
-The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738525). Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test. -->
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738525). Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
 
 ## Activity 2: Calculating test statistics manually
 
