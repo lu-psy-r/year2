@@ -290,21 +290,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
-  <li><a href="#lab-preparation" id="toc-lab-preparation" class="nav-link" data-scroll-target="#lab-preparation">Lab preparation</a></li>
-  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab">Lab</a>
-  <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link active" data-scroll-target="#datasets">Datasets</a></li>
   <li><a href="#research-question-1-independent-groups" id="toc-research-question-1-independent-groups" class="nav-link" data-scroll-target="#research-question-1-independent-groups">Research question 1: Independent groups</a></li>
   <li><a href="#research-question-2-repeated-measures" id="toc-research-question-2-repeated-measures" class="nav-link" data-scroll-target="#research-question-2-repeated-measures">Research question 2: Repeated measures</a></li>
   <li><a href="#hints-and-tips" id="toc-hints-and-tips" class="nav-link" data-scroll-target="#hints-and-tips">Hints and tips</a></li>
   <li><a href="#model-script" id="toc-model-script" class="nav-link" data-scroll-target="#model-script">Model script</a></li>
-  <li><a href="#feedback-on-student-scripts" id="toc-feedback-on-student-scripts" class="nav-link" data-scroll-target="#feedback-on-student-scripts">Feedback on student scripts</a></li>
-  </ul></li>
   <li><a href="#independent-learning-activities" id="toc-independent-learning-activities" class="nav-link" data-scroll-target="#independent-learning-activities">Independent learning activities</a>
   <ul class="collapse">
-  <li><a href="#activity-1-the-wba" id="toc-activity-1-the-wba" class="nav-link" data-scroll-target="#activity-1-the-wba">Activity 1: The WBA</a></li>
   <li><a href="#activity-2-calculating-test-statistics-manually" id="toc-activity-2-calculating-test-statistics-manually" class="nav-link" data-scroll-target="#activity-2-calculating-test-statistics-manually">Activity 2: Calculating test statistics manually</a>
   <ul class="collapse">
   <li><a href="#activity-2-answers" id="toc-activity-2-answers" class="nav-link" data-scroll-target="#activity-2-answers">Activity 2 answers</a></li>
@@ -341,28 +333,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="lecture" class="level1">
-<h1>Lecture</h1>
-<p>This lecture comprises four parts:</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=684b5810-663a-4a8b-8bd9-b27a00fb11de">Part 1</a>: This part covers an introduction to non-parametric tests and when they might be useful to consider.</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b51ad7bd-122d-4304-b801-b27a00fb1166">Part 2</a>: This part covers how to test the assumption of normality with two independent groups.</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=176c6b52-8c36-485c-8ab9-b27a00fb1187">Part 3</a>: This part introduces you to the Wilcoxon rank-sum test. This includes when to use this test, the theory behind it, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115">Part 4</a>: This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.</p>
-<p>Download all the lecture slides <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738558">here</a> in both .pptx and .pdf format.</p>
-</section>
-<section id="lab-preparation" class="level1">
-<h1>Lab preparation</h1>
-<p>Before the lab, please watch the following short <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=25cf1ac6-7afc-4129-9ec4-b27a00fb10d0">video</a>. This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.</p>
-<p>If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738560">here</a>.</p>
-</section>
-<section id="lab" class="level1">
-<h1>Lab</h1>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures. You can work in groups or individually.</p>
-<p>You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.</p>
-<p>The presentation given at the start of the lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2738562">here</a>.</p>
-</section>
+<!-- 
+
+# Lecture
+
+This lecture comprises four parts: 
+
+[Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=684b5810-663a-4a8b-8bd9-b27a00fb11de): This part covers an introduction to non-parametric tests and when they might be useful to consider.
+
+[Part 2](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b51ad7bd-122d-4304-b801-b27a00fb1166): This part covers how to test the assumption of normality with two independent groups.
+
+[Part 3](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=176c6b52-8c36-485c-8ab9-b27a00fb1187): This part introduces you to the Wilcoxon rank-sum test. This includes when to use this test, the theory behind it, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.
+
+[Part 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115): This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.
+
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738558) in both .pptx and .pdf format.
+
+# Lab preparation
+
+Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=25cf1ac6-7afc-4129-9ec4-b27a00fb10d0). This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.
+
+If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738560).
+
+
+# Lab 
+
+## Overview
+
+I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures. You can work in groups or individually.
+
+You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you. 
+
+The presentation given at the start of the lab can be downloaded [here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2738562). -->
 <section id="datasets" class="level2">
 <h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
 <p>The datasets for this lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738563">here</a>.</p>
@@ -392,19 +394,22 @@ ul.task-list li input[type="checkbox"] {
 <section id="model-script" class="level2">
 <h2 class="anchored" data-anchor-id="model-script">Model script</h2>
 <p>A model script showing one way of answering the research questions above using R will be available next week.</p>
-</section>
-<section id="feedback-on-student-scripts" class="level2">
-<h2 class="anchored" data-anchor-id="feedback-on-student-scripts">Feedback on student scripts</h2>
-<p><a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738566">Here</a> is some feedback on a few scripts submitted by students.</p>
-</section>
+<!-- 
+
+## Feedback on student scripts
+
+[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738566) is some feedback on a few scripts submitted by students.  -->
 </section>
 <section id="independent-learning-activities" class="level1">
 <h1>Independent learning activities</h1>
 <p>Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.</p>
-<section id="activity-1-the-wba" class="level2">
-<h2 class="anchored" data-anchor-id="activity-1-the-wba">Activity 1: The WBA</h2>
-<p>The WBA can be accessed <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738525">here</a>. Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.</p>
-</section>
+<!-- 
+
+## Activity 1: The WBA
+
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738525). Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+
+-->
 <section id="activity-2-calculating-test-statistics-manually" class="level2">
 <h2 class="anchored" data-anchor-id="activity-2-calculating-test-statistics-manually">Activity 2: Calculating test statistics manually</h2>
 <p>This activity is aimed at supporting your understanding of what the test statistics mean. The answers are below.</p>
