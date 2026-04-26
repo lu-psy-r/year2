@@ -13,6 +13,8 @@ knitr::opts_chunk$set(warning = FALSE)
 
 ```
 
+<!-- 
+
 # Lecture
 
 [Lecture
@@ -89,7 +91,7 @@ kind of processes you may choose to use to transform any variables.
 ## Test Yourself
 
 The link to this week's multiple choice quiz, WBA 2, is
-[here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738521).
+[here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738521). -->
 
 ## Week 12: Multiple Regression with Categorical Predictors
 

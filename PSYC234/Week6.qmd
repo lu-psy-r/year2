@@ -12,6 +12,8 @@ library(tidyverse)
 library(rstatix)
 ```
 
+<!-- 
+
 # Lecture
 
 This lecture comprises four parts: 
@@ -30,7 +32,7 @@ Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folde
 
 Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=25cf1ac6-7afc-4129-9ec4-b27a00fb10d0). This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.
 
-If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738560).
+If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738560).  -->
 
 
 # Lab 
@@ -76,6 +78,8 @@ For each research questions, you will need to:
 
 5. Interpret the output
 
+<!-- 
+
 ## Model script 
 
 A model script showing one way of answering the research questions above using R will be available next week.
@@ -84,17 +88,17 @@ A model script showing one way of answering the research questions above using R
 
 ## Feedback on student scripts
 
-[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738566) is some feedback on a few scripts submitted by students.
+[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738566) is some feedback on a few scripts submitted by students.  -->
 
 # Independent learning activities 
 
 Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
 
-
+<!-- 
 
 ## Activity 1: The WBA
 
-The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738525). Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738525). Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test. -->
 
 
 ## Activity 2: Calculating test statistics manually
