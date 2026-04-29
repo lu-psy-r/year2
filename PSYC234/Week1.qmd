@@ -4,7 +4,7 @@ subtitle: Emma Mills
 order: 2
 ---
 
-<!-- 
+
 
 # Lecture
 
@@ -39,7 +39,7 @@ Chapters 9, 10 and 11 from Howell, D. C. (2017). Fundamental statistics for the 
 
 ## Test Yourself!
 
-The link to this week's multiple choice quiz is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738520) -->
+The link to this week's multiple choice quiz is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738520)
 
 
 # Overview of Learning Model in 234
