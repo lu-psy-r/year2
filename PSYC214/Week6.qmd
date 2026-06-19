@@ -4,7 +4,7 @@ subtitle: "Mark Hurlstone, Sam Russell"
 order: 7
 ---
 
-<!--
+
 
 # Lecture
 
@@ -16,7 +16,7 @@ Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx
 
 Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1e24b443-f8dc-4885-a6f6-af4b00db48c1)
 
-Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions LARGE.pdf) for a larger version. -->
+Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions LARGE.pdf) for a larger version.
 
 # Lab
 

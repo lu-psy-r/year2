@@ -4,7 +4,7 @@ subtitle: "Mark Hurlstone, Sam Russell"
 order: 6
 ---
 
-<!--
+
 
 # Lecture
 
@@ -16,7 +16,7 @@ Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx
 
 Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1fd35b5d-813b-46a6-a6f3-b21800d40baa)
 
-Download the lecture slides [here](data/Wk5/Lecture 5 - Student Slides [small].pdf), and [here](data/Wk5/Lecture 5 - Student Slides [large].pdf) for a larger version. -->
+Download the lecture slides [here](data/Wk5/Lecture 5 - Student Slides [small].pdf), and [here](data/Wk5/Lecture 5 - Student Slides [large].pdf) for a larger version. 
 
 # Lab
 
