@@ -26,7 +26,7 @@ test**.
 The rest of this page is split into two parts, Factor Analysis and
 Binomial Test. They each have their own associated lecture and notes.
 
-
+<!--
 
 ## Lecture
 
@@ -52,6 +52,7 @@ There are three scripts with associated data with which you can practise perform
 
 The link to this week's multiple choice quiz, WBA 5, is [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738524)
 
+-->
 
 ## Factor Analysis
 
@@ -249,6 +250,8 @@ The model scripts are the ones posted for the lab activities - so I will not pos
 
 # Binomial Test
 
+<!--
+
 ## Lecture material
 
 Watch part two of the Week 15 lecture (on the binomial test)
@@ -256,6 +259,8 @@ Watch part two of the Week 15 lecture (on the binomial test)
 
 The lecture slides (both .ppt and .pdf) versions can be downloaded
 [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738554).
+
+-->
 
 ## Running the code in the lecture
 
@@ -269,7 +274,6 @@ you would simply run the following code in R:
 ```{r}
 binom.test(13, 14, 0.5)
 ```
-
 
 
 ## Independent learning activities

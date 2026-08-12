@@ -14,6 +14,7 @@ library(kableExtra)
 options(scipen = 999)
 ```
 
+<!--
 
 # Lecture 
 
@@ -31,6 +32,7 @@ Before the lab, please watch the following short [video](https://lancaster.cloud
 
 If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738600). The script also contains an example of how to run a multiple binary logistic regression model in R.
 
+-->
 
 # Lab 
 
@@ -105,6 +107,8 @@ Here are the steps you'll need to follow:
 6. Predicted probabilities
 7. Assumption checks
 7. Interpret the output
+
+<!--
 
 ## Model script 
 
@@ -208,3 +212,4 @@ kable(l9_w1_tab, booktabs = TRUE, align=rep('c', 4), col.names = c("",
 # Asking questions
 
 If you have any questions about this week's content, please post them on the moodle discussion board.
+-->

@@ -11,6 +11,8 @@ library(DescTools)
 options(scipen = 999)
 ```
 
+<!--
+
 # Lecture
 
 [Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e11776-9467-4cae-98c3-b288009fb455): This part covers why it is important to understand binary logistic regression, and why it is not appropriate to run a linear regression model when the outcome is binary It also covers an introduction to binary logistic regression.
@@ -29,6 +31,7 @@ Before the lab, please watch the following short [video](https://lancaster.cloud
 
 If you want to have a play around with the script yourself, the R markdown script and dataset can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738587).
 
+-->
 
 # Lab
 
@@ -77,14 +80,13 @@ Start a new session on the server, then load in the required libraries (tidyvers
 6. Predicted probabilities
 7. Interpret the output
 
+<!--
 
 ## Model scripts 
 
 A model script showing one way of answering the reptile research question above using R will be available next week. 
 
 A model script showing one way of answering the (optional) pen research question will be available next week.
-
-
 
 ## Feedback on student scripts
 
@@ -344,3 +346,5 @@ McFadden = 0.19, CoxSnell = 0.16, Nagelkerke = 0.27</span>
 # Asking questions
 
 If you have any questions about this week's content, please post them on the moodle discussion board.
+
+-->
