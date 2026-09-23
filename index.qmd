@@ -17,11 +17,11 @@ Welcome to Year 2 statistics!
 
 This year you will have the opportunity to build on the skills you developed last year - both in terms of statistical expertise and data coding in R. The year, you will complete two statistics modules: 
 
-- PSYC214: Statistics for group comparisons, with Sam Russell and Mark Hurlstone
+- PSYC5141: Statistics for group comparisons, with Sam Russell and Mark Hurlstone
 
-- PSYC234: Statistics: from association to modelling causality, with Emma Mills and Amy Atkinson
+- PSYC5242: Statistics: from association to modelling causality, with Emma Mills and Amy Atkinson
 
-Click on the button below to access your module: Term 1: PSYC214, Term 2: PSYC234.
+Click on the button below to access your module: Term 1: PSYC5141, Term 2: PSYC5242.
 
 ```{=html}
 
@@ -29,11 +29,11 @@ Click on the button below to access your module: Term 1: PSYC214, Term 2: PSYC23
   <div class="row">
     <div class="col">
 
-    <a href="PSYC214/">
-      <button type="button" class="btn btn-landing btn-lg year-two">PSYC214</button>
+    <a href="PSYC5141/">
+      <button type="button" class="btn btn-landing btn-lg year-two">PSYC5141</button>
     </a>
-    <a href="PSYC234/">
-      <button type="button" class="btn btn-landing btn-lg year-two">PSYC234</button>
+    <a href="PSYC5242/">
+      <button type="button" class="btn btn-landing btn-lg year-two">PSYC5242</button>
     </a>
     
     </div>

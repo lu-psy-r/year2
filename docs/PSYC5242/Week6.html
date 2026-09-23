@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6. Wilcoxon rank-sum test and Wilcoxon signed-rank test – Statistics for Psychologists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../PSYC5242/Week7.html" rel="next">
+<link href="../PSYC5242/Week5.html" rel="prev">
+<link href="../Images/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search Year 2";};</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="https://lu-psy-r.github.io/">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC5242/index.html">PSYC5242</a></li><li class="breadcrumb-item"><a href="../PSYC5242/Week6.html">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC5141/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC5141</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Measurement, Variance and Inferential Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. One-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Assumptions of ANOVA and Follow-Up Procedures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. One-Factor Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Revision of One-Factor ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Introduction to Factorial Designs and Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Two-Factor Between-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Two-Factor Mixed and Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Three-Factor ANOVA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC5242/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC5242</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5242/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Review of correlation, simple regression and demonstration of multiple regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5242/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Multiple Regression Including Categorical Predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5242/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Multiple Regression Models that Include Interactions (Moderated Variables)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5242/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Mediation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5242/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Factor Analysis and the Binomial Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5242/Week6.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5242/Week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5242/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Binary logistic regression models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5242/Week9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Expanding on binary logistic regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lab" id="toc-lab" class="nav-link active" data-scroll-target="#lab">Lab</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#research-question-1-independent-groups" id="toc-research-question-1-independent-groups" class="nav-link" data-scroll-target="#research-question-1-independent-groups">Research question 1: Independent groups</a></li>
+  <li><a href="#research-question-2-repeated-measures" id="toc-research-question-2-repeated-measures" class="nav-link" data-scroll-target="#research-question-2-repeated-measures">Research question 2: Repeated measures</a></li>
+  <li><a href="#hints-and-tips" id="toc-hints-and-tips" class="nav-link" data-scroll-target="#hints-and-tips">Hints and tips</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC5242/index.html">PSYC5242</a></li><li class="breadcrumb-item"><a href="../PSYC5242/Week6.html">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">6. Wilcoxon rank-sum test and Wilcoxon signed-rank test</h1>
+<p class="subtitle lead">Amy Atkinson</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+
+# Lecture
+
+This lecture comprises four parts: 
+
+[Part 1](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=684b5810-663a-4a8b-8bd9-b27a00fb11de): This part covers an introduction to non-parametric tests and when they might be useful to consider.
+
+[Part 2](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b51ad7bd-122d-4304-b801-b27a00fb1166): This part covers how to test the assumption of normality with two independent groups.
+
+[Part 3](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=176c6b52-8c36-485c-8ab9-b27a00fb1187): This part introduces you to the Wilcoxon rank-sum test. This includes when to use this test, the theory behind it, how the test statistic would be calculated manually, how to run the test in R, and how to interpret the output.
+
+[Part 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2a1ec20f-9eb3-42c1-8a0a-b27a00fb1115): This part covers how to test the assumption of normality with two repeated measures and also introduces you to the Wilcoxon signed-rank test, including when to use the test, the theory behind it, how to calculate the test statistic manually, how to run the test in R and how to interpret the output.
+
+Download all the lecture slides [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738558) in both .pptx and .pdf format.
+
+# Lab preparation
+
+Before the lab, please watch the following short [video](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=25cf1ac6-7afc-4129-9ec4-b27a00fb10d0). This walks you through how to perform a Wilcoxon rank-sum test and Wilcoxon signed-rank test in R.
+
+If you want to have a play around with the script yourself, the R markdown script and datasets can be downloaded [here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738560).
+
+-->
+<section id="lab" class="level1">
+<h1>Lab</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>I’ll provide you with one or two research questions each week which will require you to complete the statistical tests covered in the lectures. You can work in groups or individually.</p>
+<p>You can write your script as a .R or Rmd file. Use the lab preparation video and script, lecture slides, and previous content covered in the statistics modules to help you.</p>
+<p>The presentation given at the start of the lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/resource/view.php?id=2738562">here</a>.</p>
+</section>
+<section id="datasets" class="level2">
+<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
+<p>The datasets for this lab can be downloaded <a href="https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738563">here</a>.</p>
+</section>
+<section id="research-question-1-independent-groups" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-1-independent-groups">Research question 1: Independent groups</h2>
+<p>You are a researcher interested in whether the old saying “an apple a day keeps the doctor away is true”.</p>
+<p>You recruit 16 people and assign each participant to either a “0 apples” or “1 apple” group. Participants in the “0 apple” group eat 0 apples every day for a year. Participants in the “1 apple” group eat 1 apple a day for a year. You ask participants to report how many times they visited the GP in the year.</p>
+</section>
+<section id="research-question-2-repeated-measures" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-2-repeated-measures">Research question 2: Repeated measures</h2>
+<p>You are interested in whether eating bananas keeps the doctor away.</p>
+<p>This time you recruit only one group of participants. In the first year, you ask them to eat 0 banana every day. In the second year, you ask them to eat 1 bananas a day. You ask them to report how many times they visit the GP in Year 1 and Year 2.</p>
+</section>
+<section id="hints-and-tips" class="level2">
+<h2 class="anchored" data-anchor-id="hints-and-tips">Hints and tips</h2>
+<p>Your script should aim to answer and interpret both of these research questions. Start a new session on the server, then load in the required libraries (tidyverse, cowplot, ggpubr, rstatix) and the datasets.</p>
+<p>For each research questions, you will need to:</p>
+<ol type="1">
+<li><p>Perform normality checks</p></li>
+<li><p>Explore your data (e.g.&nbsp;descriptive statistics, a plot)</p></li>
+<li><p>Conduct the statistical test</p></li>
+<li><p>Calculate an effect size</p></li>
+<li><p>Interpret the output</p></li>
+</ol>
+<!--
+
+## Model script 
+
+A model script showing one way of answering the research questions above using R will be available next week.
+
+## Feedback on student scripts
+
+[Here](https://modules.lancaster.ac.uk/mod/folder/view.php?id=2738566) is some feedback on a few scripts submitted by students.
+
+# Independent learning activities 
+
+Below are some independent learning activities you can have a go at to help consolidate the content. These are optional, but recommended. Activity 1 is the WBA. Activities 2 and 3 are further activities to help you consolidate the content.
+
+## Activity 1: The WBA
+
+The WBA can be accessed [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2738525). Each student gets three attempts. We recommend having a go at the WBA following the lecture and lab. We recommend saving at least one attempt for revision purposes close in time to the class test.
+
+
+## Activity 2: Calculating test statistics manually
+
+This activity is aimed at supporting your understanding of what the test statistics mean. The answers are below.
+
+#### Wilcoxon rank-sum test
+
+You are a researcher interested in whether the number of cups of coffee drank affects how many admin tasks participants can get done in an hour. You assign to one of two groups (drink 4 cups of coffee a day or drink 0 cups of coffee a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete. 
+
+Here is the data:
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">coffee_group</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">admin_tasks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">14</td>
+</tr>
+</tbody>
+</table>
+
+
+`````
+
+:::
+:::
+
+
+
+
+<span style="color:purple">**QUESTION 1: What is the test statistic?**</span>
+
+::: {.callout-tip collapse="true"}
+## Expand for hints!
+
+To calculate this, you will need to work through the following steps:
+
+- Rank the data
+
+- Sum the ranks for each group
+
+- Calculate the mean rank for each group
+
+- Calculate the sum of ranks minus mean rank for each group
+
+- Use this information to identify the test statistic
+
+If you are still unsure, have another look at the lecture.
+
+:::
+
+<span style="color:purple">**QUESTION 2: What might R report as the test statistic and why?**</span>
+
+#### Wilcoxon signed-rank test
+
+You are a researcher interested in whether a reading intervention helps children. You assess children’s reading skills and then give them all an intensive reading intervention. You then measure their reading abilities again. 
+
+Here is the data:
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">After_intervention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">27</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">91</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">44</td>
+</tr>
+</tbody>
+</table>
+
+
+`````
+
+:::
+:::
+
+
+
+
+<span style="color:purple">**QUESTION 3: What is the test statistic?**</span>
+
+::: {.callout-tip collapse="true"}
+## Expand for hints!
+
+To calculate this, you will need to work through the following steps:
+
+- Calculate the difference between “Before intervention” and “After intervention”
+
+- Note whether the difference is positive or negative
+
+- Rank the difference
+
+- Add up positive ranks and negative ranks
+
+- Use this information to identify the test statistic
+
+If you are still unsure, have another look at the lecture.
+:::
+
+<span style="color:purple">**QUESTION 4: What might R report as the test statistic and why?**</span>
+
+### Activity 2 answers
+
+#### Wilcoxon rank-sum test
+
+<span style="color:purple">**QUESTION 1 ANSWER:**</span>
+
+<span style="color:purple">Test statistic = 4.5</span>
+
+<span style="color:purple">**QUESTION 2 ANSWER: What might R report as the test statistic and why?**</span>
+
+<span style="color:purple">R reports the test statistic (*W*) as the sum of ranks minus the mean rank for the first factor level. R may therefore report the test statistic as 4.5 or 7.5.</span>
+
+::: {.callout-tip collapse="true"}
+## How were these answers calculated?
+
+Here is the how these answers were computed:
+
+**STEPS**:
+
+**Rank the data:**
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Group</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Tasks_completed</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">7.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4 cups</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">4.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">6.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0 cups</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">4.5</td>
+</tr>
+</tbody>
+</table>
+
+
+`````
+
+:::
+:::
+
+
+
+
+**Sum the ranks per group:**
+
+4 cups = 13.5
+
+0 cups = 14.5
+
+**Calculate the mean rank per group:**
+
+4 cups = 3\*4 = 12. 12/2 = 6
+
+0 cups = 4\*5 = 20. 20/2 = 10
+
+**Calculate the sum of ranks minus mean rank per group:**
+
+4 cups = 13.5-6 = 7.5
+
+0 cups = 14.5-10 = 4.5
+
+**Identify the test statistic:**
+
+Test statistic = The lowest sum of ranks. Test statistic = 4.5
+
+:::
+
+#### Wilcoxon signed-rank test
+
+<span style="color:purple">**QUESTION 3: What is the test statistic?"**</span>
+
+<span style="color:purple">*V* = 0</span>
+
+<span style="color:purple">**QUESTION 4: What might R report as the test statistic and why?**</span>
+
+<span style="color:purple">*V* = 0 or 10. *V* is equal to the sum of positive ranks. But whether ranks are positive or negative depends on whether you enter “before” or “after” first into the wilcox.test function (as this determines whether you calculate the difference by doing before-after or after-before).</span>
+
+::: {.callout-tip collapse="true"}
+## How were these answers calculated?
+
+Here is how these answers were computed:
+
+**STEPS**:
+
+**Calculate the difference between “Before intervention” and “After intervention”:**
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">After_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">-4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">Exclude</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">91</td>
+<td style="text-align: center;">-24</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">-2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">-23</td>
+</tr>
+</tbody>
+</table>
+
+
+`````
+
+:::
+:::
+
+
+
+
+**Note whether the difference is positive or negative:**
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">After_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Difference</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Sign</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">Negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">Exclude</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">91</td>
+<td style="text-align: center;">-24</td>
+<td style="text-align: center;">Negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">Negative</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">-23</td>
+<td style="text-align: center;">Negative</td>
+</tr>
+</tbody>
+</table>
+
+
+`````
+
+:::
+:::
+
+
+
+
+**Rank the difference:**
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Before_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">After_intervention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Difference</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Sign</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">Exclude</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">91</td>
+<td style="text-align: center;">-24</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">-23</td>
+<td style="text-align: center;">Negative</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+
+
+`````
+
+:::
+:::
+
+
+
+
+**Add up positive ranks and negative ranks:**
+
+Positive ranks: 0
+
+Negative ranks: 10
+
+**Identify the test statistic:**
+
+*V* = 0
+
+:::
+
+## Activity 3: Interpreting R output
+
+This activity is aimed at supporting your interpretation of R output. Part 1 uses an independent groups design. Part 2 uses a repeated measures design. Please note, this data are different to that used in Activity 2 (so the test statistics will be different). The answers are below.
+
+#### 1. An independent groups design
+
+You are a researcher interested in whether the number of cups of tea drank affects how many admin tasks participants can get done in an hour. You assign participants to one of two groups (drink 4 cups of tea a day or drink 0 cups of tea a day). After a week, you ask participants to come into the lab and ask them to complete a range of admin tasks. You count how many admin tasks they manage to complete. 
+
+The R output is below:
+
+##### Testing the assumption of normality 
+
+###### Q-Q plots:
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](Week6_files/figure-html/unnamed-chunk-8-1.png){width=672}
+:::
+:::
+
+
+
+
+###### Shapiro-Wilk test:
+
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 2 × 4
+  tea_group variable    statistic      p
+  <chr>     <chr>           <dbl>  <dbl>
+1 0 cups    admin_tasks     0.958 0.801 
+2 4 cups    admin_tasks     0.728 0.0120
+```
+
+
+:::
+:::
+
+
+
+
+<span style="color:purple">**QUESTION 1: Is the assumption violated?**</span>
+
+##### Descriptive statistics and model output:
+
+Descriptive statistics:
+
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 2 × 5
+  tea_group   med   min   max `n()`
+  <chr>     <dbl> <int> <int> <int>
+1 0 cups      5.5     2     9     6
+2 4 cups     17       1    35     6
+```
+
+
+:::
+:::
+
+
+
+
+
+Model output:
+
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 1 × 7
+  .y.         group1 group2    n1    n2 statistic     p
+* <chr>       <chr>  <chr>  <int> <int>     <dbl> <dbl>
+1 admin_tasks 0 cups 4 cups     6     6        17 0.936
+```
+
+
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 2: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">**QUESTION 3: How was the p-value calculated?**</span>
+
+#### 2. A repeated measures design
+
+You are a researcher interested in whether the amount of chocolate (in grams) eaten is different on a Saturday to a Monday. The R output is below:
+
+##### Testing the assumption of normality 
+
+Q-Q plot: 
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](Week6_files/figure-html/unnamed-chunk-12-1.png){width=672}
+:::
+:::
+
+
+
+
+Shapiro-Wilk test:
+
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 1 × 3
+  variable                     statistic p.value
+  <chr>                            <dbl>   <dbl>
+1 chocolate_dataset$Difference     0.769  0.0132
+```
+
+
+:::
+:::
+
+
+
+
+<span style="color:purple">**QUESTION 4: Is the assumption violated?**</span>
+
+##### Descriptive statistics and model output:
+
+Descriptive statistics:
+
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+  median_sat median_mon min_sat min_mon max_sat max_mon n()
+1        232         18     230       4     235      33   8
+```
+
+
+:::
+:::
+
+
+
+Model output:
+
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in wilcox.test.default(chocolate_dataset$Saturday,
+chocolate_dataset$Monday, : cannot compute exact p-value with ties
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+
+    Wilcoxon signed rank test with continuity correction
+
+data:  chocolate_dataset$Saturday and chocolate_dataset$Monday
+V = 36, p-value = 0.01368
+alternative hypothesis: true location shift is not equal to 0
+```
+
+
+:::
+:::
+
+
+
+<span style="color:purple">**QUESTION 5: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span>
+
+### Activity 3 answers
+
+#### 1. An independent groups design:
+
+<span style="color:purple">**QUESTION 1: Is the assumption violated?**</span>
+
+<span style="color:purple">0 cups: The assumption of normality is not violated. The dots generally follow the line well in the Q-Q plot and the Shapiro-Wilk test is non-significant.</span>
+
+<span style="color:purple">4 cups: The assumption of normality is violated. Quite a few points deviate from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span>
+
+<span style="color:purple">**QUESTION 2: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">The Wilcoxon rank-sum test revealed no significant difference between the number of admin tasks completed in the 4 cup group (Median = 17, Range = 1-35) and the 0 cup group (Median = 5.5, Range = 2-9; *W* = 17, *p* = .936).</span>
+
+::: {.callout-note collapse="true"}
+## Note
+<span style="color:purple">In practice, you should also calculate the effect size and report that.</span>
+:::
+
+<span style="color:purple">**QUESTION 3: How was the p-value calculated?**</span>
+
+<span style="color:purple">The normal approximation with continuity correction.</span>
+
+#### 2. A repeated measures design
+
+<span style="color:purple">**QUESTION 4: Is the assumption violated?**</span>
+
+<span style="color:purple">The assumption of normality appears to be violated. Some points deviate a bit from the line in the Q-Q plot and the Shapiro-Wilk test is significant.</span>
+
+<span style="color:purple">**QUESTION 5: What can we conclude? Report in APA format.**</span>
+
+<span style="color:purple">The Wilcoxon signed-rank test revealed that participants ate significantly more grams of chocolate on Saturdays (Median = 232, Range = 230-235) than on Mondays (Median = 18; Range = 4-33), *V* = 36, *p* = .014.</span>
+
+::: {.callout-note collapse="true"}
+## Note
+<span style="color:purple">In practice, you should also calculate the effect size and report that.</span>
+:::
+
+<span style="color:purple">**QUESTION 6: How was the p-value calculated?**</span>
+
+<span style="color:purple">The normal approximation with continuity correction.</span>
+
+# Asking questions
+
+If you have any questions about this week's content, please post them on the module moodle discussion board.
+
+-->
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../PSYC5242/Week5.html" class="pagination-link" aria-label="5. Factor Analysis and the Binomial Test">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">5. Factor Analysis and the Binomial Test</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../PSYC5242/Week7.html" class="pagination-link" aria-label="7. Kruskal-Wallis test and Friedman's ANOVA">
+        <span class="nav-page-text">7. Kruskal-Wallis test and Friedman’s ANOVA</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../previous-content/index.html">
+<p>Previous Content</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
