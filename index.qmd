@@ -15,11 +15,11 @@ back-to-top-navigation: false
 Welcome to Year 2 statistics!
 :::
 
-This year you will have the opportunity to build on the skills you developed last year - both in terms of statistical expertise and data coding in R. The year, you will complete two statistics modules: 
+This year you will have the opportunity to build on the skills you developed last year - both in terms of research design and statistical expertise and data coding in R. This year, you will complete two statistics modules: 
 
-- PSYC5141: Statistics for group comparisons, with Sam Russell and Mark Hurlstone
+- PSYC5141: Experimental Methods for Psychology, with Mark Hurlstone (coordinator), Patrick May, Emma Mills, and Chris Walton
 
-- PSYC5242: Statistics: from association to modelling causality, with Emma Mills and Amy Atkinson
+- PSYC5242: Qualitative and Quantitative Methods for Psychology, with Emma Mills (coordinator) Jared Piazza and Chris Walton
 
 Click on the button below to access your module: Term 1: PSYC5141, Term 2: PSYC5242.
 
