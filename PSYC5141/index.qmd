@@ -11,9 +11,43 @@ order: 1
 
 # Welcome to PSYC5141: Experimental Methods for Psychology
 
-Teaching team: Mark Hurlstone (coordinator), Patrick May, Emma Mills and Chris Walton
+Teaching team: Mark Hurlstone (coordinator), Emma Mills, Patrick May, and Chris Walton
 
-<!-- In this module, you will learn about a statistical technique for performing group comparisons known as Analysis of Variance (ANOVA). It is one of the most common statistical techniques, so it is important to have a thorough understanding of it, which is why we are devoting an entire module to the technique. We will cover a range of statistical tests associated with ANOVA, starting with designs involving a single independent variable (single factor designs), before moving onto designs involving multiple independent variables (factorial designs). We will also cover various follow-up procedures (procedures for identifying which specific conditions differ from one another), including planned comparisons and post-hoc tests, and how to interpret interactions (when the effect of one independent variable depends on the effect of another independent variable, and vice versa). The R statistical package is used throughout and students are expected to develop the skills for conducting appropriate analyses and interpreting the resulting output. -->
+# Welcome
+
+Welcome to the PSYC5141 material for the academic year 2026-2027!
+
+In this module, you will learn about the experimental research strategy and the statistical techniques used to analyse data from experimental studies. We will begin by introducing the principles of experimental research, including how experiments are designed to investigate causal relationships between variables. We will then consider a range of experimental designs, starting with between-participants and within-participants designs involving a single independent variable (single-factor designs), before moving on to more complex designs involving multiple independent variables (factorial designs).
+
+Alongside each experimental design, you will learn about the appropriate statistical techniques for analysing the resulting data, focusing on a family of statistical tests known as Analysis of Variance (ANOVA). We will cover various follow-up procedures for identifying which specific conditions differ from one another, including planned comparisons and post-hoc tests, as well as how to interpret interactions (when the effect of one independent variable depends on the level of another independent variable). The R statistical package is used throughout, and you will develop practical skills in designing experiments, conducting appropriate statistical analyses, interpreting the resulting output, and reporting research findings.
+
+# Working at your own pace and seeking help
+
+We have carefully prepared and refined the lab materials in this course over several years, and we feel that the pace of the materials is just about right for our students. Some students will complete them more quickly, and others more slowly---both of these scenarios are absolutely fine. You should work at the pace that suits **you** best, making sure **you** understand the materials before you move forward.
+
+It is fairly inevitable that you will get stuck on the lab materials in this module at some point. This might be in Week 1, Week 2, or later. When you do, it’s important you reach out for help:
+
+- **Ask your friends on your table**. We’ve designed this teaching space to help collaborative work. You are encouraged to work with other students. Make sure you ask others to explain how they’ve solved an exercise. Make sure you help out others where you can. Always make sure you understand the code and the exercise; don’t simply be satisfied that you’ve got the right answer.
+
+- **Ask a GTA or Lecturer**. Our Graduate Teaching Assistants are there to help you. There are no “stupid questions” in statistics, so just ask the GTAs any question about what you’re doing. Likewise, ask the Lecturer.
+
+- **Ask on the Q&A Forum on Moodle**. On the PSYC5141 moodle page you will find a [Q&A Forum](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2918151). This is a great way to ask a question outside of the lab sessions. It might seem scary to ask a question in the forum, but please don’t be afraid to do this. If you have a question, you can bet 30+ other students also have the same question! So by asking the question on the forum, you help out many more people on the module. A friendly GTA or Lecturer will be along to answer the question as soon as possible (we aim for within 48 hours during the working week).
+
+<!-- - **Ask during live online Q & A session**. Each week we hold an online “Q&A” session where we will try and resolve any general queries and problems. It’s an ideal time to discuss things that students are struggling with or confused about, and can share ideas and answers. You can ask on the discussion forum above and then we might be able to pick up the issues and discuss them, but also you can ask in the session itself. -->
+
+**Asking good questions** - It’s really important that you give us as much information as you can when you ask your questions (in class and especially on the forum). It’s so much harder to help respond to “I can’t do Exercise 5 in Week 7” (because we don’t know why it is that you can’t do it) than for example “In Exercise 5 of Week 7, I’ve managed to read in the data, but the graph looks quite odd. Here is the code I’m using…”
+
+# Course Contacts
+
+|             | Email Address                                                  |
+|-------------|----------------------------------------------------------------|
+| Mark Hurlstone (coordinator)  | [m.hurlstone\@lancaster.ac.uk](mailto:m.hurlstone@lancaster.ac.uk)     |
+|             |                                                                |
+
+
+<!-- LEGACY 25/26
+
+In this module, you will learn about a statistical technique for performing group comparisons known as Analysis of Variance (ANOVA). It is one of the most common statistical techniques, so it is important to have a thorough understanding of it, which is why we are devoting an entire module to the technique. We will cover a range of statistical tests associated with ANOVA, starting with designs involving a single independent variable (single factor designs), before moving onto designs involving multiple independent variables (factorial designs). We will also cover various follow-up procedures (procedures for identifying which specific conditions differ from one another), including planned comparisons and post-hoc tests, and how to interpret interactions (when the effect of one independent variable depends on the effect of another independent variable, and vice versa). The R statistical package is used throughout and students are expected to develop the skills for conducting appropriate analyses and interpreting the resulting output. -->
 
 
 <!-- ## Structure and Content: -->
@@ -42,11 +76,3 @@ Teaching team: Mark Hurlstone (coordinator), Patrick May, Emma Mills and Chris W
 
 <!-- - Week 10: Class Test -->
 
-
-
-# Course Contacts
-
-|             | Email Address                                                  |
-|-------------|----------------------------------------------------------------|
-| Mark Hurlstone (coordinator)  | [m.hurlstone\@lancaster.ac.uk](mailto:m.hurlstone@lancaster.ac.uk)     |
-|             |                                                                |
