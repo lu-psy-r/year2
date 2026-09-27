@@ -9,8 +9,6 @@ order: 1
 #  contents: guide.yml
 ---
 
-# Welcome to PSYC5141: Experimental Methods for Psychology
-
 Teaching team: Mark Hurlstone (coordinator), Emma Mills, Patrick May, and Chris Walton
 
 # Welcome
