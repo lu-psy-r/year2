@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1. Experimental Research Strategy &amp; Between-Participants Designs – Research Methods and Statistics for Psychologists</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../PSYC5242/index.html" rel="next">
+<link href="../PSYC5141/index.html" rel="prev">
+<link href="../Images/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e4953461cb2bb58f89b2a07db08a51c7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search Year 2";};</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="https://lu-psy-r.github.io/">
+    <span class="navbar-title">Research Methods and Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC5141/index.html">PSYC5141</a></li><li class="breadcrumb-item"><a href="../PSYC5141/Week1.html">1. Experimental Research Strategy &amp; Between-Participants Designs</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PSYC5141/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSYC5141</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1. Experimental Research Strategy &amp; Between-Participants Designs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">PSYC5242</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lectures" id="toc-lectures" class="nav-link active" data-scroll-target="#lectures">Lectures</a>
+  <ul class="collapse">
+  <li><a href="#multiple-choice-questions-for-lecture-1-experimental-research-strategy" id="toc-multiple-choice-questions-for-lecture-1-experimental-research-strategy" class="nav-link" data-scroll-target="#multiple-choice-questions-for-lecture-1-experimental-research-strategy">Multiple-Choice Questions for Lecture 1: Experimental Research Strategy</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
+  <li><a href="#question-8" id="toc-question-8" class="nav-link" data-scroll-target="#question-8">Question 8</a></li>
+  <li><a href="#question-9" id="toc-question-9" class="nav-link" data-scroll-target="#question-9">Question 9</a></li>
+  <li><a href="#question-10" id="toc-question-10" class="nav-link" data-scroll-target="#question-10">Question 10</a></li>
+  <li><a href="#question-11" id="toc-question-11" class="nav-link" data-scroll-target="#question-11">Question 11</a></li>
+  <li><a href="#question-12" id="toc-question-12" class="nav-link" data-scroll-target="#question-12">Question 12</a></li>
+  </ul></li>
+  <li><a href="#multiple-choice-questions-for-lecture-2-between-participants-designs" id="toc-multiple-choice-questions-for-lecture-2-between-participants-designs" class="nav-link" data-scroll-target="#multiple-choice-questions-for-lecture-2-between-participants-designs">Multiple-Choice Questions for Lecture 2: Between-Participants Designs</a>
+  <ul class="collapse">
+  <li><a href="#question-1-1" id="toc-question-1-1" class="nav-link" data-scroll-target="#question-1-1">Question 1</a></li>
+  <li><a href="#question-2-1" id="toc-question-2-1" class="nav-link" data-scroll-target="#question-2-1">Question 2</a></li>
+  <li><a href="#question-3-1" id="toc-question-3-1" class="nav-link" data-scroll-target="#question-3-1">Question 3</a></li>
+  <li><a href="#question-4-1" id="toc-question-4-1" class="nav-link" data-scroll-target="#question-4-1">Question 4</a></li>
+  <li><a href="#question-5-1" id="toc-question-5-1" class="nav-link" data-scroll-target="#question-5-1">Question 5</a></li>
+  <li><a href="#question-6-1" id="toc-question-6-1" class="nav-link" data-scroll-target="#question-6-1">Question 6</a></li>
+  <li><a href="#question-7-1" id="toc-question-7-1" class="nav-link" data-scroll-target="#question-7-1">Question 7</a></li>
+  <li><a href="#question-8-1" id="toc-question-8-1" class="nav-link" data-scroll-target="#question-8-1">Question 8</a></li>
+  <li><a href="#question-9-1" id="toc-question-9-1" class="nav-link" data-scroll-target="#question-9-1">Question 9</a></li>
+  <li><a href="#question-10-1" id="toc-question-10-1" class="nav-link" data-scroll-target="#question-10-1">Question 10</a></li>
+  <li><a href="#question-11-1" id="toc-question-11-1" class="nav-link" data-scroll-target="#question-11-1">Question 11</a></li>
+  <li><a href="#question-12-1" id="toc-question-12-1" class="nav-link" data-scroll-target="#question-12-1">Question 12</a></li>
+  <li><a href="#question-13" id="toc-question-13" class="nav-link" data-scroll-target="#question-13">Question 13</a></li>
+  <li><a href="#question-14" id="toc-question-14" class="nav-link" data-scroll-target="#question-14">Question 14</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC5141/index.html">PSYC5141</a></li><li class="breadcrumb-item"><a href="../PSYC5141/Week1.html">1. Experimental Research Strategy &amp; Between-Participants Designs</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">1. Experimental Research Strategy &amp; Between-Participants Designs</h1>
+<p class="subtitle lead">Mark Hurlstone</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="lectures" class="level1">
+<h1>Lectures</h1>
+<p>Watch Lecture 1 Part 1 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7103e84e-eb5c-4cf0-9ba6-b4d500699aee">here</a></p>
+<p>Watch Lecture 1 Part 2 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=64c744fd-8f5f-49c7-9c54-b4d5006a2659">here</a></p>
+<p>Watch Lecture 1 Part 3 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=0d90a6a8-8a03-410f-9532-b4d5006a9b3e">here</a></p>
+<p>Download the Lecture 1 slides <a href="data/Wk1/Week 1 Lecture 1 Experimental Research Strategy [HANDOUT].pdf">here</a>, and <a href="data/Wk1/Week 1 Lecture 1 Experimental Research Strategy [BIG SLIDES].pdf">here</a> for a larger version.</p>
+<p>Watch Lecture 2 Part 1 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=256e2494-1558-4503-8e08-b4d5006ae9a0">here</a></p>
+<p>Watch Lecture 2 Part 2 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=74b5262c-dea8-4e0c-bbfc-b4d5006b6eff">here</a></p>
+<p>Watch Lecture 2 Part 3 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8cc9dbd8-a8b8-4b2d-b578-b4d5006bc579">here</a></p>
+<p>Download the Lecture 2 slides <a href="data/Wk1/Week 1 Lecture 2 Between-Participants Designs [HANDOUT].pdf">here</a>, and <a href="data/Wk1/Week 1 Lecture 2 Between-Participants Designs [BIG SLIDES].pdf">here</a> for a larger version.</p>
+<p>This week, you will explore how experiments establish cause-and-effect relationships through manipulation, measurement, and control, and why correlation alone cannot demonstrate causation. You will also examine between-participants designs, including their advantages and limitations, the challenges posed by individual differences and confounding variables, and strategies for creating equivalent groups. The goal is to understand how to design experiments that support valid conclusions. Before attending the practical class, please review the Week 1 lecture materials and recordings above. There are some optional multiple-choice questions below to help you consolidate your learning and it is recommended to complete these once you have viewed the lecture recordings.</p>
+<section id="multiple-choice-questions-for-lecture-1-experimental-research-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-choice-questions-for-lecture-1-experimental-research-strategy">Multiple-Choice Questions for Lecture 1: Experimental Research Strategy</h2>
+<p>The following questions are designed to help you consolidate your understanding of the material covered in this week’s lectures. Try to answer each question before revealing the answer and feedback.</p>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<p>How do studies using the experimental research strategy differ from other types of research?</p>
+<ol type="1">
+<li>Only experiments can demonstrate a cause-and-effect relationship between variables.</li>
+<li>Only experiments involve comparing two or more groups of scores.</li>
+<li>Only experiments can demonstrate that relationships exist between variables and provide a description of the relationship.</li>
+<li>Only experiments can demonstrate a bidirectional relationship between variables.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. Only experiments can demonstrate a cause-and-effect relationship between variables.</strong></p>
+<p>The key advantage of the experimental research strategy is that manipulation and control allow researchers to establish cause-and-effect relationships.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<p>A researcher is interested in studying how indoor lighting can influence people’s moods during the winter. A sample of 100 households is selected. Fifty of the homes are randomly assigned to the bright light condition where the researcher replaces all the light bulbs with 100-watt bulbs. In the other 50 houses, all the lights are changed to 60-watt bulbs. After two months, the researcher measures the level of depression for the people living in the houses.</p>
+<p>In this example, how many dependent variables are there?</p>
+<ol type="1">
+<li>100</li>
+<li>50</li>
+<li>2</li>
+<li>1</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 4. 1</strong></p>
+<p>There is one dependent variable: <strong>level of depression</strong>. The number of participants or experimental conditions does not determine the number of dependent variables.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<p>Research indicates that people who suffer from depression also tend to experience insomnia. However, it is unclear whether the depression causes insomnia or the lack of sleep causes depression. What problem is demonstrated by this example?</p>
+<ol type="1">
+<li>The directionality problem</li>
+<li>The third-variable problem</li>
+<li>The extraneous variable problem</li>
+<li>The manipulation check problem</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. The directionality problem</strong></p>
+<p>The relationship does not tell us which variable causes the other: depression could contribute to insomnia, or insomnia could contribute to depression.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<p>In an experiment, what is the purpose for manipulating the independent variable?</p>
+<ol type="1">
+<li>It helps establish the direction of the relationship by showing that the dependent variable changes when you manipulate the independent variable.</li>
+<li>It helps eliminate the third-variable problem because you decide when to manipulate rather than waiting for the variable to change.</li>
+<li>It helps establish the direction of the relationship and it helps eliminate the third-variable problem.</li>
+<li>Manipulation does not establish the direction of the relationship or eliminate the third-variable problem.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 3. It helps establish the direction of the relationship and it helps eliminate the third-variable problem.</strong></p>
+<p>By actively manipulating the independent variable, the researcher establishes which variable changes first and avoids relying on naturally occurring differences that might be associated with other variables.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p>To establish an unambiguous relationship between two variables, it is necessary to eliminate the possible influence of which of the following variables?</p>
+<ol type="1">
+<li>Extraneous variables</li>
+<li>Confounding variables</li>
+<li>Independent variables</li>
+<li>Dependent variables</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 2. Confounding variables</strong></p>
+<p>A confounding variable provides an alternative explanation for an observed relationship between the independent and dependent variables. Experiments therefore need to prevent extraneous variables from becoming confounding variables.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
+<p>Which of the following characteristics are necessary for an extraneous variable to become a confounding variable?</p>
+<ol type="1">
+<li>It must change systematically from one participant to the next.</li>
+<li>It must change systematically when the independent variable is changed.</li>
+<li>It must have no systematic relationship with the dependent variable.</li>
+<li>It must have no systematic relationship to either the independent or the dependent variables.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 2. It must change systematically when the independent variable is changed.</strong></p>
+<p>An extraneous variable becomes a potential confound when it varies systematically with the independent variable, meaning that differences in the dependent variable could potentially be attributed to the extraneous variable rather than the manipulation.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
+<p>In an experiment comparing two treatments, the researcher assigns participants to treatment conditions so that each condition has fifteen 7-year-old children and ten 8-year-old children. For this study, what method is being used to control participant age?</p>
+<ol type="1">
+<li>Randomisation</li>
+<li>Matching</li>
+<li>Holding constant</li>
+<li>Limiting the range</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 2. Matching</strong></p>
+<p>The researcher is ensuring that the two conditions contain the same numbers of children of each age. The groups are therefore matched with respect to participant age.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-8" class="level3">
+<h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
+<p>Holding a variable constant is a technique for removing one threat to ___________, but it can limit the ___________ of an experiment.</p>
+<ol type="1">
+<li>internal validity, external validity</li>
+<li>external validity, internal validity</li>
+<li>internal validity, reliability</li>
+<li>external validity, reliability</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. internal validity, external validity</strong></p>
+<p>Holding an extraneous variable constant can improve <strong>internal validity</strong> by preventing it from becoming a confound. However, restricting the circumstances or participants included in an experiment can reduce its <strong>external validity</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-9" class="level3">
+<h3 class="anchored" data-anchor-id="question-9">Question 9</h3>
+<p>Which of the following is the primary goal for randomly assigning participants to treatment conditions in an experiment?</p>
+<ol type="1">
+<li>Increase the ability to generalize the results.</li>
+<li>Avoid selection bias.</li>
+<li>Ensure that the individuals in the sample are representative of the individuals in the population.</li>
+<li>Minimise the likelihood that a participant variable (such as age or gender) becomes a confounding variable.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 4. Minimise the likelihood that a participant variable (such as age or gender) becomes a confounding variable.</strong></p>
+<p>Random assignment is intended to disrupt systematic relationships between participant characteristics and the experimental conditions, thereby reducing the likelihood that participant variables become confounds.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-10" class="level3">
+<h3 class="anchored" data-anchor-id="question-10">Question 10</h3>
+<p>What is the purpose for using a control condition in an experiment?</p>
+<ol type="1">
+<li>It provides a baseline that can be used to evaluate the size of the treatment effect.</li>
+<li>It minimizes the threat of a confounding variable.</li>
+<li>It is necessary to ensure the internal validity of the study.</li>
+<li>It is necessary to ensure the external validity of the study.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. It provides a baseline that can be used to evaluate the size of the treatment effect.</strong></p>
+<p>A control condition provides a comparison or baseline against which the effect observed in the treatment condition can be evaluated.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-11" class="level3">
+<h3 class="anchored" data-anchor-id="question-11">Question 11</h3>
+<p>An experiment includes a treatment condition, a no-treatment control, and a placebo control. Which two conditions should be compared to determine the size of the effect that is actually caused by the treatment?</p>
+<ol type="1">
+<li>Placebo vs.&nbsp;treatment</li>
+<li>Placebo vs.&nbsp;no treatment</li>
+<li>Treatment vs.&nbsp;no treatment</li>
+<li>You only need to look at the scores in the placebo control condition.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. Placebo vs.&nbsp;treatment</strong></p>
+<p>Comparing the treatment condition with the placebo condition allows the researcher to estimate the effect attributable to the treatment itself while accounting for effects associated with receiving or expecting a treatment.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-12" class="level3">
+<h3 class="anchored" data-anchor-id="question-12">Question 12</h3>
+<p>A researcher exposes people to a stressful situation (such as public speaking) to examine the effect of stress on depressed mood. Why would the researcher also include a measure of stress?</p>
+<ol type="1">
+<li>It is a measure of the dependent variable.</li>
+<li>It is a measure of extraneous variables.</li>
+<li>It is a control for confounding variables.</li>
+<li>It is a manipulation check.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 4. It is a manipulation check.</strong></p>
+<p>The additional measure allows the researcher to determine whether the experimental manipulation successfully affected the intended construct—in this case, whether the stressful situation actually increased stress.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="multiple-choice-questions-for-lecture-2-between-participants-designs" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-choice-questions-for-lecture-2-between-participants-designs">Multiple-Choice Questions for Lecture 2: Between-Participants Designs</h2>
+<p>The following questions are designed to help you consolidate your understanding of the material covered in this week’s lectures. Try to answer each question before revealing the answer and feedback.</p>
+<section id="question-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
+<p>Which statement best characterises a between-participants experimental design?</p>
+<ol type="1">
+<li>Participants are randomly selected from two different populations.</li>
+<li>Each participant is assigned to one condition of the experiment.</li>
+<li>Each participant is assigned to every condition of the experiment.</li>
+<li>Participants with different characteristics are assigned to the different conditions of the experiment.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 2. Each participant is assigned to one condition of the experiment.</strong></p>
+<p>In a between-participants design, each participant contributes data to only one experimental condition. Different participants are therefore used in the different conditions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-2-1">Question 2</h3>
+<p>Which of the following accurately describes the scores in a between-participants experiment?</p>
+<ol type="1">
+<li>Only one score is obtained for each participant.</li>
+<li>At least two scores are obtained for each participant.</li>
+<li>One score is obtained for each treatment condition for each participant.</li>
+<li>Each score represents multiple participants.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. Only one score is obtained for each participant.</strong></p>
+<p>Because each participant takes part in only one treatment condition, each score is obtained from a different participant.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-3-1">Question 3</h3>
+<p>If a between-participants experiment produces 50 scores in treatment 1 and 50 scores in treatment 2, then how many participants were in the entire experiment?</p>
+<ol type="1">
+<li>50 participants</li>
+<li>200 participants</li>
+<li>25 participants</li>
+<li>100 participants</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 4. 100 participants</strong></p>
+<p>Each score comes from a different participant in a between-participants design. Therefore, 50 scores in each of two conditions require 100 participants in total.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-4-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-4-1">Question 4</h3>
+<p>Which of the following does not guarantee that a specific participant variable will not become a confounding variable?</p>
+<ol type="1">
+<li>Matching the variable across treatments</li>
+<li>Randomising the variable across treatments</li>
+<li>Holding the variable constant</li>
+<li>All of the above options guarantee that the variable does not become a confounding variable.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 2. Randomising the variable across treatments</strong></p>
+<p>Random assignment does not guarantee that groups will be equivalent on a particular participant variable. Especially with small samples, chance can produce differences between groups. Matching or holding a specific variable constant provides more direct control over that variable.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-5-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-5-1">Question 5</h3>
+<p>In an experiment comparing two treatments, the researcher assigns participants to treatment conditions so that the average participant age in each is approximately the same. For this study, what method is being used to control participant age?</p>
+<ol type="1">
+<li>Randomisation</li>
+<li>Matching</li>
+<li>Holding constant</li>
+<li>Limiting the range</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 2. Matching</strong></p>
+<p>The groups are being constructed so that they are equivalent with respect to average participant age. This is an example of matching.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-6-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-6-1">Question 6</h3>
+<p>Which of the following is a limitation of using matching rather than random assignment to form groups in a between-participants design?</p>
+<ol type="1">
+<li>Matching requires another measurement procedure.</li>
+<li>Matching reduces error due to participant differences.</li>
+<li>Matching is easier than randomisation.</li>
+<li>Matching eliminates any systematic relationship between participant characteristics and the treatment conditions.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. Matching requires another measurement procedure.</strong></p>
+<p>To match participants or groups on a particular characteristic, the researcher must first measure that characteristic. Matching can therefore require additional time and measurement compared with simple random assignment.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-7-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-7-1">Question 7</h3>
+<p>How does holding a variable constant prevent the variable from becoming a confound?</p>
+<ol type="1">
+<li>It eliminates the possibility that the variable will be substantially different from one group to another.</li>
+<li>It reduces error.</li>
+<li>It ensures a nonbiased sample.</li>
+<li>It increases the differences between the groups.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. It eliminates the possibility that the variable will be substantially different from one group to another.</strong></p>
+<p>If a variable is held constant, it cannot vary systematically between the experimental conditions and therefore cannot provide an alternative explanation for differences between those conditions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-8-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-8-1">Question 8</h3>
+<p>Which of the following maximises the likelihood of a successful research result?</p>
+<ol type="1">
+<li>Decrease the differences between treatments and increase the variance within treatments.</li>
+<li>Increase the differences between treatments and increase the variance within treatments.</li>
+<li>Increase the differences between treatments and decrease the variance within treatments.</li>
+<li>Decrease the differences between treatments and decrease the variance within treatments.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 3. Increase the differences between treatments and decrease the variance within treatments.</strong></p>
+<p>Treatment effects are easiest to detect when the differences between treatment conditions are large relative to the variability of scores within those conditions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-9-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-9-1">Question 9</h3>
+<p>Which of the following is an option for limiting the variance within treatment conditions?</p>
+<ol type="1">
+<li>Hold a participant variable constant.</li>
+<li>Randomise participant variables across treatments.</li>
+<li>Match participant variables across treatments.</li>
+<li>All of the above are options for limiting variance within treatments.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. Hold a participant variable constant.</strong></p>
+<p>Holding a participant variable constant reduces individual differences within each treatment condition. Randomisation and matching can help balance participant characteristics <strong>between</strong> conditions, but they do not necessarily reduce variability <strong>within</strong> conditions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-10-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-10-1">Question 10</h3>
+<p>Which of the following is a potential problem with holding a participant variable constant?</p>
+<ol type="1">
+<li>It threatens the reliability of the study.</li>
+<li>It threatens the external validity of the study.</li>
+<li>It lowers the likelihood of obtaining a significant difference between treatments.</li>
+<li>None of the above is a potential problem.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 2. It threatens the external validity of the study.</strong></p>
+<p>Holding a participant variable constant restricts the range of individuals represented in the study. This can limit the extent to which the findings generalise to people with other characteristics.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-11-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-11-1">Question 11</h3>
+<p>Which of the following accurately defines why differential attrition is a threat to the internal validity of a between-participants study?</p>
+<ol type="1">
+<li>Groups are not created equally.</li>
+<li>Groups are not treated equally.</li>
+<li>Groups may not be composed of equivalent individuals.</li>
+<li>All of the above.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 3. Groups may not be composed of equivalent individuals.</strong></p>
+<p>Differential attrition occurs when participant dropout differs across conditions. Even if the groups were initially equivalent, differential dropout can result in groups that differ systematically in their composition.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-12-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-12-1">Question 12</h3>
+<p>Which of the following accurately defines compensatory equalization?</p>
+<ol type="1">
+<li>One group demands the same benefits received by another group.</li>
+<li>One group works extra hard to make up for not receiving the benefits received by another group.</li>
+<li>One group stops trying because it is not receiving the benefits received by another group.</li>
+<li>Elements of the treatment in one group have spread to another group.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 1. One group demands the same benefits received by another group.</strong></p>
+<p>Compensatory equalization occurs when differences in the treatment received by different groups lead to efforts to provide one group with benefits comparable to those received by another.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-13" class="level3">
+<h3 class="anchored" data-anchor-id="question-13">Question 13</h3>
+<p>Which of the following accurately defines compensatory rivalry?</p>
+<ol type="1">
+<li>One group demands the same benefits received by another group.</li>
+<li>One group works extra hard to make up for not receiving the benefits received by another group.</li>
+<li>One group stops trying because it is not receiving the benefits received by another group.</li>
+<li>Elements of the treatment in one group have spread to another group.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 2. One group works extra hard to make up for not receiving the benefits received by another group.</strong></p>
+<p>Compensatory rivalry occurs when participants who know they are not receiving a desirable treatment respond by increasing their effort or performance.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-14" class="level3">
+<h3 class="anchored" data-anchor-id="question-14">Question 14</h3>
+<p>Which of the following accurately defines diffusion?</p>
+<ol type="1">
+<li>One group demands the same benefits received by another group.</li>
+<li>One group works extra hard to make up for not receiving the benefits received by another group.</li>
+<li>One group stops trying because it is not receiving the benefits received by another group.</li>
+<li>Elements of the treatment in one group have spread to another group.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Answer: 4. Elements of the treatment in one group have spread to another group.</strong></p>
+<p>Diffusion occurs when aspects of a treatment intended for one condition become available to participants in another condition, reducing the intended difference between the groups.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="practical" class="level1">
+<h1>Practical</h1>
+<p>Coming soon!</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../PSYC5141/index.html" class="pagination-link" aria-label="PSYC5141">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PSYC5141</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../PSYC5242/index.html" class="pagination-link" aria-label="PSYC5242">
+        <span class="nav-page-text">PSYC5242</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../previous-content/index.html">
+<p>Previous Content</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

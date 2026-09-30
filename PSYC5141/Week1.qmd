@@ -1,0 +1,506 @@
+---
+title: 1. Experimental Research Strategy & Between-Participants Designs
+subtitle: "Mark Hurlstone"
+order: 2
+---
+
+
+# Lectures
+
+Watch Lecture 1 Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7103e84e-eb5c-4cf0-9ba6-b4d500699aee)
+
+Watch Lecture 1 Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=64c744fd-8f5f-49c7-9c54-b4d5006a2659)
+
+Watch Lecture 1 Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=0d90a6a8-8a03-410f-9532-b4d5006a9b3e)
+
+Download the Lecture 1 slides [here](data/Wk1/Week 1 Lecture 1 Experimental Research Strategy [HANDOUT].pdf), and [here](data/Wk1/Week 1 Lecture 1 Experimental Research Strategy [BIG SLIDES].pdf) for a larger version. 
+
+Watch Lecture 2 Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=256e2494-1558-4503-8e08-b4d5006ae9a0)
+
+Watch Lecture 2 Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=74b5262c-dea8-4e0c-bbfc-b4d5006b6eff)
+
+Watch Lecture 2 Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8cc9dbd8-a8b8-4b2d-b578-b4d5006bc579)
+
+Download the Lecture 2 slides [here](data/Wk1/Week 1 Lecture 2 Between-Participants Designs [HANDOUT].pdf), and [here](data/Wk1/Week 1 Lecture 2 Between-Participants Designs [BIG SLIDES].pdf) for a larger version. 
+
+
+This week, you will explore how experiments establish cause-and-effect relationships through manipulation, measurement, and control, and why correlation alone cannot demonstrate causation. You will also examine between-participants designs, including their advantages and limitations, the challenges posed by individual differences and confounding variables, and strategies for creating equivalent groups. The goal is to understand how to design experiments that support valid conclusions. Before attending the practical class, please review the Week 1 lecture materials and recordings above. There are some optional multiple-choice questions below to help you consolidate your learning and it is recommended to complete these once you have viewed the lecture recordings. 
+
+## Multiple-Choice Questions for Lecture 1: Experimental Research Strategy
+
+The following questions are designed to help you consolidate your understanding of the material covered in this week's lectures. Try to answer each question before revealing the answer and feedback.
+
+### Question 1
+
+How do studies using the experimental research strategy differ from other types of research?
+
+1. Only experiments can demonstrate a cause-and-effect relationship between variables.
+2. Only experiments involve comparing two or more groups of scores.
+3. Only experiments can demonstrate that relationships exist between variables and provide a description of the relationship.
+4. Only experiments can demonstrate a bidirectional relationship between variables.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. Only experiments can demonstrate a cause-and-effect relationship between variables.**
+
+The key advantage of the experimental research strategy is that manipulation and control allow researchers to establish cause-and-effect relationships.
+:::
+
+
+### Question 2
+
+A researcher is interested in studying how indoor lighting can influence people's moods during the winter. A sample of 100 households is selected. Fifty of the homes are randomly assigned to the bright light condition where the researcher replaces all the light bulbs with 100-watt bulbs. In the other 50 houses, all the lights are changed to 60-watt bulbs. After two months, the researcher measures the level of depression for the people living in the houses.
+
+In this example, how many dependent variables are there?
+
+1. 100
+2. 50
+3. 2
+4. 1
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 4. 1**
+
+There is one dependent variable: **level of depression**. The number of participants or experimental conditions does not determine the number of dependent variables.
+:::
+
+
+### Question 3
+
+Research indicates that people who suffer from depression also tend to experience insomnia. However, it is unclear whether the depression causes insomnia or the lack of sleep causes depression. What problem is demonstrated by this example?
+
+1. The directionality problem
+2. The third-variable problem
+3. The extraneous variable problem
+4. The manipulation check problem
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. The directionality problem**
+
+The relationship does not tell us which variable causes the other: depression could contribute to insomnia, or insomnia could contribute to depression.
+:::
+
+
+### Question 4
+
+In an experiment, what is the purpose for manipulating the independent variable?
+
+1. It helps establish the direction of the relationship by showing that the dependent variable changes when you manipulate the independent variable.
+2. It helps eliminate the third-variable problem because you decide when to manipulate rather than waiting for the variable to change.
+3. It helps establish the direction of the relationship and it helps eliminate the third-variable problem.
+4. Manipulation does not establish the direction of the relationship or eliminate the third-variable problem.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 3. It helps establish the direction of the relationship and it helps eliminate the third-variable problem.**
+
+By actively manipulating the independent variable, the researcher establishes which variable changes first and avoids relying on naturally occurring differences that might be associated with other variables.
+:::
+
+
+### Question 5
+
+To establish an unambiguous relationship between two variables, it is necessary to eliminate the possible influence of which of the following variables?
+
+1. Extraneous variables
+2. Confounding variables
+3. Independent variables
+4. Dependent variables
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. Confounding variables**
+
+A confounding variable provides an alternative explanation for an observed relationship between the independent and dependent variables. Experiments therefore need to prevent extraneous variables from becoming confounding variables.
+:::
+
+
+### Question 6
+
+Which of the following characteristics are necessary for an extraneous variable to become a confounding variable?
+
+1. It must change systematically from one participant to the next.
+2. It must change systematically when the independent variable is changed.
+3. It must have no systematic relationship with the dependent variable.
+4. It must have no systematic relationship to either the independent or the dependent variables.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. It must change systematically when the independent variable is changed.**
+
+An extraneous variable becomes a potential confound when it varies systematically with the independent variable, meaning that differences in the dependent variable could potentially be attributed to the extraneous variable rather than the manipulation.
+:::
+
+
+### Question 7
+
+In an experiment comparing two treatments, the researcher assigns participants to treatment conditions so that each condition has fifteen 7-year-old children and ten 8-year-old children. For this study, what method is being used to control participant age?
+
+1. Randomisation
+2. Matching
+3. Holding constant
+4. Limiting the range
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. Matching**
+
+The researcher is ensuring that the two conditions contain the same numbers of children of each age. The groups are therefore matched with respect to participant age.
+:::
+
+
+### Question 8
+
+Holding a variable constant is a technique for removing one threat to ___________, but it can limit the ___________ of an experiment.
+
+1. internal validity, external validity
+2. external validity, internal validity
+3. internal validity, reliability
+4. external validity, reliability
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. internal validity, external validity**
+
+Holding an extraneous variable constant can improve **internal validity** by preventing it from becoming a confound. However, restricting the circumstances or participants included in an experiment can reduce its **external validity**.
+:::
+
+
+### Question 9
+
+Which of the following is the primary goal for randomly assigning participants to treatment conditions in an experiment?
+
+1. Increase the ability to generalize the results.
+2. Avoid selection bias.
+3. Ensure that the individuals in the sample are representative of the individuals in the population.
+4. Minimise the likelihood that a participant variable (such as age or gender) becomes a confounding variable.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 4. Minimise the likelihood that a participant variable (such as age or gender) becomes a confounding variable.**
+
+Random assignment is intended to disrupt systematic relationships between participant characteristics and the experimental conditions, thereby reducing the likelihood that participant variables become confounds.
+:::
+
+
+### Question 10
+
+What is the purpose for using a control condition in an experiment?
+
+1. It provides a baseline that can be used to evaluate the size of the treatment effect.
+2. It minimizes the threat of a confounding variable.
+3. It is necessary to ensure the internal validity of the study.
+4. It is necessary to ensure the external validity of the study.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. It provides a baseline that can be used to evaluate the size of the treatment effect.**
+
+A control condition provides a comparison or baseline against which the effect observed in the treatment condition can be evaluated.
+:::
+
+
+### Question 11
+
+An experiment includes a treatment condition, a no-treatment control, and a placebo control. Which two conditions should be compared to determine the size of the effect that is actually caused by the treatment?
+
+1. Placebo vs. treatment
+2. Placebo vs. no treatment
+3. Treatment vs. no treatment
+4. You only need to look at the scores in the placebo control condition.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. Placebo vs. treatment**
+
+Comparing the treatment condition with the placebo condition allows the researcher to estimate the effect attributable to the treatment itself while accounting for effects associated with receiving or expecting a treatment.
+:::
+
+
+### Question 12
+
+A researcher exposes people to a stressful situation (such as public speaking) to examine the effect of stress on depressed mood. Why would the researcher also include a measure of stress?
+
+1. It is a measure of the dependent variable.
+2. It is a measure of extraneous variables.
+3. It is a control for confounding variables.
+4. It is a manipulation check.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 4. It is a manipulation check.**
+
+The additional measure allows the researcher to determine whether the experimental manipulation successfully affected the intended construct—in this case, whether the stressful situation actually increased stress.
+:::
+
+## Multiple-Choice Questions for Lecture 2: Between-Participants Designs
+
+The following questions are designed to help you consolidate your understanding of the material covered in this week's lectures. Try to answer each question before revealing the answer and feedback.
+
+### Question 1
+
+Which statement best characterises a between-participants experimental design?
+
+1. Participants are randomly selected from two different populations.
+2. Each participant is assigned to one condition of the experiment.
+3. Each participant is assigned to every condition of the experiment.
+4. Participants with different characteristics are assigned to the different conditions of the experiment.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. Each participant is assigned to one condition of the experiment.**
+
+In a between-participants design, each participant contributes data to only one experimental condition. Different participants are therefore used in the different conditions.
+:::
+
+
+### Question 2
+
+Which of the following accurately describes the scores in a between-participants experiment?
+
+1. Only one score is obtained for each participant.
+2. At least two scores are obtained for each participant.
+3. One score is obtained for each treatment condition for each participant.
+4. Each score represents multiple participants.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. Only one score is obtained for each participant.**
+
+Because each participant takes part in only one treatment condition, each score is obtained from a different participant.
+:::
+
+
+### Question 3
+
+If a between-participants experiment produces 50 scores in treatment 1 and 50 scores in treatment 2, then how many participants were in the entire experiment?
+
+1. 50 participants
+2. 200 participants
+3. 25 participants
+4. 100 participants
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 4. 100 participants**
+
+Each score comes from a different participant in a between-participants design. Therefore, 50 scores in each of two conditions require 100 participants in total.
+:::
+
+
+### Question 4
+
+Which of the following does not guarantee that a specific participant variable will not become a confounding variable?
+
+1. Matching the variable across treatments
+2. Randomising the variable across treatments
+3. Holding the variable constant
+4. All of the above options guarantee that the variable does not become a confounding variable.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. Randomising the variable across treatments**
+
+Random assignment does not guarantee that groups will be equivalent on a particular participant variable. Especially with small samples, chance can produce differences between groups. Matching or holding a specific variable constant provides more direct control over that variable.
+:::
+
+
+### Question 5
+
+In an experiment comparing two treatments, the researcher assigns participants to treatment conditions so that the average participant age in each is approximately the same. For this study, what method is being used to control participant age?
+
+1. Randomisation
+2. Matching
+3. Holding constant
+4. Limiting the range
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. Matching**
+
+The groups are being constructed so that they are equivalent with respect to average participant age. This is an example of matching.
+:::
+
+
+### Question 6
+
+Which of the following is a limitation of using matching rather than random assignment to form groups in a between-participants design?
+
+1. Matching requires another measurement procedure.
+2. Matching reduces error due to participant differences.
+3. Matching is easier than randomisation.
+4. Matching eliminates any systematic relationship between participant characteristics and the treatment conditions.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. Matching requires another measurement procedure.**
+
+To match participants or groups on a particular characteristic, the researcher must first measure that characteristic. Matching can therefore require additional time and measurement compared with simple random assignment.
+:::
+
+
+### Question 7
+
+How does holding a variable constant prevent the variable from becoming a confound?
+
+1. It eliminates the possibility that the variable will be substantially different from one group to another.
+2. It reduces error.
+3. It ensures a nonbiased sample.
+4. It increases the differences between the groups.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. It eliminates the possibility that the variable will be substantially different from one group to another.**
+
+If a variable is held constant, it cannot vary systematically between the experimental conditions and therefore cannot provide an alternative explanation for differences between those conditions.
+:::
+
+
+### Question 8
+
+Which of the following maximises the likelihood of a successful research result?
+
+1. Decrease the differences between treatments and increase the variance within treatments.
+2. Increase the differences between treatments and increase the variance within treatments.
+3. Increase the differences between treatments and decrease the variance within treatments.
+4. Decrease the differences between treatments and decrease the variance within treatments.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 3. Increase the differences between treatments and decrease the variance within treatments.**
+
+Treatment effects are easiest to detect when the differences between treatment conditions are large relative to the variability of scores within those conditions.
+:::
+
+
+### Question 9
+
+Which of the following is an option for limiting the variance within treatment conditions?
+
+1. Hold a participant variable constant.
+2. Randomise participant variables across treatments.
+3. Match participant variables across treatments.
+4. All of the above are options for limiting variance within treatments.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. Hold a participant variable constant.**
+
+Holding a participant variable constant reduces individual differences within each treatment condition. Randomisation and matching can help balance participant characteristics **between** conditions, but they do not necessarily reduce variability **within** conditions.
+:::
+
+
+### Question 10
+
+Which of the following is a potential problem with holding a participant variable constant?
+
+1. It threatens the reliability of the study.
+2. It threatens the external validity of the study.
+3. It lowers the likelihood of obtaining a significant difference between treatments.
+4. None of the above is a potential problem.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. It threatens the external validity of the study.**
+
+Holding a participant variable constant restricts the range of individuals represented in the study. This can limit the extent to which the findings generalise to people with other characteristics.
+:::
+
+
+### Question 11
+
+Which of the following accurately defines why differential attrition is a threat to the internal validity of a between-participants study?
+
+1. Groups are not created equally.
+2. Groups are not treated equally.
+3. Groups may not be composed of equivalent individuals.
+4. All of the above.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 3. Groups may not be composed of equivalent individuals.**
+
+Differential attrition occurs when participant dropout differs across conditions. Even if the groups were initially equivalent, differential dropout can result in groups that differ systematically in their composition.
+:::
+
+
+### Question 12
+
+Which of the following accurately defines compensatory equalization?
+
+1. One group demands the same benefits received by another group.
+2. One group works extra hard to make up for not receiving the benefits received by another group.
+3. One group stops trying because it is not receiving the benefits received by another group.
+4. Elements of the treatment in one group have spread to another group.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. One group demands the same benefits received by another group.**
+
+Compensatory equalization occurs when differences in the treatment received by different groups lead to efforts to provide one group with benefits comparable to those received by another.
+:::
+
+
+### Question 13
+
+Which of the following accurately defines compensatory rivalry?
+
+1. One group demands the same benefits received by another group.
+2. One group works extra hard to make up for not receiving the benefits received by another group.
+3. One group stops trying because it is not receiving the benefits received by another group.
+4. Elements of the treatment in one group have spread to another group.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. One group works extra hard to make up for not receiving the benefits received by another group.**
+
+Compensatory rivalry occurs when participants who know they are not receiving a desirable treatment respond by increasing their effort or performance.
+:::
+
+
+### Question 14
+
+Which of the following accurately defines diffusion?
+
+1. One group demands the same benefits received by another group.
+2. One group works extra hard to make up for not receiving the benefits received by another group.
+3. One group stops trying because it is not receiving the benefits received by another group.
+4. Elements of the treatment in one group have spread to another group.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 4. Elements of the treatment in one group have spread to another group.**
+
+Diffusion occurs when aspects of a treatment intended for one condition become available to participants in another condition, reducing the intended difference between the groups.
+:::
+
+# Practical
+Coming soon!
