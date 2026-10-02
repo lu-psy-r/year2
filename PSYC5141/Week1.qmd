@@ -503,4 +503,713 @@ Diffusion occurs when aspects of a treatment intended for one condition become a
 :::
 
 # Practical
-Coming soon!
+
+## This week's lab
+
+In this week's lab, we will revisit some of the R skills introduced in Year 1. Using data from a hypothetical study comparing two robot lab assistants, we will practise inspecting and organising data, calculating descriptive statistics, visualising group differences, and conducting an independent-samples *t*-test. We will also revisit how we measure variability in scores, including the relationship between the sum of squares, variance, and standard deviation. These ideas will support our work on Analysis of Variance (ANOVA) in subsequent weeks.
+
+By the end of the session, you should be able to:
+
+- Import a data set and inspect, sort and transform its variables.
+- Calculate and interpret descriptive statistics for the full sample and for separate groups.
+- Explain the relationship between variance and standard deviation.
+- Produce a box plot and interpret an independent-samples *t*-test and Cohen's *d*.
+- Report the findings in a short results paragraph.
+
+Work through the examples in your R script, paying attention to the code comments and the resulting output. Attempt each exercise before opening the answer. If you get stuck, ask one of the GTAs for help.
+
+## Getting started
+
+{{< include /Includes/_login.qmd >}}
+
+1. In RStudio’s **Files** pane, click **Home** to open your home directory on the server. Select **New Folder** and create a folder named `psyc5141_labs`. Use this folder to organise your work for the module.
+2. Open `psyc5141_labs` and create a folder inside it named `psyc5141_lab_1`. This will contain the data, project and script for today's session.
+3. Download [the Week 1 data file](data/Wk1/week1_robo_lab.csv) and upload it to `psyc5141_lab_1`.
+4. Create an RStudio project using **File → New Project → Existing Directory**. Select the `psyc5141_lab_1` folder inside `psyc5141_labs`, then click **Create Project**.
+5. Open a new R script and save it in the project folder as `week1_analysis.R`.
+
+A project keeps your work associated with this folder and sets it as the **working directory**, allowing R to find your data files. The working directory is also the default location R uses to save files. You can check it by running `getwd()`; it should end in `psyc5141_labs/psyc5141_lab_1`. With the project open, you do not need a separate `setwd()` command.
+
+**When returning to the exercise, open the project before running your script.** In the server's Files pane, navigate to `psyc5141_labs/psyc5141_lab_1` and open `psyc5141_lab_1.Rproj`. For subsequent labs, create a new weekly folder inside `psyc5141_labs`.
+
+Let's load the packages we will use:
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse) # Data manipulation and plotting
+library(rstatix)   # Summary statistics and effect sizes
+library(ggpubr)    # Box plots
+```
+
+Next, import the data:
+
+```{r}
+#| eval: false
+# Import the CSV from your project folder
+lab1_data <- read_csv("week1_robo_lab.csv")
+```
+
+```{r}
+#| include: false
+# Website rendering uses the existing website data path
+lab1_data <- read_csv("data/Wk1/week1_robo_lab.csv")
+```
+
+The assignment operator `<-` stores the imported data in an object called `lab1_data`. We will use this name throughout the session. <!-- Running a command that displays or summarises the data does not usually change this object; to retain a change, we need to assign the result to an object. -->
+
+## Meet the robot study
+
+A team of researchers wants to know whether the design of a robot lab assistant affects students' learning of statistics and their attitudes towards the assistant. They develop two prototypes, Alpha and Beta, and randomly assign each student to work with one of them. Robot Beta has a more human-like appearance than Robot Alpha.
+
+![**Robot A(lpha)**](images/Wk1/RobotA.png)
+
+![**Robot B(eta)**](https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)
+
+This is a **single-factor between-participants design**: each participant experiences only one condition. The study has one **factor** (another term for an independent variable), robot assignment, with two levels, Alpha and Beta.
+
+To evaluate which robot would be more suitable as a lab assistant, the researchers needed to assess both how well students learned and how positively they responded to the robot. A robot might be effective at supporting learning without being particularly well liked, or well liked without being especially effective.
+
+The researchers therefore measured two dependent variables, or outcomes. First, students completed a statistics test, scored from 0–100, to assess their learning. Second, students rated how much they liked their robot lab assistant on a scale from 1 (*strongly dislike*) to 7 (*strongly like*).
+
+| Variable | Meaning |
+|---|---|
+| `ID` | Participant identifier. |
+| `Group` | Robot assignment: `A` for Alpha and `B` for Beta. |
+| `Score` | Statistics test score with a possible range of 0–100. |
+| `Likeability` | Rating of the robot from 1 (*strongly dislike*) to 7 (*strongly like*). |
+
+The researchers expected that Robot Beta’s more human-like appearance would lead students to respond more positively to it and learn more effectively when working with it. They therefore predicted that students assigned Robot Beta would obtain higher statistics test scores and give higher likeability ratings than students assigned Robot Alpha. These are two separate hypotheses, corresponding to the two dependent variables.
+
+We will retain this study in subsequent weeks, when the researchers introduce a third robot and we extend the analysis to three groups.
+
+::: {.callout-note icon="false"}
+## Key idea: factors and dependent variables
+
+A **factor** is an independent variable whose levels define the conditions being compared. A **dependent variable** is the outcome measured for each participant. Here, `Group` identifies the levels of our factor, while `Score` and `Likeability` contain the two outcomes.
+:::
+
+## Exploring the data
+
+### Inspecting and sorting rows
+
+Let's begin by looking at the first six rows:
+
+```{r}
+head(lab1_data)
+```
+
+The `head()` function displays six rows by default. To display twelve, use `head(lab1_data, n = 12)`. You can also inspect the full data set in RStudio using `View(lab1_data)`.
+
+To display the ten lowest test scores, we can combine `arrange()` and `head()`:
+
+```{r}
+lab1_data %>%
+  arrange(Score) %>%  # Sort from lowest to highest Score
+  head(n = 10)       # Display the first ten rows
+```
+
+The pipe, `%>%`, passes the result of one step to the next. Here, we start with `lab1_data`, sort its rows by `Score`, and display the first ten rows of the sorted data. This displays a sorted version without changing the original object.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: the highest scores
+
+Adapt the code to display the ten **highest** test scores. Are these scores mainly associated with one robot group? Does inspecting only the ten highest scores tell us how the groups compare overall?
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Hint
+
+Use `arrange(desc(Score))` to sort scores in descending order.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+lab1_data %>%
+  arrange(desc(Score)) %>%
+  head(n = 10)
+```
+
+Nine of the ten highest scores belong to Group B (Beta), and one belongs to Group A (Alpha). These rows describe only the highest-scoring participants. To compare the groups overall, we need to examine all their observations, including their average scores and variability.
+:::
+
+### Creating a variable
+
+So far, we have inspected variables that were already present in the data set. Sometimes we need to **create a new variable from an existing one**. For example, suppose we wanted to label each participant's test performance as Low, Medium, or High. We already have their numerical test score in `Score`; what we want is an additional column containing the corresponding label for each participant.
+
+For this exercise, we will classify scores of 50 or below as Low, scores above 50 and up to 70 as Medium, and scores above 70 as High. A participant who scored 45 would therefore receive the label Low, while a participant who scored 65 would receive Medium. The original numerical score will remain in the data set.
+
+We can do this using `mutate()`, which adds or changes columns in a data frame. Inside it, `case_when()` tells R which label to use for each score:
+
+```{r}
+# Update the data frame in R with the new column
+lab1_data <- lab1_data %>%
+  # Create a new column using these rules
+  mutate(Score_Category = case_when(
+    Score <= 50 ~ "Low",              # Scores of 50 or below receive Low
+    # Scores above 50 and up to 70 receive Medium
+    Score > 50 & Score <= 70 ~ "Medium",
+    Score > 70 ~ "High"               # Scores above 70 receive High
+  ))
+```
+
+Assigning the result back to `lab1_data` updates the data frame in R, adding the new `Score_Category` column. It does not change the original CSV file.
+
+R checks these rules for each row, which corresponds to one participant. Each line inside `case_when()` gives a condition on the left of `~` and the label to assign on the right. For example, `Score <= 50 ~ "Low"` means “if this participant's score is less than or equal to 50, enter Low”. The `&` means that both conditions must be satisfied.
+
+`Score_Category` is the name we have chosen for the new column. Creating variables in this way is useful when we need to recode responses or derive new measures from information we have already collected.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: check the new variable
+
+Use `head()` to check that `Score_Category` has been added. For the rows displayed, check that the labels match the values in Score. Then, using the rules in the code above, identify which categories scores of 50, 51 and 70 would receive. You do not need to find these scores in the displayed rows.
+
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+head(lab1_data)
+```
+
+A score of 50 is classified as Low; scores of 51 and 70 are classified as Medium. We will use the original numerical `Score` variable in our statistical analysis because categorising it discards information.
+:::
+
+## Describing the data
+
+::: {.callout-note icon="false"}
+## Reminder: populations and samples
+
+A **population** consists of all the individuals we are interested in studying. A **sample** is a subset of that population. We usually collect data from a sample because it is impractical to measure everyone in the population.
+
+In the robot study, the 200 participating students form our sample. The population of interest is the wider group of students to whom the researchers want their findings to apply. Descriptive statistics summarise the sample; inferential statistics, such as the *t*-test, help us assess what the sample results suggest about the population. How widely we can generalise also depends on how the sample was selected.
+:::
+
+When we measure a psychological characteristic in a group of people, they will usually obtain different scores. Some students, for example, will obtain higher test scores than others. Together, these observations form a **distribution of scores**. Descriptive statistics allow us to summarise that distribution rather than having to inspect every score separately.
+
+### Centre and spread
+
+You will recall that **central tendency** describes the centre or typical value of a distribution. The mean is the familiar arithmetic average: add all the scores and divide by the number of scores. The median is the middle value when the scores are arranged in order. Both describe where scores are centred, although the mean is more affected by unusually high or low values.
+
+However, an average does not tell us how similar the individuals are to one another. A class in which everyone scores close to 60 could have the same mean as a class with scores ranging from 40 to 80. This is why we also need measures of **variability**, or spread: they describe the extent to which scores differ within the distribution.
+
+For our robot study, low variability in test scores would mean that students performed quite similarly; high variability would mean that performance differed more substantially between students. These are **individual differences in observed performance**. <!-- Describing them does not, by itself, tell us why they occurred. -->
+
+The `summary()` function provides a useful first overview:
+
+```{r}
+summary(lab1_data)
+```
+
+For a numerical variable, this gives the minimum, first quartile, median, mean, third quartile and maximum. The table below summarises these and some additional measures we will use.
+
+The mean and median are measures of **central tendency**. The range, interquartile range (IQR), variance and standard deviation (SD) are measures of **variability**: they describe how spread out the scores are, each in a different way.
+
+| Measure | What does it tell us? | R code for test scores |
+|---|---|---|
+| Mean | Sum of the scores divided by the number of scores. | `mean(lab1_data$Score)` |
+| Median | Middle score when scores are ordered; for an even number, the mean of the middle two. | `median(lab1_data$Score)` |
+| Minimum and maximum | Lowest and highest scores. | `range(lab1_data$Score)` |
+| Range | Difference between the highest and lowest scores. | `diff(range(lab1_data$Score))` |
+| Interquartile range (IQR) | Difference between the third and first quartiles; describes the spread of the middle 50% of scores. | `IQR(lab1_data$Score)` |
+| Sample variance | Measures how widely scores are spread around the mean, using squared deviations. We will work through its calculation below. | `var(lab1_data$Score)` |
+| Sample standard deviation (SD) | Measures spread around the mean in the original score units. | `sd(lab1_data$Score)` |
+
+The range describes the distance between the two most extreme scores, so it can be strongly affected by a single unusually high or low observation. The IQR focuses on the middle half of the distribution. The first quartile marks roughly the lowest 25% of scores and the third quartile marks roughly the lowest 75%; subtracting them tells us how widely the central 50% are spread. Variance and SD use all the scores and describe their spread around the mean.
+
+The dollar sign selects a variable from a data frame: `lab1_data$Score` means the `Score` column in `lab1_data`. The functions in this table are available in base R or its standard stats package; they do not require `dplyr`.
+
+::: {.callout-warning icon="false"}
+## Watch out: what `range()` returns
+
+The statistical range is a single number: maximum minus minimum. R's `range()` function returns **two numbers**, the minimum and maximum. Use `diff(range(...))` to calculate their difference.
+:::
+
+Let's calculate several measures of spread for the test scores:
+
+```{r}
+range(lab1_data$Score)
+diff(range(lab1_data$Score))
+IQR(lab1_data$Score)
+var(lab1_data$Score)
+sd(lab1_data$Score)
+```
+
+### Understanding variance and standard deviation
+
+Let’s now examine how variance and SD use the distance of each score from the mean to summarise individual differences.
+
+We first find each score’s **deviation from the mean**: subtract the mean from the score. A score above the mean has a positive deviation; a score below it has a negative deviation. These deviations sum to zero because the positive and negative values cancel. Squaring the deviations avoids this cancellation and gives greater weight to scores further from the mean.
+
+::: {.callout-note icon="false"}
+## Key idea: calculating variance and standard deviation
+
+Let's work through an example using five hypothetical test scores: **46, 48, 50, 52 and 54**. Their mean is:
+
+$$
+\bar{x} = \frac{46+48+50+52+54}{5} = 50.
+$$
+
+Subtract the mean from each score, then square each deviation:
+
+| Score, $x_i$ | Deviation, $x_i-\bar{x}$ | Squared deviation, $(x_i-\bar{x})^2$ |
+|---|---|---|
+| 46 | −4 | 16 |
+| 48 | −2 | 4 |
+| 50 | 0 | 0 |
+| 52 | 2 | 4 |
+| 54 | 4 | 16 |
+| **Total** | **0** | **40** |
+
+Adding the squared deviations gives the **sum of squares (SS)**:
+
+$$
+SS = \sum_{i=1}^{n}(x_i-\bar{x})^2
+= 16+4+0+4+16 = 40.
+$$
+
+Here, $n$ is the number of scores, $\bar{x}$ is their mean, and $\sum$ tells us to add the squared deviations.
+
+The sum of squares describes the total squared deviation of the scores from their mean. **Variance converts this total into an average squared deviation.** When calculating sample variance to estimate population variability, we use an adjusted average, dividing by $n-1$:
+
+$$
+s^2 = \frac{SS}{n-1} = \frac{40}{5-1} = 10.
+$$
+
+The sample variance is **10 points squared**.
+
+**Why divide by $n-1$?** When we calculate variance from a sample using $n$ as the divisor, it tends to underestimate the population variance. Dividing by $n-1$ instead corrects for this tendency. This is the sample-variance calculation used by R’s `var()` function.
+
+Finally, we take the square root of the variance to obtain the **standard deviation**, as R’s `sd()` function does:
+
+$$
+s = \sqrt{10} \approx 3.16\text{ points}.
+$$
+
+The calculation illustrates why we typically report the **standard deviation alongside the mean**. The variance is 10 points squared, whereas the SD is approximately 3.16 points. Because SD uses the original test-score units, it is easier to interpret as a measure of how widely students’ scores are spread around the mean. <!-- Variance remains important because it is used in statistical procedures such as ANOVA. -->
+
+When comparing variability across groups, we should compare scores measured on the same scale—for example, Alpha’s and Beta’s statistics test scores. It would not be meaningful to directly compare the SD of test scores with the SD of likeability ratings, because test scores are measured on a 0–100 scale and likeability on a 1–7 scale. A larger SD for test scores could therefore reflect the difference in measurement scales rather than greater individual differences.
+:::
+
+We can check the example in R:
+
+```{r}
+# Enter the five scores
+example_scores <- c(46, 48, 50, 52, 54)
+
+mean(example_scores)  # Mean: 50 points
+var(example_scores)   # Sample variance: 10 points squared
+sd(example_scores)    # Sample SD: approximately 3.16 points
+```
+
+If all five students had obtained the same score, every deviation would be zero, giving a variance and SD of zero: there would be no individual differences in their observed scores. As scores become more dispersed, variance and SD increase. Neither measure tells us whether average performance is high or low; that is the role of the mean.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: the same mean, different variability
+
+Consider these two sets of scores. These are illustrative examples, separate from the robot data:
+
+- Set A: 48, 49, 50, 51, 52.
+- Set B: 30, 40, 50, 60, 70.
+
+Before calculating anything, predict whether the means differ and which set has the larger variance. Then enter the following code and calculate the mean, variance and SD for each set.
+
+```{r}
+# c() combines values into a vector
+scores_a <- c(48, 49, 50, 51, 52)
+scores_b <- c(30, 40, 50, 60, 70)
+```
+
+Finally, check that squaring each SD gives its corresponding variance. In R, `^2` means “squared”; for example, `3^2` gives 9.
+
+What does this example tell us about reporting a mean on its own?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+mean(scores_a)
+mean(scores_b)
+
+var(scores_a)
+var(scores_b)
+
+sd(scores_a)
+sd(scores_b)
+
+# Squaring the SD returns the variance
+sd(scores_a)^2
+sd(scores_b)^2
+```
+
+Both means are 50. Set A has a variance of 2.50 and an SD of approximately 1.58; Set B has a variance of 250.00 and an SD of approximately 15.81. The means alone conceal a substantial difference in variability. Set B’s variance is 100 times larger, while its SD is 10 times larger.
+:::
+
+Next week, we will use the idea of variability to understand how ANOVA compares differences between group means with variation among observations within groups.
+
+## Checking the data
+
+Descriptive statistics also help us identify possible errors. Let's examine the minimum and maximum for both dependent variables:
+
+```{r}
+# Minimum and maximum test scores
+range(lab1_data$Score)
+# Minimum and maximum likeability ratings
+range(lab1_data$Likeability)
+```
+
+Each command selects one variable using `$` and returns its minimum and maximum.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: identify the problem
+
+Compare the minimum and maximum for `Likeability` with the response scale described earlier. What is the problem? Why would it be inappropriate to replace the unusual value with 1 simply because 1 is the lowest permitted response?
+
+Then replace `range()` with `sd()` to obtain the SD of each variable.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+The original data contain a likeability rating of 0, although the response scale runs from 1 to 7. This could reflect a data-entry error or a code for a missing response. We cannot tell which from its value alone, and changing it to 1 would assume that the participant selected the lowest rating.
+
+```{r}
+sd(lab1_data$Score)
+sd(lab1_data$Likeability)
+```
+
+In a real study, we would check the original records and coding documentation before deciding how to handle these observations, and document any changes.
+:::
+
+For this exercise, we will leave the data unchanged. In a real study, we would resolve this issue before proceeding with the analysis.
+
+## Comparing descriptive statistics across groups
+
+So far, our descriptive statistics have combined both robot groups. To address the researchers' hypotheses, we need separate summaries for Alpha and Beta. 
+
+In the next activities, we will focus on **statistics test scores** (`Score`), comparing the groups using descriptive statistics, a plot, and an independent-samples t-test. You will then apply the same steps to **likeability ratings** (`Likeability`) in the independent practice section.
+
+
+First, use `factor()` to tell R that `Group` represents categories. Setting the levels to A then B also determines the order in which the groups are displayed and compared:
+
+```{r}
+lab1_data$Group <- factor(lab1_data$Group, levels = c("A", "B"))
+```
+
+We can use `group_by()` from `dplyr` and `get_summary_stats()` from `rstatix` to summarise the scores within each group. We will save the results as `score_descriptives` so that we can refer to them again:
+
+```{r}
+score_descriptives <- lab1_data %>%
+  group_by(Group) %>%  # Calculate separate summaries for Alpha and Beta
+  get_summary_stats(Score, show = c("mean", "sd", "min", "max", "iqr"))
+score_descriptives     # Display the table
+```
+
+The output includes the number of observations in each group. Compare the means and SDs: which group scored higher on average, and which was more variable?
+
+`get_summary_stats()` does not include variance among its standard summaries. We can nevertheless add it to our table using the relationship we have just learned: **variance is SD squared**. This also gives us another example of creating a variable with `mutate()`:
+
+```{r}
+score_descriptives <- score_descriptives %>%
+  mutate(variance = sd^2)  # Add variance by squaring each group's reported SD
+score_descriptives         # Display the expanded table
+```
+
+The added variances are approximate because `get_summary_stats()` rounds its output. For an unrounded sample variance, use `var()` on the original scores. For our purpose here, the table makes the relationship between SD and variance clear without introducing a different summary function.
+
+Look at the SD and variance for each group. A larger value means that students' test scores are more spread out within that group: there are greater individual differences in their observed performance. This is a different question from which robot group obtained the higher mean.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: interpreting the difference
+
+Read the mean for each group from the descriptive-statistics table. Subtract Alpha's mean from Beta's mean, using a calculator or typing the two numbers into the R Console with a minus sign between them. Express the answer in test-score points.
+
+Does a difference between sample means, on its own, establish a difference between population means?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Beta’s mean minus Alpha’s mean is **62.76 − 56.61 = 6.15 points**. Beta also has the larger SD (10.59 compared with 9.05), so its students’ scores are more variable despite their higher average performance.
+
+A positive result means that Beta's sample mean is higher. However, sample means can differ through sampling variation even when the population means are equal. The size of the observed difference needs to be considered alongside variability and sample size; the *t*-test will help us do this.
+:::
+
+## Visualising group differences
+
+A plot helps us inspect the distributions as well as their numerical summaries. We will use `ggboxplot()` to display the test scores by robot group:
+
+```{r}
+#| warning: false
+#| message: false
+#| fig-width: 7
+#| fig-height: 4.5
+#| fig-alt: "Box plots and individual test scores for robot groups Alpha and Beta."
+set.seed(5141)  # Reproduce the positions of the jittered points
+# Create a box plot using our data
+ggboxplot(
+  lab1_data,
+  # Put robot group on x and the outcome on y
+  x = "Group", y = "Score",
+  # Colour Alpha blue and Beta red
+  color = "Group", palette = c("#3B6B8A", "#AC4141"),
+  # Show individual observations with horizontal jitter
+  add = "jitter",
+  # Label the axes
+  xlab = "Robot group", ylab = "Statistics test score",
+  # Add a descriptive title
+  title = "Test scores by robot group"
+)
+```
+
+The `x` and `y` arguments specify the variables plotted on each axis. `color = "Group"` assigns a different colour to each group, and `add = "jitter"` displays individual observations with a small horizontal displacement to reduce overlap.
+
+::: {.callout-note icon="false"}
+## Key idea: reading a box plot
+
+The line inside the box marks the **median**. The bottom and top of the box mark the first and third quartiles, so its height represents the IQR. The whiskers extend to the most extreme observations within 1.5 IQRs of the corresponding quartile. Observations beyond these limits are flagged separately. Such observations are not automatically errors and should not be removed solely because of their position on a box plot.
+:::
+
+::: {.callout-tip icon="false"}
+## Try it yourself: interpret the plot
+
+Describe the difference in the location of the two distributions and how much they overlap. How does the plot relate to the group means and SDs? Remember that the line in each box is a median, rather than a mean.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Beta’s scores generally sit higher on the plot, consistent with its higher mean. However, the two distributions overlap considerably. Overlap shows that group membership does not perfectly predict an individual's score: a difference in group averages does not imply that every person in one group outperforms every person in the other. The plot alone does not establish statistical significance.
+:::
+
+## Comparing two groups
+
+### The independent-samples t-test
+
+Our descriptive statistics and box plot show how the two groups performed in this sample. The next question is whether there is evidence of a difference between the population means. We can examine this using an **independent-samples t-test**, which compares the means of two separate groups. It is appropriate to use an independent-samples test here because each student worked with only one robot.
+
+The test starts from the **null hypothesis** that the population means are equal. It asks whether the difference we observed is large enough, relative to the variability in the data and the sample sizes, to provide evidence against that hypothesis.
+
+Let's run the test using `t.test()`. In the formula below, `Score` is our dependent variable and `Group` identifies the two groups we want to compare:
+
+```{r}
+# Two-sided independent-samples t-test assuming equal population variances
+score_test <- t.test(
+  Score ~ Group,
+  data = lab1_data,
+  var.equal = TRUE
+)
+score_test
+```
+
+The argument `var.equal = TRUE` requests the version of the test that assumes equal population variances. We will return to checking assumptions in later sessions.
+
+The main things to look for in the output are:
+
+- **The group means:** which robot group scored higher on average?
+- **The p-value:** is the difference statistically significant? With a significance level of .05, a *p*-value below .05 leads us to reject the null hypothesis of equal population means.
+- **The 95% confidence interval:** what range of values does the analysis give for the difference between the population means? This interval is in test-score points, not units of *t*.
+
+The output also gives the **t statistic** and **degrees of freedom (df)**, which we need when reporting the result. Earlier, we calculated Beta minus Alpha, giving 6.15 points. Because we ordered the factor levels A then B, R calculates Alpha minus Beta, giving −6.15 points. A negative t therefore indicates a lower mean for Alpha. Reversing the factor order would reverse the sign of *t*, but its magnitude and the two-sided *p*-value would remain unchanged.
+
+::: {.callout-note icon="false" collapse="true"}
+## Key idea: a closer look at the output
+
+**The t statistic and standard error**
+
+The difference between two sample means will vary from sample to sample. The **standard error of the mean difference** estimates how much this difference would vary if we repeatedly sampled from the same populations. A smaller standard error indicates a more precise estimate.
+
+SD describes how widely individual scores vary around their group mean; the standard error describes uncertainty in our estimate of the difference between the group means.
+
+The **t statistic** is calculated by dividing the observed mean difference by its standard error. It tells us how many standard errors the observed difference lies from zero—the difference predicted by the null hypothesis.
+
+The **degrees of freedom (df)** reflect how much independent information is available to estimate variability. Estimating a mean within each group leaves \(*n*-1\) degrees of freedom for estimating its variance. For this test, we combine the two groups’ degrees of freedom: \(99 + 99 = 198\). This value helps determine the reference *t* distribution used to calculate the *p*-value.
+
+**The p-value**
+
+The *p*-value tells us how likely a result at least as extreme as ours would be if the population means were equal, assuming the test's assumptions hold. If *p* < .05, we reject the null hypothesis of equal population means.
+
+**The confidence interval**
+
+The 95% confidence interval gives a range of plausible values for the difference between the population means. Here, the comparison is **Alpha minus Beta**, and the interval runs from −8.90 to −3.40 points. This suggests that Alpha's population mean is between 3.40 and 8.90 points lower than Beta's. Because the interval does not include zero, it agrees with our conclusion that the difference is statistically significant.
+
+**Assumptions**
+
+This version of the test assumes that observations are independent, that scores are approximately normally distributed within each population, and that the two populations have equal variances. We will examine these assumptions and how to assess them in later sessions.
+:::
+
+Statistical significance does not tell us how large or practically important a difference is. For that, we also need to consider the size of the difference.
+
+### Effect size
+
+Cohen's *d* expresses the difference between two means in standard-deviation units. To calculate it, we divide the mean difference by a measure of the variability within the groups.
+
+The **pooled SD** combines the variability within the two groups into a single measure. We use it to express the mean difference in standard-deviation units.
+
+For example, a mean difference of 5 points divided by a pooled SD of 10 points gives *d* = 0.50: the means differ by half a standard deviation. Let's calculate Cohen's *d* for our robot groups:
+
+```{r}
+score_effect <- cohens_d(
+  data = lab1_data,
+  formula = Score ~ Group,
+  var.equal = TRUE
+)
+score_effect
+```
+
+Because the comparison is Alpha minus Beta, a negative *d* indicates a lower mean for Alpha. Cohen's *d* is not restricted to values between −1 and 1.
+
+Absolute magnitudes of approximately 0.20, 0.50 and 0.80 are often described as small, medium and large, respectively. These are rough conventions; the practical importance of a difference depends on the outcome and research context.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: interpreting the result
+
+Use the test and effect-size output to answer the following:
+
+1. Which group has the higher mean score?
+2. Is the difference statistically significant at the .05 level?
+3. Does the confidence interval include zero?
+4. What does the sign of Cohen's *d* indicate?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Beta has the higher mean (62.76 compared with 56.61). The difference is statistically significant, *t*(198) = −4.42, *p* < .001. The 95% confidence interval [−8.90, −3.40] does not include zero. Cohen’s *d* = −0.62: the negative sign indicates that Alpha’s mean is lower than Beta’s, and the means differ by approximately 0.62 pooled standard deviations.
+:::
+
+## Reporting the findings
+
+A results paragraph should identify the analysis, describe the direction of the difference, and report the relevant descriptive and inferential statistics. Report means and SDs to two decimal places, and identify what the confidence interval refers to.
+
+Use your output to complete the following paragraph:
+
+> An independent-samples *t*-test assuming equal variances was conducted to compare statistics test scores for students assigned Robot Alpha and Robot Beta. Students assigned Robot Alpha (*M* = …, *SD* = …) scored [lower/higher] on average than those assigned Robot Beta (*M* = …, *SD* = …). The difference was [statistically significant/not statistically significant], *t*(…) = …, *p* …, 95% CI […, …], *d* = ….
+
+Use an exact *p*-value to three decimal places unless it is below .001, in which case write *p* < .001. Do not report *p* = .000. Use the sign of *t* and *d* shown in the output.
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer: example report
+
+An independent-samples *t*-test assuming equal variances was conducted to compare statistics test scores for students assigned Robot Alpha and Robot Beta. Students assigned Robot Alpha (*M* = 56.61, *SD* = 9.05) scored lower on average than those assigned Robot Beta (*M* = 62.76, *SD* = 10.59). The difference was statistically significant, *t*(198) = −4.42, *p* < .001, 95% CI [−8.90, −3.40], *d* = −0.62.
+
+Your wording need not match this exactly. Check your paragraph against the output:
+
+- Are each group's mean and SD attached to the correct robot?
+- Does the direction of the written comparison agree with those means?
+- Have you reported the degrees of freedom, *t*, *p*, confidence interval and *d*?
+
+The confidence interval is in score points, while *d* is in standard-deviation units. They describe the same comparison on different scales.
+:::
+
+## Independent practice
+
+### Apply the analysis to likeability
+
+::: {.callout-tip icon="false"}
+## Try it yourself: adapt the analysis
+
+Using `Likeability` as the outcome:
+
+1. Obtain the mean and SD for each robot group.
+2. Produce a box plot with an appropriate title and axis labels.
+3. Run the same equal-variances independent-samples *t*-test and calculate Cohen's *d*.
+4. Draft a results paragraph using the reporting template above.
+
+Use the worked analysis of test scores as a guide, adapting it to the second dependent variable.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Hint
+
+Use the code for `Score` as your starting point. Change the dependent variable wherever it appears, including in the formula and the plot's `y` argument. Update labels as well as variable names.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+#| warning: false
+#| message: false
+# Summarise likeability by robot group
+lab1_data %>%
+  group_by(Group) %>%
+  get_summary_stats(Likeability, show = c("mean", "sd"))
+
+# Plot the observed ratings
+set.seed(5141)
+# Create a box plot using our data
+ggboxplot(
+  lab1_data,
+  # Put robot group on x and the outcome on y
+  x = "Group", y = "Likeability",
+  # Colour Alpha blue and Beta red
+  color = "Group", palette = c("#3B6B8A", "#AC4141"),
+  # Show individual observations with horizontal jitter
+  add = "jitter",
+  # Label the axes
+  xlab = "Robot group", ylab = "Likeability rating",
+  # Add a descriptive title
+  title = "Likeability by robot group"
+)
+
+# Compare the groups and calculate the effect size
+t.test(Likeability ~ Group, data = lab1_data, var.equal = TRUE)
+cohens_d(data = lab1_data, formula = Likeability ~ Group, var.equal = TRUE)
+```
+
+The means are 2.94 for Alpha (*SD* = 1.15) and 4.51 for Beta (*SD* = 1.03). An example report is:
+
+Students assigned Robot Alpha (*M* = 2.94, *SD* = 1.15) gave lower likeability ratings than students assigned Robot Beta (*M* = 4.51, *SD* = 1.03). An independent-samples *t*-test assuming equal variances indicated that the difference was statistically significant, *t*(198) = −10.16, *p* < .001, 95% CI [−1.87, −1.27], *d* = −1.44.
+
+These values are based on the supplied data, left unchanged as explained in the data-checking exercise.
+:::
+
+### Additional practice: create a new score band
+
+Complete this exercise if time permits, or use it for further practice after the session.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: practising `mutate()`
+
+Create a variable named `Score_Band` using the following **fictional practice thresholds**, which are not the University's marking scheme:
+
+| Score | Band |
+|---|---|
+| Below 49 | Fail |
+| At least 49 but below 59 | Pass |
+| At least 59 but below 69 | Merit |
+| 69 or above | Distinction |
+
+Check that the new variable has been created. Pay particular attention to scores at the boundaries: 49, 59 and 69.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+lab1_data <- lab1_data %>%
+  mutate(Score_Band = case_when(
+    Score < 49 ~ "Fail",
+    Score >= 49 & Score < 59 ~ "Pass",
+    Score >= 59 & Score < 69 ~ "Merit",
+    Score >= 69 ~ "Distinction"
+  ))
+head(lab1_data)
+```
+
+The boundaries cover every numerical score without gaps or overlap. A score of 49 receives Pass, 59 receives Merit and 69 receives Distinction. Continue to use the numerical `Score` variable for the analysis.
+:::
+
+## Before you finish
+
+Save your R script and check that its comments make the sequence of steps clear. Your script should provide a record that you can reopen and run again, starting with loading the packages and importing the data. End your RStudio server session when you have finished.
+
+You should now be able to explain why we report variability alongside a mean, how variance relates to SD, and how descriptive statistics, a plot and a *t*-test contribute different information about a group comparison.
+
+Next week, we will return to the robot study with **three groups**. This will introduce one-factor between-participants ANOVA and the distinction between variation within groups and differences between their means.
+

@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -76,6 +111,35 @@ ul.task-list li input[type="checkbox"] {
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
 </head>
@@ -218,7 +282,37 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#question-14" id="toc-question-14" class="nav-link" data-scroll-target="#question-14">Question 14</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a></li>
+  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a>
+  <ul class="collapse">
+  <li><a href="#this-weeks-lab" id="toc-this-weeks-lab" class="nav-link" data-scroll-target="#this-weeks-lab">This week’s lab</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#meet-the-robot-study" id="toc-meet-the-robot-study" class="nav-link" data-scroll-target="#meet-the-robot-study">Meet the robot study</a></li>
+  <li><a href="#exploring-the-data" id="toc-exploring-the-data" class="nav-link" data-scroll-target="#exploring-the-data">Exploring the data</a>
+  <ul class="collapse">
+  <li><a href="#inspecting-and-sorting-rows" id="toc-inspecting-and-sorting-rows" class="nav-link" data-scroll-target="#inspecting-and-sorting-rows">Inspecting and sorting rows</a></li>
+  <li><a href="#creating-a-variable" id="toc-creating-a-variable" class="nav-link" data-scroll-target="#creating-a-variable">Creating a variable</a></li>
+  </ul></li>
+  <li><a href="#describing-the-data" id="toc-describing-the-data" class="nav-link" data-scroll-target="#describing-the-data">Describing the data</a>
+  <ul class="collapse">
+  <li><a href="#centre-and-spread" id="toc-centre-and-spread" class="nav-link" data-scroll-target="#centre-and-spread">Centre and spread</a></li>
+  <li><a href="#understanding-variance-and-standard-deviation" id="toc-understanding-variance-and-standard-deviation" class="nav-link" data-scroll-target="#understanding-variance-and-standard-deviation">Understanding variance and standard deviation</a></li>
+  </ul></li>
+  <li><a href="#checking-the-data" id="toc-checking-the-data" class="nav-link" data-scroll-target="#checking-the-data">Checking the data</a></li>
+  <li><a href="#comparing-descriptive-statistics-across-groups" id="toc-comparing-descriptive-statistics-across-groups" class="nav-link" data-scroll-target="#comparing-descriptive-statistics-across-groups">Comparing descriptive statistics across groups</a></li>
+  <li><a href="#visualising-group-differences" id="toc-visualising-group-differences" class="nav-link" data-scroll-target="#visualising-group-differences">Visualising group differences</a></li>
+  <li><a href="#comparing-two-groups" id="toc-comparing-two-groups" class="nav-link" data-scroll-target="#comparing-two-groups">Comparing two groups</a>
+  <ul class="collapse">
+  <li><a href="#the-independent-samples-t-test" id="toc-the-independent-samples-t-test" class="nav-link" data-scroll-target="#the-independent-samples-t-test">The independent-samples t-test</a></li>
+  <li><a href="#effect-size" id="toc-effect-size" class="nav-link" data-scroll-target="#effect-size">Effect size</a></li>
+  </ul></li>
+  <li><a href="#reporting-the-findings" id="toc-reporting-the-findings" class="nav-link" data-scroll-target="#reporting-the-findings">Reporting the findings</a></li>
+  <li><a href="#independent-practice" id="toc-independent-practice" class="nav-link" data-scroll-target="#independent-practice">Independent practice</a>
+  <ul class="collapse">
+  <li><a href="#apply-the-analysis-to-likeability" id="toc-apply-the-analysis-to-likeability" class="nav-link" data-scroll-target="#apply-the-analysis-to-likeability">Apply the analysis to likeability</a></li>
+  <li><a href="#additional-practice-create-a-new-score-band" id="toc-additional-practice-create-a-new-score-band" class="nav-link" data-scroll-target="#additional-practice-create-a-new-score-band">Additional practice: create a new score band</a></li>
+  </ul></li>
+  <li><a href="#before-you-finish" id="toc-before-you-finish" class="nav-link" data-scroll-target="#before-you-finish">Before you finish</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -970,9 +1064,1177 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="practical" class="level1">
 <h1>Practical</h1>
-<p>Coming soon!</p>
+<section id="this-weeks-lab" class="level2">
+<h2 class="anchored" data-anchor-id="this-weeks-lab">This week’s lab</h2>
+<p>In this week’s lab, we will revisit some of the R skills introduced in Year 1. Using data from a hypothetical study comparing two robot lab assistants, we will practise inspecting and organising data, calculating descriptive statistics, visualising group differences, and conducting an independent-samples <em>t</em>-test. We will also revisit how we measure variability in scores, including the relationship between the sum of squares, variance, and standard deviation. These ideas will support our work on Analysis of Variance (ANOVA) in subsequent weeks.</p>
+<p>By the end of the session, you should be able to:</p>
+<ul>
+<li>Import a data set and inspect, sort and transform its variables.</li>
+<li>Calculate and interpret descriptive statistics for the full sample and for separate groups.</li>
+<li>Explain the relationship between variance and standard deviation.</li>
+<li>Produce a box plot and interpret an independent-samples <em>t</em>-test and Cohen’s <em>d</em>.</li>
+<li>Report the findings in a short results paragraph.</li>
+</ul>
+<p>Work through the examples in your R script, paying attention to the code comments and the resulting output. Attempt each exercise before opening the answer. If you get stuck, ask one of the GTAs for help.</p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
+<p>When you are connected, navigate to <a href="https://ps-rstudio.lancaster.ac.uk/">https://ps-rstudio.lancaster.ac.uk/</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
+<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
+<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
+<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
+<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have already logged in through the university login, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+</div>
+</div>
+<ol type="1">
+<li>In RStudio’s <strong>Files</strong> pane, click <strong>Home</strong> to open your home directory on the server. Select <strong>New Folder</strong> and create a folder named <code>psyc5141_labs</code>. Use this folder to organise your work for the module.</li>
+<li>Open <code>psyc5141_labs</code> and create a folder inside it named <code>psyc5141_lab_1</code>. This will contain the data, project and script for today’s session.</li>
+<li>Download <a href="data/Wk1/week1_robo_lab.csv">the Week 1 data file</a> and upload it to <code>psyc5141_lab_1</code>.</li>
+<li>Create an RStudio project using <strong>File → New Project → Existing Directory</strong>. Select the <code>psyc5141_lab_1</code> folder inside <code>psyc5141_labs</code>, then click <strong>Create Project</strong>.</li>
+<li>Open a new R script and save it in the project folder as <code>week1_analysis.R</code>.</li>
+</ol>
+<p>A project keeps your work associated with this folder and sets it as the <strong>working directory</strong>, allowing R to find your data files. The working directory is also the default location R uses to save files. You can check it by running <code>getwd()</code>; it should end in <code>psyc5141_labs/psyc5141_lab_1</code>. With the project open, you do not need a separate <code>setwd()</code> command.</p>
+<p><strong>When returning to the exercise, open the project before running your script.</strong> In the server’s Files pane, navigate to <code>psyc5141_labs/psyc5141_lab_1</code> and open <code>psyc5141_lab_1.Rproj</code>. For subsequent labs, create a new weekly folder inside <code>psyc5141_labs</code>.</p>
+<p>Let’s load the packages we will use:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Data manipulation and plotting</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)   <span class="co"># Summary statistics and effect sizes</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)    <span class="co"># Box plots</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next, import the data:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the CSV from your project folder</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"week1_robo_lab.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The assignment operator <code>&lt;-</code> stores the imported data in an object called <code>lab1_data</code>. We will use this name throughout the session. <!-- Running a command that displays or summarises the data does not usually change this object; to retain a change, we need to assign the result to an object. --></p>
+</section>
+<section id="meet-the-robot-study" class="level2">
+<h2 class="anchored" data-anchor-id="meet-the-robot-study">Meet the robot study</h2>
+<p>A team of researchers wants to know whether the design of a robot lab assistant affects students’ learning of statistics and their attitudes towards the assistant. They develop two prototypes, Alpha and Beta, and randomly assign each student to work with one of them. Robot Beta has a more human-like appearance than Robot Alpha.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Wk1/RobotA.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Robot A(lpha)</strong></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" class="img-fluid figure-img"></p>
+<figcaption><strong>Robot B(eta)</strong></figcaption>
+</figure>
+</div>
+<p>This is a <strong>single-factor between-participants design</strong>: each participant experiences only one condition. The study has one <strong>factor</strong> (another term for an independent variable), robot assignment, with two levels, Alpha and Beta.</p>
+<p>To evaluate which robot would be more suitable as a lab assistant, the researchers needed to assess both how well students learned and how positively they responded to the robot. A robot might be effective at supporting learning without being particularly well liked, or well liked without being especially effective.</p>
+<p>The researchers therefore measured two dependent variables, or outcomes. First, students completed a statistics test, scored from 0–100, to assess their learning. Second, students rated how much they liked their robot lab assistant on a scale from 1 (<em>strongly dislike</em>) to 7 (<em>strongly like</em>).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ID</code></td>
+<td>Participant identifier.</td>
+</tr>
+<tr class="even">
+<td><code>Group</code></td>
+<td>Robot assignment: <code>A</code> for Alpha and <code>B</code> for Beta.</td>
+</tr>
+<tr class="odd">
+<td><code>Score</code></td>
+<td>Statistics test score with a possible range of 0–100.</td>
+</tr>
+<tr class="even">
+<td><code>Likeability</code></td>
+<td>Rating of the robot from 1 (<em>strongly dislike</em>) to 7 (<em>strongly like</em>).</td>
+</tr>
+</tbody>
+</table>
+<p>The researchers expected that Robot Beta’s more human-like appearance would lead students to respond more positively to it and learn more effectively when working with it. They therefore predicted that students assigned Robot Beta would obtain higher statistics test scores and give higher likeability ratings than students assigned Robot Alpha. These are two separate hypotheses, corresponding to the two dependent variables.</p>
+<p>We will retain this study in subsequent weeks, when the researchers introduce a third robot and we extend the analysis to three groups.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key idea: factors and dependent variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>factor</strong> is an independent variable whose levels define the conditions being compared. A <strong>dependent variable</strong> is the outcome measured for each participant. Here, <code>Group</code> identifies the levels of our factor, while <code>Score</code> and <code>Likeability</code> contain the two outcomes.</p>
+</div>
+</div>
+</section>
+<section id="exploring-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-the-data">Exploring the data</h2>
+<section id="inspecting-and-sorting-rows" class="level3">
+<h3 class="anchored" data-anchor-id="inspecting-and-sorting-rows">Inspecting and sorting rows</h3>
+<p>Let’s begin by looking at the first six rows:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+     ID Group Likeability Score
+  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+1     1 A               3    55
+2     2 A               2    72
+3     3 A               2    45
+4     4 A               3    50
+5     5 A               2    45
+6     6 A               5    63</code></pre>
+</div>
+</div>
+<p>The <code>head()</code> function displays six rows by default. To display twelve, use <code>head(lab1_data, n = 12)</code>. You can also inspect the full data set in RStudio using <code>View(lab1_data)</code>.</p>
+<p>To display the ten lowest test scores, we can combine <code>arrange()</code> and <code>head()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Score) <span class="sc">%&gt;%</span>  <span class="co"># Sort from lowest to highest Score</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">10</span>)       <span class="co"># Display the first ten rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 4
+      ID Group Likeability Score
+   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+ 1    33 A               2    40
+ 2    60 A               1    40
+ 3   165 B               5    40
+ 4    81 A               3    41
+ 5    46 A               3    42
+ 6    52 A               2    42
+ 7    18 A               4    43
+ 8    44 A               3    43
+ 9    95 A               3    43
+10    50 A               3    44</code></pre>
+</div>
+</div>
+<p>The pipe, <code>%&gt;%</code>, passes the result of one step to the next. Here, we start with <code>lab1_data</code>, sort its rows by <code>Score</code>, and display the first ten rows of the sorted data. This displays a sorted version without changing the original object.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: the highest scores
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Adapt the code to display the ten <strong>highest</strong> test scores. Are these scores mainly associated with one robot group? Does inspecting only the ten highest scores tell us how the groups compare overall?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use <code>arrange(desc(Score))</code> to sort scores in descending order.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Score)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 4
+      ID Group Likeability Score
+   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+ 1   175 B               5    88
+ 2   178 B               5    88
+ 3   134 B               5    86
+ 4   183 B               4    85
+ 5    10 A               1    83
+ 6   156 B               4    83
+ 7   145 B               4    82
+ 8   108 B               3    81
+ 9   124 B               4    81
+10   138 B               5    81</code></pre>
+</div>
+</div>
+<p>Nine of the ten highest scores belong to Group B (Beta), and one belongs to Group A (Alpha). These rows describe only the highest-scoring participants. To compare the groups overall, we need to examine all their observations, including their average scores and variability.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-a-variable" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-variable">Creating a variable</h3>
+<p>So far, we have inspected variables that were already present in the data set. Sometimes we need to <strong>create a new variable from an existing one</strong>. For example, suppose we wanted to label each participant’s test performance as Low, Medium, or High. We already have their numerical test score in <code>Score</code>; what we want is an additional column containing the corresponding label for each participant.</p>
+<p>For this exercise, we will classify scores of 50 or below as Low, scores above 50 and up to 70 as Medium, and scores above 70 as High. A participant who scored 45 would therefore receive the label Low, while a participant who scored 65 would receive Medium. The original numerical score will remain in the data set.</p>
+<p>We can do this using <code>mutate()</code>, which adds or changes columns in a data frame. Inside it, <code>case_when()</code> tells R which label to use for each score:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Update the data frame in R with the new column</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="ot">&lt;-</span> lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a new column using these rules</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_Category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&lt;=</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">"Low"</span>,              <span class="co"># Scores of 50 or below receive Low</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scores above 50 and up to 70 receive Medium</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">50</span> <span class="sc">&amp;</span> Score <span class="sc">&lt;=</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"High"</span>               <span class="co"># Scores above 70 receive High</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Assigning the result back to <code>lab1_data</code> updates the data frame in R, adding the new <code>Score_Category</code> column. It does not change the original CSV file.</p>
+<p>R checks these rules for each row, which corresponds to one participant. Each line inside <code>case_when()</code> gives a condition on the left of <code>~</code> and the label to assign on the right. For example, <code>Score &lt;= 50 ~ "Low"</code> means “if this participant’s score is less than or equal to 50, enter Low”. The <code>&amp;</code> means that both conditions must be satisfied.</p>
+<p><code>Score_Category</code> is the name we have chosen for the new column. Creating variables in this way is useful when we need to recode responses or derive new measures from information we have already collected.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: check the new variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use <code>head()</code> to check that <code>Score_Category</code> has been added. For the rows displayed, check that the labels match the values in Score. Then, using the rules in the code above, identify which categories scores of 50, 51 and 70 would receive. You do not need to find these scores in the displayed rows.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+     ID Group Likeability Score Score_Category
+  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         
+1     1 A               3    55 Medium        
+2     2 A               2    72 High          
+3     3 A               2    45 Low           
+4     4 A               3    50 Low           
+5     5 A               2    45 Low           
+6     6 A               5    63 Medium        </code></pre>
+</div>
+</div>
+<p>A score of 50 is classified as Low; scores of 51 and 70 are classified as Medium. We will use the original numerical <code>Score</code> variable in our statistical analysis because categorising it discards information.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="describing-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="describing-the-data">Describing the data</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Reminder: populations and samples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>population</strong> consists of all the individuals we are interested in studying. A <strong>sample</strong> is a subset of that population. We usually collect data from a sample because it is impractical to measure everyone in the population.</p>
+<p>In the robot study, the 200 participating students form our sample. The population of interest is the wider group of students to whom the researchers want their findings to apply. Descriptive statistics summarise the sample; inferential statistics, such as the <em>t</em>-test, help us assess what the sample results suggest about the population. How widely we can generalise also depends on how the sample was selected.</p>
+</div>
+</div>
+<p>When we measure a psychological characteristic in a group of people, they will usually obtain different scores. Some students, for example, will obtain higher test scores than others. Together, these observations form a <strong>distribution of scores</strong>. Descriptive statistics allow us to summarise that distribution rather than having to inspect every score separately.</p>
+<section id="centre-and-spread" class="level3">
+<h3 class="anchored" data-anchor-id="centre-and-spread">Centre and spread</h3>
+<p>You will recall that <strong>central tendency</strong> describes the centre or typical value of a distribution. The mean is the familiar arithmetic average: add all the scores and divide by the number of scores. The median is the middle value when the scores are arranged in order. Both describe where scores are centred, although the mean is more affected by unusually high or low values.</p>
+<p>However, an average does not tell us how similar the individuals are to one another. A class in which everyone scores close to 60 could have the same mean as a class with scores ranging from 40 to 80. This is why we also need measures of <strong>variability</strong>, or spread: they describe the extent to which scores differ within the distribution.</p>
+<p>For our robot study, low variability in test scores would mean that students performed quite similarly; high variability would mean that performance differed more substantially between students. These are <strong>individual differences in observed performance</strong>. <!-- Describing them does not, by itself, tell us why they occurred. --></p>
+<p>The <code>summary()</code> function provides a useful first overview:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lab1_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       ID            Group            Likeability        Score      
+ Min.   :  1.00   Length:200         Min.   :0.000   Min.   :40.00  
+ 1st Qu.: 50.75   Class :character   1st Qu.:3.000   1st Qu.:53.00  
+ Median :100.50   Mode  :character   Median :4.000   Median :59.00  
+ Mean   :100.50                      Mean   :3.725   Mean   :59.69  
+ 3rd Qu.:150.25                      3rd Qu.:5.000   3rd Qu.:66.00  
+ Max.   :200.00                      Max.   :7.000   Max.   :88.00  
+ Score_Category    
+ Length:200        
+ Class :character  
+ Mode  :character  
+                   
+                   
+                   </code></pre>
+</div>
+</div>
+<p>For a numerical variable, this gives the minimum, first quartile, median, mean, third quartile and maximum. The table below summarises these and some additional measures we will use.</p>
+<p>The mean and median are measures of <strong>central tendency</strong>. The range, interquartile range (IQR), variance and standard deviation (SD) are measures of <strong>variability</strong>: they describe how spread out the scores are, each in a different way.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Measure</th>
+<th>What does it tell us?</th>
+<th>R code for test scores</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean</td>
+<td>Sum of the scores divided by the number of scores.</td>
+<td><code>mean(lab1_data$Score)</code></td>
+</tr>
+<tr class="even">
+<td>Median</td>
+<td>Middle score when scores are ordered; for an even number, the mean of the middle two.</td>
+<td><code>median(lab1_data$Score)</code></td>
+</tr>
+<tr class="odd">
+<td>Minimum and maximum</td>
+<td>Lowest and highest scores.</td>
+<td><code>range(lab1_data$Score)</code></td>
+</tr>
+<tr class="even">
+<td>Range</td>
+<td>Difference between the highest and lowest scores.</td>
+<td><code>diff(range(lab1_data$Score))</code></td>
+</tr>
+<tr class="odd">
+<td>Interquartile range (IQR)</td>
+<td>Difference between the third and first quartiles; describes the spread of the middle 50% of scores.</td>
+<td><code>IQR(lab1_data$Score)</code></td>
+</tr>
+<tr class="even">
+<td>Sample variance</td>
+<td>Measures how widely scores are spread around the mean, using squared deviations. We will work through its calculation below.</td>
+<td><code>var(lab1_data$Score)</code></td>
+</tr>
+<tr class="odd">
+<td>Sample standard deviation (SD)</td>
+<td>Measures spread around the mean in the original score units.</td>
+<td><code>sd(lab1_data$Score)</code></td>
+</tr>
+</tbody>
+</table>
+<p>The range describes the distance between the two most extreme scores, so it can be strongly affected by a single unusually high or low observation. The IQR focuses on the middle half of the distribution. The first quartile marks roughly the lowest 25% of scores and the third quartile marks roughly the lowest 75%; subtracting them tells us how widely the central 50% are spread. Variance and SD use all the scores and describe their spread around the mean.</p>
+<p>The dollar sign selects a variable from a data frame: <code>lab1_data$Score</code> means the <code>Score</code> column in <code>lab1_data</code>. The functions in this table are available in base R or its standard stats package; they do not require <code>dplyr</code>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Watch out: what <code>range()</code> returns
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The statistical range is a single number: maximum minus minimum. R’s <code>range()</code> function returns <strong>two numbers</strong>, the minimum and maximum. Use <code>diff(range(...))</code> to calculate their difference.</p>
+</div>
+</div>
+<p>Let’s calculate several measures of spread for the test scores:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(lab1_data<span class="sc">$</span>Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 40 88</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(lab1_data<span class="sc">$</span>Score))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 48</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(lab1_data<span class="sc">$</span>Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(lab1_data<span class="sc">$</span>Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 106.0259</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(lab1_data<span class="sc">$</span>Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10.29689</code></pre>
+</div>
+</div>
+</section>
+<section id="understanding-variance-and-standard-deviation" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-variance-and-standard-deviation">Understanding variance and standard deviation</h3>
+<p>Let’s now examine how variance and SD use the distance of each score from the mean to summarise individual differences.</p>
+<p>We first find each score’s <strong>deviation from the mean</strong>: subtract the mean from the score. A score above the mean has a positive deviation; a score below it has a negative deviation. These deviations sum to zero because the positive and negative values cancel. Squaring the deviations avoids this cancellation and gives greater weight to scores further from the mean.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key idea: calculating variance and standard deviation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s work through an example using five hypothetical test scores: <strong>46, 48, 50, 52 and 54</strong>. Their mean is:</p>
+<p><span class="math display">\[
+\bar{x} = \frac{46+48+50+52+54}{5} = 50.
+\]</span></p>
+<p>Subtract the mean from each score, then square each deviation:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Score, <span class="math inline">\(x_i\)</span></th>
+<th>Deviation, <span class="math inline">\(x_i-\bar{x}\)</span></th>
+<th>Squared deviation, <span class="math inline">\((x_i-\bar{x})^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>46</td>
+<td>−4</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td>48</td>
+<td>−2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>50</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>52</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>54</td>
+<td>4</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong>0</strong></td>
+<td><strong>40</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Adding the squared deviations gives the <strong>sum of squares (SS)</strong>:</p>
+<p><span class="math display">\[
+SS = \sum_{i=1}^{n}(x_i-\bar{x})^2
+= 16+4+0+4+16 = 40.
+\]</span></p>
+<p>Here, <span class="math inline">\(n\)</span> is the number of scores, <span class="math inline">\(\bar{x}\)</span> is their mean, and <span class="math inline">\(\sum\)</span> tells us to add the squared deviations.</p>
+<p>The sum of squares describes the total squared deviation of the scores from their mean. <strong>Variance converts this total into an average squared deviation.</strong> When calculating sample variance to estimate population variability, we use an adjusted average, dividing by <span class="math inline">\(n-1\)</span>:</p>
+<p><span class="math display">\[
+s^2 = \frac{SS}{n-1} = \frac{40}{5-1} = 10.
+\]</span></p>
+<p>The sample variance is <strong>10 points squared</strong>.</p>
+<p><strong>Why divide by <span class="math inline">\(n-1\)</span>?</strong> When we calculate variance from a sample using <span class="math inline">\(n\)</span> as the divisor, it tends to underestimate the population variance. Dividing by <span class="math inline">\(n-1\)</span> instead corrects for this tendency. This is the sample-variance calculation used by R’s <code>var()</code> function.</p>
+<p>Finally, we take the square root of the variance to obtain the <strong>standard deviation</strong>, as R’s <code>sd()</code> function does:</p>
+<p><span class="math display">\[
+s = \sqrt{10} \approx 3.16\text{ points}.
+\]</span></p>
+<p>The calculation illustrates why we typically report the <strong>standard deviation alongside the mean</strong>. The variance is 10 points squared, whereas the SD is approximately 3.16 points. Because SD uses the original test-score units, it is easier to interpret as a measure of how widely students’ scores are spread around the mean. <!-- Variance remains important because it is used in statistical procedures such as ANOVA. --></p>
+<p>When comparing variability across groups, we should compare scores measured on the same scale—for example, Alpha’s and Beta’s statistics test scores. It would not be meaningful to directly compare the SD of test scores with the SD of likeability ratings, because test scores are measured on a 0–100 scale and likeability on a 1–7 scale. A larger SD for test scores could therefore reflect the difference in measurement scales rather than greater individual differences.</p>
+</div>
+</div>
+<p>We can check the example in R:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter the five scores</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>example_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">46</span>, <span class="dv">48</span>, <span class="dv">50</span>, <span class="dv">52</span>, <span class="dv">54</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(example_scores)  <span class="co"># Mean: 50 points</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(example_scores)   <span class="co"># Sample variance: 10 points squared</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(example_scores)    <span class="co"># Sample SD: approximately 3.16 points</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.162278</code></pre>
+</div>
+</div>
+<p>If all five students had obtained the same score, every deviation would be zero, giving a variance and SD of zero: there would be no individual differences in their observed scores. As scores become more dispersed, variance and SD increase. Neither measure tells us whether average performance is high or low; that is the role of the mean.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: the same mean, different variability
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider these two sets of scores. These are illustrative examples, separate from the robot data:</p>
+<ul>
+<li>Set A: 48, 49, 50, 51, 52.</li>
+<li>Set B: 30, 40, 50, 60, 70.</li>
+</ul>
+<p>Before calculating anything, predict whether the means differ and which set has the larger variance. Then enter the following code and calculate the mean, variance and SD for each set.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c() combines values into a vector</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>scores_a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">48</span>, <span class="dv">49</span>, <span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">52</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>scores_b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Finally, check that squaring each SD gives its corresponding variance. In R, <code>^2</code> means “squared”; for example, <code>3^2</code> gives 9.</p>
+<p>What does this example tell us about reporting a mean on its own?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(scores_a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(scores_b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(scores_a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(scores_b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 250</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(scores_a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.581139</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(scores_b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15.81139</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Squaring the SD returns the variance</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(scores_a)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(scores_b)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 250</code></pre>
+</div>
+</div>
+<p>Both means are 50. Set A has a variance of 2.50 and an SD of approximately 1.58; Set B has a variance of 250.00 and an SD of approximately 15.81. The means alone conceal a substantial difference in variability. Set B’s variance is 100 times larger, while its SD is 10 times larger.</p>
+</div>
+</div>
+</div>
+<p>Next week, we will use the idea of variability to understand how ANOVA compares differences between group means with variation among observations within groups.</p>
+</section>
+</section>
+<section id="checking-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="checking-the-data">Checking the data</h2>
+<p>Descriptive statistics also help us identify possible errors. Let’s examine the minimum and maximum for both dependent variables:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimum and maximum test scores</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(lab1_data<span class="sc">$</span>Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 40 88</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimum and maximum likeability ratings</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(lab1_data<span class="sc">$</span>Likeability)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 7</code></pre>
+</div>
+</div>
+<p>Each command selects one variable using <code>$</code> and returns its minimum and maximum.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: identify the problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Compare the minimum and maximum for <code>Likeability</code> with the response scale described earlier. What is the problem? Why would it be inappropriate to replace the unusual value with 1 simply because 1 is the lowest permitted response?</p>
+<p>Then replace <code>range()</code> with <code>sd()</code> to obtain the SD of each variable.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The original data contain a likeability rating of 0, although the response scale runs from 1 to 7. This could reflect a data-entry error or a code for a missing response. We cannot tell which from its value alone, and changing it to 1 would assume that the participant selected the lowest rating.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(lab1_data<span class="sc">$</span>Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10.29689</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(lab1_data<span class="sc">$</span>Likeability)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.344774</code></pre>
+</div>
+</div>
+<p>In a real study, we would check the original records and coding documentation before deciding how to handle these observations, and document any changes.</p>
+</div>
+</div>
+</div>
+<p>For this exercise, we will leave the data unchanged. In a real study, we would resolve this issue before proceeding with the analysis.</p>
+</section>
+<section id="comparing-descriptive-statistics-across-groups" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-descriptive-statistics-across-groups">Comparing descriptive statistics across groups</h2>
+<p>So far, our descriptive statistics have combined both robot groups. To address the researchers’ hypotheses, we need separate summaries for Alpha and Beta.</p>
+<p>In the next activities, we will focus on <strong>statistics test scores</strong> (<code>Score</code>), comparing the groups using descriptive statistics, a plot, and an independent-samples t-test. You will then apply the same steps to <strong>likeability ratings</strong> (<code>Likeability</code>) in the independent practice section.</p>
+<p>First, use <code>factor()</code> to tell R that <code>Group</code> represents categories. Setting the levels to A then B also determines the order in which the groups are displayed and compared:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>lab1_data<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">factor</span>(lab1_data<span class="sc">$</span>Group, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can use <code>group_by()</code> from <code>dplyr</code> and <code>get_summary_stats()</code> from <code>rstatix</code> to summarise the scores within each group. We will save the results as <code>score_descriptives</code> so that we can refer to them again:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>score_descriptives <span class="ot">&lt;-</span> lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span>  <span class="co"># Calculate separate summaries for Alpha and Beta</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Score, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"iqr"</span>))</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>score_descriptives     <span class="co"># Display the table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+  Group variable     n  mean    sd   min   max   iqr
+  &lt;fct&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 A     Score      100  56.6  9.05    40    83    14
+2 B     Score      100  62.8 10.6     40    88    15</code></pre>
+</div>
+</div>
+<p>The output includes the number of observations in each group. Compare the means and SDs: which group scored higher on average, and which was more variable?</p>
+<p><code>get_summary_stats()</code> does not include variance among its standard summaries. We can nevertheless add it to our table using the relationship we have just learned: <strong>variance is SD squared</strong>. This also gives us another example of creating a variable with <code>mutate()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>score_descriptives <span class="ot">&lt;-</span> score_descriptives <span class="sc">%&gt;%</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variance =</span> sd<span class="sc">^</span><span class="dv">2</span>)  <span class="co"># Add variance by squaring each group's reported SD</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>score_descriptives         <span class="co"># Display the expanded table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 9
+  Group variable     n  mean    sd   min   max   iqr variance
+  &lt;fct&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+1 A     Score      100  56.6  9.05    40    83    14     81.8
+2 B     Score      100  62.8 10.6     40    88    15    112. </code></pre>
+</div>
+</div>
+<p>The added variances are approximate because <code>get_summary_stats()</code> rounds its output. For an unrounded sample variance, use <code>var()</code> on the original scores. For our purpose here, the table makes the relationship between SD and variance clear without introducing a different summary function.</p>
+<p>Look at the SD and variance for each group. A larger value means that students’ test scores are more spread out within that group: there are greater individual differences in their observed performance. This is a different question from which robot group obtained the higher mean.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpreting the difference
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Read the mean for each group from the descriptive-statistics table. Subtract Alpha’s mean from Beta’s mean, using a calculator or typing the two numbers into the R Console with a minus sign between them. Express the answer in test-score points.</p>
+<p>Does a difference between sample means, on its own, establish a difference between population means?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Beta’s mean minus Alpha’s mean is <strong>62.76 − 56.61 = 6.15 points</strong>. Beta also has the larger SD (10.59 compared with 9.05), so its students’ scores are more variable despite their higher average performance.</p>
+<p>A positive result means that Beta’s sample mean is higher. However, sample means can differ through sampling variation even when the population means are equal. The size of the observed difference needs to be considered alongside variability and sample size; the <em>t</em>-test will help us do this.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="visualising-group-differences" class="level2">
+<h2 class="anchored" data-anchor-id="visualising-group-differences">Visualising group differences</h2>
+<p>A plot helps us inspect the distributions as well as their numerical summaries. We will use <code>ggboxplot()</code> to display the test scores by robot group:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">5141</span>)  <span class="co"># Reproduce the positions of the jittered points</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a box plot using our data</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  lab1_data,</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Put robot group on x and the outcome on y</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Score"</span>,</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Colour Alpha blue and Beta red</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#3B6B8A"</span>, <span class="st">"#AC4141"</span>),</span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Show individual observations with horizontal jitter</span></span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="st">"jitter"</span>,</span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Label the axes</span></span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Robot group"</span>, <span class="at">ylab =</span> <span class="st">"Statistics test score"</span>,</span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a descriptive title</span></span>
+<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Test scores by robot group"</span></span>
+<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week1_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" alt="Box plots and individual test scores for robot groups Alpha and Beta." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>x</code> and <code>y</code> arguments specify the variables plotted on each axis. <code>color = "Group"</code> assigns a different colour to each group, and <code>add = "jitter"</code> displays individual observations with a small horizontal displacement to reduce overlap.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key idea: reading a box plot
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The line inside the box marks the <strong>median</strong>. The bottom and top of the box mark the first and third quartiles, so its height represents the IQR. The whiskers extend to the most extreme observations within 1.5 IQRs of the corresponding quartile. Observations beyond these limits are flagged separately. Such observations are not automatically errors and should not be removed solely because of their position on a box plot.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the plot
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Describe the difference in the location of the two distributions and how much they overlap. How does the plot relate to the group means and SDs? Remember that the line in each box is a median, rather than a mean.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Beta’s scores generally sit higher on the plot, consistent with its higher mean. However, the two distributions overlap considerably. Overlap shows that group membership does not perfectly predict an individual’s score: a difference in group averages does not imply that every person in one group outperforms every person in the other. The plot alone does not establish statistical significance.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="comparing-two-groups" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-two-groups">Comparing two groups</h2>
+<section id="the-independent-samples-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="the-independent-samples-t-test">The independent-samples t-test</h3>
+<p>Our descriptive statistics and box plot show how the two groups performed in this sample. The next question is whether there is evidence of a difference between the population means. We can examine this using an <strong>independent-samples t-test</strong>, which compares the means of two separate groups. It is appropriate to use an independent-samples test here because each student worked with only one robot.</p>
+<p>The test starts from the <strong>null hypothesis</strong> that the population means are equal. It asks whether the difference we observed is large enough, relative to the variability in the data and the sample sizes, to provide evidence against that hypothesis.</p>
+<p>Let’s run the test using <code>t.test()</code>. In the formula below, <code>Score</code> is our dependent variable and <code>Group</code> identifies the two groups we want to compare:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-sided independent-samples t-test assuming equal population variances</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>score_test <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  Score <span class="sc">~</span> Group,</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> lab1_data,</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.equal =</span> <span class="cn">TRUE</span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>score_test</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  Score by Group
+t = -4.4152, df = 198, p-value = 1.658e-05
+alternative hypothesis: true difference in means between group A and group B is not equal to 0
+95 percent confidence interval:
+ -8.896848 -3.403152
+sample estimates:
+mean in group A mean in group B 
+          56.61           62.76 </code></pre>
+</div>
+</div>
+<p>The argument <code>var.equal = TRUE</code> requests the version of the test that assumes equal population variances. We will return to checking assumptions in later sessions.</p>
+<p>The main things to look for in the output are:</p>
+<ul>
+<li><strong>The group means:</strong> which robot group scored higher on average?</li>
+<li><strong>The p-value:</strong> is the difference statistically significant? With a significance level of .05, a <em>p</em>-value below .05 leads us to reject the null hypothesis of equal population means.</li>
+<li><strong>The 95% confidence interval:</strong> what range of values does the analysis give for the difference between the population means? This interval is in test-score points, not units of <em>t</em>.</li>
+</ul>
+<p>The output also gives the <strong>t statistic</strong> and <strong>degrees of freedom (df)</strong>, which we need when reporting the result. Earlier, we calculated Beta minus Alpha, giving 6.15 points. Because we ordered the factor levels A then B, R calculates Alpha minus Beta, giving −6.15 points. A negative t therefore indicates a lower mean for Alpha. Reversing the factor order would reverse the sign of <em>t</em>, but its magnitude and the two-sided <em>p</em>-value would remain unchanged.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key idea: a closer look at the output
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>The t statistic and standard error</strong></p>
+<p>The difference between two sample means will vary from sample to sample. The <strong>standard error of the mean difference</strong> estimates how much this difference would vary if we repeatedly sampled from the same populations. A smaller standard error indicates a more precise estimate.</p>
+<p>SD describes how widely individual scores vary around their group mean; the standard error describes uncertainty in our estimate of the difference between the group means.</p>
+<p>The <strong>t statistic</strong> is calculated by dividing the observed mean difference by its standard error. It tells us how many standard errors the observed difference lies from zero—the difference predicted by the null hypothesis.</p>
+<p>The <strong>degrees of freedom (df)</strong> reflect how much independent information is available to estimate variability. Estimating a mean within each group leaves (<em>n</em>-1) degrees of freedom for estimating its variance. For this test, we combine the two groups’ degrees of freedom: (99 + 99 = 198). This value helps determine the reference <em>t</em> distribution used to calculate the <em>p</em>-value.</p>
+<p><strong>The p-value</strong></p>
+<p>The <em>p</em>-value tells us how likely a result at least as extreme as ours would be if the population means were equal, assuming the test’s assumptions hold. If <em>p</em> &lt; .05, we reject the null hypothesis of equal population means.</p>
+<p><strong>The confidence interval</strong></p>
+<p>The 95% confidence interval gives a range of plausible values for the difference between the population means. Here, the comparison is <strong>Alpha minus Beta</strong>, and the interval runs from −8.90 to −3.40 points. This suggests that Alpha’s population mean is between 3.40 and 8.90 points lower than Beta’s. Because the interval does not include zero, it agrees with our conclusion that the difference is statistically significant.</p>
+<p><strong>Assumptions</strong></p>
+<p>This version of the test assumes that observations are independent, that scores are approximately normally distributed within each population, and that the two populations have equal variances. We will examine these assumptions and how to assess them in later sessions.</p>
+</div>
+</div>
+</div>
+<p>Statistical significance does not tell us how large or practically important a difference is. For that, we also need to consider the size of the difference.</p>
+</section>
+<section id="effect-size" class="level3">
+<h3 class="anchored" data-anchor-id="effect-size">Effect size</h3>
+<p>Cohen’s <em>d</em> expresses the difference between two means in standard-deviation units. To calculate it, we divide the mean difference by a measure of the variability within the groups.</p>
+<p>The <strong>pooled SD</strong> combines the variability within the two groups into a single measure. We use it to express the mean difference in standard-deviation units.</p>
+<p>For example, a mean difference of 5 points divided by a pooled SD of 10 points gives <em>d</em> = 0.50: the means differ by half a standard deviation. Let’s calculate Cohen’s <em>d</em> for our robot groups:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>score_effect <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> lab1_data,</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> Score <span class="sc">~</span> Group,</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.equal =</span> <span class="cn">TRUE</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>score_effect</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+  .y.   group1 group2 effsize    n1    n2 magnitude
+* &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;ord&gt;    
+1 Score A      B       -0.624   100   100 moderate </code></pre>
+</div>
+</div>
+<p>Because the comparison is Alpha minus Beta, a negative <em>d</em> indicates a lower mean for Alpha. Cohen’s <em>d</em> is not restricted to values between −1 and 1.</p>
+<p>Absolute magnitudes of approximately 0.20, 0.50 and 0.80 are often described as small, medium and large, respectively. These are rough conventions; the practical importance of a difference depends on the outcome and research context.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpreting the result
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the test and effect-size output to answer the following:</p>
+<ol type="1">
+<li>Which group has the higher mean score?</li>
+<li>Is the difference statistically significant at the .05 level?</li>
+<li>Does the confidence interval include zero?</li>
+<li>What does the sign of Cohen’s <em>d</em> indicate?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Beta has the higher mean (62.76 compared with 56.61). The difference is statistically significant, <em>t</em>(198) = −4.42, <em>p</em> &lt; .001. The 95% confidence interval [−8.90, −3.40] does not include zero. Cohen’s <em>d</em> = −0.62: the negative sign indicates that Alpha’s mean is lower than Beta’s, and the means differ by approximately 0.62 pooled standard deviations.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="reporting-the-findings" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-the-findings">Reporting the findings</h2>
+<p>A results paragraph should identify the analysis, describe the direction of the difference, and report the relevant descriptive and inferential statistics. Report means and SDs to two decimal places, and identify what the confidence interval refers to.</p>
+<p>Use your output to complete the following paragraph:</p>
+<blockquote class="blockquote">
+<p>An independent-samples <em>t</em>-test assuming equal variances was conducted to compare statistics test scores for students assigned Robot Alpha and Robot Beta. Students assigned Robot Alpha (<em>M</em> = …, <em>SD</em> = …) scored [lower/higher] on average than those assigned Robot Beta (<em>M</em> = …, <em>SD</em> = …). The difference was [statistically significant/not statistically significant], <em>t</em>(…) = …, <em>p</em> …, 95% CI […, …], <em>d</em> = ….</p>
+</blockquote>
+<p>Use an exact <em>p</em>-value to three decimal places unless it is below .001, in which case write <em>p</em> &lt; .001. Do not report <em>p</em> = .000. Use the sign of <em>t</em> and <em>d</em> shown in the output.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer: example report
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>An independent-samples <em>t</em>-test assuming equal variances was conducted to compare statistics test scores for students assigned Robot Alpha and Robot Beta. Students assigned Robot Alpha (<em>M</em> = 56.61, <em>SD</em> = 9.05) scored lower on average than those assigned Robot Beta (<em>M</em> = 62.76, <em>SD</em> = 10.59). The difference was statistically significant, <em>t</em>(198) = −4.42, <em>p</em> &lt; .001, 95% CI [−8.90, −3.40], <em>d</em> = −0.62.</p>
+<p>Your wording need not match this exactly. Check your paragraph against the output:</p>
+<ul>
+<li>Are each group’s mean and SD attached to the correct robot?</li>
+<li>Does the direction of the written comparison agree with those means?</li>
+<li>Have you reported the degrees of freedom, <em>t</em>, <em>p</em>, confidence interval and <em>d</em>?</li>
+</ul>
+<p>The confidence interval is in score points, while <em>d</em> is in standard-deviation units. They describe the same comparison on different scales.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="independent-practice" class="level2">
+<h2 class="anchored" data-anchor-id="independent-practice">Independent practice</h2>
+<section id="apply-the-analysis-to-likeability" class="level3">
+<h3 class="anchored" data-anchor-id="apply-the-analysis-to-likeability">Apply the analysis to likeability</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: adapt the analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using <code>Likeability</code> as the outcome:</p>
+<ol type="1">
+<li>Obtain the mean and SD for each robot group.</li>
+<li>Produce a box plot with an appropriate title and axis labels.</li>
+<li>Run the same equal-variances independent-samples <em>t</em>-test and calculate Cohen’s <em>d</em>.</li>
+<li>Draft a results paragraph using the reporting template above.</li>
+</ol>
+<p>Use the worked analysis of test scores as a guide, adapting it to the second dependent variable.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-51" class="callout-51-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the code for <code>Score</code> as your starting point. Change the dependent variable wherever it appears, including in the formula and the plot’s <code>y</code> argument. Update labels as well as variable names.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-52" class="callout-52-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarise likeability by robot group</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Likeability, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  Group variable        n  mean    sd
+  &lt;fct&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 A     Likeability   100  2.94  1.15
+2 B     Likeability   100  4.51  1.03</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the observed ratings</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">5141</span>)</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a box plot using our data</span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(</span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>  lab1_data,</span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Put robot group on x and the outcome on y</span></span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Likeability"</span>,</span>
+<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Colour Alpha blue and Beta red</span></span>
+<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#3B6B8A"</span>, <span class="st">"#AC4141"</span>),</span>
+<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Show individual observations with horizontal jitter</span></span>
+<span id="cb67-11"><a href="#cb67-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="st">"jitter"</span>,</span>
+<span id="cb67-12"><a href="#cb67-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Label the axes</span></span>
+<span id="cb67-13"><a href="#cb67-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Robot group"</span>, <span class="at">ylab =</span> <span class="st">"Likeability rating"</span>,</span>
+<span id="cb67-14"><a href="#cb67-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a descriptive title</span></span>
+<span id="cb67-15"><a href="#cb67-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Likeability by robot group"</span></span>
+<span id="cb67-16"><a href="#cb67-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week1_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare the groups and calculate the effect size</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Likeability <span class="sc">~</span> Group, <span class="at">data =</span> lab1_data, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  Likeability by Group
+t = -10.155, df = 198, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group A and group B is not equal to 0
+95 percent confidence interval:
+ -1.874879 -1.265121
+sample estimates:
+mean in group A mean in group B 
+           2.94            4.51 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(<span class="at">data =</span> lab1_data, <span class="at">formula =</span> Likeability <span class="sc">~</span> Group, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+  .y.         group1 group2 effsize    n1    n2 magnitude
+* &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;ord&gt;    
+1 Likeability A      B        -1.44   100   100 large    </code></pre>
+</div>
+</div>
+<p>The means are 2.94 for Alpha (<em>SD</em> = 1.15) and 4.51 for Beta (<em>SD</em> = 1.03). An example report is:</p>
+<p>Students assigned Robot Alpha (<em>M</em> = 2.94, <em>SD</em> = 1.15) gave lower likeability ratings than students assigned Robot Beta (<em>M</em> = 4.51, <em>SD</em> = 1.03). An independent-samples <em>t</em>-test assuming equal variances indicated that the difference was statistically significant, <em>t</em>(198) = −10.16, <em>p</em> &lt; .001, 95% CI [−1.87, −1.27], <em>d</em> = −1.44.</p>
+<p>These values are based on the supplied data, left unchanged as explained in the data-checking exercise.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="additional-practice-create-a-new-score-band" class="level3">
+<h3 class="anchored" data-anchor-id="additional-practice-create-a-new-score-band">Additional practice: create a new score band</h3>
+<p>Complete this exercise if time permits, or use it for further practice after the session.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: practising <code>mutate()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create a variable named <code>Score_Band</code> using the following <strong>fictional practice thresholds</strong>, which are not the University’s marking scheme:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Score</th>
+<th>Band</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Below 49</td>
+<td>Fail</td>
+</tr>
+<tr class="even">
+<td>At least 49 but below 59</td>
+<td>Pass</td>
+</tr>
+<tr class="odd">
+<td>At least 59 but below 69</td>
+<td>Merit</td>
+</tr>
+<tr class="even">
+<td>69 or above</td>
+<td>Distinction</td>
+</tr>
+</tbody>
+</table>
+<p>Check that the new variable has been created. Pay particular attention to scores at the boundaries: 49, 59 and 69.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-54" class="callout-54-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>lab1_data <span class="ot">&lt;-</span> lab1_data <span class="sc">%&gt;%</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score_Band =</span> <span class="fu">case_when</span>(</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&lt;</span> <span class="dv">49</span> <span class="sc">~</span> <span class="st">"Fail"</span>,</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;=</span> <span class="dv">49</span> <span class="sc">&amp;</span> Score <span class="sc">&lt;</span> <span class="dv">59</span> <span class="sc">~</span> <span class="st">"Pass"</span>,</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;=</span> <span class="dv">59</span> <span class="sc">&amp;</span> Score <span class="sc">&lt;</span> <span class="dv">69</span> <span class="sc">~</span> <span class="st">"Merit"</span>,</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">&gt;=</span> <span class="dv">69</span> <span class="sc">~</span> <span class="st">"Distinction"</span></span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab1_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+     ID Group Likeability Score Score_Category Score_Band 
+  &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      
+1     1 A               3    55 Medium         Pass       
+2     2 A               2    72 High           Distinction
+3     3 A               2    45 Low            Fail       
+4     4 A               3    50 Low            Pass       
+5     5 A               2    45 Low            Fail       
+6     6 A               5    63 Medium         Merit      </code></pre>
+</div>
+</div>
+<p>The boundaries cover every numerical score without gaps or overlap. A score of 49 receives Pass, 59 receives Merit and 69 receives Distinction. Continue to use the numerical <code>Score</code> variable for the analysis.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="before-you-finish" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-finish">Before you finish</h2>
+<p>Save your R script and check that its comments make the sequence of steps clear. Your script should provide a record that you can reopen and run again, starting with loading the packages and importing the data. End your RStudio server session when you have finished.</p>
+<p>You should now be able to explain why we report variability alongside a mean, how variance relates to SD, and how descriptive statistics, a plot and a <em>t</em>-test contribute different information about a group comparison.</p>
+<p>Next week, we will return to the robot study with <strong>three groups</strong>. This will introduce one-factor between-participants ANOVA and the distinction between variation within groups and differences between their means.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
