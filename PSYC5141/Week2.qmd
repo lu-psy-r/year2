@@ -1,6 +1,6 @@
 ---
 title: 2. Single-Factor Between-Participants ANOVA
-subtitle: "Sam Russell, Mark Hurlstone"
+subtitle: "Mark Hurlstone"
 order: 3
 ---
 
