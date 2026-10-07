@@ -3,7 +3,7 @@ title: Experimental Methods for Psychology
 email-obfuscation: javascript
 order: 1
 
-#listing:
+#listing: NA
 #  id: links
 #  template: ../links.ejs
 #  contents: guide.yml
