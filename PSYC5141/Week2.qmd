@@ -15,7 +15,7 @@ Watch Lecture 1 Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/V
 
 Watch Lecture 1 Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=14aee97b-5805-4978-ba37-b4dc008d3a12)
 
-Download the Lecture 1 slides [here](data/Wk2/Week 2 Lecture 1 Between-Participants ANOVA [HANDOUT].pdf), and [here](data/Wk2/Week 2 Lecture 1 Between-Participants ANOVA [BIG SLIDES].pdf) for a larger version. 
+Download the Lecture 1 slides [here](data/Wk2/Week 2 Lecture 1 Between-Participants ANOVA [HANDOUT].pdf), [here](data/Wk2/Week 2 Lecture 1 Between-Participants ANOVA [BIG SLIDES].pdf) for a larger version, and [here](data/Wk2/Week 2 Lecture 1 Between-Participants ANOVA [LIVE].zip) for the live version.  
 
 Watch Lecture 2 Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4955c29d-628a-490f-842a-b4dc0079e462)
 
@@ -25,8 +25,7 @@ Watch Lecture 2 Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/V
 
 Watch Lecture 2 Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=14aee97b-5805-4978-ba37-b4dc008d3a12)
 
-Download the Lecture 2 slides [here](data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA [HANDOUT].pdf), and [here](data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA [BIG SLIDES].pdf) for a larger version. 
-
+Download the Lecture 2 slides [here](data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA and Follow Up Procedures [HANDOUT].pdf), [here](data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA and Follow Up Procedures [BIG SLIDES].pdf) for a larger version, and [here](data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA and Follow Up Procedures [LIVE].zip) for the live version. 
 
 # Practical
 Coming soon!
