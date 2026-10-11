@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -76,6 +111,35 @@ ul.task-list li input[type="checkbox"] {
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
 </head>
@@ -190,7 +254,49 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lectures" id="toc-lectures" class="nav-link active" data-scroll-target="#lectures">Lectures</a></li>
-  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a></li>
+  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a>
+  <ul class="collapse">
+  <li><a href="#this-weeks-lab" id="toc-this-weeks-lab" class="nav-link" data-scroll-target="#this-weeks-lab">This week’s lab</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#the-robot-study-three-groups" id="toc-the-robot-study-three-groups" class="nav-link" data-scroll-target="#the-robot-study-three-groups">The robot study: three groups</a>
+  <ul class="collapse">
+  <li><a href="#identify-the-independent-variable-in-r" id="toc-identify-the-independent-variable-in-r" class="nav-link" data-scroll-target="#identify-the-independent-variable-in-r">Identify the independent variable in R</a></li>
+  </ul></li>
+  <li><a href="#checking-the-data" id="toc-checking-the-data" class="nav-link" data-scroll-target="#checking-the-data">Checking the data</a>
+  <ul class="collapse">
+  <li><a href="#inspect-the-structure-and-ranges" id="toc-inspect-the-structure-and-ranges" class="nav-link" data-scroll-target="#inspect-the-structure-and-ranges">Inspect the structure and ranges</a></li>
+  </ul></li>
+  <li><a href="#summarising-and-visualising-test-scores" id="toc-summarising-and-visualising-test-scores" class="nav-link" data-scroll-target="#summarising-and-visualising-test-scores">Summarising and visualising test scores</a></li>
+  <li><a href="#examining-the-assumptions" id="toc-examining-the-assumptions" class="nav-link" data-scroll-target="#examining-the-assumptions">Examining the assumptions</a>
+  <ul class="collapse">
+  <li><a href="#independence-of-observations" id="toc-independence-of-observations" class="nav-link" data-scroll-target="#independence-of-observations">Independence of observations</a></li>
+  <li><a href="#potential-outliers" id="toc-potential-outliers" class="nav-link" data-scroll-target="#potential-outliers">Potential outliers</a></li>
+  <li><a href="#normality-within-groups" id="toc-normality-within-groups" class="nav-link" data-scroll-target="#normality-within-groups">Normality within groups</a></li>
+  <li><a href="#homogeneity-of-variance" id="toc-homogeneity-of-variance" class="nav-link" data-scroll-target="#homogeneity-of-variance">Homogeneity of variance</a></li>
+  </ul></li>
+  <li><a href="#running-the-anova" id="toc-running-the-anova" class="nav-link" data-scroll-target="#running-the-anova">Running the ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#connect-the-output-to-the-lecture" id="toc-connect-the-output-to-the-lecture" class="nav-link" data-scroll-target="#connect-the-output-to-the-lecture">Connect the output to the lecture</a></li>
+  <li><a href="#effect-size-eta-squared" id="toc-effect-size-eta-squared" class="nav-link" data-scroll-target="#effect-size-eta-squared">Effect size: eta-squared</a></li>
+  </ul></li>
+  <li><a href="#planned-comparisons-using-the-anova-error-term" id="toc-planned-comparisons-using-the-anova-error-term" class="nav-link" data-scroll-target="#planned-comparisons-using-the-anova-error-term">Planned comparisons using the ANOVA error term</a>
+  <ul class="collapse">
+  <li><a href="#why-are-the-degrees-of-freedom-237" id="toc-why-are-the-degrees-of-freedom-237" class="nav-link" data-scroll-target="#why-are-the-degrees-of-freedom-237">Why are the degrees of freedom 237?</a></li>
+  <li><a href="#start-with-unadjusted-comparisons" id="toc-start-with-unadjusted-comparisons" class="nav-link" data-scroll-target="#start-with-unadjusted-comparisons">Start with unadjusted comparisons</a></li>
+  <li><a href="#apply-the-bonferroni-correction" id="toc-apply-the-bonferroni-correction" class="nav-link" data-scroll-target="#apply-the-bonferroni-correction">Apply the Bonferroni correction</a></li>
+  <li><a href="#confidence-intervals-for-the-planned-differences" id="toc-confidence-intervals-for-the-planned-differences" class="nav-link" data-scroll-target="#confidence-intervals-for-the-planned-differences">Confidence intervals for the planned differences</a></li>
+  <li><a href="#effect-sizes-for-the-focused-comparisons-cohens-d" id="toc-effect-sizes-for-the-focused-comparisons-cohens-d" class="nav-link" data-scroll-target="#effect-sizes-for-the-focused-comparisons-cohens-d">Effect sizes for the focused comparisons: Cohen’s d</a></li>
+  </ul></li>
+  <li><a href="#post-hoc-comparisons-tukey-hsd" id="toc-post-hoc-comparisons-tukey-hsd" class="nav-link" data-scroll-target="#post-hoc-comparisons-tukey-hsd">Post-hoc comparisons: Tukey HSD</a></li>
+  <li><a href="#preparing-a-figure-for-the-report" id="toc-preparing-a-figure-for-the-report" class="nav-link" data-scroll-target="#preparing-a-figure-for-the-report">Preparing a figure for the report</a></li>
+  <li><a href="#reporting-the-findings" id="toc-reporting-the-findings" class="nav-link" data-scroll-target="#reporting-the-findings">Reporting the findings</a></li>
+  <li><a href="#before-you-finish" id="toc-before-you-finish" class="nav-link" data-scroll-target="#before-you-finish">Before you finish</a></li>
+  <li><a href="#optional-extensions" id="toc-optional-extensions" class="nav-link" data-scroll-target="#optional-extensions">Optional extensions</a>
+  <ul class="collapse">
+  <li><a href="#examine-the-likeability-ratings" id="toc-examine-the-likeability-ratings" class="nav-link" data-scroll-target="#examine-the-likeability-ratings">Examine the likeability ratings</a></li>
+  <li><a href="#apply-the-workflow-to-likeability" id="toc-apply-the-workflow-to-likeability" class="nav-link" data-scroll-target="#apply-the-workflow-to-likeability">Apply the workflow to likeability</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,12 +336,1426 @@ ul.task-list li input[type="checkbox"] {
 <p>Watch Lecture 2 Part 4 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2cbe832c-a807-4cc0-89a5-b4dd016dca62">here</a></p>
 <p>Watch Lecture 2 Part 5 <a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=91458208-c624-4816-89d6-b4dd016dcf61">here</a></p>
 <p>Download the Lecture 2 slides <a href="data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA and Follow Up Procedures [HANDOUT].pdf">here</a>, <a href="data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA and Follow Up Procedures [BIG SLIDES].pdf">here</a> for a larger version, and <a href="data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA and Follow Up Procedures [LIVE].zip">here</a> for the live version.</p>
+<p>This week, building on your understanding of between-participants designs from Week 1, you will learn how to analyse data from these experiments using Analysis of Variance (ANOVA). You will explore the logic of between-participants ANOVA, including how between-group and within-group variability are used to calculate the <span class="math inline">\(F\)</span>-ratio and test for treatment effects. You will also examine the assumptions underlying ANOVA, how to identify and deal with problematic data and outliers, and how planned and post-hoc comparisons can be used to investigate differences between groups. The goal is to understand how to analyse data from between-participants experiments and draw valid statistical conclusions. Before attending the practical class, please review the Week 2 lecture materials and recordings above.</p>
 </section>
 <section id="practical" class="level1">
 <h1>Practical</h1>
-<p>Coming soon!</p>
+<section id="this-weeks-lab" class="level2">
+<h2 class="anchored" data-anchor-id="this-weeks-lab">This week’s lab</h2>
+<p>This week, we extend the robot study to three groups. You will check the data, examine the assumptions of ANOVA, run a single-factor between-participants ANOVA, and use planned comparisons and post-hoc tests to examine specific group differences. The practical builds on both Week 2 lectures—please review these before attending.</p>
+<p>By the end of the session, you should be able to:</p>
+<ul>
+<li>Distinguish a data error from an unusual but potentially valid observation.</li>
+<li>Assess independence, normality and homogeneity of variance.</li>
+<li>Interpret an ANOVA table, including its error term, and calculate eta-squared.</li>
+<li>Run planned comparisons using the ANOVA error term and Tukey post-hoc tests.</li>
+<li>Produce a bar plot with confidence intervals and report the findings with effect sizes.</li>
+</ul>
+<p>Work in your R script and attempt each exercise before revealing its answer. Use comments to record your decisions and interpretations. Ask a GTA if you need help with a step.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Session plan: two hours
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th style="text-align: right;">Approximate time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Set up the project and identify the research questions</td>
+<td style="text-align: right;">10 minutes</td>
+</tr>
+<tr class="even">
+<td>Inspect and check the data</td>
+<td style="text-align: right;">15 minutes</td>
+</tr>
+<tr class="odd">
+<td>Summarise and plot test scores</td>
+<td style="text-align: right;">10 minutes</td>
+</tr>
+<tr class="even">
+<td>Examine assumptions</td>
+<td style="text-align: right;">15 minutes</td>
+</tr>
+<tr class="odd">
+<td>Run and interpret the ANOVA and eta-squared</td>
+<td style="text-align: right;">15 minutes</td>
+</tr>
+<tr class="even">
+<td>Planned comparisons, confidence intervals and Cohen’s d</td>
+<td style="text-align: right;">20 minutes</td>
+</tr>
+<tr class="odd">
+<td>Compare Bonferroni and Tukey procedures</td>
+<td style="text-align: right;">10 minutes</td>
+</tr>
+<tr class="even">
+<td>Prepare the bar plot and write up the results</td>
+<td style="text-align: right;">20 minutes</td>
+</tr>
+<tr class="odd">
+<td>Time for questions and catching up</td>
+<td style="text-align: right;">5 minutes</td>
+</tr>
+</tbody>
+</table>
+<!-- The core analysis uses **test scores**. Complete the optional extensions only after finishing the results paragraph, or return to them after class.-->
+</div>
+</div>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
+<p>When you are connected, navigate to <a href="https://ps-rstudio.lancaster.ac.uk/">https://ps-rstudio.lancaster.ac.uk/</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
+<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
+<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
+<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
+<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have already logged in through the university login, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+</div>
+</div>
+<ol type="1">
+<li>Open your existing <code>psyc5141_labs</code> folder in RStudio’s <strong>Files</strong> pane. Create a new folder inside it named <code>psyc5141_lab_2</code>.</li>
+<li>Download <a href="data/Wk2/week2_robo_lab.csv">the Week 2 data file</a> and upload it to <code>psyc5141_lab_2</code>.</li>
+<li>Select <strong>File → New Project → Existing Directory</strong>, choose <code>psyc5141_lab_2</code>, and click <strong>Create Project</strong>.</li>
+<li>Open a new R script and save it in this folder as <code>week2_analysis.R</code>.</li>
+</ol>
+<p>The project sets the working directory to this week’s folder. You do not need <code>setwd()</code>. When returning to the practical, open <code>psyc5141_lab_2.Rproj</code> before running your script.</p>
+<p>Load the following packages we will be using in this session at the start of your script:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># Import, organise and plot data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)    <span class="co"># Descriptives, assumption checks and follow-up tests</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)     <span class="co"># Box plots and Q–Q plots</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize) <span class="co"># Effect sizes and their confidence intervals</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Import the data from your project folder:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lab2_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"week2_robo_lab.csv"</span>) <span class="co"># Read the CSV and store it in R</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We will keep <strong>two dataframes</strong> in R. A dataframe is a table whose columns contain variables and whose rows contain observations. <code>lab2_raw</code> holds the original imported data. Create a second dataframe, <code>lab2_data</code>, as our working version:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="ot">&lt;-</span> lab2_raw <span class="co"># Copy the data; keep the original import unchanged</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Both dataframes initially contain the same data. We will make changes and run analyses using <code>lab2_data</code>, while leaving <code>lab2_raw</code> unchanged. This preserves a reference copy so that we can check the original values or restart the data preparation if needed. Changes to the working dataframe do not overwrite the original CSV file.</p>
+</section>
+<section id="the-robot-study-three-groups" class="level2">
+<h2 class="anchored" data-anchor-id="the-robot-study-three-groups">The robot study: three groups</h2>
+<p>In Week 1, we examined a hypothetical study comparing robot lab assistants Alpha and Beta. The researchers now conduct a <strong>new experiment with a new sample</strong>, adding a third robot, Omega. Omega has the most human-like appearance, followed by Beta and then Alpha. Each student is randomly assigned to work with one robot and completes the same statistics test and likeability rating.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ID</code></td>
+<td>Participant identifier.</td>
+</tr>
+<tr class="even">
+<td><code>Group</code></td>
+<td>Robot assignment: <code>A</code> = Alpha, <code>B</code> = Beta, <code>O</code> = Omega. The last code is the letter O.</td>
+</tr>
+<tr class="odd">
+<td><code>Score</code></td>
+<td>Statistics test score, on the 0–100 scale introduced in Week 1.</td>
+</tr>
+<tr class="even">
+<td><code>Likeability</code></td>
+<td>Rating from 1 (<em>strongly dislike</em>) to 7 (<em>strongly like</em>).</td>
+</tr>
+</tbody>
+</table>
+<p>Before collecting the data, the researchers predict that students assigned Omega will score higher than those assigned <strong>Alpha</strong> and those assigned <strong>Beta</strong>. These predictions identify two planned comparisons: Omega versus Alpha, and Omega versus Beta. They also predict higher likeability for Omega. We will retain that outcome for data checking and optional practice.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: identify the design
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>What is the factor, and how many levels does it have?</li>
+<li>Why is this a between-participants design?</li>
+<li>State the null hypothesis for the omnibus ANOVA of test scores.</li>
+<li>Does the prediction about Omega require an Alpha–Beta comparison?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The factor is robot assignment, with three levels. Each participant works with only one robot, so different participants contribute scores to the three conditions. The omnibus null hypothesis is that all three <strong>population mean test scores are equal</strong>: <span class="math inline">\(\mu_A = \mu_B = \mu_O\)</span>. The alternative is that at least one differs. The predictions about Omega do not require an Alpha–Beta comparison.</p>
+</div>
+</div>
+</div>
+<section id="identify-the-independent-variable-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="identify-the-independent-variable-in-r">Identify the independent variable in R</h3>
+<p>We have identified robot group as our independent variable, with three levels: Alpha, Beta and Omega. Now check how R currently stores that column:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(lab2_data<span class="sc">$</span>Group) <span class="co"># Check the type of the group-label column</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>At present, <code>Group</code> is a <strong>character</strong> variable: R stores A, B and O as text. For our analysis, these labels represent the three categories of an independent variable. Converting <code>Group</code> to a <strong>factor</strong> makes this structure explicit and defines the levels and their order:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace the character labels with a categorical variable.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lab2_data<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  lab2_data<span class="sc">$</span>Group,            <span class="co"># The column to convert</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"O"</span>)   <span class="co"># The categories, in the desired order</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(lab2_data<span class="sc">$</span>Group)  <span class="co"># Should now return "factor"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(lab2_data<span class="sc">$</span>Group) <span class="co"># Check the three recognised categories</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "A" "B" "O"</code></pre>
+</div>
+</div>
+<p>The <code>$</code> selects a column, and <code>&lt;-</code> stores the converted variable back in that column. The participants’ group assignments have not changed. We have changed how R represents them. This helps analysis and plotting functions treat the labels consistently as categories and display them in the intended order. Some functions convert text automatically, but explicitly defining the factor avoids relying on that behaviour. It is especially important when categories are coded with numbers: a numeric code such as 1, 2 or 3 could otherwise be treated as a numerical predictor.</p>
+</section>
+</section>
+<section id="checking-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="checking-the-data">Checking the data</h2>
+<section id="inspect-the-structure-and-ranges" class="level3">
+<h3 class="anchored" data-anchor-id="inspect-the-structure-and-ranges">Inspect the structure and ranges</h3>
+<p>Start with <code>glimpse()</code>, which gives a compact overview of the data: the number of rows and columns, each variable’s name and type, and some example values.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lab2_data) <span class="co"># Inspect the structure and the first values in each column</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 240
+Columns: 4
+$ ID          &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,…
+$ Group       &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, A, A, A, A, A, A, A, A…
+$ Likeability &lt;dbl&gt; 2, 2, 3, 3, 4, 1, 3, 3, 2, 4, 4, 4, 3, 2, 2, 2, 3, 3, 2, 3…
+$ Score       &lt;dbl&gt; 71, 53, 62, 65, 64, 61, 63, 50, 59, 69, 52, 63, 59, 53, 54…</code></pre>
+</div>
+</div>
+<p>There should be <strong>240 rows and four columns</strong>. In the output, <code>&lt;dbl&gt;</code> denotes numerical values and <code>&lt;fct&gt;</code> denotes a factor. Check that <code>Group</code> is now a factor and both outcomes are numerical.</p>
+<p>Next, count the observations in each robot group:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span>      <span class="co"># Start with our working data</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Group)     <span class="co"># Count the rows for each level of Group</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Group     n
+  &lt;fct&gt; &lt;int&gt;
+1 A        80
+2 B        80
+3 O        80</code></pre>
+</div>
+</div>
+<p>The pipe, <code>%&gt;%</code>, passes the data to the next function. <code>count(Group)</code> produces one row per robot group and a column called <code>n</code> containing its count. There should be <strong>80 participants in each group</strong>.</p>
+<p>Now inspect the lowest and highest values of each outcome within each group:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span> <span class="co"># Calculate separate summaries for each robot group</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    Score, Likeability,       <span class="co"># The two variables to summarise</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"min"</span>, <span class="st">"max"</span>)    <span class="co"># Request the minimum and maximum values</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  Group variable        n   min   max
+  &lt;fct&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 A     Score          80    44    72
+2 A     Likeability    80     1     4
+3 B     Score          80    40    74
+4 B     Likeability    80     2     7
+5 O     Score          80    47    79
+6 O     Likeability    80     1    33</code></pre>
+</div>
+</div>
+<p><code>group_by()</code> tells the next function to work separately within the groups. <code>get_summary_stats()</code> calculates the requested statistics. The output contains six rows: two outcomes for each of three groups. Compare <code>min</code> and <code>max</code> with the permitted measurement ranges—a value outside those ranges signals a problem even if R recognises it as numerical.</p>
+<p>Finally, check for missing values and repeated participant identifiers:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify missing entries, then count them within each column.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(lab2_data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         ID       Group Likeability       Score 
+          0           0           0           0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check whether any participant ID occurs more than once.</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anyDuplicated</span>(lab2_data<span class="sc">$</span>ID)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<p><code>is.na()</code> marks each missing entry <code>TRUE</code> and each observed entry <code>FALSE</code>. <code>colSums()</code> adds these within each column, treating <code>TRUE</code> as 1 and <code>FALSE</code> as 0. All four counts should initially be zero. <!-- **Zero missing values does not mean zero errors**: an impossible rating such as 33 is still an observed number. --></p>
+<p><code>anyDuplicated()</code> returns zero if every ID is unique; otherwise, it returns the row position of the first duplicate. The result here should be zero, consistent with one row per participant. Repeated IDs would need investigation rather than automatic deletion.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: find the data error
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>One outcome contains an impossible value. Identify the variable, value and participant. Use <code>filter()</code> to display any likeability ratings outside the permitted range:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Likeability <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">|</span> Likeability <span class="sc">&gt;</span> <span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+     ID Group Likeability Score
+  &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
+1   238 O              33    63</code></pre>
+</div>
+</div>
+<p>The symbol <code>|</code> means <strong>or</strong>. Why would replacing this value with 3 be unjustified? Should this participant’s test score also be removed?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Participant <strong>238</strong>, in Group O, has a likeability rating of <strong>33</strong>. This is impossible on a 1–7 scale. We cannot establish the intended value from this file: changing it to 3 would be a guess. Their test score of 63 is valid, so an error in the rating does not justify removing their test score.</p>
+</div>
+</div>
+</div>
+<p>In a real study, first check the original record. For this exercise, no original record is available, so record the invalid rating as missing (<code>NA</code>) in the working copy:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preserve the original ratings for record keeping purposes</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Likeability_original =</span> Likeability,  <span class="co"># Keep the original ratings</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Likeability =</span> <span class="fu">if_else</span>(</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>      Likeability <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">|</span> Likeability <span class="sc">&gt;</span> <span class="dv">7</span>, <span class="co"># Is the rating outside the scale?</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NA_real_</span>, Likeability              <span class="co"># If yes, use NA; otherwise keep it</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ID <span class="sc">==</span> <span class="dv">238</span>) <span class="sc">%&gt;%</span> <span class="co"># Display the affected participant</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, Group, Likeability_original, Likeability, Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+     ID Group Likeability_original Likeability Score
+  &lt;dbl&gt; &lt;fct&gt;                &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+1   238 O                       33          NA    63</code></pre>
+</div>
+</div>
+<p>There are still <strong>240 valid test scores</strong>, but now <strong>239 valid likeability ratings</strong>. Keep all 240 participants in the test-score analysis. The CSV and <code>lab2_raw</code> remain unchanged. If restarting the cleaning step, first recreate <code>lab2_data</code> from <code>lab2_raw</code> so that the original-rating column is preserved correctly.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key idea: errors and outliers are different
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A rating of 33 is outside the measurement scale and is therefore invalid. An unusually low test score can still be a valid observation. Outlier detection flags values for investigation; it does not, by itself, justify deleting them.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="summarising-and-visualising-test-scores" class="level2">
+<h2 class="anchored" data-anchor-id="summarising-and-visualising-test-scores">Summarising and visualising test scores</h2>
+<p>Use the Week 1 workflow to obtain descriptives:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>score_descriptives <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span> <span class="co"># Summarise the scores within each robot group</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Score, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"ci"</span>))</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>score_descriptives <span class="co"># Display the saved table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  Group variable     n  mean    sd   min   max    ci
+  &lt;fct&gt; &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 A     Score       80  58.1  6.45    44    72  1.44
+2 B     Score       80  60.4  7.27    40    74  1.62
+3 O     Score       80  63.6  7.22    47    79  1.61</code></pre>
+</div>
+</div>
+<p>Recall that SD describes the spread of individual scores within a group. Its square is the variance. The additional <code>ci</code> column gives the margin on either side of the mean for its 95% confidence interval—we will use it later for the report figure. Plot the data as well as inspecting the table:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">5141</span>) <span class="co"># Reproduce the horizontal jitter of individual points</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>score_boxplot <span class="ot">&lt;-</span> <span class="fu">ggboxplot</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  lab2_data,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Score"</span>, <span class="co"># Group on x; test scores on y</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"Group"</span>, <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#3B6B8A"</span>, <span class="st">"#AC4141"</span>, <span class="st">"#5F8060"</span>), <span class="co"># Colour palette </span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="st">"jitter"</span>, <span class="co"># Show individual observations as well as the boxes</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Robot group"</span>, <span class="at">ylab =</span> <span class="st">"Statistics test score"</span>, <span class="co"># x- and y-axis titles</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Test scores by robot group"</span> <span class="co"># Figure title</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>score_boxplot <span class="co"># Display the plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week2_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" alt="Box plots and individual statistics test scores for Alpha, Beta and Omega." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: describe the pattern
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which group has the highest mean? Are the within-group SDs similar? Describe the overlap between groups. Does this pattern agree with the predictions about Omega, and does it establish statistical significance?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Robot</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alpha</td>
+<td style="text-align: right;">58.10</td>
+<td style="text-align: right;">6.45</td>
+</tr>
+<tr class="even">
+<td>Beta</td>
+<td style="text-align: right;">60.36</td>
+<td style="text-align: right;">7.27</td>
+</tr>
+<tr class="odd">
+<td>Omega</td>
+<td style="text-align: right;">63.60</td>
+<td style="text-align: right;">7.22</td>
+</tr>
+</tbody>
+</table>
+<p>Omega has the highest sample mean, consistent with the predicted direction. The SDs are similar and the distributions overlap substantially. Neither the ordering of the means nor the amount of overlap establishes statistical significance. The line inside each box is the <strong>median</strong>, not the mean.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="examining-the-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="examining-the-assumptions">Examining the assumptions</h2>
+<section id="independence-of-observations" class="level3">
+<h3 class="anchored" data-anchor-id="independence-of-observations">Independence of observations</h3>
+<p>Independence concerns how the data were generated. For this hypothetical study, assume that students were individually assigned to robots, worked separately, and completed their assessments independently. Each student contributes one test score.</p>
+<p>Unique IDs help check the file structure, but they cannot establish independence. For example, students working together in tutorial groups could have related scores even if every ID were unique. Independence must be justified from the experimental design and procedure—there is no test here that can certify it.</p>
+</section>
+<section id="potential-outliers" class="level3">
+<h3 class="anchored" data-anchor-id="potential-outliers">Potential outliers</h3>
+<p>Identify unusual scores <strong>within each group</strong>, rather than relative to the whole sample:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>score_outliers <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span>       <span class="co"># Apply the outlier rules within each group</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">identify_outliers</span>(Score)  <span class="co"># Return rows containing flagged scores</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>score_outliers <span class="co"># Display the flagged participants</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+  Group    ID Likeability Score Likeability_original is.outlier is.extreme
+  &lt;fct&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;                &lt;dbl&gt; &lt;lgl&gt;      &lt;lgl&gt;     
+1 B       112           4    40                    4 TRUE       FALSE     </code></pre>
+</div>
+</div>
+<p><code>identify_outliers()</code> flags scores more than 1.5 IQRs below the first quartile or above the third quartile. The <code>is.extreme</code> column flags scores beyond 3 IQRs. These thresholds are screening rules, not automatic exclusion rules.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: decide what to retain
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which participant is flagged? Is the score outside the test’s possible range? What further information would justify correcting or excluding it?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Participant <strong>112</strong>, in Group B, has a score of <strong>40</strong>. It is flagged as an outlier, but not as extreme. The score is possible. An original record showing a transcription error, or evidence that the assessment was not completed under the required conditions, could justify action under a defensible rule. No such evidence is supplied, so <strong>retain the score</strong>. A non-extreme flag does not establish that an observation has no influence—it simply describes its position relative to the quartiles. As a general rule, outliers are typically fine to work with, whereas extreme values are potentially problematic and may require attention.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="normality-within-groups" class="level3">
+<h3 class="anchored" data-anchor-id="normality-within-groups">Normality within groups</h3>
+<p>The normality assumption concerns the population distributions <strong>within the robot groups</strong>, not all scores combined. Use a separate Q–Q plot for each group:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Score against normal quantiles, with one panel per group.</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(lab2_data, <span class="at">x =</span> <span class="st">"Score"</span>, <span class="at">facet.by =</span> <span class="st">"Group"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week2_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" alt="Normal Q–Q plots of test scores separately for the three robot groups." width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A Q–Q plot compares the observed scores with the pattern expected under a normal distribution. Points broadly following the reference line are consistent with approximate normality. Look for systematic curvature and substantial departures in the tails, rather than expecting every point to sit on the line.</p>
+<p>The Shapiro–Wilk test provides an additional check:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(Score) <span class="co"># Test normality separately within each group</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  Group variable statistic     p
+  &lt;fct&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt;
+1 A     Score        0.987 0.589
+2 B     Score        0.984 0.418
+3 O     Score        0.984 0.430</code></pre>
+</div>
+</div>
+<p>The Shapiro–Wilk test assesses whether a distribution departs significantly from normality. Its null hypothesis is that the data are normally distributed. A significant result (<em>p</em> ≤ .05) provides evidence against normality. However, a non-significant result (<em>p</em> &gt; .05) does <strong>not demonstrate that the data are normally distributed</strong>—it simply indicates that there is insufficient evidence to reject the null hypothesis.</p>
+<p>There is an important sample-size caveat. As the sample gets larger, the test becomes more sensitive to small departures from normality. It can therefore give a significant result for a departure too minor to cause a substantial problem for ANOVA. Conversely, a small sample may provide too little information to detect a meaningful departure. Use the test alongside the Q–Q plots, sample sizes and unusual observations. Do not treat significance alone as an automatic reason to abandon ANOVA.</p>
+</section>
+<section id="homogeneity-of-variance" class="level3">
+<h3 class="anchored" data-anchor-id="homogeneity-of-variance">Homogeneity of variance</h3>
+<p><strong>Levene’s test is designed to assess the homogeneity of variances assumption</strong>: whether the population variances are equal across groups. Compare the group SDs, then run the test:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span> <span class="fu">levene_test</span>(Score <span class="sc">~</span> Group) <span class="co"># Compare within-group variances</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+    df1   df2 statistic     p
+  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1     2   237     0.799 0.451</code></pre>
+</div>
+</div>
+<p>Here, <code>Score ~ Group</code> means that we are comparing test scores across robot groups. By default, <code>levene_test()</code> uses the group medians as its centre, making it a more robust version of Levene’s test. The null hypothesis is that the population variances are equal. A significant result (<em>p</em> ≤ .05) provides evidence against equality of variances. However, a non-significant result (<em>p</em> &gt; .05) does <strong>not demonstrate that the variances are equal</strong>—it simply indicates that there is insufficient evidence to reject the null hypothesis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: reach an analysis decision
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the design, outlier check, Q–Q plots, Shapiro–Wilk tests and Levene’s test together. Is it reasonable to proceed with the standard ANOVA? Write a two-sentence justification in your script.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The experimental procedure supports the assumption of independence of observations. The score distributions show no substantial departures from normality, with Shapiro–Wilk <em>p</em>-values of approximately .589, .418, and .430 for groups A, B, and O, respectively. The standard deviations are similar across groups, and Levene’s test provides no significant evidence of unequal variances, <em>F</em>(2, 237) = 0.80, <em>p</em> = .451. With 80 observations per group and no identified errors in the test scores, a standard between-participants ANOVA is appropriate.</p>
+<p>Importantly, this is an <strong>overall judgement based on the available evidence</strong> and does not establish that every assumption is satisfied exactly. Substantial violations would require further investigation and potentially an alternative analysis. We will explore non-parametric alternatives in Week 4.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="running-the-anova" class="level2">
+<h2 class="anchored" data-anchor-id="running-the-anova">Running the ANOVA</h2>
+<p>Use <code>aov()</code> from R’s <strong>stats</strong> package to fit the model, then display its ANOVA table:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model and save it for the follow-up comparisons.</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>score_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Score <span class="sc">~</span> Group, <span class="at">data =</span> lab2_data)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(score_model) <span class="co"># Display the ANOVA table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+Group         2   1223   611.3   12.52 6.77e-06 ***
+Residuals   237  11571    48.8                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>In the formula <code>Score ~ Group</code>, the variable <strong>before</strong> <code>~</code> is the dependent variable (<code>Score</code>), and the variable <strong>after</strong> <code>~</code> is the independent variable (<code>Group</code>). Read it as “analyse test scores as a function of robot group”. <code>data = lab2_data</code> tells R where to find those columns. The assignment stores the fitted model as <code>score_model</code>; <code>summary()</code> displays its results.</p>
+<section id="connect-the-output-to-the-lecture" class="level3">
+<h3 class="anchored" data-anchor-id="connect-the-output-to-the-lecture">Connect the output to the lecture</h3>
+<p>The output has the same basic structure as the ANOVA table constructed in the lecture: sources of variation appear in rows, and sums of squares, degrees of freedom, mean squares and <em>F</em> appear in columns. R calls the within-group row <strong>Residuals</strong> and does not display a separate total row here.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Output</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Group</code></td>
+<td>Between-group variation.</td>
+</tr>
+<tr class="even">
+<td><code>Residuals</code></td>
+<td>Within-group variation: our estimate of experimental error.</td>
+</tr>
+<tr class="odd">
+<td><code>Df</code></td>
+<td>Degrees of freedom: <span class="math inline">\(k-1\)</span> between groups and <span class="math inline">\(N-k\)</span> within groups.</td>
+</tr>
+<tr class="even">
+<td><code>Sum Sq</code></td>
+<td>Sum of squared deviations for that source of variation.</td>
+</tr>
+<tr class="odd">
+<td><code>Mean Sq</code></td>
+<td>Sum of squares divided by its degrees of freedom.</td>
+</tr>
+<tr class="even">
+<td><code>F value</code></td>
+<td>Between-group mean square divided by the residual mean square.</td>
+</tr>
+<tr class="odd">
+<td><code>Pr(&gt;F)</code></td>
+<td>The omnibus <em>p</em>-value.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the ANOVA table
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Identify the between-group and within-group degrees of freedom. Explain them using <span class="math inline">\(N\)</span> and <span class="math inline">\(k\)</span>.</li>
+<li>Identify the two mean squares and divide the between-group value by the within-group value. Does this reproduce <em>F</em>?</li>
+<li>Is the omnibus test significant at .05?</li>
+<li>Can you conclude that Omega differs from <strong>both</strong> other groups from this test alone?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>With <span class="math inline">\(N = 240\)</span> and <span class="math inline">\(k = 3\)</span>, the degrees of freedom are <span class="math inline">\(3-1 = 2\)</span> and <span class="math inline">\(240-3 = 237\)</span>. The mean squares are approximately <strong>611.34</strong> between groups and <strong>48.82</strong> within groups:</p>
+<p><span class="math display">\[F = \frac{MS_{\text{between}}}{MS_{\text{error}}}
+    = \frac{611.34}{48.82} \approx 12.52.\]</span></p>
+<p>The test is significant, <em>F</em>(2, 237) = 12.52, <em>p</em> &lt; .001. Reject the hypothesis that all three population means are equal. This does not identify which pairs differ, or establish that every pair differs. Small discrepancies when calculating <em>F</em> from displayed values reflect rounding.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="effect-size-eta-squared" class="level3">
+<h3 class="anchored" data-anchor-id="effect-size-eta-squared">Effect size: eta-squared</h3>
+<p>Eta-squared (<span class="math inline">\(\eta^2\)</span>) describes the proportion of the total observed variability associated with differences between groups:</p>
+<p><span class="math display">\[\eta^2 = \frac{SS_{\text{between}}}{SS_{\text{total}}}
+         = \frac{SS_{\text{between}}}{SS_{\text{between}}+SS_{\text{within}}}.\]</span></p>
+<p>For these data, the calculation is <span class="math inline">\(1222.675/(1222.675+11570.8875) \approx .096\)</span>. In practice, use the <code>eta_squared()</code> function from the <code>effectsize</code> package to calculate the effect size and its confidence interval:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>score_eta <span class="ot">&lt;-</span> <span class="fu">eta_squared</span>(</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  score_model,               <span class="co"># Use the fitted ANOVA</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">partial =</span> <span class="cn">FALSE</span>,           <span class="co"># Request eta-squared</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span>,                 <span class="co"># Request a 95% confidence interval</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"two.sided"</span>  <span class="co"># Estimate both lower and upper limits</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>score_eta <span class="co"># Display the effect size and its interval</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA (Type I)
+
+Parameter | Eta2 |       95% CI
+-------------------------------
+Group     | 0.10 | [0.03, 0.17]</code></pre>
+</div>
+</div>
+<p>The result is approximately <strong>.096</strong>, with a two-sided 95% CI of <strong>[.03, .17]</strong>. About <strong>9.6% of the observed variability</strong> in scores is associated with differences between the robot groups. This does not mean that scores increased by 9.6%. Report <span class="math inline">\(\eta^2 = .10\)</span>, 95% CI [.03, .17], when rounding to two decimal places.</p>
+<p>The interval expresses uncertainty about the population effect size. A <strong>two-sided interval</strong> estimates both a lower and an upper confidence limit: it addresses how small or how large the effect might plausibly be. Here, those limits are approximately .03 and .17.</p>
+<p>A <strong>one-sided interval</strong> provides a confidence bound in only one direction. By default, this function estimates a lower bound and extends the interval up to 1, the largest possible eta-squared. That upper endpoint is the boundary of the scale, not an estimated upper confidence limit. We set <code>alternative = "two.sided"</code> because we want limits in both directions. This choice concerns the effect-size interval; it does not change the ANOVA’s <em>F</em>-test.</p>
+<p>As a rule of thumb, <span class="math inline">\(\eta^2 = .01\)</span> indicates a <strong>small</strong> effect, <span class="math inline">\(.06\)</span> a <strong>medium</strong> effect, and <span class="math inline">\(.14\)</span> a <strong>large</strong> effect. Our estimate of approximately .10 falls between the medium and large benchmarks. These are broad guidelines: the practical importance of an effect also depends on the outcome and research context.</p>
+</section>
+</section>
+<section id="planned-comparisons-using-the-anova-error-term" class="level2">
+<h2 class="anchored" data-anchor-id="planned-comparisons-using-the-anova-error-term">Planned comparisons using the ANOVA error term</h2>
+<p>Our pre-specified questions concern Omega versus Alpha and Omega versus Beta. We can test these directly without adding an Alpha–Beta comparison. We use two-sided tests, as in the lecture’s worked comparisons—the group means establish whether any differences are in the predicted direction.</p>
+<p>The lecture formula was:</p>
+<p><span class="math display">\[t = \frac{\bar X_1-\bar X_2}
+{\sqrt{MS_{\text{error}}(1/n_1+1/n_2)}}.\]</span></p>
+<p>The <strong>denominator is the standard error of the difference between the two means</strong>:</p>
+<p><span class="math display">\[SE_{\text{difference}} = \sqrt{MS_{\text{error}}(1/n_1+1/n_2)}.\]</span></p>
+<p>It estimates how much the difference between sample means would vary across repeated samples. The <em>t</em> statistic is the observed mean difference divided by this standard error: it expresses the difference in standard-error units.</p>
+<section id="why-are-the-degrees-of-freedom-237" class="level3">
+<h3 class="anchored" data-anchor-id="why-are-the-degrees-of-freedom-237">Why are the degrees of freedom 237?</h3>
+<p>Look back at your ANOVA table from <code>summary(score_model)</code>. In the <strong>Residuals</strong> row, the <code>Df</code> column contains <strong>237</strong> and the <code>Mean Sq</code> column contains approximately <strong>48.82</strong>. These are the error degrees of freedom and error mean square that our planned comparisons reuse.</p>
+<p>The two means in each comparison come from two groups, but the <strong>error estimate comes from all three groups</strong> in our ANOVA. Within each group, estimating its mean leaves <span class="math inline">\(n-1\)</span> degrees of freedom for estimating variability. Pooling across the three groups therefore gives:</p>
+<p><span class="math display">\[df_{\text{error}} = (80-1)+(80-1)+(80-1) = 237.\]</span></p>
+<p>Both planned comparisons reuse that pooled error estimate and its <strong>237 degrees of freedom</strong>. We are not running new, separate two-group <em>t</em>-tests. Such a test would estimate error from only its two groups, giving <span class="math inline">\((80-1)+(80-1)=158\)</span>. The degrees of freedom follow the information used to estimate <strong>error</strong>, rather than simply the number of groups whose means appear in the numerator.</p>
+</section>
+<section id="start-with-unadjusted-comparisons" class="level3">
+<h3 class="anchored" data-anchor-id="start-with-unadjusted-comparisons">Start with unadjusted comparisons</h3>
+<p>Use <code>emmeans_test()</code> from <code>rstatix</code>, supplying the model we fitted using <code>aov()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>planned_unadjusted <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans_test</span>(</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">~</span> Group,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> score_model,       <span class="co"># Use the ANOVA error term and degrees of freedom</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"O"</span>), <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"O"</span>)), <span class="co"># Our two planned pairs</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"none"</span>,  <span class="co"># Test each planned comparison at alpha = .05</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">detailed =</span> <span class="cn">TRUE</span>            <span class="co"># Include differences, SEs and confidence intervals</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>planned_unadjusted <span class="co"># Display the results</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 14
+  term  .y.   group1 group2 null.value estimate    se    df conf.low conf.high
+* &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 Group Score A      O               0    -5.50  1.10   237    -7.68     -3.32
+2 Group Score B      O               0    -3.24  1.10   237    -5.41     -1.06
+# ℹ 4 more variables: statistic &lt;dbl&gt;, p &lt;dbl&gt;, p.adj &lt;dbl&gt;, p.adj.signif &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><code>model = score_model</code> tells the function to use our existing ANOVA model. The comparisons use the model’s residual mean square and degrees of freedom. For this single-factor model, the estimated marginal means are simply the group means.</p>
+<p><code>comparisons</code> selects our two planned pairs. Each <code>c()</code> combines two group labels into a pair: <code>c("A", "O")</code> specifies Alpha versus Omega, and <code>c("B", "O")</code> specifies Beta versus Omega. The outer <code>list()</code> collects these pairs together while keeping them as two separate comparisons. <code>detailed = TRUE</code> includes the estimated differences and standard errors. Read <code>statistic</code> as the <em>t</em> statistic and <code>df</code> as its degrees of freedom. The subtraction order is <strong>group1 minus group2</strong>, so both estimated differences are negative when Omega scores higher. <code>p</code> contains the unadjusted, two-sided <em>p</em>-value. With no correction, <code>p.adj</code> is identical to <code>p</code>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: connect the test to the lecture formula
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using the ANOVA error mean square of approximately 48.82, calculate the standard error as <span class="math inline">\(\sqrt{48.82(1/80+1/80)}\)</span>. Divide the Alpha-minus-Omega difference of −5.50 by that standard error. Compare your result with <code>se</code> and <code>statistic</code> in the output. Why are the degrees of freedom 237 rather than 158?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The standard error is approximately <strong>1.105 points</strong>, giving <span class="math inline">\(t \approx -5.50/1.105 = -4.98\)</span>. The error estimate uses all 240 scores across three groups, giving <span class="math inline">\(240-3 = 237\)</span> degrees of freedom. A separate equal-variances two-group test would use <span class="math inline">\(80+80-2 = 158\)</span>. Small differences reflect rounding.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="apply-the-bonferroni-correction" class="level3">
+<h3 class="anchored" data-anchor-id="apply-the-bonferroni-correction">Apply the Bonferroni correction</h3>
+<p>Testing several hypotheses increases the chance of at least one Type I error across the <strong>family of comparisons</strong>. Bonferroni controls this familywise error rate by dividing the desired significance level by the number of tests. For our two planned comparisons:</p>
+<p><span class="math display">\[\alpha_{\text{per comparison}} = \frac{.05}{2} = .025.\]</span></p>
+<p>Equivalently, multiply each unadjusted <em>p</em>-value by two (capping it at 1) and compare the result with .05. In <code>emmeans_test()</code>, the <code>p.adjust.method</code> argument selects the correction: change <code>p.adjust.method = "none"</code> to <code>p.adjust.method = "bonferroni"</code> to apply it to our two specified comparisons:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>planned_bonferroni <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans_test</span>(</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    Score <span class="sc">~</span> Group,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> score_model,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"O"</span>), <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"O"</span>)),</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span>, <span class="co"># Adjust across the two specified tests</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">detailed =</span> <span class="cn">TRUE</span>                 <span class="co"># Retain the detailed output</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>planned_bonferroni</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 14
+  term  .y.   group1 group2 null.value estimate    se    df conf.low conf.high
+* &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 Group Score A      O               0    -5.50  1.10   237    -7.68     -3.32
+2 Group Score B      O               0    -3.24  1.10   237    -5.41     -1.06
+# ℹ 4 more variables: statistic &lt;dbl&gt;, p &lt;dbl&gt;, p.adj &lt;dbl&gt;, p.adj.signif &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Compare <code>p</code> and <code>p.adj</code> in this table. The means, standard errors, <em>t</em> statistics and degrees of freedom have not changed; the adjustment changes the <em>p</em>-values used for decisions. Compare <strong><code>p.adj</code> with .05</strong>, or compare <strong><code>p</code> with .025</strong>. Do not apply both adjustments at once.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key idea: when should we apply a correction?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For this module, use the following guidance for planned comparisons:</p>
+<ul>
+<li>Specify the comparisons <strong>before examining the results</strong> and keep their number as small as the research questions allow.</li>
+<li>When there are <strong>no more than <span class="math inline">\(k-1\)</span> planned comparisons and no more than four in total</strong>, test each at the usual <span class="math inline">\(\alpha = .05\)</span> without correction. Here, <span class="math inline">\(k\)</span> is the number of levels of the factor. Both limits must be satisfied.</li>
+<li>With <strong>five or more planned comparisons</strong>, apply the Bonferroni correction even though the comparisons were specified in advance. If you exceed the <span class="math inline">\(k-1\)</span> guideline, do not assume that uncorrected testing is appropriate—use an explicitly justified multiple-testing correction.</li>
+<li>Additional comparisons chosen after inspecting the results are <strong>unplanned</strong> and require an appropriate post-hoc procedure.</li>
+</ul>
+<p>This is a practical guideline for a small set of planned tests, not a guarantee that the familywise Type I error rate remains at .05. Unadjusted tests control the error rate for each comparison separately—Bonferroni controls it across the specified family. Genuinely planned comparisons do not require a significant omnibus ANOVA.</p>
+<p>For today’s report, use the <strong>unadjusted planned comparisons</strong>. We specified two comparisons in advance, with three robot groups: <span class="math inline">\(k-1 = 2\)</span>, and two is fewer than five. Test each at <span class="math inline">\(\alpha = .05\)</span>. The Bonferroni analysis is a comparison exercise showing how correction changes the results.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A note on the confidence intervals
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In <code>emmeans_test()</code>, the <code>conf.low</code> and <code>conf.high</code> columns are <strong>unadjusted</strong> confidence intervals, including when the <em>p</em>-values receive Bonferroni adjustment. Do not describe these intervals as simultaneous or Bonferroni-adjusted. For our unadjusted planned-comparison report, use these ordinary 95% intervals for the <strong>mean differences</strong>, together with the unadjusted <em>p</em>-values. Tukey’s intervals in the next section do account for the family of pairwise comparisons.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the planned tests
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Why is the standard error the same for both comparisons?</li>
+<li>Which output columns change when you apply Bonferroni?</li>
+<li>Do both comparisons remain significant after correction?</li>
+<li>Would you reach the same decisions by comparing the unadjusted <em>p</em>-values with .025?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Both comparisons use the same error mean square and equal group sizes, giving a standard error of approximately <strong>1.105 points</strong>. The differences are Alpha minus Omega and Beta minus Omega, so they are negative when Omega scores higher.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Comparison</th>
+<th style="text-align: right;">Mean difference</th>
+<th style="text-align: right;"><em>t</em>(237)</th>
+<th style="text-align: right;">Unadjusted <em>p</em></th>
+<th style="text-align: right;">Bonferroni-adjusted <em>p</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alpha − Omega</td>
+<td style="text-align: right;">−5.50</td>
+<td style="text-align: right;">−4.98</td>
+<td style="text-align: right;">&lt; .001</td>
+<td style="text-align: right;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td>Beta − Omega</td>
+<td style="text-align: right;">−3.24</td>
+<td style="text-align: right;">−2.93</td>
+<td style="text-align: right;">.004</td>
+<td style="text-align: right;">.007</td>
+</tr>
+</tbody>
+</table>
+<p>Both adjusted tests are significant and support the predicted direction. Their error estimate uses all 240 scores, giving <span class="math inline">\(240-3 = 237\)</span> degrees of freedom. A separate equal-variances two-group test would use <span class="math inline">\(80+80-2 = 158\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="confidence-intervals-for-the-planned-differences" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-intervals-for-the-planned-differences">Confidence intervals for the planned differences</h3>
+<p>In <code>planned_unadjusted</code>, the <code>estimate</code> column gives each mean difference in <strong>test-score points</strong>. The <code>conf.low</code> and <code>conf.high</code> columns contain its 95% confidence limits. Display these alongside the test results:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep the columns needed to interpret and report the planned tests.</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>planned_unadjusted <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, estimate, conf.low, conf.high, statistic, df, p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+  group1 group2 estimate conf.low conf.high statistic    df          p
+  &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
+1 A      O         -5.50    -7.68     -3.32     -4.98   237 0.00000123
+2 B      O         -3.24    -5.41     -1.06     -2.93   237 0.00372   </code></pre>
+</div>
+</div>
+<p>The intervals are approximately <strong>[−7.68, −3.32]</strong> for Alpha minus Omega and <strong>[−5.41, −1.06]</strong> for Beta minus Omega. Both lie below zero, consistent with Omega’s higher scores. These intervals describe uncertainty in the <strong>population mean differences</strong>, not the spread of individual scores. In your results paragraph, report them as <strong>95% CI [lower limit, upper limit]</strong>, immediately after the <em>t</em>-test result.</p>
+</section>
+<section id="effect-sizes-for-the-focused-comparisons-cohens-d" class="level3">
+<h3 class="anchored" data-anchor-id="effect-sizes-for-the-focused-comparisons-cohens-d">Effect sizes for the focused comparisons: Cohen’s d</h3>
+<p>As in Week 1, Cohen’s <em>d</em> expresses a mean difference in standard-deviation units. Here we use the conventional <strong>pooled SD of the two groups being compared</strong>. Calculate <em>d</em> and its 95% confidence interval using <code>cohens_d()</code> from <code>effectsize</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the Alpha and Omega participants for this effect-size calculation.</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>alpha_omega <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"O"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">droplevels</span>() <span class="co"># Remove the unused Beta level from this subset</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Alpha minus Omega in pooled-SD units, with its 95% CI.</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>d_alpha_omega <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  Score <span class="sc">~</span> Group, <span class="at">data =</span> alpha_omega,</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">pooled_sd =</span> <span class="cn">TRUE</span>, <span class="co"># Pool the SDs of these two groups</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span>         <span class="co"># Request a 95% confidence interval for d</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>d_alpha_omega</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.80     | [-1.12, -0.48]
+
+- Estimated using pooled SD.</code></pre>
+</div>
+</div>
+<p><code>%in%</code> means “is one of”: the filter retains rows whose group is A or O. The effect-size function divides the difference between the group means by their pooled SD and also calculates a confidence interval.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: calculate the second effect size
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Adapt the code to compare <strong>Beta with Omega</strong>, saving the data as <code>beta_omega</code> and the result as <code>d_beta_omega</code>. What do the signs and magnitudes of the two effect sizes tell you?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep Beta and Omega, then calculate their standardised mean difference.</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>beta_omega <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"O"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">droplevels</span>() <span class="co"># Remove the unused Alpha level from this subset</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>d_beta_omega <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  Score <span class="sc">~</span> Group, <span class="at">data =</span> beta_omega,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">pooled_sd =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>d_beta_omega</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.45     | [-0.76, -0.13]
+
+- Estimated using pooled SD.</code></pre>
+</div>
+</div>
+<p>Alpha minus Omega gives <strong>d = −0.80</strong>, 95% CI <strong>[−1.12, −0.48]</strong>. Beta minus Omega gives <strong>d = −0.45</strong>, 95% CI <strong>[−0.76, −0.13]</strong>. The negative signs indicate lower scores for Alpha and Beta. Their means are about 0.80 and 0.45 pooled SDs below Omega’s, respectively.</p>
+<p>As broad guidelines, absolute <em>d</em> values of 0.20, 0.50 and 0.80 are described as small, medium and large, respectively. The sign indicates direction, not effect magnitude.</p>
+<p>These confidence intervals are in <strong>standard-deviation units</strong>, whereas the intervals from <code>emmeans_test()</code> are in <strong>test-score points</strong>. They are different summaries of the same group differences.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Which variability estimate are we using?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Our planned <em>t</em>-tests and confidence intervals for the raw mean differences continue to use the error estimate from <strong>all three groups</strong> in <code>score_model</code>. The conventional pairwise Cohen’s <em>d</em> values above use the pooled SD of <strong>each pair</strong>, as in Week 1. Selecting two groups for this effect-size calculation does not change the fitted ANOVA or its follow-up tests.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="post-hoc-comparisons-tukey-hsd" class="level2">
+<h2 class="anchored" data-anchor-id="post-hoc-comparisons-tukey-hsd">Post-hoc comparisons: Tukey HSD</h2>
+<p>Now consider an <strong>alternative analysis scenario</strong>: the researchers had no specific pairwise predictions and wanted to explore all pairs after a significant omnibus ANOVA. Use Tukey HSD, which controls the familywise error rate across the complete set of pairwise comparisons. The Tukey–Kramer procedure accommodates unequal sample sizes; here the group sizes are equal.</p>
+<p>We run both approaches to learn them. In an actual report, use the approach justified by the research questions and analysis plan—do not choose whichever produces smaller <em>p</em>-values.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>tukey_tests <span class="ot">&lt;-</span> <span class="fu">tukey_hsd</span>(score_model) <span class="co"># Compare all pairs using the fitted ANOVA</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>tukey_tests <span class="co"># Display adjusted p-values and simultaneous intervals</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 9
+  term  group1 group2 null.value estimate conf.low conf.high      p.adj
+* &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+1 Group A      B               0     2.26   -0.343      4.87 0.103     
+2 Group A      O               0     5.50    2.89       8.11 0.00000369
+3 Group B      O               0     3.24    0.632      5.84 0.0103    
+# ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Passing <code>score_model</code> ensures that Tukey uses the fitted ANOVA and its error term. Read <code>p.adj</code> for the adjusted <em>p</em>-values. <code>estimate</code> is the mean difference; <code>conf.low</code> and <code>conf.high</code> give simultaneous 95% confidence intervals across the pairwise family.</p>
+<p><strong>Check the subtraction order:</strong> in this <code>tukey_hsd()</code> output, estimates are <strong>group2 minus group1</strong>. Thus, the row labelled A and O shows Omega minus Alpha, a positive difference. This reverses the sign of the Alpha-minus-Omega calculation above without changing its substantive direction.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the post-hoc tests
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which pairs differ significantly? Which confidence interval includes zero? Does the non-significant comparison demonstrate that the two population means are identical?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Difference</th>
+<th style="text-align: right;">Estimate</th>
+<th>Simultaneous 95% CI</th>
+<th style="text-align: right;">Tukey-adjusted <em>p</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Beta − Alpha</td>
+<td style="text-align: right;">2.26</td>
+<td>[−0.34, 4.87]</td>
+<td style="text-align: right;">.103</td>
+</tr>
+<tr class="even">
+<td>Omega − Alpha</td>
+<td style="text-align: right;">5.50</td>
+<td>[2.89, 8.11]</td>
+<td style="text-align: right;">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td>Omega − Beta</td>
+<td style="text-align: right;">3.24</td>
+<td>[0.63, 5.84]</td>
+<td style="text-align: right;">.010</td>
+</tr>
+</tbody>
+</table>
+<p>Omega scores significantly higher than both Alpha and Beta. The Beta–Alpha interval includes zero, and that comparison is not significant. This is insufficient evidence of a difference, <strong>not demonstration of equality</strong>.</p>
+<p>Tukey and our planned tests use the same ANOVA error term. Their adjusted <em>p</em>-values differ because the procedures control error differently and cover different comparison families.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Optional exercise: Cohen’s d for post-hoc comparisons
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Cohen’s <em>d</em> describes the standardised difference between two group means. It is calculated in the same way whether the comparison was planned or conducted post-hoc using Tukey HSD.</p>
+<p>We have already calculated Cohen’s <em>d</em> for Alpha versus Omega and Beta versus Omega. To complete the set of three pairwise comparisons:</p>
+<ol type="1">
+<li>Calculate Cohen’s <em>d</em> and its 95% confidence interval for <strong>Alpha versus Beta</strong>, using the same procedure as before.</li>
+<li>Compare the magnitude of this effect with the two effects calculated earlier.</li>
+<li>Does using Tukey HSD change the value of Cohen’s <em>d</em>? Explain your answer.</li>
+</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select participants assigned to Alpha or Beta.</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>alpha_beta <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">droplevels</span>()</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Cohen's d and its 95% confidence interval.</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>d_alpha_beta <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  Score <span class="sc">~</span> Group,</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> alpha_beta,</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pooled_sd =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>d_alpha_beta</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.33     | [-0.64, -0.02]
+
+- Estimated using pooled SD.</code></pre>
+</div>
+</div>
+<p>Cohen’s <em>d</em> is approximately <strong>−0.33</strong> for Alpha minus Beta, indicating that Alpha’s mean score is about one-third of a pooled standard deviation below Beta’s. This is smaller in magnitude than the differences between Alpha and Omega (<em>d</em> = −0.80) and Beta and Omega (<em>d</em> = −0.45).</p>
+<p>The calculation of Cohen’s <em>d</em> does not depend on whether the comparison was planned or post-hoc. Tukey HSD adjusts the statistical inference to account for multiple comparisons, but it does not change the conventional pairwise Cohen’s <em>d</em>. The confidence interval returned by <code>cohens_d()</code> is not Tukey-adjusted.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="preparing-a-figure-for-the-report" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-a-figure-for-the-report">Preparing a figure for the report</h2>
+<p>The box plot helped us inspect individual scores and distributions. For the results report, prepare a <strong>bar plot of the group means with 95% confidence intervals</strong>. The figure will communicate the descriptive pattern, so you do not need to repeat every mean and SD in the results paragraph.</p>
+<p>Reuse <strong><code>score_descriptives</code></strong>, the table calculated earlier. It already contains the group means and SDs, together with <code>ci</code>, the 95% confidence-interval margin supplied by <code>get_summary_stats()</code>. The error bars run from <code>mean - ci</code> to <code>mean + ci</code>; no separate summary table or manual calculation is needed.</p>
+<p>These intervals describe uncertainty in each <strong>group mean</strong>, whereas SD describes the spread of individual scores. They are also different from the intervals for <strong>differences between means</strong> used in our planned tests.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>score_barplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(score_descriptives, <span class="fu">aes</span>(<span class="at">x =</span> Group, <span class="at">y =</span> mean, <span class="at">fill =</span> Group)) <span class="sc">+</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.65</span>) <span class="sc">+</span> <span class="co"># Draw bars at the calculated means</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> ci, <span class="at">ymax =</span> mean <span class="sc">+</span> ci), <span class="at">width =</span> <span class="fl">0.15</span>) <span class="sc">+</span> <span class="co"># Add the CIs</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#3B6B8A"</span>, <span class="st">"#AC4141"</span>, <span class="st">"#5F8060"</span>)) <span class="sc">+</span> <span class="co"># Colour palette for bars</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="at">A =</span> <span class="st">"Alpha"</span>, <span class="at">B =</span> <span class="st">"Beta"</span>, <span class="at">O =</span> <span class="st">"Omega"</span>)) <span class="sc">+</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">70</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">70</span>, <span class="dv">10</span>), <span class="co"># 0 to 70 in increments of 10 on the y-axis</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))) <span class="sc">+</span> <span class="co"># Display 0 to 70</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Robot group"</span>, <span class="at">y =</span> <span class="st">"Mean statistics test score"</span>) <span class="sc">+</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span>         <span class="co"># Use a clear background and readable labels</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,             <span class="co"># The axis identifies the groups</span></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>), <span class="co"># Size of both x- and y-axis titles</span></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)   <span class="co"># Size of both axes' tick labels</span></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>score_barplot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-robot-scores" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Mean test scores of 58.10 for Alpha, 60.36 for Beta and 63.60 for Omega, with 95 percent confidence intervals.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-robot-scores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Week2_files/figure-html/fig-robot-scores-1.png" class="img-fluid figure-img" alt="Mean test scores of 58.10 for Alpha, 60.36 for Beta and 63.60 for Omega, with 95 percent confidence intervals." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-robot-scores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Mean statistics test scores by robot group. Error bars show separate 95% confidence intervals for the group means.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><code>ggplot()</code> specifies the data and maps variables to the axes and bar colours. The <code>+</code> signs add layers: <code>geom_col()</code> draws the means, and <code>geom_errorbar()</code> adds the confidence limits. The remaining commands set colours, labels and appearance. <code>axis.title</code> changes both axis titles (14 points), while <code>axis.text</code> changes the category names and numerical tick labels (12 points). Change the <code>size</code> values to adjust them. The vertical axis runs from 0 to 70; keeping its origin at zero makes the bar heights proportional to the scores.</p>
+<p>Save the figure to your project folder:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Export the saved plot as a high-resolution PNG for your report.</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Figure1_robot_scores.png"</span>, <span class="at">plot =</span> score_barplot,</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="fl">4.5</span>, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>In your report, label this <strong>Figure 1</strong> and use the caption: “Mean statistics test scores by robot group. Error bars show 95% confidence intervals for the group means.” Refer to it in the results paragraph. Do not infer pairwise significance simply from whether the plotted error bars overlap; use the planned comparisons.</p>
+</section>
+<section id="reporting-the-findings" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-the-findings">Reporting the findings</h2>
+<p>Write a results paragraph in the following sequence:</p>
+<ol type="1">
+<li>Identify the single-factor between-participants ANOVA, independent variable and its levels, and dependent variable.</li>
+<li>Report the omnibus result: <em>F</em>, degrees of freedom, <em>p</em>, eta-squared and its 95% CI. Refer to <strong>Figure 1</strong>, rather than listing the group means and SDs in the text.</li>
+<li>Report each <strong>unadjusted planned comparison</strong>, including direction, <em>t</em>, degrees of freedom, <em>p</em>, the 95% CI for the mean difference, and Cohen’s <em>d</em> with its 95% CI. State that the planned tests use the ANOVA error term.</li>
+</ol>
+<p>Use this starting point:</p>
+<blockquote class="blockquote">
+<p>A single-factor between-participants Analysis of Variance (ANOVA) was performed, with robot group (Alpha vs.&nbsp;Beta vs.&nbsp;Omega) as the independent variable and statistics test score as the dependent variable. There was a [significant/non-significant] effect of robot group, <em>F</em>(…, …) = …, <em>p</em> …, <span class="math inline">\(\eta^2\)</span> = …, 95% CI […, …] (see Figure 1). Planned comparisons using the ANOVA error term revealed that ….</p>
+</blockquote>
+<p>Report test statistics, effect sizes and confidence limits to two decimal places. Report exact <em>p</em>-values to three decimal places unless below .001, when you should write <em>p</em> &lt; .001. Never report <em>p</em> = .000. Keep the subtraction order clear. Place each confidence interval immediately after the result it describes, using the format 95% CI [lower limit, upper limit].</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer: example report
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A single-factor between-participants Analysis of Variance (ANOVA) was performed, with robot group (Alpha vs.&nbsp;Beta vs.&nbsp;Omega) as the independent variable and statistics test score as the dependent variable. There was a significant effect of robot group, <em>F</em>(2, 237) = 12.52, <em>p</em> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .10, 95% CI [.03, .17] (see Figure 1). Unadjusted planned comparisons using the ANOVA error term revealed that test scores were significantly lower for Alpha than Omega, <em>t</em>(237) = −4.98, <em>p</em> &lt; .001, 95% CI [−7.68, −3.32], <em>d</em> = −0.80, 95% CI [−1.12, −0.48]. Test scores were also significantly lower for Beta than Omega, <em>t</em>(237) = −2.93, <em>p</em> = .004, 95% CI [−5.41, −1.06], <em>d</em> = −0.45, 95% CI [−0.76, −0.13].</p>
+<p>Check that your paragraph distinguishes the overall test from the specific comparisons. These results support the predictions about <strong>test scores</strong>; they do not establish the separate prediction about likeability or show that likeability explains performance. Include the labelled figure and caption with your paragraph.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Alternative wording for the post-hoc scenario
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Keep the omnibus ANOVA sentence and figure reference, then replace the planned-comparison sentences with:</p>
+<p>Tukey post-hoc tests showed that Omega’s mean score exceeded Alpha’s by 5.50 points, simultaneous 95% CI [2.89, 8.11], adjusted <em>p</em> &lt; .001, and Beta’s by 3.24 points, simultaneous 95% CI [0.63, 5.84], adjusted <em>p</em> = .010. The Beta–Alpha difference of 2.26 points was not significant, simultaneous 95% CI [−0.34, 4.87], adjusted <em>p</em> = .103.</p>
+<p>The positive differences here use Omega minus Alpha and Omega minus Beta, as displayed by <code>tukey_hsd()</code>. The main reporting exercise remains the unadjusted planned-comparison analysis.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="before-you-finish" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-finish">Before you finish</h2>
+<p>Save your script, figure and results paragraph. Check that you can explain:</p>
+<ul>
+<li>Why the invalid likeability rating did not reduce the test-score sample size.</li>
+<li>Where the ANOVA error term appears in the output and in the follow-up formula.</li>
+<li>Why a significant ANOVA does not imply that every pair differs.</li>
+<li>How planned comparisons differ from exploratory post-hoc comparisons.</li>
+</ul>
+<p>Your script should run from the top, starting with the packages and import, and retain comments explaining the data decision.</p>
+<p>You have covered a lot of ground: checking and preparing data, assessing assumptions, running an ANOVA, examining specific differences, interpreting effect sizes and confidence intervals, and presenting the results in a figure and paragraph. <strong>Well done on completing the exercises.</strong> You now have a worked analysis to return to when practising these skills.</p>
+<p>The core practical ends here. There is <strong>no expectation that you will complete the optional extensions during the class</strong>. If time remains, you can make a start—otherwise, work through them in your own time. End your RStudio server session when you have finished.</p>
+</section>
+<section id="optional-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="optional-extensions">Optional extensions</h2>
+<p>These exercises provide further practice. Complete them in your own time if there is no time remaining in the session.</p>
+<section id="examine-the-likeability-ratings" class="level3">
+<h3 class="anchored" data-anchor-id="examine-the-likeability-ratings">Examine the likeability ratings</h3>
+<p>Use the cleaned <code>Likeability</code> variable. Obtain descriptives by group, produce Q–Q plots, and run Shapiro–Wilk and Levene’s tests. Identify outliers within groups. Compare the evidence with the score analysis: would you treat a bounded, seven-category rating exactly like a test score?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(Likeability, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"median"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  Group variable        n  mean    sd median   min   max
+  &lt;fct&gt; &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 A     Likeability    80  2.5  0.928      2     1     4
+2 B     Likeability    80  4.5  1.01       4     2     7
+3 O     Likeability    79  2.11 0.847      2     1     4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain participants with a valid rating for the optional analysis.</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>likeability_data <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Likeability))</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the rating distribution in a separate panel for each group.</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(likeability_data, <span class="at">x =</span> <span class="st">"Likeability"</span>, <span class="at">facet.by =</span> <span class="st">"Group"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week2_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check normality, variance homogeneity and potential outliers.</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>likeability_data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span> <span class="fu">shapiro_test</span>(Likeability)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  Group variable    statistic           p
+  &lt;fct&gt; &lt;chr&gt;           &lt;dbl&gt;       &lt;dbl&gt;
+1 A     Likeability     0.869 0.000000744
+2 B     Likeability     0.913 0.0000433  
+3 O     Likeability     0.859 0.000000386</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>likeability_data <span class="sc">%&gt;%</span> <span class="fu">levene_test</span>(Likeability <span class="sc">~</span> Group)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+    df1   df2 statistic     p
+  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1     2   236      1.75 0.177</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>likeability_data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span> <span class="fu">identify_outliers</span>(Likeability)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  Group    ID Likeability Score Likeability_original is.outlier is.extreme
+  &lt;fct&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;                &lt;dbl&gt; &lt;lgl&gt;      &lt;lgl&gt;     
+1 B       104           2    46                    2 TRUE       FALSE     
+2 B       126           7    50                    7 TRUE       FALSE     </code></pre>
+</div>
+</div>
+<p>The means are 2.50, 4.50 and 2.11 for Alpha, Beta and Omega; their SDs are 0.93, 1.01 and 0.85. Omega has 79 valid ratings; the other groups each have 80. The descriptive pattern does not support the prediction that Omega would be most liked.</p>
+<p>The small number of possible rating values produces steps and ties in the Q–Q plots. Shapiro–Wilk tests detect departures from normality; Levene’s test is non-significant (<em>p</em> = .177). Participants 104 and 126 in Group B are flagged as outliers, but their ratings are within the permitted scale. Retain them in the absence of a justified reason for exclusion.</p>
+<p>A significant normality test alone does not automatically rule out ANOVA, nor guarantee that a transformation is appropriate. Consider the bounded, ordinal scale, distribution shapes and scientific question. We will return to non-parametric approaches in Week 4; a second full inferential analysis is not required today.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="apply-the-workflow-to-likeability" class="level3">
+<h3 class="anchored" data-anchor-id="apply-the-workflow-to-likeability">Apply the workflow to likeability</h3>
+<p>For further coding practice, treat the cleaned ratings as approximately interval-scaled and repeat the ANOVA and two planned comparisons. This is a practice analysis under that assumption, rather than a conclusion that ANOVA is the best approach for every seven-category rating. Use the diagnostic evidence above when discussing its limitations.</p>
+<ol type="1">
+<li>Fit a new model called <code>likeability_model</code> using <code>likeability_data</code>.</li>
+<li>Run <code>emmeans_test()</code> with that model, comparing A with O and B with O.</li>
+<li>Display results without correction and with Bonferroni correction.</li>
+<li>Report the direction of the differences. Are they in the predicted direction?</li>
+</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyse ratings using only the participants with valid Likeability.</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>likeability_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Likeability <span class="sc">~</span> Group, <span class="at">data =</span> likeability_data)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(likeability_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+Group         2  261.6  130.80   151.3 &lt;2e-16 ***
+Residuals   236  204.0    0.86                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>likeability_data <span class="sc">%&gt;%</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans_test</span>(</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>    Likeability <span class="sc">~</span> Group,</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> likeability_model, <span class="co"># Use the rating model, not the score model</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"O"</span>), <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"O"</span>)),</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"none"</span>, <span class="co"># First inspect the unadjusted comparisons</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">detailed =</span> <span class="cn">TRUE</span></span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 14
+  term  .y.     group1 group2 null.value estimate    se    df conf.low conf.high
+* &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 Group Likeab… A      O               0    0.386 0.147   236   0.0956     0.677
+2 Group Likeab… B      O               0    2.39  0.147   236   2.10       2.68 
+# ℹ 4 more variables: statistic &lt;dbl&gt;, p &lt;dbl&gt;, p.adj &lt;dbl&gt;, p.adj.signif &lt;chr&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>likeability_data <span class="sc">%&gt;%</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">emmeans_test</span>(</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>    Likeability <span class="sc">~</span> Group,</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">model =</span> likeability_model,      <span class="co"># Use the rating model, not the score model</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"O"</span>), <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"O"</span>)),</span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span>, <span class="co"># Adjust across the two specified tests</span></span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">detailed =</span> <span class="cn">TRUE</span>                 <span class="co"># Retain the detailed output</span></span>
+<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 14
+  term  .y.     group1 group2 null.value estimate    se    df conf.low conf.high
+* &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 Group Likeab… A      O               0    0.386 0.147   236   0.0956     0.677
+2 Group Likeab… B      O               0    2.39  0.147   236   2.10       2.68 
+# ℹ 4 more variables: statistic &lt;dbl&gt;, p &lt;dbl&gt;, p.adj &lt;dbl&gt;, p.adj.signif &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Under this analysis, the omnibus test gives <em>F</em>(2, 236) = 151.34, <em>p</em> &lt; .001. Alpha’s mean rating exceeds Omega’s by 0.39 points, <em>t</em>(236) = 2.62, Bonferroni-adjusted <em>p</em> = .019; Beta’s exceeds Omega’s by 2.39 points, <em>t</em>(236) = 16.18, adjusted <em>p</em> &lt; .001. Both differences are <strong>opposite</strong> to the prediction that Omega would be most liked.</p>
+<p>There are 239 valid ratings, giving 236 error degrees of freedom. The correction here covers these two rating comparisons only. A research analysis spanning both outcomes would need an explicitly defined multiple-testing strategy; this exercise does not establish error control across all the tests in the practical.</p>
+</div>
+</div>
+</div>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

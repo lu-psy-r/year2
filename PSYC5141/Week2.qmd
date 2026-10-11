@@ -29,5 +29,918 @@ Watch Lecture 2 Part 5 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/V
 
 Download the Lecture 2 slides [here](data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA and Follow Up Procedures [HANDOUT].pdf), [here](data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA and Follow Up Procedures [BIG SLIDES].pdf) for a larger version, and [here](data/Wk2/Week 2 Lecture 2 Assumptions of ANOVA and Follow Up Procedures [LIVE].zip) for the live version. 
 
+This week, building on your understanding of between-participants designs from Week 1, you will learn how to analyse data from these experiments using Analysis of Variance (ANOVA). You will explore the logic of between-participants ANOVA, including how between-group and within-group variability are used to calculate the $F$-ratio and test for treatment effects. You will also examine the assumptions underlying ANOVA, how to identify and deal with problematic data and outliers, and how planned and post-hoc comparisons can be used to investigate differences between groups. The goal is to understand how to analyse data from between-participants experiments and draw valid statistical conclusions. Before attending the practical class, please review the Week 2 lecture materials and recordings above.
+
 # Practical
-Coming soon!
+
+## This week's lab
+
+This week, we extend the robot study to three groups. You will check the data, examine the assumptions of ANOVA, run a single-factor between-participants ANOVA, and use planned comparisons and post-hoc tests to examine specific group differences. The practical builds on both Week 2 lectures---please review these before attending.
+
+By the end of the session, you should be able to:
+
+- Distinguish a data error from an unusual but potentially valid observation.
+- Assess independence, normality and homogeneity of variance.
+- Interpret an ANOVA table, including its error term, and calculate eta-squared.
+- Run planned comparisons using the ANOVA error term and Tukey post-hoc tests.
+- Produce a bar plot with confidence intervals and report the findings with effect sizes.
+
+Work in your R script and attempt each exercise before revealing its answer. Use comments to record your decisions and interpretations. Ask a GTA if you need help with a step.
+
+::: {.callout-note icon="false"}
+## Session plan: two hours
+
+| Activity | Approximate time |
+|---|---:|
+| Set up the project and identify the research questions | 10 minutes |
+| Inspect and check the data | 15 minutes |
+| Summarise and plot test scores | 10 minutes |
+| Examine assumptions | 15 minutes |
+| Run and interpret the ANOVA and eta-squared | 15 minutes |
+| Planned comparisons, confidence intervals and Cohen's d | 20 minutes |
+| Compare Bonferroni and Tukey procedures | 10 minutes |
+| Prepare the bar plot and write up the results | 20 minutes |
+| Time for questions and catching up | 5 minutes |
+
+<!-- The core analysis uses **test scores**. Complete the optional extensions only after finishing the results paragraph, or return to them after class.-->
+:::
+
+## Getting started
+
+{{< include /Includes/_login.qmd >}}
+
+1. Open your existing `psyc5141_labs` folder in RStudio's **Files** pane. Create a new folder inside it named `psyc5141_lab_2`.
+2. Download [the Week 2 data file](data/Wk2/week2_robo_lab.csv) and upload it to `psyc5141_lab_2`.
+3. Select **File → New Project → Existing Directory**, choose `psyc5141_lab_2`, and click **Create Project**.
+4. Open a new R script and save it in this folder as `week2_analysis.R`.
+
+The project sets the working directory to this week's folder. You do not need `setwd()`. When returning to the practical, open `psyc5141_lab_2.Rproj` before running your script.
+
+Load the following packages we will be using in this session at the start of your script:
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)  # Import, organise and plot data
+library(rstatix)    # Descriptives, assumption checks and follow-up tests
+library(ggpubr)     # Box plots and Q–Q plots
+library(effectsize) # Effect sizes and their confidence intervals
+```
+
+Import the data from your project folder:
+
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
+lab2_raw <- read_csv("week2_robo_lab.csv") # Read the CSV and store it in R
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+# Website rendering uses the website's data directory.
+lab2_raw <- read_csv("data/Wk2/week2_robo_lab.csv")
+```
+
+We will keep **two dataframes** in R. A dataframe is a table whose columns contain variables and whose rows contain observations. `lab2_raw` holds the original imported data. Create a second dataframe, `lab2_data`, as our working version:
+
+```{r}
+#| message: false
+#| warning: false
+lab2_data <- lab2_raw # Copy the data; keep the original import unchanged
+```
+
+Both dataframes initially contain the same data. We will make changes and run analyses using `lab2_data`, while leaving `lab2_raw` unchanged. This preserves a reference copy so that we can check the original values or restart the data preparation if needed. Changes to the working dataframe do not overwrite the original CSV file.
+
+## The robot study: three groups
+
+In Week 1, we examined a hypothetical study comparing robot lab assistants Alpha and Beta. The researchers now conduct a **new experiment with a new sample**, adding a third robot, Omega. Omega has the most human-like appearance, followed by Beta and then Alpha. Each student is randomly assigned to work with one robot and completes the same statistics test and likeability rating.
+
+| Variable | Meaning |
+|---|---|
+| `ID` | Participant identifier. |
+| `Group` | Robot assignment: `A` = Alpha, `B` = Beta, `O` = Omega. The last code is the letter O. |
+| `Score` | Statistics test score, on the 0–100 scale introduced in Week 1. |
+| `Likeability` | Rating from 1 (*strongly dislike*) to 7 (*strongly like*). |
+
+Before collecting the data, the researchers predict that students assigned Omega will score higher than those assigned **Alpha** and those assigned **Beta**. These predictions identify two planned comparisons: Omega versus Alpha, and Omega versus Beta. They also predict higher likeability for Omega. We will retain that outcome for data checking and optional practice.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: identify the design
+
+1. What is the factor, and how many levels does it have?
+2. Why is this a between-participants design?
+3. State the null hypothesis for the omnibus ANOVA of test scores.
+4. Does the prediction about Omega require an Alpha–Beta comparison?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+The factor is robot assignment, with three levels. Each participant works with only one robot, so different participants contribute scores to the three conditions. The omnibus null hypothesis is that all three **population mean test scores are equal**: $\mu_A = \mu_B = \mu_O$. The alternative is that at least one differs. The predictions about Omega do not require an Alpha–Beta comparison.
+:::
+
+### Identify the independent variable in R
+
+We have identified robot group as our independent variable, with three levels: Alpha, Beta and Omega. Now check how R currently stores that column:
+
+```{r}
+#| message: false
+#| warning: false
+class(lab2_data$Group) # Check the type of the group-label column
+```
+
+At present, `Group` is a **character** variable: R stores A, B and O as text. For our analysis, these labels represent the three categories of an independent variable. Converting `Group` to a **factor** makes this structure explicit and defines the levels and their order:
+
+```{r}
+#| message: false
+#| warning: false
+# Replace the character labels with a categorical variable.
+lab2_data$Group <- factor(
+  lab2_data$Group,            # The column to convert
+  levels = c("A", "B", "O")   # The categories, in the desired order
+)
+class(lab2_data$Group)  # Should now return "factor"
+levels(lab2_data$Group) # Check the three recognised categories
+```
+
+The `$` selects a column, and `<-` stores the converted variable back in that column. The participants' group assignments have not changed. We have changed how R represents them. This helps analysis and plotting functions treat the labels consistently as categories and display them in the intended order. Some functions convert text automatically, but explicitly defining the factor avoids relying on that behaviour. It is especially important when categories are coded with numbers: a numeric code such as 1, 2 or 3 could otherwise be treated as a numerical predictor.
+
+## Checking the data
+
+### Inspect the structure and ranges
+
+Start with `glimpse()`, which gives a compact overview of the data: the number of rows and columns, each variable's name and type, and some example values.
+
+```{r}
+#| message: false
+#| warning: false
+glimpse(lab2_data) # Inspect the structure and the first values in each column
+```
+
+There should be **240 rows and four columns**. In the output, `<dbl>` denotes numerical values and `<fct>` denotes a factor. Check that `Group` is now a factor and both outcomes are numerical.
+
+Next, count the observations in each robot group:
+
+```{r}
+#| message: false
+#| warning: false
+lab2_data %>%      # Start with our working data
+  count(Group)     # Count the rows for each level of Group
+```
+
+The pipe, `%>%`, passes the data to the next function. `count(Group)` produces one row per robot group and a column called `n` containing its count. There should be **80 participants in each group**.
+
+Now inspect the lowest and highest values of each outcome within each group:
+
+```{r}
+#| message: false
+#| warning: false
+lab2_data %>%
+  group_by(Group) %>% # Calculate separate summaries for each robot group
+  get_summary_stats(
+    Score, Likeability,       # The two variables to summarise
+    show = c("min", "max")    # Request the minimum and maximum values
+  )
+```
+
+`group_by()` tells the next function to work separately within the groups. `get_summary_stats()` calculates the requested statistics. The output contains six rows: two outcomes for each of three groups. Compare `min` and `max` with the permitted measurement ranges---a value outside those ranges signals a problem even if R recognises it as numerical.
+
+Finally, check for missing values and repeated participant identifiers:
+
+```{r}
+#| message: false
+#| warning: false
+# Identify missing entries, then count them within each column.
+colSums(is.na(lab2_data))
+
+# Check whether any participant ID occurs more than once.
+anyDuplicated(lab2_data$ID)
+```
+
+`is.na()` marks each missing entry `TRUE` and each observed entry `FALSE`. `colSums()` adds these within each column, treating `TRUE` as 1 and `FALSE` as 0. All four counts should initially be zero. <!-- **Zero missing values does not mean zero errors**: an impossible rating such as 33 is still an observed number. -->
+
+`anyDuplicated()` returns zero if every ID is unique; otherwise, it returns the row position of the first duplicate. The result here should be zero, consistent with one row per participant. Repeated IDs would need investigation rather than automatic deletion.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: find the data error
+
+One outcome contains an impossible value. Identify the variable, value and participant. Use `filter()` to display any likeability ratings outside the permitted range:
+
+```{r}
+#| message: false
+#| warning: false
+lab2_data %>% filter(Likeability < 1 | Likeability > 7)
+```
+
+The symbol `|` means **or**. Why would replacing this value with 3 be unjustified? Should this participant's test score also be removed?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Participant **238**, in Group O, has a likeability rating of **33**. This is impossible on a 1–7 scale. We cannot establish the intended value from this file: changing it to 3 would be a guess. Their test score of 63 is valid, so an error in the rating does not justify removing their test score.
+:::
+
+In a real study, first check the original record. For this exercise, no original record is available, so record the invalid rating as missing (`NA`) in the working copy:
+
+```{r}
+#| message: false
+#| warning: false
+# Preserve the original ratings for record keeping purposes
+lab2_data <- lab2_data %>%
+  mutate(
+    Likeability_original = Likeability,  # Keep the original ratings
+    Likeability = if_else(
+      Likeability < 1 | Likeability > 7, # Is the rating outside the scale?
+      NA_real_, Likeability              # If yes, use NA; otherwise keep it
+    )
+  )
+
+lab2_data %>%
+  filter(ID == 238) %>% # Display the affected participant
+  select(ID, Group, Likeability_original, Likeability, Score)
+```
+
+There are still **240 valid test scores**, but now **239 valid likeability ratings**. Keep all 240 participants in the test-score analysis. The CSV and `lab2_raw` remain unchanged. If restarting the cleaning step, first recreate `lab2_data` from `lab2_raw` so that the original-rating column is preserved correctly.
+
+::: {.callout-note icon="false"}
+## Key idea: errors and outliers are different
+
+A rating of 33 is outside the measurement scale and is therefore invalid. An unusually low test score can still be a valid observation. Outlier detection flags values for investigation; it does not, by itself, justify deleting them.
+:::
+
+## Summarising and visualising test scores
+
+Use the Week 1 workflow to obtain descriptives:
+
+```{r}
+#| message: false
+#| warning: false
+score_descriptives <- lab2_data %>%
+  group_by(Group) %>% # Summarise the scores within each robot group
+  get_summary_stats(Score, show = c("mean", "sd", "min", "max", "ci"))
+score_descriptives # Display the saved table
+```
+
+Recall that SD describes the spread of individual scores within a group. Its square is the variance. The additional `ci` column gives the margin on either side of the mean for its 95% confidence interval---we will use it later for the report figure. Plot the data as well as inspecting the table:
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 7
+#| fig-height: 4.5
+#| fig-alt: "Box plots and individual statistics test scores for Alpha, Beta and Omega."
+set.seed(5141) # Reproduce the horizontal jitter of individual points
+score_boxplot <- ggboxplot(
+  lab2_data,
+  x = "Group", y = "Score", # Group on x; test scores on y
+  color = "Group", palette = c("#3B6B8A", "#AC4141", "#5F8060"), # Colour palette 
+  add = "jitter", # Show individual observations as well as the boxes
+  xlab = "Robot group", ylab = "Statistics test score", # x- and y-axis titles
+  title = "Test scores by robot group" # Figure title
+)
+score_boxplot # Display the plot
+```
+
+::: {.callout-tip icon="false"}
+## Try it yourself: describe the pattern
+
+Which group has the highest mean? Are the within-group SDs similar? Describe the overlap between groups. Does this pattern agree with the predictions about Omega, and does it establish statistical significance?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+| Robot | Mean | SD |
+|---|---:|---:|
+| Alpha | 58.10 | 6.45 |
+| Beta | 60.36 | 7.27 |
+| Omega | 63.60 | 7.22 |
+
+Omega has the highest sample mean, consistent with the predicted direction. The SDs are similar and the distributions overlap substantially. Neither the ordering of the means nor the amount of overlap establishes statistical significance. The line inside each box is the **median**, not the mean.
+:::
+
+## Examining the assumptions
+
+### Independence of observations
+
+Independence concerns how the data were generated. For this hypothetical study, assume that students were individually assigned to robots, worked separately, and completed their assessments independently. Each student contributes one test score.
+
+Unique IDs help check the file structure, but they cannot establish independence. For example, students working together in tutorial groups could have related scores even if every ID were unique. Independence must be justified from the experimental design and procedure---there is no test here that can certify it.
+
+### Potential outliers
+
+Identify unusual scores **within each group**, rather than relative to the whole sample:
+
+```{r}
+#| message: false
+#| warning: false
+score_outliers <- lab2_data %>%
+  group_by(Group) %>%       # Apply the outlier rules within each group
+  identify_outliers(Score)  # Return rows containing flagged scores
+score_outliers # Display the flagged participants
+```
+
+`identify_outliers()` flags scores more than 1.5 IQRs below the first quartile or above the third quartile. The `is.extreme` column flags scores beyond 3 IQRs. These thresholds are screening rules, not automatic exclusion rules.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: decide what to retain
+
+Which participant is flagged? Is the score outside the test's possible range? What further information would justify correcting or excluding it?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Participant **112**, in Group B, has a score of **40**. It is flagged as an outlier, but not as extreme. The score is possible. An original record showing a transcription error, or evidence that the assessment was not completed under the required conditions, could justify action under a defensible rule. No such evidence is supplied, so **retain the score**. A non-extreme flag does not establish that an observation has no influence---it simply describes its position relative to the quartiles. As a general rule, outliers are typically fine to work with, whereas extreme values are potentially problematic and may require attention.
+:::
+
+### Normality within groups
+
+The normality assumption concerns the population distributions **within the robot groups**, not all scores combined. Use a separate Q–Q plot for each group:
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 9
+#| fig-height: 3.5
+#| fig-alt: "Normal Q–Q plots of test scores separately for the three robot groups."
+# Plot Score against normal quantiles, with one panel per group.
+ggqqplot(lab2_data, x = "Score", facet.by = "Group")
+```
+
+A Q–Q plot compares the observed scores with the pattern expected under a normal distribution. Points broadly following the reference line are consistent with approximate normality. Look for systematic curvature and substantial departures in the tails, rather than expecting every point to sit on the line.
+
+The Shapiro–Wilk test provides an additional check:
+
+```{r}
+#| message: false
+#| warning: false
+lab2_data %>%
+  group_by(Group) %>%
+  shapiro_test(Score) # Test normality separately within each group
+```
+
+The Shapiro–Wilk test assesses whether a distribution departs significantly from normality. Its null hypothesis is that the data are normally distributed. A significant result (*p* ≤ .05) provides evidence against normality. However, a non-significant result (*p* > .05) does **not demonstrate that the data are normally distributed**---it simply indicates that there is insufficient evidence to reject the null hypothesis.
+
+There is an important sample-size caveat. As the sample gets larger, the test becomes more sensitive to small departures from normality. It can therefore give a significant result for a departure too minor to cause a substantial problem for ANOVA. Conversely, a small sample may provide too little information to detect a meaningful departure. Use the test alongside the Q–Q plots, sample sizes and unusual observations. Do not treat significance alone as an automatic reason to abandon ANOVA.
+
+### Homogeneity of variance
+
+**Levene's test is designed to assess the homogeneity of variances assumption**: whether the population variances are equal across groups. Compare the group SDs, then run the test:
+
+```{r}
+#| message: false
+#| warning: false
+lab2_data %>% levene_test(Score ~ Group) # Compare within-group variances
+```
+
+Here, `Score ~ Group` means that we are comparing test scores across robot groups. By default, `levene_test()` uses the group medians as its centre, making it a more robust version of Levene's test. The null hypothesis is that the population variances are equal. A significant result (*p* ≤ .05) provides evidence against equality of variances. However, a non-significant result (*p* > .05) does **not demonstrate that the variances are equal**---it simply indicates that there is insufficient evidence to reject the null hypothesis.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: reach an analysis decision
+
+Consider the design, outlier check, Q–Q plots, Shapiro–Wilk tests and Levene's test together. Is it reasonable to proceed with the standard ANOVA? Write a two-sentence justification in your script.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+The experimental procedure supports the assumption of independence of observations. The score distributions show no substantial departures from normality, with Shapiro–Wilk *p*-values of approximately .589, .418, and .430 for groups A, B, and O, respectively. The standard deviations are similar across groups, and Levene's test provides no significant evidence of unequal variances, *F*(2, 237) = 0.80, *p* = .451. With 80 observations per group and no identified errors in the test scores, a standard between-participants ANOVA is appropriate.
+
+Importantly, this is an **overall judgement based on the available evidence** and does not establish that every assumption is satisfied exactly. Substantial violations would require further investigation and potentially an alternative analysis. We will explore non-parametric alternatives in Week 4.
+
+:::
+
+## Running the ANOVA
+
+Use `aov()` from R's **stats** package to fit the model, then display its ANOVA table:
+
+```{r}
+#| message: false
+#| warning: false
+# Fit the model and save it for the follow-up comparisons.
+score_model <- aov(Score ~ Group, data = lab2_data)
+summary(score_model) # Display the ANOVA table
+```
+
+In the formula `Score ~ Group`, the variable **before** `~` is the dependent variable (`Score`), and the variable **after** `~` is the independent variable (`Group`). Read it as “analyse test scores as a function of robot group”. `data = lab2_data` tells R where to find those columns. The assignment stores the fitted model as `score_model`; `summary()` displays its results.
+
+### Connect the output to the lecture
+
+The output has the same basic structure as the ANOVA table constructed in the lecture: sources of variation appear in rows, and sums of squares, degrees of freedom, mean squares and *F* appear in columns. R calls the within-group row **Residuals** and does not display a separate total row here.
+
+| Output | Meaning |
+|---|---|
+| `Group` | Between-group variation. |
+| `Residuals` | Within-group variation: our estimate of experimental error. |
+| `Df` | Degrees of freedom: $k-1$ between groups and $N-k$ within groups. |
+| `Sum Sq` | Sum of squared deviations for that source of variation. |
+| `Mean Sq` | Sum of squares divided by its degrees of freedom. |
+| `F value` | Between-group mean square divided by the residual mean square. |
+| `Pr(>F)` | The omnibus *p*-value. |
+
+::: {.callout-tip icon="false"}
+## Try it yourself: interpret the ANOVA table
+
+1. Identify the between-group and within-group degrees of freedom. Explain them using $N$ and $k$.
+2. Identify the two mean squares and divide the between-group value by the within-group value. Does this reproduce *F*?
+3. Is the omnibus test significant at .05?
+4. Can you conclude that Omega differs from **both** other groups from this test alone?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+With $N = 240$ and $k = 3$, the degrees of freedom are $3-1 = 2$ and $240-3 = 237$. The mean squares are approximately **611.34** between groups and **48.82** within groups:
+
+$$F = \frac{MS_{\text{between}}}{MS_{\text{error}}}
+    = \frac{611.34}{48.82} \approx 12.52.$$
+
+The test is significant, *F*(2, 237) = 12.52, *p* < .001. Reject the hypothesis that all three population means are equal. This does not identify which pairs differ, or establish that every pair differs. Small discrepancies when calculating *F* from displayed values reflect rounding.
+:::
+
+### Effect size: eta-squared
+
+Eta-squared ($\eta^2$) describes the proportion of the total observed variability associated with differences between groups:
+
+$$\eta^2 = \frac{SS_{\text{between}}}{SS_{\text{total}}}
+         = \frac{SS_{\text{between}}}{SS_{\text{between}}+SS_{\text{within}}}.$$
+
+For these data, the calculation is $1222.675/(1222.675+11570.8875) \approx .096$. In practice, use the `eta_squared()` function from the `effectsize` package to calculate the effect size and its confidence interval:
+
+```{r}
+#| message: false
+#| warning: false
+score_eta <- eta_squared(
+  score_model,               # Use the fitted ANOVA
+  partial = FALSE,           # Request eta-squared
+  ci = 0.95,                 # Request a 95% confidence interval
+  alternative = "two.sided"  # Estimate both lower and upper limits
+)
+score_eta # Display the effect size and its interval
+```
+
+The result is approximately **.096**, with a two-sided 95% CI of **[.03, .17]**. About **9.6% of the observed variability** in scores is associated with differences between the robot groups. This does not mean that scores increased by 9.6%. Report $\eta^2 = .10$, 95% CI [.03, .17], when rounding to two decimal places.
+
+The interval expresses uncertainty about the population effect size. A **two-sided interval** estimates both a lower and an upper confidence limit: it addresses how small or how large the effect might plausibly be. Here, those limits are approximately .03 and .17.
+
+A **one-sided interval** provides a confidence bound in only one direction. By default, this function estimates a lower bound and extends the interval up to 1, the largest possible eta-squared. That upper endpoint is the boundary of the scale, not an estimated upper confidence limit. We set `alternative = "two.sided"` because we want limits in both directions. This choice concerns the effect-size interval; it does not change the ANOVA's *F*-test.
+
+As a rule of thumb, $\eta^2 = .01$ indicates a **small** effect, $.06$ a **medium** effect, and $.14$ a **large** effect. Our estimate of approximately .10 falls between the medium and large benchmarks. These are broad guidelines: the practical importance of an effect also depends on the outcome and research context.
+
+## Planned comparisons using the ANOVA error term
+
+Our pre-specified questions concern Omega versus Alpha and Omega versus Beta. We can test these directly without adding an Alpha–Beta comparison. We use two-sided tests, as in the lecture's worked comparisons---the group means establish whether any differences are in the predicted direction.
+
+The lecture formula was:
+
+$$t = \frac{\bar X_1-\bar X_2}
+{\sqrt{MS_{\text{error}}(1/n_1+1/n_2)}}.$$
+
+The **denominator is the standard error of the difference between the two means**:
+
+$$SE_{\text{difference}} = \sqrt{MS_{\text{error}}(1/n_1+1/n_2)}.$$
+
+It estimates how much the difference between sample means would vary across repeated samples. The *t* statistic is the observed mean difference divided by this standard error: it expresses the difference in standard-error units.
+
+### Why are the degrees of freedom 237?
+
+Look back at your ANOVA table from `summary(score_model)`. In the **Residuals** row, the `Df` column contains **237** and the `Mean Sq` column contains approximately **48.82**. These are the error degrees of freedom and error mean square that our planned comparisons reuse.
+
+The two means in each comparison come from two groups, but the **error estimate comes from all three groups** in our ANOVA. Within each group, estimating its mean leaves $n-1$ degrees of freedom for estimating variability. Pooling across the three groups therefore gives:
+
+$$df_{\text{error}} = (80-1)+(80-1)+(80-1) = 237.$$
+
+Both planned comparisons reuse that pooled error estimate and its **237 degrees of freedom**. We are not running new, separate two-group *t*-tests. Such a test would estimate error from only its two groups, giving $(80-1)+(80-1)=158$. The degrees of freedom follow the information used to estimate **error**, rather than simply the number of groups whose means appear in the numerator.
+
+### Start with unadjusted comparisons
+
+Use `emmeans_test()` from `rstatix`, supplying the model we fitted using `aov()`:
+
+```{r}
+#| message: false
+#| warning: false
+planned_unadjusted <- lab2_data %>%
+  emmeans_test(
+    Score ~ Group,
+    model = score_model,       # Use the ANOVA error term and degrees of freedom
+    comparisons = list(c("A", "O"), c("B", "O")), # Our two planned pairs
+    p.adjust.method = "none",  # Test each planned comparison at alpha = .05
+    detailed = TRUE            # Include differences, SEs and confidence intervals
+  )
+planned_unadjusted # Display the results
+```
+
+`model = score_model` tells the function to use our existing ANOVA model. The comparisons use the model's residual mean square and degrees of freedom. For this single-factor model, the estimated marginal means are simply the group means.
+
+`comparisons` selects our two planned pairs. Each `c()` combines two group labels into a pair: `c("A", "O")` specifies Alpha versus Omega, and `c("B", "O")` specifies Beta versus Omega. The outer `list()` collects these pairs together while keeping them as two separate comparisons. `detailed = TRUE` includes the estimated differences and standard errors. Read `statistic` as the *t* statistic and `df` as its degrees of freedom. The subtraction order is **group1 minus group2**, so both estimated differences are negative when Omega scores higher. `p` contains the unadjusted, two-sided *p*-value. With no correction, `p.adj` is identical to `p`.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: connect the test to the lecture formula
+
+Using the ANOVA error mean square of approximately 48.82, calculate the standard error as $\sqrt{48.82(1/80+1/80)}$. Divide the Alpha-minus-Omega difference of −5.50 by that standard error. Compare your result with `se` and `statistic` in the output. Why are the degrees of freedom 237 rather than 158?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+The standard error is approximately **1.105 points**, giving $t \approx -5.50/1.105 = -4.98$. The error estimate uses all 240 scores across three groups, giving $240-3 = 237$ degrees of freedom. A separate equal-variances two-group test would use $80+80-2 = 158$. Small differences reflect rounding.
+:::
+
+### Apply the Bonferroni correction
+
+Testing several hypotheses increases the chance of at least one Type I error across the **family of comparisons**. Bonferroni controls this familywise error rate by dividing the desired significance level by the number of tests. For our two planned comparisons:
+
+$$\alpha_{\text{per comparison}} = \frac{.05}{2} = .025.$$
+
+Equivalently, multiply each unadjusted *p*-value by two (capping it at 1) and compare the result with .05. In `emmeans_test()`, the `p.adjust.method` argument selects the correction: change `p.adjust.method = "none"` to `p.adjust.method = "bonferroni"` to apply it to our two specified comparisons:
+
+```{r}
+#| message: false
+#| warning: false
+planned_bonferroni <- lab2_data %>%
+  emmeans_test(
+    Score ~ Group,
+    model = score_model,
+    comparisons = list(c("A", "O"), c("B", "O")),
+    p.adjust.method = "bonferroni", # Adjust across the two specified tests
+    detailed = TRUE                 # Retain the detailed output
+  )
+planned_bonferroni
+```
+
+Compare `p` and `p.adj` in this table. The means, standard errors, *t* statistics and degrees of freedom have not changed; the adjustment changes the *p*-values used for decisions. Compare **`p.adj` with .05**, or compare **`p` with .025**. Do not apply both adjustments at once.
+
+::: {.callout-note icon="false"}
+## Key idea: when should we apply a correction?
+
+For this module, use the following guidance for planned comparisons:
+
+- Specify the comparisons **before examining the results** and keep their number as small as the research questions allow.
+- When there are **no more than $k-1$ planned comparisons and no more than four in total**, test each at the usual $\alpha = .05$ without correction. Here, $k$ is the number of levels of the factor. Both limits must be satisfied.
+- With **five or more planned comparisons**, apply the Bonferroni correction even though the comparisons were specified in advance. If you exceed the $k-1$ guideline, do not assume that uncorrected testing is appropriate---use an explicitly justified multiple-testing correction.
+- Additional comparisons chosen after inspecting the results are **unplanned** and require an appropriate post-hoc procedure.
+
+This is a practical guideline for a small set of planned tests, not a guarantee that the familywise Type I error rate remains at .05. Unadjusted tests control the error rate for each comparison separately---Bonferroni controls it across the specified family. Genuinely planned comparisons do not require a significant omnibus ANOVA.
+
+For today's report, use the **unadjusted planned comparisons**. We specified two comparisons in advance, with three robot groups: $k-1 = 2$, and two is fewer than five. Test each at $\alpha = .05$. The Bonferroni analysis is a comparison exercise showing how correction changes the results.
+
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## A note on the confidence intervals
+
+In `emmeans_test()`, the `conf.low` and `conf.high` columns are **unadjusted** confidence intervals, including when the *p*-values receive Bonferroni adjustment. Do not describe these intervals as simultaneous or Bonferroni-adjusted. For our unadjusted planned-comparison report, use these ordinary 95% intervals for the **mean differences**, together with the unadjusted *p*-values. Tukey's intervals in the next section do account for the family of pairwise comparisons.
+:::
+
+::: {.callout-tip icon="false"}
+## Try it yourself: interpret the planned tests
+
+1. Why is the standard error the same for both comparisons?
+2. Which output columns change when you apply Bonferroni?
+3. Do both comparisons remain significant after correction?
+4. Would you reach the same decisions by comparing the unadjusted *p*-values with .025?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Both comparisons use the same error mean square and equal group sizes, giving a standard error of approximately **1.105 points**. The differences are Alpha minus Omega and Beta minus Omega, so they are negative when Omega scores higher.
+
+| Comparison | Mean difference | *t*(237) | Unadjusted *p* | Bonferroni-adjusted *p* |
+|---|---:|---:|---:|---:|
+| Alpha − Omega | −5.50 | −4.98 | < .001 | < .001 |
+| Beta − Omega | −3.24 | −2.93 | .004 | .007 |
+
+Both adjusted tests are significant and support the predicted direction. Their error estimate uses all 240 scores, giving $240-3 = 237$ degrees of freedom. A separate equal-variances two-group test would use $80+80-2 = 158$.
+:::
+
+### Confidence intervals for the planned differences
+
+In `planned_unadjusted`, the `estimate` column gives each mean difference in **test-score points**. The `conf.low` and `conf.high` columns contain its 95% confidence limits. Display these alongside the test results:
+
+```{r}
+#| message: false
+#| warning: false
+# Keep the columns needed to interpret and report the planned tests.
+planned_unadjusted %>%
+  select(group1, group2, estimate, conf.low, conf.high, statistic, df, p)
+```
+
+The intervals are approximately **[−7.68, −3.32]** for Alpha minus Omega and **[−5.41, −1.06]** for Beta minus Omega. Both lie below zero, consistent with Omega's higher scores. These intervals describe uncertainty in the **population mean differences**, not the spread of individual scores. In your results paragraph, report them as **95% CI [lower limit, upper limit]**, immediately after the *t*-test result.
+
+### Effect sizes for the focused comparisons: Cohen's d
+
+As in Week 1, Cohen's *d* expresses a mean difference in standard-deviation units. Here we use the conventional **pooled SD of the two groups being compared**. Calculate *d* and its 95% confidence interval using `cohens_d()` from `effectsize`:
+
+```{r}
+#| message: false
+#| warning: false
+# Select the Alpha and Omega participants for this effect-size calculation.
+alpha_omega <- lab2_data %>%
+  filter(Group %in% c("A", "O")) %>%
+  droplevels() # Remove the unused Beta level from this subset
+
+# Calculate Alpha minus Omega in pooled-SD units, with its 95% CI.
+d_alpha_omega <- cohens_d(
+  Score ~ Group, data = alpha_omega,
+  pooled_sd = TRUE, # Pool the SDs of these two groups
+  ci = 0.95         # Request a 95% confidence interval for d
+)
+d_alpha_omega
+```
+
+`%in%` means “is one of”: the filter retains rows whose group is A or O. The effect-size function divides the difference between the group means by their pooled SD and also calculates a confidence interval.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: calculate the second effect size
+
+Adapt the code to compare **Beta with Omega**, saving the data as `beta_omega` and the result as `d_beta_omega`. What do the signs and magnitudes of the two effect sizes tell you?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+#| message: false
+#| warning: false
+# Keep Beta and Omega, then calculate their standardised mean difference.
+beta_omega <- lab2_data %>%
+  filter(Group %in% c("B", "O")) %>%
+  droplevels() # Remove the unused Alpha level from this subset
+d_beta_omega <- cohens_d(
+  Score ~ Group, data = beta_omega,
+  pooled_sd = TRUE,
+  ci = 0.95
+)
+d_beta_omega
+```
+
+Alpha minus Omega gives **d = −0.80**, 95% CI **[−1.12, −0.48]**. Beta minus Omega gives **d = −0.45**, 95% CI **[−0.76, −0.13]**. The negative signs indicate lower scores for Alpha and Beta. Their means are about 0.80 and 0.45 pooled SDs below Omega's, respectively.
+
+As broad guidelines, absolute *d* values of 0.20, 0.50 and 0.80 are described as small, medium and large, respectively. The sign indicates direction, not effect magnitude.
+
+These confidence intervals are in **standard-deviation units**, whereas the intervals from `emmeans_test()` are in **test-score points**. They are different summaries of the same group differences.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Which variability estimate are we using?
+
+Our planned *t*-tests and confidence intervals for the raw mean differences continue to use the error estimate from **all three groups** in `score_model`. The conventional pairwise Cohen's *d* values above use the pooled SD of **each pair**, as in Week 1. Selecting two groups for this effect-size calculation does not change the fitted ANOVA or its follow-up tests.
+:::
+
+## Post-hoc comparisons: Tukey HSD
+
+Now consider an **alternative analysis scenario**: the researchers had no specific pairwise predictions and wanted to explore all pairs after a significant omnibus ANOVA. Use Tukey HSD, which controls the familywise error rate across the complete set of pairwise comparisons. The Tukey–Kramer procedure accommodates unequal sample sizes; here the group sizes are equal.
+
+We run both approaches to learn them. In an actual report, use the approach justified by the research questions and analysis plan---do not choose whichever produces smaller *p*-values.
+
+```{r}
+#| message: false
+#| warning: false
+tukey_tests <- tukey_hsd(score_model) # Compare all pairs using the fitted ANOVA
+tukey_tests # Display adjusted p-values and simultaneous intervals
+```
+
+Passing `score_model` ensures that Tukey uses the fitted ANOVA and its error term. Read `p.adj` for the adjusted *p*-values. `estimate` is the mean difference; `conf.low` and `conf.high` give simultaneous 95% confidence intervals across the pairwise family.
+
+**Check the subtraction order:** in this `tukey_hsd()` output, estimates are **group2 minus group1**. Thus, the row labelled A and O shows Omega minus Alpha, a positive difference. This reverses the sign of the Alpha-minus-Omega calculation above without changing its substantive direction.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: interpret the post-hoc tests
+
+Which pairs differ significantly? Which confidence interval includes zero? Does the non-significant comparison demonstrate that the two population means are identical?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+| Difference | Estimate | Simultaneous 95% CI | Tukey-adjusted *p* |
+|---|---:|---|---:|
+| Beta − Alpha | 2.26 | [−0.34, 4.87] | .103 |
+| Omega − Alpha | 5.50 | [2.89, 8.11] | < .001 |
+| Omega − Beta | 3.24 | [0.63, 5.84] | .010 |
+
+Omega scores significantly higher than both Alpha and Beta. The Beta–Alpha interval includes zero, and that comparison is not significant. This is insufficient evidence of a difference, **not demonstration of equality**.
+
+Tukey and our planned tests use the same ANOVA error term. Their adjusted *p*-values differ because the procedures control error differently and cover different comparison families.
+:::
+
+
+::: {.callout-tip icon="false" collapse="true"}
+## Optional exercise: Cohen's d for post-hoc comparisons
+
+Cohen's *d* describes the standardised difference between two group means. It is calculated in the same way whether the comparison was planned or conducted post-hoc using Tukey HSD.
+
+We have already calculated Cohen's *d* for Alpha versus Omega and Beta versus Omega. To complete the set of three pairwise comparisons:
+
+1. Calculate Cohen's *d* and its 95% confidence interval for **Alpha versus Beta**, using the same procedure as before.
+2. Compare the magnitude of this effect with the two effects calculated earlier.
+3. Does using Tukey HSD change the value of Cohen's *d*? Explain your answer.
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+# Select participants assigned to Alpha or Beta.
+alpha_beta <- lab2_data %>%
+  filter(Group %in% c("A", "B")) %>%
+  droplevels()
+
+# Calculate Cohen's d and its 95% confidence interval.
+d_alpha_beta <- cohens_d(
+  Score ~ Group,
+  data = alpha_beta,
+  pooled_sd = TRUE,
+  ci = 0.95
+)
+
+d_alpha_beta
+```
+
+Cohen's *d* is approximately **−0.33** for Alpha minus Beta, indicating that Alpha's mean score is about one-third of a pooled standard deviation below Beta's. This is smaller in magnitude than the differences between Alpha and Omega (*d* = −0.80) and Beta and Omega (*d* = −0.45).
+
+The calculation of Cohen's *d* does not depend on whether the comparison was planned or post-hoc. Tukey HSD adjusts the statistical inference to account for multiple comparisons, but it does not change the conventional pairwise Cohen's *d*. The confidence interval returned by `cohens_d()` is not Tukey-adjusted.
+
+:::
+:::
+
+## Preparing a figure for the report
+
+The box plot helped us inspect individual scores and distributions. For the results report, prepare a **bar plot of the group means with 95% confidence intervals**. The figure will communicate the descriptive pattern, so you do not need to repeat every mean and SD in the results paragraph.
+
+Reuse **`score_descriptives`**, the table calculated earlier. It already contains the group means and SDs, together with `ci`, the 95% confidence-interval margin supplied by `get_summary_stats()`. The error bars run from `mean - ci` to `mean + ci`; no separate summary table or manual calculation is needed.
+
+These intervals describe uncertainty in each **group mean**, whereas SD describes the spread of individual scores. They are also different from the intervals for **differences between means** used in our planned tests.
+
+```{r}
+#| message: false
+#| warning: false
+#| label: fig-robot-scores
+#| fig-width: 7
+#| fig-height: 4.5
+#| fig-cap: "Mean statistics test scores by robot group. Error bars show separate 95% confidence intervals for the group means."
+#| fig-alt: "Mean test scores of 58.10 for Alpha, 60.36 for Beta and 63.60 for Omega, with 95 percent confidence intervals."
+score_barplot <- ggplot(score_descriptives, aes(x = Group, y = mean, fill = Group)) +
+  geom_col(width = 0.65) + # Draw bars at the calculated means
+  geom_errorbar(aes(ymin = mean - ci, ymax = mean + ci), width = 0.15) + # Add the CIs
+  scale_fill_manual(values = c("#3B6B8A", "#AC4141", "#5F8060")) + # Colour palette for bars
+  scale_x_discrete(labels = c(A = "Alpha", B = "Beta", O = "Omega")) +
+  scale_y_continuous(limits = c(0, 70), breaks = seq(0, 70, 10), # 0 to 70 in increments of 10 on the y-axis
+                     expand = expansion(mult = c(0, 0))) + # Display 0 to 70
+  labs(x = "Robot group", y = "Mean statistics test score") +
+  theme_classic(base_size = 12) +         # Use a clear background and readable labels
+  theme(
+    legend.position = "none",             # The axis identifies the groups
+    axis.title = element_text(size = 14), # Size of both x- and y-axis titles
+    axis.text = element_text(size = 12)   # Size of both axes' tick labels
+  )
+score_barplot
+```
+
+`ggplot()` specifies the data and maps variables to the axes and bar colours. The `+` signs add layers: `geom_col()` draws the means, and `geom_errorbar()` adds the confidence limits. The remaining commands set colours, labels and appearance. `axis.title` changes both axis titles (14 points), while `axis.text` changes the category names and numerical tick labels (12 points). Change the `size` values to adjust them. The vertical axis runs from 0 to 70; keeping its origin at zero makes the bar heights proportional to the scores.
+
+Save the figure to your project folder:
+
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
+# Export the saved plot as a high-resolution PNG for your report.
+ggsave("Figure1_robot_scores.png", plot = score_barplot,
+       width = 7, height = 4.5, units = "in", dpi = 300)
+```
+
+In your report, label this **Figure 1** and use the caption: “Mean statistics test scores by robot group. Error bars show 95% confidence intervals for the group means.” Refer to it in the results paragraph. Do not infer pairwise significance simply from whether the plotted error bars overlap; use the planned comparisons.
+
+## Reporting the findings
+
+Write a results paragraph in the following sequence:
+
+1. Identify the single-factor between-participants ANOVA, independent variable and its levels, and dependent variable.
+2. Report the omnibus result: *F*, degrees of freedom, *p*, eta-squared and its 95% CI. Refer to **Figure 1**, rather than listing the group means and SDs in the text.
+3. Report each **unadjusted planned comparison**, including direction, *t*, degrees of freedom, *p*, the 95% CI for the mean difference, and Cohen's *d* with its 95% CI. State that the planned tests use the ANOVA error term.
+
+Use this starting point:
+
+> A single-factor between-participants Analysis of Variance (ANOVA) was performed, with robot group (Alpha vs. Beta vs. Omega) as the independent variable and statistics test score as the dependent variable. There was a [significant/non-significant] effect of robot group, *F*(…, …) = …, *p* …, $\eta^2$ = …, 95% CI […, …] (see Figure 1). Planned comparisons using the ANOVA error term revealed that ….
+
+Report test statistics, effect sizes and confidence limits to two decimal places. Report exact *p*-values to three decimal places unless below .001, when you should write *p* < .001. Never report *p* = .000. Keep the subtraction order clear. Place each confidence interval immediately after the result it describes, using the format 95% CI [lower limit, upper limit].
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer: example report
+
+A single-factor between-participants Analysis of Variance (ANOVA) was performed, with robot group (Alpha vs. Beta vs. Omega) as the independent variable and statistics test score as the dependent variable. There was a significant effect of robot group, *F*(2, 237) = 12.52, *p* < .001, $\eta^2$ = .10, 95% CI [.03, .17] (see Figure 1). Unadjusted planned comparisons using the ANOVA error term revealed that test scores were significantly lower for Alpha than Omega, *t*(237) = −4.98, *p* < .001, 95% CI [−7.68, −3.32], *d* = −0.80, 95% CI [−1.12, −0.48]. Test scores were also significantly lower for Beta than Omega, *t*(237) = −2.93, *p* = .004, 95% CI [−5.41, −1.06], *d* = −0.45, 95% CI [−0.76, −0.13].
+
+Check that your paragraph distinguishes the overall test from the specific comparisons. These results support the predictions about **test scores**; they do not establish the separate prediction about likeability or show that likeability explains performance. Include the labelled figure and caption with your paragraph.
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Alternative wording for the post-hoc scenario
+
+Keep the omnibus ANOVA sentence and figure reference, then replace the planned-comparison sentences with:
+
+Tukey post-hoc tests showed that Omega's mean score exceeded Alpha's by 5.50 points, simultaneous 95% CI [2.89, 8.11], adjusted *p* < .001, and Beta's by 3.24 points, simultaneous 95% CI [0.63, 5.84], adjusted *p* = .010. The Beta–Alpha difference of 2.26 points was not significant, simultaneous 95% CI [−0.34, 4.87], adjusted *p* = .103.
+
+The positive differences here use Omega minus Alpha and Omega minus Beta, as displayed by `tukey_hsd()`. The main reporting exercise remains the unadjusted planned-comparison analysis.
+:::
+
+## Before you finish
+
+Save your script, figure and results paragraph. Check that you can explain:
+
+- Why the invalid likeability rating did not reduce the test-score sample size.
+- Where the ANOVA error term appears in the output and in the follow-up formula.
+- Why a significant ANOVA does not imply that every pair differs.
+- How planned comparisons differ from exploratory post-hoc comparisons.
+
+Your script should run from the top, starting with the packages and import, and retain comments explaining the data decision.
+
+You have covered a lot of ground: checking and preparing data, assessing assumptions, running an ANOVA, examining specific differences, interpreting effect sizes and confidence intervals, and presenting the results in a figure and paragraph. **Well done on completing the exercises.** You now have a worked analysis to return to when practising these skills.
+
+The core practical ends here. There is **no expectation that you will complete the optional extensions during the class**. If time remains, you can make a start---otherwise, work through them in your own time. End your RStudio server session when you have finished.
+
+## Optional extensions
+
+These exercises provide further practice. Complete them in your own time if there is no time remaining in the session.
+
+### Examine the likeability ratings
+
+Use the cleaned `Likeability` variable. Obtain descriptives by group, produce Q–Q plots, and run Shapiro–Wilk and Levene's tests. Identify outliers within groups. Compare the evidence with the score analysis: would you treat a bounded, seven-category rating exactly like a test score?
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+#| message: false
+#| warning: false
+lab2_data %>%
+  group_by(Group) %>%
+  get_summary_stats(Likeability, show = c("mean", "sd", "median", "min", "max"))
+
+# Retain participants with a valid rating for the optional analysis.
+likeability_data <- lab2_data %>% filter(!is.na(Likeability))
+
+# Inspect the rating distribution in a separate panel for each group.
+ggqqplot(likeability_data, x = "Likeability", facet.by = "Group")
+
+# Check normality, variance homogeneity and potential outliers.
+likeability_data %>% group_by(Group) %>% shapiro_test(Likeability)
+likeability_data %>% levene_test(Likeability ~ Group)
+likeability_data %>% group_by(Group) %>% identify_outliers(Likeability)
+```
+
+The means are 2.50, 4.50 and 2.11 for Alpha, Beta and Omega; their SDs are 0.93, 1.01 and 0.85. Omega has 79 valid ratings; the other groups each have 80. The descriptive pattern does not support the prediction that Omega would be most liked.
+
+The small number of possible rating values produces steps and ties in the Q–Q plots. Shapiro–Wilk tests detect departures from normality; Levene's test is non-significant (*p* = .177). Participants 104 and 126 in Group B are flagged as outliers, but their ratings are within the permitted scale. Retain them in the absence of a justified reason for exclusion.
+
+A significant normality test alone does not automatically rule out ANOVA, nor guarantee that a transformation is appropriate. Consider the bounded, ordinal scale, distribution shapes and scientific question. We will return to non-parametric approaches in Week 4; a second full inferential analysis is not required today.
+:::
+
+### Apply the workflow to likeability
+
+For further coding practice, treat the cleaned ratings as approximately interval-scaled and repeat the ANOVA and two planned comparisons. This is a practice analysis under that assumption, rather than a conclusion that ANOVA is the best approach for every seven-category rating. Use the diagnostic evidence above when discussing its limitations.
+
+1. Fit a new model called `likeability_model` using `likeability_data`.
+2. Run `emmeans_test()` with that model, comparing A with O and B with O.
+3. Display results without correction and with Bonferroni correction.
+4. Report the direction of the differences. Are they in the predicted direction?
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+#| message: false
+#| warning: false
+# Analyse ratings using only the participants with valid Likeability.
+likeability_model <- aov(Likeability ~ Group, data = likeability_data)
+summary(likeability_model)
+
+likeability_data %>%
+  emmeans_test(
+    Likeability ~ Group,
+    model = likeability_model, # Use the rating model, not the score model
+    comparisons = list(c("A", "O"), c("B", "O")),
+    p.adjust.method = "none", # First inspect the unadjusted comparisons
+    detailed = TRUE
+  )
+
+likeability_data %>%
+  emmeans_test(
+    Likeability ~ Group,
+    model = likeability_model,      # Use the rating model, not the score model
+    comparisons = list(c("A", "O"), c("B", "O")),
+    p.adjust.method = "bonferroni", # Adjust across the two specified tests
+    detailed = TRUE                 # Retain the detailed output
+  )
+```
+
+Under this analysis, the omnibus test gives *F*(2, 236) = 151.34, *p* < .001. Alpha's mean rating exceeds Omega's by 0.39 points, *t*(236) = 2.62, Bonferroni-adjusted *p* = .019; Beta's exceeds Omega's by 2.39 points, *t*(236) = 16.18, adjusted *p* < .001. Both differences are **opposite** to the prediction that Omega would be most liked.
+
+There are 239 valid ratings, giving 236 error degrees of freedom. The correction here covers these two rating comparisons only. A research analysis spanning both outcomes would need an explicitly defined multiple-testing strategy; this exercise does not establish error control across all the tests in the practical.
+:::
+
