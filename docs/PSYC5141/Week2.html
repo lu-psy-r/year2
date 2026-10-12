@@ -352,6 +352,7 @@ window.Quarto = {
 <li>Produce a bar plot with confidence intervals and report the findings with effect sizes.</li>
 </ul>
 <p>Work in your R script and attempt each exercise before revealing its answer. Use comments to record your decisions and interpretations. Ask a GTA if you need help with a step.</p>
+<p>This is a comprehensive practical, and there is a lot to work through. Focus on understanding each step rather than rushing to complete every exercise. The materials are designed to support your independent learning, so you can return to them after the session to consolidate your understanding and practice the techniques.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1043,8 +1044,30 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 </div>
 <p>The result is approximately <strong>.096</strong>, with a two-sided 95% CI of <strong>[.03, .17]</strong>. About <strong>9.6% of the observed variability</strong> in scores is associated with differences between the robot groups. This does not mean that scores increased by 9.6%. Report <span class="math inline">\(\eta^2 = .10\)</span>, 95% CI [.03, .17], when rounding to two decimal places.</p>
-<p>The interval expresses uncertainty about the population effect size. A <strong>two-sided interval</strong> estimates both a lower and an upper confidence limit: it addresses how small or how large the effect might plausibly be. Here, those limits are approximately .03 and .17.</p>
-<p>A <strong>one-sided interval</strong> provides a confidence bound in only one direction. By default, this function estimates a lower bound and extends the interval up to 1, the largest possible eta-squared. That upper endpoint is the boundary of the scale, not an estimated upper confidence limit. We set <code>alternative = "two.sided"</code> because we want limits in both directions. This choice concerns the effect-size interval; it does not change the ANOVA’s <em>F</em>-test.</p>
+<p>The confidence interval expresses uncertainty about the population effect size. We use <code>alternative = "two.sided"</code> to obtain an interval with both a lower and an upper confidence limit.</p>
+<!-- The result is approximately **.096**, with a two-sided 95% CI of **[.03, .17]**. About **9.6% of the observed variability** in scores is associated with differences between the robot groups. This does not mean that scores increased by 9.6%. Report $\eta^2 = .10$, 95% CI [.03, .17], when rounding to two decimal places.
+
+The interval expresses uncertainty about the population effect size. A **two-sided interval** estimates both a lower and an upper confidence limit: it addresses how small or how large the effect might plausibly be. Here, those limits are approximately .03 and .17.
+
+A **one-sided interval** provides a confidence bound in only one direction. By default, this function estimates a lower bound and extends the interval up to 1, the largest possible eta-squared. That upper endpoint is the boundary of the scale, not an estimated upper confidence limit. We set `alternative = "two.sided"` because we want limits in both directions. This choice concerns the effect-size interval; it does not change the ANOVA's *F*-test. -->
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why do we specify <code>alternative = "two.sided"</code>?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A <strong>two-sided confidence interval</strong> provides both a lower and an upper confidence limit for the population effect size. It allows us to consider how small or how large the effect might plausibly be.</p>
+<p>A <strong>one-sided confidence interval</strong> provides a confidence bound in only one direction. By default, <code>eta_squared()</code> estimates a lower confidence bound and extends the interval to 1, the maximum possible value of eta-squared. This upper endpoint is the boundary of the scale, not an estimated upper confidence limit.</p>
+<p>We specify <code>alternative = "two.sided"</code> because we want to estimate uncertainty in both directions. This choice affects the confidence interval for eta-squared; it does not change the ANOVA’s <em>F</em>-test.</p>
+</div>
+</div>
+</div>
 <p>As a rule of thumb, <span class="math inline">\(\eta^2 = .01\)</span> indicates a <strong>small</strong> effect, <span class="math inline">\(.06\)</span> a <strong>medium</strong> effect, and <span class="math inline">\(.14\)</span> a <strong>large</strong> effect. Our estimate of approximately .10 falls between the medium and large benchmarks. These are broad guidelines: the practical importance of an effect also depends on the outcome and research context.</p>
 </section>
 </section>
@@ -1066,6 +1089,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </section>
 <section id="start-with-unadjusted-comparisons" class="level3">
 <h3 class="anchored" data-anchor-id="start-with-unadjusted-comparisons">Start with unadjusted comparisons</h3>
+<p>We now have everything we need to test our two predictions about Omega. The next step is to use the error estimate from our ANOVA to compare Omega with Alpha and Beta.</p>
 <p>Use <code>emmeans_test()</code> from <code>rstatix</code>, supplying the model we fitted using <code>aov()</code>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>planned_unadjusted <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
@@ -1102,7 +1126,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1111,7 +1135,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The standard error is approximately <strong>1.105 points</strong>, giving <span class="math inline">\(t \approx -5.50/1.105 = -4.98\)</span>. The error estimate uses all 240 scores across three groups, giving <span class="math inline">\(240-3 = 237\)</span> degrees of freedom. A separate equal-variances two-group test would use <span class="math inline">\(80+80-2 = 158\)</span>. Small differences reflect rounding.</p>
 </div>
@@ -1165,7 +1189,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1174,7 +1198,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In <code>emmeans_test()</code>, the <code>conf.low</code> and <code>conf.high</code> columns are <strong>unadjusted</strong> confidence intervals, including when the <em>p</em>-values receive Bonferroni adjustment. Do not describe these intervals as simultaneous or Bonferroni-adjusted. For our unadjusted planned-comparison report, use these ordinary 95% intervals for the <strong>mean differences</strong>, together with the unadjusted <em>p</em>-values. Tukey’s intervals in the next section do account for the family of pairwise comparisons.</p>
 </div>
@@ -1199,7 +1223,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1208,7 +1232,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Both comparisons use the same error mean square and equal group sizes, giving a standard error of approximately <strong>1.105 points</strong>. The differences are Alpha minus Omega and Beta minus Omega, so they are negative when Omega scores higher.</p>
 <table class="caption-top table">
@@ -1306,7 +1330,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1315,7 +1339,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep Beta and Omega, then calculate their standardised mean difference.</span></span>
@@ -1343,7 +1367,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1352,7 +1376,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Our planned <em>t</em>-tests and confidence intervals for the raw mean differences continue to use the error estimate from <strong>all three groups</strong> in <code>score_model</code>. The conventional pairwise Cohen’s <em>d</em> values above use the pooled SD of <strong>each pair</strong>, as in Week 1. Selecting two groups for this effect-size calculation does not change the fitted ANOVA or its follow-up tests.</p>
 </div>
@@ -1393,7 +1417,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1402,7 +1426,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <thead>
@@ -1440,7 +1464,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1449,7 +1473,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Cohen’s <em>d</em> describes the standardised difference between two group means. It is calculated in the same way whether the comparison was planned or conducted post-hoc using Tukey HSD.</p>
 <p>We have already calculated Cohen’s <em>d</em> for Alpha versus Omega and Beta versus Omega. To complete the set of three pairwise comparisons:</p>
@@ -1459,7 +1483,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 <li>Does using Tukey HSD change the value of Cohen’s <em>d</em>? Explain your answer.</li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1468,7 +1492,7 @@ Group     | 0.10 | [0.03, 0.17]</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select participants assigned to Alpha or Beta.</span></span>
@@ -1559,7 +1583,7 @@ Figure&nbsp;1: Mean statistics test scores by robot group. Error bars show separ
 </blockquote>
 <p>Report test statistics, effect sizes and confidence limits to two decimal places. Report exact <em>p</em>-values to three decimal places unless below .001, when you should write <em>p</em> &lt; .001. Never report <em>p</em> = .000. Keep the subtraction order clear. Place each confidence interval immediately after the result it describes, using the format 95% CI [lower limit, upper limit].</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1568,7 +1592,7 @@ Figure&nbsp;1: Mean statistics test scores by robot group. Error bars show separ
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A single-factor between-participants Analysis of Variance (ANOVA) was performed, with robot group (Alpha vs.&nbsp;Beta vs.&nbsp;Omega) as the independent variable and statistics test score as the dependent variable. There was a significant effect of robot group, <em>F</em>(2, 237) = 12.52, <em>p</em> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .10, 95% CI [.03, .17] (see Figure 1). Unadjusted planned comparisons using the ANOVA error term revealed that test scores were significantly lower for Alpha than Omega, <em>t</em>(237) = −4.98, <em>p</em> &lt; .001, 95% CI [−7.68, −3.32], <em>d</em> = −0.80, 95% CI [−1.12, −0.48]. Test scores were also significantly lower for Beta than Omega, <em>t</em>(237) = −2.93, <em>p</em> = .004, 95% CI [−5.41, −1.06], <em>d</em> = −0.45, 95% CI [−0.76, −0.13].</p>
 <p>Check that your paragraph distinguishes the overall test from the specific comparisons. These results support the predictions about <strong>test scores</strong>; they do not establish the separate prediction about likeability or show that likeability explains performance. Include the labelled figure and caption with your paragraph.</p>
@@ -1576,7 +1600,7 @@ Figure&nbsp;1: Mean statistics test scores by robot group. Error bars show separ
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1585,7 +1609,7 @@ Figure&nbsp;1: Mean statistics test scores by robot group. Error bars show separ
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Keep the omnibus ANOVA sentence and figure reference, then replace the planned-comparison sentences with:</p>
 <p>Tukey post-hoc tests showed that Omega’s mean score exceeded Alpha’s by 5.50 points, simultaneous 95% CI [2.89, 8.11], adjusted <em>p</em> &lt; .001, and Beta’s by 3.24 points, simultaneous 95% CI [0.63, 5.84], adjusted <em>p</em> = .010. The Beta–Alpha difference of 2.26 points was not significant, simultaneous 95% CI [−0.34, 4.87], adjusted <em>p</em> = .103.</p>
@@ -1614,7 +1638,7 @@ Figure&nbsp;1: Mean statistics test scores by robot group. Error bars show separ
 <h3 class="anchored" data-anchor-id="examine-the-likeability-ratings">Examine the likeability ratings</h3>
 <p>Use the cleaned <code>Likeability</code> variable. Obtain descriptives by group, produce Q–Q plots, and run Shapiro–Wilk and Levene’s tests. Identify outliers within groups. Compare the evidence with the score analysis: would you treat a bounded, seven-category rating exactly like a test score?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1623,7 +1647,7 @@ Figure&nbsp;1: Mean statistics test scores by robot group. Error bars show separ
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span></span>
@@ -1692,7 +1716,7 @@ Figure&nbsp;1: Mean statistics test scores by robot group. Error bars show separ
 <li>Report the direction of the differences. Are they in the predicted direction?</li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1701,7 +1725,7 @@ Figure&nbsp;1: Mean statistics test scores by robot group. Error bars show separ
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyse ratings using only the participants with valid Likeability.</span></span>

@@ -47,6 +47,8 @@ By the end of the session, you should be able to:
 
 Work in your R script and attempt each exercise before revealing its answer. Use comments to record your decisions and interpretations. Ask a GTA if you need help with a step.
 
+This is a comprehensive practical, and there is a lot to work through. Focus on understanding each step rather than rushing to complete every exercise. The materials are designed to support your independent learning, so you can return to them after the session to consolidate your understanding and practice the techniques.
+
 ::: {.callout-note icon="false"}
 ## Session plan: two hours
 
@@ -486,9 +488,23 @@ score_eta # Display the effect size and its interval
 
 The result is approximately **.096**, with a two-sided 95% CI of **[.03, .17]**. About **9.6% of the observed variability** in scores is associated with differences between the robot groups. This does not mean that scores increased by 9.6%. Report $\eta^2 = .10$, 95% CI [.03, .17], when rounding to two decimal places.
 
+The confidence interval expresses uncertainty about the population effect size. We use `alternative = "two.sided"` to obtain an interval with both a lower and an upper confidence limit.
+
+<!-- The result is approximately **.096**, with a two-sided 95% CI of **[.03, .17]**. About **9.6% of the observed variability** in scores is associated with differences between the robot groups. This does not mean that scores increased by 9.6%. Report $\eta^2 = .10$, 95% CI [.03, .17], when rounding to two decimal places.
+
 The interval expresses uncertainty about the population effect size. A **two-sided interval** estimates both a lower and an upper confidence limit: it addresses how small or how large the effect might plausibly be. Here, those limits are approximately .03 and .17.
 
-A **one-sided interval** provides a confidence bound in only one direction. By default, this function estimates a lower bound and extends the interval up to 1, the largest possible eta-squared. That upper endpoint is the boundary of the scale, not an estimated upper confidence limit. We set `alternative = "two.sided"` because we want limits in both directions. This choice concerns the effect-size interval; it does not change the ANOVA's *F*-test.
+A **one-sided interval** provides a confidence bound in only one direction. By default, this function estimates a lower bound and extends the interval up to 1, the largest possible eta-squared. That upper endpoint is the boundary of the scale, not an estimated upper confidence limit. We set `alternative = "two.sided"` because we want limits in both directions. This choice concerns the effect-size interval; it does not change the ANOVA's *F*-test. -->
+
+::: {.callout-note icon="false" collapse="true"}
+## Why do we specify `alternative = "two.sided"`?
+
+A **two-sided confidence interval** provides both a lower and an upper confidence limit for the population effect size. It allows us to consider how small or how large the effect might plausibly be.
+
+A **one-sided confidence interval** provides a confidence bound in only one direction. By default, `eta_squared()` estimates a lower confidence bound and extends the interval to 1, the maximum possible value of eta-squared. This upper endpoint is the boundary of the scale, not an estimated upper confidence limit.
+
+We specify `alternative = "two.sided"` because we want to estimate uncertainty in both directions. This choice affects the confidence interval for eta-squared; it does not change the ANOVA's *F*-test.
+:::
 
 As a rule of thumb, $\eta^2 = .01$ indicates a **small** effect, $.06$ a **medium** effect, and $.14$ a **large** effect. Our estimate of approximately .10 falls between the medium and large benchmarks. These are broad guidelines: the practical importance of an effect also depends on the outcome and research context.
 
@@ -518,6 +534,8 @@ $$df_{\text{error}} = (80-1)+(80-1)+(80-1) = 237.$$
 Both planned comparisons reuse that pooled error estimate and its **237 degrees of freedom**. We are not running new, separate two-group *t*-tests. Such a test would estimate error from only its two groups, giving $(80-1)+(80-1)=158$. The degrees of freedom follow the information used to estimate **error**, rather than simply the number of groups whose means appear in the numerator.
 
 ### Start with unadjusted comparisons
+
+We now have everything we need to test our two predictions about Omega. The next step is to use the error estimate from our ANOVA to compare Omega with Alpha and Beta.
 
 Use `emmeans_test()` from `rstatix`, supplying the model we fitted using `aov()`:
 
