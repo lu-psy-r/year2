@@ -663,19 +663,20 @@ $ Score       &lt;dbl&gt; 71, 53, 62, 65, 64, 61, 63, 50, 59, 69, 52, 63, 59, 53
 </div>
 <p>In a real study, first check the original record. For this exercise, no original record is available, so record the invalid rating as missing (<code>NA</code>) in the working copy:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preserve the original ratings for record keeping purposes</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify the dataframe, preserving the original likeability ratings while replacing invalid values with missing values (NA).</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Likeability_original =</span> Likeability,  <span class="co"># Keep the original ratings</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Likeability_original =</span> Likeability,  <span class="co"># Keep the original ratings for record keeping</span></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Likeability =</span> <span class="fu">if_else</span>(</span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>      Likeability <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">|</span> Likeability <span class="sc">&gt;</span> <span class="dv">7</span>, <span class="co"># Is the rating outside the scale?</span></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NA_real_</span>, Likeability              <span class="co"># If yes, use NA; otherwise keep it</span></span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ID <span class="sc">==</span> <span class="dv">238</span>) <span class="sc">%&gt;%</span> <span class="co"># Display the affected participant</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, Group, Likeability_original, Likeability, Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Displays the affected participant's data, so we can check that the correction has been applied correctly.</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>lab2_data <span class="sc">%&gt;%</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ID <span class="sc">==</span> <span class="dv">238</span>) <span class="sc">%&gt;%</span> <span class="co"># Display the affected participant</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, Group, Likeability_original, Likeability, Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 5
      ID Group Likeability_original Likeability Score
