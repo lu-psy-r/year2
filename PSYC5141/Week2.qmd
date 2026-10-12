@@ -251,16 +251,17 @@ In a real study, first check the original record. For this exercise, no original
 ```{r}
 #| message: false
 #| warning: false
-# Preserve the original ratings for record keeping purposes
+# Modify the dataframe, preserving the original likeability ratings while replacing invalid values with missing values (NA).
 lab2_data <- lab2_data %>%
   mutate(
-    Likeability_original = Likeability,  # Keep the original ratings
+    Likeability_original = Likeability,  # Keep the original ratings for record keeping
     Likeability = if_else(
       Likeability < 1 | Likeability > 7, # Is the rating outside the scale?
       NA_real_, Likeability              # If yes, use NA; otherwise keep it
     )
   )
 
+# Displays the affected participant's data, so we can check that the correction has been applied correctly.
 lab2_data %>%
   filter(ID == 238) %>% # Display the affected participant
   select(ID, Group, Likeability_original, Likeability, Score)
