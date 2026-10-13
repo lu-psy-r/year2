@@ -478,7 +478,7 @@ For these data, the calculation is $1222.675/(1222.675+11570.8875) \approx .096$
 ```{r}
 #| message: false
 #| warning: false
-score_eta <- eta_squared(
+score_eta <- effectsize::eta_squared(
   score_model,               # Use the fitted ANOVA
   partial = FALSE,           # Request eta-squared
   ci = 0.95,                 # Request a 95% confidence interval
@@ -645,9 +645,9 @@ In `planned_unadjusted`, the `estimate` column gives each mean difference in **t
 ```{r}
 #| message: false
 #| warning: false
-# Keep the columns needed to interpret and report the planned tests.
+# Keep only the columns needed to interpret and report the planned tests using the select() command
 planned_unadjusted %>%
-  select(group1, group2, estimate, conf.low, conf.high, statistic, df, p)
+  select(group1, group2, estimate, conf.low, conf.high, statistic, df, p) # Selected columns
 ```
 
 The intervals are approximately **[−7.68, −3.32]** for Alpha minus Omega and **[−5.41, −1.06]** for Beta minus Omega. Both lie below zero, consistent with Omega's higher scores. These intervals describe uncertainty in the **population mean differences**, not the spread of individual scores. In your results paragraph, report them as **95% CI [lower limit, upper limit]**, immediately after the *t*-test result.
@@ -665,7 +665,7 @@ alpha_omega <- lab2_data %>%
   droplevels() # Remove the unused Beta level from this subset
 
 # Calculate Alpha minus Omega in pooled-SD units, with its 95% CI.
-d_alpha_omega <- cohens_d(
+d_alpha_omega <- effectsize::cohens_d(
   Score ~ Group, data = alpha_omega,
   pooled_sd = TRUE, # Pool the SDs of these two groups
   ci = 0.95         # Request a 95% confidence interval for d
@@ -691,7 +691,8 @@ Adapt the code to compare **Beta with Omega**, saving the data as `beta_omega` a
 beta_omega <- lab2_data %>%
   filter(Group %in% c("B", "O")) %>%
   droplevels() # Remove the unused Alpha level from this subset
-d_beta_omega <- cohens_d(
+
+d_beta_omega <- effectsize::cohens_d(
   Score ~ Group, data = beta_omega,
   pooled_sd = TRUE,
   ci = 0.95
@@ -771,7 +772,7 @@ alpha_beta <- lab2_data %>%
   droplevels()
 
 # Calculate Cohen's d and its 95% confidence interval.
-d_alpha_beta <- cohens_d(
+d_alpha_beta <- effectsize::cohens_d(
   Score ~ Group,
   data = alpha_beta,
   pooled_sd = TRUE,

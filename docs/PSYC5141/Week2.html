@@ -1029,7 +1029,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
          = \frac{SS_{\text{between}}}{SS_{\text{between}}+SS_{\text{within}}}.\]</span></p>
 <p>For these data, the calculation is <span class="math inline">\(1222.675/(1222.675+11570.8875) \approx .096\)</span>. In practice, use the <code>eta_squared()</code> function from the <code>effectsize</code> package to calculate the effect size and its confidence interval:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>score_eta <span class="ot">&lt;-</span> <span class="fu">eta_squared</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>score_eta <span class="ot">&lt;-</span> effectsize<span class="sc">::</span><span class="fu">eta_squared</span>(</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  score_model,               <span class="co"># Use the fitted ANOVA</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">partial =</span> <span class="cn">FALSE</span>,           <span class="co"># Request eta-squared</span></span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span>,                 <span class="co"># Request a 95% confidence interval</span></span>
@@ -1279,9 +1279,9 @@ A **one-sided interval** provides a confidence bound in only one direction. By d
 <h3 class="anchored" data-anchor-id="confidence-intervals-for-the-planned-differences">Confidence intervals for the planned differences</h3>
 <p>In <code>planned_unadjusted</code>, the <code>estimate</code> column gives each mean difference in <strong>test-score points</strong>. The <code>conf.low</code> and <code>conf.high</code> columns contain its 95% confidence limits. Display these alongside the test results:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep the columns needed to interpret and report the planned tests.</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only the columns needed to interpret and report the planned tests using the select() command</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>planned_unadjusted <span class="sc">%&gt;%</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, estimate, conf.low, conf.high, statistic, df, p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, estimate, conf.low, conf.high, statistic, df, p) <span class="co"># Selected columns</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 8
   group1 group2 estimate conf.low conf.high statistic    df          p
@@ -1302,7 +1302,7 @@ A **one-sided interval** provides a confidence bound in only one direction. By d
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">droplevels</span>() <span class="co"># Remove the unused Beta level from this subset</span></span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Alpha minus Omega in pooled-SD units, with its 95% CI.</span></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>d_alpha_omega <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>d_alpha_omega <span class="ot">&lt;-</span> effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(</span>
 <span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  Score <span class="sc">~</span> Group, <span class="at">data =</span> alpha_omega,</span>
 <span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">pooled_sd =</span> <span class="cn">TRUE</span>, <span class="co"># Pool the SDs of these two groups</span></span>
 <span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span>         <span class="co"># Request a 95% confidence interval for d</span></span>
@@ -1347,12 +1347,13 @@ A **one-sided interval** provides a confidence bound in only one direction. By d
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>beta_omega <span class="ot">&lt;-</span> lab2_data <span class="sc">%&gt;%</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"O"</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">droplevels</span>() <span class="co"># Remove the unused Alpha level from this subset</span></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>d_beta_omega <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  Score <span class="sc">~</span> Group, <span class="at">data =</span> beta_omega,</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">pooled_sd =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span></span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>d_beta_omega</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>d_beta_omega <span class="ot">&lt;-</span> effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>  Score <span class="sc">~</span> Group, <span class="at">data =</span> beta_omega,</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">pooled_sd =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>d_beta_omega</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cohen's d |         95% CI
 --------------------------
@@ -1502,7 +1503,7 @@ A **one-sided interval** provides a confidence bound in only one direction. By d
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">droplevels</span>()</span>
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Cohen's d and its 95% confidence interval.</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>d_alpha_beta <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>d_alpha_beta <span class="ot">&lt;-</span> effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(</span>
 <span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  Score <span class="sc">~</span> Group,</span>
 <span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> alpha_beta,</span>
 <span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pooled_sd =</span> <span class="cn">TRUE</span>,</span>
