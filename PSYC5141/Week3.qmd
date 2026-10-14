@@ -16,7 +16,166 @@ Download the Lecture 1 slides [here](data/Wk3/Week 3 Lecture 1 Within-Participan
 
 Lecture 2 coming shortly!
 
-This week, we will explore within-participants designs, in which the same participants take part in every experimental condition. We will consider the advantages and disadvantages of this approach, including how it allows us to control for individual differences, as well as potential problems such as order effects. We will then turn to within-participants ANOVA, the statistical technique used to analyse such designs, examining how this technique builds on the principles of between-participants ANOVA. In particular, we will explore how removing individual differences from the error term can increase the sensitivity of our statistical tests.
+This week, we will explore within-participants designs, in which the same participants take part in every experimental condition. We will consider the advantages and disadvantages of this approach, including how it allows us to control for individual differences, as well as potential problems such as order effects. We will then turn to within-participants ANOVA, the statistical technique used to analyse such designs, examining how this technique builds on the principles of between-participants ANOVA. In particular, we will explore how removing individual differences from the error term can increase the sensitivity of our statistical tests. Before attending the practical class, please review the Week 3 lecture materials and recordings above. There are some optional multiple-choice questions below connected to Lecture 1 to help you consolidate your learning and it is recommended to complete these once you have viewed the lecture recordings.
+
+## Multiple-Choice Questions for Lecture 1: Within-Participants Designs
+
+Work through the following questions with the members of your group. Select the response you think is correct before expanding **Show answer** to check your understanding.
+
+### Question 1
+
+How many participants would be needed for a within-participants experiment comparing four different treatment conditions with a total of 20 scores in each treatment? (1)
+
+1. 20
+2. 40
+3. 80
+4. Cannot answer without more information
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. 20**
+
+Each participant completes all four treatment conditions, contributing one score to each. Therefore, 20 participants provide 20 scores per treatment.
+:::
+
+### Question 2
+
+In a within-participants research study comparing different treatment conditions at different times, what kind of validity is threatened by factors that change over time, such as history and maturation? (1)
+
+1. Internal validity
+2. External validity
+3. Both internal and external validity
+4. Neither internal nor external validity
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. Internal validity**
+
+Changes occurring over time can provide alternative explanations for observed differences between treatment conditions, making it difficult to attribute those differences to the independent variable.
+:::
+
+### Question 3
+
+In a within-participants study that extends over a relatively long time, it is possible that there will be systematic changes in the participants’ skills or knowledge during the time of the study. If these changes influence the participants’ scores, causing scores at the end of the study to be different from scores at the beginning, then what is the effect called? (1)
+
+1. History
+2. Instrumentation
+3. Maturation
+4. Regression toward the mean
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 3. Maturation**
+
+Maturation refers to changes within participants over time, such as developing skills or knowledge, that may affect their scores independently of the treatment.
+:::
+
+### Question 4
+
+What is the effect of increasing the time between treatment conditions in a within-participant experiment? (1)
+
+1. It decreases the threat of time-related history effect.
+2. It decreases the threat of the order fatigue effect.
+3. It decreases the threat of a time-related maturation effect.
+4. None of the above options is an effect of increasing time between treatments.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. It decreases the threat of the order fatigue effect.**
+
+Allowing more time between conditions can reduce fatigue carried over from an earlier condition, although it may increase the opportunity for time-related threats such as history and maturation.
+:::
+
+### Question 5
+
+For a within-participants study comparing two treatments, A and B, a researcher expects that practice in the first treatment will improve the participants’ scores in the second treatment. If the order of treatments is counterbalanced, then what scores will be influenced by the practice? (1)
+
+1. Scores in treatment A but not in treatment B
+2. Scores in treatment B but not in treatment A
+3. Scores in treatment A for half the participants and scores in treatment B for half the participants
+4. Practice will not influence the scores because the treatments are counterbalanced
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 3. Scores in treatment A for half the participants and scores in treatment B for half the participants**
+
+Half the participants complete A before B, and the other half complete B before A. Practice therefore affects whichever treatment is completed second, rather than consistently favouring one treatment.
+:::
+
+### Question 6
+
+Which of the following describes a completely counterbalanced within-participants experiment? (1)
+
+1. Each group receives a different treatment.
+2. Each participant receives each treatment in the same order.
+3. A series of treatments is presented in every possible sequence.
+4. Participants receive a random order of treatment conditions.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 3. A series of treatments is presented in every possible sequence.**
+
+Complete counterbalancing uses all possible orders of the treatment conditions to distribute order effects across conditions.
+:::
+
+### Question 7
+
+What is measured and removed to reduce the variance in a within-participants design compared to a between-subjects design. (1)
+
+1. The individual differences
+2. The carry over effects
+3. The progressive error effects
+4. The instrumentation effects
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. The individual differences**
+
+Because each participant completes all conditions, variability attributable to stable differences between participants can be separated from the treatment effect and removed from the error term.
+:::
+
+### Question 8
+
+Which of the following is an advantage of the between-participants design versus the within-participants design? (1)
+
+1. It generally requires fewer participants.
+2. It usually is a more sensitive test (more likely to detect a treatment effect)
+3. It eliminates the risk of order effects
+4. It eliminates potential problems that may be caused by individual differences
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 3. It eliminates the risk of order effects**
+
+Participants complete only one treatment condition, so their scores cannot be affected by practice, fatigue or carryover from completing another treatment condition in the same experiment.
+:::
+
+### Question 9
+
+Which of the following statements is true regarding the digram-balanced latin square approach to partial counterbalancing. (1)
+
+1. It controls for first-order dependencies but not second order dependencies
+2. It controls for second-order dependencies but not first-order dependencies
+3. It controls for both first- and second-order dependencies
+4. Neither of the above
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 3. It controls for both first- and second-order dependencies**
+
+A digram-balanced Latin square distributes treatments across sequence positions and balances the immediately preceding treatment across conditions, offering protection against position-related and first-order carryover effects.
+:::
+
+
 
 # Practical
 Available next week.
