@@ -1,0 +1,22 @@
+---
+title: 3. Single-Factor Within-Participants ANOVA
+subtitle: "Mark Hurlstone"
+order: 4
+---
+
+# Lectures
+
+Watch Lecture 1 Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f6290841-a8c0-4b72-8fef-b4e3008be3cc)
+
+Watch Lecture 1 Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=607a2b74-6d32-413e-9132-b4e3008be8d4)
+
+Watch Lecture 1 Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=51e23dba-f529-407b-a277-b4e3009256af)
+
+Download the Lecture 1 slides [here](data/Wk3/Week 3 Lecture 1 Within-Participants Designs [HANDOUT].pdf) and [here](data/Wk3/Week 3 Lecture 1 Within-Participants ANOVA [BIG SLIDES].pdf) for a larger version.
+
+Lecture 2 coming shortly!
+
+This week, we will explore within-participants designs, in which the same participants take part in every experimental condition. We will consider the advantages and disadvantages of this approach, including how it allows us to control for individual differences, as well as potential problems such as order effects. We will then turn to within-participants ANOVA, the statistical technique used to analyse such designs, examining how this technique builds on the principles of between-participants ANOVA. In particular, we will explore how removing individual differences from the error term can increase the sensitivity of our statistical tests.
+
+# Practical
+Available next week.

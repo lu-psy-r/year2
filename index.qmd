@@ -23,7 +23,7 @@ This year you will have the opportunity to build on the skills you developed las
 
 Click on the button below to access your module: Term 1: PSYC5141, Term 2: PSYC5242.
 
-```{=html}
+```{=html} 
 
 <div class="container">
   <div class="row">
@@ -40,3 +40,5 @@ Click on the button below to access your module: Term 1: PSYC5141, Term 2: PSYC5
   </div>
 </div>
 ```
+
+<!-- -->

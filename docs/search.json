@@ -621,5 +621,17 @@
       "PSYC5141",
       "2. Single-Factor Between-Participants ANOVA"
     ]
+  },
+  {
+    "objectID": "PSYC5141/Week3.html",
+    "href": "PSYC5141/Week3.html",
+    "title": "3. Single-Factor Within-Participants ANOVA",
+    "section": "",
+    "text": "Lectures\nWatch Lecture 1 Part 1 here\nWatch Lecture 1 Part 2 here\nWatch Lecture 1 Part 3 here\nDownload the Lecture 1 slides here and here for a larger version.\nLecture 2 coming shortly!\nThis week, we will explore within-participants designs, in which the same participants take part in every experimental condition. We will consider the advantages and disadvantages of this approach, including how it allows us to control for individual differences, as well as potential problems such as order effects. We will then turn to within-participants ANOVA, the statistical technique used to analyse such designs, examining how this technique builds on the principles of between-participants ANOVA. In particular, we will explore how removing individual differences from the error term can increase the sensitivity of our statistical tests.\n\n\nPractical\nAvailable next week.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "PSYC5141",
+      "3. Single-Factor Within-Participants ANOVA"
+    ]
   }
 ]
