@@ -20,7 +20,7 @@ Watch Lecture 2 Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/V
 
 Watch Lecture 2 Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8b22da4b-0e59-4581-a090-b4e50084b61a)
 
-Download the Lecture 2 slides [here](data/Wk3/Week 3 Lecture 2 Within-Participants ANOVA [HANDOUT].pdf),  [here](data/Wk3/Week 3 Lecture 2 Within-Participants ANOVA [BIG SLIDES].pdf) for a larger version, and [here](data/Wk3/Week 3 Lecture 2 Within-Participants ANOVA.zip) for the live version.
+Download the Lecture 2 slides [here](data/Wk3/Week 3 Lecture 2 Within-Participants ANOVA [HANDOUT].pdf),  [here](data/Wk3/Week 3 Lecture 2 Within-Participants ANOVA [BIG SLIDES].pdf) for a larger version, and [here](data/Wk3/Week 3 Lecture 2 Within-Participants ANOVA [LIVE].zip) for the live version.
 
 
 This week, we will explore within-participants designs, in which the same participants take part in every experimental condition. We will consider the advantages and disadvantages of this approach, including how it allows us to control for individual differences, as well as potential problems such as order effects. We will then turn to within-participants ANOVA, the statistical technique used to analyse such designs, examining how this technique builds on the principles of between-participants ANOVA. In particular, we will explore how removing individual differences from the error term can increase the sensitivity of our statistical tests. Before attending the practical class, please review the Week 3 lecture materials and recordings above. There are some optional multiple-choice questions below connected to Lecture 1 to help you consolidate your learning and it is recommended to complete these once you have viewed the lecture recordings.
