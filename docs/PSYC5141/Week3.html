@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -76,6 +111,35 @@ ul.task-list li input[type="checkbox"] {
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
 </head>
@@ -210,7 +274,45 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#question-9" id="toc-question-9" class="nav-link" data-scroll-target="#question-9">Question 9</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a></li>
+  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a>
+  <ul class="collapse">
+  <li><a href="#this-weeks-lab" id="toc-this-weeks-lab" class="nav-link" data-scroll-target="#this-weeks-lab">This week’s lab</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#the-misinformation-warning-experiment" id="toc-the-misinformation-warning-experiment" class="nav-link" data-scroll-target="#the-misinformation-warning-experiment">The misinformation-warning experiment</a></li>
+  <li><a href="#understanding-the-layout-of-the-dataset" id="toc-understanding-the-layout-of-the-dataset" class="nav-link" data-scroll-target="#understanding-the-layout-of-the-dataset">Understanding the layout of the dataset</a>
+  <ul class="collapse">
+  <li><a href="#checking-for-missing-values" id="toc-checking-for-missing-values" class="nav-link" data-scroll-target="#checking-for-missing-values">Checking for missing values</a></li>
+  <li><a href="#wide-format-and-long-format" id="toc-wide-format-and-long-format" class="nav-link" data-scroll-target="#wide-format-and-long-format">Wide format and long format</a></li>
+  <li><a href="#converting-from-wide-to-long-format" id="toc-converting-from-wide-to-long-format" class="nav-link" data-scroll-target="#converting-from-wide-to-long-format">Converting from wide to long format</a></li>
+  </ul></li>
+  <li><a href="#calculating-an-accuracy-score-for-each-condition" id="toc-calculating-an-accuracy-score-for-each-condition" class="nav-link" data-scroll-target="#calculating-an-accuracy-score-for-each-condition">Calculating an accuracy score for each condition</a>
+  <ul class="collapse">
+  <li><a href="#identifying-participants-and-warning-conditions-in-r" id="toc-identifying-participants-and-warning-conditions-in-r" class="nav-link" data-scroll-target="#identifying-participants-and-warning-conditions-in-r">Identifying participants and warning conditions in R</a></li>
+  </ul></li>
+  <li><a href="#exploring-accuracy-scores" id="toc-exploring-accuracy-scores" class="nav-link" data-scroll-target="#exploring-accuracy-scores">Exploring accuracy scores</a></li>
+  <li><a href="#a-reminder-about-data-format" id="toc-a-reminder-about-data-format" class="nav-link" data-scroll-target="#a-reminder-about-data-format">A reminder about data format</a></li>
+  <li><a href="#examining-the-assumptions" id="toc-examining-the-assumptions" class="nav-link" data-scroll-target="#examining-the-assumptions">Examining the assumptions</a>
+  <ul class="collapse">
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence">Independence</a></li>
+  <li><a href="#normality" id="toc-normality" class="nav-link" data-scroll-target="#normality">Normality</a></li>
+  <li><a href="#sphericity" id="toc-sphericity" class="nav-link" data-scroll-target="#sphericity">Sphericity</a></li>
+  </ul></li>
+  <li><a href="#running-the-within-participants-anova" id="toc-running-the-within-participants-anova" class="nav-link" data-scroll-target="#running-the-within-participants-anova">Running the within-participants ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#mauchlys-test-of-sphericity" id="toc-mauchlys-test-of-sphericity" class="nav-link" data-scroll-target="#mauchlys-test-of-sphericity">Mauchly’s test of sphericity</a></li>
+  <li><a href="#greenhousegeisser-and-other-corrections" id="toc-greenhousegeisser-and-other-corrections" class="nav-link" data-scroll-target="#greenhousegeisser-and-other-corrections">Greenhouse–Geisser and other corrections</a></li>
+  <li><a href="#effect-size" id="toc-effect-size" class="nav-link" data-scroll-target="#effect-size">Effect size</a></li>
+  </ul></li>
+  <li><a href="#planned-comparisons" id="toc-planned-comparisons" class="nav-link" data-scroll-target="#planned-comparisons">Planned comparisons</a>
+  <ul class="collapse">
+  <li><a href="#confidence-intervals-for-the-planned-differences" id="toc-confidence-intervals-for-the-planned-differences" class="nav-link" data-scroll-target="#confidence-intervals-for-the-planned-differences">Confidence intervals for the planned differences</a></li>
+  <li><a href="#cohens-d-for-paired-observations" id="toc-cohens-d-for-paired-observations" class="nav-link" data-scroll-target="#cohens-d-for-paired-observations">Cohen’s d for paired observations</a></li>
+  </ul></li>
+  <li><a href="#post-hoc-comparisons" id="toc-post-hoc-comparisons" class="nav-link" data-scroll-target="#post-hoc-comparisons">Post-hoc comparisons</a></li>
+  <li><a href="#preparing-a-figure-for-the-report" id="toc-preparing-a-figure-for-the-report" class="nav-link" data-scroll-target="#preparing-a-figure-for-the-report">Preparing a figure for the report</a></li>
+  <li><a href="#reporting-the-findings" id="toc-reporting-the-findings" class="nav-link" data-scroll-target="#reporting-the-findings">Reporting the findings</a></li>
+  <li><a href="#before-you-finish" id="toc-before-you-finish" class="nav-link" data-scroll-target="#before-you-finish">Before you finish</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -498,9 +600,1246 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="practical" class="level1">
 <h1>Practical</h1>
-<p>Available next week.</p>
+<section id="this-weeks-lab" class="level2">
+<h2 class="anchored" data-anchor-id="this-weeks-lab">This week’s lab</h2>
+<p>This week, you will analyse a hypothetical experiment asking whether misinformation warnings affect how accurately people distinguish true from false social media posts. Unlike the robot study last week, the same participants complete every warning condition. You will also work with a different type of dataset: each participant responds to several posts in each condition, rather than contributing just one response.</p>
+<p>By the end of the session, you should be able to:</p>
+<ul>
+<li>Check the structure of a wide-format dataset and identify missing or unexpected responses.</li>
+<li>Convert wide-format data into long format and calculate one accuracy score per participant in each condition.</li>
+<li>Explain why repeated-measures data may be stored in wide format but analysed in long format.</li>
+<li>Explore scores and assess the assumptions of within-participants ANOVA, including sphericity.</li>
+<li>Conduct and interpret a within-participants ANOVA and paired planned and post-hoc comparisons.</li>
+<li>Calculate effect sizes, make a bar chart, and report the results.</li>
+</ul>
+<p>Work in your R script and try each activity before opening its answer.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Session plan: two hours
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th style="text-align: right;">Approximate time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Set up the project and understand the study</td>
+<td style="text-align: right;">10 minutes</td>
+</tr>
+<tr class="even">
+<td>Inspect and reshape the data</td>
+<td style="text-align: right;">25 minutes</td>
+</tr>
+<tr class="odd">
+<td>Aggregate trials and explore accuracy</td>
+<td style="text-align: right;">15 minutes</td>
+</tr>
+<tr class="even">
+<td>Assess assumptions, especially sphericity</td>
+<td style="text-align: right;">25 minutes</td>
+</tr>
+<tr class="odd">
+<td>Run and interpret the ANOVA</td>
+<td style="text-align: right;">15 minutes</td>
+</tr>
+<tr class="even">
+<td>Planned and post-hoc comparisons</td>
+<td style="text-align: right;">20 minutes</td>
+</tr>
+<tr class="odd">
+<td>Plot, report, and finish</td>
+<td style="text-align: right;">10 minutes</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
+<p>When you are connected, navigate to <a href="https://ps-rstudio.lancaster.ac.uk/">https://ps-rstudio.lancaster.ac.uk/</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
+<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
+<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
+<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
+<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have already logged in through the university login, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+</div>
+</div>
+<p>Follow the same project setup procedure as in Week 2:</p>
+<ol type="1">
+<li>In RStudio’s <strong>Files</strong> pane, open your <code>psyc5141_labs</code> folder and create <code>psyc5141_lab_3</code> inside it.</li>
+<li>Download <a href="data/Wk3/week3_misinformation_wide_conditions.csv">the Week 3 dataset</a> and upload it into the new folder.</li>
+<li>Choose <strong>File → New Project → Existing Directory</strong>, select <code>psyc5141_lab_3</code> and click <strong>Create Project</strong>.</li>
+<li>Open a new R script and save it as <code>week3_analysis.R</code> in this project.</li>
+</ol>
+<p>Opening the project sets the working directory to this folder, so there is no need for <code>setwd()</code>. When returning to your work, open the project’s <code>.Rproj</code> file first.</p>
+<p>Load the same packages as last week:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># Import, organise,and plot data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)    <span class="co"># Descriptives, assumptions, and statistical tests</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)     <span class="co"># Diagnostic plots</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize) <span class="co"># Effect sizes and their confidence intervals</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Import the dataset from your project folder:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file and give the imported dataframe a name</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lab3_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"week3_misinformation_wide_conditions.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Last week, some of you asked why we keep two versions of the data in R. The first dataframe, <code>lab3_raw</code>, stores the imported values as a reference. We then make a second, working dataframe that we can modify during the analysis. If we accidentally change something, we can compare it with the original or start the preparation again. Neither of these actions changes the CSV saved on disk.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a working dataframe and leave the imported copy unchanged</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>lab3_data <span class="ot">&lt;-</span> lab3_raw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="the-misinformation-warning-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="the-misinformation-warning-experiment">The misinformation-warning experiment</h2>
+<p>The researchers are interested in whether warnings can encourage people to assess information more carefully and thereby improve their ability to distinguish true from false social media posts. In particular, they want to know whether a warning tailored to the content of a post is more effective than a general reminder to be cautious, and whether it improves accuracy compared with receiving no warning at all.</p>
+<p>In this hypothetical experiment, 30 people each classify 20 social media posts as true or false under three warning conditions:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>What participants see</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No warning</td>
+<td>Posts appear without an accompanying warning.</td>
+</tr>
+<tr class="even">
+<td>Generic warning</td>
+<td>A general reminder that social media information can be misleading and should be evaluated carefully.</td>
+</tr>
+<tr class="odd">
+<td>Specific warning</td>
+<td>A warning draws attention to potentially misleading features of a particular post, without giving away whether it is true or false.</td>
+</tr>
+</tbody>
+</table>
+<p>Each participant completes all three conditions. The researchers predict that accuracy will be higher with a specific warning than with no warning, and higher with a specific warning than with a generic warning. These two predictions will become our planned comparisons later in the practical.</p>
+<p>The dependent variable for our ANOVA will be the percentage of posts classified correctly in each condition. The raw dataset contains the following variables:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Participant</code></td>
+<td>Identifier for each participant (P01–P30).</td>
+</tr>
+<tr class="even">
+<td><code>Trial</code></td>
+<td>Trial number (1–20) within each warning condition.</td>
+</tr>
+<tr class="odd">
+<td><code>No warning</code></td>
+<td>Classification accuracy for a trial without a warning: 1 = correct, 0 = incorrect.</td>
+</tr>
+<tr class="even">
+<td><code>Generic warning</code></td>
+<td>Classification accuracy for a trial with a general warning, using the same 0/1 coding.</td>
+</tr>
+<tr class="odd">
+<td><code>Specific warning</code></td>
+<td>Classification accuracy for a trial with a content-specific warning, using the same 0/1 coding.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: identify the design
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the independent variable? How many levels does it have? Why is this a within-participants design? What would the null hypothesis say about the population mean accuracies?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The independent variable is warning condition, with three levels. The same participants contribute scores in every condition. The null hypothesis is that population mean accuracy is the same under all three warnings. The alternative hypothesis is that at least one mean differs from one of the others.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="understanding-the-layout-of-the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-layout-of-the-dataset">Understanding the layout of the dataset</h2>
+<p>Before analysing the results, we need to understand how the responses have been recorded. Each of our 30 participants classified 20 posts under each of the three warning conditions. The data have been supplied in <em>wide format</em>: the three warning conditions have separate columns, so we can view a participant’s responses under each condition side by side.</p>
+<p>Unlike the one-response-per-participant examples from earlier weeks, each participant now occupies <strong>20 rows</strong>, one for each trial. This gives us 600 rows altogether (30 participants × 20 trials), with five columns:</p>
+<ul>
+<li><code>Participant</code> identifies the person who completed the trial.</li>
+<li><code>Trial</code> gives the trial number, from 1 to 20.</li>
+<li><code>No warning</code>, <code>Generic warning</code> and <code>Specific warning</code> contain the recorded responses for those conditions, coded 1 for correct and 0 for incorrect.</li>
+</ul>
+<p>Here is a simplified illustration of the layout (the values are examples rather than the actual dataset):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Participant</th>
+<th style="text-align: right;">Trial</th>
+<th style="text-align: right;">No warning</th>
+<th style="text-align: right;">Generic warning</th>
+<th style="text-align: right;">Specific warning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P01</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>P01</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>P01</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>P02</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s first look at the imported file and check its dimensions.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first six trial rows from the imported data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab3_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  Participant Trial `No warning` `Generic warning` `Specific warning`
+  &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt;             &lt;dbl&gt;              &lt;dbl&gt;
+1 P01             1            1                 1                  0
+2 P01             2            1                 0                  1
+3 P01             3            1                 0                  1
+4 P01             4            1                 1                  1
+5 P01             5            1                 0                  1
+6 P01             6            1                 1                  1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the numbers of rows and columns in the dataframe</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(lab3_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 600   5</code></pre>
+</div>
+</div>
+<p>The result of <code>dim()</code> should be <code>600 5</code>: 600 participant-trial rows and five columns. There are still only 30 participants, because each person’s identifier appears on 20 different rows.</p>
+<section id="checking-for-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="checking-for-missing-values">Checking for missing values</h3>
+<p>Before changing the data, we’ll perform some of the checks we used last week. First, let’s look for missing entries. <code>is.na()</code> identifies missing values, and <code>colSums()</code> counts them separately in each column.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count how many missing values occur in each column</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(lab3_data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Participant            Trial       No warning  Generic warning 
+               0                0                0                0 
+Specific warning 
+               0 </code></pre>
+</div>
+</div>
+<p>We expect zero missing values in all five columns. This is reassuring because missing responses would need attention before calculating each person’s accuracy.</p>
+</section>
+<section id="wide-format-and-long-format" class="level3">
+<h3 class="anchored" data-anchor-id="wide-format-and-long-format">Wide format and long format</h3>
+<p>Why are these data organised with one column for each warning condition? In a within-participants experiment, the same person responds under every condition. Placing those responses side by side makes it easy to see that they belong to the same participant. This is a common way to record or present repeated measurements, although within-participants data do not <em>have</em> to be stored this way. Here, each row identifies a participant and a trial, and the three condition columns contain that person’s responses on that trial.</p>
+<p>This arrangement is called <em>wide format</em>: each condition has its own column. The <code>rstatix</code> functions we’ll use for our ANOVA are easier to use with <em>long format</em>, where one column identifies the condition and another contains the response. The <code>Participant</code> column is retained, so R still knows which observations came from the same person.</p>
+<p>For example, the first two trials for one participant could be represented as follows:</p>
+<p><strong>Wide format (as supplied):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Participant</th>
+<th style="text-align: right;">Trial</th>
+<th style="text-align: right;">No warning</th>
+<th style="text-align: right;">Generic warning</th>
+<th style="text-align: right;">Specific warning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P01</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>P01</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Long format (after conversion):</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Participant</th>
+<th style="text-align: right;">Trial</th>
+<th>Condition</th>
+<th style="text-align: right;">Correct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P01</td>
+<td style="text-align: right;">1</td>
+<td>No warning</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>P01</td>
+<td style="text-align: right;">1</td>
+<td>Generic warning</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>P01</td>
+<td style="text-align: right;">1</td>
+<td>Specific warning</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>P01</td>
+<td style="text-align: right;">2</td>
+<td>No warning</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>P01</td>
+<td style="text-align: right;">2</td>
+<td>Generic warning</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>P01</td>
+<td style="text-align: right;">2</td>
+<td>Specific warning</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>These tables are illustrative. We haven’t changed any of the responses: we’ve simply organised them differently so R can identify the conditions in the analysis.</p>
+</section>
+<section id="converting-from-wide-to-long-format" class="level3">
+<h3 class="anchored" data-anchor-id="converting-from-wide-to-long-format">Converting from wide to long format</h3>
+<p>We can use <code>pivot_longer()</code> to move the responses from the three warning columns into a single response column. We’ll keep <code>Participant</code> and <code>Trial</code> as they are, because they tell us who gave each response and on which trial.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the three warning-condition columns into one response column</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>lab3_trials <span class="ot">&lt;-</span> lab3_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Columns we want to combine</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">No warning</span><span class="st">`</span>, <span class="st">`</span><span class="at">Generic warning</span><span class="st">`</span>, <span class="st">`</span><span class="at">Specific warning</span><span class="st">`</span>), </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># New column holding the warning-condition labels</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Condition"</span>, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># New column holding each 0/1 accuracy response</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Correct"</span>   </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the reorganised data and its dimensions</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lab3_trials)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  Participant Trial Condition        Correct
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+1 P01             1 No warning             1
+2 P01             1 Generic warning        1
+3 P01             1 Specific warning       0
+4 P01             2 No warning             1
+5 P01             2 Generic warning        0
+6 P01             2 Specific warning       1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(lab3_trials)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1800    4</code></pre>
+</div>
+</div>
+<p>There are now 1,800 rows and four columns. Each of the original 600 rows supplied <em>three responses</em>, one under each condition, so reshaping has given us <span class="math inline">\(600 \times 3=1,800\)</span> response rows. It hasn’t created any new responses—it has simply placed them underneath one another.</p>
+<p>We can now apply some more familiar data checks. We’ll look at each separately and explain what we expect to see.</p>
+<p>First, check the number of recorded responses in each warning condition. There should be 30 participants × 20 trials = 600 responses in each.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the recorded responses in each warning condition</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(lab3_trials, Condition)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Condition            n
+  &lt;chr&gt;            &lt;int&gt;
+1 Generic warning    600
+2 No warning         600
+3 Specific warning   600</code></pre>
+</div>
+</div>
+<p>The output should contain three rows, each with a count of 600. This checks the total number of responses recorded in each condition.</p>
+<p>Next, check that accuracy has been recorded using the expected codes, 0 for an incorrect classification and 1 for a correct classification.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count how many incorrect (0) and correct (1) responses were recorded</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(lab3_trials, Correct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  Correct     n
+    &lt;dbl&gt; &lt;int&gt;
+1       0   599
+2       1  1201</code></pre>
+</div>
+</div>
+<p>You should see 599 incorrect classifications and 1,201 correct classifications. There are no other values in <code>Correct</code>, so we haven’t found any unexpected accuracy codes.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: understanding the two formats
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why did our original dataset have 600 rows, while the converted dataset has 1,800? How many rows in each dataset correspond to a single participant? Have any additional responses been created?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In the original wide-format data, each participant has 20 rows, with three condition responses on each row. After reshaping, each participant has 60 rows, because every condition response occupies its own row. The underlying data are unchanged.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="calculating-an-accuracy-score-for-each-condition" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-an-accuracy-score-for-each-condition">Calculating an accuracy score for each condition</h2>
+<p>Until now, most of our lab examples have involved one response per participant in a particular analysis. This experiment is different. Each participant gives 20 responses <em>in each warning condition</em>, recorded as 0 (incorrect) or 1 (correct).</p>
+<p>For the within-participants ANOVA we want one accuracy score per participant <strong>per condition</strong>. We therefore combine the 20 trials in each participant-condition combination. This process is called <em>aggregation</em>.</p>
+<p>Because <code>Correct</code> is coded 0 and 1, its mean is the proportion of posts correctly classified. For example, 15 correct responses out of 20 gives <span class="math inline">\(15/20=0.75\)</span>, or 75%.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the 20 trials for each person in each condition</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>accuracy_data <span class="ot">&lt;-</span> lab3_trials <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create separate participant-condition groups</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Participant, Condition) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Proportion correct × 100 = percentage correct</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Accuracy =</span> <span class="fu">mean</span>(Correct) <span class="sc">*</span> <span class="dv">100</span>, </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return an ordinary, ungrouped dataframe</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span>                </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the resulting participant-level accuracy scores</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(accuracy_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  Participant Condition        Accuracy
+  &lt;chr&gt;       &lt;chr&gt;               &lt;dbl&gt;
+1 P01         Generic warning        55
+2 P01         No warning             70
+3 P01         Specific warning       60
+4 P02         Generic warning        65
+5 P02         No warning             70
+6 P02         Specific warning       60</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(accuracy_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 90</code></pre>
+</div>
+</div>
+<p>We now have 90 rows: 30 participants with three accuracy scores each. Do not aggregate across all three conditions: those condition differences are what our experiment is designed to investigate!</p>
+<p>To help you inspect one person’s results, here is a familiar <code>filter()</code> example:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the three condition scores for the first participant</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>accuracy_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Participant <span class="sc">==</span> <span class="st">"P01"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  Participant Condition        Accuracy
+  &lt;chr&gt;       &lt;chr&gt;               &lt;dbl&gt;
+1 P01         Generic warning        55
+2 P01         No warning             70
+3 P01         Specific warning       60</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret aggregation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Change <code>P01</code> to <code>P02</code> in the example above. How many rows appear, and why?</li>
+<li>If a participant classifies one additional post correctly out of 20, by how many percentage points will their accuracy increase?</li>
+<li>What would be lost if we calculated one overall accuracy percentage for each person across all 60 trials?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Each participant has three rows, one for each warning. Each correct response contributes 1/20 of the total, or five percentage points. For example, 14 correct responses give 70%, while 15 give 75%. Averaging across all conditions would remove the information needed to compare the warning types.</p>
+</div>
+</div>
+</div>
+<section id="identifying-participants-and-warning-conditions-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-participants-and-warning-conditions-in-r">Identifying participants and warning conditions in R</h3>
+<p>As in Week 2, we need to tell R which columns represent categories. Warning condition is our independent variable, so we turn it into a factor using the same syntax as last week:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store the warning labels as an ordered set of categories</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>accuracy_data<span class="sc">$</span>Condition <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  accuracy_data<span class="sc">$</span>Condition,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"No warning"</span>, <span class="st">"Generic warning"</span>, <span class="st">"Specific warning"</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(accuracy_data<span class="sc">$</span>Condition)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "No warning"       "Generic warning"  "Specific warning"</code></pre>
+</div>
+</div>
+<p>There is one additional factor this week: <code>Participant</code>. Although participant IDs contain numbers, they are <em>labels</em>, not quantities we can meaningfully add or average. The repeated-measures ANOVA needs to recognise which three condition scores belong to the same individual. Converting the IDs into a factor makes that categorical role explicit:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Treat participant IDs as individual labels, not numerical scores</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>accuracy_data<span class="sc">$</span>Participant <span class="ot">&lt;-</span> <span class="fu">factor</span>(accuracy_data<span class="sc">$</span>Participant)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(accuracy_data<span class="sc">$</span>Participant) <span class="co"># Should return "factor"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="exploring-accuracy-scores" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-accuracy-scores">Exploring accuracy scores</h2>
+<p>We will begin with the same descriptive statistics as in Week 2. The <code>get_summary_stats()</code> function supplies the results in a convenient table. When reporting descriptive statistics, we generally use two decimal places. However, R sometimes displays fewer digits than we need. We therefore use <code>options(pillar.sigfig = 5)</code> to show more significant digits in our results tables. For example, a mean displayed as 56.833 should be reported as 56.83. This setting changes how numbers are displayed.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display more significant digits in tibble output.</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">pillar.sigfig =</span> <span class="dv">5</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarise accuracy separately for each warning condition</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>accuracy_descriptives <span class="ot">&lt;-</span> accuracy_data <span class="sc">%&gt;%</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    Accuracy,</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"ci"</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>accuracy_descriptives</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  Condition        variable     n   mean     sd   min   max    ci
+  &lt;fct&gt;            &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 No warning       Accuracy    30 56.833 10.706    30    70 3.998
+2 Generic warning  Accuracy    30 67     12.704    35    90 4.744
+3 Specific warning Accuracy    30 76.333 19.115    35   100 7.138</code></pre>
+</div>
+</div>
+<p><code>mean</code> tells us the average percentage accuracy, <code>sd</code> describes the spread of participants’ scores, and <code>ci</code> is the margin of a separate 95% confidence interval for the mean. We’ll use these values in our bar chart.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: describe the pattern
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which warning condition has the highest mean accuracy? Which has the greatest spread of scores? Can the descriptive table alone tell us whether differences are statistically significant?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Mean accuracy is approximately 56.83% without a warning, 67.00% with a generic warning and 76.33% with a specific warning. The specific-warning condition has the largest SD (approximately 19.12). We need the ANOVA and follow-up comparisons to make inferential conclusions.</p>
+</div>
+</div>
+</div>
+<p>As last week, we should check for unusual observations. An unusual accuracy score may be perfectly valid—a flagged value is a reason to investigate, not an automatic reason to remove it.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the familiar IQR-based outlier check within each condition</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>accuracy_outliers <span class="ot">&lt;-</span> accuracy_data <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">identify_outliers</span>(Accuracy)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>accuracy_outliers</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  Condition       Participant Accuracy is.outlier is.extreme
+  &lt;fct&gt;           &lt;fct&gt;          &lt;dbl&gt; &lt;lgl&gt;      &lt;lgl&gt;     
+1 Generic warning P20               35 TRUE       FALSE     </code></pre>
+</div>
+</div>
+<p>The output identifies Participant P20, whose accuracy in the generic-warning condition is 35%, as a potential outlier. This score is unusually low compared with the other participants in that condition, but unusual does not necessarily mean incorrect. We have confirmed that the trial responses contain valid codes and no missing values, and we have no specific evidence that P20’s score was recorded incorrectly. We will therefore retain this observation rather than removing it solely because it is unusual.</p>
+</section>
+<section id="a-reminder-about-data-format" class="level2">
+<h2 class="anchored" data-anchor-id="a-reminder-about-data-format">A reminder about data format</h2>
+<p>The trial responses arrived in wide format, with the warning conditions in separate columns and each participant’s 20 trials in separate rows. We converted the three condition columns into long format, then combined the trials to obtain three accuracy scores per participant. We’ll keep <code>accuracy_data</code> in long format for the ANOVA—the condition is identified in one column and accuracy is stored in another. The <code>Participant</code> column tells the analysis which scores belong to the same person.</p>
+</section>
+<section id="examining-the-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="examining-the-assumptions">Examining the assumptions</h2>
+<section id="independence" class="level3">
+<h3 class="anchored" data-anchor-id="independence">Independence</h3>
+<p>Observations from different participants should be independent. However, repeated scores from the <em>same</em> person are expected to be related. That is why the within-participants ANOVA explicitly identifies participants. Independence between participants follows from the study design rather than from a statistical test.</p>
+</section>
+<section id="normality" class="level3">
+<h3 class="anchored" data-anchor-id="normality">Normality</h3>
+<p>In Week 2 we used Q–Q plots and the Shapiro–Wilk test to examine the distributions of scores in each group. We will repeat those familiar checks for each warning condition. They are useful initial diagnostic checks, although the repeated-measures ANOVA assumption concerns the model errors rather than the distribution of scores. We should therefore not treat checks on the raw condition scores as definitive tests of these assumptions.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a separate Q-Q plot of accuracy for each warning condition</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(accuracy_data, <span class="at">x =</span> <span class="st">"Accuracy"</span>, <span class="at">facet.by =</span> <span class="st">"Condition"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week3_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" alt="Q-Q plots of classification accuracy in the three warning conditions." width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Next, use the familiar Shapiro–Wilk test to assess the distribution of scores in each condition:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the Shapiro–Wilk normality test separately to each warning condition</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>accuracy_data <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(Accuracy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  Condition        variable statistic        p
+  &lt;fct&gt;            &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+1 No warning       Accuracy   0.92234 0.030857
+2 Generic warning  Accuracy   0.97286 0.62008 
+3 Specific warning Accuracy   0.92049 0.027615</code></pre>
+</div>
+</div>
+<p>The null hypothesis of the Shapiro–Wilk test is that the sampled values come from a normal distribution. A small <em>p</em>-value provides evidence against normality—a non-significant result does not establish that the distribution is normal, rather that there is insufficient evidence to suggest the distribution is not normal.</p>
+<p>The Shapiro–Wilk tests are significant for the no warning condition (<em>p</em> = .031) and the specific warning condition (<em>p</em> = .028), but not for the generic warning condition (<em>p</em> = .620). These results are broadly consistent with the Q–Q plots, which also suggest some departures from normality.</p>
+<p>Does this mean we cannot proceed with our ANOVA? Not necessarily. ANOVA is reasonably robust to moderate departures from normality, particularly with a balanced design and a reasonable sample size. Given that we have 30 participants, we will proceed with the analysis while bearing these departures from normality in mind.</p>
+</section>
+<section id="sphericity" class="level3">
+<h3 class="anchored" data-anchor-id="sphericity">Sphericity</h3>
+<p>Sphericity is the main new assumption this week. It concerns the <em>variances of the differences</em> between conditions for the same participants. We have three pairs: generic minus no warning, specific minus no warning, and specific minus generic warning. If the population variances of these three difference scores are equal, sphericity holds. This is not the same as requiring the three conditions to have equal variances (see the explanation and example in the lecture for further clarification).</p>
+<!-- We discussed difference scores in the lecture. In the practical, we'll use the sphericity output supplied with the ANOVA, rather than first teaching another method of reorganising the data. -->
+<p>We will use Mauchly’s test of sphericity, which is included in the output from our repeated-measures ANOVA, to assess this assumption. Its null hypothesis is that sphericity holds—a small <em>p</em>-value (<em>p</em> &lt; .05) provides evidence against it. We will interpret that test before deciding whether a correction is needed.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: understanding sphericity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why do we calculate <em>differences between conditions</em> when thinking about sphericity? Is sphericity the same assumption as the homogeneity of variance we tested last week?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>With the same people in every condition, the differences tell us how each person’s scores change between conditions. Sphericity concerns the population variances of those paired differences. Homogeneity of variance in last week’s between-participants ANOVA concerned the variability of scores in separate, independent groups.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="running-the-within-participants-anova" class="level2">
+<h2 class="anchored" data-anchor-id="running-the-within-participants-anova">Running the within-participants ANOVA</h2>
+<p>Last week, we fitted a between-participants ANOVA using <code>aov()</code>. This week we will use <code>anova_test()</code> from <code>rstatix</code> instead. It conveniently provides Mauchly’s test of sphericity and the corrections used when that assumption is violated, alongside the ANOVA itself. The standard <code>aov()</code> output we used last week does not provide these additional results directly.</p>
+<p>The options in the code tell R how our experiment is organised. <code>data</code> identifies the dataframe, and <code>dv</code> names the dependent variable (<code>Accuracy</code>). <code>wid</code> specifies the participant identifier (<code>Participant</code>), so that R knows which observations belong to the same individual. <code>within</code> identifies our within-participants factor (<code>Condition</code>). Finally, <code>effect.size = "ges"</code> requests generalised eta-squared, which appears in the <code>ges</code> column of the ANOVA table.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the within-participants ANOVA and display the results</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>accuracy_anova <span class="ot">&lt;-</span> <span class="fu">anova_test</span>(<span class="at">data =</span> accuracy_data, <span class="at">dv =</span> Accuracy, <span class="at">wid =</span> Participant, <span class="at">within =</span> Condition, <span class="at">effect.size =</span> <span class="st">"ges"</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>accuracy_anova</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
+
+$ANOVA
+     Effect DFn DFd      F        p p&lt;.05   ges
+1 Condition   2  58 12.706 2.65e-05     * 0.235
+
+$`Mauchly's Test for Sphericity`
+     Effect     W     p p&lt;.05
+1 Condition 0.704 0.007     *
+
+$`Sphericity Corrections`
+     Effect   GGe      DF[GG]    p[GG] p[GG]&lt;.05   HFe     DF[HF]    p[HF]
+1 Condition 0.772 1.54, 44.76 0.000155         * 0.807 1.61, 46.8 0.000118
+  p[HF]&lt;.05
+1         *</code></pre>
+</div>
+</div>
+<section id="mauchlys-test-of-sphericity" class="level3">
+<h3 class="anchored" data-anchor-id="mauchlys-test-of-sphericity">Mauchly’s test of sphericity</h3>
+<p>Before interpreting the main ANOVA, we need to decide whether the sphericity assumption has been met. Mauchly’s test is supplied as part of <code>accuracy_anova</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display Mauchly's test of the sphericity assumption</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>accuracy_anova<span class="sc">$</span><span class="st">`</span><span class="at">Mauchly's Test for Sphericity</span><span class="st">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Effect     W     p p&lt;.05
+1 Condition 0.704 0.007     *</code></pre>
+</div>
+</div>
+<p>For this dataset, Mauchly’s test is significant (<em>p</em> ≈ .007). This provides evidence that sphericity has been violated. We should therefore use a corrected test of the overall effect, rather than relying on the uncorrected degrees of freedom and <em>p</em>-value.</p>
+</section>
+<section id="greenhousegeisser-and-other-corrections" class="level3">
+<h3 class="anchored" data-anchor-id="greenhousegeisser-and-other-corrections">Greenhouse–Geisser and other corrections</h3>
+<p>A sphericity violation can make the conventional repeated-measures <em>F</em>-test too liberal. The Greenhouse–Geisser (GG) and Huynh–Feldt (HF) corrections adjust the degrees of freedom used to determine the <em>p</em>-value. They leave the observed <em>F</em>-statistic unchanged. We will use the Greenhouse–Geisser correction in this practical.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the available sphericity correction factors</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>accuracy_anova<span class="sc">$</span><span class="st">`</span><span class="at">Sphericity Corrections</span><span class="st">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Effect   GGe      DF[GG]    p[GG] p[GG]&lt;.05   HFe     DF[HF]    p[HF]
+1 Condition 0.772 1.54, 44.76 0.000155         * 0.807 1.61, 46.8 0.000118
+  p[HF]&lt;.05
+1         *</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the ANOVA table with Greenhouse–Geisser correction</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_anova_table</span>(accuracy_anova, <span class="at">correction =</span> <span class="st">"GG"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA Table (type III tests)
+
+     Effect  DFn   DFd      F        p p&lt;.05   ges
+1 Condition 1.54 44.76 12.706 0.000155     * 0.235</code></pre>
+</div>
+</div>
+<p>The within-participants <em>F</em>-ratio is <span class="math inline">\(MS_{BETWEEN}/MS_{RESIDUAL}\)</span>. Unlike the between-participants ANOVA, its denominator excludes systematic differences between participants. For our three conditions and 30 participants, the uncorrected degrees of freedom would be 2 and 58 (see <code>DFn</code> and <code>DFd</code> in the initial ANOVA table). The correction reduces these degrees of freedom, but does not change the observed <em>F</em>-statistic. The corrected degrees of freedom, shown in the output above, are 1.54 and 44.76.</p>
+<p>R sometimes displays small <em>p</em>-values in scientific notation: for example, <code>2.5e-04</code> means 0.00025. Once a test has been run, we can use the <code>round()</code> function to display its <em>p</em>-value to three decimal places:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the corrected ANOVA p-value for easier reading</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">get_anova_table</span>(accuracy_anova, <span class="at">correction =</span> <span class="st">"GG"</span>)<span class="sc">$</span>p, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<p>Very small <em>p</em>-values may round to <code>0</code>. In a written report we use <em>p</em> &lt; .001, not <em>p</em> = .000.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the ANOVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>What does Mauchly’s test suggest about sphericity?</li>
+<li>Does the effect of warning condition remain statistically significant after GG correction?</li>
+<li>Does an overall significant <span class="math inline">\(F\)</span>-test tell us which particular warnings differ?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Mauchly’s test gives approximately <em>p</em> = .007, so there is evidence that sphericity has been violated. We therefore use the Greenhouse–Geisser correction. The corrected degrees of freedom are approximately 1.54 and 44.76, and the overall effect remains significant, <span class="math inline">\(F(1.54,44.76)=12.71\)</span>, <em>p</em> &lt; .001. This tells us that at least one condition mean differs, but not which conditions differ.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="effect-size" class="level3">
+<h3 class="anchored" data-anchor-id="effect-size">Effect size</h3>
+<p>As we did in Week 2, we report an effect size alongside the significance test. Here <code>anova_test()</code> provides <em>generalised eta-squared</em>, <span class="math inline">\(\eta_G^2\)</span>, in the <code>ges</code> column of the ANOVA table. This measure takes account of additional sources of variation in a repeated-measures design, including participant differences, and is not the same as partial eta-squared.</p>
+<p>For our experiment, <span class="math inline">\(\eta_G^2\)</span> = .235, indicating that warning condition accounts for approximately 23.5% of the variability as defined by generalised eta-squared. Using conventional guidelines for eta-squared (.01 = small, .06 = medium, .14 = large), this would be considered a large effect. However, these benchmarks are only rough guidelines.</p>
+</section>
+</section>
+<section id="planned-comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="planned-comparisons">Planned comparisons</h2>
+<p>Recall that the researchers made two specific predictions before collecting data: that a specific warning would improve accuracy relative to no warning, and that a specific warning would improve accuracy relative to a generic warning. These are our two planned comparisons.</p>
+<p>Last week, we compared independent groups using the ANOVA model’s error term. This week the same participants provide both scores, so we use <em>paired</em> comparisons. We’ll continue using <code>rstatix</code> and specify the two predictions in advance. As in Week 2, for this small set of two planned comparisons we will use the ordinary, unadjusted <em>p</em>-values at the .05 significance level. We’ll explain how Bonferroni adjustment would be used if we examined <em>all</em> pairs in a post-hoc analysis.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test the two comparisons specified before the data were examined</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>planned_tests <span class="ot">&lt;-</span> accuracy_data <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    Accuracy <span class="sc">~</span> Condition,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"No warning"</span>, <span class="st">"Specific warning"</span>),</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Generic warning"</span>, <span class="st">"Specific warning"</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The same participants complete both conditions, so set paired = TRUE</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">paired =</span> <span class="cn">TRUE</span>,             </span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Report the planned tests without an adjustment</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"none"</span>, </span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Include estimated differences and confidence intervals</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">detailed =</span> <span class="cn">TRUE</span>            </span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>planned_tests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 15
+  estimate .y.      group1  group2    n1    n2 statistic        p    df conf.low
+*    &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+1 -19.5    Accuracy No war… Speci…    30    30   -4.5517 0.000088    29  -28.262
+2  -9.3333 Accuracy Generi… Speci…    30    30   -2.1030 0.044       29  -18.410
+# ℹ 5 more variables: conf.high &lt;dbl&gt;, method &lt;chr&gt;, alternative &lt;chr&gt;,
+#   p.adj &lt;dbl&gt;, p.adj.signif &lt;chr&gt;</code></pre>
+</div>
+</div>
+<section id="confidence-intervals-for-the-planned-differences" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-intervals-for-the-planned-differences">Confidence intervals for the planned differences</h3>
+<p>As in Week 2, we can examine more than just whether each test is statistically significant. The <code>estimate</code> column gives the estimated difference between condition means, expressed here in <strong>percentage points of accuracy</strong>. The <code>conf.low</code> and <code>conf.high</code> columns give the lower and upper limits of the 95% confidence interval for that difference.</p>
+<p>The <code>detailed = TRUE</code> argument requests these additional results. We can use the familiar <code>select()</code> command from Week 2 to display the columns needed for interpreting the tests:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the mean differences, their 95% confidence intervals and test results</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>planned_tests <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, estimate, conf.low, conf.high,</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>         statistic, df, p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+  group1          group2    estimate conf.low conf.high statistic    df        p
+  &lt;chr&gt;           &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+1 No warning      Specific… -19.5     -28.262 -10.738     -4.5517    29 0.000088
+2 Generic warning Specific…  -9.3333  -18.410  -0.25626   -2.1030    29 0.044   </code></pre>
+</div>
+</div>
+<p>The <code>p</code> column contains the unadjusted <em>p</em>-values for our two pre-specified comparisons. To make small values easier to read, we can also display the rounded <em>p</em>-values using <code>round()</code>. This changes only how the numbers are displayed:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the planned-comparison p-values to three decimal places</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(planned_tests<span class="sc">$</span>p, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.000 0.044</code></pre>
+</div>
+</div>
+<p>If a very small <em>p</em>-value rounds to zero, report <em>p</em> &lt; .001 rather than <em>p</em> = .000.</p>
+</section>
+<section id="cohens-d-for-paired-observations" class="level3">
+<h3 class="anchored" data-anchor-id="cohens-d-for-paired-observations">Cohen’s d for paired observations</h3>
+<p>We used <code>effectsize::cohens_d()</code> for the independent-groups comparisons last week. We can use the same function here, but must specify <code>paired = TRUE</code> because each participant contributes a score to both conditions. For paired data, Cohen’s <em>d</em> is based on the differences between each participant’s two scores, rather than the pooled standard deviation of independent groups.</p>
+<p>There is one difference from Week 2 in how we supply the scores to <code>effectsize::cohens_d()</code>. Previously, for independent groups, we used a formula such as <code>Accuracy ~ Condition</code>. For paired observations, the function instead needs <strong>two sets of accuracy scores</strong>, one from each condition, with the scores matched to the same participants.</p>
+<p>We will first use <code>filter()</code> to create a separate dataframe for each condition. The <code>arrange(Participant)</code> command then puts participants in the same order in both dataframes. This is important: the first score in one set must belong to the same person as the first score in the other, and so on. Finally, <code>$Accuracy</code> tells R to use just the accuracy column from each dataframe. In R, a single column of values is called a <em>vector</em>. Here, each vector contains 30 accuracy scores, one for each participant.</p>
+<p>We then use <code>paired = TRUE</code> to tell the function to calculate Cohen’s <em>d</em> from these matched observations.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the no-warning observations and order them by participant</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>none_scores <span class="ot">&lt;-</span> accuracy_data <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Condition <span class="sc">==</span> <span class="st">"No warning"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Participant)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the specific-warning observations in the same participant order</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>specific_scores <span class="ot">&lt;-</span> accuracy_data <span class="sc">%&gt;%</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Condition <span class="sc">==</span> <span class="st">"Specific warning"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Participant)</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass the two matched accuracy columns to the paired Cohen's d function</span></span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>d_none_specific <span class="ot">&lt;-</span> <span class="fu">suppressMessages</span>(effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(</span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>  none_scores<span class="sc">$</span>Accuracy,       <span class="co"># First score for each participant</span></span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>  specific_scores<span class="sc">$</span>Accuracy,   <span class="co"># Matching second score</span></span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span>,              <span class="co"># Compare scores from the same participants</span></span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span>                   <span class="co"># Request a 95% confidence interval</span></span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>d_none_specific</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.83     | [-1.24, -0.41]</code></pre>
+</div>
+</div>
+<p>For the second planned comparison, we already have the specific-warning scores. We only need to obtain the generic-warning scores in the same participant order.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select generic-warning observations, again ordered by participant</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>generic_scores <span class="ot">&lt;-</span> accuracy_data <span class="sc">%&gt;%</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Condition <span class="sc">==</span> <span class="st">"Generic warning"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Participant)</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare each participant's generic- and specific-warning accuracy</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>d_generic_specific <span class="ot">&lt;-</span> <span class="fu">suppressMessages</span>(effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>  generic_scores<span class="sc">$</span>Accuracy,    <span class="co"># First condition's accuracy scores</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>  specific_scores<span class="sc">$</span>Accuracy,   <span class="co"># Matching scores in the second condition</span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span>,              <span class="co"># Same participants in both conditions</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span>                   <span class="co"># Request a 95% confidence interval</span></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>d_generic_specific</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.38     | [-0.75, -0.01]</code></pre>
+</div>
+</div>
+<p>The sign of Cohen’s <em>d</em> depends on the order of the conditions: subtracting the specific-warning score from a lower score produces a negative effect size. The confidence intervals here describe <em>standardised</em> paired differences, whereas intervals around raw mean differences are expressed in percentage points.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the planned comparisons
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which planned contrasts are significant at .05 using the unadjusted <em>p</em>-values? Does the sign of Cohen’s <em>d</em> indicate which warning produced the higher accuracy? Why do we set <code>paired = TRUE</code>?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Both planned comparisons are significant using unadjusted <em>p</em>-values: no warning versus specific warning (<em>p</em> &lt; .001), and generic versus specific warning (<em>p</em> = .044). Both differences are negative when the first condition is subtracted from the specific-warning condition, reflecting higher average accuracy with the specific warning. The paired setting recognises that each comparison uses two scores from the same individuals.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="post-hoc-comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="post-hoc-comparisons">Post-hoc comparisons</h2>
+<p>So far, we have conducted two planned comparisons. In other research situations, we might instead want to examine <strong>all possible pairs</strong> of conditions after the ANOVA. With three warning conditions, this gives three comparisons: no warning versus generic warning, no warning versus specific warning, and generic warning versus specific warning.</p>
+<p>We use the same paired-samples <em>t</em>-test procedure demonstrated above. The differences are that we include <strong>all three pairs</strong> and use <code>p.adjust.method = "bonferroni"</code> rather than <code>"none"</code> to control the familywise Type I error rate. You can make these changes yourself in the following exercise.</p>
+<p>You may remember that we used Tukey’s HSD for post-hoc tests in Week 2. There, we were comparing independent groups. Here the same participants completed every condition, so we use paired-samples comparisons. A Bonferroni adjustment provides a straightforward way to account for testing all three pairs.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: post-hoc comparisons
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using the planned-comparison code above as a guide, run all three paired comparisons. Add the no-warning versus generic-warning pair, and change the adjustment method from <code>"none"</code> to <code>"bonferroni"</code>.</p>
+<p>Compare the adjusted <em>p</em>-values with those obtained for the planned comparisons. Does the generic-warning versus specific-warning comparison still reach the .05 significance level?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare all three pairs of conditions using paired-samples t-tests</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>posthoc_tests <span class="ot">&lt;-</span> accuracy_data <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    Accuracy <span class="sc">~</span> Condition,</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"No warning"</span>, <span class="st">"Generic warning"</span>),</span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"No warning"</span>, <span class="st">"Specific warning"</span>),</span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Generic warning"</span>, <span class="st">"Specific warning"</span>)</span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ensure we are using paired-samples t-tests</span></span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">paired =</span> <span class="cn">TRUE</span>,                   </span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply the Bonferroni correction</span></span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span>, </span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Include estimated differences and confidence intervals</span></span>
+<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">detailed =</span> <span class="cn">TRUE</span>                  </span>
+<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb55-17"><a href="#cb55-17" aria-hidden="true" tabindex="-1"></a>posthoc_tests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 15
+  estimate .y.      group1  group2    n1    n2 statistic        p    df conf.low
+*    &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+1 -10.167  Accuracy No war… Gener…    30    30   -3.8797 0.000554    29  -15.526
+2 -19.5    Accuracy No war… Speci…    30    30   -4.5517 0.000088    29  -28.262
+3  -9.3333 Accuracy Generi… Speci…    30    30   -2.1030 0.044       29  -18.410
+# ℹ 5 more variables: conf.high &lt;dbl&gt;, method &lt;chr&gt;, alternative &lt;chr&gt;,
+#   p.adj &lt;dbl&gt;, p.adj.signif &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>The generic-warning versus specific-warning comparison was significant when tested as a planned comparison (<em>p</em> = .044), but is not significant after the Bonferroni adjustment across all three post-hoc tests (adjusted <em>p</em> ≈ .133). This illustrates why we distinguish between pre-specified tests and a family of exploratory comparisons.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Optional exercise: Cohen’s d for the remaining pair
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have calculated Cohen’s <em>d</em> for both planned comparisons. Use the <strong>same procedure</strong> to obtain Cohen’s <em>d</em> and its 95% confidence interval for the one remaining pair: no warning versus generic warning. The two sets of scores must be ordered by participant.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We already created <code>none_scores</code> and <code>generic_scores</code> in participant order, so we can use their accuracy columns directly:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the paired Cohen's d for no warning versus generic warning</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>d_none_generic <span class="ot">&lt;-</span> <span class="fu">suppressMessages</span>(effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  none_scores<span class="sc">$</span>Accuracy,    <span class="co"># No-warning scores ordered by participant</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  generic_scores<span class="sc">$</span>Accuracy, <span class="co"># Corresponding generic-warning scores</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span>,           <span class="co"># Match the repeated observations</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span>                <span class="co"># Request the 95% confidence interval</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>d_none_generic</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.71     | [-1.10, -0.30]</code></pre>
+</div>
+</div>
+<p>The sign reflects the order of the two conditions: accuracy is higher on average with a generic warning, so subtracting the generic-warning scores from the no-warning scores produces a negative value.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="preparing-a-figure-for-the-report" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-a-figure-for-the-report">Preparing a figure for the report</h2>
+<p>As in Week 2, we’ll use a bar chart of condition means with 95% confidence intervals. The descriptive statistics were calculated earlier and are stored in <code>accuracy_descriptives</code>, so we can reuse them without another calculation.</p>
+<p>The error bars below show separate confidence intervals around the <em>condition means</em>. They are not confidence intervals for the <em>paired differences</em> between conditions—those comparisons are assessed with the paired tests above.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>accuracy_barplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(accuracy_descriptives, <span class="fu">aes</span>(<span class="at">x =</span> Condition, <span class="at">y =</span> mean, <span class="at">fill =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Draw the bars at the condition means</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.65</span>) <span class="sc">+</span> </span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add error bars using mean confidence intervals</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> ci, <span class="at">ymax =</span> mean <span class="sc">+</span> ci), <span class="at">width =</span> <span class="fl">0.15</span>) <span class="sc">+</span> </span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Bar colours</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#3B6B8A"</span>, <span class="st">"#AC4141"</span>, <span class="st">"#5F8060"</span>)) <span class="sc">+</span> </span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Percentage scale from 0 to 100 in steps of 20</span></span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))) <span class="sc">+</span> </span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># x- and y-axis labels</span></span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Warning condition"</span>, <span class="at">y =</span> <span class="st">"Mean classification accuracy (%)"</span>) <span class="sc">+</span></span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean background: no gridlines</span></span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
+<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Condition names already appear on the axis so we don't need a legend</span></span>
+<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,            </span>
+<span id="cb59-18"><a href="#cb59-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Font size of axis title</span></span>
+<span id="cb59-19"><a href="#cb59-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb59-20"><a href="#cb59-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Font size of axis text</span></span>
+<span id="cb59-21"><a href="#cb59-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>)</span>
+<span id="cb59-22"><a href="#cb59-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb59-23"><a href="#cb59-23" aria-hidden="true" tabindex="-1"></a>accuracy_barplot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Week3_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" alt="Bar chart of accuracy for no warning, generic warning and specific warning, with 95% confidence intervals." width="672"></p>
+<figcaption>Figure 1. Mean percentage accuracy by warning condition. Error bars show separate 95% confidence intervals for the condition means.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save a high-resolution copy of Figure 1 in your project folder.</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Figure1_misinformation_accuracy.png"</span>, <span class="at">plot =</span> accuracy_barplot,</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="fl">4.5</span>, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Here the filename determines what the saved image will be called, and <code>plot</code> identifies the figure to save. <code>width</code> and <code>height</code> set its dimensions; <code>units = "in"</code> means these are measured in inches. Finally, <code>dpi = 300</code> specifies a high-resolution image suitable for including in a report.</p>
+</section>
+<section id="reporting-the-findings" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-the-findings">Reporting the findings</h2>
+<p>Last week, you practised writing up the results of a between-participants ANOVA. This week introduces additional reporting decisions, particularly which degrees of freedom to use when sphericity is violated and how to describe paired comparisons. Rather than asking you to construct the entire paragraph from scratch, we have provided a worked example below. Read it alongside the ANOVA and planned-comparison output, and use it as a guide for reporting similar analyses.</p>
+<p>Notice that the descriptive pattern is shown in Figure 1, rather than listing the condition means and standard deviations in the main text (if you do not include a figure or table, then these quantities must be reported in the main text). We report the <em>F</em>- and <em>t</em>-statistics to two decimal places and the <em>p</em>-values to three decimal places (or <em>p</em> &lt; .001 when appropriate).</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example results paragraph
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A single-factor within-participants ANOVA examined whether misinformation warnings affected classification accuracy. Mauchly’s test indicated a violation of sphericity (<em>p</em> = .007), so Greenhouse–Geisser-corrected degrees of freedom were used. There was a significant effect of warning condition, <span class="math inline">\(F(1.54, 44.76) = 12.71\)</span>, <em>p</em> &lt; .001, <span class="math inline">\(\eta_G^2 = .235\)</span> (see Figure 1). Two pre-specified paired comparisons were conducted without a multiple-comparison adjustment. Accuracy was significantly higher with a specific warning than with no warning, <span class="math inline">\(t(29) = -4.55\)</span>, <em>p</em> &lt; .001, 95% CI [−28.26, −10.74], <em>d</em> = −0.83, 95% CI [−1.24, −0.41]. Accuracy was also higher with a specific warning than with a generic warning, <span class="math inline">\(t(29) = -2.10\)</span>, <em>p</em> = .044, 95% CI [−18.41, −0.26], <em>d</em> = −0.38, 95% CI [−0.75, −0.01].</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: read the results paragraph
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Which part of the paragraph tells the reader that sphericity was violated, and what did we change in response?</li>
+<li>Where is generalised eta-squared reported, and which column of the ANOVA table contains this value?</li>
+<li>Why does the paragraph refer to Figure 1 rather than listing all three condition means?</li>
+<li>Where are the two planned comparisons reported? How do we know the tests were paired?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Mauchly’s test indicated evidence against sphericity, so the ANOVA is reported with Greenhouse–Geisser-corrected degrees of freedom. The effect size is generalised eta-squared, shown as <code>ges</code> in the ANOVA output. Figure 1 communicates the pattern of condition means and confidence intervals without unnecessarily repeating those descriptive values in the paragraph. The two paired comparisons are reported using <em>t</em>-statistics with 29 degrees of freedom, because there are 30 matched participants.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="before-you-finish" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-finish">Before you finish</h2>
+<p>Save your R script and check that your project folder contains your original CSV, the script and any figure you’ve exported. Make a note of questions you want to revisit. You can complete unfinished exercises after class.</p>
+<!--
+
+## Optional extensions
+
+These activities use commands we've already introduced in this practical. Try them once you're comfortable with the main analysis.
+
+::: {.callout-tip icon="false"}
+## Extension: revisit the imported dataset
+
+Use `dim()` and `head()` on `lab3_raw`, `lab3_trials` and `accuracy_data`. Explain why the three dataframes have different numbers of rows even though they all describe the same 30 participants.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+`lab3_raw` has 600 participant-trial rows, `lab3_trials` has 1,800 individual response rows, and `accuracy_data` has 90 participant-condition rows after aggregation. We have reorganised and summarised the same underlying responses rather than introducing new participants.
+:::
+
+::: {.callout-tip icon="false"}
+## Extension: compare the corrections
+
+Run `get_anova_table(accuracy_anova, correction = "none")` and then repeat it with `correction = "GG"`. Which parts of the output change, and why?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+The estimated $F$-statistic remains the same, but the degrees of freedom and therefore the corresponding *p*-value change. The adjustment addresses the sphericity assumption; the original $F$-statistic remains unchanged.
+:::
+
+-->
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

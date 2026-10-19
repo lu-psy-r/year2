@@ -182,7 +182,767 @@ Which of the following statements is true regarding the digram-balanced latin sq
 A digram-balanced Latin square distributes treatments across sequence positions and balances the immediately preceding treatment across conditions, offering protection against position-related and first-order carryover effects.
 :::
 
-
-
 # Practical
-Available next week.
+
+## This week's lab
+
+This week, you will analyse a hypothetical experiment asking whether misinformation warnings affect how accurately people distinguish true from false social media posts. Unlike the robot study last week, the same participants complete every warning condition. You will also work with a different type of dataset: each participant responds to several posts in each condition, rather than contributing just one response.
+
+By the end of the session, you should be able to:
+
+- Check the structure of a wide-format dataset and identify missing or unexpected responses.
+- Convert wide-format data into long format and calculate one accuracy score per participant in each condition.
+- Explain why repeated-measures data may be stored in wide format but analysed in long format.
+- Explore scores and assess the assumptions of within-participants ANOVA, including sphericity.
+- Conduct and interpret a within-participants ANOVA and paired planned and post-hoc comparisons.
+- Calculate effect sizes, make a bar chart, and report the results.
+
+Work in your R script and try each activity before opening its answer.
+
+::: {.callout-note icon="false"}
+## Session plan: two hours
+
+| Activity | Approximate time |
+|---|---:|
+| Set up the project and understand the study | 10 minutes |
+| Inspect and reshape the data | 25 minutes |
+| Aggregate trials and explore accuracy | 15 minutes |
+| Assess assumptions, especially sphericity | 25 minutes |
+| Run and interpret the ANOVA | 15 minutes |
+| Planned and post-hoc comparisons | 20 minutes |
+| Plot, report, and finish | 10 minutes |
+:::
+
+## Getting started
+
+{{< include /Includes/_login.qmd >}}
+
+Follow the same project setup procedure as in Week 2:
+
+1. In RStudio's **Files** pane, open your `psyc5141_labs` folder and create `psyc5141_lab_3` inside it.
+2. Download [the Week 3 dataset](data/Wk3/week3_misinformation_wide_conditions.csv) and upload it into the new folder.
+3. Choose **File → New Project → Existing Directory**, select `psyc5141_lab_3` and click **Create Project**.
+4. Open a new R script and save it as `week3_analysis.R` in this project.
+
+Opening the project sets the working directory to this folder, so there is no need for `setwd()`. When returning to your work, open the project's `.Rproj` file first.
+
+Load the same packages as last week:
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)  # Import, organise,and plot data
+library(rstatix)    # Descriptives, assumptions, and statistical tests
+library(ggpubr)     # Diagnostic plots
+library(effectsize) # Effect sizes and their confidence intervals
+```
+
+Import the dataset from your project folder:
+
+```{r}
+#| eval: false
+# Read the CSV file and give the imported dataframe a name
+lab3_raw <- read_csv("week3_misinformation_wide_conditions.csv")
+```
+
+```{r}
+#| include: false
+#| message: false
+#| warning: false
+# The website reads the same file from the course data directory
+lab3_raw <- read_csv("data/Wk3/week3_misinformation_wide_conditions.csv")
+```
+
+Last week, some of you asked why we keep two versions of the data in R. The first dataframe, `lab3_raw`, stores the imported values as a reference. We then make a second, working dataframe that we can modify during the analysis. If we accidentally change something, we can compare it with the original or start the preparation again. Neither of these actions changes the CSV saved on disk.
+
+```{r}
+# Create a working dataframe and leave the imported copy unchanged
+lab3_data <- lab3_raw
+```
+
+## The misinformation-warning experiment
+
+The researchers are interested in whether warnings can encourage people to assess information more carefully and thereby improve their ability to distinguish true from false social media posts. In particular, they want to know whether a warning tailored to the content of a post is more effective than a general reminder to be cautious, and whether it improves accuracy compared with receiving no warning at all.
+
+In this hypothetical experiment, 30 people each classify 20 social media posts as true or false under three warning conditions:
+
+| Condition | What participants see |
+|---|---|
+| No warning | Posts appear without an accompanying warning. |
+| Generic warning | A general reminder that social media information can be misleading and should be evaluated carefully. |
+| Specific warning | A warning draws attention to potentially misleading features of a particular post, without giving away whether it is true or false. |
+
+Each participant completes all three conditions. The researchers predict that accuracy will be higher with a specific warning than with no warning, and higher with a specific warning than with a generic warning. These two predictions will become our planned comparisons later in the practical.
+
+The dependent variable for our ANOVA will be the percentage of posts classified correctly in each condition. The raw dataset contains the following variables:
+
+| Variable | Meaning |
+|---|---|
+| `Participant` | Identifier for each participant (P01–P30). |
+| `Trial` | Trial number (1–20) within each warning condition. |
+| `No warning` | Classification accuracy for a trial without a warning: 1 = correct, 0 = incorrect. |
+| `Generic warning` | Classification accuracy for a trial with a general warning, using the same 0/1 coding. |
+| `Specific warning` | Classification accuracy for a trial with a content-specific warning, using the same 0/1 coding. |
+
+::: {.callout-tip icon="false"}
+## Try it yourself: identify the design
+
+What is the independent variable? How many levels does it have? Why is this a within-participants design? What would the null hypothesis say about the population mean accuracies?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+The independent variable is warning condition, with three levels. The same participants contribute scores in every condition. The null hypothesis is that population mean accuracy is the same under all three warnings. The alternative hypothesis is that at least one mean differs from one of the others.
+:::
+
+## Understanding the layout of the dataset
+
+Before analysing the results, we need to understand how the responses have been recorded. Each of our 30 participants classified 20 posts under each of the three warning conditions. The data have been supplied in *wide format*: the three warning conditions have separate columns, so we can view a participant's responses under each condition side by side.
+
+Unlike the one-response-per-participant examples from earlier weeks, each participant now occupies **20 rows**, one for each trial. This gives us 600 rows altogether (30 participants × 20 trials), with five columns:
+
+- `Participant` identifies the person who completed the trial.
+- `Trial` gives the trial number, from 1 to 20.
+- `No warning`, `Generic warning` and `Specific warning` contain the recorded responses for those conditions, coded 1 for correct and 0 for incorrect.
+
+Here is a simplified illustration of the layout (the values are examples rather than the actual dataset):
+
+| Participant | Trial | No warning | Generic warning | Specific warning |
+|---|---:|---:|---:|---:|
+| P01 | 1 | 1 | 1 | 1 |
+| P01 | 2 | 0 | 1 | 1 |
+| P01 | 3 | 1 | 0 | 1 |
+| P02 | 1 | 0 | 1 | 1 |
+
+Let's first look at the imported file and check its dimensions.
+
+```{r}
+# Display the first six trial rows from the imported data
+head(lab3_data)
+
+# Show the numbers of rows and columns in the dataframe
+dim(lab3_data)
+```
+
+The result of `dim()` should be `600 5`: 600 participant-trial rows and five columns. There are still only 30 participants, because each person's identifier appears on 20 different rows.
+
+### Checking for missing values
+
+Before changing the data, we'll perform some of the checks we used last week. First, let's look for missing entries. `is.na()` identifies missing values, and `colSums()` counts them separately in each column.
+
+```{r}
+# Count how many missing values occur in each column
+colSums(is.na(lab3_data))
+```
+
+We expect zero missing values in all five columns. This is reassuring because missing responses would need attention before calculating each person's accuracy.
+
+### Wide format and long format
+
+Why are these data organised with one column for each warning condition? In a within-participants experiment, the same person responds under every condition. Placing those responses side by side makes it easy to see that they belong to the same participant. This is a common way to record or present repeated measurements, although within-participants data do not *have* to be stored this way. Here, each row identifies a participant and a trial, and the three condition columns contain that person's responses on that trial.
+
+This arrangement is called *wide format*: each condition has its own column. The `rstatix` functions we'll use for our ANOVA are easier to use with *long format*, where one column identifies the condition and another contains the response. The `Participant` column is retained, so R still knows which observations came from the same person. 
+
+For example, the first two trials for one participant could be represented as follows:
+
+**Wide format (as supplied):**
+
+| Participant | Trial | No warning | Generic warning | Specific warning |
+|---|---:|---:|---:|---:|
+| P01 | 1 | 1 | 1 | 1 |
+| P01 | 2 | 0 | 1 | 1 |
+
+**Long format (after conversion):**
+
+| Participant | Trial | Condition | Correct |
+|---|---:|---|---:|
+| P01 | 1 | No warning | 1 |
+| P01 | 1 | Generic warning | 1 |
+| P01 | 1 | Specific warning | 1 |
+| P01 | 2 | No warning | 0 |
+| P01 | 2 | Generic warning | 1 |
+| P01 | 2 | Specific warning | 1 |
+
+These tables are illustrative. We haven't changed any of the responses: we've simply organised them differently so R can identify the conditions in the analysis.
+
+### Converting from wide to long format
+
+We can use `pivot_longer()` to move the responses from the three warning columns into a single response column. We'll keep `Participant` and `Trial` as they are, because they tell us who gave each response and on which trial.
+
+```{r}
+# Combine the three warning-condition columns into one response column
+lab3_trials <- lab3_data %>%
+  pivot_longer(
+    # Columns we want to combine
+    cols = c(`No warning`, `Generic warning`, `Specific warning`), 
+    # New column holding the warning-condition labels
+    names_to = "Condition", 
+    # New column holding each 0/1 accuracy response
+    values_to = "Correct"   
+  )
+
+# Inspect the reorganised data and its dimensions
+head(lab3_trials)
+dim(lab3_trials)
+```
+
+There are now 1,800 rows and four columns. Each of the original 600 rows supplied *three responses*, one under each condition, so reshaping has given us $600 \times 3=1,800$ response rows. It hasn't created any new responses---it has simply placed them underneath one another.
+
+We can now apply some more familiar data checks. We'll look at each separately and explain what we expect to see.
+
+First, check the number of recorded responses in each warning condition. There should be 30 participants × 20 trials = 600 responses in each.
+
+```{r}
+# Count the recorded responses in each warning condition
+count(lab3_trials, Condition)
+```
+
+The output should contain three rows, each with a count of 600. This checks the total number of responses recorded in each condition.
+
+Next, check that accuracy has been recorded using the expected codes, 0 for an incorrect classification and 1 for a correct classification.
+
+```{r}
+# Count how many incorrect (0) and correct (1) responses were recorded
+count(lab3_trials, Correct)
+```
+
+You should see 599 incorrect classifications and 1,201 correct classifications. There are no other values in `Correct`, so we haven't found any unexpected accuracy codes.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: understanding the two formats
+
+Why did our original dataset have 600 rows, while the converted dataset has 1,800? How many rows in each dataset correspond to a single participant? Have any additional responses been created?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+In the original wide-format data, each participant has 20 rows, with three condition responses on each row. After reshaping, each participant has 60 rows, because every condition response occupies its own row. The underlying data are unchanged.
+:::
+
+## Calculating an accuracy score for each condition
+
+Until now, most of our lab examples have involved one response per participant in a particular analysis. This experiment is different. Each participant gives 20 responses *in each warning condition*, recorded as 0 (incorrect) or 1 (correct).
+
+For the within-participants ANOVA we want one accuracy score per participant **per condition**. We therefore combine the 20 trials in each participant-condition combination. This process is called *aggregation*.
+
+Because `Correct` is coded 0 and 1, its mean is the proportion of posts correctly classified. For example, 15 correct responses out of 20 gives $15/20=0.75$, or 75%.
+
+```{r}
+# Combine the 20 trials for each person in each condition
+accuracy_data <- lab3_trials %>%
+  # Create separate participant-condition groups
+  group_by(Participant, Condition) %>% 
+  summarise(
+    # Proportion correct × 100 = percentage correct
+    Accuracy = mean(Correct) * 100, 
+    # Return an ordinary, ungrouped dataframe
+    .groups = "drop"                
+  )
+
+# Inspect the resulting participant-level accuracy scores
+head(accuracy_data)
+nrow(accuracy_data)
+```
+
+We now have 90 rows: 30 participants with three accuracy scores each. Do not aggregate across all three conditions: those condition differences are what our experiment is designed to investigate!
+
+To help you inspect one person's results, here is a familiar `filter()` example:
+
+```{r}
+# Display the three condition scores for the first participant
+accuracy_data %>% filter(Participant == "P01")
+```
+
+::: {.callout-tip icon="false"}
+## Try it yourself: interpret aggregation
+
+1. Change `P01` to `P02` in the example above. How many rows appear, and why?
+2. If a participant classifies one additional post correctly out of 20, by how many percentage points will their accuracy increase?
+3. What would be lost if we calculated one overall accuracy percentage for each person across all 60 trials?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Each participant has three rows, one for each warning. Each correct response contributes 1/20 of the total, or five percentage points. For example, 14 correct responses give 70%, while 15 give 75%. Averaging across all conditions would remove the information needed to compare the warning types.
+:::
+
+### Identifying participants and warning conditions in R
+
+As in Week 2, we need to tell R which columns represent categories. Warning condition is our independent variable, so we turn it into a factor using the same syntax as last week:
+
+```{r}
+# Store the warning labels as an ordered set of categories
+accuracy_data$Condition <- factor(
+  accuracy_data$Condition,
+  levels = c("No warning", "Generic warning", "Specific warning")
+)
+levels(accuracy_data$Condition)
+```
+
+There is one additional factor this week: `Participant`. Although participant IDs contain numbers, they are *labels*, not quantities we can meaningfully add or average. The repeated-measures ANOVA needs to recognise which three condition scores belong to the same individual. Converting the IDs into a factor makes that categorical role explicit:
+
+```{r}
+# Treat participant IDs as individual labels, not numerical scores
+accuracy_data$Participant <- factor(accuracy_data$Participant)
+class(accuracy_data$Participant) # Should return "factor"
+```
+
+## Exploring accuracy scores
+
+We will begin with the same descriptive statistics as in Week 2. The `get_summary_stats()` function supplies the results in a convenient table. When reporting descriptive statistics, we generally use two decimal places. However, R sometimes displays fewer digits than we need. We therefore use `options(pillar.sigfig = 5)` to show more significant digits in our results tables. For example, a mean displayed as 56.833 should be reported as 56.83. This setting changes how numbers are displayed.
+
+```{r}
+# Display more significant digits in tibble output.
+options(pillar.sigfig = 5)
+
+# Summarise accuracy separately for each warning condition
+accuracy_descriptives <- accuracy_data %>%
+  group_by(Condition) %>%
+  get_summary_stats(
+    Accuracy,
+    show = c("mean", "sd", "min", "max", "ci")
+  )
+accuracy_descriptives
+```
+
+`mean` tells us the average percentage accuracy, `sd` describes the spread of participants' scores, and `ci` is the margin of a separate 95% confidence interval for the mean. We'll use these values in our bar chart. 
+
+::: {.callout-tip icon="false"}
+## Try it yourself: describe the pattern
+
+Which warning condition has the highest mean accuracy? Which has the greatest spread of scores? Can the descriptive table alone tell us whether differences are statistically significant?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Mean accuracy is approximately 56.83% without a warning, 67.00% with a generic warning and 76.33% with a specific warning. The specific-warning condition has the largest SD (approximately 19.12). We need the ANOVA and follow-up comparisons to make inferential conclusions.
+:::
+
+As last week, we should check for unusual observations. An unusual accuracy score may be perfectly valid---a flagged value is a reason to investigate, not an automatic reason to remove it.
+
+```{r}
+# Apply the familiar IQR-based outlier check within each condition
+accuracy_outliers <- accuracy_data %>%
+  group_by(Condition) %>%
+  identify_outliers(Accuracy)
+accuracy_outliers
+```
+
+The output identifies Participant P20, whose accuracy in the generic-warning condition is 35%, as a potential outlier. This score is unusually low compared with the other participants in that condition, but unusual does not necessarily mean incorrect. We have confirmed that the trial responses contain valid codes and no missing values, and we have no specific evidence that P20's score was recorded incorrectly. We will therefore retain this observation rather than removing it solely because it is unusual.
+
+## A reminder about data format
+
+The trial responses arrived in wide format, with the warning conditions in separate columns and each participant’s 20 trials in separate rows. We converted the three condition columns into long format, then combined the trials to obtain three accuracy scores per participant. We'll keep `accuracy_data` in long format for the ANOVA---the condition is identified in one column and accuracy is stored in another. The `Participant` column tells the analysis which scores belong to the same person.
+
+## Examining the assumptions
+
+### Independence
+
+Observations from different participants should be independent. However, repeated scores from the *same* person are expected to be related. That is why the within-participants ANOVA explicitly identifies participants. Independence between participants follows from the study design rather than from a statistical test.
+
+### Normality
+
+In Week 2 we used Q–Q plots and the Shapiro–Wilk test to examine the distributions of scores in each group. We will repeat those familiar checks for each warning condition. They are useful initial diagnostic checks, although the repeated-measures ANOVA assumption concerns the model errors rather than the distribution of scores. We should therefore not treat checks on the raw condition scores as definitive tests of these assumptions.
+
+```{r}
+#| fig-width: 8
+#| fig-height: 3.5
+#| fig-alt: "Q-Q plots of classification accuracy in the three warning conditions."
+#| warning: false
+# Draw a separate Q-Q plot of accuracy for each warning condition
+ggqqplot(accuracy_data, x = "Accuracy", facet.by = "Condition")
+```
+
+Next, use the familiar Shapiro–Wilk test to assess the distribution of scores in each condition:
+
+```{r}
+# Apply the Shapiro–Wilk normality test separately to each warning condition
+accuracy_data %>%
+  group_by(Condition) %>%
+  shapiro_test(Accuracy)
+```
+
+The null hypothesis of the Shapiro–Wilk test is that the sampled values come from a normal distribution. A small *p*-value provides evidence against normality---a non-significant result does not establish that the distribution is normal, rather that there is insufficient evidence to suggest the distribution is not normal.  
+
+The Shapiro–Wilk tests are significant for the no warning condition (*p* = .031) and the specific warning condition (*p* = .028), but not for the generic warning condition (*p* = .620). These results are broadly consistent with the Q–Q plots, which also suggest some departures from normality.
+
+Does this mean we cannot proceed with our ANOVA? Not necessarily. ANOVA is reasonably robust to moderate departures from normality, particularly with a balanced design and a reasonable sample size. Given that we have 30 participants, we will proceed with the analysis while bearing these departures from normality in mind.
+
+### Sphericity
+
+Sphericity is the main new assumption this week. It concerns the *variances of the differences* between conditions for the same participants. We have three pairs: generic minus no warning, specific minus no warning, and specific minus generic warning. If the population variances of these three difference scores are equal, sphericity holds. This is not the same as requiring the three conditions to have equal variances (see the explanation and example in the lecture for further clarification).
+
+<!-- We discussed difference scores in the lecture. In the practical, we'll use the sphericity output supplied with the ANOVA, rather than first teaching another method of reorganising the data. -->
+
+We will use Mauchly's test of sphericity, which is included in the output from our repeated-measures ANOVA, to assess this assumption. Its null hypothesis is that sphericity holds---a small *p*-value (*p* < .05) provides evidence against it. We will interpret that test before deciding whether a correction is needed.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: understanding sphericity
+
+Why do we calculate *differences between conditions* when thinking about sphericity? Is sphericity the same assumption as the homogeneity of variance we tested last week?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+With the same people in every condition, the differences tell us how each person's scores change between conditions. Sphericity concerns the population variances of those paired differences. Homogeneity of variance in last week's between-participants ANOVA concerned the variability of scores in separate, independent groups.
+:::
+
+## Running the within-participants ANOVA
+
+Last week, we fitted a between-participants ANOVA using `aov()`. This week we will use `anova_test()` from `rstatix` instead. It conveniently provides Mauchly's test of sphericity and the corrections used when that assumption is violated, alongside the ANOVA itself. The standard `aov()` output we used last week does not provide these additional results directly.
+
+The options in the code tell R how our experiment is organised. `data` identifies the dataframe, and `dv` names the dependent variable (`Accuracy`). `wid` specifies the participant identifier (`Participant`), so that R knows which observations belong to the same individual. `within` identifies our within-participants factor (`Condition`). Finally, `effect.size = "ges"` requests generalised eta-squared, which appears in the `ges` column of the ANOVA table.
+
+```{r}
+# Fit the within-participants ANOVA and display the results
+accuracy_anova <- anova_test(data = accuracy_data, dv = Accuracy, wid = Participant, within = Condition, effect.size = "ges")
+accuracy_anova
+```
+
+### Mauchly's test of sphericity
+
+Before interpreting the main ANOVA, we need to decide whether the sphericity assumption has been met. Mauchly's test is supplied as part of `accuracy_anova`:
+
+```{r}
+# Display Mauchly's test of the sphericity assumption
+accuracy_anova$`Mauchly's Test for Sphericity`
+```
+
+For this dataset, Mauchly's test is significant (*p* ≈ .007). This provides evidence that sphericity has been violated. We should therefore use a corrected test of the overall effect, rather than relying on the uncorrected degrees of freedom and *p*-value.
+
+### Greenhouse–Geisser and other corrections
+
+A sphericity violation can make the conventional repeated-measures *F*-test too liberal. The Greenhouse–Geisser (GG) and Huynh–Feldt (HF) corrections adjust the degrees of freedom used to determine the *p*-value. They leave the observed *F*-statistic unchanged. We will use the Greenhouse–Geisser correction in this practical.
+
+```{r}
+# Display the available sphericity correction factors
+accuracy_anova$`Sphericity Corrections`
+
+# Display the ANOVA table with Greenhouse–Geisser correction
+get_anova_table(accuracy_anova, correction = "GG")
+```
+
+The within-participants *F*-ratio is $MS_{BETWEEN}/MS_{RESIDUAL}$. Unlike the between-participants ANOVA, its denominator excludes systematic differences between participants. For our three conditions and 30 participants, the uncorrected degrees of freedom would be 2 and 58 (see `DFn` and `DFd` in the initial ANOVA table). The correction reduces these degrees of freedom, but does not change the observed *F*-statistic. The corrected degrees of freedom, shown in the output above, are 1.54 and 44.76. 
+
+R sometimes displays small *p*-values in scientific notation: for example, `2.5e-04` means 0.00025. Once a test has been run, we can use the `round()` function to display its *p*-value to three decimal places:
+
+```{r}
+# Round the corrected ANOVA p-value for easier reading
+round(get_anova_table(accuracy_anova, correction = "GG")$p, 3)
+```
+
+Very small *p*-values may round to `0`. In a written report we use *p* < .001, not *p* = .000.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: interpret the ANOVA
+
+1. What does Mauchly's test suggest about sphericity?
+2. Does the effect of warning condition remain statistically significant after GG correction?
+3. Does an overall significant $F$-test tell us which particular warnings differ?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Mauchly's test gives approximately *p* = .007, so there is evidence that sphericity has been violated. We therefore use the Greenhouse–Geisser correction. The corrected degrees of freedom are approximately 1.54 and 44.76, and the overall effect remains significant, $F(1.54,44.76)=12.71$, *p* < .001. This tells us that at least one condition mean differs, but not which conditions differ.
+:::
+
+### Effect size
+
+As we did in Week 2, we report an effect size alongside the significance test. Here `anova_test()` provides *generalised eta-squared*, $\eta_G^2$, in the `ges` column of the ANOVA table. This measure takes account of additional sources of variation in a repeated-measures design, including participant differences, and is not the same as partial eta-squared.
+
+For our experiment, $\eta_G^2$ = .235, indicating that warning condition accounts for approximately 23.5% of the variability as defined by generalised eta-squared. Using conventional guidelines for eta-squared (.01 = small, .06 = medium, .14 = large), this would be considered a large effect. However, these benchmarks are only rough guidelines.
+
+## Planned comparisons
+
+Recall that the researchers made two specific predictions before collecting data: that a specific warning would improve accuracy relative to no warning, and that a specific warning would improve accuracy relative to a generic warning. These are our two planned comparisons.
+
+Last week, we compared independent groups using the ANOVA model's error term. This week the same participants provide both scores, so we use *paired* comparisons. We'll continue using `rstatix` and specify the two predictions in advance. As in Week 2, for this small set of two planned comparisons we will use the ordinary, unadjusted *p*-values at the .05 significance level. We'll explain how Bonferroni adjustment would be used if we examined *all* pairs in a post-hoc analysis.
+
+```{r}
+# Test the two comparisons specified before the data were examined
+planned_tests <- accuracy_data %>%
+  pairwise_t_test(
+    Accuracy ~ Condition,
+    comparisons = list(
+      c("No warning", "Specific warning"),
+      c("Generic warning", "Specific warning")
+    ),
+    # The same participants complete both conditions, so set paired = TRUE
+    paired = TRUE,             
+    # Report the planned tests without an adjustment
+    p.adjust.method = "none", 
+    # Include estimated differences and confidence intervals
+    detailed = TRUE            
+  )
+planned_tests
+```
+
+### Confidence intervals for the planned differences
+
+As in Week 2, we can examine more than just whether each test is statistically significant. The `estimate` column gives the estimated difference between condition means, expressed here in **percentage points of accuracy**. The `conf.low` and `conf.high` columns give the lower and upper limits of the 95% confidence interval for that difference.
+
+The `detailed = TRUE` argument requests these additional results. We can use the familiar `select()` command from Week 2 to display the columns needed for interpreting the tests:
+
+```{r}
+# Display the mean differences, their 95% confidence intervals and test results
+planned_tests %>%
+  select(group1, group2, estimate, conf.low, conf.high,
+         statistic, df, p)
+```
+
+The `p` column contains the unadjusted *p*-values for our two pre-specified comparisons. To make small values easier to read, we can also display the rounded *p*-values using `round()`. This changes only how the numbers are displayed:
+
+```{r}
+# Display the planned-comparison p-values to three decimal places
+round(planned_tests$p, 3)
+```
+
+If a very small *p*-value rounds to zero, report *p* < .001 rather than *p* = .000.
+
+### Cohen's d for paired observations
+
+We used `effectsize::cohens_d()` for the independent-groups comparisons last week. We can use the same function here, but must specify `paired = TRUE` because each participant contributes a score to both conditions. For paired data, Cohen's *d* is based on the differences between each participant's two scores, rather than the pooled standard deviation of independent groups.
+
+There is one difference from Week 2 in how we supply the scores to `effectsize::cohens_d()`. Previously, for independent groups, we used a formula such as `Accuracy ~ Condition`. For paired observations, the function instead needs **two sets of accuracy scores**, one from each condition, with the scores matched to the same participants.
+
+We will first use `filter()` to create a separate dataframe for each condition. The `arrange(Participant)` command then puts participants in the same order in both dataframes. This is important: the first score in one set must belong to the same person as the first score in the other, and so on. Finally, `$Accuracy` tells R to use just the accuracy column from each dataframe. In R, a single column of values is called a *vector*. Here, each vector contains 30 accuracy scores, one for each participant.
+
+We then use `paired = TRUE` to tell the function to calculate Cohen's *d* from these matched observations.
+
+```{r}
+# Select the no-warning observations and order them by participant
+none_scores <- accuracy_data %>%
+  filter(Condition == "No warning") %>%
+  arrange(Participant)
+
+# Select the specific-warning observations in the same participant order
+specific_scores <- accuracy_data %>%
+  filter(Condition == "Specific warning") %>%
+  arrange(Participant)
+
+# Pass the two matched accuracy columns to the paired Cohen's d function
+d_none_specific <- suppressMessages(effectsize::cohens_d(
+  none_scores$Accuracy,       # First score for each participant
+  specific_scores$Accuracy,   # Matching second score
+  paired = TRUE,              # Compare scores from the same participants
+  ci = 0.95                   # Request a 95% confidence interval
+))
+# Print the result
+d_none_specific
+```
+
+For the second planned comparison, we already have the specific-warning scores. We only need to obtain the generic-warning scores in the same participant order.
+
+```{r}
+# Select generic-warning observations, again ordered by participant
+generic_scores <- accuracy_data %>%
+  filter(Condition == "Generic warning") %>%
+  arrange(Participant)
+
+# Compare each participant's generic- and specific-warning accuracy
+d_generic_specific <- suppressMessages(effectsize::cohens_d(
+  generic_scores$Accuracy,    # First condition's accuracy scores
+  specific_scores$Accuracy,   # Matching scores in the second condition
+  paired = TRUE,              # Same participants in both conditions
+  ci = 0.95                   # Request a 95% confidence interval
+))
+# Print the result
+d_generic_specific
+```
+
+The sign of Cohen's *d* depends on the order of the conditions: subtracting the specific-warning score from a lower score produces a negative effect size. The confidence intervals here describe *standardised* paired differences, whereas intervals around raw mean differences are expressed in percentage points. 
+
+::: {.callout-tip icon="false"}
+## Try it yourself: interpret the planned comparisons
+
+Which planned contrasts are significant at .05 using the unadjusted *p*-values? Does the sign of Cohen's *d* indicate which warning produced the higher accuracy? Why do we set `paired = TRUE`?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Both planned comparisons are significant using unadjusted *p*-values: no warning versus specific warning (*p* < .001), and generic versus specific warning (*p* = .044). Both differences are negative when the first condition is subtracted from the specific-warning condition, reflecting higher average accuracy with the specific warning. The paired setting recognises that each comparison uses two scores from the same individuals.
+:::
+
+## Post-hoc comparisons
+
+So far, we have conducted two planned comparisons. In other research situations, we might instead want to examine **all possible pairs** of conditions after the ANOVA. With three warning conditions, this gives three comparisons: no warning versus generic warning, no warning versus specific warning, and generic warning versus specific warning.
+
+We use the same paired-samples *t*-test procedure demonstrated above. The differences are that we include **all three pairs** and use `p.adjust.method = "bonferroni"` rather than `"none"` to control the familywise Type I error rate. You can make these changes yourself in the following exercise.
+
+You may remember that we used Tukey's HSD for post-hoc tests in Week 2. There, we were comparing independent groups. Here the same participants completed every condition, so we use paired-samples comparisons. A Bonferroni adjustment provides a straightforward way to account for testing all three pairs.
+
+::: {.callout-tip icon="false"}
+## Try it yourself: post-hoc comparisons
+
+Using the planned-comparison code above as a guide, run all three paired comparisons. Add the no-warning versus generic-warning pair, and change the adjustment method from `"none"` to `"bonferroni"`.
+
+Compare the adjusted *p*-values with those obtained for the planned comparisons. Does the generic-warning versus specific-warning comparison still reach the .05 significance level?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+```{r}
+# Compare all three pairs of conditions using paired-samples t-tests
+posthoc_tests <- accuracy_data %>%
+  pairwise_t_test(
+    Accuracy ~ Condition,
+    comparisons = list(
+      c("No warning", "Generic warning"),
+      c("No warning", "Specific warning"),
+      c("Generic warning", "Specific warning")
+    ),
+    # Ensure we are using paired-samples t-tests
+    paired = TRUE,                   
+    # Apply the Bonferroni correction
+    p.adjust.method = "bonferroni", 
+    # Include estimated differences and confidence intervals
+    detailed = TRUE                  
+  )
+posthoc_tests
+```
+
+The generic-warning versus specific-warning comparison was significant when tested as a planned comparison (*p* = .044), but is not significant after the Bonferroni adjustment across all three post-hoc tests (adjusted *p* ≈ .133). This illustrates why we distinguish between pre-specified tests and a family of exploratory comparisons.
+:::
+
+::: {.callout-tip icon="false"}
+## Optional exercise: Cohen's d for the remaining pair
+
+We have calculated Cohen's *d* for both planned comparisons. Use the **same procedure** to obtain Cohen's *d* and its 95% confidence interval for the one remaining pair: no warning versus generic warning. The two sets of scores must be ordered by participant.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+We already created `none_scores` and `generic_scores` in participant order, so we can use their accuracy columns directly:
+
+```{r}
+# Calculate the paired Cohen's d for no warning versus generic warning
+d_none_generic <- suppressMessages(effectsize::cohens_d(
+  none_scores$Accuracy,    # No-warning scores ordered by participant
+  generic_scores$Accuracy, # Corresponding generic-warning scores
+  paired = TRUE,           # Match the repeated observations
+  ci = 0.95                # Request the 95% confidence interval
+))
+# Print the result
+d_none_generic
+```
+
+The sign reflects the order of the two conditions: accuracy is higher on average with a generic warning, so subtracting the generic-warning scores from the no-warning scores produces a negative value.
+:::
+
+## Preparing a figure for the report
+
+As in Week 2, we'll use a bar chart of condition means with 95% confidence intervals. The descriptive statistics were calculated earlier and are stored in `accuracy_descriptives`, so we can reuse them without another calculation.
+
+The error bars below show separate confidence intervals around the *condition means*. They are not confidence intervals for the *paired differences* between conditions---those comparisons are assessed with the paired tests above.
+
+```{r}
+#| fig-width: 7
+#| fig-height: 4.5
+#| fig-cap: "Figure 1. Mean percentage accuracy by warning condition. Error bars show separate 95% confidence intervals for the condition means."
+#| fig-alt: "Bar chart of accuracy for no warning, generic warning and specific warning, with 95% confidence intervals."
+accuracy_barplot <- ggplot(accuracy_descriptives, aes(x = Condition, y = mean, fill = Condition)) +
+  # Draw the bars at the condition means
+  geom_col(width = 0.65) + 
+  # Add error bars using mean confidence intervals
+  geom_errorbar(aes(ymin = mean - ci, ymax = mean + ci), width = 0.15) + 
+  # Bar colours
+  scale_fill_manual(values = c("#3B6B8A", "#AC4141", "#5F8060")) + 
+  # Percentage scale from 0 to 100 in steps of 20
+  scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, 20),
+                     expand = expansion(mult = c(0, 0))) + 
+  # x- and y-axis labels
+  labs(x = "Warning condition", y = "Mean classification accuracy (%)") +
+  # Clean background: no gridlines
+  theme_classic(base_size = 12) + 
+  theme(
+    # Condition names already appear on the axis so we don't need a legend
+    legend.position = "none",            
+    # Font size of axis title
+    axis.title = element_text(size = 14),
+    # Font size of axis text
+    axis.text = element_text(size = 11)
+  )
+accuracy_barplot
+```
+
+```{r}
+#| eval: false
+# Save a high-resolution copy of Figure 1 in your project folder.
+ggsave("Figure1_misinformation_accuracy.png", plot = accuracy_barplot,
+       width = 7, height = 4.5, units = "in", dpi = 300)
+```
+
+Here the filename determines what the saved image will be called, and `plot` identifies the figure to save. `width` and `height` set its dimensions; `units = "in"` means these are measured in inches. Finally, `dpi = 300` specifies a high-resolution image suitable for including in a report.
+
+## Reporting the findings
+
+Last week, you practised writing up the results of a between-participants ANOVA. This week introduces additional reporting decisions, particularly which degrees of freedom to use when sphericity is violated and how to describe paired comparisons. Rather than asking you to construct the entire paragraph from scratch, we have provided a worked example below. Read it alongside the ANOVA and planned-comparison output, and use it as a guide for reporting similar analyses.
+
+Notice that the descriptive pattern is shown in Figure 1, rather than listing the condition means and standard deviations in the main text (if you do not include a figure or table, then these quantities must be reported in the main text). We report the *F*- and *t*-statistics to two decimal places and the *p*-values to three decimal places (or *p* < .001 when appropriate). 
+
+::: {.callout-note icon="false"}
+## Example results paragraph
+
+A single-factor within-participants ANOVA examined whether misinformation warnings affected classification accuracy. Mauchly's test indicated a violation of sphericity (*p* = .007), so Greenhouse–Geisser-corrected degrees of freedom were used. There was a significant effect of warning condition, $F(1.54, 44.76) = 12.71$, *p* < .001, $\eta_G^2 = .235$ (see Figure 1). Two pre-specified paired comparisons were conducted without a multiple-comparison adjustment. Accuracy was significantly higher with a specific warning than with no warning, $t(29) = -4.55$, *p* < .001, 95% CI [−28.26, −10.74], *d* = −0.83, 95% CI [−1.24, −0.41]. Accuracy was also higher with a specific warning than with a generic warning, $t(29) = -2.10$, *p* = .044, 95% CI [−18.41, −0.26], *d* = −0.38, 95% CI [−0.75, −0.01]. 
+
+:::
+
+::: {.callout-tip icon="false"}
+## Try it yourself: read the results paragraph
+
+1. Which part of the paragraph tells the reader that sphericity was violated, and what did we change in response?
+2. Where is generalised eta-squared reported, and which column of the ANOVA table contains this value?
+3. Why does the paragraph refer to Figure 1 rather than listing all three condition means?
+4. Where are the two planned comparisons reported? How do we know the tests were paired?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+Mauchly's test indicated evidence against sphericity, so the ANOVA is reported with Greenhouse–Geisser-corrected degrees of freedom. The effect size is generalised eta-squared, shown as `ges` in the ANOVA output. Figure 1 communicates the pattern of condition means and confidence intervals without unnecessarily repeating those descriptive values in the paragraph. The two paired comparisons are reported using *t*-statistics with 29 degrees of freedom, because there are 30 matched participants.
+:::
+
+## Before you finish
+
+Save your R script and check that your project folder contains your original CSV, the script and any figure you've exported. Make a note of questions you want to revisit. You can complete unfinished exercises after class.
+
+<!--
+
+## Optional extensions
+
+These activities use commands we've already introduced in this practical. Try them once you're comfortable with the main analysis.
+
+::: {.callout-tip icon="false"}
+## Extension: revisit the imported dataset
+
+Use `dim()` and `head()` on `lab3_raw`, `lab3_trials` and `accuracy_data`. Explain why the three dataframes have different numbers of rows even though they all describe the same 30 participants.
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+`lab3_raw` has 600 participant-trial rows, `lab3_trials` has 1,800 individual response rows, and `accuracy_data` has 90 participant-condition rows after aggregation. We have reorganised and summarised the same underlying responses rather than introducing new participants.
+:::
+
+::: {.callout-tip icon="false"}
+## Extension: compare the corrections
+
+Run `get_anova_table(accuracy_anova, correction = "none")` and then repeat it with `correction = "GG"`. Which parts of the output change, and why?
+:::
+
+::: {.callout-tip icon="false" collapse="true"}
+## Check your answer
+
+The estimated $F$-statistic remains the same, but the degrees of freedom and therefore the corresponding *p*-value change. The adjustment addresses the sphericity assumption; the original $F$-statistic remains unchanged.
+:::
+
+-->
