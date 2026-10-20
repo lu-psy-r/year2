@@ -5,7 +5,7 @@ order: 1
 
 #listing: NA
 #  id: links 
-#  template: ../links.ejs
+#  template: ../links.ejs l
 #  contents: guide.yml
 ---
 
