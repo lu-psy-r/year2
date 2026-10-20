@@ -12,7 +12,7 @@ Watch Lecture 1 Part 2 [here]()
 
 Watch Lecture 1 Part 3 [here]()
 
-Download the Lecture 1 slides [here](data/Wk4/Week 4 Lecture 1 Non-Parametric Between-Participants ANOVA [HANDOUT].pdf), [here](data/Wk4/Week 4 Lecture 1 Between-Participants Designs [BIG SLIDES].pdf) for a larger version, and [here](data/Wk4/Week 4 Lecture 1 Non-Parametric Between-Participants ANOVA.zip) for the live version.
+Download the Lecture 1 slides [here](data/Wk4/Week 4 Lecture 1 Non-Parametric Between-Participants ANOVA [HANDOUT].pdf), [here](data/Wk4/Week 4 Lecture 1 Non-Parametric Between-Participants ANOVA [BIG SLIDES].pdf) for a larger version, and [here](data/Wk4/Week 4 Lecture 1 Non-Parametric Between-Participants ANOVA.zip) for the live version.
 
 Watch Lecture 2 Part 1 [here]()
 
@@ -20,7 +20,7 @@ Watch Lecture 2 Part 2 [here]()
 
 Watch Lecture 2 Part 3 [here]()
 
-Download the Lecture 2 slides [here](data/Wk4/Week 4 Lecture 2 Non-Parametric Within-Participants ANOVA [HANDOUT].pdf), [here](data/Wk3/Week 3 Lecture 1 Within-Participants Designs [BIG SLIDES].pdf) for a larger version, and [here](data/Wk4/Week 4 Lecture 2 Non-Parametric Within-Participants ANOVA.zip) for the live version.
+Download the Lecture 2 slides [here](data/Wk4/Week 4 Lecture 2 Non-Parametric Within-Participants ANOVA [HANDOUT].pdf), [here](data/Wk4/Week 4 Lecture 2 Non-Parametric Within-Participants ANOVA [BIG SLIDES].pdf) for a larger version, and [here](data/Wk4/Week 4 Lecture 2 Non-Parametric Within-Participants ANOVA.zip) for the live version.
 
 This week, we will explore non-parametric alternatives to analysis of variance (ANOVA), focusing on the Kruskal–Wallis test for between-participants designs and the Friedman test for within-participants designs. We will examine when these tests are appropriate and how they use ranks rather than the original scores to investigate differences between experimental conditions. Through worked examples, we will learn how to calculate and interpret the test statistics, assess effect sizes, and conduct planned and post-hoc comparisons. Particular attention will be given to the differences between the two procedures, especially how observations are ranked in independent and related samples. Before attending the practical class, please review this week's lecture materials and recordings above.
 
