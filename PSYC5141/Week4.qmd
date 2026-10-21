@@ -6,19 +6,17 @@ order: 5
 
 # Lectures
 
-Watch Lecture 1 Part 1 [here]()
+Watch Lecture 1 Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=44404106-ff5f-4607-a92d-b4ea005f439b)
 
-Watch Lecture 1 Part 2 [here]()
-
-Watch Lecture 1 Part 3 [here]()
+Watch Lecture 1 Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=668667fc-7571-416f-9aad-b4ea00625cb7)
 
 Download the Lecture 1 slides [here](data/Wk4/Week 4 Lecture 1 Non-Parametric Between-Participants ANOVA [HANDOUT].pdf), [here](data/Wk4/Week 4 Lecture 1 Non-Parametric Between-Participants ANOVA [BIG SLIDES].pdf) for a larger version, and [here](data/Wk4/Week 4 Lecture 1 Non-Parametric Between-Participants ANOVA.zip) for the live version.
 
-Watch Lecture 2 Part 1 [here]()
+Watch Lecture 2 Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f89055a1-183f-4498-8ccf-b4ea0069d4b6)
 
-Watch Lecture 2 Part 2 [here]()
+Watch Lecture 2 Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9cbfbb3c-9d38-4a05-970d-b4ea006d2a6f)
 
-Watch Lecture 2 Part 3 [here]()
+Watch Lecture 2 Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=cc5b68f4-9f2a-4e2b-b97f-b4ea0072b8f7)
 
 Download the Lecture 2 slides [here](data/Wk4/Week 4 Lecture 2 Non-Parametric Within-Participants ANOVA [HANDOUT].pdf), [here](data/Wk4/Week 4 Lecture 2 Non-Parametric Within-Participants ANOVA [BIG SLIDES].pdf) for a larger version, and [here](data/Wk4/Week 4 Lecture 2 Non-Parametric Within-Participants ANOVA.zip) for the live version.
 
