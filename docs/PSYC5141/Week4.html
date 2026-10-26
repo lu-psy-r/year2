@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -76,6 +111,35 @@ ul.task-list li input[type="checkbox"] {
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
 </head>
@@ -202,7 +266,40 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lectures" id="toc-lectures" class="nav-link active" data-scroll-target="#lectures">Lectures</a></li>
-  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a></li>
+  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a>
+  <ul class="collapse">
+  <li><a href="#this-weeks-lab" id="toc-this-weeks-lab" class="nav-link" data-scroll-target="#this-weeks-lab">This week’s lab</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  </ul></li>
+  <li><a href="#part-1-kruskalwallis-test-study-planning-and-procrastination" id="toc-part-1-kruskalwallis-test-study-planning-and-procrastination" class="nav-link" data-scroll-target="#part-1-kruskalwallis-test-study-planning-and-procrastination">Part 1: Kruskal–Wallis test — study planning and procrastination</a>
+  <ul class="collapse">
+  <li><a href="#importing-and-preparing-the-data" id="toc-importing-and-preparing-the-data" class="nav-link" data-scroll-target="#importing-and-preparing-the-data">Importing and preparing the data</a>
+  <ul class="collapse">
+  <li><a href="#specify-the-experimental-conditions" id="toc-specify-the-experimental-conditions" class="nav-link" data-scroll-target="#specify-the-experimental-conditions">Specify the experimental conditions</a></li>
+  <li><a href="#inspect-the-working-dataframe" id="toc-inspect-the-working-dataframe" class="nav-link" data-scroll-target="#inspect-the-working-dataframe">Inspect the working dataframe</a></li>
+  </ul></li>
+  <li><a href="#descriptive-statistics-and-normality" id="toc-descriptive-statistics-and-normality" class="nav-link" data-scroll-target="#descriptive-statistics-and-normality">Descriptive statistics and normality</a></li>
+  <li><a href="#kruskalwallis-omnibus-test" id="toc-kruskalwallis-omnibus-test" class="nav-link" data-scroll-target="#kruskalwallis-omnibus-test">Kruskal–Wallis omnibus test</a></li>
+  <li><a href="#planned-comparisons" id="toc-planned-comparisons" class="nav-link" data-scroll-target="#planned-comparisons">Planned comparisons</a></li>
+  <li><a href="#post-hoc-comparisons-dunns-test" id="toc-post-hoc-comparisons-dunns-test" class="nav-link" data-scroll-target="#post-hoc-comparisons-dunns-test">Post-hoc comparisons: Dunn’s test</a></li>
+  <li><a href="#preparing-a-figure-for-the-report" id="toc-preparing-a-figure-for-the-report" class="nav-link" data-scroll-target="#preparing-a-figure-for-the-report">Preparing a figure for the report</a></li>
+  <li><a href="#reporting-the-findings" id="toc-reporting-the-findings" class="nav-link" data-scroll-target="#reporting-the-findings">Reporting the findings</a></li>
+  </ul></li>
+  <li><a href="#part-2-friedman-test-smartphone-notifications-and-stress" id="toc-part-2-friedman-test-smartphone-notifications-and-stress" class="nav-link" data-scroll-target="#part-2-friedman-test-smartphone-notifications-and-stress">Part 2: Friedman test — smartphone notifications and stress</a>
+  <ul class="collapse">
+  <li><a href="#importing-and-arranging-the-data" id="toc-importing-and-arranging-the-data" class="nav-link" data-scroll-target="#importing-and-arranging-the-data">Importing and arranging the data</a>
+  <ul class="collapse">
+  <li><a href="#from-wide-format-to-long-format" id="toc-from-wide-format-to-long-format" class="nav-link" data-scroll-target="#from-wide-format-to-long-format">From wide format to long format</a></li>
+  <li><a href="#convert-the-variables-to-factors" id="toc-convert-the-variables-to-factors" class="nav-link" data-scroll-target="#convert-the-variables-to-factors">Convert the variables to factors</a></li>
+  </ul></li>
+  <li><a href="#descriptive-statistics-and-normality-1" id="toc-descriptive-statistics-and-normality-1" class="nav-link" data-scroll-target="#descriptive-statistics-and-normality-1">Descriptive statistics and normality</a></li>
+  <li><a href="#friedman-omnibus-test" id="toc-friedman-omnibus-test" class="nav-link" data-scroll-target="#friedman-omnibus-test">Friedman omnibus test</a></li>
+  <li><a href="#planned-paired-comparisons" id="toc-planned-paired-comparisons" class="nav-link" data-scroll-target="#planned-paired-comparisons">Planned paired comparisons</a></li>
+  <li><a href="#post-hoc-pairwise-comparisons" id="toc-post-hoc-pairwise-comparisons" class="nav-link" data-scroll-target="#post-hoc-pairwise-comparisons">Post-hoc pairwise comparisons</a></li>
+  <li><a href="#preparing-a-figure-for-the-report-1" id="toc-preparing-a-figure-for-the-report-1" class="nav-link" data-scroll-target="#preparing-a-figure-for-the-report-1">Preparing a figure for the report</a></li>
+  <li><a href="#reporting-the-findings-1" id="toc-reporting-the-findings-1" class="nav-link" data-scroll-target="#reporting-the-findings-1">Reporting the findings</a></li>
+  </ul></li>
+  <li><a href="#before-you-finish" id="toc-before-you-finish" class="nav-link" data-scroll-target="#before-you-finish">Before you finish</a></li>
   </ul>
 </nav>
     </div>
@@ -242,7 +339,1248 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="practical" class="level1">
 <h1>Practical</h1>
-<p>Coming next week!</p>
+<p>In Weeks 2 and 3, we used single-factor ANOVA to compare independent groups and repeated measurements. This week we will work with their rank-based alternatives: the <strong>Kruskal–Wallis test</strong> for independent groups and the <strong>Friedman test</strong> for repeated measurements. We will also practise planned comparisons, post-hoc tests and producing figures for reports.</p>
+<section id="this-weeks-lab" class="level2">
+<h2 class="anchored" data-anchor-id="this-weeks-lab">This week’s lab</h2>
+<p>In this practical, we will use two hypothetical studies to extend the analyses you learned in Weeks 2 and 3. First, we will compare three <em>independent</em> groups of students who received different study-planning instructions. Next, we will analyse perceived stress ratings given by the <em>same</em> students under three smartphone-notification conditions.</p>
+<p>By the end of the class you should be able to:</p>
+<ul>
+<li>Describe each experimental design and identify the appropriate rank-based omnibus test.</li>
+<li>Summarise data using medians and interquartile ranges, and inspect Q–Q plots and Shapiro–Wilk results.</li>
+<li>Conduct and interpret Kruskal–Wallis and Friedman tests, including their omnibus effect sizes.</li>
+<li>Distinguish planned comparisons from post-hoc tests and adjust for multiple comparisons.</li>
+<li>Prepare a clearly labelled figure and interpret an example results paragraph for each study.</li>
+</ul>
+<p>Work through the code in your own R script, and try each activity before expanding <strong>Check your answer</strong>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Session plan: two hours
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th style="text-align: right;">Approximate time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Set up your project and identify the designs</td>
+<td style="text-align: right;">10 minutes</td>
+</tr>
+<tr class="even">
+<td>Part 1: inspect distributions and run Kruskal–Wallis</td>
+<td style="text-align: right;">20 minutes</td>
+</tr>
+<tr class="odd">
+<td>Part 1: planned and post-hoc comparisons</td>
+<td style="text-align: right;">15 minutes</td>
+</tr>
+<tr class="even">
+<td>Part 1: figure and example reporting</td>
+<td style="text-align: right;">15 minutes</td>
+</tr>
+<tr class="odd">
+<td>Part 2: prepare data and run Friedman</td>
+<td style="text-align: right;">20 minutes</td>
+</tr>
+<tr class="even">
+<td>Part 2: planned and post-hoc comparisons</td>
+<td style="text-align: right;">15 minutes</td>
+</tr>
+<tr class="odd">
+<td>Part 2: figure and example reporting</td>
+<td style="text-align: right;">15 minutes</td>
+</tr>
+<tr class="even">
+<td>Summary, questions and catching up</td>
+<td style="text-align: right;">10 minutes</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/">instructions here</a> or connecting to Eduroam <a href="https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/">here</a>.</p>
+<p>When you are connected, navigate to <a href="https://ps-rstudio.lancaster.ac.uk/">https://ps-rstudio.lancaster.ac.uk/</a>, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.</p>
+<p><img src="../Includes/1LoginSAML.png" class="img-fluid"> <!-- says no image but it's all about the include setup --></p>
+<p>This will take you through to the University login screen, where you should enter your username (e.g.&nbsp;ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!</p>
+<p><img src="../Includes/2LoginUser.png" class="img-fluid"></p>
+<p><img src="../Includes/3LoginPass.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have already logged in through the university login, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.</p>
+</div>
+</div>
+<p>Follow the same project setup procedure as in Weeks 2 and 3:</p>
+<ol type="1">
+<li>In RStudio’s Files pane, open <code>psyc5141_labs</code> and create a folder called <code>psyc5141_lab_4</code>.</li>
+<li>Download <a href="data/Wk4/week4_study_planning_between_revised.csv">the procrastination dataset</a> and <a href="data/Wk4/week4_notifications_within.csv">the smartphone-notifications dataset</a>, then upload <strong>both</strong> CSV files to this folder.</li>
+<li>Choose File → New Project → Existing Directory, select <code>psyc5141_lab_4</code> and click Create Project.</li>
+<li>Create a new R script and save it as <code>week4_analysis.R</code> in your project.</li>
+</ol>
+<p>Opening the project sets the working directory to this folder, so there is no need to call <code>setwd()</code>. As in previous weeks, enter the code in your R script and run it in order. Load the packages we have been using:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Includes dplyr, tidyr, readr and ggplot2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)   <span class="co"># Statistical tests, descriptive statistics and effect sizes</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)    <span class="co"># Q-Q plots, as in previous practicals</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="part-1-kruskalwallis-test-study-planning-and-procrastination" class="level1">
+<h1>Part 1: Kruskal–Wallis test — study planning and procrastination</h1>
+<p>A researcher wants to investigate whether simple strategies for organising university coursework can reduce academic procrastination. Procrastination refers to putting off an intended task even though doing so may have negative consequences. A total of 216 university students are randomly allocated to one of three groups. At the beginning of a fortnight, each student receives the instructions appropriate to their allocated group:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>Instructions given to students</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No guidance</td>
+<td>Students are asked to complete their usual coursework over the next fortnight. They receive no additional advice on how to organise their study.</td>
+</tr>
+<tr class="even">
+<td>Goal setting</td>
+<td>Students identify a specific study goal for the fortnight, such as completing a particular piece of coursework by a chosen date. They write down the goal, but receive no instructions about precisely when or how they will act on it.</td>
+</tr>
+<tr class="odd">
+<td>Implementation intentions</td>
+<td>Students identify a study goal and develop an if–then plan specifying when, where and how they will begin working towards it. For example: <em>If it is 10 am on Monday and I have finished breakfast, then I will go to the library and work on my essay for 45 minutes.</em></td>
+</tr>
+</tbody>
+</table>
+<p>At the end of the fortnight, each student reports how many of the previous 14 days they procrastinated over coursework. A student who procrastinated on three days receives a score of 3; a student who did not procrastinate on any day receives 0. Thus, lower scores indicate less procrastination. This is a count of days, not a rating of how severely a student procrastinated.</p>
+<p>The researcher predicts that implementation intentions will reduce procrastination relative to both no guidance and goal setting. These two predictions will form our planned comparisons. Because each student receives only one set of instructions, this is a <strong>between-participants design</strong>.</p>
+<p>The dataset contains the following variables:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Participant</code></td>
+<td>Unique identifier for each student.</td>
+</tr>
+<tr class="even">
+<td><code>Condition</code></td>
+<td>Allocated study-planning condition, stored initially as text.</td>
+</tr>
+<tr class="odd">
+<td><code>ProcrastinationDays</code></td>
+<td>Number of days on which the student procrastinated during the 14-day period (0–14).</td>
+</tr>
+</tbody>
+</table>
+<section id="importing-and-preparing-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="importing-and-preparing-the-data">Importing and preparing the data</h2>
+<p>First import the CSV into an object called <code>planning_raw</code>. Recall from Week 3 that we keep <strong>two versions</strong> of our data: an imported copy (<code>planning_raw</code>), which serves as an unchanged reference, and a working copy (<code>planning_data</code>), which we can modify during the analysis. If we make a mistake while preparing the working dataframe, we can start again from the raw copy. Neither object changes the original CSV file.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the downloaded file from your RStudio project folder</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>planning_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"week4_study_planning_between_revised.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a working copy, preserving the original imported values</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>planning_data <span class="ot">&lt;-</span> planning_raw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="specify-the-experimental-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-experimental-conditions">Specify the experimental conditions</h3>
+<p>As in Weeks 2 and 3, we need to tell R which variable identifies the experimental groups. When a CSV is imported, <code>Condition</code> is stored as a character variable (text). For statistical analyses and figures, we want R to recognise it as a <strong>factor</strong> with three named levels. We will also specify their order, so that tables and figures display conditions in a meaningful sequence rather than alphabetical order.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the group labels from character values into a factor</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>planning_data <span class="ot">&lt;-</span> planning_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Condition =</span> <span class="fu">factor</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="co"># The existing character variable</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      Condition,  </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Specify the order of the levels</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"No guidance"</span>, <span class="st">"Goal setting"</span>, <span class="st">"Implementation intentions"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="inspect-the-working-dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="inspect-the-working-dataframe">Inspect the working dataframe</h3>
+<p>Use <code>glimpse()</code> to check the number of rows, the variable names and the data types. In particular, look for the <code>&lt;fct&gt;</code> label beside <code>Condition</code>, indicating that it is now a factor.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the dataframe structure, including each variable's type</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and a preview of the values in each column</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(planning_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 216
+Columns: 3
+$ Participant         &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,…
+$ Condition           &lt;fct&gt; No guidance, No guidance, No guidance, No guidance…
+$ ProcrastinationDays &lt;dbl&gt; 3, 1, 4, 6, 4, 5, 1, 0, 5, 4, 5, 1, 1, 3, 5, 2, 0,…</code></pre>
+</div>
+</div>
+<p>Next, check how many students were allocated to each group. The <code>count()</code> function groups rows by the specified variable and counts them. The pipe passes <code>planning_data</code> to that function.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of participants in each experimental condition</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>planning_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Condition)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Condition                     n
+  &lt;fct&gt;                     &lt;int&gt;
+1 No guidance                  72
+2 Goal setting                 72
+3 Implementation intentions    72</code></pre>
+</div>
+</div>
+<p>There should be 72 students in each condition. Each student contributes one score, so these are independent groups.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: identify the design
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the independent variable? What is the dependent variable? Why is this a between-participants experiment?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The independent variable is study-planning condition (no guidance, goal setting, or implementation intentions). The dependent variable is the number of days on which a student procrastinated, from 0 to 14. Each student takes part in just one condition, so the groups are independent.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="descriptive-statistics-and-normality" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics-and-normality">Descriptive statistics and normality</h2>
+<p>The outcome records the number of days, out of a possible 14, on which each student procrastinated. It therefore cannot be negative or greater than 14, and many students may have relatively low scores. We will summarise each group with its median (middle observed score) and interquartile range (the spread of the middle 50% of scores), and then inspect the distributions.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate a separate summary for each study-planning condition</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>planning_descriptives <span class="ot">&lt;-</span> planning_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span> <span class="co"># Split observations into the three groups</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of students in each group</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),      </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Middle number of procrastination days</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">median =</span> <span class="fu">median</span>(ProcrastinationDays), </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 25th percentile</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q1 =</span> <span class="fu">quantile</span>(ProcrastinationDays, .<span class="dv">25</span>), </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 75th percentile</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q3 =</span> <span class="fu">quantile</span>(ProcrastinationDays, .<span class="dv">75</span>), </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Difference between Q3 and Q1</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">IQR =</span> <span class="fu">IQR</span>(ProcrastinationDays),       </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>planning_descriptives <span class="co"># Display the summary table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 6
+  Condition                     n median    Q1    Q3   IQR
+  &lt;fct&gt;                     &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 No guidance                  72      3     1     5     4
+2 Goal setting                 72      2     1     4     3
+3 Implementation intentions    72      1     0     3     3</code></pre>
+</div>
+</div>
+<p>Use a Q–Q plot to compare the sample quantiles with those expected under a normal distribution. Strong curvature and departures from the reference line indicate that the distribution is not well described by a normal model.</p>
+<div class="cell" data-message="false">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>planning_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggqqplot</span>(<span class="at">x =</span> <span class="st">"ProcrastinationDays"</span>, <span class="at">facet.by =</span> <span class="st">"Condition"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">ylab =</span> <span class="st">"Procrastination days"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week4_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct a separate Shapiro–Wilk test for each condition</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>planning_data <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(ProcrastinationDays)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  Condition                 variable            statistic           p
+  &lt;fct&gt;                     &lt;chr&gt;                   &lt;dbl&gt;       &lt;dbl&gt;
+1 No guidance               ProcrastinationDays     0.867 0.00000183 
+2 Goal setting              ProcrastinationDays     0.872 0.00000277 
+3 Implementation intentions ProcrastinationDays     0.857 0.000000834</code></pre>
+</div>
+</div>
+<p>The Shapiro–Wilk null hypothesis is that observations come from a normal distribution. Small <em>p</em>-values indicate evidence against normality. Here, all three conditions show noticeable departures from normality in both the Q–Q plots and Shapiro–Wilk tests. Because the departure is evident in every condition, a non-parametric test is worth considering for this analysis. Non-normality by itself does not automatically invalidate ANOVA—sample size, design, and the measurement scale also matter. The rank-based approach is a useful analysis for this bounded, skewed count outcome.</p>
+</section>
+<section id="kruskalwallis-omnibus-test" class="level2">
+<h2 class="anchored" data-anchor-id="kruskalwallis-omnibus-test">Kruskal–Wallis omnibus test</h2>
+<p>The Kruskal–Wallis test replaces the original scores with ranks and compares the ranks across our three independent groups. Whereas a conventional ANOVA compares group means, Kruskal–Wallis tests whether the groups differ in the way their scores are ranked. A significant omnibus result tells us that the conditions are not all alike. We then use focused comparisons to establish where the differences occur.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the familiar response ~ condition formula from ANOVA</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>planning_kw <span class="ot">&lt;-</span> planning_data <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kruskal_test</span>(ProcrastinationDays <span class="sc">~</span> Condition)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>planning_kw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  .y.                     n statistic    df      p method        
+* &lt;chr&gt;               &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;         
+1 ProcrastinationDays   216      8.38     2 0.0151 Kruskal-Wallis</code></pre>
+</div>
+</div>
+<p><code>statistic</code> contains the Kruskal–Wallis <em>H</em> statistic, <code>df</code> its degrees of freedom and <code>p</code> its <em>p</em>-value. A significant result tells us that the groups do not all have the same rank distribution, but not which groups differ.</p>
+<p>We can also obtain the rank-based eta-squared effect size using the following code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rank-based eta-squared (eta_H^2), the omnibus effect-size estimate</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This measure is calculated from the Kruskal–Wallis H statistic</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>planning_effect <span class="ot">&lt;-</span> planning_data <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kruskal_effsize</span>(ProcrastinationDays <span class="sc">~</span> Condition)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>planning_effect</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  .y.                     n effsize method  magnitude
+* &lt;chr&gt;               &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;ord&gt;    
+1 ProcrastinationDays   216  0.0300 eta2[H] small    </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the omnibus result
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Is there evidence that the three groups differ? How large is the reported rank-based eta-squared estimate? Do we yet know which pairs differ?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The significant omnibus result indicates evidence that the distributions of ranks are not identical across all three planning conditions. It does not tell us which particular conditions differ—we need the planned and post-hoc comparisons for that. The effect size summarises the magnitude of the omnibus rank-based effect. The rank-based eta-squared estimate is <span class="math inline">\(\eta_H^2\)</span>=.030, indicating a relatively small overall effect. This suggests that the study-planning conditions account for a modest proportion of the variability in ranks.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="planned-comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="planned-comparisons">Planned comparisons</h2>
+<p>The researcher specified two comparisons before inspecting the data: no guidance versus implementation intentions, and goal setting versus implementation intentions. For two independent groups, we use the Wilcoxon rank-sum test (also called the Mann–Whitney U test). With tied values, R will generally calculate an asymptotic (approximate) <em>p</em>-value.</p>
+<p>As in Weeks 2 and 3, our module’s guideline is that up to <span class="math inline">\(k-1\)</span> genuinely planned comparisons (and no more than four) may be tested at the usual <span class="math inline">\(\alpha = .05\)</span> without a multiplicity correction. There are <span class="math inline">\(k=3\)</span> conditions, so our two pre-specified comparisons meet this guideline.</p>
+<p>However, conducting multiple comparisons without correction increases the familywise Type I error rate—the probability of incorrectly rejecting at least one true null hypothesis. By following this guideline, we accept this increased risk in exchange for retaining greater statistical power to detect genuine differences.</p>
+<p>For exploratory all-pairs comparisons, we will apply a correction to control the familywise Type I error rate.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test only the two comparisons the researcher specified in advance</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The list() contains the two pairs directly, as in Weeks 2 and 3</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>planning_planned <span class="ot">&lt;-</span> planning_data <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wilcox_test</span>(</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    ProcrastinationDays <span class="sc">~</span> Condition,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"No guidance"</span>, <span class="st">"Implementation intentions"</span>),</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Goal setting"</span>, <span class="st">"Implementation intentions"</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Two pre-specified comparisons: report ordinary p-values</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"none"</span>, </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tied day counts make an exact no-ties calculation unsuitable</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">exact =</span> <span class="cn">FALSE</span>   </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the two pairwise tests</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>planning_planned <span class="sc">%&gt;%</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, statistic, p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  group1       group2                    statistic     p
+  &lt;chr&gt;        &lt;chr&gt;                         &lt;dbl&gt; &lt;dbl&gt;
+1 No guidance  Implementation intentions     3260  0.007
+2 Goal setting Implementation intentions     3130. 0.029</code></pre>
+</div>
+</div>
+<p>The <code>comparisons</code> argument lists the pairs directly, using the same format as our earlier practicals. The <code>p</code> column contains each comparison’s unadjusted <em>p</em>-value. The statistic is the Wilcoxon rank-sum statistic reported by the function. In the results paragraph, we will use these ordinary <em>p</em>-values, consistent with our reporting approach in Weeks 2 and 3.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the planned comparisons
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which study-planning conditions differ at the .05 level using the two unadjusted <em>p</em>-values? Why would a non-significant result not establish that the two interventions have exactly the same effect?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the <code>p</code> column and compare each value with .05. The implementation-intentions group differs from no guidance and from goal setting using the unadjusted planned tests. A non-significant test would not demonstrate that two conditions have identical effects—it would mean that the test did not provide sufficient evidence of a difference.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Choosing a multiple-comparison correction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Our module guideline permits a small set of genuinely pre-specified comparisons to be tested without adjustment when <strong>both</strong> limits are satisfied—no more than <span class="math inline">\(k-1\)</span> comparisons (where <span class="math inline">\(k\)</span> is the number of conditions) and no more than four comparisons in total. When either limit is exceeded, use an explicitly justified correction—this includes five or more planned comparisons. Comparisons selected after inspecting the results also require an appropriate post-hoc procedure and correction. The guideline for unadjusted planned tests does not guarantee control of the <em>familywise</em> Type I error rate at .05.</p>
+<p>When an adjustment is required, Holm or Bonferroni are both acceptable choices. In this practical we will report Holm-adjusted post-hoc results, matching the non-parametric ANOVA lectures.</p>
+<section id="why-is-holm-less-conservative-than-bonferroni" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-holm-less-conservative-than-bonferroni">Why is Holm less conservative than Bonferroni?</h3>
+<p>Suppose we have three comparisons and a familywise significance level of <span class="math inline">\(\alpha = .05\)</span>:</p>
+<ul>
+<li>Bonferroni uses the same threshold for every test: <span class="math inline">\(.05/3 = .0167\)</span>.</li>
+<li>Holm first orders the <em>p</em>-values from smallest to largest. It compares the smallest with <span class="math inline">\(.05/3 = .0167\)</span>, the next with <span class="math inline">\(.05/2 = .025\)</span>, and the largest with <span class="math inline">\(.05/1 = .05\)</span>. The procedure stops rejecting hypotheses as soon as a comparison fails its threshold.</li>
+</ul>
+<p>The smallest <em>p</em>-value therefore faces the same threshold under both methods, but Holm can use less stringent thresholds for subsequent comparisons. It consequently rejects at least as many hypotheses as Bonferroni, while still controlling the familywise error rate. In R, select Holm using <code>p.adjust.method = "holm"</code>. If you want Bonferroni instead, change just that argument to <code>p.adjust.method = "bonferroni"</code>.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="post-hoc-comparisons-dunns-test" class="level2">
+<h2 class="anchored" data-anchor-id="post-hoc-comparisons-dunns-test">Post-hoc comparisons: Dunn’s test</h2>
+<p>We are demonstrating both planned and post-hoc comparisons so that you can learn how to run each procedure. In a research report, you would normally choose the comparisons that answer your research questions rather than automatically report both sets of tests on the same data. Here, the planned comparisons were specified in advance—the all-pairs analysis is included separately to show how post-hoc testing works.</p>
+<p>We now consider all three pairs of groups. Dunn’s procedure uses the ranks across the full Kruskal–Wallis dataset, rather than performing three separate rank-sum tests. These three exploratory comparisons are considered together as one family of post-hoc tests.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct all three pairwise comparisons using Dunn's post-hoc procedure</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>planning_posthoc <span class="ot">&lt;-</span> planning_data <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dunn_test</span>(</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    ProcrastinationDays <span class="sc">~</span> Condition,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust across all three exploratory pairs</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"holm"</span> </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the compared groups, Dunn's z statistic and p-values</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>planning_posthoc <span class="sc">%&gt;%</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, statistic, p, p.adj)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  group1       group2                    statistic       p  p.adj
+  &lt;chr&gt;        &lt;chr&gt;                         &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+1 No guidance  Goal setting                 -0.639 0.523   0.523 
+2 No guidance  Implementation intentions    -2.76  0.00570 0.0171
+3 Goal setting Implementation intentions    -2.13  0.0335  0.0671</code></pre>
+</div>
+</div>
+<p>Do not expect the Dunn <em>p</em>-values to match the Wilcoxon rank-sum values—Dunn’s method uses ranks calculated across the full dataset. The Holm adjustment accounts for all three exploratory pairs. This is different from the two pre-specified tests above.</p>
+</section>
+<section id="preparing-a-figure-for-the-report" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-a-figure-for-the-report">Preparing a figure for the report</h2>
+<p>We will plot the median and interquartile range of procrastination days by condition. Unlike a mean-and-confidence-interval chart, this directly displays the descriptive measures used here. We will use the same <code>ggplot2</code> conventions as in Weeks 2 and 3.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: complete the figure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fill the two <code>_____</code> entries in the code below. Use <code>planning_descriptives</code>, which we calculated earlier. Then run the chunk and check that the error bars extend from the first to the third quartile.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>planning_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(planning_descriptives,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">aes</span>(<span class="at">x =</span> Condition, <span class="at">y =</span> median, <span class="at">colour =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> _____, <span class="at">ymax =</span> _____), <span class="at">width =</span> .<span class="dv">15</span>, <span class="at">linewidth =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#3B6B8A"</span>, <span class="st">"#AC4141"</span>, <span class="st">"#5F8060"</span>)) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">14</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">14</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Study-planning condition"</span>, <span class="at">y =</span> <span class="st">"Procrastination days (median and IQR)"</span>) <span class="sc">+</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>planning_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The completed code is below. The dots show medians and the error bars show interquartile ranges, not confidence intervals.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>planning_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(planning_descriptives,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">aes</span>(<span class="at">x =</span> Condition, <span class="at">y =</span> median, <span class="at">colour =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Q1, <span class="at">ymax =</span> Q3), <span class="at">width =</span> .<span class="dv">15</span>, <span class="at">linewidth =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#3B6B8A"</span>, <span class="st">"#AC4141"</span>, <span class="st">"#5F8060"</span>)) <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">14</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">14</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Study-planning condition"</span>, <span class="at">y =</span> <span class="st">"Procrastination days (median and IQR)"</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>))</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>planning_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Week4_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Completed procrastination figure: group medians and interquartile ranges.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Export after running the completed plotting code in your R script</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Figure1_procrastination.png"</span>, <span class="at">plot =</span> planning_plot,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="fl">4.5</span>, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="reporting-the-findings" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-the-findings">Reporting the findings</h2>
+<p>Once you have produced your figure, you can save it from your R script with <code>ggsave()</code>. The paragraph below illustrates the style of an APA results section. It reports the omnibus analysis, effect size, planned comparisons and post-hoc tests. Read it alongside your actual R output to check that the reported quantities are correct.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example results paragraph
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Kruskal–Wallis test was conducted with study-planning condition (no guidance vs.&nbsp;goal setting vs.&nbsp;implementation intentions) as the independent variable and number of days spent procrastinating over a fortnight as the dependent variable. The test indicated differences in the rank distributions across conditions, <span class="math inline">\(H(2) = 8.38\)</span>, <em>p</em> = .015, <span class="math inline">\(\eta_H^2 = .030\)</span> (Figure 1). Two pre-specified Wilcoxon rank-sum comparisons were conducted without a multiplicity adjustment. Students given implementation intentions reported fewer days of procrastination than those given no guidance (<em>p</em> = .007) and those asked only to set a goal (<em>p</em> = .029). Post-hoc comparisons using Dunn’s test with Holm’s correction revealed that participants in the implementation-intentions condition reported significantly fewer procrastination days than those receiving no guidance (adjusted <em>p</em> = .017). Neither of the remaining pairwise comparisons was statistically significant (adjusted <em>p</em>s ≥ .101).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>A note on reporting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The planned and post-hoc analyses are shown together here to demonstrate the different procedures. In a research report, we would not normally present both sets of follow-up tests.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-friedman-test-smartphone-notifications-and-stress" class="level1">
+<h1>Part 2: Friedman test — smartphone notifications and stress</h1>
+<p>A second researcher investigates whether smartphone notifications disrupt studying and increase perceived stress. Seventy-two university students each complete three separate study sessions of the same length, working on comparable academic reading tasks. The researcher varies how frequently notifications are delivered to a smartphone positioned on the desk:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>What happens during the session</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Notifications disabled</td>
+<td>The phone’s notifications are switched off, so no alerts interrupt the student.</td>
+</tr>
+<tr class="even">
+<td>Occasional notifications</td>
+<td>The student receives a small number of alerts at intervals during the session.</td>
+</tr>
+<tr class="odd">
+<td>Frequent notifications</td>
+<td>The student receives alerts regularly throughout the session, creating more opportunities for distraction.</td>
+</tr>
+</tbody>
+</table>
+<p>At the end of each session, students rate how stressed they felt while studying, using a 1–7 scale (1 = not at all stressed; 7 = extremely stressed). The order of the three conditions is counterbalanced across participants to minimise order effects. Each participant provides three ratings, one per condition, making this a <strong>within-participants design</strong>.</p>
+<p>The researcher predicts that stress will be higher with frequent notifications than with notifications disabled, and higher with occasional notifications than with notifications disabled. These are our two planned comparisons.</p>
+<p>The original wide-format dataset contains:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Participant</code></td>
+<td>Unique identifier for each of the 72 students.</td>
+</tr>
+<tr class="even">
+<td><code>Notifications disabled</code></td>
+<td>Stress rating following the session without notifications (1–7).</td>
+</tr>
+<tr class="odd">
+<td><code>Occasional notifications</code></td>
+<td>Stress rating following the session with occasional alerts (1–7).</td>
+</tr>
+<tr class="even">
+<td><code>Frequent notifications</code></td>
+<td>Stress rating following the session with frequent alerts (1–7).</td>
+</tr>
+</tbody>
+</table>
+<section id="importing-and-arranging-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="importing-and-arranging-the-data">Importing and arranging the data</h2>
+<p>As with the first study, we keep the original imported dataframe unchanged and create a separate working copy. The original file is in <em>wide format</em>: each participant occupies one row. To use <code>rstatix</code> we will convert it to <em>long format</em>, retaining <code>Participant</code> to identify which ratings belong together. Recall from Week 3 that wide format has one row per participant, with a separate column for each condition; long format instead has one row for every participant–condition combination, with the condition names collected in one column and the ratings in another. This allows us to use the familiar <code>Stress ~ Condition | Participant</code> formula. We will use <code>pivot_longer()</code> to reshape the data, without changing any ratings. If this step seems unfamiliar, revisit the data-reshaping section of the Week 3 practical. The conversion code is provided below so you can focus on the new analysis.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the second file into your RStudio project</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>notifications_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"week4_notifications_within.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a working copy; the original import stays unchanged</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>notifications_wide <span class="ot">&lt;-</span> notifications_raw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the number of participants and original wide-format variables</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(notifications_wide)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 72
+Columns: 4
+$ Participant                &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, …
+$ `Notifications disabled`   &lt;dbl&gt; 1, 1, 3, 1, 2, 2, 1, 1, 2, 3, 3, 3, 3, 5, 1…
+$ `Occasional notifications` &lt;dbl&gt; 1, 1, 2, 4, 5, 3, 4, 1, 4, 4, 2, 2, 2, 5, 1…
+$ `Frequent notifications`   &lt;dbl&gt; 3, 1, 1, 2, 3, 2, 2, 2, 3, 4, 4, 1, 1, 4, 3…</code></pre>
+</div>
+</div>
+<section id="from-wide-format-to-long-format" class="level3">
+<h3 class="anchored" data-anchor-id="from-wide-format-to-long-format">From wide format to long format</h3>
+<p>To see what this change involves, imagine the first three participants have the following ratings. In wide format, each participant appears once, with a different column for each notification condition:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Participant</th>
+<th style="text-align: right;">Notifications disabled</th>
+<th style="text-align: right;">Occasional notifications</th>
+<th style="text-align: right;">Frequent notifications</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>After reshaping, the same ratings appear in long format. The three condition columns have become a single <code>Condition</code> column, and the ratings have been collected into a single <code>Stress</code> column:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Participant</th>
+<th>Condition</th>
+<th style="text-align: right;">Stress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Notifications disabled</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Occasional notifications</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>Frequent notifications</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Notifications disabled</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Occasional notifications</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Frequent notifications</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Notifications disabled</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Occasional notifications</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Frequent notifications</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>These are the first three participants from our dataset. Each person now appears on three rows, but the number of participants and their ratings remain unchanged. Keeping <code>Participant</code> is essential—it tells R which three ratings belong to the same person. If you would like a further reminder of this process, revisit the wide-to-long example in the Week 3 practical.</p>
+<p>First, reshape the data with <code>pivot_longer()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Collect the three notification-condition columns into one column of ratings</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep Participant as the identifier linking each student's three scores</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>notifications_data <span class="ot">&lt;-</span> notifications_wide <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Reshape every column except the participant ID</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>Participant,      </span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the original column headings under the variable "Condition"</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Condition"</span>,   </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the corresponding ratings under the variable "Stress"</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Stress"</span>      </span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="convert-the-variables-to-factors" class="level3">
+<h3 class="anchored" data-anchor-id="convert-the-variables-to-factors">Convert the variables to factors</h3>
+<p>As in Part 1 and previous practicals, the condition labels are initially stored as a character variable. We must convert <code>Condition</code> into a factor so that R recognises the three categories of the independent variable. Specifying its levels also keeps the conditions in the intended order in tables, tests and figures. We will treat <code>Participant</code> as a factor too, because its values identify individuals rather than measuring a numerical quantity.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify the experimental condition as a factor and choose its order</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Participant is also an identifier, so convert it to a factor</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>notifications_data <span class="ot">&lt;-</span> notifications_data <span class="sc">%&gt;%</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Condition =</span> <span class="fu">factor</span>(</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>      Condition,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Notifications disabled"</span>, <span class="st">"Occasional notifications"</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Frequent notifications"</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Participant =</span> <span class="fu">factor</span>(Participant)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Participant, Condition) <span class="co"># Arrange each student's three rows together</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Use <code>glimpse()</code> to check that <code>Condition</code> and <code>Participant</code> now appear as <code>&lt;fct&gt;</code> variables and that <code>Stress</code> remains numeric.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the structure after reshaping and converting the variables</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In particular, look for &lt;fct&gt; beside Condition and Participant</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(notifications_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 216
+Columns: 3
+$ Participant &lt;fct&gt; 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7…
+$ Condition   &lt;fct&gt; Notifications disabled, Occasional notifications, Frequent…
+$ Stress      &lt;dbl&gt; 1, 1, 3, 1, 1, 1, 3, 2, 1, 1, 4, 2, 2, 5, 3, 2, 3, 2, 1, 4…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that there are 72 ratings in each condition</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>notifications_data <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Condition)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Condition                    n
+  &lt;fct&gt;                    &lt;int&gt;
+1 Notifications disabled      72
+2 Occasional notifications    72
+3 Frequent notifications      72</code></pre>
+</div>
+</div>
+<p>There should be 216 rows in the long dataset—three observations from each of 72 participants. These are not 216 independent people.</p>
+</section>
+</section>
+<section id="descriptive-statistics-and-normality-1" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics-and-normality-1">Descriptive statistics and normality</h2>
+<p>In Part 1, we used <code>group_by()</code> and <code>summarise()</code> to calculate the sample size, median, lower quartile (Q1), upper quartile (Q3), and interquartile range (IQR) for each study-planning condition. You can now use the same approach to describe the perceived-stress ratings in the three notification conditions.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: summarise perceived stress
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using <code>notifications_data</code>, calculate the number of ratings, median, Q1, Q3, and IQR separately for each notification condition. Refer back to the descriptive-statistics code in Part 1 of this practical if you need a reminder. You should only need to change the data-frame name, the outcome variable, and the name of the object storing your results.</p>
+<p>Store the summary in an object called <code>stress_descriptives</code>, then display it. This object will also be used in the plotting exercise later in the practical.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adapt the descriptive-statistics code from Part 1 here.</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use notifications_data, group by Condition and summarise Stress.</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Save your results as stress_descriptives.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Your code should follow the same steps as in Part 1, replacing <code>ProcrastinationDays</code> with <code>Stress</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate a separate summary for each notification condition</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>stress_descriptives <span class="ot">&lt;-</span> notifications_data <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span> <span class="co"># Group the ratings by notification condition</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),                    <span class="co"># Number of ratings in each condition</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">median =</span> <span class="fu">median</span>(Stress),    <span class="co"># Middle stress rating</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q1 =</span> <span class="fu">quantile</span>(Stress, .<span class="dv">25</span>), <span class="co"># Lower quartile</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q3 =</span> <span class="fu">quantile</span>(Stress, .<span class="dv">75</span>), <span class="co"># Upper quartile</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">IQR =</span> <span class="fu">IQR</span>(Stress),          <span class="co"># Spread of the middle 50% of ratings</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>stress_descriptives <span class="co"># Display the summary table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 6
+  Condition                    n median    Q1    Q3   IQR
+  &lt;fct&gt;                    &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Notifications disabled      72      2     1     3     2
+2 Occasional notifications    72      2     1     4     3
+3 Frequent notifications      72      3     2     4     2</code></pre>
+</div>
+</div>
+<p>The summary contains 72 ratings for each notification condition, because every participant completed all three conditions.</p>
+</div>
+</div>
+</div>
+<p>Next, let’s generate the Q–Q plots and run some Shapiro–Wilk tests.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>notifications_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggqqplot</span>(<span class="at">x =</span> <span class="st">"Stress"</span>, <span class="at">facet.by =</span> <span class="st">"Condition"</span>, <span class="at">ylab =</span> <span class="st">"Perceived stress"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week4_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>notifications_data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span> <span class="fu">shapiro_test</span>(Stress)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  Condition                variable statistic            p
+  &lt;fct&gt;                    &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+1 Notifications disabled   Stress       0.819 0.0000000591
+2 Occasional notifications Stress       0.870 0.00000241  
+3 Frequent notifications   Stress       0.915 0.000125    </code></pre>
+</div>
+</div>
+<p>All three notification conditions show noticeable departures from normality in the Q–Q plots and Shapiro–Wilk tests—the ratings also tend to cluster towards the lower end of the scale. This makes a non-parametric approach worth considering, especially given that the outcome is an ordinal rating. These are useful descriptive checks, not formal assumption tests required by Friedman. For a parametric repeated-measures ANOVA, the normality question concerns the relevant model residuals or within-participant contrasts, rather than these three marginal plots alone. Because ratings are ordinal, a rank-based analysis is especially straightforward to motivate.</p>
+</section>
+<section id="friedman-omnibus-test" class="level2">
+<h2 class="anchored" data-anchor-id="friedman-omnibus-test">Friedman omnibus test</h2>
+<p>Friedman ranks the three scores within each participant. It therefore respects the matched nature of the observations. An omnibus result indicates whether the conditions have different average within-participant ranks.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The vertical bar supplies the participant identifier for paired observations</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>stress_friedman <span class="ot">&lt;-</span> notifications_data <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">friedman_test</span>(Stress <span class="sc">~</span> Condition <span class="sc">|</span> Participant)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>stress_friedman</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  .y.        n statistic    df      p method       
+* &lt;chr&gt;  &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        
+1 Stress    72      8.67     2 0.0131 Friedman test</code></pre>
+</div>
+</div>
+<p>We can also obtain the Kendall’s W effect size with the following code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kendall's W measures the strength of within-person rank agreement</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>stress_effect <span class="ot">&lt;-</span> notifications_data <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">friedman_effsize</span>(Stress <span class="sc">~</span> Condition <span class="sc">|</span> Participant)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>stress_effect</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  .y.        n effsize method    magnitude
+* &lt;chr&gt;  &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;ord&gt;    
+1 Stress    72  0.0602 Kendall W small    </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the omnibus test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Examine the results of the Friedman test and the associated effect-size estimate.</p>
+<ol type="1">
+<li>What are the chi-squared statistic, degrees of freedom and <em>p</em>-value?</li>
+<li>Is the Friedman test statistically significant at <span class="math inline">\(\alpha = .05\)</span>? What does this tell us about the notification conditions?</li>
+<li>What is the value of Kendall’s W, and how would you describe the magnitude of the effect?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>The Friedman test produced a chi-squared statistic of 8.67, with 2 degrees of freedom and a <em>p</em>-value of .013.</li>
+<li>The result is statistically significant at <span class="math inline">\(\alpha = .05\)</span>, indicating that the notification conditions do not all produce the same average within-participant ranks. However, the omnibus test does not establish which conditions differ.</li>
+<li>Kendall’s W = .060, indicating a small effect. Although the overall difference between conditions is statistically significant, the magnitude of the effect is relatively small.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="planned-paired-comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="planned-paired-comparisons">Planned paired comparisons</h2>
+<p>The two predictions made in advance compare notifications disabled with (1) frequent and (2) occasional notifications. The Wilcoxon signed-rank test uses paired differences, rather than treating the samples as independent.</p>
+<p>The stress scale creates repeated values, tied absolute differences and zero differences. We request <code>exact = FALSE</code>, so R uses an asymptotic approximation rather than an exact no-ties calculation.</p>
+<p>For three conditions, our two pre-specified comparisons again satisfy the module guideline (<span class="math inline">\(k-1=2\)</span>), so report the unadjusted planned-test <em>p</em>-values, just as in Weeks 2 and 3. We must also specify <code>paired = TRUE</code>, since each student completes both conditions in a comparison.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the two pre-specified comparisons as paired Wilcoxon signed-rank tests</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>stress_planned <span class="ot">&lt;-</span> notifications_data <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wilcox_test</span>(</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    Stress <span class="sc">~</span> Condition,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Notifications disabled"</span>, <span class="st">"Frequent notifications"</span>),</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Notifications disabled"</span>, <span class="st">"Occasional notifications"</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The same participants are measured in each condition</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">paired =</span> <span class="cn">TRUE</span>,         </span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ratings can include tied or zero paired differences</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">exact =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use unadjusted p-values for these planned tests</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"none"</span> </span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Display each planned test and its unadjusted p-value</span></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>stress_planned <span class="sc">%&gt;%</span></span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, statistic, p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  group1                 group2                   statistic        p
+  &lt;chr&gt;                  &lt;chr&gt;                        &lt;dbl&gt;    &lt;dbl&gt;
+1 Notifications disabled Frequent notifications        382  0.000963
+2 Notifications disabled Occasional notifications      392. 0.026   </code></pre>
+</div>
+</div>
+<p>The signed-rank test works with the within-person differences in ratings. The <code>statistic</code> column is the test statistic returned by R, and <code>p</code> gives the unadjusted <em>p</em>-value. Our long dataframe is arranged by participant and condition; this ensures that the paired observations are supplied in matching participant order.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: interpret the paired comparisons
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using the two unadjusted <em>p</em>-values, which notification conditions differ at the .05 level? Why must we set <code>paired = TRUE</code>?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Both planned comparisons reach the .05 level when assessed using their unadjusted <em>p</em>-values. <code>paired = TRUE</code> ensures that the test uses the two ratings contributed by the same participant, rather than treating them as unrelated observations.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="post-hoc-pairwise-comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="post-hoc-pairwise-comparisons">Post-hoc pairwise comparisons</h2>
+<p>As in Part 1, we are performing both types of follow-up analysis for teaching purposes. In practice, we would not routinely report both the planned tests and a further all-pairs post-hoc analysis of the same outcome. The choice should depend on the research questions and whether the comparisons were specified in advance.</p>
+<p>The exploratory follow-up evaluates all three pairs, again using paired signed-rank tests. We apply the Holm adjustment across these three exploratory comparisons, following the method introduced in the non-parametric ANOVA lectures. As explained in Part 1, you could request Bonferroni instead by changing the <code>p.adjust.method</code> argument.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run all three paired post-hoc comparisons and adjust their p-values</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>stress_posthoc <span class="ot">&lt;-</span> notifications_data <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_wilcox_test</span>(</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    Stress <span class="sc">~</span> Condition,</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Match the same student in each pair</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">paired =</span> <span class="cn">TRUE</span>,                 </span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use an approximation with tied ratings</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">exact =</span> <span class="cn">FALSE</span>,         </span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Correct across all three pairs</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.adjust.method =</span> <span class="st">"holm"</span> </span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display each comparison and both ordinary and adjusted p-values</span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>stress_posthoc <span class="sc">%&gt;%</span></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group1, group2, statistic, p, p.adj)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  group1                   group2                   statistic        p p.adj
+  &lt;chr&gt;                    &lt;chr&gt;                        &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+1 Notifications disabled   Occasional notifications      392. 0.026    0.051
+2 Notifications disabled   Frequent notifications        382  0.000963 0.003
+3 Occasional notifications Frequent notifications        648. 0.208    0.208</code></pre>
+</div>
+</div>
+</section>
+<section id="preparing-a-figure-for-the-report-1" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-a-figure-for-the-report-1">Preparing a figure for the report</h2>
+<p>As we did in Part 1, we will generate a figure showing medians and IQRs across the conditions.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: adapt the plotting code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Complete the plotting code using the correct descriptive-statistics object and quartile columns. The plotting structure is the same as in Part 1—check the order and that the scale runs from 1 to 7.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>stress_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(_____, <span class="fu">aes</span>(<span class="at">x =</span> Condition, <span class="at">y =</span> median, <span class="at">colour =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> _____, <span class="at">ymax =</span> _____), <span class="at">width =</span> .<span class="dv">15</span>, <span class="at">linewidth =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#3B6B8A"</span>, <span class="st">"#AC4141"</span>, <span class="st">"#5F8060"</span>)) <span class="sc">+</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Notification condition"</span>, <span class="at">y =</span> <span class="st">"Perceived stress (median and IQR)"</span>) <span class="sc">+</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>stress_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A completed version is provided below. The median/IQR display is descriptive; repeated measures are handled by the matched inferential tests.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>stress_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(stress_descriptives,</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">aes</span>(<span class="at">x =</span> Condition, <span class="at">y =</span> median, <span class="at">colour =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Q1, <span class="at">ymax =</span> Q3), <span class="at">width =</span> .<span class="dv">15</span>, <span class="at">linewidth =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#3B6B8A"</span>, <span class="st">"#AC4141"</span>, <span class="st">"#5F8060"</span>)) <span class="sc">+</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Notification condition"</span>, <span class="at">y =</span> <span class="st">"Perceived stress (median and IQR)"</span>) <span class="sc">+</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>stress_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Week4_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Completed perceived-stress figure: condition medians and interquartile ranges.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Export after running the completed plotting code in your R script</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Figure2_notification_stress.png"</span>, <span class="at">plot =</span> stress_plot,</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="fl">4.5</span>, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="reporting-the-findings-1" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-the-findings-1">Reporting the findings</h2>
+<p>Once you have produced your second figure, you can save it from your R script with <code>ggsave()</code>. Compare the following worked example with the analysis output.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example results paragraph
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Friedman test was conducted with smartphone-notification condition (disabled vs.&nbsp;occasional vs.&nbsp;frequent notifications) as the independent variable and perceived stress rating (1–7) as the dependent variable. The test indicated differences in the ranks of stress across conditions, <span class="math inline">\(\chi^2(2) = 8.67\)</span>, <em>p</em> = .013, Kendall’s <span class="math inline">\(W = .060\)</span> (Figure 2). Two pre-specified paired Wilcoxon signed-rank comparisons were conducted without a multiplicity adjustment. Participants reported higher stress with frequent notifications than with notifications disabled (<em>p</em> &lt; .001), and higher stress with occasional notifications than with notifications disabled (<em>p</em> = .025). Post-hoc comparisons using Holm’s correction revealed that perceived stress was significantly higher with frequent notifications than with notifications disabled (adjusted <em>p</em> = .003). Although perceived stress was also higher with occasional notifications than with notifications disabled, this difference was not statistically significant (adjusted <em>p</em> = .051). The difference between occasional and frequent notifications was also not statistically significant (adjusted <em>p</em> = .206).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>A note on reporting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The planned and post-hoc analyses are shown together here to demonstrate the different procedures. In a research report, we would not normally present both sets of follow-up tests.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="before-you-finish" class="level1">
+<h1>Before you finish</h1>
+<p>Across Weeks 2–4 we have now encountered four omnibus tests:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Experimental design</th>
+<th>Parametric approach</th>
+<th>Rank-based alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Between-participants</td>
+<td>Single-factor between-participants ANOVA</td>
+<td>Kruskal–Wallis</td>
+</tr>
+<tr class="even">
+<td>Within-participants</td>
+<td>Single-factor within-participants ANOVA</td>
+<td>Friedman</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it yourself: choose the analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Three independent groups provide scores on a strongly skewed bounded count outcome. Which of today’s omnibus tests would be relevant?</li>
+<li>The same students give ordinal ratings in three different conditions. Which omnibus test fits that design?</li>
+<li>Why does a Shapiro–Wilk <em>p</em>-value below .05 not automatically make parametric ANOVA inappropriate?</li>
+<li>Why must we use paired follow-up comparisons after a Friedman analysis?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Kruskal–Wallis is a reasonable rank-based candidate for three independent groups.</li>
+<li>Friedman respects the repeated observations from each person.</li>
+<li>The implications of non-normality depend on the model, design, measurement properties and robustness; assumption checks should inform rather than dictate analysis.</li>
+<li>Measurements from the same participant are related—an unpaired test discards this information and assumes the groups are independent.</li>
+</ol>
+</div>
+</div>
+</div>
+<p>If you have time, revisit the two figures and check whether the written interpretations are consistent with the patterns displayed.</p>
 
 
 </section>
