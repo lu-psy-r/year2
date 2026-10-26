@@ -507,6 +507,7 @@ notifications_data <- notifications_data %>%
   mutate(
     Condition = factor(
       Condition,
+      # Specify the order of the levels
       levels = c("Notifications disabled", "Occasional notifications",
                  "Frequent notifications")
     ),
