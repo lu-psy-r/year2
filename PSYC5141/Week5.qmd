@@ -100,13 +100,14 @@ After getting to your virtual desktop:
 3. In the search bar of AppsAnywhere, type "PsychoPy 3"
 4. Click on the blue Launch button
 5. Back to the stats webpage in the  virtual desktop's web browser
-6. Download the [VPT file](data/Wk5/VPT)
-7. In the PsychoPy programme, using File > Open, find the "VPT.psyexp" files in the downloaded VPT file; click on this to load it into PsychoPy - let it work for a while.
-8. Press the green arrow to run the file and wait. You may see a screen that look like this screenshot
+6. Visit the [PSYC5141 moodle](https://modules.lancaster.ac.uk/course/section.php?id=543193) and Download the VPT file to your virtual desktop - unzip it once it is down
+7. In the PsychoPy programme, using File > Open, find the "VPT.psyexp" files in the downloaded VPT file; click on this to load it into PsychoPy - let it work for a while. You may see a screen that look like this screenshot
 
-![](images/PsychoPy1.jpg)
+![](images/PsychoPy2.png)
 
-   This is the programme as PsychoPy sees it; you need to press the green arrow button to run it.  
+ This is the programme as PsychoPy sees it. 
+
+8. On the toolbar, in the `Desktop` section, press the green arrow to run the file and wait. 
 9. Follow the instructions and participate faithfully in the task: There is 1 block of practice trials and 4 blocks of test trials.  
 10. Use the questions below to reflect on your experience of the task, knowing what you know from the lecture and properties of RT as a DV.
    
