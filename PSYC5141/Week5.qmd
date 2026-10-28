@@ -1,5 +1,5 @@
 ---
-title: '5. Introduction to Response Time as a DV and Factorial Designs and Interactions'
+title: 5. Introduction to Response Time as a DV and Factorial Designs and Interactions
 subtitle: "Emma Mills"
 order: 6
 ---
