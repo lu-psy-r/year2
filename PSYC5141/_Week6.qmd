@@ -1,39 +1,207 @@
 ---
-title: '6. Introduction to Factorial Designs and Interactions'
-subtitle: "Mark Hurlstone, Sam Russell"
-order: 7
+title: '5. Introduction to Factorial Designs and Interactions'
+subtitle: "Emma Mills"
+order: 6
 ---
 
-<!--
+# Lectures
 
-# Lecture
+Hello! My name is Dr. Emma Mills, I am leading the 5141 content and labs from weeks 5 - 8. Each week there will be two lectures and each lecture will have associated lab activities.  Full disclosure, content is updated from two previous courses: PSYC204 and PSYC214 as we make a change both due to the CTP and across experimental software. This change is in its first stage this year, so content may feel a little disjointed between the two lectures.  Both strands are relevant, however and any lecture content could be in the final exam.
 
-Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c497616b-03ac-4184-bb14-af4b00c1e48d)
+There are two lectures for week 5.  Each of the lectures have associated lab activities.
 
-Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=465c5bc8-6b4c-42c9-b3d3-af4b00cdddab)
+Lecture 1 introduces you to the dependent variable measure of response time, a simple and elegant measure for psychology experiments and one that is used by many third year students for their final year projects. It comes with important properties, of which you need to be aware.  This lecture introduces you to some of those.  Enjoy!
 
-Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=dee1f63e-3314-48e6-8f86-af4b00d492de)
+Lecture 2 continues your learning for Analysis of Variance methods (ANOVA) and introduces factorial design the ANOVA way.  The concepts for study design discussed here are important for study design generally.  They will be applied here in weeks 5-8 using the ANOVA analysis framework.  In 5242, we will also apply them but use a regression framework. On each occasion, you can reflect on the methods for your own project design for your final year project.
 
-Watch Part 4 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1e24b443-f8dc-4885-a6f6-af4b00db48c1)
+I have made continuous recordings. Each lecture has sections, however, with breaks indicated where you can pause to take refreshment etc.  But please watch both lectures in their entirety before your lab.
 
-Download the lecture slides [here](data/Wk6/Introduction To Factorial Designs and Interactions HANDOUT.pdf), and [here](data/Wk6/Introduction To Factorial Designs and Interactions LARGE.pdf) for a larger version. -->
+Watch Lecture 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=87598da0-d18c-447a-9223-b4f00091dec1&start=0)
 
-# Lab
+Download Lecture 1 slides [here](data/Wk6/5141_Lecture1_RT_Slides Week 5.pptx),
+
+Watch Lecture 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ad18d9e4-4652-497b-97b2-b4f000ab1a03&start=0)
+
+Download Lecture 2 slides[here](data/Wk6/5141_Lecture2_ANOVA_Slides Week 5.pptx).
+
+# Practical
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<!-- <br>
-<br> -->
-Here's one of my favorite quotes for those times when you feel like you have been confronted with an impossible obstacle. It's about turning obstacles to your advantage to get where you need to go.
+In weeks 1 - 4 for methods, you have considered single factor designed studies.  In weeks 5 - 8, the methods strand pivots to knowledge and understanding of the response time measure.  We will consider the RT measure and its properties this week, and in following weeks learn how to use it in an experiment in PsychoPy, a software programme that is simple to use to build experiments. We will also look at how to handle the RT data that arises from experiments so that should you wish to use RT as a measure in the future, you can.
 
+In weeks 1 - 4 for statistics, we used single-factor ANOVA, and its non-parametric complementary methods to compare independent groups (between-participant) and repeated measurement (within-participant) design and data. From this week onwards, we extend the design from one factor to two or more factor study design while still using the ANOVA method.  There are no non-parametric methods that complement this level of design.  We will continue to practise planned comparisons, post-hoc tests, producing figures for reports and how to report your findings in text.
 
-> *The impediment to action advances action. What stands in the way becomes the way.* --Marcus Aurelius, The Meditations
+## This week's lab
 
-![Marcus Aurelius---the philosopher king and the last of the five good emperors.](images/MarcusAurelius.png){width=50%}
+The lab is in two parts:
 
-## Learning Objectives
+Part 1: Using a virtual desktop, we will access the software PsychoPy and run the visual-perspective-taking (VPT) experiment as discussed in the last part of Lecture 1.  You will need a laptop for this exericse - so bring your student ID card and borrow a laptop for the sesssion if for any reason you do not have one.
+
+Part 2: Turning to the statistical content, we will work with the 2 x 2 between-participant design that was discussed in the lecture in order to experience the concepts of factorial design for yourself and through the R code.
+
+By the end of the lab you should be able to:
+
+- Run and take part in the given VPT experiment in PsychoPy
+- Reflect on concepts and properties of RT as a dependent measure as discussed in Lecture 1
+- ?
+- ?
+- ?
+- ?
+
+Work through the code in your own R script, and try each activity before expanding **Check your answer**.
+
+::: {.callout-note icon="false"}
+## Session plan: 1 hour 50 mins
+
+| Activity | Approximate time |
+|---|---:|
+| Set up | 10 minutes |
+| Part 1: Task 1: Watch demonstration of the VPT experiment | 10 mins |
+| Part 1: Task 2: Access virtual desktop, AppsAnywhere and PsychoPy | 20 minutes |
+| Part 1: Run and take part in VPT experiment | 20 minutes |
+| Part 1: Reflect on properties of RT as experienced during the VPT task | 15 minutes |
+| Part 2: ANOVA 1 | 15 minutes |
+| Part 2: ANOVA 2 | 15 minutes |
+| Part 2: ANOVA 3 | 15 minutes |
+| Summary, questions and catching up | 5 minutes |
+:::
+
+## Part 1: Experience of PsychoPy and the VPT Task
+
+By the end of the class you should be able to:
+
+- Run and take part in the given VPT experiment in PsychoPy
+- Reflect on concepts around RT as a dependent measure as discussed in Lecture 1
+
+### Task 1
+
+Watch the demonstration of the experiment that you are going to run in PsychoPy so that you are familiar with the experiment screens when you get to them for yourself.
+
+The video is narrated by Dr. Patrick May and is about 8 minutes long. Access it [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=903c00de-ea86-4683-aa9e-af4a01412af2)
+
+### Task 2
+
+This experiment is written in a version of PsychoPy from 2022. I have tested it, however and it does run
+on the latest version (the one that is available to you today) via a *virtual desktop*, that emulates Lancaster University's Windows 11 environment.  So, I recommend that we run this part of the lab through a virtual desktop,
+
+To do this easily,  READ THROUGH THIS ENTIRE SECTION BEFORE YOU BEGIN and then come back and follow the steps!
+
+You can access your virtual desktop by clicking this link: [https://apps.lancaster.ac.uk](https://apps.lancaster.ac.uk)
+
+Your computer screen should look like a desktop that you might see if you were to log on to a computer in the library.  Make sure that your actions are within this window from this point on.
+
+After getting to your virtual desktop:
+
+1. Open a web browser and navigate back to the stats webpage
+2. In a second tab, go to AppsAnywhere: [https://apps.lancaster.ac.uk](https://apps.lancaster.ac.uk)
+2. In the search bar of AppsAnywhere, type "PsychoPy 3"
+3. Click on the blue Launch button
+4. Back to the stats webpage in the  virtual desktop's web browser
+5. Download the [VPT file](data/Wk6/VPT)
+6. In the PsychoPy programme, using File > Open, find the "VPT.psyexp" files in the downloaded VPT file; click on this to load it into PsychoPy - let it work for a while.
+7. Press the green arrow to run the file and wait. You may see a screen that look like this screenshot
+
+![](images/PsychoPy1.jpg)
+
+   This is the programme as PsychoPy sees it; you need to press the green arrow button to run it.
+8. Follow the instructions and participate faithfully in the task:
+   - There is 1 block of practice trials
+   - and 4 blocks of test trials
+   
+### Question 1
+
+What is the sequence of a trial?
+
+1. The picture of the avatar and dots and giving the response.
+2. A perspective cue, a number of dots cue, a picture and response.
+3. A fixation cross, a number of dots cue, a picture and response.
+4. A picture, a perspective cue a number of dots cue and response.
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2. A perspective cue, a number of dots cue, a picture and response.**
+
+The researchers made decisions to put the perspective cue before the number of dots cue; it is a research question in itself to know whether this order is impactful or could the order be reversed. Once this decision is made, however, its important that this is followed throughout the trials so that the participant can habituate to the order of the information so to give as much attention to the task in hand.
+:::
+
+### Question 2
+
+How much time do participants have to respond?
+
+1. Not enough - the response timeout is too short
+2. Too much - the experiment was slow
+3. Sufficient - the next trial seemed to roll over quickly after I responded
+4. I cannot tell
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 3. Sufficient - the next trial seemed to roll over quickly after I responded**
+
+There was no response timeout programmed. You can tell this because trials did rollover on response. This is a consequential decision because if you do have a response timeout that is too long, then your participants may begin to use strategies to enhance their performance, when what we are looking for is an automatic response where we do not attach to much explicit thinking.  If we do want to motivate explicit thinking, then we are asking a different question and need a new design.
+:::
+
+### Question 3
+
+How are responses made?
+
+1. Right hand, index finger on B, middle finger on N
+2. Two hands, index finger of left hand on B, index finder of right hand on N
+3. Left hand, index finger on N, middle finger on B
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 1. Right hand, index finger on B, middle finger on N**
+
+In this version, the response key was set up for a right-handed person. A participant could ignore instructions and give their responses as in (2) - what implications does that have for their data? If you are left handed, did you feel a bit strange using your right hand to respond?  If you did, what implications are there for your data compared to a right-handed person? Would option (3) have worked better for you? These are all considerations that are needed for the design of such an experiment as this.
+:::
+
+### Question 4
+
+How are response times measured in this task? From what point of the trial should response time be measured?
+
+1. PsychoPy is programmed with a stopwatch, measurement begins from the end of the picture
+2. PsychoPy is programmed with a stopwatch, measurement begins from the start of the picture
+3. PsychoPy took my screen refresh rate information and makes an internal calculation when I press a response key, turning that into milliseconds for me, measurement begins from the end of the picture
+4. PsychoPy took my screen refresh rate information and makes an internal calculation when I press a response key, turning that into milliseconds for me, measurement begins from the start of the picture
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 4. PsychoPy took my screen refresh rate information and makes an internal calculation when I press a response key, turning that into milliseconds for me, measurement begins from the start of the picture**
+
+Do you remember a screen that asked you to wait while PsychoPy measured your screen information? Within the software will be mini-programs that do all sorts of auxiliary tasks for you so that at the end of a data collection session, you have some nicely ordered and useable data (you probably still have to do some reshaping for R!). As discussed in the lecture, A is the stimulus onset - so the picture here is the stimulus and the onset is the start of the picture.  Logically, there is no "end" to the picture, until you respond - the picture is visible until you respond, if you chose the end of the picture that would put A (stimulus onset) and B (response time) on top of each other and you would get invalid data.
+:::
+
+### Question 5
+
+Some trials had three dots on one wall only; other trials split three dots as two and one, using both walls. Is there a potential confound in this difference presentation of the trials with three dots?
+
+1. No
+2. I don't know - this is testable and we could run an experiment to check
+3. I don't know - the span of three dots together on one wall is more dense than two or one and so the processing could be more expensive. this could lead to longer trials - which effects our DV of response time
+
+::: {.callout-tip collapse="true"}
+## Show answer
+
+**Answer: 2 or 3**
+
+This is a difficult question to answer. I certainly felt a difference when three dots were alongside each other rather than split across two walls.  In these situations, the stage at which this question is asked becomes salient: if before collecting data, you can run a pilot study to check; if while collecting data or when inspecting your data post data collection, you may need to run a further study to check.  This is all part of being a rigourous researcher.
+:::
+
+Other questions for your reflection:
+
+ - Does the Egocentric and Altercentric effect seem real to you, having completed some trials for yourself. 
+ - I am certain you made errors and were aware of those at the time.  Did you detect a "hangover" effect of those errors in subsequent trial responses? I know I did!
+ 
+Next week, we will work inside this experiment and PsychoPy to adapt the experiment instructions, giving you a first try at working with the PsychoPy interface. So keep the files safe as you will need them.
+
+## Part 2: Factorial Designs and Interactions in ANOVA
 
 In this Week's lecture, we provided a conceptual introduction to factorial designs and interactions (deferring a discussion of the statistical mechanics of factorial ANOVA for future weeks). You learned that the outcomes of a factorial ANOVA include:
 

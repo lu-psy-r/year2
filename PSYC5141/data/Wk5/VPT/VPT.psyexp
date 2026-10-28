@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="2022.2.4">
+  <Settings>
+    <Param val="use prefs" valType="str" updates="None" name="Audio latency priority"/>
+    <Param val="use prefs" valType="str" updates="None" name="Audio lib"/>
+    <Param val="" valType="str" updates="None" name="Completed URL"/>
+    <Param val="auto" valType="str" updates="None" name="Data file delimiter"/>
+    <Param val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code" updates="None" name="Data filename"/>
+    <Param val="True" valType="bool" updates="None" name="Enable Escape"/>
+    <Param val="{'gender': '', 'age': '', 'participant': ''}" valType="code" updates="None" name="Experiment info"/>
+    <Param val="True" valType="bool" updates="None" name="Force stereo"/>
+    <Param val="True" valType="bool" updates="None" name="Full-screen window"/>
+    <Param val="html" valType="str" updates="None" name="HTML path"/>
+    <Param val="" valType="str" updates="None" name="Incomplete URL"/>
+    <Param val="packaged" valType="str" updates="None" name="JS libs"/>
+    <Param val="testMonitor" valType="str" updates="None" name="Monitor"/>
+    <Param val="" valType="str" updates="None" name="OSF Project ID"/>
+    <Param val="[]" valType="list" updates="None" name="Resources"/>
+    <Param val="True" valType="bool" updates="None" name="Save csv file"/>
+    <Param val="False" valType="bool" updates="None" name="Save excel file"/>
+    <Param val="False" valType="bool" updates="None" name="Save hdf5 file"/>
+    <Param val="True" valType="bool" updates="None" name="Save log file"/>
+    <Param val="True" valType="bool" updates="None" name="Save psydat file"/>
+    <Param val="True" valType="bool" updates="None" name="Save wide csv file"/>
+    <Param val="1" valType="num" updates="None" name="Screen"/>
+    <Param val="False" valType="bool" updates="None" name="Show info dlg"/>
+    <Param val="False" valType="bool" updates="None" name="Show mouse"/>
+    <Param val="use prefs" valType="str" updates="None" name="Units"/>
+    <Param val="latest" valType="str" updates="None" name="Use version"/>
+    <Param val="[1920, 1080]" valType="code" updates="None" name="Window size (pixels)"/>
+    <Param val="avg" valType="str" updates="None" name="blendMode"/>
+    <Param val="$[0,0,0]" valType="str" updates="None" name="color"/>
+    <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+    <Param val="100.1.1.1" valType="str" updates="None" name="elAddress"/>
+    <Param val="FILTER_LEVEL_2" valType="str" updates="None" name="elDataFiltering"/>
+    <Param val="FILTER_LEVEL_OFF" valType="str" updates="None" name="elLiveFiltering"/>
+    <Param val="EYELINK 1000 DESKTOP" valType="str" updates="None" name="elModel"/>
+    <Param val="ELLIPSE_FIT" valType="str" updates="None" name="elPupilAlgorithm"/>
+    <Param val="PUPIL_AREA" valType="str" updates="None" name="elPupilMeasure"/>
+    <Param val="1000" valType="num" updates="None" name="elSampleRate"/>
+    <Param val="False" valType="bool" updates="None" name="elSimMode"/>
+    <Param val="RIGHT_EYE" valType="str" updates="None" name="elTrackEyes"/>
+    <Param val="PUPIL_CR_TRACKING" valType="str" updates="None" name="elTrackingMode"/>
+    <Param val="VPT" valType="str" updates="None" name="expName"/>
+    <Param val="on Sync" valType="str" updates="None" name="exportHTML"/>
+    <Param val="None" valType="str" updates="None" name="eyetracker"/>
+    <Param val="127.0.0.1" valType="str" updates="None" name="gpAddress"/>
+    <Param val="4242" valType="num" updates="None" name="gpPort"/>
+    <Param val="ioHub" valType="str" updates="None" name="keyboardBackend"/>
+    <Param val="warning" valType="code" updates="None" name="logging level"/>
+    <Param val="('MIDDLE_BUTTON',)" valType="list" updates="None" name="mgBlink"/>
+    <Param val="CONTINUOUS" valType="str" updates="None" name="mgMove"/>
+    <Param val="0.5" valType="num" updates="None" name="mgSaccade"/>
+    <Param val="0.6" valType="num" updates="None" name="plConfidenceThreshold"/>
+    <Param val="True" valType="bool" updates="None" name="plPupilCaptureRecordingEnabled"/>
+    <Param val="" valType="str" updates="None" name="plPupilCaptureRecordingLocation"/>
+    <Param val="127.0.0.1" valType="str" updates="None" name="plPupilRemoteAddress"/>
+    <Param val="50020" valType="num" updates="None" name="plPupilRemotePort"/>
+    <Param val="1000" valType="num" updates="None" name="plPupilRemoteTimeoutMs"/>
+    <Param val="False" valType="bool" updates="None" name="plPupillometryOnly"/>
+    <Param val="psychopy_iohub_surface" valType="str" updates="None" name="plSurfaceName"/>
+    <Param val="" valType="str" updates="None" name="tbLicenseFile"/>
+    <Param val="" valType="str" updates="None" name="tbModel"/>
+    <Param val="60" valType="num" updates="None" name="tbSampleRate"/>
+    <Param val="" valType="str" updates="None" name="tbSerialNo"/>
+  </Settings>
+  <Routines>
+    <Routine name="Instruction_2">
+      <TextComponent name="text_5">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="text_5" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="We will start with a practice block. Then, there will be 4 test blocks.&amp;#10;&amp;#10;In between the blocks, you can take a break.&amp;#10;&amp;#10;As a reminder, try to respond as quickly and accurately as possible.&amp;#10;&amp;#10;Thanks again for your participation!&amp;#10;&amp;#10;Pres SPACEBAR to begin " valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_5">
+        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="key_resp_5" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="last key" valType="str" updates="constant" name="store"/>
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="Practice">
+      <TextComponent name="fixationP">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="fixationP" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val=".5" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="+" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="PerspCueP">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="PerspCueP" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.5" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val=".75" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$PerspCueText" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="NumberP">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="NumberP" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="1.25" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val=".75" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$Numb" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <ImageComponent name="TestPicP">
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="$[1,1,1]" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="$Testpict" valType="str" updates="set every repeat" name="image"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="None" valType="str" updates="constant" name="mask"/>
+        <Param val="TestPicP" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="(1, 1)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="2" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="128" valType="code" updates="constant" name="texture resolution"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+      </ImageComponent>
+      <KeyboardComponent name="respp">
+        <Param val="'b','n'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="$corrAns" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="respp" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="2" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="first key" valType="str" updates="constant" name="store"/>
+        <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="Instruction">
+      <TextComponent name="text">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="text" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Welcome to the experiment&amp;#10;&amp;#10;If your response is YES, press B&amp;#10;If your response is NO, press N&amp;#10;&amp;#10;Please position your index finger on B, middle finger on N&amp;#10;&amp;#10;&amp;#10;Press SPACEBAR to continue" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_2">
+        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="key_resp_2" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="last key" valType="str" updates="constant" name="store"/>
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="Break">
+      <TextComponent name="text_3">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="text_3" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Take a short break&amp;#10;&amp;#10;Press SPACEBAR when you are ready to continue" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_4">
+        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="key_resp_4" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="last key" valType="str" updates="constant" name="store"/>
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="trial">
+      <TextComponent name="fixation">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="fixation" valType="code" updates="constant" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="[0, 0]" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="0.5" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="+" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="PerspCue">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="PerspCue" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.5" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val=".75" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$PerspCueText" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="Number">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="Number" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="1.25" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val=".75" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$Numb" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <ImageComponent name="TestPic">
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="$[1,1,1]" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="$Testpict" valType="str" updates="set every repeat" name="image"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="None" valType="str" updates="constant" name="mask"/>
+        <Param val="TestPic" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="(1, 1)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="2" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="128" valType="code" updates="constant" name="texture resolution"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+      </ImageComponent>
+      <KeyboardComponent name="resp">
+        <Param val="&quot;b&quot;,&quot;n&quot;" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="$corrAns" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="resp" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="2" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="first key" valType="str" updates="constant" name="store"/>
+        <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="Ready">
+      <TextComponent name="text_2">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="text_2" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Ready?&amp;#10;&amp;#10;Press SPACEBAR to begin" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_3">
+        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="key_resp_3" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="last key" valType="str" updates="constant" name="store"/>
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="ThxNBye">
+      <TextComponent name="text_4">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="text_4" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="1.0" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Thank you for taking part.&amp;#10;&amp;#10;Goodbye!" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <Routine name="Instruction"/>
+    <Routine name="Instruction_2"/>
+    <LoopInitiator loopType="TrialHandler" name="PracTrials">
+      <Param name="Selected rows" updates="None" val="1:16" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'PerspCueText': 'He', 'corrAns': 1, 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 1003, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 1, 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 1012, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 2, 'Numb': 0, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 1001, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 2, 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 1009, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 1, 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 1004, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 1, 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 1011, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 2, 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 1002, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 2, 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 1010, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 1, 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 1007, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 1, 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 1016, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 2, 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 1005, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 2, 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 1013, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 1, 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S3_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 1008, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 1, 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 1015, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 2, 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 1006, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 2, 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 1014, 'self_see': 3}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="VPTtrialPrac.xlsx" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="PracTrials" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="Practice"/>
+    <LoopTerminator name="PracTrials"/>
+    <Routine name="Ready"/>
+    <LoopInitiator loopType="TrialHandler" name="trials">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'filler', 'Testpict': 'S0_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 208, 'self_see': 0}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'filler', 'Testpict': 'S0_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 201, 'self_see': 0}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 120, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 119, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 118, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 117, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 116, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 115, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 114, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 113, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 112, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 111, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 110, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 109, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 108, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 107, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 106, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 105, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 104, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 103, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 102, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 101, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 100, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 99, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 98, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 97, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 24, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 23, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 22, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 21, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 20, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 19, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 18, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 17, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 16, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 15, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 14, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 13, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S3_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 12, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 11, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 10, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 9, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 8, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 7, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 6, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 5, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 4, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 3, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 2, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 1, 'self_see': 1}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="VPTtrial.xlsx" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="trials" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="trial"/>
+    <LoopTerminator name="trials"/>
+    <Routine name="Break"/>
+    <LoopInitiator loopType="TrialHandler" name="trials_2">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'filler', 'Testpict': 'S0_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 208, 'self_see': 0}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'filler', 'Testpict': 'S0_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 201, 'self_see': 0}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 120, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 119, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 118, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 117, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 116, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 115, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 114, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 113, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 112, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 111, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 110, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 109, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 108, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 107, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 106, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 105, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 104, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 103, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 102, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 101, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 100, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 99, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 98, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 97, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 24, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 23, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 22, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 21, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 20, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 19, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 18, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 17, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 16, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 15, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 14, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 13, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S3_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 12, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 11, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 10, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 9, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 8, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 7, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 6, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 5, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 4, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 3, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 2, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 1, 'self_see': 1}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="VPTtrial.xlsx" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="trials_2" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="trial"/>
+    <LoopTerminator name="trials_2"/>
+    <Routine name="Break"/>
+    <LoopInitiator loopType="TrialHandler" name="trials_3">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'filler', 'Testpict': 'S0_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 208, 'self_see': 0}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'filler', 'Testpict': 'S0_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 201, 'self_see': 0}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 120, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 119, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 118, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 117, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 116, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 115, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 114, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 113, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 112, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 111, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 110, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 109, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 108, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 107, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 106, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 105, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 104, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 103, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 102, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 101, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 100, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 99, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 98, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 97, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 24, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 23, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 22, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 21, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 20, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 19, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 18, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 17, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 16, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 15, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 14, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 13, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S3_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 12, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 11, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 10, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 9, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 8, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 7, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 6, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 5, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 4, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 3, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 2, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 1, 'self_see': 1}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="VPTtrial.xlsx" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="trials_3" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="trial"/>
+    <LoopTerminator name="trials_3"/>
+    <Routine name="Break"/>
+    <LoopInitiator loopType="TrialHandler" name="trials_4">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'filler', 'Testpict': 'S0_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 208, 'self_see': 0}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'filler', 'Testpict': 'S0_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 201, 'self_see': 0}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 120, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 119, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 118, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 117, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 116, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 115, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 114, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 113, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 112, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 111, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 110, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 109, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 108, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 107, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 106, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 105, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 104, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 103, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 102, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 101, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 100, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 99, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 98, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 97, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 24, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 23, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 22, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S3_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 21, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 20, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 19, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 18, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 17, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 16, 'self_see': 1}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 15, 'self_see': 3}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 14, 'self_see': 2}, {'PerspCueText': 'You', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 13, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S3_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 12, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S2_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 11, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 0, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 10, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'inconsistent', 'Testpict': 'S3_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 9, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'inconsistent', 'Testpict': 'S2_O0_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 0, 'TrialID': 8, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'inconsistent', 'Testpict': 'S1_O0_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 0, 'TrialID': 7, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S3_O3_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 3, 'TrialID': 6, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S2_O2_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 2, 'TrialID': 5, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'B', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S1_O1_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 1, 'TrialID': 4, 'self_see': 1}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 1, 'Consistency': 'consistent', 'Testpict': 'S3_O3_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 3, 'TrialID': 3, 'self_see': 3}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 3, 'Consistency': 'consistent', 'Testpict': 'S2_O2_MR.bmp', 'avatar_facing_dir': 'right', 'other_see': 2, 'TrialID': 2, 'self_see': 2}, {'PerspCueText': 'He', 'corrAns': 'N', 'Numb': 2, 'Consistency': 'consistent', 'Testpict': 'S1_O1_ML.bmp', 'avatar_facing_dir': 'left', 'other_see': 1, 'TrialID': 1, 'self_see': 1}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="VPTtrial.xlsx" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="trials_4" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="trial"/>
+    <LoopTerminator name="trials_4"/>
+    <Routine name="ThxNBye"/>
+  </Flow>
+</PsychoPy2experiment>
