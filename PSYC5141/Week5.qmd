@@ -89,7 +89,9 @@ on the latest version (the one that is available to you today) via a *virtual de
 
 To do this easily,  READ THROUGH THIS ENTIRE SECTION BEFORE YOU BEGIN and then come back and follow the steps!
 
-You can access your virtual desktop by clicking this link: [https://apps.lancaster.ac.uk](https://apps.lancaster.ac.uk). Note - if you are working from home, you need your VPN!
+You can access your virtual desktop by clicking this link: [https://mylab.lancaster.ac.uk/catalog-portal/ui#/apps](https://mylab.lancaster.ac.uk/catalog-portal/ui#/apps). Note - if you are working from home, you need your VPN!
+
+Click on the button for Lancaster University,  LU Windows 11 Lab and let it load.
 
 Your computer screen should look like a desktop that you might see if you were to log on to a computer in the library.  Make sure that your actions are within this window from this point for Part 1 of the lab.
 
