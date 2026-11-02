@@ -93,6 +93,10 @@ You can access your virtual desktop by clicking this link: [https://mylab.lancas
 
 Click on the button for Lancaster University,  LU Windows 11 Lab and let it load.
 
+Note for Mac users at this point: your pop up window may be blocked and you may need to give explicit permission to carry on.  Give the staff a shout if you think this is happening and you are not sure what to do at this point.
+
+And no this doesn't work on a iOS - bring your student card and loan a laptop or use the big computers on the table.
+
 Your computer screen should look like a desktop that you might see if you were to log on to a computer in the library.  Make sure that your actions are within this window from this point for Part 1 of the lab.
 
 After getting to your virtual desktop:
@@ -232,7 +236,7 @@ As in previous weeks, organise your files:
 
 ![](images/RScript.png){width=75%}
 
-If the project for week 5 is open, then the working directory should be `~/psyc5141_lab_5`. Let's check: Let's set our working directory:
+If the project for week 5 is open, then the working directory should be `~/psyc5141_lab_5`. Let's check: Let's get our working directory:
 
 ```{r eval = FALSE}
 getwd()
@@ -275,14 +279,14 @@ This results in four different groups of participants. One group (*N* = 50) rece
 
 First things first, let's load the raw data set into the environment:
 
-```{r, message = FALSE, echo=FALSE, eval=FALSE}
+```{r, message = FALSE, eval = FALSE}
 # Import the data
-lab5_data = read_csv("fearVac.csv")
+lab5_raw = read_csv("fearVac.csv")
 # View the data
 (lab5_data)
 ```
 
-```{r, message = FALSE, eval = FALSE}
+```{r, message = FALSE, echo = FALSE, eval = FALSE}
 # Import the data
 lab5_data = read_csv("data/Wk5/fearVac.csv")
 # View the data
@@ -309,6 +313,8 @@ Take a look at the table summarising the data. Beneath each variable name, R tel
 
 In the chunk below is example code of how to do this from week 3 lab below: Use this as a model to re-order the `Fear` and `Efficacy` variables
 
+You will need to swap in the name of the current dataframe, name of the variable you want to reorder and the levels of the variable that are in your variable.  Remember that R is case sensitive.
+
 ```{r eval = FALSE}
 # Store the warning labels as an ordered set of categories
 accuracy_data$Condition <- factor(
@@ -317,8 +323,6 @@ accuracy_data$Condition <- factor(
 )
 levels(accuracy_data$Condition)
 ```
-
-
 
 ::: {.callout-tip icon="false" collapse="true"}
 ## Check your code

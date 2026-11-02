@@ -431,6 +431,8 @@ Session plan: 1 hour 50 mins
 <p>To do this easily, READ THROUGH THIS ENTIRE SECTION BEFORE YOU BEGIN and then come back and follow the steps!</p>
 <p>You can access your virtual desktop by clicking this link: <a href="https://mylab.lancaster.ac.uk/catalog-portal/ui#/apps">https://mylab.lancaster.ac.uk/catalog-portal/ui#/apps</a>. Note - if you are working from home, you need your VPN!</p>
 <p>Click on the button for Lancaster University, LU Windows 11 Lab and let it load.</p>
+<p>Note for Mac users at this point: your pop up window may be blocked and you may need to give explicit permission to carry on. Give the staff a shout if you think this is happening and you are not sure what to do at this point.</p>
+<p>And no this doesn’t work on a iOS - bring your student card and loan a laptop or use the big computers on the table.</p>
 <p>Your computer screen should look like a desktop that you might see if you were to log on to a computer in the library. Make sure that your actions are within this window from this point for Part 1 of the lab.</p>
 <p>After getting to your virtual desktop:</p>
 <ol type="1">
@@ -617,7 +619,7 @@ Check your answer
 <li>Finally, open a script for executing today’s coding exercises. Navigate to the top left pane of RStudio, select <code>File</code> -&gt; <code>New File</code> -&gt; <code>R Script</code>. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.</li>
 </ol>
 <p><img src="images/RScript.png" class="img-fluid" style="width:75.0%"></p>
-<p>If the project for week 5 is open, then the working directory should be <code>~/psyc5141_lab_5</code>. Let’s check: Let’s set our working directory:</p>
+<p>If the project for week 5 is open, then the working directory should be <code>~/psyc5141_lab_5</code>. Let’s check: Let’s get our working directory:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -649,7 +651,7 @@ The researcher crafts a fear appeal—a short verbal message—drawing people’
 <p>First things first, let’s load the raw data set into the environment:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the data</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lab5_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/Wk5/fearVac.csv"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lab5_raw <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"fearVac.csv"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># View the data</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>(lab5_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -661,6 +663,7 @@ The researcher crafts a fear appeal—a short verbal message—drawing people’
 </div>
 <p>Take a look at the table summarising the data. Beneath each variable name, R tells us the variable type. There is an issue here in that the variables <code>Fear</code> and <code>Efficacy</code> are designated as character variables <code>&lt;chr&gt;</code>. This simply means that they are represented as strings of text. However, we want these variables to be represented as factors <code>&lt;fct&gt;</code>. Furthermore, we want to re-order the levels of each factor, as R will otherwise represent these in alphabetical order, which is not what we want. For <code>Fear</code>, we want the level “no fear appeal” and then “fear appeal” and for <code>Efficacy</code> we want “no efficacy message” and then “efficacy message”.</p>
 <p>In the chunk below is example code of how to do this from week 3 lab below: Use this as a model to re-order the <code>Fear</code> and <code>Efficacy</code> variables</p>
+<p>You will need to swap in the name of the current dataframe, name of the variable you want to reorder and the levels of the variable that are in your variable. Remember that R is case sensitive.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store the warning labels as an ordered set of categories</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>accuracy_data<span class="sc">$</span>Condition <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
