@@ -97,23 +97,24 @@ Note for Mac users at this point: your pop up window may be blocked and you may 
 
 And no this doesn't work on a iOS - bring your student card and loan a laptop or use the big computers on the table.
 
-Your computer screen should look like a desktop that you might see if you were to log on to a computer in the library.  Make sure that your actions are within this window from this point for Part 1 of the lab.
+Your computer screen should look like a desktop that you might see if you were to log on to a computer in the library.  Make sure that your actions are within this window from this point for Part 1 of the lab
 
 After getting to your virtual desktop:
 
-1. Open a web browser and navigate back to the stats webpage
+1. Open the microsoft edge web browser application from your virtual desktop. Navigate back to the stats webpage
 2. In a second tab, go to AppsAnywhere: [https://apps.lancaster.ac.uk](https://apps.lancaster.ac.uk)
 3. In the search bar of AppsAnywhere, type "PsychoPy 3"
 4. Click on the blue Launch button
 5. Back to the stats webpage in the  virtual desktop's web browser
-6. Visit the [PSYC5141 moodle](https://modules.lancaster.ac.uk/course/section.php?id=543193) and Download the VPT file to your virtual desktop - unzip it once it is down
-7. In the PsychoPy programme, using File > Open, find the "VPT.psyexp" files in the downloaded VPT file; click on this to load it into PsychoPy - let it work for a while. You may see a screen that look like this screenshot
+6. Visit the [PSYC5141 moodle](https://modules.lancaster.ac.uk/course/section.php?id=543193) and Download the `VPT.zip` file to your virtual desktop - unzip it once it is down using the `Extract all` function
+   - right click on the file and you should see an `Extract all` option in the menu that comes up
+7. In the *PsychoPy Builder* window, using File > Open, find the "VPT.psyexp" files in the unzipped downloaded VPT file; click on this to load it into PsychoPy - let it work for a while. You may see a screen that look like this screenshot
 
 ![](images/PsychoPy2.png)
 
  This is the programme as PsychoPy sees it. 
 
-8. On the toolbar, in the `Desktop` section, press the green arrow to run the file and wait. 
+8. On the toolbar in PsychoPy, in the `Desktop` section, press the green arrow to run the file and wait. 
 9. Follow the instructions and participate faithfully in the task: There is 1 block of practice trials and 4 blocks of test trials.  
 10. Use the questions below to reflect on your experience of the task, knowing what you know from the lecture and properties of RT as a DV.
    
@@ -282,8 +283,6 @@ First things first, let's load the raw data set into the environment:
 ```{r, message = FALSE, eval = FALSE}
 # Import the data
 lab5_raw = read_csv("fearVac.csv")
-# View the data
-(lab5_data)
 ```
 
 ```{r, message = FALSE, echo = FALSE, eval = FALSE}
@@ -455,7 +454,7 @@ Before moving on, I will emphasise, as I did in the lecture, that we would not k
 
 **Back to plotting!**
 
-I'm a big fan of using colour in graphs, but unfortunately the APA doesn't share this sentiment. The APA guidlines state that you should not use colour in your figures, so I have been a very naughty boy by adding a touch of colour to my figure. We can easily resolve this by changing the hexademical codes for our colours to black and grey (#000000, #CCCCCC). The problem is that if we have more than two factors, and hence more than two lines in our plot, we have to use different shades of grey for at least two of the lines, and it can sometimes become difficult to visually distinguish them.
+I'm a big fan of using colour in graphs, but unfortunately the APA doesn't share this sentiment. The APA guidlines state that you should not use colour in your figures, so I have been naughty by adding a touch of colour to my figure. We can easily resolve this by changing the hexademical codes for our colours to black and grey (#000000, #CCCCCC). The problem is that if we have more than two factors, and hence more than two lines in our plot, we have to use different shades of grey for at least two of the lines, and it can sometimes become difficult to visually distinguish them.
 
 Another approach is to keep the colour of the lines identical (e.g., black) but vary the shape of the mean data points. In our current line graph, we used circles (or dots) as the markers for our mean data points. However, as can be seen from the figure below, there are various different shapes we can use in our plots.
 

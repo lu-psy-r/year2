@@ -433,21 +433,24 @@ Session plan: 1 hour 50 mins
 <p>Click on the button for Lancaster University, LU Windows 11 Lab and let it load.</p>
 <p>Note for Mac users at this point: your pop up window may be blocked and you may need to give explicit permission to carry on. Give the staff a shout if you think this is happening and you are not sure what to do at this point.</p>
 <p>And no this doesn’t work on a iOS - bring your student card and loan a laptop or use the big computers on the table.</p>
-<p>Your computer screen should look like a desktop that you might see if you were to log on to a computer in the library. Make sure that your actions are within this window from this point for Part 1 of the lab.</p>
+<p>Your computer screen should look like a desktop that you might see if you were to log on to a computer in the library. Make sure that your actions are within this window from this point for Part 1 of the lab</p>
 <p>After getting to your virtual desktop:</p>
 <ol type="1">
-<li>Open a web browser and navigate back to the stats webpage</li>
+<li>Open the microsoft edge web browser application from your virtual desktop. Navigate back to the stats webpage</li>
 <li>In a second tab, go to AppsAnywhere: <a href="https://apps.lancaster.ac.uk">https://apps.lancaster.ac.uk</a></li>
 <li>In the search bar of AppsAnywhere, type “PsychoPy 3”</li>
 <li>Click on the blue Launch button</li>
 <li>Back to the stats webpage in the virtual desktop’s web browser</li>
-<li>Visit the <a href="https://modules.lancaster.ac.uk/course/section.php?id=543193">PSYC5141 moodle</a> and Download the VPT file to your virtual desktop - unzip it once it is down</li>
-<li>In the PsychoPy programme, using File &gt; Open, find the “VPT.psyexp” files in the downloaded VPT file; click on this to load it into PsychoPy - let it work for a while. You may see a screen that look like this screenshot</li>
+<li>Visit the <a href="https://modules.lancaster.ac.uk/course/section.php?id=543193">PSYC5141 moodle</a> and Download the <code>VPT.zip</code> file to your virtual desktop - unzip it once it is down using the <code>Extract all</code> function
+<ul>
+<li>right click on the file and you should see an <code>Extract all</code> option in the menu that comes up</li>
+</ul></li>
+<li>In the <em>PsychoPy Builder</em> window, using File &gt; Open, find the “VPT.psyexp” files in the unzipped downloaded VPT file; click on this to load it into PsychoPy - let it work for a while. You may see a screen that look like this screenshot</li>
 </ol>
 <p><img src="images/PsychoPy2.png" class="img-fluid"></p>
 <p>This is the programme as PsychoPy sees it.</p>
 <ol start="8" type="1">
-<li>On the toolbar, in the <code>Desktop</code> section, press the green arrow to run the file and wait.</li>
+<li>On the toolbar in PsychoPy, in the <code>Desktop</code> section, press the green arrow to run the file and wait.</li>
 <li>Follow the instructions and participate faithfully in the task: There is 1 block of practice trials and 4 blocks of test trials.<br>
 </li>
 <li>Use the questions below to reflect on your experience of the task, knowing what you know from the lecture and properties of RT as a DV.</li>
@@ -651,9 +654,7 @@ The researcher crafts a fear appeal—a short verbal message—drawing people’
 <p>First things first, let’s load the raw data set into the environment:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the data</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lab5_raw <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"fearVac.csv"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># View the data</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>(lab5_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lab5_raw <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"fearVac.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and then lets make a second copy that we can modify:</p>
 <div class="cell">
@@ -836,7 +837,7 @@ Check your code
 <p>Thus, our data suggest that fear appeals are an effective strategy for increasing COVID-19 vaccination intentions, provided that they are accompanied by a self-efficacy message.</p>
 <p>Before moving on, I will emphasise, as I did in the lecture, that we would not know for certain whether there “really” is an interaction until we subjected our data to a factorial ANOVA and looked at the significance value of the interaction effect.</p>
 <p><strong>Back to plotting!</strong></p>
-<p>I’m a big fan of using colour in graphs, but unfortunately the APA doesn’t share this sentiment. The APA guidlines state that you should not use colour in your figures, so I have been a very naughty boy by adding a touch of colour to my figure. We can easily resolve this by changing the hexademical codes for our colours to black and grey (#000000, #CCCCCC). The problem is that if we have more than two factors, and hence more than two lines in our plot, we have to use different shades of grey for at least two of the lines, and it can sometimes become difficult to visually distinguish them.</p>
+<p>I’m a big fan of using colour in graphs, but unfortunately the APA doesn’t share this sentiment. The APA guidlines state that you should not use colour in your figures, so I have been naughty by adding a touch of colour to my figure. We can easily resolve this by changing the hexademical codes for our colours to black and grey (#000000, #CCCCCC). The problem is that if we have more than two factors, and hence more than two lines in our plot, we have to use different shades of grey for at least two of the lines, and it can sometimes become difficult to visually distinguish them.</p>
 <p>Another approach is to keep the colour of the lines identical (e.g., black) but vary the shape of the mean data points. In our current line graph, we used circles (or dots) as the markers for our mean data points. However, as can be seen from the figure below, there are various different shapes we can use in our plots.</p>
 <p><img src="images/BuiltInShapes.png" class="img-fluid" style="width:100.0%"></p>
 <p>Now, we will generate our line graph again but this time using different shapes (circles vs.&nbsp;squares) rather than different colours to distinguish the different lines for the no efficacy message and efficacy message levels of the <code>Efficacy</code> factor. The code below is very similar to that which we used earlier, so for clarity I have only commented on those elements that have changed.</p>
