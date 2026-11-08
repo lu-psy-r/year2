@@ -83,6 +83,22 @@ There is also an online documentation manual; the link to the latest version of 
 
 On [PsychoPy.org](https://psychopy.org/index.html), they have also provided a link to a [experiment recipe book](https://workshops.psychopy.org/tutorials/index.html) for building experiments and there is a basic version of building the [Stroop Task](https://workshops.psychopy.org/tutorials/stroop.html) if you follow the link.
 
+### Recommended Approach to Working in the Lab for Building in PsychoPy
+
+Whichever of the two tasks you choose (listed below), I do recommend that you work together as a table to achieve the task in the following way:
+
+1. One person on the table logs into the computer that is linked to the big screen / connect their computer to the big screen and accesses PsychoPy as in Lab 5.  We will label this person the driver for this task
+2. One person also opens PsychoPy on their computer as before.  They are second driver
+3. The other people open the chapter 2 of the manual and prepare to act as a reference or direct the drivers.  We will call these people the navigators.
+
+approaching the task this way will mitigate the problem of computers with small screens attempting to use half screen's while working.  Having more space will smooth the workflow.
+ 
+4. Together, go through the steps to achieve the task. Navigators read the "map" (the chapter) and direct the drivers with where to go and what to do. Support each other in the task.
+
+This way of working is based on a table of four; it could work with a table of three - in which case I suggest one navigator and two drivers; on a table of two then one navigator and one driver.  If you have to do it on your own, then good luck to you.
+
+Try not to be too focussed on *getting it right* here; focus more on this is a process, there are bound to be hiccups.  Glitches and bugs are about as certain in a research psychologist's role as death and taxes to everybody!  The principle is that by having a go at building, you are more likely to understand where a bug could occur for when an occasion arises for de-bugging.
+
 So since we are encouraging you to learn at your own pace, you have a choice:
 
 ### Choice 1: Build a Basic Stroop Task
@@ -97,21 +113,6 @@ Use the instructions in Chapter 2 / web as a model for how to recreate the VPT t
 
 If you choose this version of the task, the trade off is that you need to mentally adapt the instructions to the VPT task as you go along.  So the learning here is not only how to build in PsychoPy but also how to use model tasks to achieve a similar task on your own.
 
-### Recommended Appraoch to Working in the Lab for Building in PsychoPy
-
-For both tasks, whichever you choose, I do recommend that you work together as a table to achieve the task in the following way:
-
-1. One person on the table logs into the computer that is linked to the big screen / connect their computer to the big screen and accesses PsychoPy as in Lab 5.  We will label this person the driver for this task
-2. One person also opens PsychoPy on their computer as before.  They are second driver
-3. The other people open the chapter 2 of the manual and prepare to act as a reference or direct the drivers.  We will call these people the navigators.
-
-approaching the task this way will mitigate the problem of computers with small screens attempting to use half screen's while working.  Having more space will smooth the workflow.
- 
-4. Together, go through the steps to achieve the task. Navigators read the "map" (the chapter) and direct the drivers with where to go and what to do. Support each other in the task.
-
-This way of working is based on a table of four; it could work with a table of three - in which case I suggest one navigator and two drivers; on a table of two then one navigator and one driver.  If you have to do it on your own, then good luck to you.
-
-Try not to be too focussed on *getting it right* here; focus more on this is a process, there are bound to be hiccups.  Glitches and bugs are about as certain in a research psychologist's role as death and taxes to everybody!  The principle is that by having a go at building, you are more likely to understand where a bug could occur for when an occasion arises for de-bugging.
 
 ## Part 2: Two-by-two ANOVA Analysis Method
 
