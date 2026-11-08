@@ -276,11 +276,15 @@ window.Quarto = {
   <li><a href="#this-weeks-lab" id="toc-this-weeks-lab" class="nav-link" data-scroll-target="#this-weeks-lab">This Week’s Lab</a>
   <ul class="collapse">
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#part-1-building-a-simple-basic-experiment-in-psychopy" id="toc-part-1-building-a-simple-basic-experiment-in-psychopy" class="nav-link" data-scroll-target="#part-1-building-a-simple-basic-experiment-in-psychopy">Part 1: Building a Simple / Basic Experiment in PsychoPy</a>
+  <ul class="collapse">
+  <li><a href="#choice-1-build-a-basic-stroop-task" id="toc-choice-1-build-a-basic-stroop-task" class="nav-link" data-scroll-target="#choice-1-build-a-basic-stroop-task">Choice 1: Build a Basic Stroop Task</a></li>
+  <li><a href="#choice-2-build-a-shorter-version-of-the-vpt-task" id="toc-choice-2-build-a-shorter-version-of-the-vpt-task" class="nav-link" data-scroll-target="#choice-2-build-a-shorter-version-of-the-vpt-task">Choice 2: Build a Shorter Version of the VPT Task</a></li>
+  <li><a href="#recommended-appraoch-to-working-in-the-lab-for-building-in-psychopy" id="toc-recommended-appraoch-to-working-in-the-lab-for-building-in-psychopy" class="nav-link" data-scroll-target="#recommended-appraoch-to-working-in-the-lab-for-building-in-psychopy">Recommended Appraoch to Working in the Lab for Building in PsychoPy</a></li>
   </ul></li>
-  <li><a href="#todays-lab-activities" id="toc-todays-lab-activities" class="nav-link" data-scroll-target="#todays-lab-activities">Today’s Lab Activities</a>
+  <li><a href="#part-2-two-by-two-anova-analysis-method" id="toc-part-2-two-by-two-anova-analysis-method" class="nav-link" data-scroll-target="#part-2-two-by-two-anova-analysis-method">Part 2: Two-by-two ANOVA Analysis Method</a>
   <ul class="collapse">
-  <li><a href="#analysing-the-hypothetical-covid-19-vaccination-study-data" id="toc-analysing-the-hypothetical-covid-19-vaccination-study-data" class="nav-link" data-scroll-target="#analysing-the-hypothetical-covid-19-vaccination-study-data">Analysing the Hypothetical COVID-19 Vaccination Study Data</a>
-  <ul class="collapse">
+  <li><a href="#analysing-the-hypothetical-covid-19-vaccination-study-data" id="toc-analysing-the-hypothetical-covid-19-vaccination-study-data" class="nav-link" data-scroll-target="#analysing-the-hypothetical-covid-19-vaccination-study-data">Analysing the Hypothetical COVID-19 Vaccination Study Data</a></li>
   <li><a href="#descriptives-statistics-and-assumption-checks" id="toc-descriptives-statistics-and-assumption-checks" class="nav-link" data-scroll-target="#descriptives-statistics-and-assumption-checks">Descriptives statistics and assumption checks</a></li>
   <li><a href="#running-the-anova" id="toc-running-the-anova" class="nav-link" data-scroll-target="#running-the-anova">Running the ANOVA</a></li>
   <li><a href="#generating-the-simple-main-effects" id="toc-generating-the-simple-main-effects" class="nav-link" data-scroll-target="#generating-the-simple-main-effects">Generating the simple main effects</a></li>
@@ -402,14 +406,26 @@ Session plan: 1 hour 50 mins
 </table>
 </div>
 </div>
-<p>Part 1: Building an Experiment in PsychoPy</p>
+</section>
+<section id="part-1-building-a-simple-basic-experiment-in-psychopy" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-building-a-simple-basic-experiment-in-psychopy">Part 1: Building a Simple / Basic Experiment in PsychoPy</h2>
 <p>You have but four hours of exposure to PsychoPy and so I want to equip you with the knowledge of how to source helpful information for yourself, with the aim to give you confidence to play / create in PsychoPy pretty independently. If you can build a basic experiment, this will give you a mental map or headspace where you can visualise potential experimental design when considering research questions.</p>
-<p>For this reason, the information for this exercise is located in Chapter 2 of the PsychoPy manual. You can access the manual <a href="https://onesearch.lancaster-university.uk/permalink/44LAN_INST/1lfre6e/alma9931315651301221">through the library</a></p>
-<p>You have a choice of which experiment to build:</p>
-<p>Choice 1: Follow the instructions in Chapter 2 to build a version of the Stroop task. The Stroop task is talked about in this week’s statistics lecture. It is a very well known task and effect.</p>
+<p>For this reason, the information for this exercise is located in Chapter 2 of the PsychoPy manual for PsychoPy3. You can access the manual <a href="https://onesearch.lancaster-university.uk/permalink/44LAN_INST/1lfre6e/alma9931315651301221">through the library</a></p>
+<p>There is also an online documentation manual; the link to the latest version of working with PsychoPy Builder is <a href="https://psychopy.org/builder/index.html">here</a>. I put this here also because I am not sure how many licenses the library has for the digital version of the manual. Since PsychoPy is an Open Science tool, then all working documentation should be freely available! Love it!</p>
+<p>On <a href="https://psychopy.org/index.html">PsychoPy.org</a>, they have also provided a link to a <a href="https://workshops.psychopy.org/tutorials/index.html">experiment recipe book</a> for building experiments and there is a basic version of building the <a href="https://workshops.psychopy.org/tutorials/stroop.html">Stroop Task</a> if you follow the link.</p>
+<p>So since we are encouraging you to learn at your own pace, you have a choice:</p>
+<section id="choice-1-build-a-basic-stroop-task" class="level3">
+<h3 class="anchored" data-anchor-id="choice-1-build-a-basic-stroop-task">Choice 1: Build a Basic Stroop Task</h3>
+<p>Follow your preferred set of instructions in Chapter 2 / web to build a version of the Stroop task. The Stroop task is talked about in this week’s statistics lecture. It is a very well known task and effect.</p>
 <p>If you choose this version of the task, the trade off is that you will need to create the Excel file from scratch. There are instructions for how to lay it out in the chapter.</p>
-<p>Choice 2: Use the instructions in Chapter 2 as a model for how to recreate the VPT task that you experienced last week. You already have the Excel spreadsheet <code>VPTtrial.xlsx</code> in the VPT folder you downloaded last week. Make two blocks instead of three or four.</p>
+</section>
+<section id="choice-2-build-a-shorter-version-of-the-vpt-task" class="level3">
+<h3 class="anchored" data-anchor-id="choice-2-build-a-shorter-version-of-the-vpt-task">Choice 2: Build a Shorter Version of the VPT Task</h3>
+<p>Use the instructions in Chapter 2 / web as a model for how to recreate the VPT task that you experienced last week. You already have the Excel spreadsheet <code>VPTtrial.xlsx</code> in the VPT folder you downloaded last week. Make two blocks instead of three or four.</p>
 <p>If you choose this version of the task, the trade off is that you need to mentally adapt the instructions to the VPT task as you go along. So the learning here is not only how to build in PsychoPy but also how to use model tasks to achieve a similar task on your own.</p>
+</section>
+<section id="recommended-appraoch-to-working-in-the-lab-for-building-in-psychopy" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-appraoch-to-working-in-the-lab-for-building-in-psychopy">Recommended Appraoch to Working in the Lab for Building in PsychoPy</h3>
 <p>For both tasks, whichever you choose, I do recommend that you work together as a table to achieve the task in the following way:</p>
 <ol type="1">
 <li>One person on the table logs into the computer that is linked to the big screen / connect their computer to the big screen and accesses PsychoPy as in Lab 5. We will label this person the driver for this task</li>
@@ -422,7 +438,10 @@ Session plan: 1 hour 50 mins
 </ol>
 <p>This way of working is based on a table of four; it could work with a table of three - in which case I suggest one navigator and two drivers; on a table of two then one navigator and one driver. If you have to do it on your own, then good luck to you.</p>
 <p>Try not to be too focussed on <em>getting it right</em> here; focus more on this is a process, there are bound to be hiccups. Glitches and bugs are about as certain in a research psychologist’s role as death and taxes to everybody! The principle is that by having a go at building, you are more likely to understand where a bug could occur for when an occasion arises for de-bugging.</p>
-<p>Part 2: Two-by-two ANOVA Analysis Method</p>
+</section>
+</section>
+<section id="part-2-two-by-two-anova-analysis-method" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-two-by-two-anova-analysis-method">Part 2: Two-by-two ANOVA Analysis Method</h2>
 <p>At this point, you should be able to access the web page and your RStudio account on the department server without the long instructions. If you need to refer to them, then access them from previous weeks’ content and adapt the file / folder / project names to reflect the correct week for the lab. Download this week’s data file: <a href="data/Wk6/fearVac.csv">fearVac.csv</a> and upload it to this week’s folder.</p>
 <p>After opening a new R script, load the relevant libraries that we will be using in today’s session.</p>
 <div class="cell">
@@ -436,12 +455,8 @@ Session plan: 1 hour 50 mins
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)     <span class="co"># For generating Q-Q plots</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"phia"</span>)       <span class="co"># For calculating simple main effects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-</section>
-<section id="todays-lab-activities" class="level1">
-<h1>Today’s Lab Activities</h1>
-<section id="analysing-the-hypothetical-covid-19-vaccination-study-data" class="level2">
-<h2 class="anchored" data-anchor-id="analysing-the-hypothetical-covid-19-vaccination-study-data">Analysing the Hypothetical COVID-19 Vaccination Study Data</h2>
+<section id="analysing-the-hypothetical-covid-19-vaccination-study-data" class="level3">
+<h3 class="anchored" data-anchor-id="analysing-the-hypothetical-covid-19-vaccination-study-data">Analysing the Hypothetical COVID-19 Vaccination Study Data</h3>
 <p>Today, we are going to analyse the hypothetical COVID-19 vaccination study data that we plotted in last week’s lab session (fearVac.csv). As a reminder, the table below summarises the four different conditions of our 2 <span class="math inline">\(\times\)</span> 2 between-participant study.</p>
 <p><img src="images/DataMatrix.png" class="img-fluid" style="width:75.0%"></p>
 <p>The data set consists of the following four columns:</p>
@@ -500,6 +515,7 @@ Answer
 # ℹ 190 more rows</code></pre>
 </div>
 </div>
+</section>
 <section id="descriptives-statistics-and-assumption-checks" class="level3">
 <h3 class="anchored" data-anchor-id="descriptives-statistics-and-assumption-checks">Descriptives statistics and assumption checks</h3>
 <p>The next step is to generate some descriptive statistics. You have done this before many times, so you can generate these descriptive statistics for yourselves.</p>
