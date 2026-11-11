@@ -35,6 +35,8 @@ It is fairly inevitable that you will get stuck on the lab materials in this mod
 
 **Asking good questions** - It’s really important that you give us as much information as you can when you ask your questions (in class and especially on the forum). It’s so much harder to help respond to “I can’t do Exercise 5 in Week 7” (because we don’t know why it is that you can’t do it) than for example “In Exercise 5 of Week 7, I’ve managed to read in the data, but the graph looks quite odd. Here is the code I’m using…”
 
+**Ready for greater challenge** - look for the additional tasks at the end of each page. Some are most definitely for the brave - but you can't break anything, so have a go.
+
 # Course Contacts
 
 |             | Email Address                                                  |
