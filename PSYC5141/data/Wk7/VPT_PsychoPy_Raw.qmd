@@ -1,0 +1,482 @@
+---
+title: "VPT_PsychoPy_Raw"
+format: html
+editor: visual
+---
+
+Open a script for working with the RT data from several rounds of the VPT experiment in PsychoPy. This script takes you from the raw files that come down from PsychoPy into R and preparing the data ready for an analysis.
+
+```{r}
+library(tidyverse)
+library(moments)
+library(effects)
+library(tidyr)      # For tidy data
+library(rstatix)    # For descriptives statistics, outlier detection, running the ANOVAs etc.
+
+#turn off scientific notation for large / small numbers
+# Disable scientific notation globally
+options(scipen = 999)
+
+```
+
+```{r}
+
+# Set the folder path containing your CSV files
+# Replace with your actual folder path
+folder_path <- "VPT_data_raw"
+
+# List all CSV files in the folder
+csv_files <- list.files(path = folder_path, pattern = "\\.csv$", full.names = TRUE)
+
+```
+
+```{r message = FALSE}
+# search prompt "import multiple csv into Rstudio and combine them adding a column for file name"
+# Source - https://stackoverflow.com/a/61511379
+# Posted by derelict, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-11-07, License - CC BY-SA 4.0
+
+# specify the directory, then read a list of files
+# return a single data frame w/ purrr:map_dfr 
+data_all = csv_files %>% 
+    purrr::map_dfr(read_csv, .id = "PartID") # make a column for participant ID
+```
+
+```{r}
+dim(data_all)
+```
+
+Raw data from three participants is showing as 666 rows and 125 columns.
+
+Using the `glimpse` function shows a lot of information that could be helpful in reducing columns further, but this is okay to work with for the moment.
+
+The practice trials are in this dataset which we do not want to use in the dataset but may want to inspect to check that the participants understood the instructions and so their trial data could reasonably be expected to be valid.
+
+So we can filter out the practice trials. Look at the column `my_data$PracTrials.thisRepN` with this command:
+
+```{r}
+
+table(data_all$PracTrials.thisRepN)
+
+```
+
+There are only values of zero in this column, and there are 45 of them - 15 per participant. This can help us filter out these trials for storage using the following code:
+
+```{r}
+
+# make a small data set of practice trials
+Practice_data <- data_all %>% 
+  filter(PracTrials.thisRepN == 0)
+
+```
+
+Do a check to look at whether you can confidently say that the participants understood the instructions:
+
+-   
+
+    1.  For each participant, count the number of correct responses and incorrect responses across the fifteen trials
+
+-   
+
+    2.  If you have a lot of participants you could plot the accuracy rates, using `facet_grid` function
+
+-   
+
+    3.  If you have set a base rate for accuracy, you could filter out the participants who score below to see a) how many and b) which participants they are.
+
+```{r}
+# Combine the trials for each person in each condition
+Practice_check <- Practice_data %>%
+  # Create separate participant-condition groups
+  group_by(PartID) %>% # be sure to get the respp.corr variable and not the resp.corr variable here
+  summarise(
+    # Proportion correct × 100 = percentage correct
+    Accuracy = mean(respp.corr) * 100, 
+    # Return an ordinary, ungrouped dataframe
+    .groups = "drop"                
+  )
+
+# Inspect the resulting participant-level accuracy and Rt scores
+head(Practice_check)
+```
+
+Because there are only three participants here, we can simply call the `head()` function. On the first look, each participant seems to have at least understood the instructions for us to proceed. You would want to set an exclusion criterion to filter out a participant who gets less than a certain level of practice trials incorrect before you begin collecting data. This is especially important if you are running your experiment online and cannot observe a participant's behaviour during the data collection session.
+
+To remove the practice trials from the larger dataset, we need to use a different key. Our critical columns for data are resp.rt so we could have a look at that column
+
+```{r}
+summary(data_all$resp.rt)
+```
+
+We can see that there are 66 NA values. If you look in the dataframe, there are some blank rows as well as the practice trial rows - all of which contribute to the NAs. Lets see what happens if we remove these NAs
+
+```{r}
+data_rt_clean <- data_all[!is.na(data_all$resp.rt), ]
+
+summary(data_rt_clean$resp.rt)
+
+```
+
+We looked at a summary of the resp.rt variable in the new dataset and can see that the NA values have been filtered out. So now we have 600 rows for three participants. We had four blocks each with 50 trials per participant, which equals 200 trials overall per participant. So far, the maths is good. But we can do a further check and count the number of trials per participant:
+
+```{r}
+table(data_rt_clean$PartID)
+```
+
+This code has counted the number of rows for each participant. We look good.
+
+We can also count for number of trials per participant per Consistency or per perspective
+
+```{r}
+table(data_rt_clean$PartID, data_rt_clean$Consistency)
+```
+
+This tells us that there are some filler trials that we also need to remove!
+
+```{r}
+table(data_rt_clean$PartID, data_rt_clean$PerspCueText)
+```
+
+So each participant seems to have the same number of trials per condition. This is a good result for our checks.
+
+Lets have a look at our dependent variables: resp.corr and resp.rt
+
+```{r}
+summary(data_rt_clean$resp.corr)
+```
+
+There are no strange values here and no NA values. Good. We did already check RT but we can do it here again for completeness
+
+```{r}
+summary(data_rt_clean$resp.rt)
+```
+
+What size is this dataset?
+
+```{r}
+
+dim(data_rt_clean)
+
+```
+
+We now have 600 rows - which are good for us but still 125 columns, most of which we do not need. As a first reduction in columns, we can just select the first 20 columns - from `PartID` to `resp.rt`. This makes management much easier. We use `glimpse` to have a look at the smaller dataset.
+
+```{r}
+data_red <- data_rt_clean %>% 
+  select(PartID:resp.rt)
+
+glimpse(data_red)
+```
+
+We also can see four columns that are full of NA values and of no use to us. We could clean this out further:
+
+```{r}
+data_red <- data_red %>% 
+  select(-respp.keys, -respp.duration, -respp.corr, -respp.rt)
+
+glimpse(data_red)
+```
+
+All those red NA values have gone.
+
+Remember that PsychoPy stores RT in seconds, and for analysis it needs to be in milliseconds for precision. We can do this *transformation* now: To do this we take our `resp.rt` varialbe and multiply it by 1000
+
+```{r}
+data_red$rt <- data_red$resp.rt*1000
+summary(data_red$rt)
+```
+
+The summary of the new `rt` variable shows that the fastest response across all three participants is 318 ms and the slowest is 1607.2 ms.
+
+We also need to convert our independent variables into factors: Here I adapt code from week 3 lab:
+
+We need `PartID`, `PerspCueText` and `Consistency`
+
+```{r}
+# order is not important here so we do not have to use the levels argument
+data_red$PartID <- as.factor(
+  data_red$PartID)
+levels(data_red$PartID)
+
+# order is not important here so we do not have to use the levels argument
+data_red$PerspCueText <- factor(
+  data_red$PerspCueText
+)
+
+data_red$Consistency <- factor(
+  data_red$Consistency
+)
+
+```
+
+Ooh - look at the `Consistency` factor, it still has the `filler` trials. We are only interested in the `consistent` and `inconsistent` trials, so we need to filter out the `filler` level trials
+
+```{r}
+data_red <- data_red %>% 
+  filter(!Consistency == "filler")
+
+data_red$Consistency <- droplevels(data_red$Consistency)
+  
+```
+
+You should now only see two levels in the Consistency variable. And if you now count the number of observations per participant it should show 4\*48 = 192 per participant
+
+```{r}
+table(data_red$PartID)
+```
+
+And so it does!
+
+```{r}
+table(data_red$PartID, data_red$PerspCueText, data_red$Consistency)
+```
+
+As in the lecture, by tabulating be each participant, across conditions, we can see that each participant has the correct number of trials in each block = 48.
+
+We are at the stage where we could generate some averages per participant, per condition for both `rt` and `error rate` or `accuracy rate` for that matter. With these we can look for a speed-accuracy trade off as a check for the validity of our data. I have adapted the following code from lab 3 here to fit our design
+
+We group by three variables: `PartID`, `PerspCueText`, and `Consistency`
+
+```{r}
+# Combine the trials for each person in each condition
+data_red_means <- data_red %>%
+  # Create separate participant-condition groups
+  group_by(PartID, PerspCueText, Consistency) %>% 
+  summarise(
+    # Proportion correct × 100 = percentage correct
+    Accuracy = mean(resp.corr) * 100, 
+    RT = mean(rt),
+    # Return an ordinary, ungrouped dataframe
+    .groups = "drop"                
+  )
+
+# Inspect the resulting participant-level accuracy and Rt scores
+head(data_red_means)
+
+```
+
+We can now perform a correlation between Accuracy and RT to see if we have a speed-accuracy trade off in our data. Remember from the lecture, the positive correlation showed the speed-accuracy trade off effect, where high accuracy was linked to slow trials, i.e large values of RT and low accuracy was linked to small RT values, i.e. fast trials. The only threat to the correlation is that we have only three participants in this small demonstration data set.
+
+```{r}
+
+# Basic scatter plot with regression line
+ggplot(data_red_means, aes(x = RT, y = Accuracy)) +
+ geom_point(color = "blue", size = 3) +
+ geom_smooth(method = "lm", se = FALSE, color = "red") +
+ labs(title = "Speed Accuracy Trade Off Check",
+      x = "RT (ms)",
+      y = "Accuracy Rate") +
+ theme_minimal()
+```
+
+Even with our very small dataset, we can see the correlation is negative - and so we do not appear to have a speed-accuracy tradeoff (SAT).
+
+### Checking that participant data is signal and not noise
+
+#### The Binomial Test
+
+First lets look at the example from the lecture:
+
+In a set of 50-coin tosses, where an unbiased coin would give us 25 head and 25 tail outcomes, we actually get 32 heads (or successes). What is the probability that we would get this result by chance if the coin is unbiased. For this we can run a binomial test. We need the number of successes (x = 32), the total number of trials (n = 50) and the probability that heads would occur if the coin was unbiased (p_null = 50% or 0.5).
+
+We then take the binomial test result and feed it into the cumulative probability function:
+
+```{r}
+
+# binomial(x, n, p)
+
+binom.test(32, 50, 0.5, alternative = "two.sided")
+
+# Binomial test and cumulative probability in R
+
+# Parameters
+successes <- 32      # Number of successes observed
+trials <- 50         # Number of trials
+prob_success <- 0.5  # Probability of success per trial
+
+# # 1. Run a binomial test
+# test_result <- binom.test(successes, trials, p = prob_success)
+# 
+# # Display the binomial test result
+# print(test_result)
+# 
+# # 2. Calculate cumulative probability:
+# #    P(X <= successes) for X ~ Binomial(trials, prob_success)
+# cum_prob <- pbinom(successes, size = trials, prob = prob_success)
+# 
+# cat("Cumulative probability P(X <= ", successes, ") =", cum_prob, "\n")
+
+# 3. Calculate upper tail probability:
+#    P(X >= successes) = 1 - P(X < successes)
+upper_tail_prob <- 1 - pbinom(successes - 1, size = trials, prob = prob_success)
+
+cat("Upper tail probability P(X >= ", successes, ") =", upper_tail_prob, "\n")
+
+
+```
+
+Lets apply this to the VPT experiment data now. Participants could be randomly pressing across the entire experiment or just within one block. If a participant decides to sabotage their responses at the smallest level, it probably means we should discard all their trials. So we can find the rate of randomness for one block and make decisions based upon that result.
+
+So one block has 48 trials, on each trial the probability of success is 50% (because there are two possible responses). What we want to discover is the rate of success that suggests the participant is completing the block in a non-random way, they are being intentional in their key presses.
+
+First we need to group responses for each participant at each condition level. Then we need to count the number of success trials at each condition level. Then we can calculate our cumulative probability for each participant at each condition.
+
+```{r}
+
+# Combine the trials for each person in each condition
+data_red_count <- data_red %>%
+  # Create separate participant-condition groups
+  group_by(PartID, PerspCueText, Consistency) %>% 
+  summarise(
+    # Proportion correct × 100 = percentage correct
+    Success = sum(resp.corr), 
+    # Return an ordinary, ungrouped dataframe
+    .groups = "drop"                
+  )
+
+# Inspect the resulting participant-level accuracy and Rt scores
+head(data_red_means)
+
+
+# Number of successes (heads)
+x <- data_red_count$Success
+
+# Total number of trials
+data_red_count$n <- 48
+
+# Hypothesized probability of success
+data_red_count$p_null <- 0.5
+
+# Run a two-sided exact binomial test
+result <- pbinom(data_red_count$Success, data_red_count$n, data_red_count$p_null)
+
+# 3. Calculate upper tail probability and add the result per condition per participant to the data_red_count dataframe
+#    P(X >= successes) = 1 - P(X < successes)
+data_red_count$upper_tail_prob <- 1 - pbinom(x - 1, size = data_red_count$n, prob = data_red_count$p_null)
+
+# print the values of the cumulative probability
+data_red_count$upper_tail_prob
+
+```
+
+Wow - look at those incredibly small probabilities! This is a hypothesis test - we hypothesised that participants were acting randomly over a block of 48 trials, at chance level, we could expect 24 yes / consistent responses and 24 non / consistent responses. If the hypothesis was true then our probabilities here would not be so small. They would be above our critical p value of .05.
+
+We can print out the numbers like this because we only have a small number of participants. But you cannot really do this visual inspection if you have lots of participants - your brain would not be able to reliably process so many digits for each number. So we can ask R to filter out any of the cumulative probabilities that are larger than .05 to get a set of participant conditions that may be full of noisy, random datapoints
+
+```{r}
+
+noisy_ps <-data_red_count %>%
+  select(PartID, upper_tail_prob) %>%
+  filter(upper_tail_prob > 0.05)
+```
+
+If you look at the dataframe `noisy_ps`, for this data, there are no conditions for any participants that meet this criterion and so we have well behaved participants, none of which need to be excluded.
+
+So now we need to remove one set of trials. This is related to the decision tree in the lecture, where on slide 65, it says "separate Yes responses" - in this dataset, Yes responses are coded in the `Consistency` column - they are the consistent trials. Which means we need to make a new dataset that contains on the consistent trials. Remember that our last dataset was the `data_red` dataset, where we had gotten rid of filler trials to leave us with 576 rows. This is the data we call here to filter out consistent trials
+
+```{r}
+data_consistent <- data_red %>% 
+  filter(Consistency == "consistent")
+
+dim(data_consistent)
+```
+
+Our number of rows has been reduced from 576 to 288. 288 is half of 576 which we would expect from a two-response choice task. We can also check that only consistent trials are in the consistency column:
+
+```{r}
+table(data_consistent$Consistency)
+```
+
+This confirms that our code has worked as we expected it to. Note here that in this new dataset, R still sees the factor `Consistency` as having two levels. There are ways to drop the redundant level but it is not important for our processes here at the moment.
+
+The `data_consistent` dataset is the dataset on which you would perform an error analysis as it still has correct and incorrect trials in the `resp.corr` column.
+
+```{r}
+table(data_consistent$resp.corr)
+```
+
+Although there are not too many! It might be useful to rename the dataset to reflect this, as there are a number of datasets in our environments at this point.
+
+```{r}
+data_error_analysis <- data_consistent
+```
+
+To perform an RT analysis, however, we need to remove incorrect trials from the data_error_analysis dataset. We can name this new, smaller dataset with a helpful label also. We saw above that there were only 2 incorrect trials in the dataset and so our RT analysis ready dataset should have 288-2 rows once we run the code to remove incorrect trials
+
+```{r}
+data_rt_analysis <- data_error_analysis %>% 
+  filter(resp.corr == 1)
+
+dim(data_rt_analysis)
+```
+
+This is correct.
+
+We can now have a look a the distribution of our RT data, using the rt_analysis dataset. Remember from the lecture, we should expect to see a positively skewed distribution - that is more values in the higher, positive values than lower or negative values. So, a longer tail towards the right-hand side of a graph. Note for the wise, if we do see any negative values on this graph, those datapoints are invalid as we cannot logically have negative time.
+
+To draw a distribution, we can use a histogram or a density curve - I'll show you both here:
+
+```{r}
+# histogram first
+
+ggplot(data_rt_analysis, aes(x = rt)) +
+ geom_histogram(fill = "#3a86d4", alpha = 0.7) +
+ labs(x = "RT (ms)", y = "Count") +
+ theme_minimal()
+```
+
+```{r}
+# Density curve with mean rt line
+
+ggplot(data_rt_analysis, aes(x = rt)) +
+ geom_density(fill = "lightblue", alpha = 0.6) +
+ geom_vline(aes(xintercept = mean(rt)),
+            color = "red", linetype = "dashed", size = 1) +
+ labs(title = "Density Curve with Mean Line",
+      x = "RT (ms)",
+      y = "Density") +
+ theme_minimal()
+```
+
+```{r}
+# Density curve with mean rt and median rt line
+
+ggplot(data_rt_analysis, aes(x = rt)) +
+ geom_density(fill = "lightblue", alpha = 0.6) +
+ geom_vline(aes(xintercept = mean(rt)),
+            color = "red", linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = median(rt)),
+            color = "blue", linetype = "dashed", size = 1) +
+ labs(title = "Density Curve with Mean and Median Line",
+      x = "RT (ms)",
+      y = "Density") +
+ theme_minimal()
+```
+
+What does adding the median line do for us? If you remember back to your first year stats learning, one check of whether you have a normally distributed set of values is that the median average value and the mean average value are the same. So on this second density curve, not only do we have the curve itself showing a skewed distribution, but the median and mean value lines are also distinct from each other. A further confirmation that our RT is in fact a non-normal distribution. The longer tail to the right hand side of the curve tells us there are some positive values that are far away from the centre of the distribution, hence the skew is positive in nature.
+
+```{r}
+
+# Histogram with kernel density
+# note that we have changed the y axis from count in the histogram
+# to density here, to have both the histogram and density curve
+# plotted to the same scale
+
+ggplot(data_rt_analysis, aes(x = rt, y = ..density..)) + 
+  geom_histogram(fill = "#3a86d4", alpha = 0.7) +
+ labs(title = "Histogram with Density Curve with Mean and Median Line",
+      x = "RT (ms)",
+      y = "Density") +
+ theme_minimal() +
+  geom_density(colour = "red", alpha = 1) +
+  geom_vline(aes(xintercept = mean(rt)),
+            color = "red", linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = median(rt)),
+            color = "blue", linetype = "dashed", size = 1)
+ 
+
+```
+
+In week 8 lab, you will need to rerun this part of the code in order to continue looking at the RT distribution :)
+
+Now onto Part 2 of the lab.

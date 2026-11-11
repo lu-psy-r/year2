@@ -1,0 +1,59 @@
+---
+title: "RT_Wang2019"
+author: "Emma Mills"
+format: html
+editor: visual
+---
+
+Open a script for working with the RT data from a study that used the VPT task to investigate cultural differences, Wang et al. (2019). The paper is in the resource list if you would like to take a look at it. In the article, the research team used an advanced form of multiple regression to analyse the data. Eventually, we are going to analyse it using ANOVA (but we aren't at that stage yet), so today we are going to load the data, have a look at it and process it so that it is clean and tidy.
+
+```{r}
+library(tidyverse)
+library(moments)
+library(effects)
+library(tidyr)      # For tidy data
+library(rstatix)    # For descriptives statistics, outlier detection, running the ANOVAs etc.
+
+```
+
+## Part 1
+
+### Single Culture Analysis
+
+Recall that in the VPT experiment, a researcher wants to investigate the time taken to respond to the number of dots viewed from either the self or other perspective across consistent and inconsistent trials. The hypothesis is that inconsistent trials are harder to respond to correctly, and that inconsistent trials from the other perspective are harder still. The researcher predicts that if this is true, then responses in the "other" condition will show a larger difference between consistent and inconsistent trials than responses in the "self" condition. Our researcher administers a multi-trial VPT task to a group of British participants in a 2 (perspective: other vs. self) by 2 (consistency: consistent vs. inconsistent) within-participant design. The data are in `VPT.csv`.
+
+The columns of interest in the dataset are:
+
+subject: represents the participant number, which ranges from 1–60; each of the 60 participants contribute data to each of the conditions. For a single culture analysis, however, we are going to use only 30 of the participants - from the UK.
+
+persp: represents the perspective that is cued in each trial, with two levels: `other` and `self`
+
+consistency: represents whether the number of dots that is visible during a trial is consistent with the number of dots as cued in the trial, with two levels: `consistent` and `inconsistent`.
+
+acc: represents the accuracy of the trial response with two levels: `0` for incorrect trials and `1` for correct trials
+
+rt: represents the time (in seconds at the moment) taken to respond to the image once presented
+
+### Two Culture Analysis
+
+For demonstration purposes, we can use the variable `culture`, which adds a factor variable to the dataset of two levels: `TW` and `UK`
+
+culture: a between-participant variable that represents whether the participant belongs to the Taiwanese participant group (TW) or the UK participant group (UK).
+
+Adding this variable takes the ANOVA design from a `2*2` within-participant design for UK participants only, to a `2*2*2` mixed design that includes `culture` as a variable of interest. This is a three-way ANOVA, for demonstration in week 8
+
+```{r}
+#read and name data file
+VPT_raw<-read.csv("VPT.csv", header = T)
+VPT_data <- VPT_raw
+head(VPT_data)
+```
+
+```{r}
+summary(VPT_data)
+```
+
+```{r}
+#change rt to seconds by /1000
+VPT_data$rt <- VPT_data$rt / 1000
+```
