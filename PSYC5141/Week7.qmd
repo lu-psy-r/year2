@@ -839,9 +839,12 @@ Levene's test is non-significant for congruent trials, *p* = .051 (although noti
 
 ### Running the mixed ANOVA
 
-To run our ANOVA, we are going to use the `anova_test` function from the `rstatix` package. **This is the function that I recommend you use for mixed or fully-within participants factorial designs.** The code required to run the ANOVA is given below:
+To run our ANOVA, we are going to use the `anova_test` function from the `rstatix` package. **This is the function that I recommend you use for mixed or fully-within participants factorial designs.** The code required to run the ANOVA is given below: Note that the first line of code resets the scientific notation otherwise we would get really long *p*-values in the ANOVA table.
 
 ```{r, message = FALSE, warning = FALSE}
+
+options(scipen = 0) # reset scientific notation to default settings
+
 # Create the mixed design ANOVA model
 stroopMixedModel = anova_test(data = stroopMixedLong, 
                               dv = RT, 
@@ -1068,7 +1071,7 @@ However, because one of our within-participants factors contains three levels (i
 
 The assumption is tested using Mauchly's test of sphericity, which is applied to any outcome involving a factor with three or more levels. If the test result is significant, then the assumption has been violated. If this occurs, then we must adopt the Greenhouse-Geisser correction for violations of this assumption.
 
-### Running the mixed ANOVA
+### Running the within-participant ANOVA
 
 To run our ANOVA, we are once again going to use the `anova_test` function from the `rstatix` package. The code required to run the ANOVA is given below:
 

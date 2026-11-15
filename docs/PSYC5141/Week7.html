@@ -300,7 +300,7 @@ window.Quarto = {
   <li><a href="#analysing-hypothetical-data-for-the-fully-within-participants-stroop-experiment" id="toc-analysing-hypothetical-data-for-the-fully-within-participants-stroop-experiment" class="nav-link" data-scroll-target="#analysing-hypothetical-data-for-the-fully-within-participants-stroop-experiment">Analysing hypothetical data for the fully within-participants Stroop experiment</a>
   <ul class="collapse">
   <li><a href="#import-data-set-variables-as-factors-and-generate-descriptive-statistics" id="toc-import-data-set-variables-as-factors-and-generate-descriptive-statistics" class="nav-link" data-scroll-target="#import-data-set-variables-as-factors-and-generate-descriptive-statistics">Import data, set variables as factors, and generate descriptive statistics</a></li>
-  <li><a href="#running-the-mixed-anova-1" id="toc-running-the-mixed-anova-1" class="nav-link" data-scroll-target="#running-the-mixed-anova-1">Running the mixed ANOVA</a></li>
+  <li><a href="#running-the-within-participant-anova" id="toc-running-the-within-participant-anova" class="nav-link" data-scroll-target="#running-the-within-participant-anova">Running the within-participant ANOVA</a></li>
   <li><a href="#simple-main-effects" id="toc-simple-main-effects" class="nav-link" data-scroll-target="#simple-main-effects">Simple main effects</a></li>
   <li><a href="#writing-up-the-results-1" id="toc-writing-up-the-results-1" class="nav-link" data-scroll-target="#writing-up-the-results-1">Writing up the results</a></li>
   <li><a href="#additional-tasks" id="toc-additional-tasks" class="nav-link" data-scroll-target="#additional-tasks">Additional tasks</a></li>
@@ -1349,35 +1349,27 @@ Answer
 </section>
 <section id="running-the-mixed-anova" class="level3">
 <h3 class="anchored" data-anchor-id="running-the-mixed-anova">Running the mixed ANOVA</h3>
-<p>To run our ANOVA, we are going to use the <code>anova_test</code> function from the <code>rstatix</code> package. <strong>This is the function that I recommend you use for mixed or fully-within participants factorial designs.</strong> The code required to run the ANOVA is given below:</p>
+<p>To run our ANOVA, we are going to use the <code>anova_test</code> function from the <code>rstatix</code> package. <strong>This is the function that I recommend you use for mixed or fully-within participants factorial designs.</strong> The code required to run the ANOVA is given below: Note that the first line of code resets the scientific notation otherwise we would get really long <em>p</em>-values in the ANOVA table.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the mixed design ANOVA model</span></span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>stroopMixedModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> stroopMixedLong, </span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">dv =</span> RT, </span>
-<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">wid =</span> Participant, </span>
-<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">between =</span> Group, </span>
-<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">within =</span> TrialType, </span>
-<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
-<span id="cb87-9"><a href="#cb87-9" aria-hidden="true" tabindex="-1"></a>(stroopMixedModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">0</span>) <span class="co"># reset scientific notation to default settings</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the mixed design ANOVA model</span></span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>stroopMixedModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> stroopMixedLong, </span>
+<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">dv =</span> RT, </span>
+<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">wid =</span> Participant, </span>
+<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">between =</span> Group, </span>
+<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a>                              <span class="at">within =</span> TrialType, </span>
+<span id="cb87-9"><a href="#cb87-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb87-10"><a href="#cb87-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb87-11"><a href="#cb87-11" aria-hidden="true" tabindex="-1"></a>(stroopMixedModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA Table (type II tests)
 
-           Effect DFn DFd        SSn      SSd         F
-1     (Intercept)   1  78 84525386.6 136336.6 48358.096
-2           Group   1  78   147440.3 136336.6    84.353
-3       TrialType   1  78  1692705.3 205941.9   641.108
-4 Group:TrialType   1  78   137886.3 205941.9    52.224
-                                                                                                                   p
-1 0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000106
-2 0.0000000000000473999999999999987134122512613607818018706362150904709551468840800225734710693359375000000000000000
-3 0.0000000000000000000000000000000000000022699999999999998639647279927223961304541673299827335738169901122251057675
-4 0.0000000002909999999999999773852979459773252304821689051550492877140641212463378906250000000000000000000000000000
-  p&lt;.05   ges
-1     * 0.996
-2     * 0.301
-3     * 0.832
-4     * 0.287</code></pre>
+           Effect DFn DFd        SSn      SSd         F         p p&lt;.05   ges
+1     (Intercept)   1  78 84525386.6 136336.6 48358.096 1.06e-110     * 0.996
+2           Group   1  78   147440.3 136336.6    84.353  4.74e-14     * 0.301
+3       TrialType   1  78  1692705.3 205941.9   641.108  2.27e-39     * 0.832
+4 Group:TrialType   1  78   137886.3 205941.9    52.224  2.91e-10     * 0.287</code></pre>
 </div>
 </div>
 <p>To create the model, the first argument we supplied to <code>anova_test</code> was the name of our data, <code>stroopMixedLong</code>. The second argument we supplied was our dependent variable, <code>RT</code>. The third argument we supplied was <code>Participant</code>, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our between-participants factor, <code>Group</code>. The fourth argument we supplied was our within-participants factor, <code>TrialType</code>.</p>
@@ -1470,10 +1462,10 @@ Answer
 1   Congruent           80.0                  1      80.000   0.04576906
 2 Incongruent       285246.6                  1  285246.612 163.19337388
 3  Error term       136336.6                 78    1747.906   0.00000000
-                              P
-1 0.831154407738753486789562430
-2 0.000000000000000000008245446
-3 0.000000000000000000000000000</code></pre>
+             P
+1 8.311544e-01
+2 8.245446e-21
+3 0.000000e+00</code></pre>
 </div>
 </div>
 <p>As described in the lecture, to calculate the simple main effects of a given factor in a mixed design, we use the mean square error for the main effect of that factor from the original ANOVA table as the error term. The mean square error in the simple main effects table is given in column four (Mean Square) of row three (Error term). You will notice that this is the error mean square for the main effect of Group that we calculated earlier from our initial ANOVA table (i.e., 1747.906). If you divide the between-group mean squares for the effect of Group at congruent and incongruent trials by this value, it will give you the <span class="math inline">\(F\)</span> ratios shown in the simple main effects table.</p>
@@ -1499,10 +1491,10 @@ Answer
 1       Healthy       432180.0                  1  432180.000 163.6871
 2 Schizophrenia      1398411.6                  1 1398411.612 529.6451
 3    Error term       205941.9                 78    2640.281   0.0000
-                                             P
-1 0.000000000000000000007609755947509972333885
-2 0.000000000000000000000000000000000001632592
-3 0.000000000000000000000000000000000000000000</code></pre>
+             P
+1 7.609756e-21
+2 1.632592e-36
+3 0.000000e+00</code></pre>
 </div>
 </div>
 <p>Remember, to calculate the simple main effects of a given factor in a mixed design, we use the mean square error for the main effect of that factor from the original ANOVA table as the error term. The mean square error in the simple main effects table is given in column four (Mean Square) of row three (Error term). You will notice that this is the error mean square for the main effect of Trial Type that we calculated earlier from our initial ANOVA table (i.e., 2640.281). If you divide the between-group mean squares for the effect of Trial Type at healthy and schizophrenia groups by this value, it will give you the <span class="math inline">\(F\)</span> ratios shown in the simple main effects table.</p>
@@ -1640,8 +1632,8 @@ Answer
 <p>However, because one of our within-participants factors contains three levels (i.e., Block) there is one check that will be performed when we run the ANOVA. Specifically, this is a check to establish whether the <strong>sphericity assumption</strong> has been violated. We introduced you to this assumption when we discussed single-factor within-participants ANOVA, so I will only describe it briefly. The sphericity assumption states that <em>for a within-participants design with three or more levels, the variance of the difference scores between one pair of levels should not differ significantly from the variances of the difference scores for every other possible pair of levels.</em></p>
 <p>The assumption is tested using Mauchly’s test of sphericity, which is applied to any outcome involving a factor with three or more levels. If the test result is significant, then the assumption has been violated. If this occurs, then we must adopt the Greenhouse-Geisser correction for violations of this assumption.</p>
 </section>
-<section id="running-the-mixed-anova-1" class="level3">
-<h3 class="anchored" data-anchor-id="running-the-mixed-anova-1">Running the mixed ANOVA</h3>
+<section id="running-the-within-participant-anova" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-within-participant-anova">Running the within-participant ANOVA</h3>
 <p>To run our ANOVA, we are once again going to use the <code>anova_test</code> function from the <code>rstatix</code> package. The code required to run the ANOVA is given below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the within-participants design ANOVA model</span></span>
@@ -1651,21 +1643,11 @@ Answer
 <pre><code>ANOVA Table (type III tests)
 
 $ANOVA
-           Effect DFn DFd         SSn      SSd         F
-1     (Intercept)   1  39 111105237.6  77509.9 55903.885
-2       TrialType   1  39    713623.2  84476.3   329.457
-3           Block   2  78    272694.5 221792.5    47.951
-4 TrialType:Block   2  78    403873.6 158005.4    99.687
-                                                                    p p&lt;.05
-1 0.00000000000000000000000000000000000000000000000000000000000000354     *
-2 0.00000000000000000001280000000000000062203871138010716611812248292     *
-3 0.00000000000002629999999999999900653753165529093313232400497270191     *
-4 0.00000000000000000000032500000000000002167142341024697105456163635     *
-    ges
-1 0.995
-2 0.568
-3 0.335
-4 0.427
+           Effect DFn DFd         SSn      SSd         F        p p&lt;.05   ges
+1     (Intercept)   1  39 111105237.6  77509.9 55903.885 3.54e-63     * 0.995
+2       TrialType   1  39    713623.2  84476.3   329.457 1.28e-20     * 0.568
+3           Block   2  78    272694.5 221792.5    47.951 2.63e-14     * 0.335
+4 TrialType:Block   2  78    403873.6 158005.4    99.687 3.25e-22     * 0.427
 
 $`Mauchly's Test for Sphericity`
            Effect     W     p p&lt;.05
@@ -1673,12 +1655,12 @@ $`Mauchly's Test for Sphericity`
 2 TrialType:Block 0.952 0.394      
 
 $`Sphericity Corrections`
-           Effect   GGe      DF[GG]                     p[GG] p[GG]&lt;.05   HFe
-1           Block 0.951   1.9, 74.2 0.00000000000010100000000         * 0.999
-2 TrialType:Block 0.954 1.91, 74.44 0.00000000000000000000261         * 1.002
-    DF[HF]                      p[HF] p[HF]&lt;.05
-1  2, 77.9 0.000000000000027200000000         *
-2 2, 78.17 0.000000000000000000000325         *</code></pre>
+           Effect   GGe      DF[GG]    p[GG] p[GG]&lt;.05   HFe   DF[HF]    p[HF]
+1           Block 0.951   1.9, 74.2 1.01e-13         * 0.999  2, 77.9 2.72e-14
+2 TrialType:Block 0.954 1.91, 74.44 2.61e-21         * 1.002 2, 78.17 3.25e-22
+  p[HF]&lt;.05
+1         *
+2         *</code></pre>
 </div>
 </div>
 <p>To create the model, the first argument we supplied to <code>anova_test</code> was the name of our data, <code>stroopWithinLongSep</code>. The second argument we supplied was our dependent variable, <code>RT</code>. The third argument we supplied was <code>Participant</code>, which is the column containing the individuals/participants identifier. The fourth argument we supplied was our two within-participants factors, <code>TrialType</code> and <code>Block</code>.</p>
@@ -1750,11 +1732,11 @@ $`Sphericity Corrections`
 2     Block2     168820.312                  1  168820.312  77.938931
 3     Block3       6679.512                  1    6679.512   3.083717
 4 Error term      84476.296                 39    2166.059   0.000000
-                                P
-1 0.00000000000000000000009362214
-2 0.00000000007711307827741781646
-3 0.08693083818374175431031858352
-4 0.00000000000000000000000000000</code></pre>
+             P
+1 9.362214e-23
+2 7.711308e-11
+3 8.693084e-02
+4 0.000000e+00</code></pre>
 </div>
 </div>
 <p>As described in the lecture, to calculate the simple main effects of a given factor in a within-participants design, we use the mean square error for the main effect of that factor from the original ANOVA table as the error term. The mean square error in the simple main effects table is given in column four (Mean Square) of row three (Error term). You will notice that this is the error mean square for the main effect of Trial Type that we calculated earlier from our initial ANOVA table (i.e., 2166.059). If you divide the between-group mean squares for the effect of Trial Type at Block 1, Block 2, and Block 3 by this value, it will give you the <span class="math inline">\(F\)</span> ratios given in the simple main effects table.</p>
@@ -1780,10 +1762,10 @@ $`Sphericity Corrections`
 1   Congruent       7616.717                  2    3808.358   1.339324
 2 Incongruent     668951.450                  2  334475.725 117.628461
 3  Error term     221792.467                 78    2843.493   0.000000
-                                 P
-1 0.267980807676141685735871078577
-2 0.000000000000000000000002828545
-3 0.000000000000000000000000000000</code></pre>
+             P
+1 2.679808e-01
+2 2.828545e-24
+3 0.000000e+00</code></pre>
 </div>
 </div>
 <p>Remember, to calculate the simple main effects of a given factor in a within-participants design, we use the mean square error for the main effect of that factor from the original ANOVA table as the error term. The mean square error in the simple main effects table is given in column four (Mean Square) of row three (Error term). You will notice that this is the error mean square for the main effect of Block that we calculated earlier from our initial ANOVA table (i.e., 2843.493). If you divide the between-group mean squares for the effect of Block at congruent and incongruent trials by this value, it will give you the <span class="math inline">\(F\)</span> ratios given in the simple main effects table.</p>
