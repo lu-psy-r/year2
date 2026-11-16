@@ -348,8 +348,8 @@ window.Quarto = {
 </section>
 <section id="this-weeks-lab" class="level1">
 <h1>This Week’s Lab</h1>
-<p>Part 1: As described in the lecture, we will work with a small set of files from three participants who have completed the VPT task from week 5. Raw files from PsychoPy will be uploaded to R and we will work with code and data to tidy, clean and check the data so that we are almost ready to analyse. You may learn what I have observed to be true here: working with data is 4/5 preparation and 1/5 analysis!</p>
-<p>Part 2: Around the turn of the hour, turn back to the statistics and follow the code to apply the concepts and practical steps demonstrated by Mark in the lecture for mixed and within-participant ANOVA analysis methods.</p>
+<p>Part 1: As described in the lecture, we will work with a small set of files from three participants who have completed the VPT task from week 5. Three raw files from PsychoPy will be uploaded to R and we will work with code and data to tidy, clean and check the data so that we are almost ready to analyse. You may learn what I have observed to be true here: working with data is 4/5 preparation and 1/5 analysis! Save this script separately from Part 2 as you will need to return to it next week.</p>
+<p>Part 2: Around the turn of the hour, turn back to the statistics, open a new script (you don’t need a new folder or project) and follow the code to apply the concepts and practical steps demonstrated by Mark in the lecture for mixed and within-participant ANOVA analysis methods.</p>
 <p>A challenge for the brave and courageous: having executed a within-participant two-factor ANOVA with Mark’s data, can you adapt the code and execute a two-factor within-participant ANOVA for the Wang et al., 2019 dataset? Look to the end of the script for details on how to get going if you are up for this.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
@@ -369,6 +369,36 @@ window.Quarto = {
 <p>Once you are logged into the server, create a folder for today’s session. Navigate to the bottom right panel and under the <code>Files</code> option select the <code>New Folder</code> option. Name the new folder <code>psyc5141_lab_7</code>. <strong>Please ensure that you spell this correctly</strong>.</p>
 <p>Click <code>File</code> on the top ribbon and select <code>New project</code>. Next, select existing directory and name the working directory <code>~/psyc5141_lab_7</code> before selecting <code>create project</code>. Make sure you open this project if R does not do it automatically. When working in a project, your working directory is automatically set for you.</p>
 <p>Finally, open a script for executing today’s coding exercises. Navigate to the top left pane of RStudio, select <code>File</code> -&gt; <code>New File</code> -&gt; <code>R Script</code>. If you want to work with a .rmd (R Markdown) script, please do so. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Before going any further: Mac users should read this
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>New Mac computers seem to have a default setting in Safari that automatically unzips folders when downloading them from the source onto your computer.</p>
+<p>The code below works on the premise that R will take an unzipped folder and unzip the folder for you but leave the files in the folder in your working directory. This automatic unzip feature in Safari is doing this too early and is breaking the code - which ruins an otherwise neat bit of code to get multiple files into R at once for you (may be invaluable for your final year project!).</p>
+<p>So Mac users can do one of two things for the code to work:</p>
+<p>Either - After downloading the zipped files, re-zip them. Do this by locating the folder in Finder, right clicking on the folder and choosing the “Compress” menu item. Continue to proceed with uploading the zipped folder to R.</p>
+<p>Or - Change the settings in Safari</p>
+<ol type="1">
+<li>Open the Safari web browser</li>
+<li>Click on Safari in the top-left corner of your screen (in the menu bar)</li>
+<li>Select Settings (or Preferences in older versions of macOS) from the dropdown menu</li>
+<li>Click on the General tab</li>
+<li>Uncheck the box labelled ‘Open “safe files after downloading’ (at the bottom of the list of items)</li>
+</ol>
+<p>When you download a zipped file from a source now, it should remain zipped. If you want to unzip it on your computer you have to do this manually. I leave you to search for this solution for yourself.</p>
+<p>Re-zipping a file obviously works for specific folders and you retain the choice over which folders you zip. Changing the Safari setttings is a global system change and will work for every zip file that you download from this point foward.</p>
+<p>You choose.</p>
+</div>
+</div>
+</div>
 <p>Now that you have created a folder for today’s session, it’s time to add the Week 7 files to this new folder:</p>
 <p>Download the datafile <code>VPT_data_raw.zip</code> for part 1 lab activities <a href="data/Wk7/VPT_data_raw.zip">here</a>.</p>
 <p>Download the datafile <code>psyc5141_Week7.zip</code> for part 2 lab activities <a href="data/Wk7/psyc5141_Week7.zip">here</a>.</p>
@@ -446,7 +476,7 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(data_all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -455,7 +485,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>PartID.</li>
@@ -549,7 +579,7 @@ Answer
 <li><p>Alternatively, If you have set a base rate for accuracy, you could filter out the participants who score below to see a) how many and b) which participants they are and do a check for successful understanding of the instructions this way.</p></li>
 </ul>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -558,14 +588,14 @@ Question
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>What was an advised accuracy rate for concern around the validity of accuracy responses from the lecture? Think back to the second section where we talked about impish participants who where behaving badly for our data…</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -574,7 +604,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In the lecture, we talked about two-response tasks having a warning threshold of 50% accuracy as an early indicator that a participant may have been randomly pressing response keys. You could use this as a starting base rate for concern around bad data from participants.</p>
 </div>
@@ -768,7 +798,7 @@ $ resp.rt           &lt;dbl&gt; 0.7480326, 0.6620540, 0.4829941, 0.6473537, 0.62
 </div>
 <p>The summary of the new <code>rt</code> variable shows that the fastest response across all three participants is 318 ms and the slowest is 1607.2 ms. This is where you can also check if you have any observations that are impossibly fast. As described in the lecture, those would be observations of lower than 150ms.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -777,14 +807,14 @@ Thinking about processes and associated code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>This is an opportunity to imagine / visualise the code you would use if you did need to remove trials. Imagine the Min value here showed a mimimum time of 120.7. What function could you use to remove those trials and what number would you use to remove them to meet the desiderata that there were no trials faster than 150ms?</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -793,7 +823,7 @@ Possible Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You could use the <code>filter</code> function and set it to remove <code>resp.rt</code> observations that were smaller than 150ms (&lt; 150).</p>
 <p>If you used smaller than 120.7 ms, you would only remove trials faster than 120.7 ms when the lecture advised that 150 ms was the lower threshold for responses that meant the participant could have consciously processed the stimuli, and so the time reflects the cognitive process in which we are interested and not a random button press.</p>
@@ -1232,7 +1262,7 @@ probability of success
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1241,7 +1271,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
@@ -1258,7 +1288,7 @@ Answer
 </div>
 <p>Once you have done this, you need to convert the <code>Group</code> variable into a factor. We’ll let you do this yourself using your own code:</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1267,7 +1297,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert "Group" into factor</span></span>
@@ -1288,7 +1318,7 @@ Answer
 <p>Let’s unpack what this is doing. The first argument to <code>gather()</code>, <code>stroopMixed</code>, is the name of our current data set in wide format. The second argument tells R we want a new column called <code>TrialType</code>. The third argument, <code>RT</code>, tells R the name of our dependent variable. The fourth argument tells R to take the columns <code>Congruent</code> through to <code>Incongruent</code> and combine them into a column labelled <code>TrialType</code> (our second argument). The final argument, <code>factor_key = TRUE</code>, tells R that we want this new column to be a factor. The results of this transformation are allocated to a new data frame called <code>stroopMixedLong</code>. This contains our data in long format and we will be using this version of the data set from henceforth.</p>
 <p>Next, we will generate some descriptive statistics (mean, standard deviation, and confidence intervals). You did this for a between-participants factorial design in last week’s seminar, so you can once again generate the code for this yourself.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1297,7 +1327,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get descriptive statistics</span></span>

@@ -29,9 +29,9 @@ Download the lecture slides [here](data/Wk7/Two-Factor Mixed and Within-Particip
 
 # This Week's Lab
 
-Part 1: As described in the lecture, we will work with a small set of files from three participants who have completed the VPT task from week 5. Raw files from PsychoPy will be uploaded to R and we will work with code and data to tidy, clean and check the data so that we are almost ready to analyse. You may learn what I have observed to be true here: working with data is 4/5 preparation and 1/5 analysis!
+Part 1: As described in the lecture, we will work with a small set of files from three participants who have completed the VPT task from week 5. Three raw files from PsychoPy will be uploaded to R and we will work with code and data to tidy, clean and check the data so that we are almost ready to analyse. You may learn what I have observed to be true here: working with data is 4/5 preparation and 1/5 analysis! Save this script separately from Part 2 as you will need to return to it next week.
 
-Part 2: Around the turn of the hour, turn back to the statistics and follow the code to apply the concepts and practical steps demonstrated by Mark in the lecture for mixed and within-participant ANOVA analysis methods.
+Part 2: Around the turn of the hour, turn back to the statistics, open a new script (you don't need a new folder or project) and follow the code to apply the concepts and practical steps demonstrated by Mark in the lecture for mixed and within-participant ANOVA analysis methods.
 
 A challenge for the brave and courageous: having executed a within-participant two-factor ANOVA with Mark's data, can you adapt the code and execute a two-factor within-participant ANOVA for the Wang et al., 2019 dataset? Look to the end of the script for details on how to get going if you are up for this.
 
@@ -62,6 +62,34 @@ Click `File` on the top ribbon and select `New project`. Next, select existing d
 
 Finally, open a script for executing today's coding exercises. Navigate to the top left pane of RStudio, select `File` -> `New File` -> `R Script`. If you want to work with a .rmd (R Markdown) script, please do so. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.
 
+::: {.callout-warning icon="false" collapse="true"}
+## Before going any further: Mac users should read this
+
+New Mac computers seem to have a default setting in Safari that automatically unzips folders when downloading them from the source onto your computer.
+
+The code below works on the premise that R will take an unzipped folder and unzip the folder for you but leave the files in the folder in your working directory. This automatic unzip feature in Safari is doing this too early and is breaking the code - which ruins an otherwise neat bit of code to get multiple files into R at once for you (may be invaluable for your final year project!).
+
+So Mac users can do one of two things for the code to work:
+
+Either - After downloading the zipped files, re-zip them.  Do this by locating the folder in Finder, right clicking on the folder and choosing the "Compress" menu item. Continue to proceed with uploading the zipped folder to R.
+
+Or - Change the settings in Safari
+
+1. Open the Safari web browser
+2. Click on Safari in the top-left corner of your screen (in the menu bar)
+3. Select Settings (or Preferences in older versions of macOS) from the dropdown menu
+4. Click on the General tab
+5. Uncheck the box labelled 'Open "safe files after downloading' (at the bottom of the list of items)
+
+When you download a zipped file from a source now, it should remain zipped.  If you want to unzip it on your computer you have to do this manually.  I leave you to search for this solution for yourself.
+
+Re-zipping a file obviously works for specific folders and you retain the choice over which folders you zip.
+Changing the Safari setttings is a global system change and will work for every zip file that you download from this point foward.
+
+You choose.
+
+:::
+
 Now that you have created a folder for today's session, it’s time to add the Week 7 files to this new folder: 
 
 Download the datafile `VPT_data_raw.zip` for part 1 lab activities [here](data/Wk7/VPT_data_raw.zip).
@@ -86,7 +114,7 @@ options(scipen = 999)
 ```{r, echo = FALSE, message=FALSE}
 library("tidyverse")  # For data storage and manipulation
 library("tidyr")      # For tidy data
-library(moments)
+# library(moments)
 library(effects)
 library("rstatix")    # For descriptives statistics, outlier detection, running the ANOVAs etc.
 source("data/Wk7/simple.R")    # Custom function for generating the simple main effects
