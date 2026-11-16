@@ -101,7 +101,7 @@ Before moving on, let's load the relevant libraries/functions that we will be us
 ```{r, message = FALSE, eval=FALSE}
 library("tidyverse")  # For data storage and manipulation
 library("tidyr")      # For tidy data
-library(moments)
+# library(moments)
 library(effects)
 library("rstatix")    # For descriptives statistics, outlier detection, running the ANOVAs etc.
 source("simple.R")    # Custom function for generating the simple main effects
