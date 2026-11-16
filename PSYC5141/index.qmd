@@ -37,6 +37,15 @@ It is fairly inevitable that you will get stuck on the lab materials in this mod
 
 - **Ready for greater challenge** - look for the additional tasks at the end of each page. Some are most definitely for the brave - but you can't break anything, so have a go.
 
+# The 5141 Exam
+
+This will take place early in term 2, with date and time published when the term 2 timetable is released.  Below is a list of the content you should revise for the exam as there could be questions on the exam from these weeks' content
+
+ - Lecture content from weeks 1 - 9
+ - Lab activities from weeks 1 - 4, 7 - 9
+
+Essentially, material relating to PsychoPy / Pavlovia in the labs in weeks 5 and 6 will not be on the exam.  Content from week 10 of 5141 relates to your lab report for 5242 and so will not be on the exam.
+
 # Course Contacts
 
 |             | Email Address                                                  |

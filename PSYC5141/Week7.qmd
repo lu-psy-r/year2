@@ -17,7 +17,7 @@ When you go to the lecture for the statistics content,  you will see that this c
 
 Watch Lecture 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a884e412-edf5-495e-93de-b4fd010a9550&start=0)
 
-Download Lecture 1 slides [here](data/Wk7/5141 Week 7 Lecture 1 Processing RT Data Slides Student.pptx)
+Download Lecture 1 slides [here](data/Wk7/5141 Week 7 Lecture 1 Processing RT Data Slides Student.pptx).
 
 Watch Lecture 2 Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9e17c9b2-c9d3-4394-b464-af580082a11d)
 
