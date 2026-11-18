@@ -96,7 +96,19 @@ Download the datafile `VPT_data_raw.zip` for part 1 lab activities [here](data/W
 
 Download the datafile `psyc5141_Week7.zip` for part 2 lab activities [here](data/Wk7/psyc5141_Week7.zip).
 
+
+## Part 1: Processing Raw Data Files
+
+The code below takes you from the raw files that come down from PsychoPy, and after uploading them into R, begins to prepare the data ready for an analysis, following the concepts and advised practice from Lecture 1.
+
+### Getting multiple files into R at the same time
+
+#### Step 1
+
+Upload both the zip files for today's lab to this week's project. R should automatically unzip it for you. If you are working inside a project, then the working directory is automatically set to this folder.
+
 Before moving on, let's load the relevant libraries/functions that we will be using in today's session.
+
 
 ```{r, message = FALSE, eval=FALSE}
 library("tidyverse")  # For data storage and manipulation
@@ -104,7 +116,9 @@ library("tidyr")      # For tidy data
 # library(moments)
 library(effects)
 library("rstatix")    # For descriptives statistics, outlier detection, running the ANOVAs etc.
-source("simple.R")    # Custom function for generating the simple main effects
+
+# Custom function for generating the simple main effects
+source("simple.R")  
 
 #turn off scientific notation for large / small numbers
 # Disable scientific notation globally
@@ -117,7 +131,9 @@ library("tidyr")      # For tidy data
 # library(moments)
 library(effects)
 library("rstatix")    # For descriptives statistics, outlier detection, running the ANOVAs etc.
-source("data/Wk7/simple.R")    # Custom function for generating the simple main effects
+
+# Custom function for generating the simple main effects
+source("simple.R")  
 
 #turn off scientific notation for large / small numbers
 # Disable scientific notation globally
@@ -126,15 +142,9 @@ options(scipen = 999)
 
 **Note that the custom function `simple.R` that we use to calculate the simple main effects must be present in your directory whenever you seek to use it.**
 
-## Part 1: Processing Raw Data Files
+Next, we are going to work with the data inside the unzipped folder `VPT_data_raw`. We are going to upload the three .csv files simultaneously, so you do not have to do it file by file by hand.
 
-The code below takes you from the raw files that come down from PsychoPy, and after uploading them into R, begins to prepare the data ready for an analysis, following the concepts and advised practice from Lecture 1.
-
-### Getting multiple files into R at the same time
-
-#### Step 1
-
-Upload the `VPT_data_raw.zip` file into this week's folder on R, where R should automatically unzip it for you. If you are working inside a project, then the working directory is automatically set to this folder.
+Word to the wise:  Read this descriptive text and the comments in the chunk.
 
 The first line of code in this chunk creates an object called 'folder path'. We attach the name of our `VPT_data_raw` folder to the folder path object.  Essentially, by doing this, the second line of code will work time and time again, just by attaching a different folder name to folder path each time.
 
@@ -782,6 +792,7 @@ The data set contains four columns:
 The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as `stroopMixed`.
 
 ```{r, echo = FALSE, message = FALSE}
+
 # Import data
 stroopMixed = read_csv("data/Wk7/StroopMixed.csv")
 (stroopMixed)

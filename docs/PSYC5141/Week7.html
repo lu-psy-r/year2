@@ -402,20 +402,6 @@ Before going any further: Mac users should read this
 <p>Now that you have created a folder for today’s session, it’s time to add the Week 7 files to this new folder:</p>
 <p>Download the datafile <code>VPT_data_raw.zip</code> for part 1 lab activities <a href="data/Wk7/VPT_data_raw.zip">here</a>.</p>
 <p>Download the datafile <code>psyc5141_Week7.zip</code> for part 2 lab activities <a href="data/Wk7/psyc5141_Week7.zip">here</a>.</p>
-<p>Before moving on, let’s load the relevant libraries/functions that we will be using in today’s session.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)  <span class="co"># For data storage and manipulation</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyr"</span>)      <span class="co"># For tidy data</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># library(moments)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rstatix"</span>)    <span class="co"># For descriptives statistics, outlier detection, running the ANOVAs etc.</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"simple.R"</span>)    <span class="co"># Custom function for generating the simple main effects</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#turn off scientific notation for large / small numbers</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Disable scientific notation globally</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Note that the custom function <code>simple.R</code> that we use to calculate the simple main effects must be present in your directory whenever you seek to use it.</strong></p>
 </section>
 <section id="part-1-processing-raw-data-files" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-processing-raw-data-files">Part 1: Processing Raw Data Files</h2>
@@ -424,7 +410,25 @@ Before going any further: Mac users should read this
 <h3 class="anchored" data-anchor-id="getting-multiple-files-into-r-at-the-same-time">Getting multiple files into R at the same time</h3>
 <section id="step-1" class="level4">
 <h4 class="anchored" data-anchor-id="step-1">Step 1</h4>
-<p>Upload the <code>VPT_data_raw.zip</code> file into this week’s folder on R, where R should automatically unzip it for you. If you are working inside a project, then the working directory is automatically set to this folder.</p>
+<p>Upload both the zip files for today’s lab to this week’s project. R should automatically unzip it for you. If you are working inside a project, then the working directory is automatically set to this folder.</p>
+<p>Before moving on, let’s load the relevant libraries/functions that we will be using in today’s session.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)  <span class="co"># For data storage and manipulation</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyr"</span>)      <span class="co"># For tidy data</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># library(moments)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rstatix"</span>)    <span class="co"># For descriptives statistics, outlier detection, running the ANOVAs etc.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom function for generating the simple main effects</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"simple.R"</span>)  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#turn off scientific notation for large / small numbers</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Disable scientific notation globally</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Note that the custom function <code>simple.R</code> that we use to calculate the simple main effects must be present in your directory whenever you seek to use it.</strong></p>
+<p>Next, we are going to work with the data inside the unzipped folder <code>VPT_data_raw</code>. We are going to upload the three .csv files simultaneously, so you do not have to do it file by file by hand.</p>
+<p>Word to the wise: Read this descriptive text and the comments in the chunk.</p>
 <p>The first line of code in this chunk creates an object called ‘folder path’. We attach the name of our <code>VPT_data_raw</code> folder to the folder path object. Essentially, by doing this, the second line of code will work time and time again, just by attaching a different folder name to folder path each time.</p>
 <p>When we run the second line of code, R creates a list of .csv files that it finds inside the folder, listing them with their complete names. As the experimenter, it is likely you will know how many files you have, so this enables an early check that you have the correct number of files.</p>
 <div class="cell">
