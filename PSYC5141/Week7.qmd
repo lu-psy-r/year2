@@ -781,7 +781,7 @@ ggplot(data_rt_analysis, aes(x = rt, y = after_stat(density))) +
 That's it for now. In week 8 lab, you will need to rerun this part of the code in order to continue looking at the RT distribution :)
 
 ```{r}
-write_csv(data_rt_analysis, ""
+write_csv(data_rt_analysis, "data/Wk8/data_rt_analysis.csv")
 ```
 
 

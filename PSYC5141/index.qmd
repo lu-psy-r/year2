@@ -51,8 +51,8 @@ Essentially, material relating to PsychoPy / Pavlovia in the labs in weeks 5 and
 |             | Email Address                                                  |
 |-------------|----------------------------------------------------------------|
 | Mark Hurlstone (coordinator)  | [m.hurlstone\@lancaster.ac.uk](mailto:m.hurlstone@lancaster.ac.uk)     |
-| Emma Mills  | [e.mills\@lancaster.ac.uk](mailto:e.mills@lancaster.ac.uk) |                                                              |
-
+| Emma Mills  | [e.mills\@lancaster.ac.uk](mailto:e.mills@lancaster.ac.uk) |              
+| Patrick May | [p.may1\@lancaster.ac.uk](mailto:p.may1@lancaster.ac.uk) |
 
 <!-- LEGACY 25/26
 
