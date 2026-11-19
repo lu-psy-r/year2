@@ -600,7 +600,7 @@ Before we can calculate the simple main effects, there are a few things we need 
 recallAnovaTable = get_anova_table(recallModel)
 ```
 
-Next, we need to calculate the cell totals for each of the four conditions and the number of observations (i.e., scores) in each cell:
+Next, we need to calculate the cell totals for each of the four conditions and the number of observations (i.e. scores) in each cell:
 
 ```{r, message=FALSE}
 # Get cell totals and counts
