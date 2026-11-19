@@ -431,7 +431,7 @@ I haven't shown you the square root transformation here because generally, peopl
 Look at the number of datapoints in our dataset now. It is still 286. We have not lost any data to this process.
 
 
-# Part 2
+# Part 2: Three Factor ANOVA
 
 ## Analysing the hypothetical data for the memory and context study
 
