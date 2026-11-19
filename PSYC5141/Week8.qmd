@@ -1,59 +1,76 @@
 ---
-title: '9. Three-Factor ANOVA'
-subtitle: "Mark Hurlstone, Sam Russell"
-order: 10
+title: '8. Raw Data Processing 2 and Three-Factor ANOVA'
+subtitle: "Emma Mills, Mark Hurlstone"
+order: 9
 ---
 
-<!--
+Last week we began to see how raw data, straight from a data collection platform could be imported to R for processing before analysis.  This is the hidden work, often not reported in any detail in papers but in any script that is made available with raw data will be clear to see.
 
-# Lecture
+While in the labs I felt that maybe the majority of you were underwhelmed by the activity.  I can understand that on one level - at the moment there is no real buy in for you.  The activity is neither related to an experiment that you have designed nor is there a deadline by which you must submit an analysis.  It doesn't yield and *p*-values or asterisks by which you can claim that you have 'done' an analysis, so it may feel as if you are not going in any clear direction. Just as with the PsychoPy tasks, this experience was likely a relevant one and you now have the start of a resource that with some rethinking could be adapted to tidy a raw dataset.  Next term, we will practices with a dataset from Qualtrics.
 
-Watch Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=cfa151d1-f7b7-44c6-85f0-af5f007da1e3)
+This week we continue and complete the second half of the raw data processing.  We examine the skewness and kurtosis of our response time data by condition.  And we make decisions about what to do if skewness and kurtosis levels are high.
 
-Watch Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3aafc734-cca4-47c3-9b92-af5f008a9495)
+For statistical methods, we move to three-factor ANOVA. Big models! The process is much the same for the ANOVA as for 2*2 designs. There is some extra processing after the fact to know in which direction any effects go.
 
-Watch Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=87754175-55e5-4f69-93c9-af5f00b4d5fb)
+When you go to the lecture for the statistics content,  you will see that this content has previously occupied the week 9 space of a statistics module.  You will also see this on the slides.  This is not an important consideration.  The learning content is good for week 8 of this module for this year.
 
-Download the lecture slides [here](data/Wk9/Three-Factor ANOVA HANDOUT.pdf), and [here](data/Wk9/Three-Factor ANOVA.pdf) for a larger version. -->
 
-# Lab
+# Lectures
+
+Watch Lecture 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5a916b64-c8b4-4970-a55b-b50300e3be98)
+
+Download the lecture 1 slides [here](data/Wk8/PSYC5141 Week 8 Lecture 1 Slides.pptx)
+
+Watch Lecture 2 Part 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=cfa151d1-f7b7-44c6-85f0-af5f007da1e3)
+
+Watch Lecture 2 Part 2 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3aafc734-cca4-47c3-9b92-af5f008a9495)
+
+Watch Lecture 2 Part 3 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=87754175-55e5-4f69-93c9-af5f00b4d5fb)
+
+Download the lecture 2 slides [here](data/Wk8/Three-Factor ANOVA HANDOUT.pdf), and [here](data/Wk8/Three-Factor ANOVA.pdf) for a larger version.
+
+# This Week's Lab
+
+Part 1: We will continue our work with the small set of files that we began to process in week 7. I recommend that for this part of the lab, you continue to work in your week 7 folder (or however you organise your files), rather than starting a fresh script. Open last week's data processing script, run your code from last week and then begin the Part 1 tasks for today to complete the process.
+
+Part 2: In today's lab session, we will demonstrate how to perform a three-factor fully within-participants and mixed ANOVA in R (using the two hypothetical data sets presented in the lecture), and how to analyze a three-way interaction using the procedures described in the lecture. **In this lab session, I am also going to show you a better way of rounding the values in dataframes than the `options(digits = )` command used in earlier lab sessions.**
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<!-- <br>
-<br> -->
-
-> *I judge you unfortunate because you have never lived through misfortune. You have passed through life without an opponent---no one can ever know what you are capable of, not even you. ---Seneca*
-
-![Seneca](images/Seneca.png){width=50%}
-
-
-## Learning Objectives
-In this week's lecture, we introduced the procedures involved in interpreting a three-factor ANOVA. Specifically, what to do in the event that the three-way interaction is significant. We saw that the simplest strategy in this instance is to re-analyse the data as a series of two-factor ANOVAs. In today's lab session, we will demonstrate how to perform a three-factor fully within-participants and mixed ANOVA in R (using the two hypothetical data sets presented in the lecture), and how to analyze a three-way interaction using the procedures described in the lecture. **In this lab session, I am also going to show you a better way of rounding the values in dataframes than the `options(digits = )` command used in earlier lab sessions.**
-
 **If you get stuck at any point, be proactive and ask for help from one of the GTAs.**
 
-## Getting Started
+## Learning Objectives
 
-{{< include /Includes/_login.qmd >}}
+By the end of the lab you should be able to: 
 
-Once you are logged into the server, create a folder for today's session. Navigate to the bottom right panel and under the `Files` option select the `New Folder` option. Name the new folder `psyc214_lab_9`. **Please ensure that you spell this correctly** otherwise when you set the directory using the command given below it will return an error.
+- Create plots to "eyeball" the shape of a distribution
+- Calculate skewness and kurtosis values per condition
+- Understand how to make a decision to trim or transform data
+- Perform a log10 transformation on data
+- Have an awareness of how to backtransform log10 data to its original scale for reporting
+- Conduct a three-factor ANOVA
+- Understand when to perform a simple main effects analysis
+- Perform a simple main effects analysis
+- Report the results in a results section standard paragraph for a factorial ANOVA
 
-Se we can save this session on the server, click `File` on the top ribbon and select `New project`. Next, select existing directory and name the working directory `~/psyc214_lab_9` before selecting `create project`.
+**Note: We will only be providing code for new commands that you have not previously done. From now on, you will be generating your own code for a large portion of the lab exercises. So, it would be a good idea to have the lab class materials from previous weeks readily accessible to remind you how to accomplish different tasks.**
 
-Finally, open a script for executing today's coding exercises. Navigate to the top left pane of RStudio, select `File` -> `New File` -> `R Script`. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.
+**There are hints in the webpage main body text - please take time to read this and make sense of it to help you as you use earlier code as a model for your new code; we have put 'check your answer' boxes throughout and the staff can also assist**
 
-![](images/RScript.png){width=75%}
+::: {.callout-note icon="false"}
+## Session plan: 1 hour 50 mins
 
-Let's set our working directory:
+| Activity | Approximate time |
+|---|---:|
+| Set up | 5 minutes |
+| Part 1: Raw Data Processing 2 | 30 minutes |
+| Part 2: Three factor ANOVA | 40 minutes |
+| Part 2: Fully-within three factor ANOVA | 40 minutes |
+:::
 
-```{r eval = FALSE}
-setwd("~/psyc214_lab_9")
-```
-
-Now that you have created a folder for today's session, it’s time to add the Week 9 files. Download the files and data needed from [here](data/Wk9/psyc214_lab_9.zip) and upload to the folder `psyc214_lab_9`.
+After you have created a folder for today's session, it’s time to add the Week 8 files. You already have the data for Part 1 from last week. You can download the data needed for part 2 of the lab [here](data/Wk8/psyc214_lab_9.zip) and upload to this week's folder.
 
 Before moving on, let's load the relevant libraries that we will be using in today's session.
 
@@ -68,10 +85,353 @@ source("simple.R")    # Custom function for generating the simple main effects
 library("tidyverse")  # For data storage and manipulation
 library("tidyr")      # For tidy data
 library("rstatix")    # For descriptives statistics, outlier detection, running the ANOVAs etc.
-source("data/Wk9/simple.R")    # Custom function for generating the simple main effects
+source("simple.R")    # Custom function for generating the simple main effects
 ```
 
-# Today's Lab Activities
+There is also one other package: `moments`. From this package, we will call the `skewness` and the `kurtosis` function to measure the shape of our RT distribution. This is not installed in the system library and so needs first to be installed and then loaded. The code to install the package is commented below; uncomment it to run it if you need to and then load the library once it is installed.
+
+```{r echo = FALSE, message=FALSE}
+# install.packages("moments")
+library(moments)
+
+#turn off scientific notation for large / small numbers
+# Disable scientific notation globally
+options(scipen = 999)
+```
+
+# Part 1: Raw Data Processing 2
+
+```{r echo = FALSE, message = FALSE}
+data_rt_analysis <- read_csv("data/Wk8/data_rt_analysis.csv")
+```
+
+For the first part of the lab, work in the week 7 folder. Go back to the part 1 script from week 7 lab and run it through until you get to the diagrams. And then we will pick up from there.
+
+If you have run the script until the very end, you will have 11 datasets. We only need to keep three as useful datasets to carry on, so the next code cleans the environment. Makes it a little less cluttered.
+
+```{r message = FALSE, warning = FALSE}
+# remove the named datasets
+rm(data_consistent, 
+   data_red,
+   data_red_count,
+   data_red_means,
+   data_rt_clean,
+   noisy_ps,
+   Practice_check,
+   Practice_data)
+```
+
+So you should have `data_error_analysis`, `data_rt_analysis`, and `data_all`. The first two datasets are needed for analysis and the last dataset is the original dataset from which all the other datasets can be regenerated if necessary to your workflow.
+
+In order to be able to report how many trials you may lose if you have to wrangle your data to look more like a normal distribution, you need to count how many observations are in each condition to begin with. The code below does this:
+
+```{r}
+# Count the trials by perspective
+data_cond_count <- data_rt_analysis %>%
+  # Create separate participant-condition groups
+  group_by(PerspCueText) %>% 
+  summarise(
+    Count = sum(resp.corr), 
+    # Return an ordinary, ungrouped dataframe
+    .groups = "drop"                
+  )
+
+data_cond_count
+```
+
+Do you remember that we only had two errors in the dataset - from the difference between the two perspective conditions, it looks like both errors were made in the `You` level of the condition. But here you have the number of trials for each level of perspective before we begin to look at whether we need to do any shaping.
+
+## Calculating skewness and kurtosis values
+
+Now we can begin to look at skewness and kurtosis values for each condition. We use a familiar chunk of code - one that you have used many times in calling descriptive statistics, and call our four moments (mean, SD, skewness and kurtosis) plus the median for RT on each level of perspective:
+
+```{r}
+# Combine the trials for each person in each condition
+data_cond_means <- data_rt_analysis %>%
+  # Create separate participant-condition groups
+  group_by(PerspCueText) %>% 
+  summarise(
+    Median_RT = median(rt),
+    Mean_RT = mean(rt),
+    SD_RT = sd(rt),
+    Skewness = skewness(rt),
+    Kurtosis = kurtosis (rt),
+    # Return an ordinary, ungrouped dataframe
+    .groups = "drop"                
+  )
+
+data_cond_means
+```
+
+Lets take a look at our values and see what they tell us. We are not looking between the `He` and `You` levels here. We are looking within the `He` condition first and then we do the `You` condition second. This is a little different than when we generate the mean and others for descriptive statitstics when we may be looking between the levels to see if one is faster than the other for instance.
+
+#### He condition
+
+-   Median - the middle value of the dataset is RT = 600.6 ms
+-   Mean - the mean RT value is 628.4 ms. This value is larger than the median RT value = which suggests we have a positive skew in the RT distribution for this condition
+-   SD = 1 SD = 152.9 ms
+-   skewness value = 2.2: higher than 0 and also greater than 1 which is what we would tolerate for normality.
+-   kurtosis = 9.9 = much higher than three!
+
+How might you describe the distribution in words? 
+
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+
+A positively skewed distribution with quite a pointy peak?
+
+:::
+
+#### You condition
+
+-   Median - the middle value of the dataset is RT = 650 ms
+-   Mean - the mean RT value is 675.4 ms. This value is larger than the median RT value = which suggests we have a positive skew in the RT distribution for this condition
+-   SD = 1 SD = 147.4 ms
+-   skewness value = 1.6: higher than 0 and also greater than 1 which is what we would tolerate for normality.
+-   kurtosis = 6.3 = much higher than three!
+
+How might you describe the distribution in words? 
+
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+
+A positively skewed distribution also with a pointy peak, but not quite so tall and narrow as the He condition?
+
+:::
+
+What type of kurtosis is present in our data here for both conditions?
+
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+
+Leptokurtic, since the kurtosis values are \> 3.
+
+:::
+
+What does this type of kurtosis tell us about the data?
+
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+
+The tails are likely to contain more extreme values and some outliers.
+
+:::
+
+
+You already know a process for identifying outliers in relation to data that is structured for ANOVA analysis methods. So I won't go into that here. You can try that out for yourself. Next term, I will show you a method of identifying outliers per participant. This is a form of data trimming that will help with skewness, but removes data when they are extreme values for an individual participant, so if your participant is slow relative to other participants, slow trials from them may be retained in the dataset because they are not extreme values or outliers given their range of responses. Pretty cool!
+
+## Eyeballing the distributions by condition
+
+Let's visualise the distribution by `Perspective` level: There are three types of visualisation here. Run each one and see which one you think shows the shape, skewness and kurtosis of the distribution best.
+
+```{r}
+
+# Histogram with kernel density
+# note that we have changed the y axis from count in the histogram
+# to density here, to have both the histogram and density curve
+# plotted to the same scale
+
+ggplot(data_rt_analysis, aes(x = rt, y = after_stat(density))) + 
+  geom_histogram(fill = "#3a86d4", alpha = 0.7) +
+ labs(title = "Histogram with Density Curve with Mean and Median Line",
+      x = "RT (ms)",
+      y = "Density") +
+ theme_minimal() +
+  geom_density(colour = "red", alpha = 1) +
+  geom_vline(aes(xintercept = mean(rt)),
+            color = "red", linetype = "dashed", linewidth = 1) +
+  geom_vline(aes(xintercept = median(rt)),
+            color = "blue", linetype = "dashed", linewidth = 1) +
+  facet_wrap(~PerspCueText)
+
+
+# Create density histogram faceted by Perspective
+ggplot(data_rt_analysis, aes(x = rt)) +
+  geom_histogram(
+    aes(y = after_stat(density)), # Convert counts to density
+    bins = 20,                  # Number of bins
+    fill = "#3a86d4",           # Fill color
+    alpha = 0.7                 # Transparency
+  ) +
+  geom_density(
+    color = "red",              # Density curve color
+    linewidth = 1            # Line thickness
+  ) +
+  facet_wrap(~ PerspCueText) +   # Facet by Perspective
+  labs(
+    title = "Density Histogram of RT by Perspective",
+    x = "Perspective",
+    y = "Density"
+  ) +
+  theme_minimal()               # Clean theme
+
+
+(plot_rt <- ggplot(data_rt_analysis, aes(x = rt, fill = PerspCueText, colour = PerspCueText)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 30, alpha = 0.3, position = "identity") +
+  geom_density(alpha = 0, linewidth = 1) +
+  scale_fill_viridis_d() +
+  scale_colour_viridis_d() +
+  labs(x = "RT (ms)", y = "Density", fill = "PerspCueText", colour = "PerspCueText") +
+  theme_minimal())
+ 
+
+```
+
+Having watched the lecture, which process do you think you is the better choice here? data trimming or data transformation?
+
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+
+Data transformation - since we have both a skewed distribution and high kurtosis values, data transformation will help us with both values in one step.
+
+:::
+
+## Data transformation: Log10()
+
+We will use a `log10` transformation, but you can also use natural `log`. These are two very typical log transformations in the literature. I will put both pieces of code in here, making a new dataset that is called `data_rt_transform`.
+
+```{r}
+# Transform using log10 safely
+data_rt_transform <- data_rt_analysis %>%
+  mutate(
+    RT_log10 = if_else(rt > 0, log10(rt), NA_real_) # NA for invalid values
+  )
+
+# Transform using natural log safely
+data_rt_transform <- data_rt_transform %>%
+  mutate(
+    RT_log = if_else(rt > 0, log(rt), NA_real_) # NA for invalid values
+  )
+```
+
+What does it mean to say **Transform using natural log safely**? You will notice that the command tells mutate only to transform the rt value if it is greater than 0, and otherwise return an NA value. This is important to know. You cannot log transform a value of 0. There are ways around this but it is out of scope for this lab at this time. Suffice to say that if you have values of 0 in a variable that you want to transform, then this is the time to reach out for extra help!
+
+Let's draw them again before calculating the skewness and kurtosis values for the transformed rt. We reuse the code from above, and just change some parts. Change the dataframe name from `data_rt_analysis` to `data_rt_transform` and the variable `rt` to `RT_log10` for the first plot:
+
+```{r}
+(plot_log10rt <- ggplot(data_rt_transform, aes(x = RT_log10, fill = PerspCueText, colour = PerspCueText)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 30, alpha = 0.3, position = "identity") +
+  geom_density(alpha = 0, linewidth = 1) +
+  scale_fill_viridis_d() +
+  scale_colour_viridis_d() +
+  labs(x = "Log10 RT (ms)", y = "Density", fill = "PerspCueText", colour = "PerspCueText") +
+  theme_minimal())
+```
+
+Hmm, they look different - there appears to be more tail on the left hand side of the graph now than before.  This type of "eyeballing" is not proof positive, only a first look. So lets do that iterative loop part of the processing and recaluculate skewness and kurtosis values. Reuse the code from earlier, but change the dependent variable `rt` to `RT_log10`; change the dataframe from `data_rt_analysis` to `data_rt_transform`. Call the new dataframe `data_cond_means_log`.
+
+```{r}
+
+# Combine the trials for each person in each condition
+data_cond_means_log <- data_rt_transform %>%
+  # Create separate participant-condition groups
+  group_by(PerspCueText) %>% 
+  summarise(
+    Median_RT = median(RT_log10),
+    Mean_RT_log10 = mean(RT_log10),
+    SD_RT_log10 = sd(RT_log10),
+    skewness(RT_log10),
+    kurtosis (RT_log10),
+    # Return an ordinary, ungrouped dataframe
+    .groups = "drop"                
+  )
+
+data_cond_means_log
+
+```
+
+Lets interpret once more: Remember we are looking within the He condition first and then the You condition second.
+
+#### He condition
+
+-   Median - the middle value of the dataset is log10 RT = 2.8 ms
+-   Mean - the mean log10 RT value is 2.8 ms. This value is the same as the median log10 RT value = which suggests that the distribution has moved towards a more normal shape, since the median and mean values align.
+-   SD = 1 SD = 0.09 ms
+-   skewness value = 0.9: higher than 0 but less than 1 which is what we would tolerate for normality.
+-   kurtosis = 5.8 = reduced from original RT value of 9 still much higher than three!
+
+How might you describe the distribution in words? A more normal shaped distribution but still with quite a pointy peak?
+
+#### You condition
+
+-   Median - the middle value of the dataset is log10 RT = 2.8 ms
+-   Mean - the mean log10 RT value is 2.8 ms. This value is the same as the median log10 RT value = which suggests that the distribution has moved towards a more normal shape, since the median and mean values align.
+-   SD = 1 SD = 0.08 ms
+-   skewness value = 0.8: higher than 0 but less than 1 which is what we would tolerate for normality.
+-   kurtosis = 3.9 = still higher than three!
+
+How might you describe the distribution in words? A more normal shaped distribution; pointy peak is reduced but still above 3.
+
+At this point we will stop with the data processing.  
+
+## Reducing many observations per participant to one observation per participant per condition
+
+Next steps would be to get an average per condition per participant for the dependent variable to be able to perform the relevant ANOVA
+
+```{r, echo = TRUE, message = FALSE}
+# Get descriptive statistics
+Part_descriptives = data_rt_transform %>%
+  # Organise the output by the "PartID", "PerspCueText"
+  group_by(PartID, PerspCueText) %>%
+  # Request means, standard deviations, and confidence intervals
+  get_summary_stats(RT_log10, show = c("mean", "sd"))
+  # Round the statistics to two decimal places
+  Part_descriptives$mean = round(Part_descriptives$mean, 2)
+  Part_descriptives$sd = round(Part_descriptives$sd, 2)
+  # Print the results
+  print.data.frame(Part_descriptives)
+```
+Because we now have one observation per participant per condition, we are ready for our ANOVA.  We only have 6 observations here so there is no point in actually running an analysis.  But if you had thirty participants you would have 60 observations and that would be a good data set.  You would next do your assumptions checks and outlier checks etc before your inferential analysis of the ANOVA.
+
+## Backtransforming from Log10
+
+A last word:  once you have your model findings, Any RT values that you get in results would need to be backtransformed to the original millisecond scale for ease of reporting. This is quite simple with the following code:
+
+The first line of code in the next chunk exponentiates the base 10 to the power of the RT_log10 value in the data_rt_transform\$RT_log10 variable and saves it in an object called original_RT. I then call the first six values of the original_RT object
+
+```{r}
+original_RT <- 10^data_rt_transform$RT_log10
+head(original_RT)
+```
+
+To compare the backtransformed RT values with the real rt values (the variable that we left untouched), I call the first six values of the data_rt_transform\$rt variable. See how they are identical.
+
+```{r}
+head(data_rt_transform$rt)
+```
+
+What did I just do? Lets look at it for the first row of the dataframe
+
+What is the first RT_log10 value
+
+```{r}
+data_rt_transform$RT_log10[1]
+```
+
+what is the first rt value?
+
+```{r}
+data_rt_transform$rt[1]
+```
+
+backtransform the log10 rt value to get back to the original rt value
+
+```{r}
+10^2.873921
+```
+
+There is a slight difference in the smaller decimal values, but this is because R has printed only a small number of digits here but uses a much more precise number under the hood. This is good enough for our use.
+
+Hopefully this shows you how easy it is to backtransform data from a log10 scale.
+
+I haven't shown you the square root transformation here because generally, people tend to use the log function, and log10 for that matter the most.
+
+Look at the number of datapoints in our dataset now. It is still 286. We have not lost any data to this process.
+
+
+# Part 2
 
 ## Analysing the hypothetical data for the memory and context study
 
@@ -111,7 +471,7 @@ The first thing you need to do is load the data into RStudio. Make sure that you
 
 ```{r, echo = FALSE, message = FALSE}
 # Import the data
-memoryContext = read_csv("data/Wk9/memoryContext.csv")
+memoryContext = read_csv("data/Wk8/memoryContext.csv")
 # Print the dataframe
 (memoryContext)
 ```
@@ -374,7 +734,7 @@ The first thing you need to do is load the data into RStudio. Make sure that you
 
 ```{r, echo = FALSE, message = FALSE}
 # Import the data
-wordPron = read_csv("data/Wk9/wordPronunciation.csv")
+wordPron = read_csv("data/Wk8/wordPronunciation.csv")
 (wordPron)
 ```
 

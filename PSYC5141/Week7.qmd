@@ -1,5 +1,5 @@
 ---
-title: '7. Data Processing of Raw RT Data & Two-Factor Mixed and Within-Participants ANOVA'
+title: '7. Raw Data Processing 1 & Two-Factor Mixed and Within-Participants ANOVA'
 subtitle: "Emma Mills, Mark Hurlstone"
 order: 8
 ---
@@ -13,7 +13,7 @@ For statistical methods, we continue with two-factor ANOVA but this week focus o
 When you go to the lecture for the statistics content,  you will see that this content has previously occupied the week 8 space of a statistics module.  You will also see this on the slides.  This is not an important consideration.  The learning content is good for week 7 of this module for this year.
 
 
-# Lecture
+# Lectures
 
 Watch Lecture 1 [here](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a884e412-edf5-495e-93de-b4fd010a9550&start=0)
 
@@ -51,6 +51,18 @@ By the end of the lab you should be able to:
 **Note: We will only be providing code for new commands that you have not previously done. From now on, you will be generating your own code for a large portion of the lab exercises. So, it would be a good idea to have the lab class materials from previous weeks readily accessible to remind you how to accomplish different tasks.**
 
 **There are hints in the webpage main body text - please take time to read this and make sense of it to help you as you use earlier code as a model for your new code; we have put 'check your answer' boxes throughout and the staff can also assist**
+
+::: {.callout-note icon="false"}
+## Session plan: 1 hour 50 mins
+
+| Activity | Approximate time |
+|---|---:|
+| Set up | 5 minutes |
+| Part 1: Raw Data Processing | 45 minutes |
+| Part 2: Mixed ANOVA | 30 minutes |
+| Part 2: Fully-within participant ANOVA | 30 minutes |
+:::
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -768,6 +780,11 @@ ggplot(data_rt_analysis, aes(x = rt, y = after_stat(density))) +
 
 That's it for now. In week 8 lab, you will need to rerun this part of the code in order to continue looking at the RT distribution :)
 
+```{r}
+write_csv(data_rt_analysis, ""
+```
+
+
 Now onto Part 2 of the lab.
 
 
@@ -1162,7 +1179,7 @@ withinCellTotals = stroopWithinLongSep %>%
   # Request cell totals and number of observations (i.e., scores)
   summarise(sum = sum(RT),n = n())
   # Print the results
-  (mixedCellTotals)
+  (withinCellTotals)
 ```
 
 Then, we need to specify which simple main effects we want to generate. We are first going to calculate the simple main effects of the factor Trial Type at Block. This means, we are going to:

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Research Methods and Statistics for Psychologists - 7. Data Processing of Raw RT Data &amp; Two-Factor Mixed and Within-Participants ANOVA</title>
+<title>Research Methods and Statistics for Psychologists - 7. Raw Data Processing 1 &amp; Two-Factor Mixed and Within-Participants ANOVA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../PSYC5242/index.html" rel="next">
+<link href="../PSYC5141/Week8.html" rel="next">
 <link href="../PSYC5141/Week6.html" rel="prev">
 <link href="../Images/favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -191,7 +191,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC5141/index.html">PSYC5141</a></li><li class="breadcrumb-item"><a href="../PSYC5141/Week7.html">7. Data Processing of Raw RT Data &amp; Two-Factor Mixed and Within-Participants ANOVA</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC5141/index.html">PSYC5141</a></li><li class="breadcrumb-item"><a href="../PSYC5141/Week7.html">7. Raw Data Processing 1 &amp; Two-Factor Mixed and Within-Participants ANOVA</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -259,7 +259,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../PSYC5141/Week7.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">7. Data Processing of Raw RT Data &amp; Two-Factor Mixed and Within-Participants ANOVA</span></a>
+ <span class="menu-text">7. Raw Data Processing 1 &amp; Two-Factor Mixed and Within-Participants ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PSYC5141/Week8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Three-Factor ANOVA</span></a>
   </div>
 </li>
       </ul>
@@ -313,9 +319,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC5141/index.html">PSYC5141</a></li><li class="breadcrumb-item"><a href="../PSYC5141/Week7.html">7. Data Processing of Raw RT Data &amp; Two-Factor Mixed and Within-Participants ANOVA</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PSYC5141/index.html">PSYC5141</a></li><li class="breadcrumb-item"><a href="../PSYC5141/Week7.html">7. Raw Data Processing 1 &amp; Two-Factor Mixed and Within-Participants ANOVA</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">7. Data Processing of Raw RT Data &amp; Two-Factor Mixed and Within-Participants ANOVA</h1>
+<h1 class="title">7. Raw Data Processing 1 &amp; Two-Factor Mixed and Within-Participants ANOVA</h1>
 <p class="subtitle lead">Emma Mills, Mark Hurlstone</p>
 </div>
 
@@ -366,11 +372,49 @@ window.Quarto = {
 </ul>
 <p><strong>Note: We will only be providing code for new commands that you have not previously done. From now on, you will be generating your own code for a large portion of the lab exercises. So, it would be a good idea to have the lab class materials from previous weeks readily accessible to remind you how to accomplish different tasks.</strong></p>
 <p><strong>There are hints in the webpage main body text - please take time to read this and make sense of it to help you as you use earlier code as a model for your new code; we have put ‘check your answer’ boxes throughout and the staff can also assist</strong></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Session plan: 1 hour 50 mins
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th style="text-align: right;">Approximate time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Set up</td>
+<td style="text-align: right;">5 minutes</td>
+</tr>
+<tr class="even">
+<td>Part 1: Raw Data Processing</td>
+<td style="text-align: right;">45 minutes</td>
+</tr>
+<tr class="odd">
+<td>Part 2: Mixed ANOVA</td>
+<td style="text-align: right;">30 minutes</td>
+</tr>
+<tr class="even">
+<td>Part 2: Fully-within participant ANOVA</td>
+<td style="text-align: right;">30 minutes</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Once you are logged into the server, create a folder for today’s session. Navigate to the bottom right panel and under the <code>Files</code> option select the <code>New Folder</code> option. Name the new folder <code>psyc5141_lab_7</code>. <strong>Please ensure that you spell this correctly</strong>.</p>
 <p>Click <code>File</code> on the top ribbon and select <code>New project</code>. Next, select existing directory and name the working directory <code>~/psyc5141_lab_7</code> before selecting <code>create project</code>. Make sure you open this project if R does not do it automatically. When working in a project, your working directory is automatically set for you.</p>
 <p>Finally, open a script for executing today’s coding exercises. Navigate to the top left pane of RStudio, select <code>File</code> -&gt; <code>New File</code> -&gt; <code>R Script</code>. If you want to work with a .rmd (R Markdown) script, please do so. Working from a script will make it easier to edit your code and you will be able to save your work for a later date.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -379,7 +423,7 @@ Before going any further: Mac users should read this
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>New Mac computers seem to have a default setting in Safari that automatically unzips folders when downloading them from the source onto your computer.</p>
 <p>The code below works on the premise that R will take an unzipped folder and unzip the folder for you but leave the files in the folder in your working directory. This automatic unzip feature in Safari is doing this too early and is breaking the code - which ruins an otherwise neat bit of code to get multiple files into R at once for you (may be invaluable for your final year project!).</p>
@@ -480,7 +524,7 @@ Before going any further: Mac users should read this
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(data_all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -489,7 +533,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>PartID.</li>
@@ -583,7 +627,7 @@ Answer
 <li><p>Alternatively, If you have set a base rate for accuracy, you could filter out the participants who score below to see a) how many and b) which participants they are and do a check for successful understanding of the instructions this way.</p></li>
 </ul>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -592,14 +636,14 @@ Question
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>What was an advised accuracy rate for concern around the validity of accuracy responses from the lecture? Think back to the second section where we talked about impish participants who where behaving badly for our data…</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -608,7 +652,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In the lecture, we talked about two-response tasks having a warning threshold of 50% accuracy as an early indicator that a participant may have been randomly pressing response keys. You could use this as a starting base rate for concern around bad data from participants.</p>
 </div>
@@ -802,7 +846,7 @@ $ resp.rt           &lt;dbl&gt; 0.7480326, 0.6620540, 0.4829941, 0.6473537, 0.62
 </div>
 <p>The summary of the new <code>rt</code> variable shows that the fastest response across all three participants is 318 ms and the slowest is 1607.2 ms. This is where you can also check if you have any observations that are impossibly fast. As described in the lecture, those would be observations of lower than 150ms.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -811,14 +855,14 @@ Thinking about processes and associated code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>This is an opportunity to imagine / visualise the code you would use if you did need to remove trials. Imagine the Min value here showed a mimimum time of 120.7. What function could you use to remove those trials and what number would you use to remove them to meet the desiderata that there were no trials faster than 150ms?</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -827,7 +871,7 @@ Possible Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You could use the <code>filter</code> function and set it to remove <code>resp.rt</code> observations that were smaller than 150ms (&lt; 150).</p>
 <p>If you used smaller than 120.7 ms, you would only remove trials faster than 120.7 ms when the lecture advised that 150 ms was the lower threshold for responses that meant the participant could have consciously processed the stimuli, and so the time reflects the cognitive process in which we are interested and not a random button press.</p>
@@ -1266,7 +1310,7 @@ probability of success
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1275,7 +1319,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
@@ -1292,7 +1336,7 @@ Answer
 </div>
 <p>Once you have done this, you need to convert the <code>Group</code> variable into a factor. We’ll let you do this yourself using your own code:</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1301,7 +1345,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert "Group" into factor</span></span>
@@ -1322,7 +1366,7 @@ Answer
 <p>Let’s unpack what this is doing. The first argument to <code>gather()</code>, <code>stroopMixed</code>, is the name of our current data set in wide format. The second argument tells R we want a new column called <code>TrialType</code>. The third argument, <code>RT</code>, tells R the name of our dependent variable. The fourth argument tells R to take the columns <code>Congruent</code> through to <code>Incongruent</code> and combine them into a column labelled <code>TrialType</code> (our second argument). The final argument, <code>factor_key = TRUE</code>, tells R that we want this new column to be a factor. The results of this transformation are allocated to a new data frame called <code>stroopMixedLong</code>. This contains our data in long format and we will be using this version of the data set from henceforth.</p>
 <p>Next, we will generate some descriptive statistics (mean, standard deviation, and confidence intervals). You did this for a between-participants factorial design in last week’s seminar, so you can once again generate the code for this yourself.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1331,7 +1375,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get descriptive statistics</span></span>
@@ -1731,16 +1775,18 @@ $`Sphericity Corrections`
 <span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Request cell totals and number of observations (i.e., scores)</span></span>
 <span id="cb118-6"><a href="#cb118-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(RT),<span class="at">n =</span> <span class="fu">n</span>())</span>
 <span id="cb118-7"><a href="#cb118-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the results</span></span>
-<span id="cb118-8"><a href="#cb118-8" aria-hidden="true" tabindex="-1"></a>  (mixedCellTotals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb118-8"><a href="#cb118-8" aria-hidden="true" tabindex="-1"></a>  (withinCellTotals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 4
+<pre><code># A tibble: 6 × 4
 # Groups:   TrialType [2]
-  TrialType   Group           sum     n
-  &lt;fct&gt;       &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;
-1 Congruent   Healthy       24919    40
-2 Congruent   Schizophrenia 24999    40
-3 Incongruent Healthy       30799    40
-4 Incongruent Schizophrenia 35576    40</code></pre>
+  TrialType   Block    sum     n
+  &lt;fct&gt;       &lt;fct&gt;  &lt;dbl&gt; &lt;int&gt;
+1 Congruent   Block1 24584    40
+2 Congruent   Block2 25257    40
+3 Congruent   Block3 25263    40
+4 Incongruent Block1 33265    40
+5 Incongruent Block2 28932    40
+6 Incongruent Block3 25994    40</code></pre>
 </div>
 </div>
 <p>Then, we need to specify which simple main effects we want to generate. We are first going to calculate the simple main effects of the factor Trial Type at Block. This means, we are going to:</p>
@@ -2297,8 +2343,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../PSYC5242/index.html" class="pagination-link" aria-label="PSYC5242">
-        <span class="nav-page-text">PSYC5242</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../PSYC5141/Week8.html" class="pagination-link" aria-label="9. Three-Factor ANOVA">
+        <span class="nav-page-text">9. Three-Factor ANOVA</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
