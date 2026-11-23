@@ -512,7 +512,7 @@ memoryContextLong = memoryContext %>%
 (memoryContextLong)
 ```
 
-This function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 8 lab session materials.
+This function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 7 lab session materials.
 
 Looking at the new data frame we have created, we can see that it is not exactly what we want. Our new variable `Group` actually contains three independent variables. What we want is to separate these independent variables into three separate columns: `MemoryTask`, `LearningContext`, and `TestingContext`. We can do that with the `separate()` function:
 
@@ -523,7 +523,7 @@ memoryContextLongSep = memoryContextLong %>%
 (memoryContextLongSep)
 ```
 
-Again, this function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 8 lab session materials. The latest version of the data set is named `memoryContextLongSep`, so make sure you use this from henceforth.
+Again, this function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 7 lab session materials. The latest version of the data set is named `memoryContextLongSep`, so make sure you use this from henceforth.
 
 The next thing we need to do is convert the variables `Participant`, `MemoryTask`, `LearningContext`, and `TestingContext` into factors and re-order the levels of the latter two variables:
 
@@ -559,7 +559,7 @@ At this stage, we would ordinarily perform various checks including identifying 
 
 ### Running the ANOVA, follow-up ANOVAs, and simple main effects
 
-To run our ANOVA, we are going to use the `anova_test` function from the `rstatix` package. This is the same function that we used in the Week 8 lab session to analyse two-factor fully within-participants and mixed designs. The code required to run the ANOVA is given below:
+To run our ANOVA, we are going to use the `anova_test` function from the `rstatix` package. This is the same function that we used in the Week 7 lab session to analyse two-factor fully within-participants and mixed designs. The code required to run the ANOVA is given below:
 
 ```{r, message = FALSE, warning = FALSE}
 # Create the fully within-participants design ANOVA model
@@ -607,7 +607,7 @@ recallModel$p = round(recallModel$p, 3)
 
 The only thing we are interested in from the ANOVA table is the outcome of the two-way interaction between Learning Context and Testing Context; you can ignore everything else. You can see that the interaction is significant, *p* = .001, so the next step is to perform a simple main effects analysis to identify the nature of the interaction.
 
-The procedure for performing the simple main effects analysis is the same as I demonstrated to you in our Week 8 lab session. That is, we use the **pooled error terms** approach, which means that the simple main effects of each factor are calculated using the same error term that was used to test the main effect of that factor in the ANOVA that preceded the simple main effects analysis (in this case, our two-factor ANOVA on the recall data only).
+The procedure for performing the simple main effects analysis is the same as I demonstrated to you in our Week 7 lab session. That is, we use the **pooled error terms** approach, which means that the simple main effects of each factor are calculated using the same error term that was used to test the main effect of that factor in the ANOVA that preceded the simple main effects analysis (in this case, our two-factor ANOVA on the recall data only).
 
 Before we can calculate the simple main effects, there are a few things we need to do. First, we need to store our ANOVA table in a dataframe:
 

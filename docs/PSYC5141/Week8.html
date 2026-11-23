@@ -922,7 +922,7 @@ Answer
 # ℹ 30 more rows</code></pre>
 </div>
 </div>
-<p>This function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 8 lab session materials.</p>
+<p>This function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 7 lab session materials.</p>
 <p>Looking at the new data frame we have created, we can see that it is not exactly what we want. Our new variable <code>Group</code> actually contains three independent variables. What we want is to separate these independent variables into three separate columns: <code>MemoryTask</code>, <code>LearningContext</code>, and <code>TestingContext</code>. We can do that with the <code>separate()</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now separate the variable "Group" into separate columns for each factor</span></span>
@@ -946,7 +946,7 @@ Answer
 # ℹ 30 more rows</code></pre>
 </div>
 </div>
-<p>Again, this function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 8 lab session materials. The latest version of the data set is named <code>memoryContextLongSep</code>, so make sure you use this from henceforth.</p>
+<p>Again, this function was explained in the previous lab session, so if it is not clear what is going on here, check the Week 7 lab session materials. The latest version of the data set is named <code>memoryContextLongSep</code>, so make sure you use this from henceforth.</p>
 <p>The next thing we need to do is convert the variables <code>Participant</code>, <code>MemoryTask</code>, <code>LearningContext</code>, and <code>TestingContext</code> into factors and re-order the levels of the latter two variables:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure all necessary variables are coded as factors -- re-order the levels of "LearningContext" and "TestingContext"</span></span>
@@ -986,7 +986,7 @@ Answer
 </section>
 <section id="running-the-anova-follow-up-anovas-and-simple-main-effects" class="level3">
 <h3 class="anchored" data-anchor-id="running-the-anova-follow-up-anovas-and-simple-main-effects">Running the ANOVA, follow-up ANOVAs, and simple main effects</h3>
-<p>To run our ANOVA, we are going to use the <code>anova_test</code> function from the <code>rstatix</code> package. This is the same function that we used in the Week 8 lab session to analyse two-factor fully within-participants and mixed designs. The code required to run the ANOVA is given below:</p>
+<p>To run our ANOVA, we are going to use the <code>anova_test</code> function from the <code>rstatix</code> package. This is the same function that we used in the Week 7 lab session to analyse two-factor fully within-participants and mixed designs. The code required to run the ANOVA is given below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the fully within-participants design ANOVA model</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>memoryContextModel <span class="ot">=</span> <span class="fu">anova_test</span>(<span class="at">data =</span> memoryContextLongSep, <span class="at">dv =</span> Accuracy, <span class="at">wid =</span> Participant, <span class="at">within =</span> <span class="fu">c</span>(MemoryTask, LearningContext, TestingContext), <span class="at">detailed =</span> <span class="cn">TRUE</span>)</span>
@@ -1052,7 +1052,7 @@ Answer
 </div>
 </div>
 <p>The only thing we are interested in from the ANOVA table is the outcome of the two-way interaction between Learning Context and Testing Context; you can ignore everything else. You can see that the interaction is significant, <em>p</em> = .001, so the next step is to perform a simple main effects analysis to identify the nature of the interaction.</p>
-<p>The procedure for performing the simple main effects analysis is the same as I demonstrated to you in our Week 8 lab session. That is, we use the <strong>pooled error terms</strong> approach, which means that the simple main effects of each factor are calculated using the same error term that was used to test the main effect of that factor in the ANOVA that preceded the simple main effects analysis (in this case, our two-factor ANOVA on the recall data only).</p>
+<p>The procedure for performing the simple main effects analysis is the same as I demonstrated to you in our Week 7 lab session. That is, we use the <strong>pooled error terms</strong> approach, which means that the simple main effects of each factor are calculated using the same error term that was used to test the main effect of that factor in the ANOVA that preceded the simple main effects analysis (in this case, our two-factor ANOVA on the recall data only).</p>
 <p>Before we can calculate the simple main effects, there are a few things we need to do. First, we need to store our ANOVA table in a dataframe:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the recall ANOVA table</span></span>
