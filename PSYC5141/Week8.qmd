@@ -6,7 +6,7 @@ order: 9
 
 Last week we began to see how raw data, straight from a data collection platform could be imported to R for processing before analysis.  This is the hidden work, often not reported in any detail in papers but in any script that is made available with raw data will be clear to see.
 
-While in the labs I felt that maybe the majority of you were underwhelmed by the activity.  I can understand that on one level - at the moment there is no real buy in for you.  The activity is neither related to an experiment that you have designed nor is there a deadline by which you must submit an analysis.  It doesn't yield and *p*-values or asterisks by which you can claim that you have 'done' an analysis, so it may feel as if you are not going in any clear direction. Just as with the PsychoPy tasks, this experience was likely a relevant one and you now have the start of a resource that with some rethinking could be adapted to tidy a raw dataset.  Next term, we will practices with a dataset from Qualtrics.
+While in the labs I felt that maybe the majority of you were underwhelmed by the activity.  I can understand that on one level - at the moment there is no real buy in for you.  The activity is neither related to an experiment that you have designed nor is there a deadline by which you must submit an analysis.  It doesn't yield any *p*-values or asterisks by which you can claim that you have 'done' an analysis, so it may feel as if you are not going in any clear direction. Just as with the PsychoPy tasks, this experience was likely a relevant one and you now have the start of a resource that with some rethinking could be adapted to tidy a raw dataset.  Next term, we will practices with a dataset from Qualtrics.
 
 This week we continue and complete the second half of the raw data processing.  We examine the skewness and kurtosis of our response time data by condition.  And we make decisions about what to do if skewness and kurtosis levels are high.
 
@@ -90,24 +90,30 @@ source("simple.R")    # Custom function for generating the simple main effects
 
 There is also one other package: `moments`. From this package, we will call the `skewness` and the `kurtosis` function to measure the shape of our RT distribution. This is not installed in the system library and so needs first to be installed and then loaded. The code to install the package is commented below; uncomment it to run it if you need to and then load the library once it is installed.
 
-```{r, message = FALSE, eval=FALSE}
-# install.packages("moments")
-library(moments)
+**Stop the Press:** in the lab on Monday 23 November, it became apparent that there was not one bug but four bugs working in relation to the installation of the `moments` package - probably relating to the ages of different computers and the operating systems on each computer. Suffice to say it made working with the functions from the `moments` package intractable at the time.
 
-#turn off scientific notation for large / small numbers
-# Disable scientific notation globally
-options(scipen = 999)
-```
+This sometimes happens - packages get *deprecated* or your operating system no longer supports very new functions.  Generally, at that point, you pivot to an alternative which is what we will do here.
+
+Instead, we will load the `psych` package and use its `skew` and `kurtosi` function to do the same job for us. But now we have to take note of how the kurtosis value is computed to make sure we are interpreting it correctly.
+
+In lecture 1, I talked about two ways of interpreting kurtosis values - a kurtosis value of > 3 being problematic or a kurtosis values of > 0 being problematic if the value of *excess kurtosis* was being used.
+
+The `moments` package uses Pearson's measure of kurtosis and so kurtosis values of > 3 are problematic.  
+
+The `psych` package uses excess kurtosis, and so kurtosis values > 0 are problematic. Remember this going forward.
 
 ```{r echo = FALSE, message=FALSE}
-# install.packages("moments")
-library(moments)
-
-#turn off scientific notation for large / small numbers
-# Disable scientific notation globally
-options(scipen = 999)
+# # install.packages("moments")
+# library(moments)
+# 
+# #turn off scientific notation for large / small numbers
+# # Disable scientific notation globally
+# options(scipen = 999)
 ```
 
+```{r message = FALSE, warning= FALSE}
+library(psych)
+```
 
 
 # Part 1: Raw Data Processing 2
@@ -165,8 +171,8 @@ data_cond_means <- data_rt_analysis %>%
     Median_RT = median(rt),
     Mean_RT = mean(rt),
     SD_RT = sd(rt),
-    Skewness = skewness(rt),
-    Kurtosis = kurtosis (rt),
+    Skewness = skew(rt), # skew function from psych package
+    Kurtosis = kurtosi(rt), # kurtosi function from psych package
     # Return an ordinary, ungrouped dataframe
     .groups = "drop"                
   )
@@ -181,8 +187,8 @@ Lets take a look at our values and see what they tell us. We are not looking bet
 -   Median - the middle value of the dataset is RT = 600.6 ms
 -   Mean - the mean RT value is 628.4 ms. This value is larger than the median RT value = which suggests we have a positive skew in the RT distribution for this condition
 -   SD = 1 SD = 152.9 ms
--   skewness value = 2.2: higher than 0 and also greater than 1 which is what we would tolerate for normality.
--   kurtosis = 9.9 = much higher than three!
+-   skewness value = 2.1: higher than 0 and also greater than 1 which is what we would tolerate for normality.
+-   kurtosis = 6.8 = much higher than zero!
 
 How might you describe the distribution in words? 
 
@@ -199,14 +205,14 @@ A positively skewed distribution with quite a pointy peak?
 -   Mean - the mean RT value is 675.4 ms. This value is larger than the median RT value = which suggests we have a positive skew in the RT distribution for this condition
 -   SD = 1 SD = 147.4 ms
 -   skewness value = 1.6: higher than 0 and also greater than 1 which is what we would tolerate for normality.
--   kurtosis = 6.3 = much higher than three!
+-   kurtosis = 3.2 = much higher than zero!
 
 How might you describe the distribution in words? 
 
 ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 
-A positively skewed distribution also with a pointy peak, but not quite so tall and narrow as the He condition?
+A positively skewed distribution also with a pointy peak, but not quite so tall and narrow as the `He` condition?
 
 :::
 
@@ -215,7 +221,7 @@ What type of kurtosis is present in our data here for both conditions?
 ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 
-Leptokurtic, since the kurtosis values are \> 3.
+Leptokurtic, since the kurtosis values are \> 0.
 
 :::
 
@@ -235,7 +241,7 @@ You already know a process for identifying outliers in relation to data that is 
 
 Let's visualise the distribution by `Perspective` level: There are three types of visualisation here. Run each one and see which one you think shows the shape, skewness and kurtosis of the distribution best.
 
-```{r}
+```{r message = FALSE}
 
 # Histogram with kernel density
 # note that we have changed the y axis from count in the histogram
@@ -318,7 +324,7 @@ data_rt_transform <- data_rt_transform %>%
 
 What does it mean to say **Transform using natural log safely**? You will notice that the command tells mutate only to transform the rt value if it is greater than 0, and otherwise return an NA value. This is important to know. You cannot log transform a value of 0. There are ways around this but it is out of scope for this lab at this time. Suffice to say that if you have values of 0 in a variable that you want to transform, then this is the time to reach out for extra help!
 
-Let's draw them again before calculating the skewness and kurtosis values for the transformed rt. We reuse the code from above, and just change some parts. Change the dataframe name from `data_rt_analysis` to `data_rt_transform` and the variable `rt` to `RT_log10` for the first plot:
+Let's draw the overlapping density plot again before calculating the skewness and kurtosis values for the transformed rt. We reuse the code from above, and just change some parts: the dataframe name from `data_rt_analysis` to `data_rt_transform` and the variable `rt` to `RT_log10` for the first plot:
 
 ```{r}
 (plot_log10rt <- ggplot(data_rt_transform, aes(x = RT_log10, fill = PerspCueText, colour = PerspCueText)) +
@@ -343,8 +349,8 @@ data_cond_means_log <- data_rt_transform %>%
     Median_RT = median(RT_log10),
     Mean_RT_log10 = mean(RT_log10),
     SD_RT_log10 = sd(RT_log10),
-    skewness(RT_log10),
-    kurtosis (RT_log10),
+    skewness = skew(RT_log10),
+    kurtosis = kurtosi(RT_log10),
     # Return an ordinary, ungrouped dataframe
     .groups = "drop"                
   )
@@ -353,7 +359,7 @@ data_cond_means_log
 
 ```
 
-Lets interpret once more: Remember we are looking within the He condition first and then the You condition second.
+Lets interpret once more: Remember we are looking within the `He` condition first and then the `You` condition second.
 
 #### He condition
 
@@ -361,7 +367,7 @@ Lets interpret once more: Remember we are looking within the He condition first 
 -   Mean - the mean log10 RT value is 2.8 ms. This value is the same as the median log10 RT value = which suggests that the distribution has moved towards a more normal shape, since the median and mean values align.
 -   SD = 1 SD = 0.09 ms
 -   skewness value = 0.9: higher than 0 but less than 1 which is what we would tolerate for normality.
--   kurtosis = 5.8 = reduced from original RT value of 9 still much higher than three!
+-   kurtosis = 2.7 = reduced from original RT value of 6 but still much higher than zero!
 
 How might you describe the distribution in words? A more normal shaped distribution but still with quite a pointy peak?
 
@@ -371,9 +377,9 @@ How might you describe the distribution in words? A more normal shaped distribut
 -   Mean - the mean log10 RT value is 2.8 ms. This value is the same as the median log10 RT value = which suggests that the distribution has moved towards a more normal shape, since the median and mean values align.
 -   SD = 1 SD = 0.08 ms
 -   skewness value = 0.8: higher than 0 but less than 1 which is what we would tolerate for normality.
--   kurtosis = 3.9 = still higher than three!
+-   kurtosis = 0.9 = still higher than zero but now within 1 unit of zero and so tolerable!
 
-How might you describe the distribution in words? A more normal shaped distribution; pointy peak is reduced but still above 3.
+How might you describe the distribution in words? A more normal shaped distribution; pointy peak is reduced to below 1 - which is within tolerance values.
 
 At this point we will stop with the data processing.  
 
@@ -398,16 +404,16 @@ Because we now have one observation per participant per condition, we are ready 
 
 ## Backtransforming from Log10
 
-A last word:  once you have your model findings, Any RT values that you get in results would need to be backtransformed to the original millisecond scale for ease of reporting. This is quite simple with the following code:
+**A last word**:  once you have your model findings, any rt values that you get in results would need to be backtransformed to the original millisecond scale for ease of reporting. This is quite simple with the following code:
 
-The first line of code in the next chunk exponentiates the base 10 to the power of the RT_log10 value in the data_rt_transform\$RT_log10 variable and saves it in an object called original_RT. I then call the first six values of the original_RT object
+The first line of code in the next chunk exponentiates the base - here it is 10 - to the power of the `RT_log10` value in the `data_rt_transform\$RT_log10` variable and saves it in an object called `original_RT`. I then call the first six values of the `original_RT` object
 
 ```{r}
 original_RT <- 10^data_rt_transform$RT_log10
 head(original_RT)
 ```
 
-To compare the backtransformed RT values with the real rt values (the variable that we left untouched), I call the first six values of the data_rt_transform\$rt variable. See how they are identical.
+To compare the backtransformed rt values with the real rt values (the variable that we left untouched), I call the first six values of the `data_rt_transform\$rt variable`. See how they are identical.
 
 ```{r}
 head(data_rt_transform$rt)
@@ -415,19 +421,19 @@ head(data_rt_transform$rt)
 
 What did I just do? Lets look at it for the first row of the dataframe
 
-What is the first RT_log10 value
+What is the first `RT_log10` value?
 
 ```{r}
-data_rt_transform$RT_log10[1]
+data_rt_transform$RT_log10[1] # the number 1 in the square brackets calls just the first value in the column
 ```
 
-what is the first rt value?
+what is the first `rt` value?
 
 ```{r}
 data_rt_transform$rt[1]
 ```
 
-backtransform the log10 rt value to get back to the original rt value
+raise 10 to the power of the first `RT_log10` value to get back to the original `rt` value
 
 ```{r}
 10^2.873921
@@ -435,11 +441,13 @@ backtransform the log10 rt value to get back to the original rt value
 
 There is a slight difference in the smaller decimal values, but this is because R has printed only a small number of digits here but uses a much more precise number under the hood. This is good enough for our use.
 
-Hopefully this shows you how easy it is to backtransform data from a log10 scale.
+Hopefully this shows you how easy it is to backtransform data from a log10 scale to its original scale.
 
-I haven't shown you the square root transformation here because generally, people tend to use the log function, and log10 for that matter the most.
+I haven't shown you the square root transformation here because generally, people tend to use the log function, and log10 for that matter, the most.
 
 Look at the number of datapoints in our dataset now. It is still 286. We have not lost any data to this process.
+
+At this point, save this script and move to a fresh script to begin the 3-Factor ANOVA work.  Remember to load your libraries and the `simple.R` function from the top of the page in your new script.
 
 
 # Part 2: Three Factor ANOVA
