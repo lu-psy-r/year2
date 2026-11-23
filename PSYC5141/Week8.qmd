@@ -90,6 +90,15 @@ source("simple.R")    # Custom function for generating the simple main effects
 
 There is also one other package: `moments`. From this package, we will call the `skewness` and the `kurtosis` function to measure the shape of our RT distribution. This is not installed in the system library and so needs first to be installed and then loaded. The code to install the package is commented below; uncomment it to run it if you need to and then load the library once it is installed.
 
+```{r, message = FALSE, eval=FALSE}
+# install.packages("moments")
+library(moments)
+
+#turn off scientific notation for large / small numbers
+# Disable scientific notation globally
+options(scipen = 999)
+```
+
 ```{r echo = FALSE, message=FALSE}
 # install.packages("moments")
 library(moments)
@@ -98,6 +107,8 @@ library(moments)
 # Disable scientific notation globally
 options(scipen = 999)
 ```
+
+
 
 # Part 1: Raw Data Processing 2
 
@@ -470,6 +481,11 @@ The data set contains the following variables:
 The first thing you need to do is load the data into RStudio. Make sure that you name your data frame as `memoryContext`.
 
 ```{r, echo = FALSE, message = FALSE}
+
+#turn on scientific notation for large / small numbers
+# Disable scientific notation globally
+options(scipen = 0)
+
 # Import the data
 memoryContext = read_csv("data/Wk8/memoryContext.csv")
 # Print the dataframe
